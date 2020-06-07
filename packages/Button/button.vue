@@ -3,11 +3,12 @@
     @click="onButtonClick"
     class="l-button"
     :class="[
-      `l-button--${type}`,
+      `l-button-${type}`,
       { 'l-button-plain': plain },
       { 'l-button-round': round },
       { 'l-button-circle': circle },
       { 'l-button-disabled': disabled },
+      `l-button-${size}`
     ]"
     :disabled="disabled"
   >
@@ -25,35 +26,39 @@ export default {
   props: {
     type: {
       type: String,
-      default: "default",
+      default: "default"
     },
     plain: {
       type: Boolean,
-      default: false,
+      default: false
     },
     round: {
       type: Boolean,
-      default: false,
+      default: false
     },
     circle: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     icon: {
       type: String,
-      default: "",
+      default: ""
     },
+    size: {
+      type: String,
+      default: "default"
+    }
   },
 
   methods: {
     onButtonClick() {
-      console.log("onButtonClick");
-    },
-  },
+      this.$emit("click");
+    }
+  }
 };
 </script>
 
@@ -79,7 +84,6 @@ export default {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  padding: $button-padding-x $button-padding-y;
   font-size: $button-font-size;
   border-radius: $button-border-radius;
   &:hover,
@@ -90,8 +94,27 @@ export default {
   }
 }
 
+.l-button-default {
+  padding: $button-default-padding-x $button-default-padding-y;
+  &.l-button-circle {
+    padding: $button-default-circle-padding;
+  }
+}
+
+.l-button-medium {
+  padding: $button-medium-padding-x $button-medium-padding-y;
+  &.l-button-circle {
+    padding: $button-medium-circle-padding;
+  }
+}
+.l-button-small {
+  padding: $button-small-padding-x $button-small-padding-y;
+  &.l-button-circle {
+    padding: $button-small-circle-padding;
+  }
+}
 @each $key, $val in $button-theme-color {
-  .l-button--#{$key} {
+  .l-button-#{$key} {
     color: $button-theme-color-color;
     background-color: $val;
     border-color: $val;
@@ -115,7 +138,7 @@ export default {
     );
   }
 }
-.l-button--primary.l-button-plain {
+.l-button-primary.l-button-plain {
   @include button-plain(
     $button-primary-plain-background,
     $button-primary-plain-border-color,
@@ -130,7 +153,7 @@ export default {
     );
   }
 }
-.l-button--success.l-button-plain {
+.l-button-success.l-button-plain {
   @include button-plain(
     $button-success-plain-background,
     $button-success-plain-border-color,
@@ -146,7 +169,7 @@ export default {
   }
 }
 
-.l-button--info.l-button-plain {
+.l-button-info.l-button-plain {
   @include button-plain(
     $button-info-plain-background,
     $button-info-plain-border-color,
@@ -161,7 +184,7 @@ export default {
     );
   }
 }
-.l-button--warning.l-button-plain {
+.l-button-warning.l-button-plain {
   @include button-plain(
     $button-warning-plain-background,
     $button-warning-plain-border-color,
@@ -176,7 +199,7 @@ export default {
     );
   }
 }
-.l-button--danger.l-button-plain {
+.l-button-danger.l-button-plain {
   @include button-plain(
     $button-danger-plain-background,
     $button-danger-plain-border-color,
@@ -194,13 +217,13 @@ export default {
 
 .l-button.l-button-round {
   border-radius: $button-round-border-radius;
-  padding: $button-round-padding-x $button-round-padding-y;
+  // padding: $button-round-padding-x $button-round-padding-y;
 }
 
 // 原形按钮
 .l-button.l-button-circle {
   border-radius: $button-circle-border-radius;
-  padding: $button-circle-padding;
+  // padding: $button-default-circle-padding;
 }
 
 .l-button [class*="l-icon-"] + span {

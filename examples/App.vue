@@ -1,53 +1,69 @@
 <template>
   <div id="app">
-    <div class="row">
-      <l-button>按钮</l-button>
-      <l-button type="primary">按钮</l-button>
-      <l-button type="success">按钮</l-button>
-      <l-button type="info">按钮</l-button>
-      <l-button type="warning">按钮</l-button>
-      <l-button type="danger">按钮</l-button>
-    </div>
-    <div class="row">
-      <l-button :plain="true" type="default">按钮</l-button>
-      <l-button :plain="true" type="primary">按钮</l-button>
-      <l-button :plain="true" type="success">按钮</l-button>
-      <l-button :plain="true" type="info">按钮</l-button>
-      <l-button :plain="true" type="warning">按钮</l-button>
-      <l-button :plain="true" type="danger">按钮</l-button>
-    </div>
-    <div class="row">
-      <l-button icon="l-icon-ice-cream-square" :round="true" type="default">按钮</l-button>
-      <l-button icon="l-icon-ice-cream-square" :round="true" type="primary">按钮</l-button>
-      <l-button icon="l-icon-ice-cream-square" :round="true" type="success">按钮</l-button>
-      <l-button icon="l-icon-ice-cream-square" :round="true" type="info">按钮</l-button>
-      <l-button icon="l-icon-ice-cream-square" :round="true" type="warning">按钮</l-button>
-      <l-button icon="l-icon-ice-cream-square" :round="true" type="danger">按钮</l-button>
-    </div>
-    <div class="row">
-      <l-button :circle="true" type="default">按钮</l-button>
-      <l-button :circle="true" type="primary">按钮</l-button>
-      <l-button :circle="true" type="success">按钮</l-button>
-      <l-button :circle="true" type="info">按钮</l-button>
-      <l-button :circle="true" type="warning">按钮</l-button>
-      <l-button :circle="true" type="danger">按钮</l-button>
-    </div>
-    <div class="row">
-      <l-button :disabled="true" type="default">按钮</l-button>
-      <l-button :disabled="true" type="primary">按钮</l-button>
-      <l-button :disabled="true" type="success">按钮</l-button>
-      <l-button :disabled="true" type="info">按钮</l-button>
-      <l-button :disabled="true" type="warning">按钮</l-button>
-      <l-button :disabled="true" type="danger">按钮</l-button>
-    </div>
-    <div class="row">
-      <l-button icon="l-icon-ice-cream-square" :circle="true" type="default"></l-button>
-      <l-button icon="l-icon-ice-cream-square" :circle="true" type="primary"></l-button>
-      <l-button icon="l-icon-ice-cream-square" :circle="true" type="success"></l-button>
-      <l-button icon="l-icon-ice-cream-square" :circle="true" type="info"></l-button>
-      <l-button icon="l-icon-ice-cream-square" :circle="true" type="warning"></l-button>
-      <l-button icon="l-icon-ice-cream-square" :circle="true" type="danger"></l-button>
-    </div>
+    <l-video-card :imageUrl="require('./assets/images/video-card.png')">
+      <template>
+        <div class="card-bottom">
+          <p>春风得意</p>
+          <p>这是一个卡片</p>
+          <p>l-vue-ui</p>
+        </div>
+      </template>
+    </l-video-card>
+
+    <l-video-card
+      cardHeight="248px"
+      cardWidth="300px"
+      :imageUrl="require('./assets/images/video-card.png')"
+    >
+      <template>
+        <div class="card-bottom">
+          <p>春风得意</p>
+          <p>这是一个卡片</p>
+          <p>l-vue-ui</p>
+        </div>
+      </template>
+    </l-video-card>
+    <l-video-card imageHeight="150px" :imageUrl="require('./assets/images/video-card.png')">
+      <template>
+        <div class="card-bottom">
+          <p>春风得意</p>
+          <p>这是一个卡片</p>
+          <p>l-vue-ui</p>
+        </div>
+      </template>
+    </l-video-card>
+
+    <l-video-card :defaultImageUrl="require('./assets/images/logo.png')">
+      <template>
+        <div class="card-bottom">
+          <p>春风得意</p>
+          <p>这是一个卡片</p>
+          <p>l-vue-ui</p>
+        </div>
+      </template>
+    </l-video-card>
+    <l-video-card
+      coverTip="小提示"
+      :imageUrl="require('./assets/images/video-card.png')"
+      :defaultImageUrl="require('./assets/images/logo.png')"
+    >
+      <template>
+        <div class="card-bottom">
+          <p>春风得意</p>
+          <p>这是一个卡片</p>
+          <p>l-vue-ui</p>
+        </div>
+      </template>
+    </l-video-card>
+    <l-video-card errorTip="图片加载失败">
+      <template>
+        <div class="card-bottom">
+          <p>春风得意</p>
+          <p>这是一个卡片</p>
+          <p>l-vue-ui</p>
+        </div>
+      </template>
+    </l-video-card>
   </div>
 </template>
 
@@ -58,10 +74,23 @@ export default {
 </script>
 
 <style lang="scss">
-.row {
-  margin-top: 20px;
-  .l-button {
-    margin-right: 10px;
+.card-bottom {
+  height: 102px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  > p {
+    font-size: 12px;
+    font-weight: 400;
+    color: #666;
+    margin: 0;
+    &:nth-child(1) {
+      font-size: 14px;
+      font-weight: 400;
+      color: #333;
+    }
   }
 }
 </style>

@@ -1,17 +1,23 @@
 @import "./common";
 
-$button-primary: #409eff !default;
-$button-success: #67c23a !default;
-$button-info: #909399 !default;
-$button-warning: #e6a23c !default;
-$button-danger: #f56c6c !default;
+// $button-primary: #409eff !default;
+// $button-success: #67c23a !default;
+// $button-info: #909399 !default;
+// $button-warning: #e6a23c !default;
+// $button-danger: #f56c6c !default;
+
+// $button-primary: $primary !default;
+// $button-success: $success !default;
+// $button-info: $info !default;
+// $button-warning: $warning !default;
+// $button-danger: $danger !default;
 
 $button-theme-color: (
-  "primary": $button-primary,
-  "success": $button-success,
-  "info": $button-info,
-  "warning": $button-warning,
-  "danger": $button-danger,
+  "primary": $primary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
 );
 
 $button-line-height: 1 !default;
@@ -25,12 +31,19 @@ $button-color: #606266 !default;
 $button-margin: 0 !default;
 $button-transition: 0.1s !default;
 $button-font-weight: 500 !default;
-$button-padding-x: 12px !default;
-$button-padding-y: 20px !default;
 $button-font-size: 14px !default;
 $button-border-radius: 4px !default;
 
-$button-default-active-color: $button-primary !default;
+$button-default-padding-x: 12px !default;
+$button-default-padding-y: 20px !default;
+
+$button-medium-padding-x: 10px !default;
+$button-medium-padding-y: 20px !default;
+
+$button-small-padding-x: 9px !default;
+$button-small-padding-y: 15px !default;
+
+$button-default-active-color: $primary !default;
 $button-default-active-border-color: #c6e2ff !default;
 $button-default-active-background-color: #ecf5ff !default;
 
@@ -41,7 +54,9 @@ $button-round-padding-x: 12px !default;
 $button-round-padding-y: 23px !default;
 
 $button-circle-border-radius: 50% !default;
-$button-circle-padding: 12px !default;
+$button-default-circle-padding: 12px !default;
+$button-medium-circle-padding: 10px !default;
+$button-small-circle-padding: 8px !default;
 
 $button-icon-margin-left: 5px !default;
 

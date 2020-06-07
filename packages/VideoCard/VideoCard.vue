@@ -1,0 +1,125 @@
+<template>
+  <div @click="onCardClick" class="video-card" :style="{'width':cardWidth,'height':cardHeight}">
+    <slot name="top">
+      <div class="video-cover-box" :style="{'height':imageHeight}">
+        <img @error="loadError" v-if="!imageLoadError" class="cover-image" :src="url" alt="图片" />
+        <div v-else class="error-tip">{{errorTip}}</div>
+        <span class="cover-tip" v-if="coverTip">{{coverTip}}</span>
+      </div>
+    </slot>
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "l-video-card",
+  props: {
+    data: {
+      type: Object
+    },
+    cardHeight: {
+      type: String,
+      default: "auto"
+    },
+    cardWidth: {
+      type: String,
+      default: "262px"
+    },
+    imageHeight: {
+      type: String,
+      default: "146px"
+    },
+    coverTip: {
+      type: String,
+      default: ""
+    },
+    errorTip: {
+      type: String,
+      default: "加载失败"
+    },
+    defaultImageUrl: {
+      type: String,
+      default: ""
+    },
+    imageUrl: {
+      type: String,
+      default: ""
+    }
+  },
+  data() {
+    return {
+      imageLoadError: false,
+      url: ""
+    };
+  },
+  methods: {
+    loadError() {
+      if (!this.defaultImageUrl || this.url === this.defaultImageUrl) {
+        this.imageLoadError = true;
+        return;
+      }
+      this.url = this.defaultImageUrl;
+    },
+    onCardClick() {
+      this.$emit("click", this.data);
+    }
+  },
+  watch: {
+    imageUrl: {
+      immediate: true,
+      handler: function(newVal) {
+        this.url = newVal;
+      }
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+@import "packages/assets/styles/variables/video-card.scss";
+.video-card {
+  cursor: pointer;
+  background: $video-card-background;
+  border: $video-card-border;
+  border-radius: $video-card-border-radius;
+  transition: $video-card-transition;
+  &:hover {
+    box-shadow: $video-card-box-shadow;
+    transform: $video-card-transform;
+  }
+}
+.video-cover-box {
+  width: 100%;
+  border-radius: $video-card-cover-border-radius;
+  position: relative;
+  .error-tip {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: $video-card-error-tip-background;
+    color: $video-card-error-tip-color;
+    font-size: $video-card-error-tip-font-size;
+  }
+  .cover-image {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+  .cover-tip {
+    position: absolute;
+    bottom: $video-card-cover-tip-bottom;
+    right: $video-card-cover-tip-right;
+    line-height: $video-card-cover-tip-line-height;
+    background: $video-card-cover-tip-background;
+    border-radius: $video-card-cover-tip-border-radius;
+    padding: $video-card-cover-tip-padding;
+    font-size: $video-card-cover-tip-font-size;
+    font-weight: $video-card-cover-tip-font-weight;
+    color: $video-card-cover-tip-color;
+  }
+}
+</style>

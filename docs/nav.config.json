@@ -47,6 +47,17 @@
       "desc": "视图组件",
       "path": "/component",
       "items": []
+    },
+    {
+      "desc": "视频组件",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "VideoCard 卡片",
+          "name": "video-card",
+          "path": "/video-card"
+        }
+      ]
     }
   ]
 }

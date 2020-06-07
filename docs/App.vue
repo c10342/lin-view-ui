@@ -16,18 +16,18 @@ export default {
   name: "App",
   data() {
     return {
-      isIndex: true,
+      isIndex: true
     };
   },
   watch: {
     $route() {
       this.isIndex = this.$route.name === "index";
-    },
+    }
   },
   components: {
     mainHeader,
-    sideNav,
-  },
+    sideNav
+  }
 };
 </script>
 
