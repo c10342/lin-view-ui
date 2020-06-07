@@ -37,9 +37,9 @@
           "path": "/button"
         },
         {
-          "desc": "Alert 按钮",
-          "name": "alert",
-          "path": "/alert"
+          "desc": "Dialog 对话框",
+          "name": "dialog",
+          "path": "/dialog"
         }
       ]
     },

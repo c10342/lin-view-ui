@@ -88,7 +88,7 @@
 
 ## 禁用状态
 
-按钮不可用状态。
+使用```disabled```属性来设置按钮为不可用状态。
 
 <div class="demo-block row">
       <l-button :disabled="true" type="default">按钮</l-button>
@@ -166,7 +166,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 | size     | 尺寸                         | String  | default,medium,small                        | default |
 | type     | 类型                         | String  | default,primary,success,warning,danger,info | default |
 | plain    | 是否朴素按钮                 | Boolean | —                                           | false   |
-| disabled | 是否禁用状态                 | boolean | —                                           | false   |
+| disabled | 是否禁用状态                 | Boolean | —                                           | false   |
 | icon     | 图标，已有的图标库中的图标名 | String  | —                                           | —       |
 | round    | 是否圆角按钮                 | Boolean | —                                           | false   |
 | circle   | 是否圆形按钮                 | Boolean | —                                           | false   |
