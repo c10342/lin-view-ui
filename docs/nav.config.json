@@ -40,6 +40,11 @@
           "desc": "Dialog 对话框",
           "name": "dialog",
           "path": "/dialog"
+        },
+        {
+          "desc": "Input 输入框",
+          "name": "input",
+          "path": "/input"
         }
       ]
     },

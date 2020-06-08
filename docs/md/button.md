@@ -8,9 +8,12 @@
 </style>
 
 # Button 按钮
-----
+
+---
+
 ## 基础用法
-使用```type```、```plain```和```round```属性来定义 Button 的样式。
+
+使用`type`、`plain`和`round`属性来定义 Button 的样式。
 
 <div class="demo-block">
     <div class="row">
@@ -48,8 +51,8 @@
 </div>
 
 ::: demo
-```html
 
+```html
 <div>
   <l-button>默认按钮</l-button>
   <l-button type="primary">主要按钮</l-button>
@@ -75,20 +78,24 @@
   <l-button :round="true" type="danger">危险按钮</l-button>
 </div>
 <div>
-  <l-button icon="l-icon-ice-cream-square" :circle="true" type="default"></l-button>
+  <l-button
+    icon="l-icon-ice-cream-square"
+    :circle="true"
+    type="default"
+  ></l-button>
   <l-button icon="l-icon-s-promotion" :circle="true" type="primary"></l-button>
   <l-button icon="l-icon-bell" :circle="true" type="success"></l-button>
   <l-button icon="l-icon-upload" :circle="true" type="info"></l-button>
   <l-button icon="l-icon-upload2" :circle="true" type="warning"></l-button>
   <l-button icon="l-icon-search" :circle="true" type="danger"></l-button>
 </div>
-
 ```
+
 :::
 
 ## 禁用状态
 
-使用```disabled```属性来设置按钮为不可用状态。
+使用`disabled`属性来设置按钮为不可用状态。
 
 <div class="demo-block row">
       <l-button :disabled="true" type="default">按钮</l-button>
@@ -100,22 +107,23 @@
 </div>
 
 ::: demo
-```html
 
+```html
 <l-button :disabled="true" type="default">按钮</l-button>
 <l-button :disabled="true" type="primary">按钮</l-button>
 <l-button :disabled="true" type="success">按钮</l-button>
 <l-button :disabled="true" type="info">按钮</l-button>
 <l-button :disabled="true" type="warning">按钮</l-button>
 <l-button :disabled="true" type="danger">按钮</l-button>
-  
 ```
+
 :::
 
-
 ## 图标按钮
+
 带图标的按钮可增强辨识度（有文字）或节省空间（无文字）。
-设置```icon```属性即可，icon 的列表可以参考 lin-vue-ui 的 icon 组件。
+设置`icon`属性即可，icon 的列表可以参考 lin-vue-ui 的 icon 组件。
+
 <div class="demo-block row">
   <l-button icon="l-icon-ice-cream-square" type="default"></l-button>
   <l-button icon="l-icon-s-promotion" type="primary"></l-button>
@@ -126,23 +134,23 @@
 </div>
 
 ::: demo
-```html
 
+```html
 <l-button icon="l-icon-ice-cream-square" type="default"></l-button>
 <l-button icon="l-icon-s-promotion" type="primary"></l-button>
 <l-button icon="l-icon-bell" type="success"></l-button>
 <l-button icon="l-icon-upload" type="info">下载</l-button>
 <l-button icon="l-icon-upload2" type="warning">上传</l-button>
 <l-button icon="l-icon-search" type="danger">搜索</l-button>
-
 ```
-:::
 
+:::
 
 ## 不同尺寸
 
 Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。
-额外的尺寸：```medium```、```small```，通过设置```size```属性来配置它们。
+额外的尺寸：`medium`、`small`，通过设置`size`属性来配置它们。
+
 <div class="demo-block row">
   <l-button size="default">默认尺寸</l-button>
   <l-button size="medium">中等按钮</l-button>
@@ -150,17 +158,17 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 </div>
 
 ::: demo
-```html
 
+```html
 <l-button size="default">默认尺寸</l-button>
 <l-button size="medium">中等按钮</l-button>
 <l-button size="small">小型按钮</l-button>
-
 ```
+
 :::
 
-
 ## 属性
+
 | 参数     | 说明                         | 类型    | 可选值                                      | 默认值  |
 | -------- | ---------------------------- | ------- | ------------------------------------------- | ------- |
 | size     | 尺寸                         | String  | default,medium,small                        | default |
@@ -171,8 +179,8 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 | round    | 是否圆角按钮                 | Boolean | —                                           | false   |
 | circle   | 是否圆形按钮                 | Boolean | —                                           | false   |
 
-
 ## 事件
+
 | 事件名称 | 说明           | 回调参数 |
 | -------- | -------------- | -------- |
 | click    | 点击按钮时触发 | —        |
