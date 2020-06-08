@@ -80,9 +80,10 @@ section {
     background-color: #fff;
     color: #5e6d82;
     font-size: 14px;
+    border-collapse: collapse;
     overflow: auto;
     margin-bottom: 50px;
-    line-height: 2em;
+    // line-height: 2em;
     th {
       border-top: 1px solid #f3f7fa;
       background-color: #fafbfc;
