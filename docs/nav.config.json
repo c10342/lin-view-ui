@@ -45,6 +45,11 @@
           "desc": "Input 输入框",
           "name": "input",
           "path": "/input"
+        },
+        {
+          "desc": "Switch 开关",
+          "name": "switch",
+          "path": "/switch"
         }
       ]
     },
