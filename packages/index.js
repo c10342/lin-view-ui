@@ -4,13 +4,15 @@ import Button from "./Button";
 import Dialog from "./Dialog";
 import Input from "./Input";
 import Switch from "./Switch";
+import Radio from "./Radio";
+import RadioGroup from "./RadioGroup";
 
 // 视频组件
 import VideoCard from "./VideoCard";
 
 export default {
   install(Vue) {
-    [Button, Dialog, Input, Switch].forEach((comp) => {
+    [Button, Dialog, Input, Switch, Radio, RadioGroup].forEach((comp) => {
       Vue.use(comp);
     });
     [VideoCard].forEach((comp) => {

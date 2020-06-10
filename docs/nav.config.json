@@ -50,6 +50,11 @@
           "desc": "Switch 开关",
           "name": "switch",
           "path": "/switch"
+        },
+        {
+          "desc": "Radio 开关",
+          "name": "radio",
+          "path": "/radio"
         }
       ]
     },

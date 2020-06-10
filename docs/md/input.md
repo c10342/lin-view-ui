@@ -207,15 +207,15 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 
 ## 属性
 
-| 参数         | 说明                 | 类型    | 可选值 | 默认值 |
-| ------------ | -------------------- | ------- | ------ | ------ |
-| placeholder  | 输入框占位文本       | String  | —      | —      |
-| type         | 类型                 | String  | —      | text   |
-| name         | 原生属性 name        | String  | —      | —      |
-| disabled     | 是否禁用状态         | Boolean | —      | false  |
-| value        | 绑定值               | String  | —      | —      |
-| clearable    | 是否可清空           | Boolean | —      | false  |
-| showPassword | 是否显示切换密码图标 | Boolean | —      | false  |
+| 参数            | 说明                 | 类型    | 可选值 | 默认值 |
+| --------------- | -------------------- | ------- | ------ | ------ |
+| placeholder     | 输入框占位文本       | String  | —      | —      |
+| type            | 类型                 | String  | —      | text   |
+| name            | 原生属性 name        | String  | —      | —      |
+| disabled        | 是否禁用状态         | Boolean | —      | false  |
+| value / v-model | 绑定值               | String  | —      | —      |
+| clearable       | 是否可清空           | Boolean | —      | false  |
+| showPassword    | 是否显示切换密码图标 | Boolean | —      | false  |
 
 ## 事件
 

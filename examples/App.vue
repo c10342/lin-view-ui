@@ -1,9 +1,24 @@
 <template>
   <div id="app">
-    <l-switch v-model="value1" />
-    <l-switch v-model="value2" activeColor="green" inactiveColor="red" />
-    <l-switch v-model="value3" activeColor="green" />
-    <l-switch disabled v-model="value4" inactiveColor="red" />
+    <l-radio label="1" v-model="value1">男</l-radio>
+    <l-radio label="2" v-model="value1">女</l-radio>
+
+    <l-radio-group v-model="value2">
+      <l-radio label="3">男</l-radio>
+      <l-radio label="4">女</l-radio>
+    </l-radio-group>
+
+    <l-radio disabled label="1" v-model="value1">男</l-radio>
+    <l-radio disabled label="2" v-model="value1">女</l-radio>
+
+    <l-radio-group v-model="value2">
+      <l-radio disabled label="3">男</l-radio>
+      <l-radio disabled label="4">女</l-radio>
+    </l-radio-group>
+    <l-radio-group disabled v-model="value2">
+      <l-radio label="3">男</l-radio>
+      <l-radio label="4">女</l-radio>
+    </l-radio-group>
   </div>
 </template>
 
@@ -11,10 +26,8 @@
 export default {
   data() {
     return {
-      value1: true,
-      value2: false,
-      value3: true,
-      value4: false
+      value1: "",
+      value2: ""
     };
   }
 };
