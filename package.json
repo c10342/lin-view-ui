@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-docs": "cross-env NODE_ENV=docs vue-cli-service build",
-    "dev-docs": "cross-env NODE_ENV=docs vue-cli-service serve"
+    "dev-docs": "cross-env NODE_ENV=docs vue-cli-service serve",
+    "upload-docs": "npm run build-docs && node ./build/qiniu.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -20,6 +21,8 @@
     "cross-env": "^7.0.2",
     "highlight.js": "^10.0.3",
     "markdown-it-container": "^3.0.0",
+    "ora": "^4.0.4",
+    "qiniu": "^7.3.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-markdown-loader": "^2.4.1",
