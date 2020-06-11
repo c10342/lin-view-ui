@@ -10,12 +10,18 @@ import RadioGroup from "./RadioGroup";
 // 视频组件
 import VideoCard from "./VideoCard";
 
+// 视图组件
+import ShowMore from "./ShowMore";
+
 export default {
   install(Vue) {
     [Button, Dialog, Input, Switch, Radio, RadioGroup].forEach((comp) => {
       Vue.use(comp);
     });
     [VideoCard].forEach((comp) => {
+      Vue.use(comp);
+    });
+    [ShowMore].forEach((comp) => {
       Vue.use(comp);
     });
     // Vue.use(Button);

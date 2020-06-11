@@ -61,7 +61,13 @@
     {
       "desc": "视图组件",
       "path": "/component",
-      "items": []
+      "items": [
+        {
+          "desc": "ShowMore 显示更多",
+          "name": "show-more",
+          "path": "/show-more"
+        }
+      ]
     },
     {
       "desc": "视频组件",

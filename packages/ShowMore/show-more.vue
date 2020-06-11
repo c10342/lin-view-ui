@@ -1,0 +1,75 @@
+<template>
+  <span class="l-show-more">
+    <span>{{text | filterText(textLen)}}</span>
+    <a
+      class="l-show-more-tip"
+      @click="showMore"
+      v-if="textLen !== -1 && textLen < text.length"
+    >{{showText}}</a>
+    <a
+      class="l-show-more-tip"
+      @click="showMore"
+      v-if="textLen !== -1 && textLen === text.length && allowFold"
+    >{{hiddenText}}</a>
+  </span>
+</template>
+
+<script>
+export default {
+  name: "l-show-more",
+  props: {
+    len: {
+      type: Number,
+      default: -1
+    },
+    text: {
+      type: String,
+      default: ""
+    },
+    showText: {
+      type: String,
+      default: "显示更多"
+    },
+    hiddenText: {
+      type: String,
+      default: "收起"
+    },
+    allowFold: Boolean
+  },
+  data() {
+    return {
+      textLen: this.len
+    };
+  },
+  methods: {
+    showMore() {
+      this.textLen =
+        this.textLen === this.text.length ? this.len : this.text.length;
+    }
+  },
+  filters: {
+    filterText(value, textLen) {
+      if (textLen !== -1 && textLen < value.length) {
+        return value.substring(0, textLen) + "...";
+      }
+      return value;
+    }
+  }
+};
+</script>
+
+<style lang="scss">
+@import "packages/assets/styles/variables/show-more.scss";
+.l-show-more {
+  font-size: $show-more-font-size;
+  color: $show-more-color;
+}
+
+.l-show-more-tip {
+  color: $show-more-tip-color;
+  cursor: pointer;
+  text-decoration: $show-more-tip-text-decoration;
+  margin-left: $show-more-tip-margin-left;
+}
+</style>
+

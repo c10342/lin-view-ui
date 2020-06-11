@@ -1,24 +1,18 @@
 <template>
   <div id="app">
-    <l-radio label="1" v-model="value1">男</l-radio>
-    <l-radio label="2" v-model="value1">女</l-radio>
+    <div>
+      <l-show-more :len="10" text="文本超出显示长度，折叠起来，通过len属性显示从何处开始折叠。"></l-show-more>
+    </div>
 
-    <l-radio-group v-model="value2">
-      <l-radio label="3">男</l-radio>
-      <l-radio label="4">女</l-radio>
-    </l-radio-group>
-
-    <l-radio disabled label="1" v-model="value1">男</l-radio>
-    <l-radio disabled label="2" v-model="value1">女</l-radio>
-
-    <l-radio-group v-model="value2">
-      <l-radio disabled label="3">男</l-radio>
-      <l-radio disabled label="4">女</l-radio>
-    </l-radio-group>
-    <l-radio-group disabled v-model="value2">
-      <l-radio label="3">男</l-radio>
-      <l-radio label="4">女</l-radio>
-    </l-radio-group>
+    <div>
+      <l-show-more
+        allow-fold
+        show-text="show"
+        hidden-text="hidden"
+        :len="10"
+        text="文本超出显示长度，折叠起来，展开后，可以通过 allowFold 指定是否需要收起"
+      ></l-show-more>
+    </div>
   </div>
 </template>
 
