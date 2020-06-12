@@ -1,17 +1,30 @@
 <template>
   <div id="app">
-    <div>
-      <l-show-more :len="10" text="文本超出显示长度，折叠起来，通过len属性显示从何处开始折叠。"></l-show-more>
+    <div class="item">
+      <l-limit-textarea @overText="overText" v-model="value1" :maxLen="10" placeholder="最多输入10个字符"></l-limit-textarea>
     </div>
 
-    <div>
-      <l-show-more
-        allow-fold
-        show-text="show"
-        hidden-text="hidden"
-        :len="10"
-        text="文本超出显示长度，折叠起来，展开后，可以通过 allowFold 指定是否需要收起"
-      ></l-show-more>
+    <div class="item">
+      <l-limit-textarea
+        @overText="overText"
+        v-model="value2"
+        :max-len="10"
+        placeholder="最多输入10个字符"
+        isCut
+      ></l-limit-textarea>
+    </div>
+    <div class="item">
+      <l-limit-textarea
+        @overText="overText"
+        v-model="value3"
+        :max-len="10"
+        :rows="3"
+        placeholder="最多输入10个字符"
+        is-cut
+      ></l-limit-textarea>
+    </div>
+    <div class="item">
+      <l-limit-textarea @overText="overText" v-model="value4" placeholder="最多输入10个字符" is-cut></l-limit-textarea>
     </div>
   </div>
 </template>
@@ -21,11 +34,21 @@ export default {
   data() {
     return {
       value1: "",
-      value2: ""
+      value2: "",
+      value3: "",
+      value4: ""
     };
+  },
+  methods: {
+    overText(e) {
+      console.log(e);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.item {
+  margin-bottom: 30px;
+}
 </style>

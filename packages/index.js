@@ -12,6 +12,7 @@ import VideoCard from "./VideoCard";
 
 // 视图组件
 import ShowMore from "./ShowMore";
+import LimitTextarea from "./LimitTextarea";
 
 export default {
   install(Vue) {
@@ -21,7 +22,7 @@ export default {
     [VideoCard].forEach((comp) => {
       Vue.use(comp);
     });
-    [ShowMore].forEach((comp) => {
+    [ShowMore, LimitTextarea].forEach((comp) => {
       Vue.use(comp);
     });
     // Vue.use(Button);

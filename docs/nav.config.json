@@ -66,6 +66,11 @@
           "desc": "ShowMore 显示更多",
           "name": "show-more",
           "path": "/show-more"
+        },
+        {
+          "desc": "LimitTextarea 限制输入域",
+          "name": "limit-textarea",
+          "path": "/limit-textarea"
         }
       ]
     },
