@@ -50,7 +50,13 @@ export default {
       return !!this.RadioGroup;
     },
     isDisable() {
-      return this.RadioGroup.disabled || this.disabled;
+      if (this.isGroup) {
+        if (this.RadioGroup.disabled) {
+          return true;
+        }
+      }
+      return this.disabled;
+      // return this.isGroup ? this.RadioGroup.disabled : this.disabled;
     }
   },
   props: {

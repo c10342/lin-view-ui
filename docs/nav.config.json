@@ -55,6 +55,11 @@
           "desc": "Radio 开关",
           "name": "radio",
           "path": "/radio"
+        },
+        {
+          "desc": "Checkbox 多选框",
+          "name": "checkbox",
+          "path": "/checkbox"
         }
       ]
     },

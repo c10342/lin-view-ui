@@ -6,6 +6,8 @@ import Input from "./Input";
 import Switch from "./Switch";
 import Radio from "./Radio";
 import RadioGroup from "./RadioGroup";
+import Checkbox from "./Checkbox";
+import CheckboxGroup from "./CheckboxGroup";
 
 // 视频组件
 import VideoCard from "./VideoCard";
@@ -16,7 +18,16 @@ import LimitTextarea from "./LimitTextarea";
 
 export default {
   install(Vue) {
-    [Button, Dialog, Input, Switch, Radio, RadioGroup].forEach((comp) => {
+    [
+      Button,
+      Dialog,
+      Input,
+      Switch,
+      Radio,
+      RadioGroup,
+      Checkbox,
+      CheckboxGroup,
+    ].forEach((comp) => {
       Vue.use(comp);
     });
     [VideoCard].forEach((comp) => {

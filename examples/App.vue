@@ -1,31 +1,25 @@
 <template>
   <div id="app">
-    <div class="item">
-      <l-limit-textarea @overText="overText" v-model="value1" :maxLen="10" placeholder="最多输入10个字符"></l-limit-textarea>
-    </div>
+    <l-checkbox v-model="value1">男</l-checkbox>
 
-    <div class="item">
-      <l-limit-textarea
-        @overText="overText"
-        v-model="value2"
-        :max-len="10"
-        placeholder="最多输入10个字符"
-        isCut
-      ></l-limit-textarea>
-    </div>
-    <div class="item">
-      <l-limit-textarea
-        @overText="overText"
-        v-model="value3"
-        :max-len="10"
-        :rows="3"
-        placeholder="最多输入10个字符"
-        is-cut
-      ></l-limit-textarea>
-    </div>
-    <div class="item">
-      <l-limit-textarea @overText="overText" v-model="value4" placeholder="最多输入10个字符" is-cut></l-limit-textarea>
-    </div>
+    <l-checkbox-group v-model="value2">
+      <l-checkbox label="抽烟"></l-checkbox>
+      <l-checkbox label="喝酒"></l-checkbox>
+      <l-checkbox label="探头"></l-checkbox>
+    </l-checkbox-group>
+
+    <l-checkbox disabled v-model="value3">男</l-checkbox>
+
+    <l-checkbox-group disabled v-model="value4">
+      <l-checkbox label="抽烟"></l-checkbox>
+      <l-checkbox label="喝酒"></l-checkbox>
+      <l-checkbox label="探头"></l-checkbox>
+    </l-checkbox-group>
+    <l-checkbox-group v-model="value5">
+      <l-checkbox disabled label="抽烟"></l-checkbox>
+      <l-checkbox label="喝酒"></l-checkbox>
+      <l-checkbox label="探头"></l-checkbox>
+    </l-checkbox-group>
   </div>
 </template>
 
@@ -33,22 +27,15 @@
 export default {
   data() {
     return {
-      value1: "",
-      value2: "",
-      value3: "",
-      value4: ""
+      value1: false,
+      value2: [],
+      value3: false,
+      value4: [],
+      value5: []
     };
-  },
-  methods: {
-    overText(e) {
-      console.log(e);
-    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.item {
-  margin-bottom: 30px;
-}
 </style>

@@ -44,7 +44,7 @@ export default {
 
 ## 禁用状态
 
-只要在 `l-radio` 元素中设置 `disabled` 属性即可，它接受一个 `Boolean` ，`true` 为禁用
+只要在 `l-radio` 或者 `l-radio-group` 元素中设置 `disabled` 属性即可，它接受一个 `Boolean` ，`true` 为禁用
 
 <div class='demo-block'>
 <l-radio disabled label="1" v-model="value2">男</l-radio>

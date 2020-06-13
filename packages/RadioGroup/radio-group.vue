@@ -25,3 +25,9 @@ export default {
 };
 </script>
 
+<style lang="scss">
+.l-radio-group {
+  position: relative;
+}
+</style>
+
