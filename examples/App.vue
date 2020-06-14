@@ -1,43 +1,52 @@
 <template>
   <div>
-    <l-form :model="form">
-      <l-form-item label="用户名">
-        <l-input v-model="form.userName" placeholder="请输入用户名" />
-      </l-form-item>
-      <l-form-item label="性别">
-        <l-radio-group v-model="form.sex">
-          <l-radio label="3">男</l-radio>
-          <l-radio label="4">女</l-radio>
-        </l-radio-group>
-      </l-form-item>
-      <l-form-item label="爱好">
-        <l-checkbox-group v-model="form.hobby">
-          <l-checkbox label="抽烟"></l-checkbox>
-          <l-checkbox label="喝酒"></l-checkbox>
-          <l-checkbox label="探头"></l-checkbox>
-        </l-checkbox-group>
-      </l-form-item>
-      <l-form-item label="是否公开">
-        <l-switch v-model="form.sPublich" />
-      </l-form-item>
-      <l-form-item>
-        <l-button type="primary">提交</l-button>
-      </l-form-item>
-    </l-form>
+    <l-button @click="start">开始</l-button>
+    <l-button @click="end">结束</l-button>
+    <l-button @click="error">错误</l-button>
+
+    <l-button @click="setSpeed">设置speed速度</l-button>
+    <l-button @click="setSpinner">设置spinner动画效果</l-button>
+    <l-button @click="setPercentNum">设置percentNum每次加载的比例</l-button>
+    <l-button @click="setShowSpinner">设置是否显示spinner</l-button>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      form: {
-        userName: "",
-        sex: "",
-        hobby: [],
-        isPublich: false
-      }
-    };
+  methods: {
+    start() {
+      this.$loading.start();
+    },
+    end() {
+      this.$loading.end();
+    },
+    error() {
+      this.$loading.error();
+    },
+    setSpeed() {
+      this.$loading.config({
+        speed: 10
+      });
+      this.$loading.start();
+    },
+    setSpinner() {
+      this.$loading.config({
+        easing: "ease"
+      });
+      this.$loading.start();
+    },
+    setPercentNum() {
+      this.$loading.config({
+        percentNum: 0.1
+      });
+      this.$loading.start();
+    },
+    setShowSpinner() {
+      this.$loading.config({
+        showSpinner: false
+      });
+      this.$loading.start();
+    }
   }
 };
 </script>

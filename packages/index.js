@@ -20,35 +20,56 @@ import VideoCard from "./VideoCard";
 import ShowMore from "./ShowMore";
 import LimitTextarea from "./LimitTextarea";
 
+// 交互组件
+import LoadingBar from "./LoadingBar";
+
+const install = (Vue) => {
+  [Button, Dialog].forEach((comp) => {
+    Vue.use(comp);
+  });
+  [
+    Input,
+    Switch,
+    Radio,
+    RadioGroup,
+    Checkbox,
+    CheckboxGroup,
+    Form,
+    FormItem,
+  ].forEach((comp) => {
+    Vue.use(comp);
+  });
+  [VideoCard].forEach((comp) => {
+    Vue.use(comp);
+  });
+  [ShowMore, LimitTextarea].forEach((comp) => {
+    Vue.use(comp);
+  });
+  // [LoadingBar].forEach((comp) => {
+  //   Vue.use(comp);
+  // });
+  Vue.prototype.$loading = LoadingBar;
+};
+
 // 判断是否是直接引入文件,如果是，就不用调用 Vue.use()
 if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
 
 export default {
-  install(Vue) {
-    [Button, Dialog].forEach((comp) => {
-      Vue.use(comp);
-    });
-    [
-      Input,
-      Switch,
-      Radio,
-      RadioGroup,
-      Checkbox,
-      CheckboxGroup,
-      Form,
-      FormItem,
-    ].forEach((comp) => {
-      Vue.use(comp);
-    });
-    [VideoCard].forEach((comp) => {
-      Vue.use(comp);
-    });
-    [ShowMore, LimitTextarea].forEach((comp) => {
-      Vue.use(comp);
-    });
-    // Vue.use(Button);
-    // Vue.use(VideoCard);
-  },
+  install,
+  Button,
+  Dialog,
+  Input,
+  Switch,
+  Radio,
+  RadioGroup,
+  Checkbox,
+  CheckboxGroup,
+  Form,
+  FormItem,
+  VideoCard,
+  ShowMore,
+  LimitTextarea,
+  LoadingBar,
 };
