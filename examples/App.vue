@@ -1,25 +1,29 @@
 <template>
-  <div id="app">
-    <l-checkbox v-model="value1">男</l-checkbox>
-
-    <l-checkbox-group v-model="value2">
-      <l-checkbox label="抽烟"></l-checkbox>
-      <l-checkbox label="喝酒"></l-checkbox>
-      <l-checkbox label="探头"></l-checkbox>
-    </l-checkbox-group>
-
-    <l-checkbox disabled v-model="value3">男</l-checkbox>
-
-    <l-checkbox-group disabled v-model="value4">
-      <l-checkbox label="抽烟"></l-checkbox>
-      <l-checkbox label="喝酒"></l-checkbox>
-      <l-checkbox label="探头"></l-checkbox>
-    </l-checkbox-group>
-    <l-checkbox-group v-model="value5">
-      <l-checkbox disabled label="抽烟"></l-checkbox>
-      <l-checkbox label="喝酒"></l-checkbox>
-      <l-checkbox label="探头"></l-checkbox>
-    </l-checkbox-group>
+  <div>
+    <l-form :model="form">
+      <l-form-item label="用户名">
+        <l-input v-model="form.userName" placeholder="请输入用户名" />
+      </l-form-item>
+      <l-form-item label="性别">
+        <l-radio-group v-model="form.sex">
+          <l-radio label="3">男</l-radio>
+          <l-radio label="4">女</l-radio>
+        </l-radio-group>
+      </l-form-item>
+      <l-form-item label="爱好">
+        <l-checkbox-group v-model="form.hobby">
+          <l-checkbox label="抽烟"></l-checkbox>
+          <l-checkbox label="喝酒"></l-checkbox>
+          <l-checkbox label="探头"></l-checkbox>
+        </l-checkbox-group>
+      </l-form-item>
+      <l-form-item label="是否公开">
+        <l-switch v-model="form.sPublich" />
+      </l-form-item>
+      <l-form-item>
+        <l-button type="primary">提交</l-button>
+      </l-form-item>
+    </l-form>
   </div>
 </template>
 
@@ -27,11 +31,12 @@
 export default {
   data() {
     return {
-      value1: false,
-      value2: [],
-      value3: false,
-      value4: [],
-      value5: []
+      form: {
+        userName: "",
+        sex: "",
+        hobby: [],
+        isPublich: false
+      }
     };
   }
 };

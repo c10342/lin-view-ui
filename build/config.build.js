@@ -53,7 +53,7 @@ module.exports = {
 
     config.module
       .rule("js")
-      .include.add(/packages/)
+      .include.add(resolve("packages"))
       .end()
       .use("babel")
       .loader("babel-loader")

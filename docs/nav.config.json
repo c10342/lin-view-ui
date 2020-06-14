@@ -40,7 +40,13 @@
           "desc": "Dialog 对话框",
           "name": "dialog",
           "path": "/dialog"
-        },
+        }
+      ]
+    },
+    {
+      "desc": "表单组件",
+      "path": "/component",
+      "items": [
         {
           "desc": "Input 输入框",
           "name": "input",
@@ -52,7 +58,7 @@
           "path": "/switch"
         },
         {
-          "desc": "Radio 开关",
+          "desc": "Radio 单选框",
           "name": "radio",
           "path": "/radio"
         },
@@ -60,6 +66,11 @@
           "desc": "Checkbox 多选框",
           "name": "checkbox",
           "path": "/checkbox"
+        },
+        {
+          "desc": "Form 表单",
+          "name": "form",
+          "path": "/form"
         }
       ]
     },

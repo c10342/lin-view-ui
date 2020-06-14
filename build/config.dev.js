@@ -1,4 +1,5 @@
 const baseConfig = require("./config.base");
+const utils = require("./utils");
 
 module.exports = {
   pages: {
@@ -41,11 +42,11 @@ module.exports = {
     // 把 packages 和 examples 加入编译，因为新增的文件默认是不被 webpack 处理的
     config.module
       .rule("js")
-      .include.add(/packages/)
+      .include.add(utils.resolve("packages"))
       .end()
-      .include.add(/examples/)
+      .include.add(utils.resolve("examples"))
       .end()
-      .include.add(/docs/)
+      .include.add(utils.resolve("docs"))
       .end()
       .use("babel")
       .loader("babel-loader")
