@@ -36,6 +36,7 @@
 
 <script>
 export default {
+  name: "test-dialog",
   data() {
     return {
       visible1: false,

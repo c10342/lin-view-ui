@@ -5,6 +5,14 @@ import LinVueUi from "lin-vue-ui";
 
 Vue.use(LinVueUi);
 
+const testComps = require.context("./components", false, /\.vue$/);
+// console.log(testComps);
+
+testComps.keys().forEach((key) => {
+  const componentEntity = testComps(key).default;
+  Vue.component(componentEntity.name, componentEntity);
+});
+
 Vue.config.productionTip = false;
 
 new Vue({

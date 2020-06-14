@@ -29,6 +29,7 @@
 
 <script>
 export default {
+  name: "test-form",
   data() {
     return {
       form: {

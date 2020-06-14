@@ -25,6 +25,7 @@
 
 <script>
 export default {
+  name: "test-checkbox",
   data() {
     return {
       value1: false,

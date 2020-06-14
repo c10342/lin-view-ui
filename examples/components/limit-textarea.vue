@@ -31,6 +31,7 @@
 
 <script>
 export default {
+  name: "test-limit-textarea",
   data() {
     return {
       value1: "",

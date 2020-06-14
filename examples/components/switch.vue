@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: "test-switch",
   data() {
     return {
       value1: true,

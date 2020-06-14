@@ -1,6 +1,6 @@
 <template>
   <div>
-    <l-video-card :imageUrl="require('./assets/images/video-card.png')">
+    <l-video-card :imageUrl="require('../assets/images/video-card.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
@@ -13,7 +13,7 @@
     <l-video-card
       cardHeight="248px"
       cardWidth="300px"
-      :imageUrl="require('./assets/images/video-card.png')"
+      :imageUrl="require('../assets/images/video-card.png')"
     >
       <template>
         <div class="card-bottom">
@@ -23,7 +23,7 @@
         </div>
       </template>
     </l-video-card>
-    <l-video-card imageHeight="150px" :imageUrl="require('./assets/images/video-card.png')">
+    <l-video-card imageHeight="150px" :imageUrl="require('../assets/images/video-card.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
@@ -33,7 +33,7 @@
       </template>
     </l-video-card>
 
-    <l-video-card :defaultImageUrl="require('./assets/images/logo.png')">
+    <l-video-card :defaultImageUrl="require('../assets/images/logo.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
@@ -44,8 +44,8 @@
     </l-video-card>
     <l-video-card
       coverTip="小提示"
-      :imageUrl="require('./assets/images/video-card.png')"
-      :defaultImageUrl="require('./assets/images/logo.png')"
+      :imageUrl="require('../assets/images/video-card.png')"
+      :defaultImageUrl="require('../assets/images/logo.png')"
     >
       <template>
         <div class="card-bottom">
@@ -66,6 +66,12 @@
     </l-video-card>
   </div>
 </template>
+
+<script>
+export default {
+  name: "test-video-card"
+};
+</script>
 
 <style lang="scss" scoped>
 .card-bottom {

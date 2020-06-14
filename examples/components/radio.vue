@@ -24,6 +24,7 @@
 
 <script>
 export default {
+  name: "test-radio",
   data() {
     return {
       value1: "",

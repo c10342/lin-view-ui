@@ -56,6 +56,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "test-button"
+};
+</script>
+
 <style lang="scss" scoped>
 .row {
   margin-top: 20px;

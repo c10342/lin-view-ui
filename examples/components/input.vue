@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: "test-input",
   data() {
     return {
       value1: "",
