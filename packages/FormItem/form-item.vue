@@ -21,10 +21,11 @@ export default {
 @import "packages/assets/styles/variables/form-item.scss";
 .l-form-item {
   margin-bottom: $form-item-margin-bottom;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
   .l-form-item-label {
+    float: left;
     text-align: right;
     vertical-align: middle;
     font-size: $form-item-label-font-size;
@@ -34,8 +35,8 @@ export default {
     box-sizing: border-box;
   }
   .l-form-item-content {
-    flex: 1;
-    width: 0;
+    // flex: 1;
+    // width: 0;
     line-height: $form-item-content-line-height;
     position: relative;
     font-size: $form-item-content-font-size;

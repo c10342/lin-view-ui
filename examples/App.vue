@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-loading-bar />
+    <test-layout />
   </div>
 </template>
 

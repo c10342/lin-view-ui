@@ -2,6 +2,8 @@
 // 基础组件
 import Button from "./Button";
 import Dialog from "./Dialog";
+import Row from "./Row";
+import Col from "./Col";
 
 // 表单组件
 import Input from "./Input";
@@ -24,7 +26,7 @@ import LimitTextarea from "./LimitTextarea";
 import LoadingBar from "./LoadingBar";
 
 const install = (Vue) => {
-  [Button, Dialog].forEach((comp) => {
+  [Button, Dialog, Row, Col].forEach((comp) => {
     Vue.use(comp);
   });
   [
@@ -45,9 +47,6 @@ const install = (Vue) => {
   [ShowMore, LimitTextarea].forEach((comp) => {
     Vue.use(comp);
   });
-  // [LoadingBar].forEach((comp) => {
-  //   Vue.use(comp);
-  // });
   Vue.prototype.$loading = LoadingBar;
 };
 

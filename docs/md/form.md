@@ -42,7 +42,7 @@ export default {
       <l-form-item label="是否公开">
         <l-switch v-model="form.sPublich" />
       </l-form-item>
-      <l-form-item>
+      <l-form-item style='text-align:center;'>
         <l-button type="primary">提交</l-button>
       </l-form-item>
     </l-form>
@@ -71,7 +71,7 @@ export default {
   <l-form-item label="是否公开">
     <l-switch v-model="form.sPublich" />
   </l-form-item>
-  <l-form-item>
+  <l-form-item style="text-align:center;">
     <l-button type="primary">提交</l-button>
   </l-form-item>
 </l-form>

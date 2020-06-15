@@ -40,6 +40,11 @@
           "desc": "Dialog 对话框",
           "name": "dialog",
           "path": "/dialog"
+        },
+        {
+          "desc": "Layout 布局",
+          "name": "layout",
+          "path": "/layout"
         }
       ]
     },
