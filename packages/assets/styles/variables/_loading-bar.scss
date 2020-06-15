@@ -36,7 +36,7 @@ $loading-bar-error-background: $loading-bar-error-color !default;
 $loading-bar-error-border-top-color: $loading-bar-error-color !default;
 $loading-bar-error-border-left-color: $loading-bar-error-color !default;
 
-@keyframes l-spinner {
+@keyframes l-loading-bar-spinner {
   0% {
     transform: rotate(0);
   }

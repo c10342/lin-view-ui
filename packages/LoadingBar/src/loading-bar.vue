@@ -9,7 +9,7 @@
     </div>
     <div class="l-loading-bar-spinner" v-if="showSpinner">
       <div
-        :style="{'animation': `l-spinner 400ms ${easing} infinite`}"
+        :style="{'animation': `l-loading-bar-spinner 400ms ${easing} infinite`}"
         class="l-loading-bar-icon"
         :class="{'l-loading-bar-icon-error':isError}"
       ></div>
