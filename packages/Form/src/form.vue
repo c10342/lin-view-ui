@@ -24,9 +24,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.l-form {
-  position: relative;
-}
-</style>

@@ -58,18 +58,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "packages/assets/styles/variables/show-more.scss";
-.l-show-more {
-  font-size: $show-more-font-size;
-  color: $show-more-color;
-}
-
-.l-show-more-tip {
-  color: $show-more-tip-color;
-  cursor: pointer;
-  text-decoration: $show-more-tip-text-decoration;
-  margin-left: $show-more-tip-margin-left;
-}
-</style>
 
