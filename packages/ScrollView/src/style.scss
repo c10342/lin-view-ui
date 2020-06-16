@@ -1,0 +1,38 @@
+@import "packages/assets/styles/variables/scroll-view.scss";
+
+.l-scroll-view {
+  overflow-y: auto;
+}
+
+.l-scroll-view-loading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: $scroll-view-loading-height;
+}
+
+.l-scroll-view-icon {
+  width: $scroll-view-icon-width;
+  height: $scroll-view-icon-height;
+  border-radius: $scroll-view-icon-border-radius;
+  border: $scroll-view-icon-border;
+  border-top-color: $scroll-view-icon-border-top-color;
+  border-left-color: $scroll-view-icon-border-left-color;
+  animation: $scroll-view-icon-animation;
+}
+
+.l-scroll-view-tip {
+  font-size: $scroll-view-tip-font-size;
+  color: $scroll-view-tip-color;
+  margin-left: $scroll-view-tip-margin-left;
+}
+
+.l-scroll-view-nomore-tip {
+  text-align: center;
+  font-size: $scroll-view-nomore-tip-font-size;
+  color: $scroll-view-nomore-tip-color;
+  margin: $scroll-view-nomore-tip-margin;
+  padding: $scroll-view-nomore-tip-padding;
+  line-height: $scroll-view-nomore-line-height;
+}

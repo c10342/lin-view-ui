@@ -21,6 +21,8 @@ import VideoCard from "./VideoCard";
 // 视图组件
 import ShowMore from "./ShowMore";
 import LimitTextarea from "./LimitTextarea";
+import ScrollView from "./ScrollView";
+import Image from "./Image";
 
 // 交互组件
 import LoadingBar from "./LoadingBar";
@@ -43,6 +45,8 @@ const install = (Vue) => {
     ShowMore,
     LimitTextarea,
     LoadingBar,
+    ScrollView,
+    Image,
   ].forEach((comp) => {
     Vue.use(comp);
   });

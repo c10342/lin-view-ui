@@ -92,6 +92,16 @@
           "desc": "LimitTextarea 限制输入域",
           "name": "limit-textarea",
           "path": "/limit-textarea"
+        },
+        {
+          "desc": "ScrollView 滚动加载",
+          "name": "scroll-view",
+          "path": "/scroll-view"
+        },
+        {
+          "desc": "Image 图片",
+          "name": "image",
+          "path": "/image"
         }
       ]
     },

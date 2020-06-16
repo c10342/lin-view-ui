@@ -33,7 +33,9 @@
   border-top-color: $loading-bar-icon-border-top-color;
   border-left-color: $loading-bar-icon-border-left-color;
   border-radius: $loading-bar-icon-border-radius;
-  // animation: l-spinner 400ms linear infinite;
+  animation-name: $loading-bar-icon-animation-name;
+  animation-duration: $loading-bar-icon-animation-duration;
+  animation-iteration-count: $loading-bar-icon-animation-iteration-count;
 }
 
 .l-loading-bar-error {

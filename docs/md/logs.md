@@ -12,3 +12,4 @@
 - 2020/06/13 新增 LimitTextarea 组件
 - 2020/06/14 新增 Checkbox、CheckboxGroup、Form、FormItem 组件
 - 2020/06/15 新增 Layout 组件
+- 2020/06/16 新增 ScrollView、Image 组件
