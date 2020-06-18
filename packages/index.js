@@ -23,6 +23,7 @@ import ShowMore from "./ShowMore";
 import LimitTextarea from "./LimitTextarea";
 import ScrollView from "./ScrollView";
 import Image from "./Image";
+import Progress from "./Progress";
 
 // 交互组件
 import LoadingBar from "./LoadingBar";
@@ -47,6 +48,7 @@ const install = (Vue) => {
     LoadingBar,
     ScrollView,
     Image,
+    Progress,
   ].forEach((comp) => {
     Vue.use(comp);
   });

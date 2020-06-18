@@ -102,6 +102,11 @@
           "desc": "Image 图片",
           "name": "image",
           "path": "/image"
+        },
+        {
+          "desc": "Progress 进度条",
+          "name": "progress",
+          "path": "/progress"
         }
       ]
     },

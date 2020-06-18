@@ -13,3 +13,4 @@
 - 2020/06/14 新增 Checkbox、CheckboxGroup、Form、FormItem 组件
 - 2020/06/15 新增 Layout 组件
 - 2020/06/16 新增 ScrollView、Image 组件
+- 2020/06/18 新增 Progress 组件

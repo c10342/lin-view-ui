@@ -1,0 +1,50 @@
+@import "packages/assets/styles/variables/progress.scss";
+
+.l-progress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.l-progress-out {
+  flex: 1;
+  width: 0;
+  background-color: $progress-out-background-color;
+}
+
+.l-progress-inner {
+  height: 100%;
+  /* width: 50%; */
+  position: relative;
+}
+
+.l-progress-outside-tip {
+  margin-left: $progress-outside-tip-margin-left;
+  color: $progress-outside-tip-color;
+  font-size: $progress-outside-tip-font-size;
+}
+
+.l-progress-inside-text {
+  position: absolute;
+  right: $progress-inside-text-right;
+  top: $progress-inside-text-top;
+  transform: $progress-inside-text-transform;
+}
+
+.l-progress-inside-tip {
+  color: $progress-inside-tip-color;
+  font-size: $progress-inside-tip-font-size;
+}
+
+.l-progress-primary {
+  background-color: $progress-primary-background-color;
+}
+.l-progress-success {
+  background-color: $progress-success-background-color;
+}
+.l-progress-warning {
+  background-color: $progress-warning-background-color;
+}
+.l-progress-danger {
+  background-color: $progress-danger-background-color;
+}
