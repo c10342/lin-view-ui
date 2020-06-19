@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-progress />
+    <test-loading />
   </div>
 </template>
 

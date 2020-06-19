@@ -1,0 +1,17 @@
+@import "./common";
+@import "../animations/index.scss";
+
+$loading-mask-background-color: rgba(255, 255, 255, 0.9) !default;
+
+$loading-icon-width: 40px !default;
+$loading-icon-height: 40px !default;
+$loading-icon-border-radius: 50% !default;
+$loading-icon-border: 1px solid transparent !default;
+$loading-icon-border-top-color: #409eff !default;
+$loading-icon-border-right-color: #409eff !default;
+$loading-icon-animation: rotate-animation 600ms linear infinite !default;
+
+$loading-text-margin-top: 10px !default;
+
+$loading-fade-transition: all 400ms ease !default;
+$loading-fade-opacity: 0 !default;

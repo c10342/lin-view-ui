@@ -129,6 +129,11 @@
           "desc": "LoadingBar 卡片",
           "name": "loading-bar",
           "path": "/loading-bar"
+        },
+        {
+          "desc": "Loading 加载",
+          "name": "loading",
+          "path": "/loading"
         }
       ]
     }

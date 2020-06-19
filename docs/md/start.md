@@ -1,13 +1,13 @@
-
 # 快速上手
 
-----
+---
 
 ## 使用前准备
 
 > 在使用之前，推荐学习 `Vue` 和 `ES2015` ，并正确配置 `Node.js` v6.x 或以上版本
 
 `lin-vue-ui` 基于 `Vue.js` 2.x+ 版本开发，所以有必要了解以下基础知识：
+
 - [Vue 组件](https://cn.vuejs.org/v2/guide/components.html)
 - [单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html)
 
@@ -34,11 +34,11 @@
 可以在项目的入口文件中引入所有组件
 
 ```js
-import LinUi from 'lin-vue-ui' // 引入组件库
+import LinUi from "lin-vue-ui"; // 引入组件库
 
-import 'lin-vue-ui/lib/index/index.css' // 引入样式库
+import "lin-vue-ui/lib/index/index.css"; // 引入样式库
 
-Vue.use(LinUi)
+Vue.use(LinUi);
 ```
 
 ### 按需加载
@@ -70,11 +70,11 @@ plugins: [
 接下来，如果你只希望引入部分组件，比如 Button ，那么需要在 main.js 中写入以下内容：
 
 ```javascript
-import Vue from 'vue';
+import Vue from "vue";
 
-import { Button } from 'lin-vue-ui';
+import { Button } from "lin-vue-ui";
 
-import App from './App.vue';
+import App from "./App.vue";
 
 Vue.component(Button.name, Button);
 
@@ -85,8 +85,8 @@ Vue.component(Button.name, Button);
  */
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+  el: "#app",
+  render: (h) => h(App),
 });
 ```
 

@@ -20,12 +20,13 @@
 }
 </style>
 
-
 # VideoCard 卡片
-----
+
+---
 
 ## 基础用法
-使用```imageUrl```属性来定义卡片的封面，以及自定义卡片底部内容即可。
+
+使用`imageUrl`属性来定义卡片的封面，以及自定义卡片底部内容即可。
 
 <div class='demo-block'>
     <l-video-card 
@@ -41,25 +42,24 @@
 </div>
 
 ::: demo
+
 ```html
-
 <l-video-card :imageUrl="require('../assets/img/video-card.png')">
-    <template>
-        <div class="card-bottom">
-            <p>春风得意</p>
-            <p>这是一个卡片</p>
-            <p>lin-vue-ui</p>
-        </div>
-    </template>
+  <template>
+    <div class="card-bottom">
+      <p>春风得意</p>
+      <p>这是一个卡片</p>
+      <p>lin-vue-ui</p>
+    </div>
+  </template>
 </l-video-card>
-
 ```
-:::
 
+:::
 
 ## 定义卡片宽高
 
-使用```cardHeight```和```cardWidth```属性来定义卡片的宽度和高度
+使用`cardHeight`和`cardWidth`属性来定义卡片的宽度和高度
 
 <div class='demo-block'>
     <l-video-card
@@ -78,29 +78,28 @@
 </div>
 
 :::demo
+
 ```html
-
 <l-video-card
-    cardHeight="270px"
-    cardWidth="300px"
-    :imageUrl="require('../assets/img/video-card.png')"
+  cardHeight="270px"
+  cardWidth="300px"
+  :imageUrl="require('../assets/img/video-card.png')"
 >
-    <template>
-        <div class="card-bottom">
-            <p>春风得意</p>
-            <p>这是一个卡片</p>
-            <p>l-vue-ui</p>
-        </div>
-    </template>
+  <template>
+    <div class="card-bottom">
+      <p>春风得意</p>
+      <p>这是一个卡片</p>
+      <p>l-vue-ui</p>
+    </div>
+  </template>
 </l-video-card>
-
 ```
-:::
 
+:::
 
 ## 定义图片高度
 
-使用```imageHeight```属性来定义图片的高度
+使用`imageHeight`属性来定义图片的高度
 
 <div class='demo-block'>
     <l-video-card 
@@ -117,27 +116,27 @@
 </div>
 
 :::demo
+
 ```html
-
-<l-video-card 
-imageHeight="150px" 
-:imageUrl="require('../assets/img/video-card.png')">
-    <template>
-        <div class="card-bottom">
-            <p>春风得意</p>
-            <p>这是一个卡片</p>
-            <p>l-vue-ui</p>
-        </div>
-    </template>
+<l-video-card
+  imageHeight="150px"
+  :imageUrl="require('../assets/img/video-card.png')"
+>
+  <template>
+    <div class="card-bottom">
+      <p>春风得意</p>
+      <p>这是一个卡片</p>
+      <p>l-vue-ui</p>
+    </div>
+  </template>
 </l-video-card>
-
 ```
-:::
 
+:::
 
 ## 定义默认图片
 
-使用```defaultImageUrl```属性来定义默认图片，当imageUrl的值为空或者imageUrl加载失败就会显示默认图片。
+使用`defaultImageUrl`属性来定义默认图片，当 imageUrl 的值为空或者 imageUrl 加载失败就会显示默认图片。
 
 <div class='demo-block'>
     <l-video-card 
@@ -153,25 +152,24 @@ imageHeight="150px"
 </div>
 
 :::demo
+
 ```html
-
-<l-video-card 
-:defaultImageUrl="require('../assets/img/logo.png')">
-    <template>
-        <div class="card-bottom">
-            <p>春风得意</p>
-            <p>这是一个卡片</p>
-            <p>l-vue-ui</p>
-        </div>
-    </template>
+<l-video-card :defaultImageUrl="require('../assets/img/logo.png')">
+  <template>
+    <div class="card-bottom">
+      <p>春风得意</p>
+      <p>这是一个卡片</p>
+      <p>l-vue-ui</p>
+    </div>
+  </template>
 </l-video-card>
-
 ```
+
 :::
 
 ## 封面右下角提示
 
-使用```coverTip```属性来定义封面右下角的提示
+使用`coverTip`属性来定义封面右下角的提示
 
 <div class='demo-block'>
     <l-video-card
@@ -190,29 +188,28 @@ imageHeight="150px"
 </div>
 
 :::demo
+
 ```html
-
 <l-video-card
-    coverTip="小提示"
-    :imageUrl="require('../assets/img/video-card.png')"
-    :defaultImageUrl="require('../assets/img/logo.png')"
+  coverTip="小提示"
+  :imageUrl="require('../assets/img/video-card.png')"
+  :defaultImageUrl="require('../assets/img/logo.png')"
 >
-    <template>
-        <div class="card-bottom">
-            <p>春风得意</p>
-            <p>这是一个卡片</p>
-            <p>l-vue-ui</p>
-        </div>
-    </template>
+  <template>
+    <div class="card-bottom">
+      <p>春风得意</p>
+      <p>这是一个卡片</p>
+      <p>l-vue-ui</p>
+    </div>
+  </template>
 </l-video-card>
-
 ```
-:::
 
+:::
 
 ## 图片加载失败提示语
 
-使用```errorTip```属性来定义图片加载失败时显示的提示语，当imageUrl和defaultImageUrl为空或者都加载失败时就会显示该提示语
+使用`errorTip`属性来定义图片加载失败时显示的提示语，当 imageUrl 和 defaultImageUrl 为空或者都加载失败时就会显示该提示语
 
 <div class='demo-block'>
     <l-video-card errorTip="图片加载失败">
@@ -227,22 +224,23 @@ imageHeight="150px"
 </div>
 
 :::demo
+
 ```html
-
 <l-video-card errorTip="图片加载失败">
-    <template>
-        <div class="card-bottom">
-            <p>春风得意</p>
-            <p>这是一个卡片</p>
-            <p>l-vue-ui</p>
-        </div>
-    </template>
+  <template>
+    <div class="card-bottom">
+      <p>春风得意</p>
+      <p>这是一个卡片</p>
+      <p>l-vue-ui</p>
+    </div>
+  </template>
 </l-video-card>
-
 ```
+
 :::
 
 ## 属性
+
 | 参数            | 说明               | 类型   | 可选值 | 默认值 |
 | --------------- | ------------------ | ------ | ------ | ------ |
 | data            | 卡片相关数据       | Object | —      | —      |
@@ -254,8 +252,8 @@ imageHeight="150px"
 | defaultImageUrl | 封面默认图片       | String | —      | —      |
 | imageUrl        | 封面图片           | String | —      | —      |
 
-
 ## 事件
-| 事件名称 | 说明           | 回调参数       |
-| -------- | -------------- | -------------- |
-| click    | 点击卡片时触发 | data：data属性 |
+
+| 事件名称 | 说明           | 回调参数        |
+| -------- | -------------- | --------------- |
+| click    | 点击卡片时触发 | data：data 属性 |
