@@ -78,7 +78,7 @@ export default {
 
 在绑定了 v-loading 指令的元素上添加 l-loading-text 属性，其值会被渲染为加载文案，并显示在加载图标的下方。类似地，l-loading-textColor 和 l-loading-background 属性分别用来设定加载文案颜色和背景色值。
 
-<div class='demo-blobk'>
+<div class='demo-block'>
 <div 
 class="loading-box" 
 l-loading-text="拼命加载中"

@@ -5,10 +5,11 @@ let instance = null;
 let timer = null;
 
 export default {
-  open(options = { fullscreen: true }) {
+  open(options) {
     if (!instance) {
       instance = new LoadingConstruct();
     }
+
     if (!options.target) {
       options.target = document.body;
     }

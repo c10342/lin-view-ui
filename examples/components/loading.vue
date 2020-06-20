@@ -30,13 +30,14 @@ export default {
       this.isLoading = !this.isLoading;
     },
     onClick1() {
-      if (this.isLoading1) {
-        this.$loading.close();
-        this.isLoading1 = false;
-      } else {
-        this.$loading.open({ fullscreen: false, lock: true });
-        this.isLoading1 = true;
-      }
+      // if (this.isLoading1) {
+      //   this.$loading.close();
+      //   this.isLoading1 = false;
+      // } else {
+      //   this.$loading.open({ fullscreen: false, lock: true });
+      //   this.isLoading1 = true;
+      // }
+      this.$loading.open({ time: 5000 });
     }
   }
 };
