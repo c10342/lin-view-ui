@@ -107,6 +107,11 @@
           "desc": "Progress 进度条",
           "name": "progress",
           "path": "/progress"
+        },
+        {
+          "desc": "MetaInfo 三要素",
+          "name": "meta-info",
+          "path": "/meta-info"
         }
       ]
     },

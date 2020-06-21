@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-loading />
+    <test-meta-info />
   </div>
 </template>
 
