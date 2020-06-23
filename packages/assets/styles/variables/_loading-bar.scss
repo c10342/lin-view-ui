@@ -11,6 +11,7 @@ $loading-bar-height: 2px !default;
 $loading-bar-transition: all 0.2s ease !default;
 $loading-bar-background: $loading-bar-color !default;
 $loading-bar-transform: translateX(-100%) !default;
+$loading-bar-z-index: 1000 !default;
 
 $loading-bar-peg-right: 0 !default;
 $loading-bar-peg-width: 100px !default;

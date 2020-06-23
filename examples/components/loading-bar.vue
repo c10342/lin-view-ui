@@ -16,37 +16,37 @@ export default {
   name: "test-loading-bar",
   methods: {
     start() {
-      this.$loading.start();
+      this.$loadingBar.start();
     },
     end() {
-      this.$loading.end();
+      this.$loadingBar.end();
     },
     error() {
-      this.$loading.error();
+      this.$loadingBar.error();
     },
     setSpeed() {
-      this.$loading.config({
+      this.$loadingBar.config({
         speed: 10
       });
-      this.$loading.start();
+      this.$loadingBar.start();
     },
     setSpinner() {
-      this.$loading.config({
+      this.$loadingBar.config({
         easing: "ease"
       });
-      this.$loading.start();
+      this.$loadingBar.start();
     },
     setPercentNum() {
-      this.$loading.config({
+      this.$loadingBar.config({
         percentNum: 0.1
       });
-      this.$loading.start();
+      this.$loadingBar.start();
     },
     setShowSpinner() {
-      this.$loading.config({
+      this.$loadingBar.config({
         showSpinner: false
       });
-      this.$loading.start();
+      this.$loadingBar.start();
     }
   }
 };

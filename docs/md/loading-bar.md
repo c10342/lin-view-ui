@@ -2,37 +2,37 @@
   export default {
     methods: {
       start () {
-        this.$loading.start()
+        this.$loadingBar.start()
       },
       end () {
-        this.$loading.end()
+        this.$loadingBar.end()
       },
       error () {
-        this.$loading.error()
+        this.$loadingBar.error()
       },
       setSpeed () {
-        this.$loading.config({
+        this.$loadingBar.config({
           speed: 10
         })
-        this.$loading.start()
+        this.$loadingBar.start()
       },
       setSpinner () {
-        this.$loading.config({
+        this.$loadingBar.config({
           easing: 'ease'
         })
-        this.$loading.start()
+        this.$loadingBar.start()
       },
       setPercentNum () {
-        this.$loading.config({
+        this.$loadingBar.config({
           percentNum: 0.1
         })
-        this.$loading.start()
+        this.$loadingBar.start()
       },
       setShowSpinner () {
-        this.$loading.config({
+        this.$loadingBar.config({
           showSpinner: false
         })
-        this.$loading.start()
+        this.$loadingBar.start()
       }
     }
   }
@@ -49,11 +49,11 @@
 ---
 
 全局创建了一个用于显示页面加载、异步请求的加载进度条。
-因为可复用性的关系，`LoadingBar` 只会全局创建一个实例，而且在 `Vue.prototype` 中添加了全局对象 `$loading`，可以直接通过 `this.$loading` 操作实例
+因为可复用性的关系，`LoadingBar` 只会全局创建一个实例，而且在 `Vue.prototype` 中添加了全局对象 `$loadingBar`，可以直接通过 `this.$loadingBar` 操作实例
 
 ## 基础用法
 
-通过调用 \$loading 提供的三种方法来控制全局的加载进度条 `start()`、`end()`、`error()`
+通过调用 \$loadingBar 提供的三种方法来控制全局的加载进度条 `start()`、`end()`、`error()`
 
 <div class="demo-block">
    <l-button @click="start">开始</l-button>
@@ -72,13 +72,13 @@
   export default {
     methods: {
       start() {
-        this.$loading.start();
+        this.$loadingBar.start();
       },
       end() {
-        this.$loading.end();
+        this.$loadingBar.end();
       },
       error() {
-        this.$loading.error();
+        this.$loadingBar.error();
       },
     },
   };
@@ -110,28 +110,28 @@
   export default {
     methods: {
       setSpeed() {
-        this.$loading.config({
+        this.$loadingBar.config({
           speed: 10,
         });
-        this.$loading.start();
+        this.$loadingBar.start();
       },
       setSpinner() {
-        this.$loading.config({
+        this.$loadingBar.config({
           easing: "ease",
         });
-        this.$loading.start();
+        this.$loadingBar.start();
       },
       setPercentNum() {
-        this.$loading.config({
+        this.$loadingBar.config({
           percentNum: 0.1,
         });
-        this.$loading.start();
+        this.$loadingBar.start();
       },
       setShowSpinner() {
-        this.$loading.config({
+        this.$loadingBar.config({
           showSpinner: false,
         });
-        this.$loading.start();
+        this.$loadingBar.start();
       },
     },
   };

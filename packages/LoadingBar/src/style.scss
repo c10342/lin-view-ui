@@ -9,6 +9,7 @@
   //   transition: all 5s ease;
   background: $loading-bar-background;
   transform: $loading-bar-transform;
+  z-index: $loading-bar-z-index;
 }
 .l-loading-bar-peg {
   position: absolute;
