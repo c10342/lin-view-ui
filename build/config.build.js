@@ -10,7 +10,8 @@ module.exports = {
     },
     output: {
       filename: "[name]/index.js",
-      libraryTarget: "commonjs2",
+      // libraryTarget: "commonjs2",
+      libraryTarget: "umd",
       libraryExport: "default",
       library: "lin-vue-ui",
     },

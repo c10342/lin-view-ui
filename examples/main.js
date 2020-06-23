@@ -2,6 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 
 import LinVueUi from "lin-vue-ui";
+// import LinVueUi from "../lib/index/index";
+// import "../lib/index/style.css";
 
 Vue.use(LinVueUi);
 
