@@ -1,0 +1,24 @@
+@import "./common";
+
+$selector-height: 26px !default;
+
+$selector-label-height: $selector-height !default;
+$selector-label-line-height: $selector-height !default;
+$selector-label-font-size: 14px !default;
+$selector-label-text-align: right !default;
+$selector-label-color: #252b3a !default;
+$selector-label-padding: 0 10px !default;
+
+$selector-list-margin: 0 !default;
+$selector-list-padding: 0 !default;
+$selector-list-margin-left: 10px !default;
+$selector-list-margin-right: 48px !default;
+
+$selector-more-text-height: $selector-height !default;
+$selector-more-text-line-height: $selector-height !default;
+$selector-more-text-width: 48px !default;
+$selector-more-text-font-size: 12px !default;
+$selector-more-text-color: #5c657d !default;
+$selector-more-text-background-color: #e7e8ec !default;
+$selector-more-text-right: 0 !default;
+$selector-more-text-top: 0 !default;

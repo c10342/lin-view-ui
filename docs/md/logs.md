@@ -15,3 +15,4 @@
 - 2020/06/16 新增 ScrollView、Image 组件
 - 2020/06/18 新增 Progress 组件
 - 2020/06/19 新增 Loading 组件
+- 2020/06/21 新增 MetaInfo 组件

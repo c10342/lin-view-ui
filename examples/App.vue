@@ -1,7 +1,6 @@
 <template>
   <div>
-    <test-meta-info />
-    <test-button />
+    <test-selector />
   </div>
 </template>
 

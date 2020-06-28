@@ -1,0 +1,29 @@
+@import "../../assets/styles/variables/selector-item";
+
+.l-selecotr-item {
+  max-width: $selector-item-max-width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: $selector-item-margin-right;
+
+  height: $selector-item-height;
+  line-height: $selector-item-line-height;
+  padding: $selector-item-padding;
+  font-size: $selector-item-font-size;
+  white-space: nowrap;
+  color: $selector-item-color;
+  cursor: pointer;
+  user-select: none;
+}
+
+.l-selecotr-item.l-selecotr-active {
+  color: $selector-active-color;
+  background-color: $selector-active-background-color;
+}
+
+.l-selecotr-item.l-selecotr-disabled {
+  cursor: not-allowed;
+  background-color: $selector-disabled-background-color;
+  color: $selector-disabled-color;
+}

@@ -45,6 +45,11 @@
           "desc": "Layout 布局",
           "name": "layout",
           "path": "/layout"
+        },
+        {
+          "desc": "Selector 选择器",
+          "name": "selector",
+          "path": "/selector"
         }
       ]
     },
@@ -131,7 +136,7 @@
       "path": "/component",
       "items": [
         {
-          "desc": "LoadingBar 卡片",
+          "desc": "LoadingBar 加载进度条",
           "name": "loading-bar",
           "path": "/loading-bar"
         },

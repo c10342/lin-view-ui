@@ -1,0 +1,47 @@
+@import "../../assets/styles/variables/selector-group";
+
+.l-selector-label {
+  height: $selector-label-height;
+  line-height: $selector-label-line-height;
+  font-size: $selector-label-font-size;
+  text-align: $selector-label-text-align;
+  white-space: nowrap;
+  color: $selector-label-color;
+  padding: $selector-label-padding;
+}
+.l-selector-group {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.l-selector-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  flex: 1;
+  width: 0;
+  margin: $selector-list-margin;
+  padding: $selector-list-padding;
+  margin-left: $selector-list-margin-left;
+  overflow: hidden;
+  margin-right: $selector-list-margin-right;
+}
+
+.l-selector-more-text {
+  box-sizing: border-box;
+  height: $selector-more-text-height;
+  line-height: $selector-more-text-line-height;
+  width: $selector-more-text-width;
+  text-align: center;
+  font-size: $selector-more-text-font-size;
+  white-space: nowrap;
+  color: $selector-more-text-color;
+  background-color: $selector-more-text-background-color;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  right: $selector-more-text-right;
+  top: $selector-more-text-top;
+}

@@ -4,6 +4,8 @@ import Button from "./Button";
 import Dialog from "./Dialog";
 import Row from "./Row";
 import Col from "./Col";
+import SelectorItem from "./SelectorItem";
+import SelectorGroup from "./SelectorGroup";
 
 // 表单组件
 import Input from "./Input";
@@ -53,6 +55,8 @@ const install = (Vue) => {
     Progress,
     Loading,
     MetaInfo,
+    SelectorItem,
+    SelectorGroup,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -84,4 +88,6 @@ export default {
   Progress,
   Loading,
   MetaInfo,
+  SelectorItem,
+  SelectorGroup,
 };

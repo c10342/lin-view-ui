@@ -1,0 +1,148 @@
+
+
+<script>
+const oneHeight = 26;
+export default {
+  name: "l-selector-group",
+  render(h) {
+    const {
+      renderMore,
+      width,
+      labelWidth,
+      height,
+      $slots,
+      switchMore,
+      label,
+      status,
+      renderLabel
+    } = this;
+
+    return (
+      <div
+        class="l-selector-group"
+        ref="selector"
+        style={{ width: `${width}px` }}
+      >
+        <label class="l-selector-label" style={{ width: labelWidth }}>
+          {renderLabel ? renderLabel() : label}
+        </label>
+        <div
+          class="l-selector-list"
+          ref="selectorList"
+          style={{ height: height }}
+        >
+          {$slots.default}
+        </div>
+        {this.isShowBtn ? (
+          <span class="l-selector-more-text" ref="more" onClick={switchMore}>
+            {renderMore ? renderMore(status) : "更多"}
+          </span>
+        ) : null}
+      </div>
+    );
+  },
+  props: {
+    width: {
+      type: String,
+      default: ""
+    },
+    labelWidth: {
+      type: String,
+      default: "40px"
+    },
+    value: {
+      type: [String, Object]
+    },
+    valueKey: {
+      type: String,
+      default: ""
+    },
+    renderMore: {
+      type: Function,
+      default: null
+    },
+    renderLabel: {
+      type: Function,
+      default: null
+    },
+    label: {
+      type: String,
+      default: ""
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  provide() {
+    return {
+      group: this
+    };
+  },
+  data() {
+    return {
+      isShowBtn: false,
+      height: "auto",
+      //   1-收起，2-展开
+      status: 1
+    };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.init();
+      window.addEventListener("resize", this.onResize);
+    });
+  },
+  methods: {
+    onResize() {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(() => {
+        this.init();
+      }, 500);
+    },
+    init() {
+      const clientHeight = this.$refs.selectorList.clientHeight;
+      if (clientHeight > oneHeight) {
+        this.isShowBtn = true;
+        this.hide();
+      } else {
+        this.isShowBtn = false;
+        this.show();
+      }
+    },
+    switchMore() {
+      if (this.status === 1) {
+        this.show();
+        this.$emit("show");
+      } else {
+        this.hide();
+        this.$emit("hide");
+      }
+    },
+    show() {
+      this.height = "auto";
+      this.status = 2;
+    },
+    hide() {
+      this.height = `${oneHeight}px`;
+      this.status = 1;
+    }
+  },
+  computed: {
+    outWidth() {
+      if (this.width) {
+        return this.width;
+      }
+      return this.$refs.selector?.clientWidth || 0;
+    }
+  },
+  beforeDestroy() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    window.removeEventListener("resize", this.onResize);
+  }
+};
+</script>
