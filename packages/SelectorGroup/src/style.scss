@@ -8,6 +8,8 @@
   white-space: nowrap;
   color: $selector-label-color;
   padding: $selector-label-padding;
+  display: inline-block;
+  vertical-align: top;
 }
 .l-selector-group {
   display: flex;
@@ -30,6 +32,17 @@
 }
 
 .l-selector-more-text {
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  right: $selector-more-text-right;
+  top: $selector-more-text-top;
+  height: $selector-more-text-height;
+  line-height: $selector-more-text-line-height;
+  // width: $selector-more-text-width;
+}
+
+.l-selector-more-text-tip {
   box-sizing: border-box;
   height: $selector-more-text-height;
   line-height: $selector-more-text-line-height;
@@ -39,9 +52,6 @@
   white-space: nowrap;
   color: $selector-more-text-color;
   background-color: $selector-more-text-background-color;
-  cursor: pointer;
-  user-select: none;
-  position: absolute;
-  right: $selector-more-text-right;
-  top: $selector-more-text-top;
+  display: inline-block;
+  vertical-align: top;
 }

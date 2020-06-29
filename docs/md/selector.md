@@ -27,11 +27,12 @@ export default {
         }
       ],
       value3:"标签一",
-      list3: ['标签一','标签二','标签三','标签四','标签五','标签六','标签七','标签八','标签九','标签十','标签十一']
+      list3: ['标签一','标签二','标签三','标签四','标签五','标签六','标签七','标签八','标签九','标签十','标签十一'],
+      value4:"标签三",
     };
   },
   methods: {
-    renderMore(status) {
+    renderMore(h,status) {
       if (status === 1) {
         return <span>展开</span>;
       } else {
@@ -39,7 +40,7 @@ export default {
       }
     },
     renderLabel() {
-      return <span>标签</span>;
+      return <span>标签：</span>;
     }
   }
 };
@@ -215,7 +216,7 @@ export default {
       };
     },
     methods: {
-      renderMore(status) {
+      renderMore(h, status) {
         if (status === 1) {
           return <span>展开</span>;
         } else {
@@ -233,3 +234,77 @@ export default {
 :::
 
 ## 禁用状态
+
+为 `l-selector-group` 设置 `disabled` 属性，则整个选择器不可用
+
+<div class='demo-block'>
+  <l-selector-group
+    label="学科："
+    v-model="value4"
+  >
+    <l-selector-item value="标签一" label="标签一" disabled>标签一</l-selector-item>
+    <l-selector-item value="标签二" label="标签二">标签二</l-selector-item>
+    <l-selector-item value="标签三" label="标签三">标签三</l-selector-item>
+    <l-selector-item value="标签四" label="标签四" disabled>标签四</l-selector-item>
+    <l-selector-item value="标签五" label="标签五">标签五</l-selector-item>
+    <l-selector-item value="标签六" label="标签六">标签六</l-selector-item>
+  </l-selector-group>
+</div>
+
+:::demo
+
+```html
+<l-selector-group label="学科：" v-model="value4">
+  <l-selector-item value="标签一" label="标签一" disabled
+    >标签一</l-selector-item
+  >
+  <l-selector-item value="标签二" label="标签二">标签二</l-selector-item>
+  <l-selector-item value="标签三" label="标签三">标签三</l-selector-item>
+  <l-selector-item value="标签四" label="标签四" disabled
+    >标签四</l-selector-item
+  >
+  <l-selector-item value="标签五" label="标签五">标签五</l-selector-item>
+  <l-selector-item value="标签六" label="标签六">标签六</l-selector-item>
+</l-selector-group>
+
+<script>
+  export default {
+    data() {
+      return {
+        value4: "标签三",
+      };
+    },
+  };
+</script>
+```
+
+:::
+
+## SelectorGroup 属性
+
+| 参数            | 说明                                                                                                                  | 类型                               | 可选值 | 默认值 |
+| --------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------ | ------ |
+| width           | 选择器宽度                                                                                                            | String                             | —      | —      |
+| labelWidth      | 标签宽度                                                                                                              | String                             | —      | 40px   |
+| value / v-model | 绑定值                                                                                                                | Boolean / String / Number / Object | —      | —      |
+| valueKey        | 作为 value 唯一标识的键名，绑定值为对象类型时必填                                                                     | String                             | —      | value  |
+| renderMore      | 自定义渲染更多标签内容，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是否展开或收起的状态值。可以使用 jsx | Function                           | —      | —      |
+| renderLabel     | 自定义渲染头部标签内容，使用 Vue 的 Render 函数，参数是 h，可以使用 jsx                                               | Function                           | —      | —      |
+| label           | 头部标签内容                                                                                                          | String                             | —      | —      |
+| disabled        | 是否禁用                                                                                                              | Boolean                            | —      | false  |
+
+## SelectorItem 属性
+
+| 参数     | 说明     | 类型            | 可选值 | 默认值 |
+| -------- | -------- | --------------- | ------ | ------ |
+| label    | 标签内容 | String          | —      | —      |
+| value    | 选项的值 | String / Number | —      | —      |
+| disabled | 是否禁用 | Boolean         | —      | false  |
+
+## SelectorGroup 事件
+
+| 事件名称 | 说明                   | 回调参数     |
+| -------- | ---------------------- | ------------ |
+| show     | 标签全部显示时触发     | —            |
+| hide     | 标签超出部分隐藏时触发 | —            |
+| onChange | 选中值发生变化时触发   | 目前的选中值 |

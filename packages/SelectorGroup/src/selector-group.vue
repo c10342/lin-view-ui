@@ -23,8 +23,14 @@ export default {
         ref="selector"
         style={{ width: `${width}px` }}
       >
-        <label class="l-selector-label" style={{ width: labelWidth }}>
-          {renderLabel ? renderLabel() : label}
+        <label>
+          {renderLabel ? (
+            renderLabel(h)
+          ) : (
+            <span class="l-selector-label" style={{ width: labelWidth }}>
+              {label}
+            </span>
+          )}
         </label>
         <div
           class="l-selector-list"
@@ -35,7 +41,11 @@ export default {
         </div>
         {this.isShowBtn ? (
           <span class="l-selector-more-text" ref="more" onClick={switchMore}>
-            {renderMore ? renderMore(status) : "更多"}
+            {renderMore ? (
+              renderMore(h, status)
+            ) : (
+              <span class="l-selector-more-text-tip">更多</span>
+            )}
           </span>
         ) : null}
       </div>
@@ -51,7 +61,7 @@ export default {
       default: "40px"
     },
     value: {
-      type: [String, Object]
+      type: [String, Object, Number, Boolean]
     },
     valueKey: {
       type: String,
@@ -104,7 +114,8 @@ export default {
     },
     init() {
       const clientHeight = this.$refs.selectorList.clientHeight;
-      if (clientHeight > oneHeight) {
+
+      if (clientHeight >= oneHeight) {
         this.isShowBtn = true;
         this.hide();
       } else {
