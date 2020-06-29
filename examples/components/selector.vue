@@ -50,7 +50,7 @@ export default {
     onChange(val) {
       console.log(val);
     },
-    renderMore(status) {
+    renderMore(h, status) {
       if (status === 1) {
         return <span>展开</span>;
       } else {

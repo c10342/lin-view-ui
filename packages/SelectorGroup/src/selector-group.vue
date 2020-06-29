@@ -105,17 +105,25 @@ export default {
   },
   methods: {
     onResize() {
-      if (this.timer) {
-        clearTimeout(this.timer);
-      }
-      this.timer = setTimeout(() => {
+      this.resetStatus();
+    },
+    resetStatus() {
+      const clientHeight = this.$refs.selectorList.clientHeight;
+      const style = this.$refs.selectorList.style;
+      // console.log(style.height);
+      if (style.height === "auto") {
         this.init();
-      }, 500);
+      } else {
+        this.height = "auto";
+        this.$nextTick(() => {
+          this.init();
+        });
+      }
     },
     init() {
       const clientHeight = this.$refs.selectorList.clientHeight;
 
-      if (clientHeight >= oneHeight) {
+      if (clientHeight > oneHeight) {
         this.isShowBtn = true;
         this.hide();
       } else {
@@ -150,9 +158,6 @@ export default {
     }
   },
   beforeDestroy() {
-    if (this.timer) {
-      clearTimeout(this.timer);
-    }
     window.removeEventListener("resize", this.onResize);
   }
 };
