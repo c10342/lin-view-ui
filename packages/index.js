@@ -31,6 +31,7 @@ import MetaInfo from "./MetaInfo";
 // 交互组件
 import LoadingBar from "./LoadingBar";
 import Loading from "./Loading";
+import ToolTip from "./Tooltip";
 
 const install = (Vue) => {
   [
@@ -57,6 +58,7 @@ const install = (Vue) => {
     MetaInfo,
     SelectorItem,
     SelectorGroup,
+    ToolTip,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -90,4 +92,5 @@ export default {
   MetaInfo,
   SelectorItem,
   SelectorGroup,
+  ToolTip,
 };

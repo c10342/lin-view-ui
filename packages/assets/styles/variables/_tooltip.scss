@@ -1,0 +1,26 @@
+$tooltip-background: #303133 !default;
+$tooltip-color: #fff !default;
+$tooltip-padding: 10px !default;
+$tooltip-border-radius: 4px !default;
+$tooltip-font-size: 12px !default;
+$tooltip-min-width: 40px !default;
+$tooltip-max-width: 500px !default;
+$tooltip-z-index: 200 !default;
+
+$tooltip-after-border: 5px solid #303133 !default;
+
+$tooltip-bottom-after-bottom: -5px !default;
+$tooltip-bottom-after-left: 50% !default;
+$tooltip-bottom-after-transform: translateX(-50%) rotate(-45deg) !default;
+
+$tooltip-top-after-top: -5px !default;
+$tooltip-top-after-left: 50% !default;
+$tooltip-top-after-transform: translateX(-50%) rotate(135deg) !default;
+
+$tooltip-left-after-top: 50% !default;
+$tooltip-left-after-left: -5px !default;
+$tooltip-left-after-transform: translateY(-50%) rotate(45deg) !default;
+
+$tooltip-right-after-top: 50% !default;
+$tooltip-right-after-right: -5px !default;
+$tooltip-right-after-transform: translateY(-50%) rotate(-135deg) !default;

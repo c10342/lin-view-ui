@@ -1,6 +1,7 @@
 <template>
   <div>
-    <test-selector />
+    <test-tooltip />
+    <!-- <div v-tooltip="'你好'">你好</div> -->
   </div>
 </template>
 

@@ -144,6 +144,11 @@
           "desc": "Loading 加载",
           "name": "loading",
           "path": "/loading"
+        },
+        {
+          "desc": "Tooltip 文字提示",
+          "name": "tooltip",
+          "path": "/tooltip"
         }
       ]
     }

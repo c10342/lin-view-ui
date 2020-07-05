@@ -1,0 +1,66 @@
+@import "packages/assets/styles/variables/tooltip.scss";
+
+.l-tooltip {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: $tooltip-background;
+  color: $tooltip-color;
+  box-sizing: border-box;
+  padding: $tooltip-padding;
+  border-radius: $tooltip-border-radius;
+  font-size: $tooltip-font-size;
+  min-width: $tooltip-min-width;
+  max-width: $tooltip-max-width;
+  word-wrap: break-word;
+  word-break: break-all;
+  z-index: 200;
+  &::after {
+    content: "";
+    border: $tooltip-after-border;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+  }
+}
+
+.l-tooltip-bottom {
+  &::after {
+    bottom: $tooltip-bottom-after-bottom;
+    left: $tooltip-bottom-after-left;
+    transform: $tooltip-bottom-after-transform;
+  }
+}
+
+.l-tooltip-top {
+  &::after {
+    top: $tooltip-top-after-top;
+    left: $tooltip-top-after-left;
+    transform: $tooltip-top-after-transform;
+  }
+}
+
+.l-tooltip-left {
+  &::after {
+    top: $tooltip-left-after-top;
+    left: $tooltip-left-after-left;
+    transform: $tooltip-left-after-transform;
+  }
+}
+
+.l-tooltip-right {
+  &::after {
+    top: $tooltip-right-after-top;
+    right: $tooltip-right-after-right;
+    transform: $tooltip-right-after-transform;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
