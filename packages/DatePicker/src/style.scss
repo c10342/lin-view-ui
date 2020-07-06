@@ -1,0 +1,136 @@
+@import "packages/assets/styles/variables/date-picker.scss";
+
+.l-date-picker {
+  display: inline-block;
+  color: $date-picker-color;
+}
+.l-date-picker-input-box {
+  position: relative;
+}
+.l-date-picker-icon {
+  position: absolute;
+  top: $date-picker-icon-top;
+  transform: $date-picker-icon-transform;
+  left: $date-picker-icon-left;
+  font-size: $date-picker-icon-font-size;
+}
+.l-date-picker-input {
+  background-color: $date-picker-input-background-color;
+  background-image: $date-picker-input-background-image;
+  border-radius: $date-picker-input-border-radius;
+  border: $date-picker-input-border;
+  box-sizing: border-box;
+  color: $date-picker-input-color;
+  display: inline-block;
+  font-size: inherit;
+  height: $date-picker-input-height;
+  line-height: $date-picker-input-line-height;
+  outline: none;
+  padding: $date-picker-input-padding;
+  transition: $date-picker-input-transition;
+  width: $date-picker-input-width;
+  cursor: pointer;
+  &:hover {
+    border-color: $date-picker-input-hover-border-color;
+  }
+}
+.l-date-picker-pannel {
+  position: absolute;
+  background-color: $date-picker-pannel-background-color;
+  box-shadow: $date-picker-pannel-box-shadow;
+  border-radius: $date-picker-pannel-border-radius;
+
+  box-sizing: border-box;
+  padding: $date-picker-pannel-padding;
+}
+.l-date-picker-pannel-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: $date-picker-pannel-header-height;
+  span {
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.l-date-picker-month {
+  margin-left: $date-picker-month-margin-left;
+}
+
+.l-date-picker-cell {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: $date-picker-cell-padding;
+  margin: $date-picker-cell-margin;
+  box-sizing: border-box;
+  position: relative;
+}
+.l-date-picker-pannel-cell {
+  border: $date-picker-pannel-cell-border;
+  cursor: pointer;
+  .l-date-picker-info {
+    font-size: $date-picker-info-font-size;
+  }
+  &:hover {
+    border: $date-picker-pannel-cell-hover-border;
+
+    border-radius: $date-picker-pannel-cell-hover-border-radius;
+  }
+}
+
+.l-date-picker-pannel-label-cell {
+  cursor: default;
+}
+
+// .l-date-picker-pannel-footer {
+//   height: 30px;
+//   text-align: center;
+// }
+
+.l-date-picker-not-current-month {
+  color: $date-picker-not-current-month-color;
+}
+
+.l-date-picker-disabled {
+  cursor: not-allowed;
+  background-color: $date-picker-disabled-background-color;
+  border-color: $date-picker-disabled-border-color;
+  color: $date-picker-disabled-color;
+}
+
+.l-date-picker-disabled-date {
+  cursor: not-allowed;
+  background-color: $date-picker-disabled-date-background-color;
+  border-color: $date-picker-disabled-date-border-color;
+  color: $date-picker-disabled-date-color;
+  &:hover {
+    border: $date-picker-disabled-date-hover-border;
+
+    border-radius: $date-picker-disabled-date-hover-border-radius;
+  }
+}
+.l-date-picker-current-val {
+  background-color: $date-picker-current-val-background-color;
+  color: $date-picker-current-val-color;
+  border-radius: $date-picker-current-val-border-radius;
+  &:hover {
+    border-color: $date-picker-current-val-hover-border-color;
+  }
+}
+.l-date-picker-radius {
+  border-radius: $date-picker-radius-border-radius;
+  &:hover {
+    border-radius: $date-picker-radius-hover-border-radius;
+  }
+}
+.fade-leave-active,
+.fade-enter-active {
+  transition: all 100ms;
+}
+.fade-leave-to,
+.fade-enter {
+  opacity: 0;
+}

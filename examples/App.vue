@@ -1,7 +1,6 @@
 <template>
   <div>
-    <test-icon />
-    <!-- <div v-tooltip="'你好'">你好</div> -->
+    <test-date-picker />
   </div>
 </template>
 

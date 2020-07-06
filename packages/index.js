@@ -16,6 +16,7 @@ import Checkbox from "./Checkbox";
 import CheckboxGroup from "./CheckboxGroup";
 import Form from "./Form";
 import FormItem from "./FormItem";
+import DatePicker from "./DatePicker";
 
 // 视频组件
 import VideoCard from "./VideoCard";
@@ -59,6 +60,7 @@ const install = (Vue) => {
     SelectorItem,
     SelectorGroup,
     ToolTip,
+    DatePicker,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -93,4 +95,5 @@ export default {
   SelectorItem,
   SelectorGroup,
   ToolTip,
+  DatePicker,
 };

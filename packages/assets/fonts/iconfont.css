@@ -59,11 +59,11 @@
   content: "\e615";
 }
 
-.l-icon-right:before {
+.l-icon-rightarrow:before {
   content: "\e62b";
 }
 
-.l-icon-left:before {
+.l-icon-leftarrow:before {
   content: "\e62c";
 }
 

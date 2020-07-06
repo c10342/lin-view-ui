@@ -29,9 +29,9 @@ export default {
         "l-icon-search",
         "l-icon-close",
         "l-icon-right",
-        "l-icon-left",
+        "l-icon-leftarrow",
         "l-icon-password",
-        "l-icon-right",
+        "l-icon-rightarrow",
         "l-icon-user",
         "l-icon-downarrow",
         "l-icon-uparrow"
