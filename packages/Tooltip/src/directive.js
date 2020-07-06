@@ -85,15 +85,6 @@ TooltipDirective.install = (Vue) => {
             styleTop = `${boxTop + (boxHeight / 2 - tipHeight / 2) + top}px`;
           }
 
-          console.log(
-            boxLeft,
-            boxTop,
-            tipWidth,
-            tipHeight,
-            boxWidth,
-            boxHeight
-          );
-
           instance.style = { left: styleLeft, top: styleTop };
         });
       };

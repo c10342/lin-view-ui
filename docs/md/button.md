@@ -41,12 +41,12 @@
       <l-button :round="true" type="danger">危险按钮</l-button>
     </div>
     <div class="row">
-      <l-button icon="l-icon-ice-cream-square" :circle="true" type="default"></l-button>
-      <l-button icon="l-icon-s-promotion" :circle="true" type="primary"></l-button>
-      <l-button icon="l-icon-bell" :circle="true" type="success"></l-button>
+      <l-button icon="l-icon-date" :circle="true" type="default"></l-button>
+      <l-button icon="l-icon-thumbsup" :circle="true" type="primary"></l-button>
+      <l-button icon="l-icon-chat" :circle="true" type="success"></l-button>
       <l-button icon="l-icon-upload" :circle="true" type="info"></l-button>
-      <l-button icon="l-icon-upload2" :circle="true" type="warning"></l-button>
-      <l-button icon="l-icon-search" :circle="true" type="danger"></l-button>
+      <l-button icon="l-icon-search" :circle="true" type="warning"></l-button>
+      <l-button icon="l-icon-delete" :circle="true" type="danger"></l-button>
     </div>
 </div>
 
@@ -79,15 +79,15 @@
 </div>
 <div>
   <l-button
-    icon="l-icon-ice-cream-square"
+    icon="l-icon-date"
     :circle="true"
     type="default"
   ></l-button>
-  <l-button icon="l-icon-s-promotion" :circle="true" type="primary"></l-button>
-  <l-button icon="l-icon-bell" :circle="true" type="success"></l-button>
+  <l-button icon="l-icon-thumbsup" :circle="true" type="primary"></l-button>
+  <l-button icon="l-icon-chat" :circle="true" type="success"></l-button>
   <l-button icon="l-icon-upload" :circle="true" type="info"></l-button>
-  <l-button icon="l-icon-upload2" :circle="true" type="warning"></l-button>
-  <l-button icon="l-icon-search" :circle="true" type="danger"></l-button>
+  <l-button icon="l-icon-search" :circle="true" type="warning"></l-button>
+  <l-button icon="l-icon-delete" :circle="true" type="danger"></l-button>
 </div>
 ```
 
@@ -125,23 +125,23 @@
 设置`icon`属性即可，icon 的列表可以参考 lin-vue-ui 的 icon 组件。
 
 <div class="demo-block row">
-  <l-button icon="l-icon-ice-cream-square" type="default"></l-button>
-  <l-button icon="l-icon-s-promotion" type="primary"></l-button>
-  <l-button icon="l-icon-bell" type="success"></l-button>
+  <l-button icon="l-icon-date" type="default"></l-button>
+  <l-button icon="l-icon-thumbsup" type="primary"></l-button>
+  <l-button icon="l-icon-chat" type="success"></l-button>
   <l-button icon="l-icon-upload" type="info">下载</l-button>
-  <l-button icon="l-icon-upload2" type="warning">上传</l-button>
-  <l-button icon="l-icon-search" type="danger">搜索</l-button>
+  <l-button icon="l-icon-search" type="warning">上传</l-button>
+  <l-button icon="l-icon-delete" type="danger">搜索</l-button>
 </div>
 
 ::: demo
 
 ```html
-<l-button icon="l-icon-ice-cream-square" type="default"></l-button>
-<l-button icon="l-icon-s-promotion" type="primary"></l-button>
-<l-button icon="l-icon-bell" type="success"></l-button>
+<l-button icon="l-icon-date" type="default"></l-button>
+<l-button icon="l-icon-thumbsup" type="primary"></l-button>
+<l-button icon="l-icon-chat" type="success"></l-button>
 <l-button icon="l-icon-upload" type="info">下载</l-button>
-<l-button icon="l-icon-upload2" type="warning">上传</l-button>
-<l-button icon="l-icon-search" type="danger">搜索</l-button>
+<l-button icon="l-icon-search" type="warning">上传</l-button>
+<l-button icon="l-icon-delete" type="danger">搜索</l-button>
 ```
 
 :::

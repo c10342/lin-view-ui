@@ -17,9 +17,9 @@
       @input="handleInput"
     />
     <span class="l-input-suffix" v-if="showSuffix && !$slots.default">
-      <i class="l-input-icon l-icon-circle-close" v-if="clearable && value" @click="clear"></i>
+      <i class="l-input-icon l-icon-close" v-if="clearable && value" @click="clear"></i>
       <i
-        class="l-input-icon l-icon-view"
+        class="l-input-icon l-icon-password"
         v-if="showPassword"
         @click="handlePassword"
         :class="{'l-icon-view-active':passwordVisible}"

@@ -181,7 +181,7 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 
 <div class='demo-block'>
     <l-input v-model="value6" placeholder="请输入">
-      <i class="l-icon-s-promotion"></i>
+      <i class="l-icon-user"></i>
     </l-input>
 </div>
 
@@ -189,7 +189,7 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 
 ```html
 <l-input v-model="value6" placeholder="请输入">
-  <i class="l-icon-s-promotion"></i>
+  <i class="l-icon-user"></i>
 </l-input>
 
 <script>

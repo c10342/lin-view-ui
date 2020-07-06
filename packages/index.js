@@ -1,4 +1,4 @@
-// import "packages/assets/fonts/font.scss";
+import "packages/assets/fonts/iconfont.css";
 // 基础组件
 import Button from "./Button";
 import Dialog from "./Dialog";

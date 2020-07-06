@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-tooltip />
+    <test-icon />
     <!-- <div v-tooltip="'你好'">你好</div> -->
   </div>
 </template>
