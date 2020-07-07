@@ -120,6 +120,7 @@
 | preview        | 开启图片预览功能                               | Boolean       | —      | false             |
 | transitionName | 图片预览显示动画，即 transition 组件 name 属性 | String        | —      | l-image-animation |
 | clickMask      | 点击遮罩层是否可以关闭图片预览                 | Boolean       | —      | true              |
+| errorMsg       | 图片加载失败提示语                             | String        | —      | 加载失败          |
 
 ## 插槽
 

@@ -20,6 +20,7 @@ import DatePicker from "./DatePicker";
 
 // 视频组件
 import VideoCard from "./VideoCard";
+import LiveComment from "./LiveComment";
 
 // 视图组件
 import ShowMore from "./ShowMore";
@@ -61,6 +62,7 @@ const install = (Vue) => {
     SelectorGroup,
     ToolTip,
     DatePicker,
+    LiveComment,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -96,4 +98,5 @@ export default {
   SelectorGroup,
   ToolTip,
   DatePicker,
+  LiveComment,
 };

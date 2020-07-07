@@ -11,7 +11,7 @@
       @load="onLoad"
     />
     <slot v-else>
-      <div class="l-image-error">加载失败</div>
+      <div class="l-image-error">{{errorMsg}}</div>
     </slot>
     <transition :name="transitionName">
       <div class="l-image-mask" v-if="showPreview" @click="onMaskClick">
@@ -53,6 +53,10 @@ export default {
     clickMask: {
       type: Boolean,
       default: true
+    },
+    errorMsg: {
+      type: String,
+      default: "加载失败"
     }
   },
   data() {
@@ -109,12 +113,25 @@ export default {
           e
         });
       }
+    },
+    getUrl() {
+      const url = this.imgUrl[this.index];
+      if (!url && this.imgUrl.length > this.index) {
+        this.index += 1;
+        return this.getUrl();
+      } else {
+        return url;
+      }
     }
   },
   computed: {
     url() {
       if (Array.isArray(this.imgUrl)) {
-        return this.imgUrl[this.index];
+        const url = this.getUrl();
+        if (!url) {
+          this.isError = true;
+        }
+        return url;
       } else {
         return this.imgUrl;
       }

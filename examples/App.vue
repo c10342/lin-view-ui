@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-date-picker />
+    <test-live-comment />
   </div>
 </template>
 
