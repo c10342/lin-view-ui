@@ -34,8 +34,10 @@
     border-color: $date-picker-input-hover-border-color;
   }
 }
-.l-date-picker-pannel {
+.l-date-picker-absolute {
   position: absolute;
+}
+.l-date-picker-pannel {
   background-color: $date-picker-pannel-background-color;
   box-shadow: $date-picker-pannel-box-shadow;
   border-radius: $date-picker-pannel-border-radius;

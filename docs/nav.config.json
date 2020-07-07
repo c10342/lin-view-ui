@@ -83,6 +83,11 @@
           "path": "/checkbox"
         },
         {
+          "desc": "DatePicker 日期选择器",
+          "name": "date-picker",
+          "path": "/date-picker"
+        },
+        {
           "desc": "Form 表单",
           "name": "form",
           "path": "/form"

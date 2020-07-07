@@ -51,7 +51,12 @@ export default {
 
         <transition name="fade">
           {(isVisible || showAlways) && (
-            <div class="l-date-picker-pannel">
+            <div
+              class={[
+                { "l-date-picker-absolute": !showAlways },
+                "l-date-picker-pannel",
+              ]}
+            >
               <div class="l-date-picker-pannel-header">
                 <span onClick={prevYear} class="l-icon-left"></span>
                 <span onClick={prevMonth} class="l-icon-leftarrow"></span>
@@ -132,7 +137,6 @@ export default {
                   })}
                 </div>
               </div>
-              {/* <div class="l-date-picker-pannel-footer"></div> */}
             </div>
           )}
         </transition>
@@ -184,7 +188,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "",
+      default: "请选择日期",
     },
     disabledBeforeDate: {
       type: [Date, String, Number],
@@ -273,6 +277,9 @@ export default {
   },
   methods: {
     isDisabledDate(date) {
+      if (this.disabled) {
+        return true;
+      }
       if (this.disabledBeforeDate) {
         const d = new Date(this.disabledBeforeDate);
         if (d >= date) {
