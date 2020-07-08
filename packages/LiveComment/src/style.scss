@@ -1,0 +1,186 @@
+@import "packages/assets/styles/variables/live-comment.scss";
+
+.l-live-comment {
+  width: $live-comment-width;
+  height: $live-comment-height;
+  background: $live-comment-background;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.l-live-comment-login-btn {
+  color: $live-comment-login-btn-color;
+  cursor: pointer;
+}
+.l-live-comment-title {
+  margin: $live-comment-title-margin;
+  width: $live-comment-title-width;
+  height: $live-comment-title-height;
+  background: $live-comment-title-background;
+
+  font-size: $live-comment-title-font-size;
+  font-weight: $live-comment-title-font-weight;
+  color: $live-comment-title-color;
+  line-height: $live-comment-title-line-height;
+  text-align: $live-comment-title-text-align;
+}
+
+.l-live-comment-content {
+  overflow: auto;
+  flex: 1;
+  height: 0;
+  background: $live-comment-content-background;
+  box-sizing: border-box;
+  padding: $live-comment-content-padding;
+  position: relative;
+  @include beautyScroll;
+}
+.l-live-comment-input {
+  height: $live-comment-input-height;
+  background: $live-comment-input-background;
+  box-sizing: border-box;
+  //   padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.l-live-comment-textarea {
+  resize: none;
+  width: $live-comment-textarea-width;
+  height: $live-comment-textarea-height;
+  background: $live-comment-textarea-background;
+  border: none;
+  appearance: none;
+  outline: none;
+  margin: $live-comment-textarea-margin;
+  box-sizing: border-box;
+  padding: $live-comment-textarea-padding;
+  color: $live-comment-textarea-color;
+
+  @include beautyScroll;
+}
+.l-live-comment-send-btn {
+  width: $live-comment-send-btn-width;
+  //   width: 22%;
+  height: $live-comment-send-btn-height;
+  background: $live-comment-send-btn-background;
+
+  font-size: $live-comment-send-btn-font-size;
+  font-weight: $live-comment-send-btn-font-weight;
+  color: $live-comment-send-btn-color;
+
+  line-height: $live-comment-send-btn-line-height;
+  text-align: $live-comment-send-btn-text-align;
+  cursor: pointer;
+}
+.l-live-comment-mask {
+  position: absolute;
+  width: $live-comment-mask-width;
+  height: $live-comment-mask-height;
+  box-sizing: border-box;
+  padding: $live-comment-mask-padding;
+  top: $live-comment-mask-top;
+  left: $live-comment-mask-left;
+}
+.l-live-comment-mask-default {
+  font-size: $live-comment-mask-default-font-size;
+  color: $live-comment-mask-default-color;
+}
+.l-live-comment-item {
+  display: flex;
+  flex-direction: row;
+  > .l-live-comment-user-avator {
+    width: $live-comment-user-avator-width;
+    height: $live-comment-user-avator-height;
+    border-radius: $live-comment-user-avator-border-radius;
+  }
+}
+
+.l-live-comment-info-box {
+  width: $live-comment-info-box-width;
+  box-sizing: border-box;
+  padding-left: $live-comment-info-box-padding-left;
+}
+
+.l-live-comment-user-name {
+  display: flex;
+  flex-direction: row;
+  line-height: $live-comment-user-name-line-height;
+  margin-bottom: $live-comment-user-name-margin-bottom;
+  > span:nth-child(1) {
+    max-width: $live-comment-user-name-span-1-max-width;
+    font-size: $live-comment-user-name-span-1-font-size;
+    font-weight: $live-comment-user-name-span-1-font-weight;
+    margin-right: $live-comment-user-name-span-1-margin-right;
+    color: $live-comment-user-name-span-1-color;
+    @include one-line;
+  }
+  > span:nth-child(2) {
+    font-size: $live-comment-user-name-span-2-font-size;
+    font-weight: $live-comment-user-name-span-2-font-weight;
+    color: $live-comment-user-name-span-2-color;
+    text-align: $live-comment-user-name-span-2-text-align;
+    flex: 1;
+    width: 0;
+  }
+}
+.l-live-comment-view-count {
+  text-align: $live-comment-view-count-text-align;
+  margin: $live-comment-view-count-margin;
+  font-size: $live-comment-view-count-font-size;
+  font-weight: $live-comment-view-count-font-weight;
+  color: $live-comment-view-count-color;
+  line-height: $live-comment-view-count-line-height;
+  box-sizing: border-box;
+  padding: $live-comment-view-count-padding;
+}
+.l-live-comment-info {
+  width: $live-comment-info-width;
+  box-sizing: border-box;
+  padding: $live-comment-info-padding;
+  // height:44px;
+  background: $live-comment-info-background;
+  border-radius: $live-comment-info-border-radius;
+
+  font-size: $live-comment-info-font-size;
+  font-weight: $live-comment-info-font-weight;
+  color: $live-comment-info-color;
+  line-height: $live-comment-info-line-height;
+
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.l-live-comment-fix {
+  position: absolute;
+  bottom: $live-comment-fix-bottom;
+  left: $live-comment-fix-left;
+  width: $live-comment-fix-width;
+  height: $live-comment-fix-height;
+  background: $live-comment-fix-background;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: $live-comment-fix-font-size;
+  font-weight: $live-comment-fix-font-weight;
+  color: $live-comment-fix-color;
+  box-sizing: border-box;
+  padding: $live-comment-fix-padding;
+  > span:nth-child(1) {
+    width: $live-comment-fix-span-1-width;
+    @include one-line;
+  }
+  > span:nth-child(2) {
+    width: $live-comment-fix-span-2-width;
+    @include one-line;
+  }
+  > span:nth-child(3) {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

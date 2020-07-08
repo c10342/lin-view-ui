@@ -1,9 +1,8 @@
 <template>
   <div>
     <l-live-comment
+      v-model="content"
       :fixComment="fixComment"
-      width="320px"
-      height="500px"
       :arrowComment="true"
       :commentList="commentList"
       @sendBtnClick="sendBtnClick"
@@ -22,44 +21,47 @@ export default {
   data() {
     return {
       commentList: [],
-      fixComment: null
+      fixComment: null,
+      content: ""
     };
   },
   mounted() {
     setTimeout(() => {
       this.commentList = [
         {
-          username: "张三",
-          createTimeTip: "11:34:52",
-          content: "哈哈"
+          _username: "张三",
+          _createTimeTip: "11:34:52",
+          _content: "哈哈"
         },
         {
-          username: "李四",
-          createTimeTip: "11:34:52",
-          content: "你好"
+          _username: "李四",
+          _createTimeTip: "11:34:52",
+          _content: "你好"
         },
         {
-          username: "李四",
-          createTimeTip: "11:34:52",
-          content: "你好"
+          _username: "李四",
+          _createTimeTip: "11:34:52",
+          _content: "你好"
         }
       ];
     }, 500);
   },
   methods: {
     sendBtnClick() {
+      if (!this.content) {
+        alert("评论内容不能为空");
+        return;
+      }
       const content = {
-        username: "李四",
-        createTimeTip: "11:34:52",
-        content: Math.random()
-          .toString(16)
-          .slice(-6)
+        _username: "李四",
+        _createTimeTip: "11:34:52",
+        _content: this.content
       };
       this.commentList.push(content);
       this.fixComment = content;
+      this.content = "";
     },
     toBottom() {
-      console.log("toBottom");
       this.fixComment = null;
     }
   }

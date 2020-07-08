@@ -138,6 +138,11 @@
           "desc": "VideoCard 卡片",
           "name": "video-card",
           "path": "/video-card"
+        },
+        {
+          "desc": "LiveComment 直播评论",
+          "name": "live-comment",
+          "path": "/live-comment"
         }
       ]
     },
