@@ -118,7 +118,7 @@
 ## 图标按钮
 
 带图标的按钮可增强辨识度（有文字）或节省空间（无文字）。
-设置`icon`属性即可，icon 的列表可以参考 l-ui 的 icon 组件。
+设置`icon`属性即可，icon 的列表可以参考 lin-view-ui 的 icon 组件。
 
 <div class="demo-block row">
   <l-button icon="l-icon-date" type="default"></l-button>

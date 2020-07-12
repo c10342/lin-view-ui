@@ -6,7 +6,7 @@
 
 > 在使用之前，推荐学习 `Vue` 和 `ES2015` ，并正确配置 `Node.js` v6.x 或以上版本
 
-`l-ui` 基于 `Vue.js` 2.x+ 版本开发，所以有必要了解以下基础知识：
+`lin-view-ui` 基于 `Vue.js` 2.x+ 版本开发，所以有必要了解以下基础知识：
 
 - [Vue 组件](https://cn.vuejs.org/v2/guide/components.html)
 - [单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html)
@@ -22,7 +22,7 @@
 
 > vue create mydemo
 
-> npm i l-ui --save
+> npm i lin-view-ui --save
 ```
 
 ## 标准开发
@@ -34,9 +34,9 @@
 可以在项目的入口文件中引入所有组件
 
 ```js
-import LinUi from "l-ui"; // 引入组件库
+import LinUi from "lin-view-ui"; // 引入组件库
 
-import "l-ui/lib/index/index.css"; // 引入样式库
+import "lin-view-ui/lib/index/index.css"; // 引入样式库
 
 Vue.use(LinUi);
 ```
@@ -58,7 +58,7 @@ plugins: [
     [
       "import",
       {
-        libraryName: "l-ui",
+        libraryName: "lin-view-ui",
         camel2DashComponentName: false, // 是否需要驼峰转短线
         camel2UnderlineComponentName: false, // 是否需要驼峰转下划线
         style: true,
@@ -72,7 +72,7 @@ plugins: [
 ```javascript
 import Vue from "vue";
 
-import { Button } from "l-ui";
+import { Button } from "lin-view-ui";
 
 import App from "./App.vue";
 
@@ -92,4 +92,4 @@ new Vue({
 
 ## 自定义主题
 
-`l-ui` 各个组件的样式变量都存放在 `l-ui/packages/assets/styles` 目录中。用户可根据实际需要，自定义组件的样式
+`lin-view-ui` 各个组件的样式变量都存放在 `lin-view-ui/packages/assets/styles` 目录中。用户可根据实际需要，自定义组件的样式

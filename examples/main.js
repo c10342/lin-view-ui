@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 
-import LinVueUi from "l-ui";
+import LinVueUi from "lin-view-ui";
 // import LinVueUi from "../lib/index/index";
 // import "../lib/index/style.css";
 

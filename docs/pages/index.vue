@@ -7,7 +7,7 @@
     <div class="separate-panel">
       <div class="about">
         <router-link :to="{ name: 'giud' }">开始使用</router-link>
-        <a target="_blank" class="btn-github" href="https://github.com/c10342/lin-vue-ui">GitHub</a>
+        <a target="_blank" class="btn-github" href="https://github.com/c10342/lin-view-ui">GitHub</a>
       </div>
     </div>
   </div>

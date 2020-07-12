@@ -30,7 +30,7 @@ export default {
     link: [
       {
         rel: "asstes",
-        href: "https://github.com/c10342/l-ui",
+        href: "https://github.com/c10342/lin-view-ui",
       },
     ],
   },
@@ -80,7 +80,7 @@ export default {
       }],
       link: [{                 // set link
         rel: 'asstes',
-        href: 'https://github.com/c10342/l-ui'
+        href: 'https://github.com/c10342/lin-view-ui'
       }]
     }
   }
