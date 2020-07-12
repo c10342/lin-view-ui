@@ -64,7 +64,7 @@ module.exports = {
     alias: {
       examples: utils.resolve("examples"),
       packages: utils.resolve("packages"),
-      "lin-vue-ui": utils.resolve("packages/index.js"),
+      "l-ui": utils.resolve("packages/index.js"),
     },
   },
   vueMarkdown,

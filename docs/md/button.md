@@ -78,11 +78,7 @@
   <l-button :round="true" type="danger">危险按钮</l-button>
 </div>
 <div>
-  <l-button
-    icon="l-icon-date"
-    :circle="true"
-    type="default"
-  ></l-button>
+  <l-button icon="l-icon-date" :circle="true" type="default"></l-button>
   <l-button icon="l-icon-thumbsup" :circle="true" type="primary"></l-button>
   <l-button icon="l-icon-chat" :circle="true" type="success"></l-button>
   <l-button icon="l-icon-upload" :circle="true" type="info"></l-button>
@@ -122,7 +118,7 @@
 ## 图标按钮
 
 带图标的按钮可增强辨识度（有文字）或节省空间（无文字）。
-设置`icon`属性即可，icon 的列表可以参考 lin-vue-ui 的 icon 组件。
+设置`icon`属性即可，icon 的列表可以参考 l-ui 的 icon 组件。
 
 <div class="demo-block row">
   <l-button icon="l-icon-date" type="default"></l-button>

@@ -13,7 +13,7 @@ module.exports = {
       // libraryTarget: "commonjs2",
       libraryTarget: "umd",
       libraryExport: "default",
-      library: "lin-vue-ui",
+      library: "l-ui",
     },
     resolve: baseConfig.resolve,
     module: {

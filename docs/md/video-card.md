@@ -35,7 +35,7 @@
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>lin-vue-ui</p>
+          <p>l-ui</p>
         </div>
       </template>
     </l-video-card>
@@ -49,7 +49,7 @@
     <div class="card-bottom">
       <p>春风得意</p>
       <p>这是一个卡片</p>
-      <p>lin-vue-ui</p>
+      <p>l-ui</p>
     </div>
   </template>
 </l-video-card>

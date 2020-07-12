@@ -189,7 +189,7 @@ v-loading="loading2"></div>
 Loading 还可以以服务的方式调用。引入 Loading 服务：
 
 ```javascript
-import { Loading } from "lin-vue-ui";
+import { Loading } from "l-ui";
 ```
 
 在需要调用时：
@@ -218,7 +218,7 @@ console.log(loadingInstance1 === loadingInstance2); // true
 
 此时调用它们中任意一个的 close 方法都能关闭这个全屏 Loading。
 
-如果完整引入了 lin-vue-ui，那么 Vue.prototype 上会有一个全局方法 $loading，它的调用方式为：this.$loading.open(options)，同样会返回一个 Loading 实例。
+如果完整引入了 l-ui，那么 Vue.prototype 上会有一个全局方法 $loading，它的调用方式为：this.$loading.open(options)，同样会返回一个 Loading 实例。
 
 ## 属性
 

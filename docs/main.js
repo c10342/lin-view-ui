@@ -7,7 +7,7 @@ import demoBlock from "./components/demo-block.vue";
 
 Vue.component("demo-block", demoBlock);
 
-import LinVueUi from "lin-vue-ui";
+import LinVueUi from "l-ui";
 
 Vue.use(LinVueUi);
 

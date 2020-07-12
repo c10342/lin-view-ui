@@ -1,4 +1,4 @@
-# lin-vue-ui
+# l-ui
 
 ## 在线文档
 
@@ -6,7 +6,7 @@
 
 ## 简介
 
-`lin-vue-ui` 是一款基于 `Vue.js 2.0` 的前端 UI 组件库，主要是从我平时工作中和其他一些项目中提炼出来的主题组件
+`l-ui` 是一款基于 `Vue.js 2.0` 的前端 UI 组件库，主要是从我平时工作中和其他一些项目中提炼出来的主题组件
 
 ## 特性
 
@@ -20,14 +20,14 @@
 ## 安装
 
 ```
-npm install lin-vue-ui -S
+npm install l-ui -S
 ```
 
 ## 快速开始
 
 ```javascript
 import Vue from "vue";
-import LinUI from "lin-vue-ui";
+import LinUI from "l-ui";
 
 Vue.use(LinUI);
 
@@ -36,7 +36,7 @@ import {
   Input,
   Button,
   // ...
-} from "lin-vue-ui";
+} from "l-ui";
 
 Vue.component(Input.name, Input);
 Vue.component(Button.name, Button);
@@ -49,7 +49,7 @@ Vue.component(Button.name, Button);
 
 ## 贡献
 
-如果你在使用 `lin-vue-ui` 时遇到问题，或者有好的建议，欢迎给我提 [Issue](https://github.com/c10342/lin-vue-ui/issues)
+如果你在使用 `l-ui` 时遇到问题，或者有好的建议，欢迎给我提 [Issue](https://github.com/c10342/l-ui/issues)
 
 ## LICENSE
 
