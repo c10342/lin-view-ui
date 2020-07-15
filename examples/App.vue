@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-live-comment />
+    <test-input-number />
   </div>
 </template>
 

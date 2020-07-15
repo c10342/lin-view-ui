@@ -88,6 +88,11 @@
           "path": "/date-picker"
         },
         {
+          "desc": "InputNumber 计数器",
+          "name": "input-number",
+          "path": "/input-number"
+        },
+        {
           "desc": "Form 表单",
           "name": "form",
           "path": "/form"
