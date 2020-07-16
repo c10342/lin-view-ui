@@ -22,3 +22,4 @@
 - 2020/07/07 新增 DatePicker 组件
 - 2020/07/08 新增 LiveComment 组件
 - 2020/07/15 新增 InputNumber 组件
+- 2020/07/16 新增 Tag 组件

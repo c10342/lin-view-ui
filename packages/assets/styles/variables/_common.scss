@@ -3,3 +3,11 @@ $success: #67c23a !default;
 $info: #909399 !default;
 $warning: #e6a23c !default;
 $danger: #f56c6c !default;
+
+$theme-color: (
+  "primary": $primary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+);

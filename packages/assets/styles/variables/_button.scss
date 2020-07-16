@@ -12,14 +12,6 @@
 // $button-warning: $warning !default;
 // $button-danger: $danger !default;
 
-$button-theme-color: (
-  "primary": $primary,
-  "success": $success,
-  "info": $info,
-  "warning": $warning,
-  "danger": $danger,
-);
-
 $button-line-height: 1 !default;
 
 $button-background-color: #fff !default;
@@ -66,7 +58,7 @@ $button-default-plain-active-color: #409eff !default;
 
 $button-primary-plain-background: #ecf5ff !default;
 $button-primary-plain-border-color: #b3d8ff !default;
-$button-primary-plain-color: #a2a8ad !default;
+$button-primary-plain-color: #409eff !default;
 $button-primary-plain-active-background: #409eff !default;
 $button-primary-plain-active-border-color: #409eff !default;
 $button-primary-plain-active-color: #fff !default;

@@ -30,6 +30,7 @@ import ScrollView from "./ScrollView";
 import Image from "./Image";
 import Progress from "./Progress";
 import MetaInfo from "./MetaInfo";
+import Tag from "./Tag";
 
 // 交互组件
 import LoadingBar from "./LoadingBar";
@@ -65,6 +66,7 @@ const install = (Vue) => {
     DatePicker,
     LiveComment,
     InputNumber,
+    Tag,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -102,4 +104,5 @@ export default {
   DatePicker,
   LiveComment,
   InputNumber,
+  Tag,
 };

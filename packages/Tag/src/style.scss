@@ -1,0 +1,117 @@
+@import "packages/assets/styles/variables/tag.scss";
+@import "packages/assets/styles/mixin/tag.scss";
+
+.l-tag {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  height: $tag-height;
+  padding: $tag-padding;
+  line-height: $tag-line-height;
+  font-size: $tag-font-size;
+
+  border: $tag-border;
+  border-radius: $tag-border-radius;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.l-tag-close {
+  cursor: pointer;
+  margin-left: $tag-close-margin-left;
+  width: $tag-close-width;
+  height: $tag-close-height;
+  line-height: $tag-close-line-height;
+  text-align: center;
+  border-radius: $tag-close-border-radius;
+  box-sizing: border-box;
+  font-size: $tag-close-font-size;
+  &:hover {
+    color: $tag-close-hover-color;
+  }
+}
+
+.l-tag-light {
+  &.l-tag-primary {
+    @include tag-type(lighten($primary, 34%), $primary, lighten($primary, 10%));
+    .l-tag-close {
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
+
+  &.l-tag-success {
+    @include tag-type(lighten($success, 45%), $success, lighten($success, 10%));
+    .l-tag-close {
+      &:hover {
+        background-color: $success;
+      }
+    }
+  }
+
+  &.l-tag-info {
+    @include tag-type(lighten($info, 37%), $info, lighten($info, 10%));
+    .l-tag-close {
+      &:hover {
+        background-color: $info;
+      }
+    }
+  }
+
+  &.l-tag-warning {
+    @include tag-type(lighten($warning, 37%), $warning, lighten($warning, 10%));
+    .l-tag-close {
+      &:hover {
+        background-color: $warning;
+      }
+    }
+  }
+
+  &.l-tag-danger {
+    @include tag-type(lighten($danger, 28%), $danger, lighten($danger, 10%));
+    .l-tag-close {
+      &:hover {
+        background-color: $danger;
+      }
+    }
+  }
+}
+
+.l-tag-dark {
+  @each $key, $val in $theme-color {
+    &.l-tag-#{$key} {
+      @include tag-type($val, $tag-dark-color, $val);
+      .l-tag-close {
+        &:hover {
+          background-color: lighten($val, 20%);
+        }
+      }
+    }
+  }
+}
+
+.l-tag-plain {
+  @each $key, $val in $theme-color {
+    &.l-tag-#{$key} {
+      @include tag-type($tag-plain-background-color, $val, $val);
+      .l-tag-close {
+        &:hover {
+          background-color: $val;
+        }
+      }
+    }
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 300ms;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

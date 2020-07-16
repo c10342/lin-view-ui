@@ -48,7 +48,7 @@
     padding: $button-small-circle-padding;
   }
 }
-@each $key, $val in $button-theme-color {
+@each $key, $val in $theme-color {
   .l-button-#{$key} {
     color: $button-theme-color-color;
     background-color: $val;

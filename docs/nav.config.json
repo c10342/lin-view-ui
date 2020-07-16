@@ -132,6 +132,11 @@
           "desc": "MetaInfo 三要素",
           "name": "meta-info",
           "path": "/meta-info"
+        },
+        {
+          "desc": "Tag 标签",
+          "name": "tag",
+          "path": "/tag"
         }
       ]
     },

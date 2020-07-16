@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-input-number />
+    <test-tag />
   </div>
 </template>
 
