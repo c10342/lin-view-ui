@@ -1,0 +1,87 @@
+@import "packages/assets/styles/variables/alert.scss";
+@import "packages/assets/styles/mixin/alert.scss";
+
+.l-alert {
+  padding: $alert-padding;
+  box-sizing: border-box;
+  border-radius: $alert-border-radius;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.l-alert-icon {
+}
+.l-alert-content {
+  display: flex;
+  flex-direction: column;
+  padding: $alert-content-padding;
+}
+.l-alert-title {
+  font-weight: $alert-title-font-weight;
+  font-size: $alert-title-font-size;
+  &:only-child {
+    font-weight: normal;
+  }
+}
+.l-alert-description {
+  font-size: $alert-description-font-size;
+  margin-top: $alert-description-margin-top;
+}
+.l-alert-close {
+  position: absolute;
+  top: $alert-close-top;
+  right: $alert-close-right;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.l-alert-center {
+  justify-content: center;
+}
+
+.l-alert-light {
+  .l-alert-close {
+    color: $alert-light-color;
+  }
+
+  &.l-alert-success {
+    @include alert-type(
+      lighten($success, $alert-light-success-lighten),
+      $success
+    );
+  }
+  &.l-alert-warning {
+    @include alert-type(
+      lighten($warning, $alert-light-warning-lighten),
+      $warning
+    );
+  }
+  &.l-alert-info {
+    @include alert-type(lighten($info, $alert-light-info-lighten), $info);
+  }
+  &.l-alert-danger {
+    @include alert-type(lighten($danger, $alert-light-danger-lighten), $danger);
+  }
+}
+
+.l-alert-dark {
+  @each $key, $val in $theme-color {
+    &.l-alert-#{$key} {
+      @include alert-type($val, $alert-dark-color);
+    }
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: $alert-transition;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: $alert-opacity;
+}

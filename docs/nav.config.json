@@ -137,6 +137,11 @@
           "desc": "Tag 标签",
           "name": "tag",
           "path": "/tag"
+        },
+        {
+          "desc": "Alert 警告",
+          "name": "alert",
+          "path": "/alert"
         }
       ]
     },

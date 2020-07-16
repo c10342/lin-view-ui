@@ -1,0 +1,4 @@
+@mixin alert-type($background-color, $color) {
+  background-color: $background-color;
+  color: $color;
+}

@@ -31,6 +31,7 @@ import Image from "./Image";
 import Progress from "./Progress";
 import MetaInfo from "./MetaInfo";
 import Tag from "./Tag";
+import Alert from "./Alert";
 
 // 交互组件
 import LoadingBar from "./LoadingBar";
@@ -67,6 +68,7 @@ const install = (Vue) => {
     LiveComment,
     InputNumber,
     Tag,
+    Alert,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -105,4 +107,5 @@ export default {
   LiveComment,
   InputNumber,
   Tag,
+  Alert,
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-tag />
+    <test-alert />
   </div>
 </template>
 

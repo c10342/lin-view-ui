@@ -35,7 +35,11 @@
 
 .l-tag-light {
   &.l-tag-primary {
-    @include tag-type(lighten($primary, 34%), $primary, lighten($primary, 10%));
+    @include tag-type(
+      lighten($primary, $tag-light-primary-background-color-lighten),
+      $primary,
+      lighten($primary, $tag-light-primary-border-color-lighten)
+    );
     .l-tag-close {
       &:hover {
         background-color: $primary;
@@ -44,7 +48,11 @@
   }
 
   &.l-tag-success {
-    @include tag-type(lighten($success, 45%), $success, lighten($success, 10%));
+    @include tag-type(
+      lighten($success, $tag-light-success-background-color-lighten),
+      $success,
+      lighten($success, $tag-light-success-border-color-lighten)
+    );
     .l-tag-close {
       &:hover {
         background-color: $success;
@@ -53,7 +61,11 @@
   }
 
   &.l-tag-info {
-    @include tag-type(lighten($info, 37%), $info, lighten($info, 10%));
+    @include tag-type(
+      lighten($info, $tag-light-info-background-color-lighten),
+      $info,
+      lighten($info, $tag-light-info-border-color-lighten)
+    );
     .l-tag-close {
       &:hover {
         background-color: $info;
@@ -62,7 +74,11 @@
   }
 
   &.l-tag-warning {
-    @include tag-type(lighten($warning, 37%), $warning, lighten($warning, 10%));
+    @include tag-type(
+      lighten($warning, $tag-light-warning-background-color-lighten),
+      $warning,
+      lighten($warning, $tag-light-warning-border-color-lighten)
+    );
     .l-tag-close {
       &:hover {
         background-color: $warning;
@@ -71,7 +87,11 @@
   }
 
   &.l-tag-danger {
-    @include tag-type(lighten($danger, 28%), $danger, lighten($danger, 10%));
+    @include tag-type(
+      lighten($danger, $tag-light-danger-background-color-lighten),
+      $danger,
+      lighten($danger, $tag-light-danger-border-color-lighten)
+    );
     .l-tag-close {
       &:hover {
         background-color: $danger;
@@ -86,7 +106,7 @@
       @include tag-type($val, $tag-dark-color, $val);
       .l-tag-close {
         &:hover {
-          background-color: lighten($val, 20%);
+          background-color: lighten($val, $tag-dark-close-hover-lighten);
         }
       }
     }
@@ -108,10 +128,10 @@
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 300ms;
+  transition: $tag-transition;
 }
 
 .fade-enter,
 .fade-leave-to {
-  opacity: 0;
+  opacity: $tag-opacity;
 }
