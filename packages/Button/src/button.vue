@@ -8,7 +8,7 @@
       { 'l-button-round': round },
       { 'l-button-circle': circle },
       { 'l-button-disabled': disabled },
-      `l-button-${size}`
+      `l-button-size-${size}`
     ]"
     :disabled="disabled"
   >

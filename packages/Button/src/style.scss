@@ -29,20 +29,20 @@
   }
 }
 
-.l-button-default {
+.l-button-size-default {
   padding: $button-default-padding-x $button-default-padding-y;
   &.l-button-circle {
     padding: $button-default-circle-padding;
   }
 }
 
-.l-button-medium {
+.l-button-size-medium {
   padding: $button-medium-padding-x $button-medium-padding-y;
   &.l-button-circle {
     padding: $button-medium-circle-padding;
   }
 }
-.l-button-small {
+.l-button-size-small {
   padding: $button-small-padding-x $button-small-padding-y;
   &.l-button-circle {
     padding: $button-small-circle-padding;
