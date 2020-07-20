@@ -54,6 +54,7 @@ describe("属性", () => {
     const wrapper = createButton({ propsData: { icon: "l-icon-date" } });
     const icon = wrapper.find(".l-icon-date");
     expect(icon.classes()).toContain("l-icon-date");
+    expect(icon.exists()).toBeTruthy();
   });
 
   it("size", () => {
