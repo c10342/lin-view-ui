@@ -26,6 +26,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit --watch",
+    "test": "vue-cli-service test:unit",
     "build-docs": "cross-env NODE_ENV=docs vue-cli-service build",
     "dev-docs": "cross-env NODE_ENV=docs vue-cli-service serve",
     "upload-docs": "npm run build-docs && node ./build/qiniu.js",

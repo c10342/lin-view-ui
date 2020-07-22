@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "stable"
 script:
-  - npm run test:unit
+  - npm run test
   - npm run upload-docs
 cache:
   directories:
