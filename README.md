@@ -1,5 +1,5 @@
 
-<div align='center' ><h1 size='70'><font size='70'>lin-view-ui</font></h1></div>
+<div align='center' ><h1 style='font-weight: 700'>lin-view-ui</h1></div>
 
 <p align="center">
   <a href="https://travis-ci.org/c10342/lin-view-ui">
