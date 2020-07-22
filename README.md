@@ -1,4 +1,11 @@
-# lin-view-ui
+
+<div align='center' ><h1 size='70'><font size='70'>lin-view-ui</font></h1></div>
+
+<p align="center">
+  <a href="https://travis-ci.org/c10342/lin-view-ui">
+    <img src="https://travis-ci.com/c10342/lin-view-ui.svg?branch=master">
+  </a>
+</p>
 
 ## 在线文档
 
