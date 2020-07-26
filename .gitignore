@@ -3,6 +3,7 @@ node_modules
 /dist
 /docs-dist
 /lib
+/build/userInfo.js
 
 # local env files
 .env.local
