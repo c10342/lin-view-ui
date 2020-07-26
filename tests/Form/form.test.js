@@ -17,3 +17,20 @@ describe("属性", () => {
     expect(wrapper.vm.model).toEqual(model);
   });
 });
+
+describe("插槽", () => {
+  it("default", () => {
+    const html = "<span>你好</span>";
+    const wrapper = creatForm({
+      propsData: {
+        model: {},
+      },
+      slots: {
+        default: html,
+      },
+    });
+
+    const formHtml = wrapper.find(".l-form");
+    expect(formHtml.text()).toBe("你好");
+  });
+});
