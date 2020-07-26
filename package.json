@@ -37,6 +37,7 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "vue": "^2.6.11",
     "core-js": "^3.6.5",
     "vue-router": "^3.2.0",
     "@vue/cli-plugin-babel": "~4.4.0",
