@@ -134,3 +134,4 @@
 | -------- | -------------------------------------------- | ---------------------------------- |
 | error    | 图片加载失败时触发                           | {url:String,index?:Number,e:Event} |
 | AllError | 当 imgUrl 为数组时并且所有图片加载失败时触发 | {url:Array\<String\>,e:Event}      |
+| success  | 图片加载成功时触发                           | {url:String,index?:Number,e:Event} |
