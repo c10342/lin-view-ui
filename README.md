@@ -5,6 +5,22 @@
   <a href="https://travis-ci.org/c10342/lin-view-ui">
     <img src="https://travis-ci.com/c10342/lin-view-ui.svg?branch=master">
   </a>
+    <a href="https://www.npmjs.org/package/lin-view-ui">
+    <img src="https://img.shields.io/npm/v/lin-view-ui.svg">
+  </a>
+    <a href="https://npmcharts.com/compare/lin-view-ui?minimal=true">
+    <img src="http://img.shields.io/npm/dm/lin-view-ui.svg">
+  </a>
+  <br>
+  <a href="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/index/index.js?compression=gzip&label=gzip%20size:%20JS">
+    <img src="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/index/index.js?compression=gzip&label=gzip%20size:%20JS">
+  </a>
+  <a href="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/index/style.css?compression=gzip&label=gzip%20size:%20CSS">
+    <img src="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/index/style.css?compression=gzip&label=gzip%20size:%20CSS">
+  </a>
+    <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+  </a>
 </p>
 
 ## 在线文档
