@@ -3,7 +3,8 @@ node_js:
   - "stable"
 script:
   - npm run test
-  - npm run upload-docs
+after_success:
+  - npm run build
 cache:
   directories:
     - node_modules
