@@ -1,5 +1,5 @@
 const { resolve } = require("./utils");
-const baseConfig = require("./config.base");
+const baseConfig = require("./webpack.base");
 
 module.exports = {
   pages: {

@@ -1,5 +1,5 @@
 const { resolve, getComponentEntries } = require("./utils");
-const baseConfig = require("./config.base");
+const baseConfig = require("./webpack.base");
 
 module.exports = {
   productionSourceMap: false,
