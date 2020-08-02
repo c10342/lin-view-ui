@@ -2,11 +2,9 @@ import Vue from "vue";
 
 import Loading from "./loading.vue";
 
-import { getScroll } from "../../assets/js/utils.js";
+import { getScroll } from "packages/assets/js/utils.js";
 
 function handleOnScroll(target, targetDom, scrollDom) {
-  // console.log(getScroll().top);
-
   if (document.body === target) {
     targetDom.style.marginTop = `${getScroll().top}px`;
   } else {
