@@ -36,13 +36,15 @@ module.exports = {
     },
   },
   chainWebpack: (config) => {
-    config.optimization.delete("splitChunks");
-    config.plugins.delete("copy");
-    config.plugins.delete("preload");
-    config.plugins.delete("prefetch");
-    config.plugins.delete("html");
-    config.plugins.delete("hmr");
-    config.entryPoints.delete("app");
+    // config.optimization.delete("splitChunks");
+    // config.plugins.delete("copy");
+    // config.plugins.delete("preload");
+    // config.plugins.delete("prefetch");
+    // config.plugins.delete("html");
+    // config.plugins.delete("hmr");
+    // config.entryPoints.delete("app");
+
+    baseConfig.handleBuild(config);
 
     config.module
       .rule("fonts")
@@ -52,15 +54,16 @@ module.exports = {
         return option;
       });
 
-    config.module
-      .rule("js")
-      .include.add(resolve("packages"))
-      .end()
-      .use("babel")
-      .loader("babel-loader")
-      .tap((options) => {
-        return options;
-      });
+    // config.module
+    //   .rule("js")
+    //   .include.add(resolve("packages"))
+    //   .end()
+    //   .use("babel")
+    //   .loader("babel-loader")
+    //   .tap((options) => {
+    //     return options;
+    //   });
+    baseConfig.handleJs(config);
   },
 };
 
