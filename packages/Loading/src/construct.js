@@ -2,7 +2,7 @@ import Vue from "vue";
 
 import Loading from "./loading.vue";
 
-import { getScroll } from "packages/assets/js/utils.js";
+import getScroll from "packages/assets/utils/getScroll.js";
 
 function handleOnScroll(target, targetDom, scrollDom) {
   if (document.body === target) {

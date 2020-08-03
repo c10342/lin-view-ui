@@ -1,18 +1,3 @@
-export function getScroll() {
-  return {
-    left:
-      window.pageXOffset ||
-      document.documentElement.scrollLeft ||
-      document.body.scrollLeft ||
-      0,
-    top:
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0,
-  };
-}
-
 export const getYearMonthDay = (date) => {
   if (!date) {
     return "";
@@ -33,5 +18,4 @@ export const getDate = (year, month, day) => {
 export default {
   getYearMonthDay,
   getDate,
-  getScroll,
 };
