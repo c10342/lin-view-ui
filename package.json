@@ -28,6 +28,7 @@
     "test:unit": "vue-cli-service test:unit --watch",
     "test": "vue-cli-service test:unit",
     "build-docs": "cross-env NODE_ENV=docs vue-cli-service build",
+    "build-utils": "cross-env NODE_ENV=utils vue-cli-service build",
     "dev-docs": "cross-env NODE_ENV=docs vue-cli-service serve",
     "upload-docs": "npm run build-docs && node ./build/qiniu.js",
     "prepublishOnly": "npm run build && npm run upload-docs"
@@ -37,24 +38,24 @@
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "vue": "^2.6.11",
-    "core-js": "^3.6.5",
-    "vue-router": "^3.2.0",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-router": "~4.4.0",
     "@vue/cli-plugin-unit-jest": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "@vue/test-utils": "^1.0.3",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11",
+    "babel-runtime": "^6.26.0",
     "cheerio": "^1.0.0-rc.3",
+    "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
     "highlight.js": "^10.0.3",
     "markdown-it-container": "^3.0.0",
     "ora": "^4.0.4",
     "qiniu": "^7.3.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue": "^2.6.11",
     "vue-markdown-loader": "^2.4.1",
-    "babel-runtime": "^6.26.0"
+    "vue-router": "^3.2.0",
+    "vue-template-compiler": "^2.6.11"
   }
 }
