@@ -1,199 +1,199 @@
 <template>
   <div>
     <div class="mb-30">
-      <l-row class="mb-10">
-        <l-col :span="24">
+      <lin-row class="mb-10">
+        <lin-col :span="24">
           <div class="grid-content bg-purple-dark"></div>
-        </l-col>
-      </l-row>
-      <l-row class="mb-10">
-        <l-col :span="8">
+        </lin-col>
+      </lin-row>
+      <lin-row class="mb-10">
+        <lin-col :span="8">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="8">
+        </lin-col>
+        <lin-col :span="8">
           <div class="grid-content bg-purple-light"></div>
-        </l-col>
-        <l-col :span="8">
+        </lin-col>
+        <lin-col :span="8">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-      <l-row>
-        <l-col :span="4">
+        </lin-col>
+      </lin-row>
+      <lin-row>
+        <lin-col :span="4">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="4">
+        </lin-col>
+        <lin-col :span="4">
           <div class="grid-content bg-purple-light"></div>
-        </l-col>
-        <l-col :span="4">
+        </lin-col>
+        <lin-col :span="4">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="4">
+        </lin-col>
+        <lin-col :span="4">
           <div class="grid-content bg-purple-light"></div>
-        </l-col>
-        <l-col :span="4">
+        </lin-col>
+        <lin-col :span="4">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="4">
+        </lin-col>
+        <lin-col :span="4">
           <div class="grid-content bg-purple-light"></div>
-        </l-col>
-      </l-row>
+        </lin-col>
+      </lin-row>
     </div>
     <div class="mb-30">
-      <l-row :gutter="20">
-        <l-col :span="6">
+      <lin-row :gutter="20">
+        <lin-col :span="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6">
+        </lin-col>
+        <lin-col :span="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6">
+        </lin-col>
+        <lin-col :span="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6">
+        </lin-col>
+        <lin-col :span="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
+        </lin-col>
+      </lin-row>
     </div>
     <div class="mb-30">
-      <l-row :gutter="20" class="mb-10">
-        <l-col :span="16">
+      <lin-row :gutter="20" class="mb-10">
+        <lin-col :span="16">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="8">
+        </lin-col>
+        <lin-col :span="8">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-      <l-row :gutter="20" class="mb-10">
-        <l-col :span="8">
+        </lin-col>
+      </lin-row>
+      <lin-row :gutter="20" class="mb-10">
+        <lin-col :span="8">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="8">
+        </lin-col>
+        <lin-col :span="8">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="4">
+        </lin-col>
+        <lin-col :span="4">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="4">
+        </lin-col>
+        <lin-col :span="4">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-      <l-row :gutter="20" class="mb-10">
-        <l-col :span="4">
+        </lin-col>
+      </lin-row>
+      <lin-row :gutter="20" class="mb-10">
+        <lin-col :span="4">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="16">
+        </lin-col>
+        <lin-col :span="16">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="4">
+        </lin-col>
+        <lin-col :span="4">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-    </div>
-
-    <div class="mb-30">
-      <l-row :gutter="20" class="mb-10">
-        <l-col :span="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6" :offset="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-      <l-row :gutter="20" class="mb-10">
-        <l-col :span="6" :offset="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6" :offset="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-      <l-row :gutter="20" class="mb-10">
-        <l-col :span="12" :offset="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
+        </lin-col>
+      </lin-row>
     </div>
 
     <div class="mb-30">
-      <l-row type="flex" class="mb-10">
-        <l-col :span="6">
+      <lin-row :gutter="20" class="mb-10">
+        <lin-col :span="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6">
-          <div class="grid-content bg-purple-light"></div>
-        </l-col>
-        <l-col :span="6">
+        </lin-col>
+        <lin-col :span="6" :offset="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-      <l-row type="flex" class="mb-10" justify="center">
-        <l-col :span="6">
+        </lin-col>
+      </lin-row>
+      <lin-row :gutter="20" class="mb-10">
+        <lin-col :span="6" :offset="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6">
-          <div class="grid-content bg-purple-light"></div>
-        </l-col>
-        <l-col :span="6">
+        </lin-col>
+        <lin-col :span="6" :offset="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-      <l-row type="flex" class="mb-10" justify="end">
-        <l-col :span="6">
+        </lin-col>
+      </lin-row>
+      <lin-row :gutter="20" class="mb-10">
+        <lin-col :span="12" :offset="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6">
-          <div class="grid-content bg-purple-light"></div>
-        </l-col>
-        <l-col :span="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-      <l-row type="flex" class="mb-10" justify="between">
-        <l-col :span="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6">
-          <div class="grid-content bg-purple-light"></div>
-        </l-col>
-        <l-col :span="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
-      <l-row type="flex" class="mb-10" justify="around">
-        <l-col :span="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :span="6">
-          <div class="grid-content bg-purple-light"></div>
-        </l-col>
-        <l-col :span="6">
-          <div class="grid-content bg-purple"></div>
-        </l-col>
-      </l-row>
+        </lin-col>
+      </lin-row>
     </div>
 
     <div class="mb-30">
-      <l-row :gutter="10">
-        <l-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+      <lin-row type="flex" class="mb-10">
+        <lin-col :span="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+        </lin-col>
+        <lin-col :span="6">
           <div class="grid-content bg-purple-light"></div>
-        </l-col>
-        <l-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+        </lin-col>
+        <lin-col :span="6">
           <div class="grid-content bg-purple"></div>
-        </l-col>
-        <l-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+        </lin-col>
+      </lin-row>
+      <lin-row type="flex" class="mb-10" justify="center">
+        <lin-col :span="6">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+        <lin-col :span="6">
           <div class="grid-content bg-purple-light"></div>
-        </l-col>
-      </l-row>
+        </lin-col>
+        <lin-col :span="6">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+      </lin-row>
+      <lin-row type="flex" class="mb-10" justify="end">
+        <lin-col :span="6">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+        <lin-col :span="6">
+          <div class="grid-content bg-purple-light"></div>
+        </lin-col>
+        <lin-col :span="6">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+      </lin-row>
+      <lin-row type="flex" class="mb-10" justify="between">
+        <lin-col :span="6">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+        <lin-col :span="6">
+          <div class="grid-content bg-purple-light"></div>
+        </lin-col>
+        <lin-col :span="6">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+      </lin-row>
+      <lin-row type="flex" class="mb-10" justify="around">
+        <lin-col :span="6">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+        <lin-col :span="6">
+          <div class="grid-content bg-purple-light"></div>
+        </lin-col>
+        <lin-col :span="6">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+      </lin-row>
+    </div>
+
+    <div class="mb-30">
+      <lin-row :gutter="10">
+        <lin-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+        <lin-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+          <div class="grid-content bg-purple-light"></div>
+        </lin-col>
+        <lin-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+          <div class="grid-content bg-purple"></div>
+        </lin-col>
+        <lin-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+          <div class="grid-content bg-purple-light"></div>
+        </lin-col>
+      </lin-row>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "test-layout"
+  name: "test-layout",
 };
 </script>
 

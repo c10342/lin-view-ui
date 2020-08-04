@@ -1,10 +1,10 @@
 @import "packages/assets/styles/variables/input.scss";
-.l-input {
+.lin-input {
   width: 100%;
   position: relative;
   font-size: $input-font-size;
   display: inline-block;
-  .l-input-inner {
+  .lin-input-inner {
     -webkit-appearance: none;
     background-color: $input-inner-background-color;
     background-image: none;
@@ -25,7 +25,7 @@
       outline: none;
       border-color: $input-inner-focus-border-color;
     }
-    &.l-input-is-disabled {
+    &.lin-input-is-disabled {
       background-color: $input-inner-disabled-background-color;
       border-color: $input-inner-disabled-border-color;
       color: $input-inner-disabled-color;
@@ -34,12 +34,12 @@
   }
 }
 
-.l-input-suffix-content {
-  .l-input-inner {
+.lin-input-suffix-content {
+  .lin-input-inner {
     padding-right: $input-suffix-inner-padding-right;
   }
 }
-.l-input-suffix {
+.lin-input-suffix {
   position: absolute;
   height: 100%;
   right: $input-suffix-right;
@@ -49,13 +49,13 @@
   color: $input-suffix-color;
   transition: $input-suffix-transition;
   z-index: $input-suffix-z-index;
-  .l-input-icon {
+  .lin-input-icon {
     color: $input-suffix-icon-color;
     font-size: $input-suffix-icon-font-size;
     cursor: pointer;
     transition: $input-suffix-icon-transition;
   }
-  .l-icon-view-active {
+  .lin-icon-view-active {
     color: $input-suffix-icon-active-color;
   }
 }

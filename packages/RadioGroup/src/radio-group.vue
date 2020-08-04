@@ -1,27 +1,27 @@
 <template>
-  <div class="l-radio-group">
+  <div class="lin-radio-group">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "l-radio-group",
+  name: "LinRadioGroup",
   provide() {
     return {
-      RadioGroup: this
+      RadioGroup: this,
     };
   },
   props: {
-    // l-radio-group接收到了 value值
+    // lin-radio-group接收到了 value值
     // 将来还需要触发 当前组件的input事件
     // provide 与  inject  provider/consumer
     value: null,
     disabled: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 

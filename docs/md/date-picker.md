@@ -36,13 +36,13 @@ export default {
 `v-model` 绑定的值就是选中的日期
 
 <div class='demo-block'>
-<l-date-picker  v-model="now1" />
+<lin-date-picker  v-model="now1" />
 </div>
 
 :::demo
 
 ```html
-<l-date-picker v-model="now1" />
+<lin-date-picker v-model="now1" />
 
 <script>
   export default {
@@ -63,7 +63,7 @@ export default {
 `disabledRangeDate` 可禁用范围内的时间，它是一个数组，第一项为开始时间，第二项为结束时间，数组只有一项的时候，效果跟 `disabledAfterDate` 属性一样。`disabledDate` 禁用指定日期，它接收一个数组。
 
 <div class='demo-block'>
-    <l-date-picker 
+    <lin-date-picker 
     disabledBeforeDate="2020-7-2"
     disabledAfterDate="2020-7-30"
     :disabledRangeDate='disabledRangeDate'
@@ -74,7 +74,7 @@ export default {
 :::demo
 
 ```html
-<l-date-picker
+<lin-date-picker
   disabledBeforeDate="2020-7-2"
   disabledAfterDate="2020-7-30"
   :disabledRangeDate="disabledRangeDate"
@@ -102,13 +102,13 @@ export default {
 设置 `disabled` 属性为 `true` 即可禁用整个日期选择器
 
 <div class='demo-block'>
-<l-date-picker disabled />
+<lin-date-picker disabled />
 </div>
 
 :::demo
 
 ```html
-<l-date-picker disabled />
+<lin-date-picker disabled />
 ```
 
 :::
@@ -118,7 +118,7 @@ export default {
 当你需要自定义显示日期块的样式和结构时，你可以设置 `renderInfo` ，并返回一个 jsx
 
 <div class='demo-block'>
-<l-date-picker 
+<lin-date-picker 
 v-model="now3" 
 :cellWidth="40" 
 :cellHeight="40" 
@@ -128,7 +128,7 @@ v-model="now3"
 :::demo
 
 ```html
-<l-date-picker
+<lin-date-picker
   v-model="now3"
   :cellWidth="40"
   :cellHeight="40"
@@ -164,7 +164,7 @@ v-model="now3"
 当你需要日期选择一直显示并且隐藏输入框，你可以设置 `showAlways` 属性和 `showInput` 属性
 
 <div class='demo-block'>
-<l-date-picker 
+<lin-date-picker 
 v-model="now4" 
 showAlways 
 :showInput="false" />
@@ -173,7 +173,7 @@ showAlways
 :::demo
 
 ```html
-<l-date-picker v-model="now4" showAlways :showInput="false" />
+<lin-date-picker v-model="now4" showAlways :showInput="false" />
 
 <script>
   export default {

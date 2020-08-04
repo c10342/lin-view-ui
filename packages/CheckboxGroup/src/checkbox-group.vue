@@ -1,26 +1,26 @@
 <template>
-  <div class="l-checkbox-group">
+  <div class="lin-checkbox-group">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "l-checkbox-group",
+  name: "LinCheckboxGroup",
   props: {
     value: {
-      type: Array
+      type: Array,
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   provide() {
     return {
-      CheckboxGroup: this
+      CheckboxGroup: this,
     };
-  }
+  },
 };
 </script>
 

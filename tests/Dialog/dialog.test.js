@@ -10,7 +10,7 @@ describe("属性", () => {
   it("title", () => {
     const title = "title属性";
     const wrapper = createDialog({ propsData: { title } });
-    const titleDom = wrapper.find(".l-dialog-title");
+    const titleDom = wrapper.find(".lin-dialog-title");
     expect(titleDom.exists()).toBeTruthy();
     expect(titleDom.text()).toEqual(title);
   });
@@ -18,14 +18,14 @@ describe("属性", () => {
   it("width", () => {
     const width = "300px";
     const wrapper = createDialog({ propsData: { width } });
-    const container = wrapper.element.getElementsByClassName("l-dialog");
+    const container = wrapper.element.getElementsByClassName("lin-dialog");
     expect(container[0].style.width).toEqual(width);
   });
 
   it("top", () => {
     const top = "150px";
     const wrapper = createDialog({ propsData: { top } });
-    const container = wrapper.element.getElementsByClassName("l-dialog");
+    const container = wrapper.element.getElementsByClassName("lin-dialog");
     expect(container[0].style.marginTop).toEqual(top);
   });
 
@@ -33,13 +33,15 @@ describe("属性", () => {
     const wrapper = createDialog({
       propsData: { visible: true },
     });
-    expect(wrapper.findComponent({ name: "l-dialog" }).element).not.toBeNull();
+    expect(
+      wrapper.findComponent({ name: "lin-dialog" }).element
+    ).not.toBeNull();
   });
 
   it("beforeClose", () => {
     const beforeClose = jest.fn();
     const wrapper = createDialog({ propsData: { visible: true, beforeClose } });
-    const button = wrapper.find(".l-dialog-headerbtn");
+    const button = wrapper.find(".lin-dialog-headerbtn");
     button.trigger("click");
     expect(beforeClose).toBeCalled();
   });
@@ -47,7 +49,7 @@ describe("属性", () => {
   it("closeOnClickModa", () => {
     const beforeClose = jest.fn();
     const wrapper = createDialog({ propsData: { visible: true, beforeClose } });
-    const container = wrapper.find(".l-dialog-wrapper");
+    const container = wrapper.find(".lin-dialog-wrapper");
     container.trigger("click");
     expect(beforeClose).toBeCalled();
   });
@@ -61,7 +63,7 @@ describe("插槽", () => {
         default: defaultSolt,
       },
     });
-    const defaultContainer = wrapper.find(".l-dialog-body");
+    const defaultContainer = wrapper.find(".lin-dialog-body");
     expect(defaultContainer.get("span").exists()).toBeTruthy();
     expect(defaultContainer.exists()).toBeTruthy();
     expect(defaultContainer.html()).toContain(defaultSolt);
@@ -74,7 +76,7 @@ describe("插槽", () => {
         title: titleSolt,
       },
     });
-    const titleContainer = wrapper.find(".l-dialog-header");
+    const titleContainer = wrapper.find(".lin-dialog-header");
     expect(titleContainer.get("span").exists()).toBeTruthy();
     expect(titleContainer.exists()).toBeTruthy();
     expect(titleContainer.html()).toContain(titleSolt);
@@ -87,7 +89,7 @@ describe("插槽", () => {
         footer: footerSolt,
       },
     });
-    const footerContainer = wrapper.find(".l-dialog-footer");
+    const footerContainer = wrapper.find(".lin-dialog-footer");
     expect(footerContainer.get("span").exists()).toBeTruthy();
     expect(footerContainer.exists()).toBeTruthy();
     expect(footerContainer.html()).toContain(footerSolt);
@@ -97,7 +99,7 @@ describe("插槽", () => {
 describe("事件", () => {
   it("close", () => {
     const wrapper = createDialog({ propsData: { visible: true } });
-    const button = wrapper.find(".l-dialog-headerbtn");
+    const button = wrapper.find(".lin-dialog-headerbtn");
     button.trigger("click");
     expect(wrapper.emitted().close).toBeTruthy();
   });

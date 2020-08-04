@@ -1,17 +1,17 @@
 <template>
-  <div class="l-loading-bar">
+  <div class="lin-loading-bar">
     <div
       :style="{'transform': `translateX(-${100-totalProgress}%)`}"
-      class="l-loading-bar-progress"
-      :class="{'l-loading-bar-error':isError}"
+      class="lin-loading-bar-progress"
+      :class="{'lin-loading-bar-error':isError}"
     >
-      <div class="l-loading-bar-peg"></div>
+      <div class="lin-loading-bar-peg"></div>
     </div>
-    <div class="l-loading-bar-spinner" v-if="showSpinner">
+    <div class="lin-loading-bar-spinner" v-if="showSpinner">
       <div
         :style="{'animation-timing-function': easing}"
-        class="l-loading-bar-icon"
-        :class="{'l-loading-bar-icon-error':isError}"
+        class="lin-loading-bar-icon"
+        :class="{'lin-loading-bar-icon-error':isError}"
       ></div>
     </div>
   </div>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "l-loading-bar",
+  name: "LinLoadingBar",
   data() {
     return {
       easing: "linear",
@@ -27,8 +27,8 @@ export default {
       showSpinner: true,
       totalProgress: 0,
       percentNum: 0,
-      speed: 5
+      speed: 5,
     };
-  }
+  },
 };
 </script>

@@ -3,7 +3,7 @@
 <script>
 const oneHeight = 26;
 export default {
-  name: "l-selector-group",
+  name: "LinSelectorGroup",
   render(h) {
     const {
       renderMore,
@@ -14,12 +14,12 @@ export default {
       switchMore,
       label,
       status,
-      renderLabel
+      renderLabel,
     } = this;
 
     return (
       <div
-        class="l-selector-group"
+        class="lin-selector-group"
         ref="selector"
         style={{ width: `${width}px` }}
       >
@@ -27,24 +27,24 @@ export default {
           {renderLabel ? (
             renderLabel(h)
           ) : (
-            <span class="l-selector-label" style={{ width: labelWidth }}>
+            <span class="lin-selector-label" style={{ width: labelWidth }}>
               {label}
             </span>
           )}
         </label>
         <div
-          class="l-selector-list"
+          class="lin-selector-list"
           ref="selectorList"
           style={{ height: height }}
         >
           {$slots.default}
         </div>
         {this.isShowBtn ? (
-          <span class="l-selector-more-text" ref="more" onClick={switchMore}>
+          <span class="lin-selector-more-text" ref="more" onClick={switchMore}>
             {renderMore ? (
               renderMore(h, status)
             ) : (
-              <span class="l-selector-more-text-tip">更多</span>
+              <span class="lin-selector-more-text-tip">更多</span>
             )}
           </span>
         ) : null}
@@ -54,39 +54,39 @@ export default {
   props: {
     width: {
       type: String,
-      default: ""
+      default: "",
     },
     labelWidth: {
       type: String,
-      default: "40px"
+      default: "40px",
     },
     value: {
-      type: [String, Object, Number, Boolean]
+      type: [String, Object, Number, Boolean],
     },
     valueKey: {
       type: String,
-      default: ""
+      default: "",
     },
     renderMore: {
       type: Function,
-      default: null
+      default: null,
     },
     renderLabel: {
       type: Function,
-      default: null
+      default: null,
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   provide() {
     return {
-      group: this
+      group: this,
     };
   },
   data() {
@@ -94,7 +94,7 @@ export default {
       isShowBtn: false,
       height: "auto",
       //   1-收起，2-展开
-      status: 1
+      status: 1,
     };
   },
   mounted() {
@@ -147,7 +147,7 @@ export default {
     hide() {
       this.height = `${oneHeight}px`;
       this.status = 1;
-    }
+    },
   },
   computed: {
     outWidth() {
@@ -155,10 +155,10 @@ export default {
         return this.width;
       }
       return this.$refs.selector?.clientWidth || 0;
-    }
+    },
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
-  }
+  },
 };
 </script>

@@ -27,6 +27,6 @@ describe("插槽", () => {
         default: html,
       },
     });
-    expect(wrapper.find(".l-form").text()).toEqual("你好");
+    expect(wrapper.find(".lin-form").text()).toEqual("你好");
   });
 });

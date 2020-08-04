@@ -1,21 +1,21 @@
 <template>
   <!-- 对话框的遮罩 .self代表只有点击自己才触发 -->
-  <transition name="l-dialog-fade">
-    <div class="l-dialog-wrapper" v-show="visible" @click.self="onWrapperClick">
-      <div class="l-dialog" :style="{width, marginTop: top}">
-        <div class="l-dialog-header">
+  <transition name="lin-dialog-fade">
+    <div class="lin-dialog-wrapper" v-show="visible" @click.self="onWrapperClick">
+      <div class="lin-dialog" :style="{width, marginTop: top}">
+        <div class="lin-dialog-header">
           <slot name="title">
-            <span class="l-dialog-title">{{title}}</span>
+            <span class="lin-dialog-title">{{title}}</span>
           </slot>
-          <button class="l-dialog-headerbtn" @click="handleClose">
-            <i class="l-icon-close"></i>
+          <button class="lin-dialog-headerbtn" @click="handleClose">
+            <i class="lin-icon-close"></i>
           </button>
         </div>
-        <div class="l-dialog-body">
+        <div class="lin-dialog-body">
           <!-- 默认插槽 -->
           <slot></slot>
         </div>
-        <div class="l-dialog-footer" v-if="$slots.footer">
+        <div class="lin-dialog-footer" v-if="$slots.footer">
           <slot name="footer"></slot>
         </div>
       </div>
@@ -24,31 +24,31 @@
 </template>
 <script>
 export default {
-  name: "l-dialog",
+  name: "LinDialog",
   props: {
     title: {
       type: String,
-      default: "提示"
+      default: "提示",
     },
     width: {
       type: String,
-      default: "50%"
+      default: "50%",
     },
     top: {
       type: String,
-      default: "15vh"
+      default: "15vh",
     },
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     beforeClose: {
-      type: Function
+      type: Function,
     },
     closeOnClickModa: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   methods: {
     handleClose() {
@@ -66,7 +66,7 @@ export default {
       if (this.closeOnClickModa) {
         this.handleClose();
       }
-    }
-  }
+    },
+  },
 };
 </script>

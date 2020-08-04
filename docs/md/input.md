@@ -1,12 +1,12 @@
 <style lang="scss" scoped>
-    .l-input{
+    .lin-input{
         width:250px;
     }
 
     .input-group{
         display:flex;
         flex-direction: column;
-        .l-input+.l-input{
+        .lin-input+.lin-input{
             margin-top:20px;
         }
     }
@@ -44,13 +44,13 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 使用`v-model`绑定输入框的值
 
 <div class='demo-block'>
-<l-input v-model="value1" placeholder="请输入"></l-input>
+<lin-input v-model="value1" placeholder="请输入"></lin-input>
 </div>
 
 :::demo
 
 ```html
-<l-input v-model="value1" placeholder="请输入"></l-input>
+<lin-input v-model="value1" placeholder="请输入"></lin-input>
 
 <script>
   export default {
@@ -70,17 +70,17 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 目前支持绑定到 input 输入框的原生属性用 3 个，分别是`name`、`maxlength` 、`minlength`
 
 <div class='demo-block input-group'>
-<l-input v-model="value2" placeholder="name" name="userName"></l-input>
-<l-input v-model="value7" placeholder="maxlength" :maxlength="10"></l-input>
-<l-input v-model="value8" placeholder="minlength" :minlength="2"></l-input>
+<lin-input v-model="value2" placeholder="name" name="userName"></lin-input>
+<lin-input v-model="value7" placeholder="maxlength" :maxlength="10"></lin-input>
+<lin-input v-model="value8" placeholder="minlength" :minlength="2"></lin-input>
 </div>
 
 :::demo
 
 ```html
-<l-input v-model="value2" placeholder="name" name="userName"></l-input>
-<l-input v-model="value7" placeholder="maxlength" :maxlength="10"></l-input>
-<l-input v-model="value8" placeholder="minlength" :minlength="2"></l-input>
+<lin-input v-model="value2" placeholder="name" name="userName"></lin-input>
+<lin-input v-model="value7" placeholder="maxlength" :maxlength="10"></lin-input>
+<lin-input v-model="value8" placeholder="minlength" :minlength="2"></lin-input>
 
 <script>
   export default {
@@ -102,13 +102,13 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 使用 `disabled` 属性指定是否禁用 input 组件
 
 <div class='demo-block'>
-<l-input v-model="value3" placeholder="请输入" disabled></l-input>
+<lin-input v-model="value3" placeholder="请输入" disabled></lin-input>
 </div>
 
 :::demo
 
 ```html
-<l-input v-model="value3" placeholder="请输入" disabled></l-input>
+<lin-input v-model="value3" placeholder="请输入" disabled></lin-input>
 
 <script>
   export default {
@@ -128,13 +128,13 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 使用`clearable`属性即可得到一个可清空的输入框
 
 <div class='demo-block'>
-<l-input v-model="value4" placeholder="请输入" clearable></l-input>
+<lin-input v-model="value4" placeholder="请输入" clearable></lin-input>
 </div>
 
 :::demo
 
 ```html
-<l-input v-model="value4" placeholder="请输入" clearable></l-input>
+<lin-input v-model="value4" placeholder="请输入" clearable></lin-input>
 
 <script>
   export default {
@@ -154,13 +154,13 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 使用`showPassword`属性即可得到一个可切换显示隐藏的密码框
 
 <div class='demo-block'>
-<l-input v-model="value5" placeholder="请输入" show-password></l-input>
+<lin-input v-model="value5" placeholder="请输入" show-password></lin-input>
 </div>
 
 :::demo
 
 ```html
-<l-input v-model="value5" placeholder="请输入" show-password></l-input>
+<lin-input v-model="value5" placeholder="请输入" show-password></lin-input>
 
 <script>
   export default {
@@ -180,17 +180,17 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 通过 slot 来放置图标
 
 <div class='demo-block'>
-    <l-input v-model="value6" placeholder="请输入">
-      <i class="l-icon-user"></i>
-    </l-input>
+    <lin-input v-model="value6" placeholder="请输入">
+      <i class="lin-icon-user"></i>
+    </lin-input>
 </div>
 
 :::demo
 
 ```html
-<l-input v-model="value6" placeholder="请输入">
-  <i class="l-icon-user"></i>
-</l-input>
+<lin-input v-model="value6" placeholder="请输入">
+  <i class="lin-icon-user"></i>
+</lin-input>
 
 <script>
   export default {

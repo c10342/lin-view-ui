@@ -52,30 +52,30 @@ export default {
 
 ## 基础用法
 
-`v-model` 的值为当前被选中的 `l-selector-item` 的 value 属性值
+`v-model` 的值为当前被选中的 `lin-selector-item` 的 value 属性值
 
 <div class='demo-block'>
-  <l-selector-group
+  <lin-selector-group
     label="标签："
     v-model="value1"
   >
-    <l-selector-item 
+    <lin-selector-item 
     v-for='(item , index) in list1'
     :key='index'
     :value="item" >
     {{item}}
-    </l-selector-item>
-  </l-selector-group>
+    </lin-selector-item>
+  </lin-selector-group>
 </div>
 
 :::demo
 
 ```html
-<l-selector-group label="标签：" v-model="value1">
-  <l-selector-item v-for="(item , index) in list1" :key="index" :value="item">
+<lin-selector-group label="标签：" v-model="value1">
+  <lin-selector-item v-for="(item , index) in list1" :key="index" :value="item">
     {{item}}
-  </l-selector-item>
-</l-selector-group>
+  </lin-selector-item>
+</lin-selector-group>
 
 <script>
   export default {
@@ -108,30 +108,30 @@ export default {
 当绑定值为对象时，需要设置 `valueKey` 属性，作为 value 唯一标识的键名
 
 <div class='demo-block'>
-  <l-selector-group
+  <lin-selector-group
     label="学科："
     value-key="id"
     v-model="value2"
   >
-    <l-selector-item 
+    <lin-selector-item 
     v-for="item in list2" 
     :key="item.id" 
     :value="item" 
-    :label="item.name"></l-selector-item>
-  </l-selector-group>
+    :label="item.name"></lin-selector-item>
+  </lin-selector-group>
 </div>
 
 :::demo
 
 ```html
-<l-selector-group label="学科：" value-key="id" v-model="value2">
-  <l-selector-item
+<lin-selector-group label="学科：" value-key="id" v-model="value2">
+  <lin-selector-item
     v-for="item in list2"
     :key="item.id"
     :value="item"
     :label="item.name"
-  ></l-selector-item>
-</l-selector-group>
+  ></lin-selector-item>
+</lin-selector-group>
 
 <script>
   export default {
@@ -172,28 +172,28 @@ export default {
 当你需要自定义标签栏和更多的样式和结构时，你可以设置 `renderMore` 和 `renderLabel` 属性，并返回一个 jsx
 
 <div class='demo-block'>
-  <l-selector-group
+  <lin-selector-group
   :render-more="renderMore"
     :render-label="renderLabel"
     label="学科："
     value-key="id"
     v-model="value3"
   >
-    <l-selector-item 
+    <lin-selector-item 
      v-for="(item , index) in list3" :key="index" :value="item"
      :label='item'
-    ></l-selector-item>
-  </l-selector-group>
+    ></lin-selector-item>
+  </lin-selector-group>
 </div>
 
 :::demo
 
 ```html
-<l-selector-group label="学科：" v-model="value3">
-  <l-selector-item v-for="(item , index) in list3" :key="index" :value="item"
-    >{{item}}</l-selector-item
+<lin-selector-group label="学科：" v-model="value3">
+  <lin-selector-item v-for="(item , index) in list3" :key="index" :value="item"
+    >{{item}}</lin-selector-item
   >
-</l-selector-group>
+</lin-selector-group>
 
 <script>
   export default {
@@ -235,37 +235,37 @@ export default {
 
 ## 禁用状态
 
-为 `l-selector-group` 设置 `disabled` 属性，则整个选择器不可用
+为 `lin-selector-group` 设置 `disabled` 属性，则整个选择器不可用
 
 <div class='demo-block'>
-  <l-selector-group
+  <lin-selector-group
     label="学科："
     v-model="value4"
   >
-    <l-selector-item value="标签一" label="标签一" disabled>标签一</l-selector-item>
-    <l-selector-item value="标签二" label="标签二">标签二</l-selector-item>
-    <l-selector-item value="标签三" label="标签三">标签三</l-selector-item>
-    <l-selector-item value="标签四" label="标签四" disabled>标签四</l-selector-item>
-    <l-selector-item value="标签五" label="标签五">标签五</l-selector-item>
-    <l-selector-item value="标签六" label="标签六">标签六</l-selector-item>
-  </l-selector-group>
+    <lin-selector-item value="标签一" label="标签一" disabled>标签一</lin-selector-item>
+    <lin-selector-item value="标签二" label="标签二">标签二</lin-selector-item>
+    <lin-selector-item value="标签三" label="标签三">标签三</lin-selector-item>
+    <lin-selector-item value="标签四" label="标签四" disabled>标签四</lin-selector-item>
+    <lin-selector-item value="标签五" label="标签五">标签五</lin-selector-item>
+    <lin-selector-item value="标签六" label="标签六">标签六</lin-selector-item>
+  </lin-selector-group>
 </div>
 
 :::demo
 
 ```html
-<l-selector-group label="学科：" v-model="value4">
-  <l-selector-item value="标签一" label="标签一" disabled
-    >标签一</l-selector-item
+<lin-selector-group label="学科：" v-model="value4">
+  <lin-selector-item value="标签一" label="标签一" disabled
+    >标签一</lin-selector-item
   >
-  <l-selector-item value="标签二" label="标签二">标签二</l-selector-item>
-  <l-selector-item value="标签三" label="标签三">标签三</l-selector-item>
-  <l-selector-item value="标签四" label="标签四" disabled
-    >标签四</l-selector-item
+  <lin-selector-item value="标签二" label="标签二">标签二</lin-selector-item>
+  <lin-selector-item value="标签三" label="标签三">标签三</lin-selector-item>
+  <lin-selector-item value="标签四" label="标签四" disabled
+    >标签四</lin-selector-item
   >
-  <l-selector-item value="标签五" label="标签五">标签五</l-selector-item>
-  <l-selector-item value="标签六" label="标签六">标签六</l-selector-item>
-</l-selector-group>
+  <lin-selector-item value="标签五" label="标签五">标签五</lin-selector-item>
+  <lin-selector-item value="标签六" label="标签六">标签六</lin-selector-item>
+</lin-selector-group>
 
 <script>
   export default {

@@ -1,52 +1,52 @@
-.l-row::after,
-.l-row::before {
+.lin-row::after,
+.lin-row::before {
   display: table;
   content: "";
 }
 
-.l-row::after {
+.lin-row::after {
   clear: both;
 }
 
-.l-row-flex {
+.lin-row-flex {
   display: flex;
 }
 
-.l-row-justify-center {
+.lin-row-justify-center {
   justify-content: center;
 }
 
-.l-row-justify-start {
+.lin-row-justify-start {
   justify-content: flex-start;
 }
 
-.l-row-justify-end {
+.lin-row-justify-end {
   justify-content: flex-end;
 }
 
-.l-row-justify-around {
+.lin-row-justify-around {
   justify-content: space-around;
 }
 
-.l-row-justify-between {
+.lin-row-justify-between {
   justify-content: space-between;
 }
 
-.l-row-align-center {
+.lin-row-align-center {
   align-items: center;
 }
 
-.l-row-align-end {
+.lin-row-align-end {
   align-items: flex-end;
 }
 
-.l-row-align-start {
+.lin-row-align-start {
   align-items: flex-start;
 }
 
-.l-row-align-baseline {
+.lin-row-align-baseline {
   align-items: baseline;
 }
-.l-row-align-stretch {
+.lin-row-align-stretch {
   align-items: stretch;
 }

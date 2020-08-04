@@ -21,14 +21,14 @@ describe("属性", () => {
       },
     });
 
-    const label = wrapper.find(".l-form-item-label");
+    const label = wrapper.find(".lin-form-item-label");
     expect(label.text()).toBe("你好");
   });
 
   it("inject", () => {
     const wrapper = createFormItem();
 
-    const label = wrapper.find(".l-form-item-label");
+    const label = wrapper.find(".lin-form-item-label");
     expect(label.element.style.width).toBe("20px");
     expect(wrapper.vm.Form.labelWidth).toBe("20px");
   });
@@ -40,6 +40,6 @@ describe("插槽", () => {
       default: "<span>你好</span>",
     },
   });
-  const soltContent = wrapper.find(".l-form-item-content");
+  const soltContent = wrapper.find(".lin-form-item-content");
   expect(soltContent.text()).toBe("你好");
 });

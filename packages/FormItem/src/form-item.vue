@@ -1,7 +1,7 @@
 <template>
-  <div class="l-form-item">
-    <label class="l-form-item-label" :style="{width: this.Form.labelWidth}">{{label}}</label>
-    <div class="l-form-item-content">
+  <div class="lin-form-item">
+    <label class="lin-form-item-label" :style="{width: this.Form.labelWidth}">{{label}}</label>
+    <div class="lin-form-item-content">
       <slot></slot>
     </div>
   </div>
@@ -9,11 +9,11 @@
 
 <script>
 export default {
-  name: "l-form-item",
+  name: "LinFormItem",
   props: {
-    label: String
+    label: String,
   },
-  inject: ["Form"]
+  inject: ["Form"],
 };
 </script>
 

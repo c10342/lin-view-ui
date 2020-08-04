@@ -1,57 +1,57 @@
 <template>
-  <div class="l-limit-textarea">
+  <div class="lin-limit-textarea">
     <textarea
       @input="handleInput"
       v-bind="$props"
-      class="l-limit-textarea-input"
-      :class="{'l-limit-textarea-over': isOver}"
+      class="lin-limit-textarea-input"
+      :class="{'lin-limit-textarea-over': isOver}"
       :value="value"
       :maxlength="maxlength"
     ></textarea>
-    <span v-if="maxLen!==-1" class="l-limit-textarea-text">
+    <span v-if="maxLen!==-1" class="lin-limit-textarea-text">
       {{isOver ? '已超出' : '还可以输入'}}
       <span
-        class="l-limit-textarea-num"
-        :class="{'l-limit-textarea-num-over': isOver}"
+        class="lin-limit-textarea-num"
+        :class="{'lin-limit-textarea-num-over': isOver}"
       >{{num}}</span>个字
     </span>
-    <span v-else class="l-limit-textarea-text">
+    <span v-else class="lin-limit-textarea-text">
       已输入
-      <span class="l-limit-textarea-num">{{value.toString().length}}</span>个字
+      <span class="lin-limit-textarea-num">{{value.toString().length}}</span>个字
     </span>
   </div>
 </template>
 
 <script>
 export default {
-  name: "l-limit-textarea",
+  name: "LinLimitTextarea",
 
   props: {
     placeholder: {
       type: String,
-      default: "请输入内容"
+      default: "请输入内容",
     },
     rows: {
       type: Number,
-      default: 4
+      default: 4,
     },
     maxLen: {
       type: Number,
-      default: -1
+      default: -1,
     },
     isCut: {
       type: Boolean,
-      default: false
+      default: false,
     },
     value: {
       type: [String, Number],
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
       isOver: false,
-      num: this.maxLen
+      num: this.maxLen,
     };
   },
   methods: {
@@ -84,7 +84,7 @@ export default {
         this.num = currentValue.length - this.maxLen;
         this.$emit("overText", currentValue);
       }
-    }
+    },
   },
   computed: {
     maxlength() {
@@ -93,7 +93,7 @@ export default {
       } else {
         return -1;
       }
-    }
-  }
+    },
+  },
 };
 </script>

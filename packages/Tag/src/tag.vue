@@ -3,43 +3,43 @@
     <div
       v-if="show"
       @click="onTagclick"
-      :class="['l-tag',`l-tag-${type}`,`l-tag-${effect}`]"
+      :class="['lin-tag',`lin-tag-${type}`,`lin-tag-${effect}`]"
       :style="{'background-color':color}"
     >
       <span>{{text}}</span>
-      <i v-if="closable" @click="onCloseClick" class="l-icon-close l-tag-close"></i>
+      <i v-if="closable" @click="onCloseClick" class="lin-icon-close lin-tag-close"></i>
     </div>
   </transition>
 </template>
 
 <script>
 export default {
-  name: "l-tag",
+  name: "LinTag",
   props: {
     type: {
       type: String,
-      default: "primary"
+      default: "primary",
     },
     text: {
       type: String,
-      default: ""
+      default: "",
     },
     color: {
       type: String,
-      default: ""
+      default: "",
     },
     closable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     effect: {
       type: String,
-      default: "light"
-    }
+      default: "light",
+    },
   },
   data() {
     return {
-      show: true
+      show: true,
     };
   },
   methods: {
@@ -51,8 +51,8 @@ export default {
     },
     afterLeave() {
       this.$emit("close");
-    }
-  }
+    },
+  },
 };
 </script>
 

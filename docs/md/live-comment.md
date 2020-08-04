@@ -56,7 +56,7 @@ export default {
 ## 基础用法
 
 <div class='demo-block'>
-    <l-live-comment
+    <lin-live-comment
       v-model="content1"
       :fixComment="fixComment1"
       :arrowComment="true"
@@ -64,13 +64,13 @@ export default {
       @sendBtnClick="sendBtnClick1"
       @toBottom="toBottom1"
     >
-    </l-live-comment>
+    </lin-live-comment>
 </div>
 
 :::demo
 
 ```html
-<l-live-comment
+<lin-live-comment
   v-model="content1"
   :fixComment="fixComment1"
   :arrowComment="true"
@@ -78,7 +78,7 @@ export default {
   @sendBtnClick="sendBtnClick1"
   @toBottom="toBottom1"
 >
-</l-live-comment>
+</lin-live-comment>
 
 <script>
   export default {
@@ -119,7 +119,7 @@ export default {
 组件提供了 4 个自定义插槽，分别是 `title` , `view-count` , `default` , `mask`
 
 <div class='demo-block'>
-    <l-live-comment
+    <lin-live-comment
       v-model="content2"
       :fixComment="fixComment2"
       :arrowComment="true"
@@ -130,13 +130,13 @@ export default {
       <template v-slot='slotProps'>
         <p>{{slotProps.item._content}}</p>
       </template>
-    </l-live-comment>
+    </lin-live-comment>
 </div>
 
 :::demo
 
 ```html
-<l-live-comment
+<lin-live-comment
   v-model="content2"
   :fixComment="fixComment2"
   :arrowComment="true"
@@ -147,7 +147,7 @@ export default {
   <template v-slot="slotProps">
     <p>{{slotProps.item._content}}</p>
   </template>
-</l-live-comment>
+</lin-live-comment>
 
 <script>
   export default {

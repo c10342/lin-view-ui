@@ -29,40 +29,40 @@ Tooltip 组件提供了一个 `v-tooltip` 指令，其效果跟dom标签的原�
 在这里我们提供 4 种不同方向的展示方式，`v-tooltip`的绑定值就是提示的文字，默认是展示方向是下边
 
 <div class='demo-block'>
-<l-button class='mr-20' v-tooltip.top="'上边 文字提示'">上边</l-button>
-<l-button class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</l-button>
-<l-button class='mr-20' v-tooltip.left="'左边 文字提示'">左边</l-button>
-<l-button  v-tooltip.right="'右边 文字提示'">右边</l-button>
+<lin-button class='mr-20' v-tooltip.top="'上边 文字提示'">上边</lin-button>
+<lin-button class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</lin-button>
+<lin-button class='mr-20' v-tooltip.left="'左边 文字提示'">左边</lin-button>
+<lin-button  v-tooltip.right="'右边 文字提示'">右边</lin-button>
 </div>
 
 :::demo
 
 ```html
-<l-button class='mr-20' v-tooltip.top="'上边 文字提示'">上边</l-button>
-<l-button class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</l-button>
-<l-button class='mr-20' v-tooltip.left="'左边 文字提示'">左边</l-button>
-<l-button  v-tooltip.right="'右边 文字提示'">右边</l-button>
+<lin-button class='mr-20' v-tooltip.top="'上边 文字提示'">上边</lin-button>
+<lin-button class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</lin-button>
+<lin-button class='mr-20' v-tooltip.left="'左边 文字提示'">左边</lin-button>
+<lin-button  v-tooltip.right="'右边 文字提示'">右边</lin-button>
 ```
 
 :::
 
 ## 偏移量
 
-在绑定了 `v-tooltip` 指令的元素上添加 `l-tooltip-top` 和 `l-tooltip-left` 属性即可设置tooltip的偏移量
+在绑定了 `v-tooltip` 指令的元素上添加 `lin-tooltip-top` 和 `lin-tooltip-left` 属性即可设置tooltip的偏移量
 <div class='demo-block'>
-<l-button l-tooltip-top='-10' l-tooltip-left='10' class='mr-20' v-tooltip.top="'上边 文字提示'">上边</l-button>
-<l-button l-tooltip-top='10' l-tooltip-left='10' class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</l-button>
-<l-button l-tooltip-top='10' l-tooltip-left='10' class='mr-20' v-tooltip.left="'左边 文字提示'">左边</l-button>
-<l-button l-tooltip-top='10' l-tooltip-left='-10'  v-tooltip.right="'右边 文字提示'">右边</l-button>
+<lin-button lin-tooltip-top='-10' lin-tooltip-left='10' class='mr-20' v-tooltip.top="'上边 文字提示'">上边</lin-button>
+<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</lin-button>
+<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.left="'左边 文字提示'">左边</lin-button>
+<lin-button lin-tooltip-top='10' lin-tooltip-left='-10'  v-tooltip.right="'右边 文字提示'">右边</lin-button>
 </div>
 
 :::demo
 
 ```html
-<l-button l-tooltip-top='-10' l-tooltip-left='10' class='mr-20' v-tooltip.top="'上边 文字提示'">上边</l-button>
-<l-button l-tooltip-top='10' l-tooltip-left='10' class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</l-button>
-<l-button l-tooltip-top='10' l-tooltip-left='10' class='mr-20' v-tooltip.left="'左边 文字提示'">左边</l-button>
-<l-button l-tooltip-top='10' l-tooltip-left='-10'  v-tooltip.right="'右边 文字提示'">右边</l-button>
+<lin-button lin-tooltip-top='-10' lin-tooltip-left='10' class='mr-20' v-tooltip.top="'上边 文字提示'">上边</lin-button>
+<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</lin-button>
+<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.left="'左边 文字提示'">左边</lin-button>
+<lin-button lin-tooltip-top='10' lin-tooltip-left='-10'  v-tooltip.right="'右边 文字提示'">右边</lin-button>
 ```
 
 :::
@@ -112,12 +112,12 @@ Tooltip 组件提供了一个 `v-tooltip` 指令，其效果跟dom标签的原�
 
 ## 属性
 
-| 参数           | 说明                                                                              | 类型    | 可选值 | 默认值 |
-| -------------- | --------------------------------------------------------------------------------- | ------- | ------ | ------ |
-| top            | `v-tooltip` 指令中的 `top` 修饰符，设置tooltip展示方向为上边                      | Boolean | —      | false  |
-| bottom         | `v-tooltip` 指令中的 `bottom` 修饰符，设置tooltip展示方向为下边                   | Boolean | —      | true   |
-| left           | `v-tooltip` 指令中的 `left` 修饰符，设置tooltip展示方向为左边                     | Boolean | —      | false  |
-| right          | `v-tooltip` 指令中的 `right` 修饰符，设置tooltip展示方向为右边                    | Boolean | —      | false  |
-| auto           | `v-tooltip` 指令中的 `auto` 修饰符，文字超出则显示tooltip ，不超出则不显示tooltip | Boolean | —      | false  |
-| l-tooltip-top  | tooltip距离屏幕上边的偏移量，在绑定了 `v-tooltip` 指令的元素上添加该属性          | String  | —      | —      |
-| l-tooltip-left | tooltip距离屏幕左边的偏移量，在绑定了 `v-tooltip` 指令的元素上添加该属性          | String  | —      | —      |
+| 参数             | 说明                                                                              | 类型    | 可选值 | 默认值 |
+| ---------------- | --------------------------------------------------------------------------------- | ------- | ------ | ------ |
+| top              | `v-tooltip` 指令中的 `top` 修饰符，设置tooltip展示方向为上边                      | Boolean | —      | false  |
+| bottom           | `v-tooltip` 指令中的 `bottom` 修饰符，设置tooltip展示方向为下边                   | Boolean | —      | true   |
+| left             | `v-tooltip` 指令中的 `left` 修饰符，设置tooltip展示方向为左边                     | Boolean | —      | false  |
+| right            | `v-tooltip` 指令中的 `right` 修饰符，设置tooltip展示方向为右边                    | Boolean | —      | false  |
+| auto             | `v-tooltip` 指令中的 `auto` 修饰符，文字超出则显示tooltip ，不超出则不显示tooltip | Boolean | —      | false  |
+| lin-tooltip-top  | tooltip距离屏幕上边的偏移量，在绑定了 `v-tooltip` 指令的元素上添加该属性          | String  | —      | —      |
+| lin-tooltip-left | tooltip距离屏幕左边的偏移量，在绑定了 `v-tooltip` 指令的元素上添加该属性          | String  | —      | —      |

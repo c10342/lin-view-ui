@@ -1,6 +1,6 @@
 @import "packages/assets/styles/variables/button.scss";
 @import "packages/assets/styles/mixin/button.scss";
-.l-button {
+.lin-button {
   display: inline-block;
   line-height: $button-line-height;
   white-space: nowrap;
@@ -29,27 +29,27 @@
   }
 }
 
-.l-button-size-default {
+.lin-button-size-default {
   padding: $button-default-padding-x $button-default-padding-y;
-  &.l-button-circle {
+  &.lin-button-circle {
     padding: $button-default-circle-padding;
   }
 }
 
-.l-button-size-medium {
+.lin-button-size-medium {
   padding: $button-medium-padding-x $button-medium-padding-y;
-  &.l-button-circle {
+  &.lin-button-circle {
     padding: $button-medium-circle-padding;
   }
 }
-.l-button-size-small {
+.lin-button-size-small {
   padding: $button-small-padding-x $button-small-padding-y;
-  &.l-button-circle {
+  &.lin-button-circle {
     padding: $button-small-circle-padding;
   }
 }
 @each $key, $val in $theme-color {
-  .l-button-#{$key} {
+  .lin-button-#{$key} {
     color: $button-theme-color-color;
     background-color: $val;
     border-color: $val;
@@ -63,7 +63,7 @@
 }
 
 // 朴素的按钮
-.l-button.l-button-plain {
+.lin-button.lin-button-plain {
   &:hover,
   &:focus {
     @include button-plain(
@@ -73,7 +73,7 @@
     );
   }
 }
-.l-button-primary.l-button-plain {
+.lin-button-primary.lin-button-plain {
   @include button-plain(
     $button-primary-plain-background,
     $button-primary-plain-border-color,
@@ -88,7 +88,7 @@
     );
   }
 }
-.l-button-success.l-button-plain {
+.lin-button-success.lin-button-plain {
   @include button-plain(
     $button-success-plain-background,
     $button-success-plain-border-color,
@@ -104,7 +104,7 @@
   }
 }
 
-.l-button-info.l-button-plain {
+.lin-button-info.lin-button-plain {
   @include button-plain(
     $button-info-plain-background,
     $button-info-plain-border-color,
@@ -119,7 +119,7 @@
     );
   }
 }
-.l-button-warning.l-button-plain {
+.lin-button-warning.lin-button-plain {
   @include button-plain(
     $button-warning-plain-background,
     $button-warning-plain-border-color,
@@ -134,7 +134,7 @@
     );
   }
 }
-.l-button-danger.l-button-plain {
+.lin-button-danger.lin-button-plain {
   @include button-plain(
     $button-danger-plain-background,
     $button-danger-plain-border-color,
@@ -150,21 +150,21 @@
   }
 }
 
-.l-button.l-button-round {
+.lin-button.lin-button-round {
   border-radius: $button-round-border-radius;
   // padding: $button-round-padding-x $button-round-padding-y;
 }
 
 // 原形按钮
-.l-button.l-button-circle {
+.lin-button.lin-button-circle {
   border-radius: $button-circle-border-radius;
   // padding: $button-default-circle-padding;
 }
 
-.l-button [class*="l-icon-"] + span {
+.lin-button [class*="lin-icon-"] + span {
   margin-left: $button-icon-margin-left;
 }
 
-.l-button-disabled {
+.lin-button-disabled {
   cursor: not-allowed;
 }

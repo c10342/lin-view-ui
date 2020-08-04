@@ -18,15 +18,15 @@ export default {
 
 ## 基础用法
 
-要使用它，只需要在 `l-input-number` 元素中使用 `v-model` 绑定变量即可，变量的初始值即为默认值。
+要使用它，只需要在 `lin-input-number` 元素中使用 `v-model` 绑定变量即可，变量的初始值即为默认值。
 
 <div class='demo-block'>
-<l-input-number v-model="value1" />
+<lin-input-number v-model="value1" />
 </div>
 
 :::demo
 ```html
-<l-input-number v-model="value1" />
+<lin-input-number v-model="value1" />
 
 <script>
 export default {
@@ -46,12 +46,12 @@ export default {
 `disabled` 属性接受一个 `Boolean` ，设置为 `true` 即可禁用整个组件
 
 <div class='demo-block'>
-<l-input-number v-model="value2" disabled />
+<lin-input-number v-model="value2" disabled />
 </div>
 
 :::demo
 ```html
-<l-input-number v-model="value2" disabled />
+<lin-input-number v-model="value2" disabled />
 
 <script>
 export default {
@@ -71,12 +71,12 @@ export default {
 允许定义递增递减的步数控制，设置 `step` 属性可以控制步长，接受一个 `Number` 。
 
 <div class='demo-block'>
-<l-input-number v-model="value3" :step="2" />
+<lin-input-number v-model="value3" :step="2" />
 </div>
 
 :::demo
 ```html
-<l-input-number v-model="value3" :step="2" />
+<lin-input-number v-model="value3" :step="2" />
 
 <script>
 export default {
@@ -96,12 +96,12 @@ export default {
 `step-strictly` 属性接受一个 `Boolean` 。如果这个属性被设置为 `true` ，则只能输入步数的倍数。
 
 <div class='demo-block'>
-<l-input-number v-model="value4" :step="2" step-strictly />
+<lin-input-number v-model="value4" :step="2" step-strictly />
 </div>
 
 :::demo
 ```html
-<l-input-number v-model="value4" :step="2" step-strictly />
+<lin-input-number v-model="value4" :step="2" step-strictly />
 
 <script>
 export default {

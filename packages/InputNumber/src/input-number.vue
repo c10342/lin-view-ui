@@ -1,20 +1,20 @@
 <template>
-  <div class="l-input-number" :class="{'l-input-number-disabled':disabled}">
+  <div class="lin-input-number" :class="{'lin-input-number-disabled':disabled}">
     <span
-      class="l-input-number-reduce l-input-number-btn"
-      :class="{'l-input-number-btn-disabled':disabledReduce}"
+      class="lin-input-number-reduce lin-input-number-btn"
+      :class="{'lin-input-number-btn-disabled':disabledReduce}"
       @click="reduce"
     >-</span>
     <input
       :disabled="disabled"
       :value="value"
-      class="l-input-number-text"
+      class="lin-input-number-text"
       type="text"
       @blur="onBlur"
     />
     <span
-      class="l-input-number-plus l-input-number-btn"
-      :class="{'l-input-number-btn-disabled':disabledPlus}"
+      class="lin-input-number-plus lin-input-number-btn"
+      :class="{'lin-input-number-btn-disabled':disabledPlus}"
       @click="plus"
     >+</span>
   </div>
@@ -22,35 +22,35 @@
 
 <script>
 export default {
-  name: "l-input-number",
+  name: "LinInputNumber",
   props: {
     value: {
-      type: [Number, String]
+      type: [Number, String],
     },
     min: {
       type: Number,
-      default: NaN
+      default: NaN,
     },
     max: {
       type: Number,
-      default: NaN
+      default: NaN,
     },
     step: {
       type: Number,
-      default: 1
+      default: 1,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     stepStrictly: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     reduce() {
@@ -87,7 +87,7 @@ export default {
         }
       }
       this.$emit("input", value);
-    }
+    },
   },
   computed: {
     disabledReduce() {
@@ -129,8 +129,8 @@ export default {
           return false;
         }
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,6 +1,6 @@
 @import "packages/assets/styles/variables/tooltip.scss";
 
-.l-tooltip {
+.lin-tooltip {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -24,7 +24,7 @@
   }
 }
 
-.l-tooltip-bottom {
+.lin-tooltip-bottom {
   &::after {
     bottom: $tooltip-bottom-after-bottom;
     left: $tooltip-bottom-after-left;
@@ -32,7 +32,7 @@
   }
 }
 
-.l-tooltip-top {
+.lin-tooltip-top {
   &::after {
     top: $tooltip-top-after-top;
     left: $tooltip-top-after-left;
@@ -40,7 +40,7 @@
   }
 }
 
-.l-tooltip-left {
+.lin-tooltip-left {
   &::after {
     top: $tooltip-left-after-top;
     left: $tooltip-left-after-left;
@@ -48,7 +48,7 @@
   }
 }
 
-.l-tooltip-right {
+.lin-tooltip-right {
   &::after {
     top: $tooltip-right-after-top;
     right: $tooltip-right-after-right;

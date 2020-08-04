@@ -1,10 +1,10 @@
 @import "packages/assets/styles/variables/form-item.scss";
-.l-form-item {
+.lin-form-item {
   margin-bottom: $form-item-margin-bottom;
   // display: flex;
   // flex-direction: row;
   // align-items: center;
-  .l-form-item-label {
+  .lin-form-item-label {
     float: left;
     text-align: right;
     vertical-align: middle;
@@ -14,7 +14,7 @@
     padding: $form-item-label-padding;
     box-sizing: border-box;
   }
-  .l-form-item-content {
+  .lin-form-item-content {
     // flex: 1;
     // width: 0;
     line-height: $form-item-content-line-height;

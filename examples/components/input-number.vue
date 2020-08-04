@@ -1,6 +1,6 @@
 <template>
   <div>
-    <l-input-number v-model="value" />
+    <lin-input-number v-model="value" />
   </div>
 </template>
 
@@ -9,8 +9,8 @@ export default {
   name: "test-input-number",
   data() {
     return {
-      value: ""
+      value: "",
     };
-  }
+  },
 };
 </script>

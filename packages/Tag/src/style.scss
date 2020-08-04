@@ -1,7 +1,7 @@
 @import "packages/assets/styles/variables/tag.scss";
 @import "packages/assets/styles/mixin/tag.scss";
 
-.l-tag {
+.lin-tag {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -18,7 +18,7 @@
   white-space: nowrap;
 }
 
-.l-tag-close {
+.lin-tag-close {
   cursor: pointer;
   margin-left: $tag-close-margin-left;
   width: $tag-close-width;
@@ -33,66 +33,66 @@
   }
 }
 
-.l-tag-light {
-  &.l-tag-primary {
+.lin-tag-light {
+  &.lin-tag-primary {
     @include tag-type(
       lighten($primary, $tag-light-primary-background-color-lighten),
       $primary,
       lighten($primary, $tag-light-primary-border-color-lighten)
     );
-    .l-tag-close {
+    .lin-tag-close {
       &:hover {
         background-color: $primary;
       }
     }
   }
 
-  &.l-tag-success {
+  &.lin-tag-success {
     @include tag-type(
       lighten($success, $tag-light-success-background-color-lighten),
       $success,
       lighten($success, $tag-light-success-border-color-lighten)
     );
-    .l-tag-close {
+    .lin-tag-close {
       &:hover {
         background-color: $success;
       }
     }
   }
 
-  &.l-tag-info {
+  &.lin-tag-info {
     @include tag-type(
       lighten($info, $tag-light-info-background-color-lighten),
       $info,
       lighten($info, $tag-light-info-border-color-lighten)
     );
-    .l-tag-close {
+    .lin-tag-close {
       &:hover {
         background-color: $info;
       }
     }
   }
 
-  &.l-tag-warning {
+  &.lin-tag-warning {
     @include tag-type(
       lighten($warning, $tag-light-warning-background-color-lighten),
       $warning,
       lighten($warning, $tag-light-warning-border-color-lighten)
     );
-    .l-tag-close {
+    .lin-tag-close {
       &:hover {
         background-color: $warning;
       }
     }
   }
 
-  &.l-tag-danger {
+  &.lin-tag-danger {
     @include tag-type(
       lighten($danger, $tag-light-danger-background-color-lighten),
       $danger,
       lighten($danger, $tag-light-danger-border-color-lighten)
     );
-    .l-tag-close {
+    .lin-tag-close {
       &:hover {
         background-color: $danger;
       }
@@ -100,11 +100,11 @@
   }
 }
 
-.l-tag-dark {
+.lin-tag-dark {
   @each $key, $val in $theme-color {
-    &.l-tag-#{$key} {
+    &.lin-tag-#{$key} {
       @include tag-type($val, $tag-dark-color, $val);
-      .l-tag-close {
+      .lin-tag-close {
         &:hover {
           background-color: lighten($val, $tag-dark-close-hover-lighten);
         }
@@ -113,11 +113,11 @@
   }
 }
 
-.l-tag-plain {
+.lin-tag-plain {
   @each $key, $val in $theme-color {
-    &.l-tag-#{$key} {
+    &.lin-tag-#{$key} {
       @include tag-type($tag-plain-background-color, $val, $val);
-      .l-tag-close {
+      .lin-tag-close {
         &:hover {
           background-color: $val;
         }

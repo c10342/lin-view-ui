@@ -1,6 +1,6 @@
 @import "packages/assets/styles/variables/input-number.scss";
 
-.l-input-number {
+.lin-input-number {
   width: $input-number-width;
   height: $input-number-height;
   box-sizing: border-box;
@@ -8,7 +8,7 @@
   position: relative;
   border-radius: $input-number-border-radius;
 }
-.l-input-number-btn {
+.lin-input-number-btn {
   width: $input-number-btn-width;
   background-color: $input-number-btn-background-color;
   display: flex;
@@ -20,14 +20,14 @@
   user-select: none;
   font-size: $input-number-btn-font-size;
 }
-.l-input-number-reduce {
+.lin-input-number-reduce {
   border-radius: $input-number-reduce-border-radius;
   border-right: $input-number-reduce-border-right;
   left: $input-number-reduce-left;
   top: $input-number-reduce-top;
   bottom: $input-number-reduce-bottom;
 }
-.l-input-number-text {
+.lin-input-number-text {
   outline: none;
   appearance: none;
   text-align: center;
@@ -38,10 +38,10 @@
   border-radius: $input-number-text-border-radius;
   border: $input-number-text-border;
 }
-.l-input-number-text:focus {
+.lin-input-number-text:focus {
   border-color: $input-number-text-focus-border-color;
 }
-.l-input-number-plus {
+.lin-input-number-plus {
   border-radius: $input-number-plus-border-radius;
   border-left: $input-number-plus-border-left;
   right: $input-number-plus-right;
@@ -49,17 +49,17 @@
   bottom: $input-number-plus-bottom;
 }
 
-.l-input-number-btn-disabled {
+.lin-input-number-btn-disabled {
   cursor: not-allowed;
 }
 
-.l-input-number-disabled {
-  .l-input-number-btn {
+.lin-input-number-disabled {
+  .lin-input-number-btn {
     border-color: $input-number-btn-disabled-border-color;
     color: $input-number-btn-disabled-color;
     cursor: not-allowed;
   }
-  .l-input-number-text {
+  .lin-input-number-text {
     cursor: not-allowed;
     background-color: $input-number-text-disabled-background-color;
     border-color: $input-number-text-disabled-border-color;

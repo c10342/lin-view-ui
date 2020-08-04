@@ -47,16 +47,16 @@ describe("属性", () => {
         clearable: true,
       },
     });
-    let closeBtn = wrapper.find(".l-input-icon.l-icon-close");
+    let closeBtn = wrapper.find(".lin-input-icon.lin-icon-close");
     expect(closeBtn.exists()).toBeFalsy();
     await wrapper.setProps({ value: "1" });
-    closeBtn = wrapper.find(".l-input-icon.l-icon-close");
+    closeBtn = wrapper.find(".lin-input-icon.lin-icon-close");
     expect(closeBtn.exists()).toBeTruthy();
   });
 
   it("showPassword", () => {
     const wrapper = createInput({ propsData: { showPassword: true } });
-    const pwdBtn = wrapper.find(".l-input-icon.l-icon-password");
+    const pwdBtn = wrapper.find(".lin-input-icon.lin-icon-password");
     expect(pwdBtn.exists()).toBeTruthy();
   });
 
@@ -87,7 +87,7 @@ describe("插槽", () => {
         default: str,
       },
     });
-    const suffix = wrapper.find(".l-input-suffix");
+    const suffix = wrapper.find(".lin-input-suffix");
     expect(suffix.exists()).toBeTruthy();
     expect(suffix.text()).toBe(str);
   });

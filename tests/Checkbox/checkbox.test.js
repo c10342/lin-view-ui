@@ -18,7 +18,7 @@ describe("属性", () => {
     expect(input.attributes("value")).toEqual("");
     expect(wrapper.vm.model).toBeFalsy();
     expect(wrapper.vm.isChecked).toBeFalsy();
-    expect(label.classes("l-checkbox-is-checked")).toBe(false);
+    expect(label.classes("lin-checkbox-is-checked")).toBe(false);
   });
 
   it("name", () => {
@@ -38,7 +38,7 @@ describe("属性", () => {
       },
     });
     const input = wrapper.find("input");
-    const template = wrapper.find(".l-checkbox-label");
+    const template = wrapper.find(".lin-checkbox-label");
     expect(input.attributes("value")).toEqual("男");
     expect(template.text()).toEqual("男");
   });
@@ -51,7 +51,7 @@ describe("属性", () => {
     });
     const input = wrapper.find("input");
     const label = wrapper.find("label");
-    expect(wrapper.classes("l-checkbox-is-disabled")).toBeTruthy();
+    expect(wrapper.classes("lin-checkbox-is-disabled")).toBeTruthy();
     expect(input.attributes("disabled")).toBeTruthy();
     await label.trigger("click");
     expect(wrapper.emitted().input).toBeFalsy();
@@ -65,7 +65,7 @@ describe("插槽", () => {
         default: "女",
       },
     });
-    const template = wrapper.find(".l-checkbox-label");
+    const template = wrapper.find(".lin-checkbox-label");
     expect(template.text()).toEqual("女");
   });
 });

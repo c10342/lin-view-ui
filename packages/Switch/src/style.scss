@@ -1,5 +1,5 @@
 @import "packages/assets/styles/variables/switch.scss";
-.l-switch {
+.lin-switch {
   display: inline-flex;
   align-items: center;
   position: relative;
@@ -8,14 +8,14 @@
   height: $switch-height;
   vertical-align: middle;
 }
-.l-switch-input {
+.lin-switch-input {
   position: absolute;
   width: 0;
   height: 0;
   opacity: 0;
   margin: 0;
 }
-.l-switch-core {
+.lin-switch-core {
   margin: $switch-core-margin;
   display: inline-block;
   position: relative;
@@ -29,7 +29,7 @@
   cursor: pointer;
   transition: $switch-core-transition;
   vertical-align: middle;
-  .l-switch-button {
+  .lin-switch-button {
     position: absolute;
     top: $switch-button-top;
     left: $switch-button-left;
@@ -40,20 +40,20 @@
     background-color: $switch-button-background-color;
   }
 }
-.l-switch.l-switch-is-checked {
-  .l-switch-core {
+.lin-switch.lin-switch-is-checked {
+  .lin-switch-core {
     border-color: $switch-checked-border-color;
     background-color: $switch-checked-background-color;
-    .l-switch-button {
+    .lin-switch-button {
       transform: $switch-checked-transform;
     }
   }
 }
 
-.l-switch-is-disabled {
+.lin-switch-is-disabled {
   cursor: not-allowed;
   opacity: 0.6;
-  .l-switch-core {
+  .lin-switch-core {
     cursor: not-allowed;
   }
 }

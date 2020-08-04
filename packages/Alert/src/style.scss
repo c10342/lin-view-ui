@@ -1,7 +1,7 @@
 @import "packages/assets/styles/variables/alert.scss";
 @import "packages/assets/styles/mixin/alert.scss";
 
-.l-alert {
+.lin-alert {
   padding: $alert-padding;
   box-sizing: border-box;
   border-radius: $alert-border-radius;
@@ -11,25 +11,25 @@
   flex-direction: row;
   align-items: center;
 }
-.l-alert-icon {
+.lin-alert-icon {
 }
-.l-alert-content {
+.lin-alert-content {
   display: flex;
   flex-direction: column;
   padding: $alert-content-padding;
 }
-.l-alert-title {
+.lin-alert-title {
   font-weight: $alert-title-font-weight;
   font-size: $alert-title-font-size;
   &:only-child {
     font-weight: normal;
   }
 }
-.l-alert-description {
+.lin-alert-description {
   font-size: $alert-description-font-size;
   margin-top: $alert-description-margin-top;
 }
-.l-alert-close {
+.lin-alert-close {
   position: absolute;
   top: $alert-close-top;
   right: $alert-close-right;
@@ -40,38 +40,38 @@
   justify-content: center;
 }
 
-.l-alert-center {
+.lin-alert-center {
   justify-content: center;
 }
 
-.l-alert-light {
-  .l-alert-close {
+.lin-alert-light {
+  .lin-alert-close {
     color: $alert-light-color;
   }
 
-  &.l-alert-success {
+  &.lin-alert-success {
     @include alert-type(
       lighten($success, $alert-light-success-lighten),
       $success
     );
   }
-  &.l-alert-warning {
+  &.lin-alert-warning {
     @include alert-type(
       lighten($warning, $alert-light-warning-lighten),
       $warning
     );
   }
-  &.l-alert-info {
+  &.lin-alert-info {
     @include alert-type(lighten($info, $alert-light-info-lighten), $info);
   }
-  &.l-alert-danger {
+  &.lin-alert-danger {
     @include alert-type(lighten($danger, $alert-light-danger-lighten), $danger);
   }
 }
 
-.l-alert-dark {
+.lin-alert-dark {
   @each $key, $val in $theme-color {
-    &.l-alert-#{$key} {
+    &.lin-alert-#{$key} {
       @include alert-type($val, $alert-dark-color);
     }
   }

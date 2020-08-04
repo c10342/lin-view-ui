@@ -76,14 +76,14 @@ export default {
 
 ## 自定义
 
-在绑定了 v-loading 指令的元素上添加 l-loading-text 属性，其值会被渲染为加载文案，并显示在加载图标的下方。类似地，l-loading-textColor 和 l-loading-background 属性分别用来设定加载文案颜色和背景色值。
+在绑定了 v-loading 指令的元素上添加 lin-loading-text 属性，其值会被渲染为加载文案，并显示在加载图标的下方。类似地，lin-loading-textColor 和 lin-loading-background 属性分别用来设定加载文案颜色和背景色值。
 
 <div class='demo-block'>
 <div 
 class="loading-box" 
-l-loading-text="拼命加载中"
-l-loading-background="rgba(0, 0, 0, 0.8)"
-l-loading-textColor="#fff"
+lin-loading-text="拼命加载中"
+lin-loading-background="rgba(0, 0, 0, 0.8)"
+lin-loading-textColor="#fff"
 v-loading="loading2"></div>
 </div>
 
@@ -92,9 +92,9 @@ v-loading="loading2"></div>
 ```html
 <div
   class="loading-box"
-  l-loading-text="拼命加载中"
-  l-loading-background="rgba(0, 0, 0, 0.8)"
-  l-loading-textColor="#fff"
+  lin-loading-text="拼命加载中"
+  lin-loading-background="rgba(0, 0, 0, 0.8)"
+  lin-loading-textColor="#fff"
   v-loading="loading2"
 ></div>
 
@@ -122,34 +122,34 @@ v-loading="loading2"></div>
 页面数据加载时显示。当使用指令方式时，全屏遮罩需要添加 `fullscreen` 修饰符（遮罩会插入至 body 上），此时若需要锁定屏幕的滚动，可以使用 `lock` 修饰符；当使用服务方式时，遮罩默认即为全屏，无需额外设置。
 
 <div class='demo-block'>
-<l-button
+<lin-button
     type="primary"
     @click="onClick1"
     v-loading.fullscreen.lock="loading3">
     指令方式
-  </l-button>
-  <l-button
+  </lin-button>
+  <lin-button
   class='ml-20'
     type="primary"
     @click="onClick2">
     服务方式
-  </l-button>
+  </lin-button>
 </div>
 
 :::demo
 
 ```html
 <template>
-  <l-button
+  <lin-button
     type="primary"
     @click="onClick1"
     v-loading.fullscreen.lock="loading3"
   >
     指令方式
-  </l-button>
-  <l-button class="ml-20" type="primary" @click="onClick2">
+  </lin-button>
+  <lin-button class="ml-20" type="primary" @click="onClick2">
     服务方式
-  </l-button>
+  </lin-button>
 </template>
 
 <script>

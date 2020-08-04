@@ -1,6 +1,6 @@
 @import "../../assets/styles/variables/selector-item";
 
-.l-selecotr-item {
+.lin-selecotr-item {
   max-width: $selector-item-max-width;
   white-space: nowrap;
   overflow: hidden;
@@ -17,12 +17,12 @@
   user-select: none;
 }
 
-.l-selecotr-item.l-selecotr-active {
+.lin-selecotr-item.lin-selecotr-active {
   color: $selector-active-color;
   background-color: $selector-active-background-color;
 }
 
-.l-selecotr-item.l-selecotr-disabled {
+.lin-selecotr-item.lin-selecotr-disabled {
   cursor: not-allowed;
   background-color: $selector-disabled-background-color;
   color: $selector-disabled-color;

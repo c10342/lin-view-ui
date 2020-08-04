@@ -39,7 +39,7 @@
 </script>
 
 <style lang="scss" scoped>
-.l-button + .l-button{
+.lin-button + .lin-button{
   margin-left:10px;
 }
 </style>
@@ -56,17 +56,17 @@
 通过调用 \$loadingBar 提供的三种方法来控制全局的加载进度条 `start()`、`end()`、`error()`
 
 <div class="demo-block">
-   <l-button @click="start">开始</l-button>
-   <l-button @click="end">结束</l-button>
-   <l-button @click="error">错误</l-button>
+   <lin-button @click="start">开始</lin-button>
+   <lin-button @click="end">结束</lin-button>
+   <lin-button @click="error">错误</lin-button>
 </div>
 
 ::: demo
 
 ```html
-<l-button @click="start">开始</l-button>
-<l-button @click="end">结束</l-button>
-<l-button @click="error">错误</l-button>
+<lin-button @click="start">开始</lin-button>
+<lin-button @click="end">结束</lin-button>
+<lin-button @click="error">错误</lin-button>
 
 <script>
   export default {
@@ -92,19 +92,19 @@
 提供 LoadingBar 的全局配置，使用方法如下：
 
 <div class="demo-block">
-   <l-button @click="setSpeed">设置speed速度</l-button>
-   <l-button @click="setSpinner">设置spinner动画效果</l-button>
-   <l-button @click="setPercentNum">设置percentNum每次加载的比例</l-button>
-   <l-button @click="setShowSpinner">设置是否显示spinner</l-button>
+   <lin-button @click="setSpeed">设置speed速度</lin-button>
+   <lin-button @click="setSpinner">设置spinner动画效果</lin-button>
+   <lin-button @click="setPercentNum">设置percentNum每次加载的比例</lin-button>
+   <lin-button @click="setShowSpinner">设置是否显示spinner</lin-button>
 </div>
 
 ::: demo
 
 ```html
-<l-button @click="setSpeed">设置speed速度</l-button>
-<l-button @click="setSpinner">设置spinner动画效果</l-button>
-<l-button @click="setPercentNum">设置percentNum每次加载的比例</l-button>
-<l-button @click="setShowSpinner">设置是否显示spinner</l-button>
+<lin-button @click="setSpeed">设置speed速度</lin-button>
+<lin-button @click="setSpinner">设置spinner动画效果</lin-button>
+<lin-button @click="setPercentNum">设置percentNum每次加载的比例</lin-button>
+<lin-button @click="setShowSpinner">设置是否显示spinner</lin-button>
 
 <script>
   export default {

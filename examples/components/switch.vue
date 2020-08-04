@@ -1,9 +1,9 @@
 <template>
   <div>
-    <l-switch v-model="value1" />
-    <l-switch v-model="value2" activeColor="green" inactiveColor="red" />
-    <l-switch v-model="value3" activeColor="green" />
-    <l-switch disabled v-model="value4" inactiveColor="red" />
+    <lin-switch v-model="value1" />
+    <lin-switch v-model="value2" activeColor="green" inactiveColor="red" />
+    <lin-switch v-model="value3" activeColor="green" />
+    <lin-switch disabled v-model="value4" inactiveColor="red" />
   </div>
 </template>
 
@@ -15,9 +15,9 @@ export default {
       value1: true,
       value2: false,
       value3: true,
-      value4: false
+      value4: false,
     };
-  }
+  },
 };
 </script>
 

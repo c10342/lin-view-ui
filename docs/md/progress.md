@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-::v-deep .l-progress {
+::v-deep .lin-progress {
   margin-bottom: 10px;
 }
 .demo-in-tip {
@@ -22,19 +22,19 @@
 Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比，必填，必须在 0-1。
 
 <div class='demo-block'>
-<l-progress type="primary" :percent="0.5"></l-progress>
-<l-progress type="success" :percent="0.5"></l-progress>
-<l-progress type="warning" :percent="0.5"></l-progress>
-<l-progress type="danger" :percent="0.5"></l-progress>
+<lin-progress type="primary" :percent="0.5"></lin-progress>
+<lin-progress type="success" :percent="0.5"></lin-progress>
+<lin-progress type="warning" :percent="0.5"></lin-progress>
+<lin-progress type="danger" :percent="0.5"></lin-progress>
 </div>
 
 :::demo
 
 ```html
-<l-progress type="primary" :percent="0.5" />
-<l-progress type="success" :percent="0.5" />
-<l-progress type="warning" :percent="0.5" />
-<l-progress type="danger" :percent="0.5" />
+<lin-progress type="primary" :percent="0.5" />
+<lin-progress type="success" :percent="0.5" />
+<lin-progress type="warning" :percent="0.5" />
+<lin-progress type="danger" :percent="0.5" />
 ```
 
 :::
@@ -44,37 +44,37 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 百分比不占用额外控件，适用于文件上传等场景
 
 <div class='demo-block'>
-<l-progress text-outside="85分" text-inside="50%" :height="20" type="primary" :percent="0.5"></l-progress>
-<l-progress text-outside="85分" text-inside="50%" :height="20" type="success" :percent="0.5"></l-progress>
-<l-progress text-outside="85分" text-inside="50%" :height="20" type="warning" :percent="0.5"></l-progress>
-<l-progress text-outside="85分" text-inside="50%" :height="20" type="danger" :percent="0.5"></l-progress>
+<lin-progress text-outside="85分" text-inside="50%" :height="20" type="primary" :percent="0.5"></lin-progress>
+<lin-progress text-outside="85分" text-inside="50%" :height="20" type="success" :percent="0.5"></lin-progress>
+<lin-progress text-outside="85分" text-inside="50%" :height="20" type="warning" :percent="0.5"></lin-progress>
+<lin-progress text-outside="85分" text-inside="50%" :height="20" type="danger" :percent="0.5"></lin-progress>
 </div>
 
 :::demo
 
 ```html
-<l-progress
+<lin-progress
   text-outside="85分"
   text-inside="50%"
   :height="20"
   type="primary"
   :percent="0.5"
 />
-<l-progress
+<lin-progress
   text-outside="85分"
   text-inside="50%"
   :height="20"
   type="success"
   :percent="0.5"
 />
-<l-progress
+<lin-progress
   text-outside="85分"
   text-inside="50%"
   :height="20"
   type="warning"
   :percent="0.5"
 />
-<l-progress
+<lin-progress
   text-outside="85分"
   text-inside="50%"
   :height="20"
@@ -90,7 +90,7 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 可通过 `outColor` 和 `innerColor` 属性来设置进度条的颜色
 
 <div class='demo-block'>
-<l-progress
+<lin-progress
   out-color="rgb(144, 147, 153)"
   inner-color="rgb(111, 122, 211)"
   :height="20"
@@ -101,7 +101,7 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 :::demo
 
 ```html
-<l-progress
+<lin-progress
   out-color="rgb(144, 147, 153)"
   inner-color="rgb(111, 122, 211)"
   :height="20"
@@ -116,27 +116,27 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 通过具名插槽 `text` 和 默认插槽 `default` 来自定义你想要的文字效果
 
 <div class='demo-block'>
-<l-progress :height="20" type="danger" :percent="0.5">
+<lin-progress :height="20" type="danger" :percent="0.5">
         <template>
           <p class="demo-out-tip">百分之五十</p>
         </template>
         <template v-slot:text>
           <p class="demo-in-tip">百分之五十</p>
         </template>
-      </l-progress>
+      </lin-progress>
 </div>
 
 :::demo
 
 ```html
-<l-progress :height="20" type="danger" :percent="0.5">
+<lin-progress :height="20" type="danger" :percent="0.5">
   <template>
     <p class="demo-out-tip">百分之五十</p>
   </template>
   <template v-slot:text>
     <p class="demo-in-tip">百分之五十</p>
   </template>
-</l-progress>
+</lin-progress>
 ```
 
 :::

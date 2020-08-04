@@ -1,7 +1,7 @@
 import "./style.scss";
 
 export default {
-  name: "l-row",
+  name: "LinRow",
 
   props: {
     tag: {
@@ -35,18 +35,18 @@ export default {
   render(h) {
     const classList = [];
     if (this.type) {
-      classList.push(`l-row-${this.type}`);
+      classList.push(`lin-row-${this.type}`);
     }
     if (this.justify) {
-      classList.push(`l-row-justify-${this.justify}`);
+      classList.push(`lin-row-justify-${this.justify}`);
     }
     if (this.align) {
-      classList.push(`l-row-align-${this.align}`);
+      classList.push(`lin-row-align-${this.align}`);
     }
     return h(
       this.tag,
       {
-        class: ["l-row", classList],
+        class: ["lin-row", classList],
       },
       this.$slots.default
     );

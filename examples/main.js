@@ -3,9 +3,7 @@ import App from "./App.vue";
 
 import LinVueUi from "lin-view-ui";
 
-import utils from "packages/assets/utils/index.js";
-
-console.log(utils);
+// import utils from "packages/assets/utils/index.js";
 
 Vue.use(LinVueUi);
 

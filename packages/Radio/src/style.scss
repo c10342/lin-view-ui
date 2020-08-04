@@ -1,5 +1,5 @@
 @import "packages/assets/styles/variables/radio.scss";
-.l-radio {
+.lin-radio {
   color: $radio-color;
   font-weight: $radio-font-weight;
   line-height: $radio-line-height;
@@ -13,7 +13,7 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  .l-radio-input {
+  .lin-radio-input {
     white-space: nowrap;
     cursor: pointer;
     outline: none;
@@ -21,7 +21,7 @@
     line-height: $radio-input-line-height;
     position: relative;
     vertical-align: middle;
-    .l-radio-inner {
+    .lin-radio-inner {
       border: $radio-inner-border;
       border-radius: $radio-inner-border-radius;
       width: $radio-inner-width;
@@ -44,7 +44,7 @@
         transition: $radio-inner-after-transition;
       }
     }
-    .l-radio-original {
+    .lin-radio-original {
       opacity: 0;
       outline: none;
       position: absolute;
@@ -56,15 +56,15 @@
       margin: 0;
     }
   }
-  .l-radio-label {
+  .lin-radio-label {
     font-size: $radio-label-font-size;
     padding-left: $radio-label-padding-left;
   }
 }
 
-.l-radio-is-checked {
-  .l-radio-input {
-    .l-radio-inner {
+.lin-radio-is-checked {
+  .lin-radio-input {
+    .lin-radio-inner {
       border-color: $radio-checked-border-color;
       background: $radio-checked-background;
       &:after {
@@ -72,16 +72,16 @@
       }
     }
   }
-  .l-radio-label {
+  .lin-radio-label {
     color: $radio-checked-color;
   }
 }
 
-.l-radio-is-disabled {
+.lin-radio-is-disabled {
   cursor: not-allowed;
   color: $radio-disabled-color;
-  .l-radio-input {
-    .l-radio-inner {
+  .lin-radio-input {
+    .lin-radio-inner {
       cursor: not-allowed;
       border-color: $radio-disabled-border-color;
       background-color: $radio-disabled-background-color;
@@ -90,7 +90,7 @@
       }
     }
   }
-  .l-radio-label {
+  .lin-radio-label {
     color: $radio-disabled-color;
   }
 }

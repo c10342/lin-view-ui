@@ -3,7 +3,7 @@ import "./style.scss";
 import getDate from "packages/assets/utils/getDate.js";
 import getYearMonthDay from "packages/assets/utils/getYearMonthDay.js";
 export default {
-  name: "l-date-picker",
+  name: "LinDatePicker",
   render(h) {
     const {
       cellWidth,
@@ -31,10 +31,10 @@ export default {
       showInput,
     } = this;
     return (
-      <div v-click-outside class="l-date-picker">
+      <div v-click-outside class="lin-date-picker">
         {showInput && (
-          <div class="l-date-picker-input-box">
-            <i class="l-icon-date l-date-picker-icon"></i>
+          <div class="lin-date-picker-input-box">
+            <i class="lin-icon-date lin-date-picker-icon"></i>
             <input
               onClick={focus}
               readonly
@@ -43,8 +43,8 @@ export default {
               value={formatDate}
               disabled={disabled}
               class={[
-                { "l-date-picker-disabled": disabled },
-                "l-date-picker-input",
+                { "lin-date-picker-disabled": disabled },
+                "lin-date-picker-input",
               ]}
             />
           </div>
@@ -54,22 +54,22 @@ export default {
           {(isVisible || showAlways) && (
             <div
               class={[
-                { "l-date-picker-absolute": !showAlways },
-                "l-date-picker-pannel",
+                { "lin-date-picker-absolute": !showAlways },
+                "lin-date-picker-pannel",
               ]}
             >
-              <div class="l-date-picker-pannel-header">
-                <span onClick={prevYear} class="l-icon-left"></span>
-                <span onClick={prevMonth} class="l-icon-leftarrow"></span>
+              <div class="lin-date-picker-pannel-header">
+                <span onClick={prevYear} class="lin-icon-left"></span>
+                <span onClick={prevMonth} class="lin-icon-leftarrow"></span>
                 <span>
                   <span>{time.year}年</span>
-                  <span class="l-date-picker-month">{time.month}月</span>
+                  <span class="lin-date-picker-month">{time.month}月</span>
                 </span>
-                <span onClick={nextMonth} class="l-icon-rightarrow"></span>
-                <span onClick={nextYear} class="l-icon-right"></span>
+                <span onClick={nextMonth} class="lin-icon-rightarrow"></span>
+                <span onClick={nextYear} class="lin-icon-right"></span>
               </div>
-              <div class="l-date-picker-pannel-content">
-                <div class="l-date-picker-pannel-days">
+              <div class="lin-date-picker-pannel-content">
+                <div class="lin-date-picker-pannel-days">
                   <div>
                     {weekDays.map((w) => {
                       return (
@@ -78,7 +78,7 @@ export default {
                             width: `${cellWidth}px`,
                             height: `${labelHeight}px`,
                           }}
-                          class="l-date-picker-pannel-label-cell l-date-picker-cell"
+                          class="lin-date-picker-pannel-label-cell lin-date-picker-cell"
                           key={w}
                         >
                           {w}
@@ -102,31 +102,31 @@ export default {
                               }}
                               onClick={() => selectDate(currentTime)}
                               class={[
-                                "l-date-picker-pannel-cell l-date-picker-cell",
+                                "lin-date-picker-pannel-cell lin-date-picker-cell",
                                 {
-                                  "l-date-picker-not-current-month": !isCurrentMonth(
+                                  "lin-date-picker-not-current-month": !isCurrentMonth(
                                     currentTime
                                   ),
                                 },
                                 {
-                                  "l-date-picker-current-val": isCurrentval(
+                                  "lin-date-picker-current-val": isCurrentval(
                                     currentTime
                                   ),
                                 },
                                 {
-                                  "l-date-picker-disabled-date": isDisabledDate(
+                                  "lin-date-picker-disabled-date": isDisabledDate(
                                     currentTime
                                   ),
                                 },
                                 {
-                                  "l-date-picker-radius": radius,
+                                  "lin-date-picker-radius": radius,
                                 },
                               ]}
                             >
                               {info ? (
                                 info
                               ) : (
-                                <span class="l-date-picker-info">
+                                <span class="lin-date-picker-info">
                                   {currentTime.getDate()}
                                 </span>
                               )}

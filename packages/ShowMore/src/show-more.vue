@@ -1,13 +1,13 @@
 <template>
-  <span class="l-show-more">
+  <span class="lin-show-more">
     <span>{{text | filterText(textLen)}}</span>
     <a
-      class="l-show-more-tip"
+      class="lin-show-more-tip"
       @click="showMore"
       v-if="textLen !== -1 && textLen < text.length"
     >{{showText}}</a>
     <a
-      class="l-show-more-tip"
+      class="lin-show-more-tip"
       @click="showMore"
       v-if="textLen !== -1 && textLen === text.length && allowFold"
     >{{hiddenText}}</a>
@@ -16,36 +16,36 @@
 
 <script>
 export default {
-  name: "l-show-more",
+  name: "LinShowMore",
   props: {
     len: {
       type: Number,
-      default: -1
+      default: -1,
     },
     text: {
       type: String,
-      default: ""
+      default: "",
     },
     showText: {
       type: String,
-      default: "显示更多"
+      default: "显示更多",
     },
     hiddenText: {
       type: String,
-      default: "收起"
+      default: "收起",
     },
-    allowFold: Boolean
+    allowFold: Boolean,
   },
   data() {
     return {
-      textLen: this.len
+      textLen: this.len,
     };
   },
   methods: {
     showMore() {
       this.textLen =
         this.textLen === this.text.length ? this.len : this.text.length;
-    }
+    },
   },
   filters: {
     filterText(value, textLen) {
@@ -53,8 +53,8 @@ export default {
         return value.substring(0, textLen) + "...";
       }
       return value;
-    }
-  }
+    },
+  },
 };
 </script>
 

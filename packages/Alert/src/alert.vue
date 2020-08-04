@@ -1,23 +1,23 @@
 <template>
   <transition name="fade" @after-leave="afterLeave">
     <div
-      :class="['l-alert',`l-alert-${type}`,`l-alert-${effect}`,{'l-alert-center':center}]"
+      :class="['lin-alert',`lin-alert-${type}`,`lin-alert-${effect}`,{'lin-alert-center':center}]"
       v-if="show"
     >
       <slot name="icon">
-        <i :class="['l-alert-icon',icon]" v-if="icon"></i>
+        <i :class="['lin-alert-icon',icon]" v-if="icon"></i>
       </slot>
-      <div class="l-alert-content">
+      <div class="lin-alert-content">
         <slot name="title">
-          <span class="l-alert-title">{{title}}</span>
+          <span class="lin-alert-title">{{title}}</span>
         </slot>
         <slot name="description">
-          <span class="l-alert-description" v-if="description">{{description}}</span>
+          <span class="lin-alert-description" v-if="description">{{description}}</span>
         </slot>
       </div>
-      <span class="l-alert-close" v-if="closable" @click="onCloseClick">
+      <span class="lin-alert-close" v-if="closable" @click="onCloseClick">
         <slot name="close">
-          <i class="l-icon-close"></i>
+          <i class="lin-icon-close"></i>
         </slot>
       </span>
     </div>
@@ -26,40 +26,40 @@
 
 <script>
 export default {
-  name: "l-alert",
+  name: "LinAlert",
   props: {
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     icon: {
       type: String,
-      default: ""
+      default: "",
     },
     closable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
-      default: "success"
+      default: "success",
     },
     effect: {
       type: String,
-      default: "light"
+      default: "light",
     },
     center: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      show: true
+      show: true,
     };
   },
   methods: {
@@ -68,8 +68,8 @@ export default {
     },
     afterLeave() {
       this.$emit("close");
-    }
-  }
+    },
+  },
 };
 </script>
 

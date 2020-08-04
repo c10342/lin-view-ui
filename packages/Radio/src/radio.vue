@@ -1,20 +1,20 @@
 <template>
   <label
-    class="l-radio"
-    :class="{'l-radio-is-checked': label === model,'l-radio-is-disabled':isDisable}"
+    class="lin-radio"
+    :class="{'lin-radio-is-checked': label === model,'lin-radio-is-disabled':isDisable}"
   >
-    <span class="l-radio-input">
-      <span class="l-radio-inner"></span>
+    <span class="lin-radio-input">
+      <span class="lin-radio-inner"></span>
       <input
         :disabled="isDisable"
-        class="l-radio-original"
+        class="lin-radio-original"
         type="radio"
         :value="label"
         :name="name"
         v-model="model"
       />
     </span>
-    <span class="l-radio-label">
+    <span class="lin-radio-label">
       <slot></slot>
       <!-- 如果没有传内容，我们就把label当成内容 -->
       <template v-if="!$slots.default">{{label}}</template>
@@ -24,12 +24,12 @@
 
 <script>
 export default {
-  name: "l-radio",
+  name: "LinRadio",
   // 需要提供一个计算属性 model
   inject: {
     RadioGroup: {
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     model: {
@@ -43,7 +43,7 @@ export default {
         this.isGroup
           ? this.RadioGroup.$emit("input", value)
           : this.$emit("input", value);
-      }
+      },
     },
     isGroup() {
       // 用于判断radio是否被radioGroup所包裹
@@ -57,22 +57,22 @@ export default {
       }
       return this.disabled;
       // return this.isGroup ? this.RadioGroup.disabled : this.disabled;
-    }
+    },
   },
   props: {
     label: {
       type: [String, Number, Boolean],
-      default: ""
+      default: "",
     },
     value: null,
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>

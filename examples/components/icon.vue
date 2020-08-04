@@ -13,26 +13,26 @@ export default {
   data() {
     return {
       list: [
-        "l-icon-date",
-        "l-icon-thumbsup",
-        "l-icon-chat",
-        "l-icon-down",
-        "l-icon-left",
-        "l-icon-up",
-        "l-icon-upload",
-        "l-icon-delete",
-        "l-icon-search",
+        "lin-icon-date",
+        "lin-icon-thumbsup",
+        "lin-icon-chat",
+        "lin-icon-down",
+        "lin-icon-left",
+        "lin-icon-up",
+        "lin-icon-upload",
+        "lin-icon-delete",
+        "lin-icon-search",
         "close",
-        "l-icon-right",
-        "l-icon-left",
-        "l-icon-password",
-        "l-icon-right",
-        "l-icon-user",
-        "l-icon-downarrow",
-        "l-icon-uparrow"
-      ]
+        "lin-icon-right",
+        "lin-icon-left",
+        "lin-icon-password",
+        "lin-icon-right",
+        "lin-icon-user",
+        "lin-icon-downarrow",
+        "lin-icon-uparrow",
+      ],
     };
-  }
+  },
 };
 </script>
 

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <l-video-card :imageUrl="require('../assets/images/video-card.png')">
+    <lin-video-card :imageUrl="require('../assets/images/video-card.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
+    </lin-video-card>
 
-    <l-video-card
+    <lin-video-card
       cardHeight="248px"
       cardWidth="300px"
       :imageUrl="require('../assets/images/video-card.png')"
@@ -19,30 +19,30 @@
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
-    <l-video-card imageHeight="150px" :imageUrl="require('../assets/images/video-card.png')">
+    </lin-video-card>
+    <lin-video-card imageHeight="150px" :imageUrl="require('../assets/images/video-card.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
+    </lin-video-card>
 
-    <l-video-card :defaultImageUrl="require('../assets/images/logo.png')">
+    <lin-video-card :defaultImageUrl="require('../assets/images/logo.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
-    <l-video-card
+    </lin-video-card>
+    <lin-video-card
       coverTip="小提示"
       :imageUrl="require('../assets/images/video-card.png')"
       :defaultImageUrl="require('../assets/images/logo.png')"
@@ -51,25 +51,25 @@
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
-    <l-video-card errorTip="图片加载失败">
+    </lin-video-card>
+    <lin-video-card errorTip="图片加载失败">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
+    </lin-video-card>
   </div>
 </template>
 
 <script>
 export default {
-  name: "test-video-card"
+  name: "test-video-card",
 };
 </script>
 

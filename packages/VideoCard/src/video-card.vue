@@ -13,44 +13,44 @@
 
 <script>
 export default {
-  name: "l-video-card",
+  name: "LinVideoCard",
   props: {
     data: {
-      type: Object
+      type: Object,
     },
     cardHeight: {
       type: String,
-      default: "auto"
+      default: "auto",
     },
     cardWidth: {
       type: String,
-      default: "262px"
+      default: "262px",
     },
     imageHeight: {
       type: String,
-      default: "146px"
+      default: "146px",
     },
     coverTip: {
       type: String,
-      default: ""
+      default: "",
     },
     errorTip: {
       type: String,
-      default: "加载失败"
+      default: "加载失败",
     },
     defaultImageUrl: {
       type: String,
-      default: ""
+      default: "",
     },
     imageUrl: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
       imageLoadError: false,
-      url: ""
+      url: "",
     };
   },
   methods: {
@@ -63,16 +63,16 @@ export default {
     },
     onCardClick() {
       this.$emit("click", this.data);
-    }
+    },
   },
   watch: {
     imageUrl: {
       immediate: true,
-      handler: function(newVal) {
+      handler: function (newVal) {
         this.url = newVal;
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

@@ -43,13 +43,13 @@ LoadingConstruct.prototype.open = function(
 
   if (
     !this.fullscreen &&
-    !this.target.classList.contains("l-loading-position-relative")
+    !this.target.classList.contains("lin-loading-position-relative")
   ) {
-    this.target.classList.add("l-loading-position-relative");
+    this.target.classList.add("lin-loading-position-relative");
   }
 
-  if (this.lock && !this.target.classList.contains("l-loading-lock")) {
-    this.target.classList.add("l-loading-lock");
+  if (this.lock && !this.target.classList.contains("lin-loading-lock")) {
+    this.target.classList.add("lin-loading-lock");
   }
 
   if (this.visible) {
@@ -82,13 +82,13 @@ LoadingConstruct.prototype.close = function() {
   this.$once("after-leave", () => {
     if (
       !this.fullscreen &&
-      this.target.classList.contains("l-loading-position-relative")
+      this.target.classList.contains("lin-loading-position-relative")
     ) {
-      this.target.classList.remove("l-loading-position-relative");
+      this.target.classList.remove("lin-loading-position-relative");
     }
 
-    if (this.lock && this.target.classList.contains("l-loading-lock")) {
-      this.target.classList.remove("l-loading-lock");
+    if (this.lock && this.target.classList.contains("lin-loading-lock")) {
+      this.target.classList.remove("lin-loading-lock");
     }
     if (!this.fullscreen) {
       this.vm.$el.style.marginTop = "";

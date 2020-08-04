@@ -1,6 +1,6 @@
 <template>
   <div>
-    <l-live-comment
+    <lin-live-comment
       v-model="content"
       :fixComment="fixComment"
       :arrowComment="true"
@@ -11,7 +11,7 @@
       <!-- <template v-slot='slotProps'>
         <p>{{slotProps.item.username}}</p>
       </template>-->
-    </l-live-comment>
+    </lin-live-comment>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     return {
       commentList: [],
       fixComment: null,
-      content: ""
+      content: "",
     };
   },
   mounted() {
@@ -31,18 +31,18 @@ export default {
         {
           _username: "张三",
           _createTimeTip: "11:34:52",
-          _content: "哈哈"
+          _content: "哈哈",
         },
         {
           _username: "李四",
           _createTimeTip: "11:34:52",
-          _content: "你好"
+          _content: "你好",
         },
         {
           _username: "李四",
           _createTimeTip: "11:34:52",
-          _content: "你好"
-        }
+          _content: "你好",
+        },
       ];
     }, 500);
   },
@@ -55,7 +55,7 @@ export default {
       const content = {
         _username: "李四",
         _createTimeTip: "11:34:52",
-        _content: this.content
+        _content: this.content,
       };
       this.commentList.push(content);
       this.fixComment = content;
@@ -63,7 +63,7 @@ export default {
     },
     toBottom() {
       this.fixComment = null;
-    }
-  }
+    },
+  },
 };
 </script>

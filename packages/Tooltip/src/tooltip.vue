@@ -1,34 +1,34 @@
 <template>
   <transition name="fade" @after-leave="handleAfterLeave">
-    <div v-if="show" :style="style" class="l-tooltip" :class="classes">{{text}}</div>
+    <div v-if="show" :style="style" class="lin-tooltip" :class="classes">{{text}}</div>
   </transition>
 </template>
 
 <script>
 export default {
-  name: "l-tooltip",
+  name: "LinTooltip",
   data() {
     return {
       style: {},
       show: false,
       placement: "bottom",
-      text: ""
+      text: "",
     };
   },
   methods: {
     handleAfterLeave() {
       this.$emit("after-leave");
-    }
+    },
   },
   computed: {
     classes() {
       return {
-        "l-tooltip-bottom": this.placement === "top",
-        "l-tooltip-top": this.placement === "bottom",
-        "l-tooltip-left": this.placement === "right",
-        "l-tooltip-right": this.placement === "left"
+        "lin-tooltip-bottom": this.placement === "top",
+        "lin-tooltip-top": this.placement === "bottom",
+        "lin-tooltip-left": this.placement === "right",
+        "lin-tooltip-right": this.placement === "left",
       };
-    }
-  }
+    },
+  },
 };
 </script>

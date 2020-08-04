@@ -1,7 +1,7 @@
 @import "packages/assets/styles/variables/dialog.scss";
 // scoped会给当前组件的模板中的所有的元素都添加一个随机的属性
 // scoped会给当前组件中所有的样式 页添加一个对应的的属性选择器
-.l-dialog-wrapper {
+.lin-dialog-wrapper {
   position: fixed;
   top: 0;
   right: 0;
@@ -12,7 +12,7 @@
   z-index: 2001;
   background-color: $dialog-wrapper-background-color;
 
-  .l-dialog {
+  .lin-dialog {
     position: relative;
     margin: $dialog-margin;
     background: $dialog-background;
@@ -23,12 +23,12 @@
 
     &-header {
       padding: $dialog-header-padding;
-      .l-dialog-title {
+      .lin-dialog-title {
         line-height: $dialog-title-line-height;
         font-size: $dialog-title-font-size;
         color: $dialog-title-color;
       }
-      .l-dialog-headerbtn {
+      .lin-dialog-headerbtn {
         position: absolute;
         top: $dialog-headerbtn-top;
         right: $dialog-headerbtn-right;
@@ -38,7 +38,7 @@
         outline: $dialog-headerbtn-outline;
         cursor: pointer;
         font-size: $dialog-headerbtn-font-size;
-        .l-icon-close {
+        .lin-icon-close {
           color: $dialog-close-color;
         }
       }
@@ -55,17 +55,17 @@
       text-align: $dialog-footer-text-align;
       box-sizing: border-box;
       // 深度选择器 scss ::v-deep  less /deep/  css >>>
-      // ::v-deep .l-button:first-child {
+      // ::v-deep .lin-button:first-child {
       //   margin-right: 20px;
       // }
     }
   }
 }
 
-.l-dialog-fade-enter-active {
+.lin-dialog-fade-enter-active {
   animation: $dialog-animation-enter;
 }
 
-.l-dialog-fade-leave-active {
+.lin-dialog-fade-leave-active {
   animation: $dialog-animation-leave;
 }

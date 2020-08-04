@@ -1,25 +1,25 @@
 <template>
   <div>
-    <l-checkbox v-model="value1">男</l-checkbox>
+    <lin-checkbox v-model="value1">男</lin-checkbox>
 
-    <l-checkbox-group v-model="value2">
-      <l-checkbox label="抽烟"></l-checkbox>
-      <l-checkbox label="喝酒"></l-checkbox>
-      <l-checkbox label="探头"></l-checkbox>
-    </l-checkbox-group>
+    <lin-checkbox-group v-model="value2">
+      <lin-checkbox label="抽烟"></lin-checkbox>
+      <lin-checkbox label="喝酒"></lin-checkbox>
+      <lin-checkbox label="探头"></lin-checkbox>
+    </lin-checkbox-group>
 
-    <l-checkbox disabled v-model="value3">男</l-checkbox>
+    <lin-checkbox disabled v-model="value3">男</lin-checkbox>
 
-    <l-checkbox-group disabled v-model="value4">
-      <l-checkbox label="抽烟"></l-checkbox>
-      <l-checkbox label="喝酒"></l-checkbox>
-      <l-checkbox label="探头"></l-checkbox>
-    </l-checkbox-group>
-    <l-checkbox-group v-model="value5">
-      <l-checkbox disabled label="抽烟"></l-checkbox>
-      <l-checkbox label="喝酒"></l-checkbox>
-      <l-checkbox label="探头"></l-checkbox>
-    </l-checkbox-group>
+    <lin-checkbox-group disabled v-model="value4">
+      <lin-checkbox label="抽烟"></lin-checkbox>
+      <lin-checkbox label="喝酒"></lin-checkbox>
+      <lin-checkbox label="探头"></lin-checkbox>
+    </lin-checkbox-group>
+    <lin-checkbox-group v-model="value5">
+      <lin-checkbox disabled label="抽烟"></lin-checkbox>
+      <lin-checkbox label="喝酒"></lin-checkbox>
+      <lin-checkbox label="探头"></lin-checkbox>
+    </lin-checkbox-group>
   </div>
 </template>
 
@@ -32,9 +32,9 @@ export default {
       value2: [],
       value3: false,
       value4: [],
-      value5: []
+      value5: [],
     };
-  }
+  },
 };
 </script>
 

@@ -4,9 +4,9 @@
     <button class="btn" @click="onClick1">click</button>
     <div
       class="box-content"
-      l-loading-text="拼命加载中"
-      l-loading-background="rgba(0, 0, 0, 0.8)"
-      l-loading-textColor="#fff"
+      lin-loading-text="拼命加载中"
+      lin-loading-background="rgba(0, 0, 0, 0.8)"
+      lin-loading-textColor="#fff"
       v-loading.lock="isLoading"
     >
       <div class="box"></div>
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       isLoading: false,
-      isLoading1: false
+      isLoading1: false,
     };
   },
   methods: {
@@ -38,8 +38,8 @@ export default {
       //   this.isLoading1 = true;
       // }
       this.$loading.open({ time: 5000 });
-    }
-  }
+    },
+  },
 };
 </script>
 

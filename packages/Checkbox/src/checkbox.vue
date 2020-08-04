@@ -1,20 +1,20 @@
 <template>
   <label
-    class="l-checkbox"
-    :class="{'l-checkbox-is-checked': isChecked,'l-checkbox-is-disabled':isDisabled}"
+    class="lin-checkbox"
+    :class="{'lin-checkbox-is-checked': isChecked,'lin-checkbox-is-disabled':isDisabled}"
   >
-    <span class="l-checkbox-input">
-      <span class="l-checkbox-inner"></span>
+    <span class="lin-checkbox-input">
+      <span class="lin-checkbox-inner"></span>
       <input
         type="checkbox"
-        class="l-checkbox-original"
+        class="lin-checkbox-original"
         :name="name"
         v-model="model"
         :value="label"
         :disabled="isDisabled"
       />
     </span>
-    <span class="l-checkbox-label">
+    <span class="lin-checkbox-label">
       <slot></slot>
       <template v-if="!$slots.default">{{label}}</template>
     </span>
@@ -23,11 +23,11 @@
 
 <script>
 export default {
-  name: "l-checkbox",
+  name: "LinCheckbox",
   inject: {
     CheckboxGroup: {
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     isGroup() {
@@ -41,7 +41,7 @@ export default {
         this.isGroup
           ? this.CheckboxGroup.$emit("input", value)
           : this.$emit("input", value);
-      }
+      },
     },
     isChecked() {
       // 如果是group包裹，判断 label是否在model中
@@ -55,25 +55,25 @@ export default {
         }
       }
       return this.disabled;
-    }
+    },
   },
   props: {
     value: {
       type: Boolean,
-      default: false
+      default: false,
     },
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>

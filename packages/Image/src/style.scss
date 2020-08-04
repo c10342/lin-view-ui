@@ -1,17 +1,17 @@
 @import "packages/assets/styles/variables/image.scss";
 
-.l-image {
+.lin-image {
   display: inline-block;
   vertical-align: top;
 }
-.l-image-img {
+.lin-image-img {
   display: block;
   width: 100%;
   height: 100%;
   padding: $image-img-padding;
   margin: $image-img-margin;
 }
-.l-image-error {
+.lin-image-error {
   width: 100%;
   height: 100%;
   background: #f5f7fa;
@@ -24,7 +24,7 @@
   color: $image-error-color;
 }
 
-.l-image-mask {
+.lin-image-mask {
   position: fixed;
   top: 0;
   left: 0;
@@ -41,7 +41,7 @@
   transition: $image-mask-transition;
 }
 
-.l-image-close {
+.lin-image-close {
   position: absolute;
   right: $image-close-right;
   top: $image-close-top;
@@ -51,7 +51,7 @@
   border: $image-close-border-border;
 }
 
-.l-image-line {
+.lin-image-line {
   position: absolute;
   height: $image-line-height;
   width: $image-line-width;
@@ -60,38 +60,38 @@
   left: $image-line-left;
 }
 
-.l-image-line-left {
+.lin-image-line-left {
   transform: $image-line-left-transform;
 }
 
-.l-image-line-right {
+.lin-image-line-right {
   transform: $image-line-right-transform;
 }
 
-.l-image-animation-enter,
-.l-image-animation-leave-to {
+.lin-image-animation-enter,
+.lin-image-animation-leave-to {
   transform: scale(0.3);
   opacity: 0;
 }
 
-.l-image-animation-enter-to,
-.l-image-animation-leave {
+.lin-image-animation-enter-to,
+.lin-image-animation-leave {
   transform: scale(1);
   opacity: 1;
 }
 
-.l-image-object-fill {
+.lin-image-object-fill {
   object-fit: fill;
 }
-.l-image-object-contain {
+.lin-image-object-contain {
   object-fit: contain;
 }
-.l-image-object-cover {
+.lin-image-object-cover {
   object-fit: cover;
 }
-.l-image-object-none {
+.lin-image-object-none {
   object-fit: none;
 }
-.l-image-object-scale-down {
+.lin-image-object-scale-down {
   object-fit: scale-down;
 }

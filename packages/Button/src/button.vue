@@ -1,14 +1,14 @@
 <template>
   <button
     @click="onButtonClick"
-    class="l-button"
+    class="lin-button"
     :class="[
-      `l-button-${type}`,
-      { 'l-button-plain': plain },
-      { 'l-button-round': round },
-      { 'l-button-circle': circle },
-      { 'l-button-disabled': disabled },
-      `l-button-size-${size}`
+      `lin-button-${type}`,
+      { 'lin-button-plain': plain },
+      { 'lin-button-round': round },
+      { 'lin-button-circle': circle },
+      { 'lin-button-disabled': disabled },
+      `lin-button-size-${size}`
     ]"
     :disabled="disabled"
   >
@@ -21,44 +21,44 @@
 
 <script>
 export default {
-  name: "l-button",
+  name: "LinButton",
 
   props: {
     type: {
       type: String,
-      default: "default"
+      default: "default",
     },
     plain: {
       type: Boolean,
-      default: false
+      default: false,
     },
     round: {
       type: Boolean,
-      default: false
+      default: false,
     },
     circle: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     icon: {
       type: String,
-      default: ""
+      default: "",
     },
     size: {
       type: String,
-      default: "default"
-    }
+      default: "default",
+    },
   },
 
   methods: {
     onButtonClick() {
       this.$emit("click");
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -19,15 +19,15 @@ export default {
 要使用 Radio 组件，只需要设置 `v-model` 绑定变量，选中意味着变量的值为相应 Radio `label` 属性的值，label 可以是 `String` 、 `Number` 或 `Boolean`
 
 <div class='demo-block'>
-<l-radio label="1" v-model="value1">男</l-radio>
-<l-radio label="2" v-model="value1">女</l-radio>
+<lin-radio label="1" v-model="value1">男</lin-radio>
+<lin-radio label="2" v-model="value1">女</lin-radio>
 </div>
 
 :::demo
 
 ```html
-<l-radio label="1" v-model="value1">男</l-radio>
-<l-radio label="2" v-model="value1">女</l-radio>
+<lin-radio label="1" v-model="value1">男</lin-radio>
+<lin-radio label="2" v-model="value1">女</lin-radio>
 
 <script>
   export default {
@@ -44,18 +44,18 @@ export default {
 
 ## 禁用状态
 
-只要在 `l-radio` 或者 `l-radio-group` 元素中设置 `disabled` 属性即可，它接受一个 `Boolean` ，`true` 为禁用
+只要在 `lin-radio` 或者 `lin-radio-group` 元素中设置 `disabled` 属性即可，它接受一个 `Boolean` ，`true` 为禁用
 
 <div class='demo-block'>
-<l-radio disabled label="1" v-model="value2">男</l-radio>
-<l-radio disabled label="2" v-model="value2">女</l-radio>
+<lin-radio disabled label="1" v-model="value2">男</lin-radio>
+<lin-radio disabled label="2" v-model="value2">女</lin-radio>
 </div>
 
 :::demo
 
 ```html
-<l-radio disabled label="1" v-model="value2">男</l-radio>
-<l-radio disabled label="2" v-model="value2">女</l-radio>
+<lin-radio disabled label="1" v-model="value2">男</lin-radio>
+<lin-radio disabled label="2" v-model="value2">女</lin-radio>
 
 <script>
   export default {
@@ -72,22 +72,22 @@ export default {
 
 ## 单选框组
 
-结合 `l-radio-group` 元素和子元素 `l-radio` 可以实现单选组，在 `l-radio-group` 中绑定 `v-model` ，在 `l-radio` 中设置好 `label` 即可，无需再给每一个 `l-radio` 绑定变量。
+结合 `lin-radio-group` 元素和子元素 `lin-radio` 可以实现单选组，在 `lin-radio-group` 中绑定 `v-model` ，在 `lin-radio` 中设置好 `label` 即可，无需再给每一个 `lin-radio` 绑定变量。
 
 <div class='demo-block'>
-    <l-radio-group v-model="value3">
-      <l-radio label="3">男</l-radio>
-      <l-radio label="4">女</l-radio>
-    </l-radio-group>
+    <lin-radio-group v-model="value3">
+      <lin-radio label="3">男</lin-radio>
+      <lin-radio label="4">女</lin-radio>
+    </lin-radio-group>
 </div>
 
 :::demo
 
 ```html
-<l-radio-group v-model="value3">
-  <l-radio label="3">男</l-radio>
-  <l-radio label="4">女</l-radio>
-</l-radio-group>
+<lin-radio-group v-model="value3">
+  <lin-radio label="3">男</lin-radio>
+  <lin-radio label="4">女</lin-radio>
+</lin-radio-group>
 
 <script>
   export default {

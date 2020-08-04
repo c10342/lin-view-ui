@@ -1,47 +1,47 @@
 <template>
   <div
-    class="l-switch"
-    :class="{'l-switch-is-checked': value,'l-switch-is-disabled':disabled}"
+    class="lin-switch"
+    :class="{'lin-switch-is-checked': value,'lin-switch-is-disabled':disabled}"
     @click="handleClick"
   >
-    <input v-if="name" :value="value" class="l-switch-input" type="checkbox" :name="name" />
-    <span :style="{'border-color':color,'background-color':color}" class="l-switch-core">
-      <span class="l-switch-button"></span>
+    <input v-if="name" :value="value" class="lin-switch-input" type="checkbox" :name="name" />
+    <span :style="{'border-color':color,'background-color':color}" class="lin-switch-core">
+      <span class="lin-switch-button"></span>
     </span>
   </div>
 </template>
 
 <script>
 export default {
-  name: "l-switch",
+  name: "LinSwitch",
   props: {
     value: {
       type: Boolean,
-      default: false
+      default: false,
     },
     activeColor: {
       type: String,
-      default: ""
+      default: "",
     },
     inactiveColor: {
       type: String,
-      default: ""
+      default: "",
     },
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     handleClick() {
       if (!this.disabled) {
         this.$emit("input", !this.value);
       }
-    }
+    },
   },
   computed: {
     color() {
@@ -56,8 +56,8 @@ export default {
         }
         return "";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

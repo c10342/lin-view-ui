@@ -1,17 +1,17 @@
 <template>
-  <div class="l-scroll-view" :style="{'height':`${height}px`}" @scroll="onScroll">
+  <div class="lin-scroll-view" :style="{'height':`${height}px`}" @scroll="onScroll">
     <div ref="lScrollViewContent">
-      <div class="l-scroll-view-content">
+      <div class="lin-scroll-view-content">
         <slot />
       </div>
       <slot name="loading" v-if="isShowLoading">
-        <div class="l-scroll-view-loading">
-          <span class="l-scroll-view-icon"></span>
-          <span class="l-scroll-view-tip">{{loadingTip}}</span>
+        <div class="lin-scroll-view-loading">
+          <span class="lin-scroll-view-icon"></span>
+          <span class="lin-scroll-view-tip">{{loadingTip}}</span>
         </div>
       </slot>
       <slot name="no-more" v-if="isShowNoMoreTip">
-        <p class="l-scroll-view-nomore-tip">{{noMoreTip}}</p>
+        <p class="lin-scroll-view-nomore-tip">{{noMoreTip}}</p>
       </slot>
     </div>
   </div>
@@ -19,45 +19,45 @@
 
 <script>
 export default {
-  name: "l-scroll-view",
+  name: "LinScrollView",
   props: {
     height: {
       type: Number,
-      default: 700
+      default: 700,
     },
     isThrottle: {
       type: Boolean,
-      default: true
+      default: true,
     },
     time: {
       type: Number,
-      default: 500
+      default: 500,
     },
     isEnd: {
       type: Boolean,
-      default: false
+      default: false,
     },
     showLoading: {
       type: Boolean,
-      default: true
+      default: true,
     },
     emitScrollEvent: {
       type: Boolean,
-      default: true
+      default: true,
     },
     data: [Object, Array],
     loadingTip: {
       type: String,
-      default: ""
+      default: "",
     },
     noMoreTip: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
-      contentHeight: 0
+      contentHeight: 0,
     };
   },
   mounted() {
@@ -91,7 +91,7 @@ export default {
       if (this.emitScrollEvent) {
         this.$emit("scroll", e);
       }
-    }
+    },
   },
   computed: {
     isShowLoading() {
@@ -114,7 +114,7 @@ export default {
       //   return true;
       // }
       return false;
-    }
+    },
   },
   watch: {
     data() {
@@ -123,12 +123,12 @@ export default {
       } else {
         this.contentHeight = 0;
       }
-    }
+    },
   },
   beforeDestroy() {
     if (this.timer) {
       clearTimeout(this.timer);
     }
-  }
+  },
 };
 </script>

@@ -1,6 +1,6 @@
 @import "packages/assets/styles/variables/loading.scss";
 
-.l-loading-mask {
+.lin-loading-mask {
   position: absolute;
   top: 0;
   left: 0;
@@ -16,16 +16,16 @@
   justify-content: center;
   background-color: $loading-mask-background-color;
 }
-.l-loading-mask.l-loading-is-fullscreen {
+.lin-loading-mask.lin-loading-is-fullscreen {
   position: fixed;
 }
-.l-loading-content {
+.lin-loading-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.l-loading-icon {
+.lin-loading-icon {
   width: $loading-icon-width;
   height: $loading-icon-height;
   border-radius: $loading-icon-border-radius;
@@ -35,24 +35,24 @@
   animation: $loading-icon-animation;
 }
 
-.l-loading-position-relative {
+.lin-loading-position-relative {
   position: relative;
 }
 
-.l-loading-lock {
+.lin-loading-lock {
   overflow: hidden !important;
 }
 
-.l-loading-text {
+.lin-loading-text {
   margin-top: $loading-text-margin-top;
 }
 
-.l-loading-fade-enter-active,
-.l-loading-fade-leave-active {
+.lin-loading-fade-enter-active,
+.lin-loading-fade-leave-active {
   transition: $loading-fade-transition;
 }
 
-.l-loading-fade-enter,
-.l-loading-fade-leave-to {
+.lin-loading-fade-enter,
+.lin-loading-fade-leave-to {
   opacity: $loading-fade-opacity;
 }

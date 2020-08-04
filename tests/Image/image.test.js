@@ -23,7 +23,7 @@ describe("属性", () => {
   it("imgUrl为String", () => {
     const wrapper = createImage({ propsData: { imgUrl: imageUrl } });
     const image = wrapper.find("img");
-    const errorMessage = wrapper.find(".l-image-error");
+    const errorMessage = wrapper.find(".lin-image-error");
     expect(image.exists()).toBeTruthy();
     expect(image.attributes("src")).toBe(imageUrl);
     expect(errorMessage.exists()).toBeFalsy();
@@ -32,7 +32,7 @@ describe("属性", () => {
   it("imgUrl为Array", () => {
     const wrapper = createImage({ propsData: { imgUrl: [imageUrl] } });
     const image = wrapper.find("img");
-    const errorMessage = wrapper.find(".l-image-error");
+    const errorMessage = wrapper.find(".lin-image-error");
     expect(image.exists()).toBeTruthy();
     expect(image.attributes("src")).toBe(imageUrl);
     expect(errorMessage.exists()).toBeFalsy();
@@ -41,7 +41,7 @@ describe("属性", () => {
   it("imgUrl不存在", () => {
     const wrapper = createImage();
     const image = wrapper.find("img");
-    const errorMessage = wrapper.find(".l-image-error");
+    const errorMessage = wrapper.find(".lin-image-error");
     expect(image.exists()).toBeFalsy();
     expect(errorMessage.exists()).toBeTruthy();
   });
@@ -49,7 +49,7 @@ describe("属性", () => {
   it("imgUrl为空数组", () => {
     const wrapper = createImage({ propsData: { imgUrl: [] } });
     const image = wrapper.find("img");
-    const errorMessage = wrapper.find(".l-image-error");
+    const errorMessage = wrapper.find(".lin-image-error");
     expect(image.exists()).toBeFalsy();
     expect(errorMessage.exists()).toBeTruthy();
   });
@@ -78,13 +78,13 @@ describe("属性", () => {
     });
     const image = wrapper.find("img");
     await image.trigger("click");
-    let imageMask = wrapper.find(".l-image-mask");
-    const closeBtn = wrapper.find(".l-image-close");
+    let imageMask = wrapper.find(".lin-image-mask");
+    const closeBtn = wrapper.find(".lin-image-close");
     expect(wrapper.vm.showPreview).toBeTruthy();
     expect(imageMask.exists()).toBeTruthy();
 
     await closeBtn.trigger("click");
-    imageMask = wrapper.find(".l-image-mask");
+    imageMask = wrapper.find(".lin-image-mask");
     expect(imageMask.exists()).toBeFalsy();
   });
 
@@ -94,11 +94,11 @@ describe("属性", () => {
     });
     const image = wrapper.find("img");
     await image.trigger("click");
-    let imageMask = wrapper.find(".l-image-mask");
+    let imageMask = wrapper.find(".lin-image-mask");
     expect(imageMask.exists()).toBeTruthy();
 
     await imageMask.trigger("click");
-    imageMask = wrapper.find(".l-image-mask");
+    imageMask = wrapper.find(".lin-image-mask");
     expect(imageMask.exists()).toBeTruthy();
   });
 
@@ -107,7 +107,7 @@ describe("属性", () => {
     const wrapper = createImage({
       propsData: { errorMsg },
     });
-    const errorMessage = wrapper.find(".l-image-error");
+    const errorMessage = wrapper.find(".lin-image-error");
     expect(errorMessage.exists()).toBeTruthy();
     expect(errorMessage.text()).toEqual(errorMsg);
   });

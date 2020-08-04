@@ -1,30 +1,35 @@
 <template>
   <div>
     <div class="item">
-      <l-limit-textarea @overText="overText" v-model="value1" :maxLen="10" placeholder="最多输入10个字符"></l-limit-textarea>
+      <lin-limit-textarea
+        @overText="overText"
+        v-model="value1"
+        :maxLen="10"
+        placeholder="最多输入10个字符"
+      ></lin-limit-textarea>
     </div>
 
     <div class="item">
-      <l-limit-textarea
+      <lin-limit-textarea
         @overText="overText"
         v-model="value2"
         :max-len="10"
         placeholder="最多输入10个字符"
         isCut
-      ></l-limit-textarea>
+      ></lin-limit-textarea>
     </div>
     <div class="item">
-      <l-limit-textarea
+      <lin-limit-textarea
         @overText="overText"
         v-model="value3"
         :max-len="10"
         :rows="3"
         placeholder="最多输入10个字符"
         is-cut
-      ></l-limit-textarea>
+      ></lin-limit-textarea>
     </div>
     <div class="item">
-      <l-limit-textarea @overText="overText" v-model="value4" placeholder="最多输入10个字符" is-cut></l-limit-textarea>
+      <lin-limit-textarea @overText="overText" v-model="value4" placeholder="最多输入10个字符" is-cut></lin-limit-textarea>
     </div>
   </div>
 </template>
@@ -37,14 +42,14 @@ export default {
       value1: "",
       value2: "",
       value3: "",
-      value4: ""
+      value4: "",
     };
   },
   methods: {
     overText(e) {
       console.log(e);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -20,13 +20,13 @@ export default {
 LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始输入的提示文案
 
 <div class="demo-block">
-<l-limit-textarea v-model="value1" :maxLen="10" placeholder="最多输入10个字符"></l-limit-textarea>
+<lin-limit-textarea v-model="value1" :maxLen="10" placeholder="最多输入10个字符"></lin-limit-textarea>
 </div>
 
 ::: demo
 
 ```html
-<l-limit-textarea
+<lin-limit-textarea
   v-model="value1"
   :max-len="10"
   placeholder="最多输入10个字符"
@@ -50,13 +50,13 @@ LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始�
 如果超过了限制的字符数，可以通过设置`isCut`属性对超过部分进行裁剪
 
 <div class="demo-block">
-<l-limit-textarea v-model="value2" :max-len="10" placeholder="最多输入10个字符" is-cut></l-limit-textarea>
+<lin-limit-textarea v-model="value2" :max-len="10" placeholder="最多输入10个字符" is-cut></lin-limit-textarea>
 </div>
 
 ::: demo
 
 ```html
-<l-limit-textarea
+<lin-limit-textarea
   v-model="value2"
   :max-len="10"
   placeholder="最多输入10个字符"
@@ -81,13 +81,13 @@ LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始�
 通过 `rows` 属性指定高度
 
 <div class="demo-block">
-<l-limit-textarea v-model='value3' :max-len="10" :rows="3" placeholder="最多输入10个字符" is-cut></l-limit-textarea>
+<lin-limit-textarea v-model='value3' :max-len="10" :rows="3" placeholder="最多输入10个字符" is-cut></lin-limit-textarea>
 </div>
 
 :::demo
 
 ```html
-<l-limit-textarea
+<lin-limit-textarea
   v-model="value3"
   :max-len="10"
   :rows="3"

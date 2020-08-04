@@ -29,7 +29,7 @@
 使用`imageUrl`属性来定义卡片的封面，以及自定义卡片底部内容即可。
 
 <div class='demo-block'>
-    <l-video-card 
+    <lin-video-card 
     :imageUrl="require('../assets/img/video-card.png')">
       <template>
         <div class="card-bottom">
@@ -38,13 +38,13 @@
           <p>lin-view-ui</p>
         </div>
       </template>
-    </l-video-card>
+    </lin-video-card>
 </div>
 
 ::: demo
 
 ```html
-<l-video-card :imageUrl="require('../assets/img/video-card.png')">
+<lin-video-card :imageUrl="require('../assets/img/video-card.png')">
   <template>
     <div class="card-bottom">
       <p>春风得意</p>
@@ -52,7 +52,7 @@
       <p>lin-view-ui</p>
     </div>
   </template>
-</l-video-card>
+</lin-video-card>
 ```
 
 :::
@@ -62,7 +62,7 @@
 使用`cardHeight`和`cardWidth`属性来定义卡片的宽度和高度
 
 <div class='demo-block'>
-    <l-video-card
+    <lin-video-card
       cardHeight="270px"
       cardWidth="300px"
       :imageUrl="require('../assets/img/video-card.png')"
@@ -71,16 +71,16 @@
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
+    </lin-video-card>
 </div>
 
 :::demo
 
 ```html
-<l-video-card
+<lin-video-card
   cardHeight="270px"
   cardWidth="300px"
   :imageUrl="require('../assets/img/video-card.png')"
@@ -89,10 +89,10 @@
     <div class="card-bottom">
       <p>春风得意</p>
       <p>这是一个卡片</p>
-      <p>l-vue-ui</p>
+      <p>lin-vue-ui</p>
     </div>
   </template>
-</l-video-card>
+</lin-video-card>
 ```
 
 :::
@@ -102,23 +102,23 @@
 使用`imageHeight`属性来定义图片的高度
 
 <div class='demo-block'>
-    <l-video-card 
+    <lin-video-card 
     imageHeight="150px" 
     :imageUrl="require('../assets/img/video-card.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
+    </lin-video-card>
 </div>
 
 :::demo
 
 ```html
-<l-video-card
+<lin-video-card
   imageHeight="150px"
   :imageUrl="require('../assets/img/video-card.png')"
 >
@@ -126,10 +126,10 @@
     <div class="card-bottom">
       <p>春风得意</p>
       <p>这是一个卡片</p>
-      <p>l-vue-ui</p>
+      <p>lin-vue-ui</p>
     </div>
   </template>
-</l-video-card>
+</lin-video-card>
 ```
 
 :::
@@ -139,30 +139,30 @@
 使用`defaultImageUrl`属性来定义默认图片，当 imageUrl 的值为空或者 imageUrl 加载失败就会显示默认图片。
 
 <div class='demo-block'>
-    <l-video-card 
+    <lin-video-card 
     :defaultImageUrl="require('../assets/img/logo.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
+    </lin-video-card>
 </div>
 
 :::demo
 
 ```html
-<l-video-card :defaultImageUrl="require('../assets/img/logo.png')">
+<lin-video-card :defaultImageUrl="require('../assets/img/logo.png')">
   <template>
     <div class="card-bottom">
       <p>春风得意</p>
       <p>这是一个卡片</p>
-      <p>l-vue-ui</p>
+      <p>lin-vue-ui</p>
     </div>
   </template>
-</l-video-card>
+</lin-video-card>
 ```
 
 :::
@@ -172,7 +172,7 @@
 使用`coverTip`属性来定义封面右下角的提示
 
 <div class='demo-block'>
-    <l-video-card
+    <lin-video-card
       coverTip="小提示"
       :imageUrl="require('../assets/img/video-card.png')"
       :defaultImageUrl="require('../assets/img/logo.png')"
@@ -181,16 +181,16 @@
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
+    </lin-video-card>
 </div>
 
 :::demo
 
 ```html
-<l-video-card
+<lin-video-card
   coverTip="小提示"
   :imageUrl="require('../assets/img/video-card.png')"
   :defaultImageUrl="require('../assets/img/logo.png')"
@@ -199,10 +199,10 @@
     <div class="card-bottom">
       <p>春风得意</p>
       <p>这是一个卡片</p>
-      <p>l-vue-ui</p>
+      <p>lin-vue-ui</p>
     </div>
   </template>
-</l-video-card>
+</lin-video-card>
 ```
 
 :::
@@ -212,29 +212,29 @@
 使用`errorTip`属性来定义图片加载失败时显示的提示语，当 imageUrl 和 defaultImageUrl 为空或者都加载失败时就会显示该提示语
 
 <div class='demo-block'>
-    <l-video-card errorTip="图片加载失败">
+    <lin-video-card errorTip="图片加载失败">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
           <p>这是一个卡片</p>
-          <p>l-vue-ui</p>
+          <p>lin-vue-ui</p>
         </div>
       </template>
-    </l-video-card>
+    </lin-video-card>
 </div>
 
 :::demo
 
 ```html
-<l-video-card errorTip="图片加载失败">
+<lin-video-card errorTip="图片加载失败">
   <template>
     <div class="card-bottom">
       <p>春风得意</p>
       <p>这是一个卡片</p>
-      <p>l-vue-ui</p>
+      <p>lin-vue-ui</p>
     </div>
   </template>
-</l-video-card>
+</lin-video-card>
 ```
 
 :::

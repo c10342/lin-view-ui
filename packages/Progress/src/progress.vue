@@ -1,17 +1,17 @@
 <template>
-  <div class="l-progress">
-    <div class="l-progress-out" :style="outStyle">
-      <div :class="['l-progress-inner',{[`l-progress-${type}`]:type}]" :style="innerStyle">
-        <div class="l-progress-inside-text" v-if="isShowInsideText">
+  <div class="lin-progress">
+    <div class="lin-progress-out" :style="outStyle">
+      <div :class="['lin-progress-inner',{[`lin-progress-${type}`]:type}]" :style="innerStyle">
+        <div class="lin-progress-inside-text" v-if="isShowInsideText">
           <slot name="text">
-            <span class="l-progress-inside-tip">{{textInside}}</span>
+            <span class="lin-progress-inside-tip">{{textInside}}</span>
           </slot>
         </div>
       </div>
     </div>
-    <div class="l-progress-outside-text" v-if="isShowOutsideText">
+    <div class="lin-progress-outside-text" v-if="isShowOutsideText">
       <slot>
-        <span class="l-progress-outside-tip">{{textOutside}}</span>
+        <span class="lin-progress-outside-tip">{{textOutside}}</span>
       </slot>
     </div>
   </div>
@@ -19,40 +19,40 @@
 
 <script>
 export default {
-  name: "l-progress",
+  name: "LinProgress",
   props: {
     percent: {
       type: Number,
-      default: 0
+      default: 0,
     },
     innerColor: {
       type: String,
-      default: ""
+      default: "",
     },
     outColor: {
       type: String,
-      default: ""
+      default: "",
     },
     height: {
       type: Number,
-      default: 10
+      default: 10,
     },
     radius: {
       type: Boolean,
-      default: true
+      default: true,
     },
     textOutside: {
       type: String,
-      default: ""
+      default: "",
     },
     type: {
       type: String,
-      default: "primary"
+      default: "primary",
     },
     textInside: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     width() {
@@ -67,7 +67,7 @@ export default {
 
     innerStyle() {
       const style = {
-        width: this.width
+        width: this.width,
       };
       if (this.innerColor) {
         style.backgroundColor = this.innerColor;
@@ -105,8 +105,8 @@ export default {
       }
 
       return false;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -18,6 +18,7 @@ import Form from "./Form";
 import FormItem from "./FormItem";
 import DatePicker from "./DatePicker";
 import InputNumber from "./InputNumber";
+import Upload from "./Upload";
 
 // 视频组件
 import VideoCard from "./VideoCard";
@@ -69,6 +70,7 @@ const install = (Vue) => {
     InputNumber,
     Tag,
     Alert,
+    Upload,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -108,4 +110,5 @@ export default {
   InputNumber,
   Tag,
   Alert,
+  Upload,
 };

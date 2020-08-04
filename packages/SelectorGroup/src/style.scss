@@ -1,6 +1,6 @@
 @import "../../assets/styles/variables/selector-group";
 
-.l-selector-label {
+.lin-selector-label {
   height: $selector-label-height;
   line-height: $selector-label-line-height;
   font-size: $selector-label-font-size;
@@ -11,13 +11,13 @@
   display: inline-block;
   vertical-align: top;
 }
-.l-selector-group {
+.lin-selector-group {
   display: flex;
   flex-direction: row;
   position: relative;
 }
 
-.l-selector-list {
+.lin-selector-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -31,7 +31,7 @@
   margin-right: $selector-list-margin-right;
 }
 
-.l-selector-more-text {
+.lin-selector-more-text {
   cursor: pointer;
   user-select: none;
   position: absolute;
@@ -42,7 +42,7 @@
   // width: $selector-more-text-width;
 }
 
-.l-selector-more-text-tip {
+.lin-selector-more-text-tip {
   box-sizing: border-box;
   height: $selector-more-text-height;
   line-height: $selector-more-text-line-height;

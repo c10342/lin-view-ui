@@ -1,12 +1,12 @@
 <style lang="scss" scoped>
 .demo-block {
-  ::v-deep .l-tag {
+  ::v-deep .lin-tag {
     margin-right: 10px;
   }
 }
 .tag-row {
   margin-bottom:10px;
-  ::v-deep .l-tag {
+  ::v-deep .lin-tag {
     margin-right: 10px;
   }
 }
@@ -21,22 +21,22 @@
 由 `type` 属性来选择 tag 的类型，也可以通过 `color` 属性来自定义背景色。
 
 <div class='demo-block'>
-      <l-tag text="标签1"></l-tag>
-      <l-tag text="标签2" type="success"></l-tag>
-      <l-tag text="标签3" type="info"></l-tag>
-      <l-tag text="标签4" type="warning"></l-tag>
-      <l-tag text="标签5" type="danger"></l-tag>
+      <lin-tag text="标签1"></lin-tag>
+      <lin-tag text="标签2" type="success"></lin-tag>
+      <lin-tag text="标签3" type="info"></lin-tag>
+      <lin-tag text="标签4" type="warning"></lin-tag>
+      <lin-tag text="标签5" type="danger"></lin-tag>
 </div>
 
 :::demo
 
 ```html
 <div class="tag-row">
-  <l-tag text="标签1"></l-tag>
-  <l-tag text="标签2" type="success"></l-tag>
-  <l-tag text="标签3" type="info"></l-tag>
-  <l-tag text="标签4" type="warning"></l-tag>
-  <l-tag text="标签5" type="danger"></l-tag>
+  <lin-tag text="标签1"></lin-tag>
+  <lin-tag text="标签2" type="success"></lin-tag>
+  <lin-tag text="标签3" type="info"></lin-tag>
+  <lin-tag text="标签4" type="warning"></lin-tag>
+  <lin-tag text="标签5" type="danger"></lin-tag>
 </div>
 ```
 
@@ -47,22 +47,22 @@
 设置 `closable` 属性可以定义一个标签是否可移除。
 
 <div class='demo-block'>
-      <l-tag closable text="标签1"></l-tag>
-      <l-tag closable text="标签2" type="success"></l-tag>
-      <l-tag closable text="标签3" type="info"></l-tag>
-      <l-tag closable text="标签4" type="warning"></l-tag>
-      <l-tag closable text="标签5" type="danger"></l-tag>
+      <lin-tag closable text="标签1"></lin-tag>
+      <lin-tag closable text="标签2" type="success"></lin-tag>
+      <lin-tag closable text="标签3" type="info"></lin-tag>
+      <lin-tag closable text="标签4" type="warning"></lin-tag>
+      <lin-tag closable text="标签5" type="danger"></lin-tag>
 </div>
 
 :::demo
 
 ```html
 <div class="tag-row">
-  <l-tag closable text="标签1"></l-tag>
-  <l-tag closable text="标签2" type="success"></l-tag>
-  <l-tag closable text="标签3" type="info"></l-tag>
-  <l-tag closable text="标签4" type="warning"></l-tag>
-  <l-tag closable text="标签5" type="danger"></l-tag>
+  <lin-tag closable text="标签1"></lin-tag>
+  <lin-tag closable text="标签2" type="success"></lin-tag>
+  <lin-tag closable text="标签3" type="info"></lin-tag>
+  <lin-tag closable text="标签4" type="warning"></lin-tag>
+  <lin-tag closable text="标签5" type="danger"></lin-tag>
 </div>
 ```
 
@@ -74,18 +74,18 @@
 
 <div class='demo-block'>
     <div class="tag-row">
-      <l-tag effect="dark" closable text="标签1"></l-tag>
-      <l-tag effect="dark" closable text="标签2" type="success"></l-tag>
-      <l-tag effect="dark" closable text="标签3" type="info"></l-tag>
-      <l-tag effect="dark" closable text="标签4" type="warning"></l-tag>
-      <l-tag effect="dark" closable text="标签5" type="danger"></l-tag>
+      <lin-tag effect="dark" closable text="标签1"></lin-tag>
+      <lin-tag effect="dark" closable text="标签2" type="success"></lin-tag>
+      <lin-tag effect="dark" closable text="标签3" type="info"></lin-tag>
+      <lin-tag effect="dark" closable text="标签4" type="warning"></lin-tag>
+      <lin-tag effect="dark" closable text="标签5" type="danger"></lin-tag>
     </div>
     <div class="tag-row">
-      <l-tag effect="plain" closable text="标签1"></l-tag>
-      <l-tag effect="plain" closable text="标签2" type="success"></l-tag>
-      <l-tag effect="plain" closable text="标签3" type="info"></l-tag>
-      <l-tag effect="plain" closable text="标签4" type="warning"></l-tag>
-      <l-tag effect="plain" closable text="标签5" type="danger"></l-tag>
+      <lin-tag effect="plain" closable text="标签1"></lin-tag>
+      <lin-tag effect="plain" closable text="标签2" type="success"></lin-tag>
+      <lin-tag effect="plain" closable text="标签3" type="info"></lin-tag>
+      <lin-tag effect="plain" closable text="标签4" type="warning"></lin-tag>
+      <lin-tag effect="plain" closable text="标签5" type="danger"></lin-tag>
     </div>
 </div>
 
@@ -93,18 +93,18 @@
 
 ```html
 <div class="tag-row">
-  <l-tag effect="dark" closable text="标签1"></l-tag>
-  <l-tag effect="dark" closable text="标签2" type="success"></l-tag>
-  <l-tag effect="dark" closable text="标签3" type="info"></l-tag>
-  <l-tag effect="dark" closable text="标签4" type="warning"></l-tag>
-  <l-tag effect="dark" closable text="标签5" type="danger"></l-tag>
+  <lin-tag effect="dark" closable text="标签1"></lin-tag>
+  <lin-tag effect="dark" closable text="标签2" type="success"></lin-tag>
+  <lin-tag effect="dark" closable text="标签3" type="info"></lin-tag>
+  <lin-tag effect="dark" closable text="标签4" type="warning"></lin-tag>
+  <lin-tag effect="dark" closable text="标签5" type="danger"></lin-tag>
 </div>
 <div class="tag-row">
-  <l-tag effect="plain" closable text="标签1"></l-tag>
-  <l-tag effect="plain" closable text="标签2" type="success"></l-tag>
-  <l-tag effect="plain" closable text="标签3" type="info"></l-tag>
-  <l-tag effect="plain" closable text="标签4" type="warning"></l-tag>
-  <l-tag effect="plain" closable text="标签5" type="danger"></l-tag>
+  <lin-tag effect="plain" closable text="标签1"></lin-tag>
+  <lin-tag effect="plain" closable text="标签2" type="success"></lin-tag>
+  <lin-tag effect="plain" closable text="标签3" type="info"></lin-tag>
+  <lin-tag effect="plain" closable text="标签4" type="warning"></lin-tag>
+  <lin-tag effect="plain" closable text="标签5" type="danger"></lin-tag>
 </div>
 ```
 

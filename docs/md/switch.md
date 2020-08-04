@@ -20,13 +20,13 @@ export default {
 使用`v-model`进行双向数据绑定即可。
 
 <div class='demo-block'>
-<l-switch v-model="value1" />
+<lin-switch v-model="value1" />
 </div>
 
 :::demo
 
 ```html
-<l-switch v-model="value1" />
+<lin-switch v-model="value1" />
 
 <script>
   export default {
@@ -46,13 +46,13 @@ export default {
 使用`activeColor`和`inactiveColor`属性即可设置开关的背景颜色。
 
 <div class='demo-block'>
-<l-switch v-model="value2" active-color="green" inactive-color="red" />
+<lin-switch v-model="value2" active-color="green" inactive-color="red" />
 </div>
 
 :::demo
 
 ```html
-<l-switch v-model="value2" active-color="green" inactive-color="red" />
+<lin-switch v-model="value2" active-color="green" inactive-color="red" />
 
 <script>
   export default {
@@ -72,13 +72,13 @@ export default {
 使用`disabled`属性即可设置开关为不可用状态。
 
 <div class='demo-block'>
-<l-switch v-model="value3" disabled/>
+<lin-switch v-model="value3" disabled/>
 </div>
 
 :::demo
 
 ```html
-<l-switch v-model="value3" disabled />
+<lin-switch v-model="value3" disabled />
 
 <script>
   export default {
@@ -98,13 +98,13 @@ export default {
 目前可以绑定原生属性的只有`name`。
 
 <div class='demo-block'>
-<l-switch v-model="value4" name='userName'/>
+<lin-switch v-model="value4" name='userName'/>
 </div>
 
 :::demo
 
 ```html
-<l-switch v-model="value4" name="userName" />
+<lin-switch v-model="value4" name="userName" />
 
 <script>
   export default {

@@ -1,26 +1,26 @@
 <template>
-  <div class="l-form">
+  <div class="lin-form">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "l-form",
+  name: "LinForm",
   props: {
     model: {
       type: Object,
-      required: true
+      required: true,
     },
     labelWidth: {
       type: String,
-      default: "80px"
-    }
+      default: "80px",
+    },
   },
   provide() {
     return {
-      Form: this
+      Form: this,
     };
-  }
+  },
 };
 </script>

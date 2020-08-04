@@ -1,10 +1,10 @@
 <template>
   <div style="width:300px">
-    <l-scroll-view :isEnd="isEnd1" :data="list1" :height="200" @scrollToEnd="scrollToEnd1">
+    <lin-scroll-view :isEnd="isEnd1" :data="list1" :height="200" @scrollToEnd="scrollToEnd1">
       <div class="item" v-for="(item,index) in list1" :key="index">{{item}}</div>
-    </l-scroll-view>
+    </lin-scroll-view>
 
-    <l-scroll-view :isEnd="isEnd2" :data="list2" :height="200" @scrollToEnd="scrollToEnd2">
+    <lin-scroll-view :isEnd="isEnd2" :data="list2" :height="200" @scrollToEnd="scrollToEnd2">
       <div class="item" v-for="(item,index) in list2" :key="index">{{item}}</div>
 
       <template v-slot:loading>
@@ -14,7 +14,7 @@
       <template v-slot:no-more>
         <p class="tip">加载完毕</p>
       </template>
-    </l-scroll-view>
+    </lin-scroll-view>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
       isEnd1: false,
 
       list2: [1, 2, 3, 4, 5],
-      isEnd2: false
+      isEnd2: false,
     };
   },
   methods: {
@@ -48,8 +48,8 @@ export default {
         this.isEnd2 = true;
         return;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

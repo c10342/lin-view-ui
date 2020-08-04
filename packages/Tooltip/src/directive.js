@@ -62,8 +62,8 @@ TooltipDirective.install = (Vue) => {
 
           let styleLeft;
           let styleTop;
-          let top = el.getAttribute("l-tooltip-top") * 1;
-          let left = el.getAttribute("l-tooltip-left") * 1;
+          let top = el.getAttribute("lin-tooltip-top") * 1;
+          let left = el.getAttribute("lin-tooltip-left") * 1;
           if (typeof top !== "number") {
             top = 0;
           }

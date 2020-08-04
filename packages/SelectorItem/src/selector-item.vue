@@ -1,7 +1,7 @@
 <template>
   <div
-    class="l-selecotr-item"
-    :class="{'l-selecotr-active':active,'l-selecotr-disabled':isDisabled}"
+    class="lin-selecotr-item"
+    :class="{'lin-selecotr-active':active,'lin-selecotr-disabled':isDisabled}"
     @click="onClick"
   >
     <slot>{{label}}</slot>
@@ -10,24 +10,24 @@
 
 <script>
 export default {
-  name: "l-selector-item",
+  name: "LinSelectorItem",
   props: {
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     value: {
-      default: ""
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   inject: {
     group: {
-      default: ""
-    }
+      default: "",
+    },
   },
   computed: {
     active() {
@@ -47,7 +47,7 @@ export default {
         return true;
       }
       return this.disabled;
-    }
+    },
   },
   methods: {
     onClick() {
@@ -56,8 +56,8 @@ export default {
         this.group.$emit("input", value);
         this.group.$emit("onChange", value);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

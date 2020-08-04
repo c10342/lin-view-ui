@@ -1,24 +1,24 @@
 <template>
   <div>
-    <l-radio label="1" v-model="value1">男</l-radio>
-    <l-radio label="2" v-model="value1">女</l-radio>
+    <lin-radio label="1" v-model="value1">男</lin-radio>
+    <lin-radio label="2" v-model="value1">女</lin-radio>
 
-    <l-radio-group v-model="value2">
-      <l-radio label="3">男</l-radio>
-      <l-radio label="4">女</l-radio>
-    </l-radio-group>
+    <lin-radio-group v-model="value2">
+      <lin-radio label="3">男</lin-radio>
+      <lin-radio label="4">女</lin-radio>
+    </lin-radio-group>
 
-    <l-radio disabled label="1" v-model="value1">男</l-radio>
-    <l-radio disabled label="2" v-model="value1">女</l-radio>
+    <lin-radio disabled label="1" v-model="value1">男</lin-radio>
+    <lin-radio disabled label="2" v-model="value1">女</lin-radio>
 
-    <l-radio-group v-model="value2">
-      <l-radio disabled label="3">男</l-radio>
-      <l-radio disabled label="4">女</l-radio>
-    </l-radio-group>
-    <l-radio-group disabled v-model="value2">
-      <l-radio label="3">男</l-radio>
-      <l-radio label="4">女</l-radio>
-    </l-radio-group>
+    <lin-radio-group v-model="value2">
+      <lin-radio disabled label="3">男</lin-radio>
+      <lin-radio disabled label="4">女</lin-radio>
+    </lin-radio-group>
+    <lin-radio-group disabled v-model="value2">
+      <lin-radio label="3">男</lin-radio>
+      <lin-radio label="4">女</lin-radio>
+    </lin-radio-group>
   </div>
 </template>
 
@@ -28,9 +28,9 @@ export default {
   data() {
     return {
       value1: "",
-      value2: ""
+      value2: "",
     };
-  }
+  },
 };
 </script>
 

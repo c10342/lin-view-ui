@@ -1,7 +1,7 @@
 import "./style.scss";
 
 export default {
-  name: "l-col",
+  name: "LinCol",
 
   props: {
     tag: {
@@ -56,22 +56,22 @@ export default {
     ["offset", "push", "pull", "span"].forEach((key) => {
       if (this[key]) {
         if (key !== "span") {
-          classList.push(`l-col-${key}-${this[key]}`);
+          classList.push(`lin-col-${key}-${this[key]}`);
         } else {
-          classList.push(`l-col-${this[key]}`);
+          classList.push(`lin-col-${this[key]}`);
         }
       }
     });
     ["xs", "sm", "md", "lg"].forEach((size) => {
       if (typeof this[size] === "number") {
-        classList.push(`l-col-${size}-${this[size]}`);
+        classList.push(`lin-col-${size}-${this[size]}`);
       } else if (typeof this[size] === "object") {
         const props = this[size];
         Object.keys(props).forEach((prop) => {
           if (prop !== "span") {
-            classList.push(`l-col-${size}-${prop}-${props[prop]}`);
+            classList.push(`lin-col-${size}-${prop}-${props[prop]}`);
           } else {
-            classList.push(`l-col-${size}-${props[prop]}`);
+            classList.push(`lin-col-${size}-${props[prop]}`);
           }
         });
       }
@@ -79,7 +79,7 @@ export default {
     return h(
       this.tag,
       {
-        class: ["l-col", classList],
+        class: ["lin-col", classList],
         style,
       },
       this.$slots.default

@@ -11,7 +11,7 @@
       url("iconfont.svg?t=1594029922296#iconfont") format("svg"); /* iOS 4.1- */
 }
 
-[class*="l-icon-"] {
+[class*="lin-icon-"] {
   font-family: "iconfont" !important;
   font-size: 16px;
   font-style: normal;
@@ -19,70 +19,70 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.l-icon-date:before {
+.lin-icon-date:before {
   content: "\e662";
 }
 
-.l-icon-thumbsup:before {
+.lin-icon-thumbsup:before {
   content: "\e69d";
 }
 
-.l-icon-chat:before {
+.lin-icon-chat:before {
   content: "\e601";
 }
 
-.l-icon-down:before {
+.lin-icon-down:before {
   content: "\e610";
 }
 
-.l-icon-left:before {
+.lin-icon-left:before {
   content: "\e61b";
 }
 
-.l-icon-up:before {
+.lin-icon-up:before {
   content: "\e628";
 }
 
-.l-icon-upload:before {
+.lin-icon-upload:before {
   content: "\e643";
 }
 
-.l-icon-delete:before {
+.lin-icon-delete:before {
   content: "\e637";
 }
 
-.l-icon-search:before {
+.lin-icon-search:before {
   content: "\e60e";
 }
 
-.l-icon-close:before {
+.lin-icon-close:before {
   content: "\e615";
 }
 
-.l-icon-rightarrow:before {
+.lin-icon-rightarrow:before {
   content: "\e62b";
 }
 
-.l-icon-leftarrow:before {
+.lin-icon-leftarrow:before {
   content: "\e62c";
 }
 
-.l-icon-password:before {
+.lin-icon-password:before {
   content: "\e75b";
 }
 
-.l-icon-right:before {
+.lin-icon-right:before {
   content: "\e623";
 }
 
-.l-icon-user:before {
+.lin-icon-user:before {
   content: "\e7c3";
 }
 
-.l-icon-downarrow:before {
+.lin-icon-downarrow:before {
   content: "\e60a";
 }
 
-.l-icon-uparrow:before {
+.lin-icon-uparrow:before {
   content: "\e621";
 }

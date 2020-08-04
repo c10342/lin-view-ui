@@ -16,9 +16,9 @@ function openLoading(el, binding) {
     target,
     lock,
   };
-  const text = el.getAttribute("l-loading-text");
-  const background = el.getAttribute("l-loading-background");
-  const textColor = el.getAttribute("l-loading-textColor");
+  const text = el.getAttribute("lin-loading-text");
+  const background = el.getAttribute("lin-loading-background");
+  const textColor = el.getAttribute("lin-loading-textColor");
   options.text = text;
   options.background = background;
   options.textColor = textColor;

@@ -1,5 +1,5 @@
 @import "packages/assets/styles/variables/loading-bar.scss";
-.l-loading-bar-progress {
+.lin-loading-bar-progress {
   position: fixed;
   top: $loading-bar-top;
   left: $loading-bar-left;
@@ -11,7 +11,7 @@
   transform: $loading-bar-transform;
   z-index: $loading-bar-z-index;
 }
-.l-loading-bar-peg {
+.lin-loading-bar-peg {
   position: absolute;
   right: $loading-bar-peg-right;
   width: $loading-bar-peg-width;
@@ -19,14 +19,14 @@
   background-image: $loading-bar-peg-background-image;
 }
 
-.l-loading-bar-spinner {
+.lin-loading-bar-spinner {
   position: fixed;
   z-index: $loading-bar-spinner-z-index;
   top: $loading-bar-spinner-top;
   right: $loading-bar-spinner-right;
 }
 
-.l-loading-bar-icon {
+.lin-loading-bar-icon {
   width: $loading-bar-icon-width;
   height: $loading-bar-icon-height;
   box-sizing: border-box;
@@ -39,14 +39,14 @@
   animation-iteration-count: $loading-bar-icon-animation-iteration-count;
 }
 
-.l-loading-bar-error {
+.lin-loading-bar-error {
   background: $loading-bar-error-background;
-  .l-loading-bar-peg {
+  .lin-loading-bar-peg {
     background-image: none;
   }
 }
 
-.l-loading-bar-icon-error {
+.lin-loading-bar-icon-error {
   border-top-color: $loading-bar-error-border-top-color;
   border-left-color: $loading-bar-error-border-left-color;
 }

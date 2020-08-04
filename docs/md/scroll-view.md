@@ -55,15 +55,15 @@ export default {
 要使用 ScrollView 组件，需要设置 `height` 、 `data` 和 `isEnd` 属性 , `height` 给容器一个固定的高度。`data` 容器内显示的数据，数据发生变化时会重新计算内容的高度。`isEnd` 数据是否全部加载完毕
 
 <div class='demo-block'>
-<l-scroll-view :is-end="isEnd1" :data="list1" :height="200" @scrollToEnd="scrollToEnd1">
+<lin-scroll-view :is-end="isEnd1" :data="list1" :height="200" @scrollToEnd="scrollToEnd1">
     <div class="item" v-for="(item,index) in list1" :key="index">{{item}}</div>
-</l-scroll-view>
+</lin-scroll-view>
 </div>
 
 :::demo
 
 ```html
-<l-scroll-view
+<lin-scroll-view
   :is-end="isEnd1"
   :data="list1"
   :height="200"
@@ -72,7 +72,7 @@ export default {
   <div class="item" v-for="(item,index) in list1" :key="index">
     {{item}}
   </div>
-</l-scroll-view>
+</lin-scroll-view>
 
 <script>
   export default {
@@ -104,7 +104,7 @@ export default {
 使用 `loading` 和 `no-more` 具名插槽可自定义上拉加载显示的内容和加载完毕显示的内容
 
 <div class='demo-block'>
-    <l-scroll-view :is-end="isEnd2" :data="list2" :height="200" @scrollToEnd="scrollToEnd2">
+    <lin-scroll-view :is-end="isEnd2" :data="list2" :height="200" @scrollToEnd="scrollToEnd2">
       <div 
         class="item"
         v-for="(item,index) in list2" 
@@ -117,13 +117,13 @@ export default {
       <template v-slot:no-more>
         <p class="tip">加载完毕</p>
       </template>
-    </l-scroll-view>
+    </lin-scroll-view>
 </div>
 
 :::demo
 
 ```html
-<l-scroll-view
+<lin-scroll-view
   :is-end="isEnd2"
   :data="list2"
   :height="200"
@@ -138,7 +138,7 @@ export default {
   <template v-slot:no-more>
     <p class="tip">加载完毕</p>
   </template>
-</l-scroll-view>
+</lin-scroll-view>
 
 <script>
   export default {
