@@ -69,6 +69,7 @@ export default {
     onFileChange(e) {
       // 获取文件
       this.selectedFile = e.target.files[0];
+      this.$refs.linUploadInput.value = "";
       if (typeof this.beforeUpload === "function") {
         const res = this.beforeUpload(this.selectedFile);
         if (res instanceof Promise) {
