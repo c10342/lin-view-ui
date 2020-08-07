@@ -23,3 +23,4 @@
 - 2020/07/08 新增 LiveComment 组件
 - 2020/07/15 新增 InputNumber 组件
 - 2020/07/18 新增 Tag、Alert 组件
+- 2020/08/06 新增 Upload 组件

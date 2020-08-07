@@ -96,6 +96,11 @@
           "desc": "Form 表单",
           "name": "form",
           "path": "/form"
+        },
+        {
+          "desc": "Upload 上传",
+          "name": "upload",
+          "path": "/upload"
         }
       ]
     },
