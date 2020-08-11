@@ -1,6 +1,6 @@
 {
   "name": "lin-view-ui",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "vue components library",
   "author": "c10342",
   "private": false,
@@ -21,7 +21,8 @@
   "files": [
     "lib",
     "packages",
-    "utils"
+    "utils",
+    "src"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -33,7 +34,7 @@
     "dev-docs": "cross-env NODE_ENV=docs vue-cli-service serve",
     "upload-docs": "npm run build-docs && node ./build/qiniu.js",
     "prepublishOnly": "npm run build && npm run build-utils && npm run upload-docs",
-    "publish": "node ./build/publish.js"
+    "pub": "node ./build/publish.js"
   },
   "dependencies": {},
   "peerDependencies": {

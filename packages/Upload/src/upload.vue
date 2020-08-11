@@ -7,9 +7,9 @@
 
 <script>
 import LinButton from "packages/Button";
-import splitFileChunk from "packages/assets/utils/splitFileChunk.js";
-import caculateFileHash from "packages/assets/utils/caculateFileHash.js";
-import request from "packages/assets/js/request.js";
+import splitFileChunk from "src/utils/splitFileChunk.js";
+import caculateFileHash from "src/utils/caculateFileHash.js";
+import request from "src/js/request.js";
 export default {
   name: "LinUpload",
   components: {

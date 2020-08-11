@@ -16,15 +16,8 @@ exports.getComponentEntries = (pathStr) => {
   let files = fs.readdirSync(resolve(pathStr));
   const componentEntries = files.reduce((ret, item) => {
     const itemPath = join(pathStr, item);
-    if (!itemPath.endsWith("assets")) {
-      const isDir = fs.statSync(itemPath).isDirectory();
-      if (isDir) {
-        ret[item] = resolve(join(itemPath, "index.js"));
-      } else {
-        const [name] = item.split(".");
-        ret[name] = resolve(`${itemPath}`);
-      }
-    }
+    const [name] = item.split(".");
+    ret[name] = resolve(`${itemPath}`);
     return ret;
   }, {});
   return componentEntries;

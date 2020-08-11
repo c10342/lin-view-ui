@@ -1,7 +1,7 @@
 import "./style.scss";
 
-import getDate from "packages/assets/utils/getDate.js";
-import getYearMonthDay from "packages/assets/utils/getYearMonthDay.js";
+import getDate from "src/utils/getDate.js";
+import getYearMonthDay from "src/utils/getYearMonthDay.js";
 export default {
   name: "LinDatePicker",
   render(h) {

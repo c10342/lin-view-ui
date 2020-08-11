@@ -104,7 +104,7 @@ export default {
     },
     defaultAvator: {
       type: String,
-      default: require("packages/assets/images/default_avatar.png"),
+      default: require("src/images/default_avatar.png"),
     },
     isLoading: {
       type: Boolean,

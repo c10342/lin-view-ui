@@ -2,12 +2,11 @@ const { resolve, getComponentEntries } = require("./utils");
 const baseConfig = require("./webpack.base");
 
 module.exports = {
-  productionSourceMap: true,
   outputDir: resolve("utils"),
   configureWebpack: {
     mode: "production",
     entry: {
-      ...getComponentEntries("packages/assets/utils"),
+      ...getComponentEntries("src/utils"),
     },
     output: {
       filename: "[name].js",

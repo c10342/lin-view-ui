@@ -39,35 +39,8 @@ module.exports = {
     resolve: baseConfig.resolve,
   },
   chainWebpack: (config) => {
-    // 把 packages 和 examples 加入编译，因为新增的文件默认是不被 webpack 处理的
-    // config.module
-    //   .rule("js")
-    //   .include.add(utils.resolve("packages"))
-    //   .end()
-    //   .include.add(utils.resolve("examples"))
-    //   .end()
-    //   .include.add(utils.resolve("docs"))
-    //   .end()
-    //   .use("babel")
-    //   .loader("babel-loader")
-    //   .tap((options) => {
-    //     // 修改它的选项...
-    //     return options;
-    //   });
     baseConfig.handleJs(config);
 
     baseConfig.handleMD(config);
-    // config.module
-    //   .rule("md")
-    //   .test(/\.md/)
-    //   .use("vue-loader")
-    //   .loader("vue-loader")
-    //   .end()
-    //   .use("vue-markdown-loader")
-    //   .loader("vue-markdown-loader/lib/markdown-compiler")
-    //   .options({
-    //     raw: true,
-    //     ...baseConfig.vueMarkdown,
-    //   });
   },
 };

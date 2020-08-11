@@ -83,6 +83,8 @@ const handleJs = (config) => {
     .end()
     .include.add(utils.resolve("docs"))
     .end()
+    .include.add(utils.resolve("src"))
+    .end()
     .use("babel")
     .loader("babel-loader")
     .tap((options) => {
@@ -92,6 +94,14 @@ const handleJs = (config) => {
 };
 
 const handleBuild = (config) => {
+  // 这里面主要讲chainWebpack中做了什么事情：
+  // 删除splitChunks，在打包组件的时候，并不希望抽离每个组件的公共js出来，而是每个独立打包，于是删除这个配置；
+  // 删除copy：不要复制public文件到打包目录；
+  // 删除preload以及prefetch，因为删除了html插件，所以这两个也没用；
+  // 删除html，只打包组件，不生成html页面；
+  // 删除hmr，删除hot-module-reload；
+  // 删除自动加上的入口：app
+  // 下面的配置fonts这个rule，打包字体的时候，输出到打包目录的static/fonts目录下；
   config.optimization.delete("splitChunks");
   config.plugins.delete("copy");
   config.plugins.delete("preload");
@@ -107,7 +117,8 @@ module.exports = {
     alias: {
       examples: utils.resolve("examples"),
       packages: utils.resolve("packages"),
-      "lin-view-ui": utils.resolve("packages/index.js"),
+      "lin-view-ui": utils.resolve("src/index.js"),
+      src: utils.resolve("src"),
     },
   },
   vueMarkdown,

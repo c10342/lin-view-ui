@@ -1,5 +1,5 @@
-@import "packages/assets/styles/variables/button.scss";
-@import "packages/assets/styles/mixin/button.scss";
+@import "src/styles/variables/button.scss";
+@import "src/styles/mixin/button.scss";
 .lin-button {
   display: inline-block;
   line-height: $button-line-height;

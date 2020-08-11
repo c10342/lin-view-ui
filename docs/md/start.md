@@ -92,4 +92,4 @@ new Vue({
 
 ## 自定义主题
 
-`lin-view-ui` 各个组件的样式变量都存放在 `lin-view-ui/packages/assets/styles` 目录中。用户可根据实际需要，自定义组件的样式
+`lin-view-ui` 各个组件的样式变量都存放在 `lin-view-ui/src/styles` 目录中。用户可根据实际需要，自定义组件的样式
