@@ -1,0 +1,92 @@
+@import "./common";
+
+// $button-primary: #409eff !default;
+// $button-success: #67c23a !default;
+// $button-info: #909399 !default;
+// $button-warning: #e6a23c !default;
+// $button-danger: #f56c6c !default;
+
+// $button-primary: $primary !default;
+// $button-success: $success !default;
+// $button-info: $info !default;
+// $button-warning: $warning !default;
+// $button-danger: $danger !default;
+
+$button-line-height: 1 !default;
+
+$button-background-color: #fff !default;
+
+$button-border-width: 1px !default;
+$button-border-style: solid !default;
+$button-border-color: #dcdfe6 !default;
+$button-color: #606266 !default;
+$button-margin: 0 !default;
+$button-transition: 0.1s !default;
+$button-font-weight: 500 !default;
+$button-font-size: 14px !default;
+$button-border-radius: 4px !default;
+
+$button-default-padding-x: 12px !default;
+$button-default-padding-y: 20px !default;
+
+$button-medium-padding-x: 10px !default;
+$button-medium-padding-y: 20px !default;
+
+$button-small-padding-x: 9px !default;
+$button-small-padding-y: 15px !default;
+
+$button-default-active-color: $primary !default;
+$button-default-active-border-color: #c6e2ff !default;
+$button-default-active-background-color: #ecf5ff !default;
+
+$button-theme-color-color: #fff !default;
+
+$button-round-border-radius: 20px !default;
+$button-round-padding-x: 12px !default;
+$button-round-padding-y: 23px !default;
+
+$button-circle-border-radius: 50% !default;
+$button-default-circle-padding: 12px !default;
+$button-medium-circle-padding: 10px !default;
+$button-small-circle-padding: 8px !default;
+
+$button-icon-margin-left: 5px !default;
+
+$button-default-plain-active-background: #fff !default;
+$button-default-plain-active-border-color: #409eff !default;
+$button-default-plain-active-color: #409eff !default;
+
+$button-primary-plain-background: #ecf5ff !default;
+$button-primary-plain-border-color: #b3d8ff !default;
+$button-primary-plain-color: #409eff !default;
+$button-primary-plain-active-background: #409eff !default;
+$button-primary-plain-active-border-color: #409eff !default;
+$button-primary-plain-active-color: #fff !default;
+
+$button-success-plain-background: #f0f9eb !default;
+$button-success-plain-border-color: #c2e7b0 !default;
+$button-success-plain-color: #67c23a !default;
+$button-success-plain-active-background: #67c23a !default;
+$button-success-plain-active-border-color: #67c23a !default;
+$button-success-plain-active-color: #fff !default;
+
+$button-info-plain-background: #f4f4f5 !default;
+$button-info-plain-border-color: #d3d4d6 !default;
+$button-info-plain-color: #909399 !default;
+$button-info-plain-active-background: #909399 !default;
+$button-info-plain-active-border-color: #909399 !default;
+$button-info-plain-active-color: #fff !default;
+
+$button-warning-plain-background: #fdf6ec !default;
+$button-warning-plain-border-color: #f5dab1 !default;
+$button-warning-plain-color: #e6a23c !default;
+$button-warning-plain-active-background: #e6a23c !default;
+$button-warning-plain-active-border-color: #e6a23c !default;
+$button-warning-plain-active-color: #fff !default;
+
+$button-danger-plain-background: #fef0f0 !default;
+$button-danger-plain-border-color: #fbc4c4 !default;
+$button-danger-plain-color: #f56c6c !default;
+$button-danger-plain-active-background: #f56c6c !default;
+$button-danger-plain-active-border-color: #f56c6c !default;
+$button-danger-plain-active-color: #fff !default;

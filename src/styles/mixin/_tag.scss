@@ -1,0 +1,5 @@
+@mixin tag-type($background-color, $color, $border-color) {
+  background-color: $background-color;
+  color: $color;
+  border-color: $border-color;
+}

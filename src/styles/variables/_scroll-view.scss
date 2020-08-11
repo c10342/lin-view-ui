@@ -1,0 +1,22 @@
+@import "./common";
+@import "../animations/index.scss";
+
+$scroll-view-loading-height: 30px !default;
+
+$scroll-view-icon-width: 16px !default;
+$scroll-view-icon-height: 16px !default;
+$scroll-view-icon-border-radius: 50% !default;
+$scroll-view-icon-border: 1px solid transparent !default;
+$scroll-view-icon-border-top-color: #409eff !default;
+$scroll-view-icon-border-left-color: #409eff !default;
+$scroll-view-icon-animation: rotate-animation 500ms linear infinite !default;
+
+$scroll-view-tip-font-size: 14px !default;
+$scroll-view-tip-color: #5e6d82 !default;
+$scroll-view-tip-margin-left: 10px !default;
+
+$scroll-view-nomore-tip-font-size: 14px !default;
+$scroll-view-nomore-tip-color: #5e6d82 !default;
+$scroll-view-nomore-tip-margin: 0 !default;
+$scroll-view-nomore-tip-padding: 0 !default;
+$scroll-view-nomore-line-height: 30px !default;
