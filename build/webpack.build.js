@@ -1,23 +1,40 @@
 const { resolve, getComponentEntries } = require("./utils");
 const baseConfig = require("./webpack.base");
 
-const entryObj = getComponentEntries("packages");
+const buildType = process.env.BUILD_TYPE;
+
+let entryObj = {};
+
+let output = {};
+
+let cssFileName = "";
+
+if (buildType === "index") {
+  entryObj = { index: resolve("src/index.js") };
+  output = {
+    filename: "index.js",
+    libraryTarget: "umd",
+    libraryExport: "default",
+    library: "LinViewUi",
+  };
+  cssFileName = "style.css";
+} else {
+  entryObj = getComponentEntries("packages");
+  output = {
+    filename: "[name]/index.js",
+    libraryTarget: "umd",
+    libraryExport: "default",
+    library: "[name]",
+  };
+  cssFileName = "[name]/style.css";
+}
 
 module.exports = {
   productionSourceMap: false,
   outputDir: resolve("lib"),
   configureWebpack: {
-    entry: {
-      ...entryObj,
-      index: resolve("src/index.js"),
-    },
-    output: {
-      filename: "[name]/index.js",
-      // libraryTarget: "commonjs2",
-      libraryTarget: "umd",
-      libraryExport: "default",
-      library: "lin-view-ui",
-    },
+    entry: entryObj,
+    output: output,
     resolve: baseConfig.resolve,
     module: {
       rules: [
@@ -35,7 +52,7 @@ module.exports = {
   css: {
     sourceMap: false,
     extract: {
-      filename: "[name]/style.css",
+      filename: cssFileName,
     },
   },
   chainWebpack: (config) => {
