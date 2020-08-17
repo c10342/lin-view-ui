@@ -1,7 +1,7 @@
 /**
  * 获取浏览器滚动的距离
  */
-function getScroll() {
+function getScrollLeftAndTop() {
   return {
     left:
       window.pageXOffset ||
@@ -13,6 +13,29 @@ function getScroll() {
       document.documentElement.scrollTop ||
       document.body.scrollTop ||
       0,
+  };
+}
+
+/**
+ * 文档的总高度
+ */
+function getScrollHeightAndWidth() {
+  return {
+    height:
+      document.documentElement.scrollHeight || document.body.scrollHeight || 0,
+    width:
+      document.documentElement.scrollWidth || document.body.scrollWidth || 0,
+  };
+}
+
+function getScroll() {
+  const scrollHeightAndWidth = getScrollHeightAndWidth();
+  const scrollLeftAndTop = getScrollLeftAndTop();
+  return {
+    scrollHeight: scrollHeightAndWidth.height,
+    scrollWidth: scrollHeightAndWidth.width,
+    scrollLeft: scrollLeftAndTop.left,
+    scrollTop: scrollLeftAndTop.top,
   };
 }
 
