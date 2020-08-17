@@ -11,7 +11,7 @@
       <router-link :to="{ name: 'index' }">
         <img src="../assets/img/logo.png" width="100" />
       </router-link>
-      <router-link :to="{ name: 'giud' }">组件</router-link>
+      <router-link :to="{ name: 'giud' }">文档</router-link>
     </div>
   </header>
 </template>
@@ -20,7 +20,7 @@
 export default {
   data() {
     return {};
-  }
+  },
 };
 </script>
 
