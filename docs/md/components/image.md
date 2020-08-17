@@ -34,13 +34,13 @@
 设置 `imgUrl` 属性即可
 
 <div class='demo-block'>
-<lin-image :img-url="require('../assets/img/video-card.png')" />
+<lin-image :img-url="require('../../assets/img/video-card.png')" />
 </div>
 
 :::demo
 
 ```html
-<lin-image :img-url="require('../assets/img/video-card.png')" />
+<lin-image :img-url="require('../../assets/img/video-card.png')" />
 ```
 
 :::
@@ -50,13 +50,13 @@
 `imgUrl` 属性可以传入一个数组，数组里面存放的是图片的路径，当第一张图片加载失败的时候就会加载第二张图片，如此类推，当全部图片都加载失败的时候就会显示默认的加载失败封面
 
 <div class='demo-block'>
-<lin-image :img-url="['xxx.png',require('../assets/img/logo.png')]" />
+<lin-image :img-url="['xxx.png',require('../../assets/img/logo.png')]" />
 </div>
 
 :::demo
 
 ```html
-<lin-image :img-url="['xxx.png',require('../assets/img/logo.png')]" />
+<lin-image :img-url="['xxx.png',require('../../assets/img/logo.png')]" />
 ```
 
 :::
@@ -66,13 +66,13 @@
 设置 `preview` 属性为 true 即可开启图片预览
 
 <div class='demo-block'>
-<lin-image preview :img-url="require('../assets/img/logo.png')" />
+<lin-image preview :img-url="require('../../assets/img/logo.png')" />
 </div>
 
 :::demo
 
 ```html
-<lin-image preview :img-url="require('../assets/img/logo.png')" />
+<lin-image preview :img-url="require('../../assets/img/logo.png')" />
 ```
 
 :::

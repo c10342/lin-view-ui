@@ -19,8 +19,14 @@ let addComponent = (router) => {
       if (route.type === "pages") {
         route.component = () => import(`../pages/${route.name}.vue`);
         return;
+      } else if (route.type === "guide") {
+        route.component = () => import(`../md/guide/${route.name}.md`);
+        return;
+      } else if (route.type === "utils") {
+        route.component = () => import(`../md/utils/${route.name}.md`);
+        return;
       }
-      route.component = () => import(`../md/${route.name}.md`);
+      route.component = () => import(`../md/components/${route.name}.md`);
     }
   });
 };
