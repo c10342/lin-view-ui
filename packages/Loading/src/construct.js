@@ -6,7 +6,7 @@ import getScroll from "src/utils/getScroll.js";
 
 function handleOnScroll(target, targetDom, scrollDom) {
   if (document.body === target) {
-    targetDom.style.marginTop = `${getScroll().top}px`;
+    targetDom.style.marginTop = `${getScroll().scrollTop}px`;
   } else {
     targetDom.style.marginTop = `${scrollDom.scrollTop}px`;
   }
