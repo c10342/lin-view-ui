@@ -24,15 +24,9 @@
       "type": "pages"
     },
     {
-      "name": "components-logs",
-      "path": "/components-logs",
-      "desc": "组件更新日志",
-      "type": "guide"
-    },
-    {
-      "name": "utils-logs",
-      "path": "/utils-logs",
-      "desc": "工具类更新日志",
+      "name": "logs",
+      "path": "logs",
+      "desc": "更新日志",
       "type": "guide"
     }
   ],
@@ -194,98 +188,6 @@
           "desc": "Tooltip 文字提示",
           "name": "tooltip",
           "path": "/tooltip"
-        }
-      ]
-    }
-  ],
-  "工具类": [
-    {
-      "desc": "日期",
-      "path": "/utils",
-      "items": [
-        {
-          "name": "getDate",
-          "path": "/getDate",
-          "desc": "根据年月日返回日期对象",
-          "type": "utils"
-        },
-        {
-          "name": "getYearMonthDay",
-          "path": "/getYearMonthDay",
-          "desc": "根据日期对象返回年月日",
-          "type": "utils"
-        }
-      ]
-    },
-    {
-      "desc": "文件",
-      "path": "/utils",
-      "items": [
-        {
-          "name": "caculateFileHash",
-          "path": "/caculateFileHash",
-          "desc": "计算文件hash值",
-          "type": "utils"
-        },
-        {
-          "name": "splitFileChunk",
-          "path": "/splitFileChunk",
-          "desc": "生成切片",
-          "type": "utils"
-        },
-        {
-          "name": "downloadFile",
-          "path": "/downloadFile",
-          "desc": "同域下载文件",
-          "type": "utils"
-        },
-        {
-          "name": "downloadFileByCross",
-          "path": "/downloadFileByCross",
-          "desc": "跨域下载文件",
-          "type": "utils"
-        }
-      ]
-    },
-    {
-      "desc": "DOM",
-      "path": "/utils",
-      "items": [
-        {
-          "name": "getScroll",
-          "path": "/getScroll",
-          "desc": "获取浏览器滚动距离",
-          "type": "utils"
-        },
-        {
-          "name": "getWindowHeightAndWidth",
-          "path": "/getWindowHeightAndWidth",
-          "desc": "获取浏览器视口的宽高",
-          "type": "utils"
-        }
-      ]
-    },
-    {
-      "desc": "其他",
-      "path": "/utils",
-      "items": [
-        {
-          "name": "addFavorite",
-          "path": "/addFavorite",
-          "desc": "收藏网址",
-          "type": "utils"
-        },
-        {
-          "name": "saveToDesktop",
-          "path": "/saveToDesktop",
-          "desc": "保存到桌面",
-          "type": "utils"
-        },
-        {
-          "name": "setHome",
-          "path": "/setHome",
-          "desc": "设为首页",
-          "type": "utils"
         }
       ]
     }

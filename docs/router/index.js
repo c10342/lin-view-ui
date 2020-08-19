@@ -22,9 +22,6 @@ let addComponent = (router) => {
       } else if (route.type === "guide") {
         route.component = () => import(`../md/guide/${route.name}.md`);
         return;
-      } else if (route.type === "utils") {
-        route.component = () => import(`../md/utils/${route.name}.md`);
-        return;
       }
       route.component = () => import(`../md/components/${route.name}.md`);
     }

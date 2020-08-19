@@ -25,7 +25,7 @@
 > npm i lin-view-ui --save
 ```
 
-## 组件的使用
+## 使用
 
 实际项目中，往往会使用 `webpack`，`rollup` 或者 `gulp` 的工作流，大多可以做到按需加载页面用到的组件，所以不推荐直接使用 `<script>` 标签全局引入的方式使用。
 
@@ -93,35 +93,3 @@ new Vue({
 ### 自定义主题
 
 `lin-view-ui` 各个组件的样式变量都存放在 `lin-view-ui/src/styles` 目录中。用户可根据实际需要，自定义组件的样式
-
-
-## 工具类的使用
-
-工具类主要是一些常用的js方法
-
-### 全量引入
-
-可以一次性引入所有js方法，但是这种方式会导致打包体积变大。
-
-```js
-import Utils from "lin-view-ui/utils/index.js";
-
-Utils.addFavorite('lin-view-ui','http://ui.linjiafu.top/')
-Utils.getScroll()
-
-// ...
-```
-
-### 按需引入
-
-你可以只引入你所需要js方法，这种方式可以极大的减少打包体积
-
-```js
-import Utils from "lin-view-ui/utils/addFavorite.js";
-import Utils from "lin-view-ui/utils/getScroll.js";
-
-addFavorite('lin-view-ui','http://ui.linjiafu.top/')
-getScroll()
-
-// ...
-```

@@ -1,4 +1,4 @@
-# Logs 组件更新日志
+# 更新日志
 
 ---
 
@@ -11,7 +11,7 @@
 - 2020/04/26 新增 `ShowMore` 组件
 - 2020/05/10 新增 `LimitTextarea` 组件
 - 2020/05/17 新增 `Checkbox、CheckboxGroup、Form、FormItem` 组件
-- 2020/05/24 新增 ``Layout`` 组件
+- 2020/05/24 新增 `Layout` 组件
 - 2020/06/07 新增 `ScrollView、Image` 组件
 - 2020/06/12 新增 `Progress` 组件
 - 2020/06/19 新增 `Loading` 组件
