@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-upload />
+    <test-table />
   </div>
 </template>
 
