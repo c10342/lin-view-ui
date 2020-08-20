@@ -19,6 +19,8 @@ import FormItem from "packages/FormItem";
 import DatePicker from "packages/DatePicker";
 import InputNumber from "packages/InputNumber";
 import Upload from "packages/Upload";
+import Table from "packages/Table";
+import TableColumn from "packages/TableColumn";
 
 // 视频组件
 import VideoCard from "packages/VideoCard";
@@ -71,6 +73,8 @@ const install = (Vue) => {
     Tag,
     Alert,
     Upload,
+    Table,
+    TableColumn,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -111,4 +115,6 @@ export default {
   Tag,
   Alert,
   Upload,
+  Table,
+  TableColumn,
 };
