@@ -127,9 +127,29 @@ describe("插槽", () => {
 });
 
 // describe("事件", () => {
-//   it("success",  () => {
+//   const LOAD_FAILURE_SRC = "LOAD_FAILURE_SRC";
+//   const LOAD_SUCCESS_SRC = "LOAD_SUCCESS_SRC";
+//   beforeAll(() => {
+//     //模拟图像.prototype.src调用onload或onerror
+//     //回调,具体取决于传递给它的src
+//     Object.defineProperty(global.Image.prototype, "src", {
+//       // Define属性setter
+//       set(src) {
+//         if (src === imageUrl) {
+//           // Call使用setTimeout模拟异步加载
+//           setTimeout(() => this.onerror(new Error("mocked error")));
+//         } else if (src === imageUrl) {
+//           setTimeout(() => this.onload());
+//         }
+//       },
+//     });
+//   });
+//   it("success", () => {
 //     const wrapper = createImageWithUrl();
-//     console.log(wrapper.emitted().success);
-//     expect(wrapper.emitted().success).toBeCalled();
+//     expect(wrapper.emitted().success).toBeTruthy();
+//   });
+//   it("error", () => {
+//     const wrapper = createImageWithUrl();
+//     expect(wrapper.emitted().error).toBeTruthy();
 //   });
 // });
