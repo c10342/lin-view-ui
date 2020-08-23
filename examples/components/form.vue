@@ -22,6 +22,7 @@
       </lin-form-item>
       <lin-form-item>
         <lin-button type="primary" @click="validate">提交</lin-button>
+        <lin-button @click="resetForm">提交</lin-button>
       </lin-form-item>
     </lin-form>
   </div>
@@ -36,33 +37,36 @@ export default {
         userName: "",
         sex: "",
         hobby: [],
-        isPublich: false
+        isPublich: false,
       },
       rules: {
         userName: [{ required: true, message: "请输入用户名" }],
         sex: [
           { required: true, message: "请选择性别" },
-          { pattern: "3", message: "请选择男性" }
+          { pattern: "3", message: "请选择男性" },
         ],
         hobby: [{ required: true, message: "请选择爱好" }],
         isPublich: [
           { required: true, message: "请选择" },
-          { type: "enum", enum: [true], message: "请公开" }
-        ]
-      }
+          { type: "enum", enum: [true], message: "请公开" },
+        ],
+      },
     };
   },
   methods: {
     validate() {
-      this.$refs.loginForm.validate(valid => {
+      this.$refs.loginForm.validate((valid) => {
         if (valid) {
           alert("校验成功！");
         } else {
           alert("校验失败！");
         }
       });
-    }
-  }
+    },
+    resetForm() {
+      this.$refs.loginForm.clearValidate();
+    },
+  },
 };
 </script>
 
