@@ -4,7 +4,9 @@
     <div class="lin-form-item-content">
       <slot></slot>
     </div>
-    <p v-if="errorMsg" class="lin-form-item-errormsg" :style="{left:labelWidth}">{{errorMsg}}</p>
+    <transition name="lin-formItem-fade">
+      <p v-if="errorMsg" class="lin-form-item-errormsg" :style="{left:labelWidth}">{{errorMsg}}</p>
+    </transition>
   </div>
 </template>
 

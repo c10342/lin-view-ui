@@ -9,3 +9,14 @@ $form-item-label-padding: 0 12px 0 0 !default;
 
 $form-item-content-line-height: 40px !default;
 $form-item-content-font-size: 14px !default;
+
+$form-item-errormsg-font-size: 12px !default;
+$form-item-errormsg-color: $danger !default;
+$form-item-errormsg-margin: 0 !default;
+$form-item-errormsg-padding: 0 !default;
+$form-item-errormsg-line-height: 20px !default;
+$form-item-errormsg-left: 0 !default;
+$form-item-errormsg-bottom: -20px !default;
+
+$form-item-animation-enter: formItem-animation 0.2s !default;
+$form-item-animation-leave: formItem-animation 0.2s reverse !default;

@@ -7,10 +7,22 @@
   }
 }
 
-@keyframes fade-animation {
+@keyframes dialog-animation {
   0% {
     opacity: 0;
     transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes formItem-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+    // height: 0;
   }
   100% {
     opacity: 1;

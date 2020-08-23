@@ -33,5 +33,5 @@ $dialog-body-word-break: break-all !default;
 $dialog-footer-padding: 10px 20px 20px !default;
 $dialog-footer-text-align: right !default;
 
-$dialog-animation-enter: fade-animation 0.3s !default;
-$dialog-animation-leave: fade-animation 0.3s reverse !default;
+$dialog-animation-enter: dialog-animation 0.3s !default;
+$dialog-animation-leave: dialog-animation 0.3s reverse !default;
