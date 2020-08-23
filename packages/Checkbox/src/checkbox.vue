@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import broadcast from 'src/utils/broadcast.js'
 export default {
   name: "LinCheckbox",
   inject: {
@@ -41,6 +42,7 @@ export default {
         this.isGroup
           ? this.CheckboxGroup.$emit("input", value)
           : this.$emit("input", value);
+          broadcast.call(this,{eventName:'validate',componentName:'LinFormItem'})
       },
     },
     isChecked() {

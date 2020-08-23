@@ -23,13 +23,15 @@
 </template>
 
 <script>
+import broadcast from "src/utils/broadcast.js";
+
 export default {
   name: "LinRadio",
   // 需要提供一个计算属性 model
   inject: {
     RadioGroup: {
-      default: "",
-    },
+      default: ""
+    }
   },
   computed: {
     model: {
@@ -39,11 +41,12 @@ export default {
       },
       set(value) {
         // 触发父组件给当前组件注册的input事件
-        this.$emit("input", value);
+        // this.$emit("input", value);
         this.isGroup
           ? this.RadioGroup.$emit("input", value)
           : this.$emit("input", value);
-      },
+        broadcast.call(this,{eventName:'validate',componentName:'LinFormItem'})
+      }
     },
     isGroup() {
       // 用于判断radio是否被radioGroup所包裹
@@ -57,22 +60,22 @@ export default {
       }
       return this.disabled;
       // return this.isGroup ? this.RadioGroup.disabled : this.disabled;
-    },
+    }
   },
   props: {
     label: {
       type: [String, Number, Boolean],
-      default: "",
+      default: ""
     },
     value: null,
     name: {
       type: String,
-      default: "",
+      default: ""
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>

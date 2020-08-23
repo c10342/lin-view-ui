@@ -15,6 +15,7 @@
       :disabled="disabled"
       :value="value"
       @input="handleInput"
+      v-bind="$attrs"
     />
     <span class="lin-input-suffix" v-if="showSuffix && !$slots.default">
       <i class="lin-input-icon lin-icon-close" v-if="clearable && value" @click="clear"></i>
@@ -32,6 +33,8 @@
 </template>
 
 <script>
+import broadcast from 'src/utils/broadcast.js'
+
 export default {
   name: "LinInput",
   data() {
@@ -85,12 +88,17 @@ export default {
   },
   methods: {
     handleInput(e) {
-      this.$emit("input", e.target.value);
+      this.emitInputEvent(e.target.value)
     },
     clear() {
       // 把内容清空
-      this.$emit("input", "");
+      this.emitInputEvent('')
     },
+    emitInputEvent(data){
+      this.$emit("input", data);
+      broadcast.call(this,{eventName:'validate',componentName:'LinFormItem'})
+    },
+
     handlePassword() {
       this.passwordVisible = !this.passwordVisible;
     },

@@ -1,6 +1,7 @@
 @import "src/styles/variables/form-item.scss";
 .lin-form-item {
   margin-bottom: $form-item-margin-bottom;
+  position: relative;
   // display: flex;
   // flex-direction: row;
   // align-items: center;
@@ -21,5 +22,16 @@
     position: relative;
     font-size: $form-item-content-font-size;
     overflow: hidden;
+  }
+
+  .lin-form-item-errormsg{
+    font-size: 12px;
+    color: red;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    position: absolute;
+    left: 0;
+    bottom: -20px;
   }
 }
