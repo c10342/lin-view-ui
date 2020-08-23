@@ -11,17 +11,17 @@
 </template>
 
 <script>
-import Schema from 'async-validator'
+import Schema from "async-validator";
 export default {
   name: "LinFormItem",
   props: {
     label: String,
-    prop: String
+    prop: String,
   },
   inject: ["Form"],
   data() {
     return {
-      errorMsg: ""
+      errorMsg: "",
     };
   },
   mounted() {
@@ -29,18 +29,36 @@ export default {
   },
   methods: {
     validate() {
+      if (!this.prop) {
+        return;
+      }
       const value = this.Form.model[this.prop];
       const rules = this.Form.rules[this.prop];
       const schema = new Schema({ [this.prop]: rules });
       // return的是校验结果的Promise
-      return schema.validate({ [this.prop]: value }).then(()=>{
-        this.errorMsg = "";
-        return true
-      }).catch(({  fields })=>{
-        this.errorMsg = fields[this.prop][0].message;
-        return false
-      })
-    }
+      return schema
+        .validate({ [this.prop]: value })
+        .then(() => {
+          this.errorMsg = "";
+          this.Form.$emit("validate", {
+            result: true,
+            [this.prop]: value,
+          });
+          return true;
+        })
+        .catch(({ fields }) => {
+          this.errorMsg = fields[this.prop][0].message;
+          this.Form.$emit("validate", {
+            result: false,
+            [this.prop]: value,
+            ...fields,
+          });
+          return false;
+        });
+    },
+    clearValidate() {
+      this.errorMsg = "";
+    },
   },
   computed: {
     labelWidth() {
@@ -48,8 +66,8 @@ export default {
         return this.Form.labelWidth;
       }
       return 0;
-    }
-  }
+    },
+  },
 };
 </script>
 
