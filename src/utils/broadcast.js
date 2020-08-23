@@ -1,22 +1,27 @@
+/**
+ * 向下通知
+ * @param {Object} options
+ */
 function broadcast(options) {
+  const { eventName, params, componentName } = options;
 
-    const {eventName, params, componentName} = options
-
-    let parent = this.$parent || this.$root
-    let name = parent.$options.name
-
-    while (parent) {
-        if (componentName) {
-            if (name === componentName) {
-                parent.$emit.apply(parent, [eventName].concat(params));
-            }
-            
-        } else {
-            parent.$emit.apply(parent, [eventName].concat(params));
+  // 获取当前组件下的所有的孩子
+  const broad = (children) => {
+    children.forEach((child) => {
+      if (componentName) {
+        if (child.$options.name === componentName) {
+          child.$emit(eventName, params);
         }
-        parent = parent.$parent
-        name = parent?.$options.name;
-    }
+      } else {
+        child.$emit(eventName, params);
+      }
+
+      if (child.$children) {
+        broad(child.$children);
+      }
+    });
+  };
+  broad(this.$children);
 }
 
-export default broadcast
+export default broadcast;
