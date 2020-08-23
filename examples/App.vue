@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-table />
+    <test-form />
   </div>
 </template>
 
