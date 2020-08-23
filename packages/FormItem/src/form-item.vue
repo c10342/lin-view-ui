@@ -1,19 +1,53 @@
 <template>
   <div class="lin-form-item">
-    <label class="lin-form-item-label" :style="{width: this.Form.labelWidth}">{{label}}</label>
+    <label v-if="label" class="lin-form-item-label" :style="{width: labelWidth}">{{label}}</label>
     <div class="lin-form-item-content">
       <slot></slot>
     </div>
+    <p v-if="errorMsg" class="lin-form-item-errormsg" :style="{left:labelWidth}">{{errorMsg}}</p>
   </div>
 </template>
 
 <script>
+import Schema from 'async-validator'
 export default {
   name: "LinFormItem",
   props: {
     label: String,
+    prop: String
   },
   inject: ["Form"],
+  data() {
+    return {
+      errorMsg: ""
+    };
+  },
+  mounted() {
+    this.$on("validate", this.validate);
+  },
+  methods: {
+    validate() {
+      const value = this.Form.model[this.prop];
+      const rules = this.Form.rules[this.prop];
+      const schema = new Schema({ [this.prop]: rules });
+      // return的是校验结果的Promise
+      return schema.validate({ [this.prop]: value }).then(()=>{
+        this.errorMsg = "";
+        return true
+      }).catch(({  fields })=>{
+        this.errorMsg = fields[this.prop][0].message;
+        return false
+      })
+    }
+  },
+  computed: {
+    labelWidth() {
+      if (this.label) {
+        return this.Form.labelWidth;
+      }
+      return 0;
+    }
+  }
 };
 </script>
 
