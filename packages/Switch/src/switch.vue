@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import broadcast from 'src/utils/broadcast.js'
+import dispatch from "src/utils/dispatch.js";
 export default {
   name: "LinSwitch",
   props: {
@@ -41,7 +41,10 @@ export default {
     handleClick() {
       if (!this.disabled) {
         this.$emit("input", !this.value);
-        broadcast.call(this,{eventName:'validate',componentName:'LinFormItem'})
+        dispatch.call(this, {
+          eventName: "validate",
+          componentName: "LinFormItem",
+        });
       }
     },
   },

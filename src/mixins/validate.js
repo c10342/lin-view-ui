@@ -1,12 +1,14 @@
-
-import broadcast from 'src/utils/broadcast.js'
+import dispatch from "src/utils/dispatch.js";
 
 const validate = {
-    created(){
-        this.$on('input',()=>{
-            broadcast.call(this,{eventName:'validate',componentName:'LinFormItem'})
-        })
-    }
-}
+  created() {
+    this.$on("input", () => {
+      dispatch.call(this, {
+        eventName: "validate",
+        componentName: "LinFormItem",
+      });
+    });
+  },
+};
 
-export default validate
+export default validate;

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import broadcast from 'src/utils/broadcast.js'
+import dispatch from "src/utils/dispatch.js";
 
 export default {
   name: "LinInput",
@@ -88,15 +88,18 @@ export default {
   },
   methods: {
     handleInput(e) {
-      this.emitInputEvent(e.target.value)
+      this.emitInputEvent(e.target.value);
     },
     clear() {
       // 把内容清空
-      this.emitInputEvent('')
+      this.emitInputEvent("");
     },
-    emitInputEvent(data){
+    emitInputEvent(data) {
       this.$emit("input", data);
-      broadcast.call(this,{eventName:'validate',componentName:'LinFormItem'})
+      dispatch.call(this, {
+        eventName: "validate",
+        componentName: "LinFormItem",
+      });
     },
 
     handlePassword() {

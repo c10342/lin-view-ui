@@ -58,7 +58,7 @@ export default {
         return;
       }
       const value = this.value * 1 - this.step;
-      this.emitInputEvent(value)
+      this.emitInputEvent(value);
       this.$emit("reduce", value);
     },
     plus() {
@@ -66,7 +66,7 @@ export default {
         return;
       }
       const value = this.value * 1 + this.step;
-      this.emitInputEvent(value)
+      this.emitInputEvent(value);
       this.$emit("plus", value);
     },
     onBlur(e) {
@@ -86,12 +86,15 @@ export default {
           value = this.max;
         }
       }
-      this.emitInputEvent(value)
+      this.emitInputEvent(value);
     },
-    emitInputEvent(value){
-this.$emit("input", value);
-      broadcast.call(this,{eventName:'validate',componentName:'LinFormItem'})
-    }
+    emitInputEvent(value) {
+      this.$emit("input", value);
+      dispatch.call(this, {
+        eventName: "validate",
+        componentName: "LinFormItem",
+      });
+    },
   },
   computed: {
     disabledReduce() {

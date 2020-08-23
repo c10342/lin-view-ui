@@ -2,7 +2,7 @@ import "./style.scss";
 
 import getDate from "src/utils/getDate.js";
 import getYearMonthDay from "src/utils/getYearMonthDay.js";
-import broadcast from 'src/utils/broadcast.js'
+import dispatch from "src/utils/dispatch.js";
 export default {
   name: "LinDatePicker",
   render(h) {
@@ -384,7 +384,10 @@ export default {
         d = date;
       }
       this.$emit("input", d);
-      broadcast.call(this,{eventName:'validate',componentName:'LinFormItem'})
+      dispatch.call(this, {
+        eventName: "validate",
+        componentName: "LinFormItem",
+      });
       this.$emit("select", d);
       this.blur();
     },
