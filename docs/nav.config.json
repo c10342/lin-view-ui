@@ -190,6 +190,17 @@
           "path": "/tooltip"
         }
       ]
+    },
+    {
+      "desc": "其他组件",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "Magnifier 放大镜",
+          "name": "magnifier",
+          "path": "/magnifier"
+        }
+      ]
     }
   ]
 }
