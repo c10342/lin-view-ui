@@ -41,6 +41,9 @@ import LoadingBar from "packages/LoadingBar";
 import Loading from "packages/Loading";
 import ToolTip from "packages/Tooltip";
 
+// 其他组件
+import Magnifier from "packages/Magnifier";
+
 const install = (Vue) => {
   [
     Button,
@@ -75,6 +78,7 @@ const install = (Vue) => {
     Upload,
     Table,
     TableColumn,
+    Magnifier,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -117,4 +121,5 @@ export default {
   Upload,
   Table,
   TableColumn,
+  Magnifier,
 };
