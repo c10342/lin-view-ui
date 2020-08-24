@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-form />
+    <test-magnifier />
   </div>
 </template>
 
