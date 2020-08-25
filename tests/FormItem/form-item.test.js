@@ -26,7 +26,11 @@ describe("属性", () => {
   });
 
   it("inject", () => {
-    const wrapper = createFormItem();
+    const wrapper = createFormItem({
+      propsData: {
+        label: "你好",
+      },
+    });
 
     const label = wrapper.find(".lin-form-item-label");
     expect(label.element.style.width).toBe("20px");
