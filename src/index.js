@@ -43,6 +43,7 @@ import ToolTip from "packages/Tooltip";
 
 // 其他组件
 import Magnifier from "packages/Magnifier";
+import TextEffect from "packages/TextEffect";
 
 const install = (Vue) => {
   [
@@ -79,6 +80,7 @@ const install = (Vue) => {
     Table,
     TableColumn,
     Magnifier,
+    TextEffect,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -122,4 +124,5 @@ export default {
   Table,
   TableColumn,
   Magnifier,
+  TextEffect,
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-magnifier />
+    <test-textEffect />
   </div>
 </template>
 
