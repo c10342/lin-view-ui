@@ -199,6 +199,11 @@
           "desc": "Magnifier 放大镜",
           "name": "magnifier",
           "path": "/magnifier"
+        },
+        {
+          "desc": "HoverEffect 悬浮效果",
+          "name": "hover-effect",
+          "path": "/hover-effect"
         }
       ]
     }
