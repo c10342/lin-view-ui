@@ -79,7 +79,11 @@
 </div>
 <div>
   <lin-button icon="lin-icon-date" :circle="true" type="default"></lin-button>
-  <lin-button icon="lin-icon-thumbsup" :circle="true" type="primary"></lin-button>
+  <lin-button
+    icon="lin-icon-thumbsup"
+    :circle="true"
+    type="primary"
+  ></lin-button>
   <lin-button icon="lin-icon-chat" :circle="true" type="success"></lin-button>
   <lin-button icon="lin-icon-upload" :circle="true" type="info"></lin-button>
   <lin-button icon="lin-icon-search" :circle="true" type="warning"></lin-button>
@@ -180,3 +184,9 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 | 事件名称 | 说明           | 回调参数 |
 | -------- | -------------- | -------- |
 | click    | 点击按钮时触发 | —        |
+
+## 插槽
+
+| 插槽名称 | 说明          |
+| -------- | ------------- |
+| —        | Button 的内容 |
