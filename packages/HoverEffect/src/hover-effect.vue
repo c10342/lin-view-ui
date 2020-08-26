@@ -1,7 +1,7 @@
 <template>
   <button
     @click="onClick"
-    :class="['lin-text-effect',`lin-text-effect-theme-${theme}`,`lin-text-effect-type-${type}`]"
+    :class="['lin-hover-effect',`lin-hover-effect-theme-${theme}`,`lin-hover-effect-type-${type}`]"
   >
     <slot>{{text}}</slot>
   </button>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "LinTextEffect",
+  name: "LinHoverEffect",
   props: {
     type: {
       type: String,

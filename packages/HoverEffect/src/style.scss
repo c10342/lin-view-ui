@@ -1,0 +1,165 @@
+@import "src/styles/variables/hover-effect.scss";
+
+.lin-hover-effect {
+  border: 0;
+  position: relative;
+  outline: none;
+  padding: $hover-effect-padding;
+
+  overflow: hidden;
+  font-weight: $hover-effect-font-weight;
+}
+
+.lin-hover-effect-theme-neon {
+  background-color: transparent;
+  transition: $hover-effect-neon-transition;
+
+  @each $key, $val in $theme-color {
+    &.lin-hover-effect-type-#{$key} {
+      color: $val;
+      border: $hover-effect-neon-border-width solid $val;
+      &:hover {
+        color: white;
+        border-color: $val;
+        background-color: $val;
+        box-shadow: $hover-effect-neon-box-shadow $val;
+      }
+    }
+  }
+}
+
+.lin-hover-effect-theme-border {
+  background: none;
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+    position: absolute;
+    content: "";
+    border: $hover-effect-border-border-width solid transparent;
+    width: 0;
+    height: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover::before {
+    transition: $hover-effect-border-before-transition;
+  }
+  &:hover::after {
+    transition: $hover-effect-border-after-transition;
+  }
+
+  @each $key, $val in $theme-color {
+    &.lin-hover-effect-type-#{$key} {
+      color: $val;
+      &:hover::before {
+        border-top-color: $val;
+        border-right-color: $val;
+      }
+      &:hover::after {
+        border-bottom-color: $val;
+        border-left-color: $val;
+      }
+    }
+  }
+}
+
+.lin-hover-effect-theme-fillet {
+  border-radius: $hover-effect-fillet-border-radius;
+  color: $hover-effect-fillet-color;
+  transition: $hover-effect-fillet-transition;
+
+  @each $key, $val in $theme-color {
+    &.lin-hover-effect-type-#{$key} {
+      background: $val;
+    }
+  }
+
+  &:hover {
+    border-bottom-right-radius: $hover-effect-fillet-bottom-right-radius;
+    border-top-left-radius: $hover-effect-fillet-top-left-radius;
+    border-bottom-left-radius: $hover-effect-fillet-bottom-left-radius;
+    border-top-right-radius: $hover-effect-fillet-top-right-radius;
+  }
+}
+
+.lin-hover-effect-theme-frozen {
+  border-radius: $hover-effect-frozen-border-radius;
+  color: $hover-effect-frozen-color;
+
+  &:before {
+    content: "";
+    display: block;
+    background: $hover-effect-frozen-background;
+    background-size: 210% 100%;
+    background-position: right bottom;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: $hover-effect-frozen-border-radius;
+    transition: $hover-effect-frozen-transition;
+  }
+
+  @each $key, $val in $theme-color {
+    &.lin-hover-effect-type-#{$key} {
+      background: linear-gradient(to right, $val, adjust-hue($val, 30deg));
+      //   background: linear-gradient(to right, $val, saturate($val, 40deg));
+      box-shadow: $hover-effect-frozen-box-shadow $val;
+    }
+    &.lin-hover-effect-type-#{$key}:hover:before {
+      background-position: left bottom;
+    }
+  }
+}
+
+.lin-hover-effect-theme-shiny {
+  background: transparent;
+  // text-transform: uppercase;
+
+  @each $key, $val in $theme-color {
+    &.lin-hover-effect-type-#{$key} {
+      border: $hover-effect-shiny-border-width solid $val;
+      color: $val;
+      &:after {
+        background: $val;
+      }
+    }
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: $hover-effect-shiny-top;
+    left: $hover-effect-shiny-left;
+    width: $hover-effect-shiny-width;
+    height: $hover-effect-shiny-height;
+    opacity: $hover-effect-shiny-opacity;
+    transform: $hover-effect-shiny-transform;
+  }
+
+  &:hover:after {
+    left: $hover-effect-shiny-hover-left;
+    transition: $hover-effect-shiny-transition;
+  }
+}
