@@ -293,14 +293,6 @@ export default {
 | label           | 头部标签内容                                                                                                          | String                             | —      | —      |
 | disabled        | 是否禁用                                                                                                              | Boolean                            | —      | false  |
 
-## SelectorItem 属性
-
-| 参数     | 说明     | 类型            | 可选值 | 默认值 |
-| -------- | -------- | --------------- | ------ | ------ |
-| label    | 标签内容 | String          | —      | —      |
-| value    | 选项的值 | String / Number | —      | —      |
-| disabled | 是否禁用 | Boolean         | —      | false  |
-
 ## SelectorGroup 事件
 
 | 事件名称 | 说明                   | 回调参数     |
@@ -308,6 +300,14 @@ export default {
 | show     | 标签全部显示时触发     | —            |
 | hide     | 标签超出部分隐藏时触发 | —            |
 | onChange | 选中值发生变化时触发   | 目前的选中值 |
+
+## SelectorItem 属性
+
+| 参数     | 说明     | 类型            | 可选值 | 默认值 |
+| -------- | -------- | --------------- | ------ | ------ |
+| label    | 标签内容 | String          | —      | —      |
+| value    | 选项的值 | String / Number | —      | —      |
+| disabled | 是否禁用 | Boolean         | —      | false  |
 
 ## SelectorItem 插槽
 
