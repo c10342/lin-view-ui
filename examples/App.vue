@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-hoverEffect />
+    <test-table />
   </div>
 </template>
 
