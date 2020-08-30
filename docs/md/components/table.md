@@ -643,3 +643,9 @@ export default {
 | width | 对应列的宽度                                                                                            | String | —      | —      |
 | align | 对齐方式                                                                                                | String | —      | left   |
 | type  | 对应列的类型。如果设置了 `selection` 则显示多选框；如果设置了 `index` 则显示该行的索引（从 1 开始计算） | String | —      | —      |
+
+## TableColumn 插槽
+
+| 插槽名称 | 说明                                             |
+| -------- | ------------------------------------------------ |
+| —        | 自定义列的内容，参数为 { row, column, rowIndex } |
