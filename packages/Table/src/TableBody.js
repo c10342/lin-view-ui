@@ -55,12 +55,56 @@ export default {
         }
       }
     },
+    clearSelection() {
+      const linTableTbody = this.$refs.linTableTbody;
+      const checkboxs = linTableTbody.getElementsByClassName(
+        "lin-table-checkbox"
+      );
+      for (let i = 0; i < checkboxs.length; i++) {
+        const element = checkboxs[i];
+        element.checked = false;
+      }
+    },
+    toggleAllSelection() {
+      const linTableTbody = this.$refs.linTableTbody;
+      const checkboxs = linTableTbody.getElementsByClassName(
+        "lin-table-checkbox"
+      );
+      for (let i = 0; i < checkboxs.length; i++) {
+        const element = checkboxs[i];
+        element.checked = !element.checked;
+      }
+    },
+    selectSelection(data) {
+      const linTableTbody = this.$refs.linTableTbody;
+      const checkboxs = linTableTbody.getElementsByClassName(
+        "lin-table-checkbox"
+      );
+      const len = this.dataSource.length;
+      for (let i = 0; i < len; i++) {
+        const element = this.dataSource[i];
+        const flag = data.find(
+          (item) => item[this.valueKey] === element[this.valueKey]
+        );
+        checkboxs[i].checked = flag;
+      }
+    },
     rowClick(row, rowIndex) {
       this.table?.emitrRowClick({ row, rowIndex });
     },
+    cellClick(row, prop, rowIndex, idx) {
+      this.table?.emitrCellClick({ row, prop, rowIndex, cellIndex: idx });
+    },
   },
   render(h) {
-    const { dataSource, columns, trClassName, valueKey, rowClick } = this;
+    const {
+      dataSource,
+      columns,
+      trClassName,
+      valueKey,
+      rowClick,
+      cellClick,
+    } = this;
     return (
       <tbody class="lin-table-tbody" ref="linTableTbody">
         {dataSource.map((row, rowIndex) => {
@@ -74,6 +118,9 @@ export default {
               {columns.map((column, idx) => {
                 return (
                   <td
+                    onClick={() => {
+                      cellClick(row, column.prop, rowIndex, idx);
+                    }}
                     class={["lin-table-td", `lin-table-align-${column.align}`]}
                     key={`${rowKey}-${idx}`}
                   >

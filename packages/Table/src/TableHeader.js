@@ -31,19 +31,7 @@ export default {
   },
   watch: {
     selectData(val) {
-      const linTableHeaderCheckbox = this.$refs.linTableHeaderCheckbox;
-      if (val.length > 0) {
-        if (val.length < this.dataSource.length) {
-          linTableHeaderCheckbox.checked = false;
-          linTableHeaderCheckbox.indeterminate = true;
-        } else if (val.length === this.dataSource.length) {
-          linTableHeaderCheckbox.indeterminate = false;
-          linTableHeaderCheckbox.checked = true;
-        }
-      } else {
-        linTableHeaderCheckbox.indeterminate = false;
-        linTableHeaderCheckbox.checked = false;
-      }
+      this.changeCheckboxStatus(val);
     },
   },
   methods: {
@@ -53,6 +41,7 @@ export default {
         case "selection":
           th = (
             <input
+              class="lin-table-checkbox"
               onClick={this.onClick}
               type="checkbox"
               ref="linTableHeaderCheckbox"
@@ -77,6 +66,37 @@ export default {
         }
         this.table.emitSelectChange();
         this.table.emitSelectAll();
+      }
+    },
+    switchCheckboxStatus(status) {
+      const linTableHeaderCheckbox = this.$refs.linTableHeaderCheckbox;
+      switch (status) {
+        case 1:
+          // 半选
+          linTableHeaderCheckbox.indeterminate = true;
+          linTableHeaderCheckbox.checked = false;
+          break;
+        case 2:
+          // 全选
+          linTableHeaderCheckbox.indeterminate = false;
+          linTableHeaderCheckbox.checked = true;
+          break;
+        case 3:
+          // 不选
+          linTableHeaderCheckbox.indeterminate = false;
+          linTableHeaderCheckbox.checked = false;
+          break;
+      }
+    },
+    changeCheckboxStatus(data) {
+      if (data.length > 0) {
+        if (data.length < this.dataSource.length) {
+          this.switchCheckboxStatus(1);
+        } else if (data.length === this.dataSource.length) {
+          this.switchCheckboxStatus(2);
+        }
+      } else {
+        this.switchCheckboxStatus(3);
       }
     },
   },

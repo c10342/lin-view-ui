@@ -7,8 +7,8 @@
       <colgroup>
         <col v-for="column in columns" :key="column.id" :width="column.width" />
       </colgroup>
-      <lin-table-header></lin-table-header>
-      <lin-table-body></lin-table-body>
+      <lin-table-header ref="linTableHeaderComp"></lin-table-header>
+      <lin-table-body ref="linTableBodyComp"></lin-table-body>
     </table>
   </div>
 </template>
@@ -24,22 +24,27 @@ export default {
     LinTableBody,
   },
   props: {
+    // 数据源
     dataSource: {
       type: Array,
       default: () => [],
       require: true,
     },
+    // 边框表格
     border: {
       type: Boolean,
       default: false,
     },
+    // 斑马纹
     stripe: {
       type: Boolean,
       default: false,
     },
+    // 每一行的类名
     rowClassName: {
       type: Function,
     },
+    // 每一行数据的唯一标识key
     valueKey: {
       type: String,
       require: true,
@@ -69,7 +74,31 @@ export default {
       this.$emit("select", cloneDeep(data));
     },
     emitrRowClick(data) {
-      this.$emit("row-click", data);
+      this.$emit("row-click", cloneDeep(data));
+    },
+    emitrCellClick(data) {
+      this.$emit("cell-click", cloneDeep(data));
+    },
+    clearSelection() {
+      this.selectData = [];
+      this.$refs.linTableBodyComp.clearSelection();
+      this.emitSelectChange();
+    },
+    toggleAllSelection() {
+      this.$refs.linTableBodyComp.toggleAllSelection();
+      this.selectData = this.dataSource.filter((item) => {
+        const flag = !!this.selectData.find(
+          (data) => data[this.valueKey] === item[this.valueKey]
+        );
+        return !flag;
+      });
+      this.$refs.linTableHeaderComp.changeCheckboxStatus(this.selectData);
+      this.emitSelectChange();
+    },
+    selectSelection(data) {
+      this.selectData = data || [];
+      this.$refs.linTableBodyComp.selectSelection(this.selectData);
+      this.$refs.linTableHeaderComp.changeCheckboxStatus(this.selectData);
     },
   },
 };

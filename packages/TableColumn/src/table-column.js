@@ -83,6 +83,7 @@ export default {
   },
   methods: {
     onClick(e, data) {
+      e.stopPropagation();
       if (this.table) {
         const index = this.table.selectData.findIndex(
           (item) => item[this.valueKey] === data.row[this.valueKey]

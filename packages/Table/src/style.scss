@@ -1,8 +1,10 @@
+@import "src/styles/variables/table.scss";
+
 .lin-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: #606266;
+  width: $table-width;
+  border-collapse: $table-border-collapse;
+  border-spacing: $table-border-spacing;
+  color: $table-color;
 }
 .lin-table-align-left {
   text-align: left;
@@ -16,32 +18,72 @@
   text-align: right;
 }
 .lin-table-border {
-  border: 1px solid #ebeef5;
+  border: $table-border-border;
   .lin-table-th,
   .lin-table-td {
-    border: 1px solid #ebeef5;
+    border: $table-border-border;
   }
 }
 
 .lin-table-stripe {
   .lin-table-tr {
     &:nth-child(even) {
-      background-color: #fafafa;
+      background-color: $table-stripe-background-color;
     }
   }
 }
 .lin-table-tr {
   .lin-table-th,
   .lin-table-td {
-    padding: 10px;
-    border-bottom: 1px solid #ebeef5;
+    padding: $table-cell-padding;
+    border-bottom: $table-cell-border-bottom;
   }
 }
 
 .lin-table-tbody {
   .lin-table-tr {
     &:hover {
-      background-color: #eeeeee;
+      background-color: $table-tbody-tr-hover-background-color;
     }
   }
+}
+
+.lin-table-checkbox {
+  width: $table-checkbox-width;
+  height: $table-checkbox-height;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: $table-checkbox-line-height;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+}
+
+.lin-table-checkbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border: $table-checkbox-before-border;
+  border-radius: $table-checkbox-border-radius;
+  box-sizing: border-box;
+}
+
+.lin-table-checkbox:checked::before {
+  content: "\2713";
+  background-color: $table-checkbox-checked-background-color;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: $table-checkbox-checked-border;
+  border-radius: $table-checkbox-border-radius;
+  color: $table-checkbox-checked-color;
+  font-size: $table-checkbox-checked-font-size;
+  font-weight: $table-checkbox-checked-font-weight;
+  box-sizing: border-box;
 }
