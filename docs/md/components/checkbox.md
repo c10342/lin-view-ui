@@ -117,6 +117,12 @@ export default {
 | name            | 原生属性 name                                           | String                  | —      | —      |
 | disabled        | 是否禁用                                                | Boolean                 | —      | false  |
 
+## Checkbox 插槽
+
+| 插槽名称 | 说明           |
+| -------- | -------------- |
+| —        | 自定义标签内容 |
+
 ## CheckboxGroup 属性
 
 | 参数            | 说明     | 类型                    | 可选值 | 默认值 |
