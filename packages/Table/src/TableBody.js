@@ -33,10 +33,15 @@ export default {
   methods: {
     trClassName(row, rowIndex) {
       const classArr = ["lin-table-tr"];
-      if (this.table && typeof this.table.rowClassName === "function") {
-        const result = this.table.rowClassName({ row, rowIndex });
-        if (result) {
-          classArr.push(result);
+      if (this.table) {
+        const rowClassName = this.table.rowClassName;
+        if (typeof rowClassName === "function") {
+          const result = rowClassName({ row, rowIndex });
+          if (result) {
+            classArr.push(result);
+          }
+        } else if (typeof rowClassName === "string") {
+          classArr.push(rowClassName);
         }
       }
       return classArr;
