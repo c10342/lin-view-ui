@@ -151,6 +151,11 @@
           "desc": "Alert 警告",
           "name": "alert",
           "path": "/alert"
+        },
+        {
+          "desc": "Table 表格",
+          "name": "table",
+          "path": "/table"
         }
       ]
     },
