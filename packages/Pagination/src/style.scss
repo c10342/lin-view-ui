@@ -1,0 +1,130 @@
+@import "src/styles/variables/pagination.scss";
+
+.lin-pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: $pagination-font-size;
+}
+
+.lin-pagination-total{
+    margin:$pagination-total-margin;
+    color: $pagination-total-color;
+}
+
+.lin-pagination-background {
+  .lin-pagination-item {
+    background-color: $pagination-background-item-background-color;
+    color: $pagination-background-item-color;
+  }
+  .lin-pagination-active {
+    background-color: $pagination-background-active-background-color;
+    color: $pagination-background-active-color;
+  }
+  .lin-pagination-disabled {
+    color:  $pagination-background-disabled-color;
+    background-color: $pagination-background-disabled-background-color;
+  }
+  .lin-pagination-icon{
+    background-color: $pagination-background-icon-background-color;
+  }
+}
+
+.lin-pagination-pager {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: $pagination-pager-padding;
+}
+
+.lin-pagination-item {
+  width: $pagination-item-width;
+  height: $pagination-item-height;
+  box-sizing: border-box;
+
+  border-radius: $pagination-item-border-radius;
+  line-height: $pagination-item-line-height;
+  text-align: center;
+  margin: $pagination-item-margin;
+  cursor: pointer;
+  position: relative;
+  font-weight: $pagination-item-font-weight;
+  &:not(.lin-pagination-disabled){
+    &:hover{
+      color: $pagination-item-hover-color;
+    }
+  }
+  
+}
+.lin-pagination-icon {
+  position: absolute;
+  top: $pagination-icon-top;
+  left: $pagination-icon-left;
+  width: $pagination-icon-width;
+  height: $pagination-icon-height;
+  box-sizing: border-box;
+  line-height: $pagination-icon-line-height;
+  text-align: center;
+  background-color: $pagination-icon-background-color;
+
+  display: none;
+  font-size: $pagination-icon-font-size;
+  color: $pagination-icon-color;
+}
+.lin-pagination-ellipsis {
+  &:hover {
+    .lin-pagination-icon {
+      display: block;
+    }
+  }
+}
+
+.lin-pagination-active {
+  color: $pagination-active-color;
+}
+
+// .lin-pagination-icon {
+//   display: none;
+//   font-size: 12px;
+//   color: #409eff;
+// }
+
+.lin-pagination-disabled {
+  color: $pagination-disabled-color;
+  cursor: not-allowed;
+}
+
+.lin-pagintaion-jumpe {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin:$pagination-jumpe-margin;
+}
+
+.lin-pagintaion-input {
+  width: $pagination-input-width;
+  height: $pagination-input-height;
+  padding: $pagination-input-padding;
+  border-radius: $pagination-input-border-radius;
+  box-sizing: border-box;
+  border: $pagination-input-border;
+  outline: none;
+  appearance: none;
+  text-align: center;
+  margin: $pagination-input-margin;
+  cursor: pointer;
+  -moz-appearance: textfield;
+  transition: $pagination-input-transition;
+  &:hover {
+    border-color: $pagination-input-hover-border-color;
+  }
+  &:focus {
+    border-color: $pagination-input-focus-border-color;
+  }
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

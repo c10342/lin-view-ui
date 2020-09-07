@@ -35,6 +35,7 @@ import Progress from "packages/Progress";
 import MetaInfo from "packages/MetaInfo";
 import Tag from "packages/Tag";
 import Alert from "packages/Alert";
+import Pagination from 'packages/Pagination'
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -81,6 +82,7 @@ const install = (Vue) => {
     TableColumn,
     Magnifier,
     HoverEffect,
+    Pagination
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -125,4 +127,5 @@ export default {
   TableColumn,
   Magnifier,
   HoverEffect,
+  Pagination
 };
