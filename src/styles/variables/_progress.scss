@@ -1,9 +1,9 @@
 @import "./common";
 
-$progress-out-background-color: #ebeef5 !default;
+$progress-out-background-color: $border-color !default;
 
 $progress-outside-tip-margin-left: 10px !default;
-$progress-outside-tip-color: #606266 !default;
+$progress-outside-tip-color: $font-color !default;
 $progress-outside-tip-font-size: 14px !default;
 
 $progress-inside-text-right: 6px !default;
@@ -11,7 +11,7 @@ $progress-inside-text-top: 50% !default;
 $progress-inside-text-transform: translateY(-50%) !default;
 
 $progress-inside-tip-color: #fff !default;
-$progress-inside-tip-font-size: 12px !default;
+$progress-inside-tip-font-size: $font-size-base !default;
 
 $progress-primary-background-color: $primary !default;
 $progress-success-background-color: $success !default;

@@ -1,6 +1,6 @@
 @import "./common";
 
-$radio-color: #606266 !default;
+$radio-color: $font-color !default;
 $radio-font-weight: 500 !default;
 $radio-line-height: 1 !default;
 $radio-font-size: 14px !default;
@@ -8,7 +8,7 @@ $radio-margin-right: 30px !default;
 
 $radio-input-line-height: 1 !default;
 
-$radio-inner-border: 1px solid #dcdfe6 !default;
+$radio-inner-border: 1px solid $border-color !default;
 $radio-inner-border-radius: 100% !default;
 $radio-inner-width: 14px !default;
 $radio-inner-height: 14px !default;
@@ -25,13 +25,13 @@ $radio-inner-after-transition: transform 0.15s ease-in !default;
 $radio-label-font-size: 14px !default;
 $radio-label-padding-left: 10px !default;
 
-$radio-checked-border-color: #409eff !default;
-$radio-checked-background: #409eff !default;
+$radio-checked-border-color: $primary !default;
+$radio-checked-background: $primary !default;
 $radio-checked-transform: translate(-50%, -50%) scale(1) !default;
-$radio-checked-color: #409eff !default;
+$radio-checked-color: $primary !default;
 
-$radio-disabled-color: #c0c4cc !default;
-$radio-disabled-border-color: #e4e7ed !default;
-$radio-disabled-background-color: #f5f7fa !default;
-$radio-disabled-border-radius: #c0c4cc !default;
-$radio-disabled-after-background-color: #c0c4cc !default;
+$radio-disabled-color: $disabled-font-color !default;
+$radio-disabled-border-color: $disabled-border-color !default;
+$radio-disabled-background-color: $disabled-background-color !default;
+$radio-disabled-border-radius: $disabled-font-color !default;
+$radio-disabled-after-background-color: $disabled-font-color !default;

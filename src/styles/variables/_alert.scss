@@ -6,19 +6,19 @@ $alert-border-radius: 4px !default;
 $alert-content-padding: 0 10px !default;
 
 $alert-title-font-weight: 700 !default;
-$alert-title-font-size: 13px !default;
+$alert-title-font-size: $font-size-small !default;
 
-$alert-description-font-size: 12px !default;
+$alert-description-font-size: $font-size-base !default;
 $alert-description-margin-top: 5px !default;
 
 $alert-close-top: 8px !default;
 $alert-close-right: 16px !default;
 
-$alert-light-color: #c0c4cc !default;
-$alert-light-success-lighten: 45% !default;
-$alert-light-warning-lighten: 37% !default;
-$alert-light-info-lighten: 37% !default;
-$alert-light-danger-lighten: 28% !default;
+$alert-light-color: $disabled-font-color !default;
+// $alert-light-success-lighten: 45% !default;
+// $alert-light-warning-lighten: 37% !default;
+// $alert-light-info-lighten: 37% !default;
+// $alert-light-danger-lighten: 28% !default;
 
 $alert-dark-color: #ffffff !default;
 

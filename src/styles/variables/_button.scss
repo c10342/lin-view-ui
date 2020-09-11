@@ -1,17 +1,5 @@
 @import "./common";
 
-// $button-primary: #409eff !default;
-// $button-success: #67c23a !default;
-// $button-info: #909399 !default;
-// $button-warning: #e6a23c !default;
-// $button-danger: #f56c6c !default;
-
-// $button-primary: $primary !default;
-// $button-success: $success !default;
-// $button-info: $info !default;
-// $button-warning: $warning !default;
-// $button-danger: $danger !default;
-
 $button-line-height: 1 !default;
 
 $button-background-color: #fff !default;
@@ -19,11 +7,11 @@ $button-background-color: #fff !default;
 $button-border-width: 1px !default;
 $button-border-style: solid !default;
 $button-border-color: #dcdfe6 !default;
-$button-color: #606266 !default;
+$button-color: $font-color !default;
 $button-margin: 0 !default;
 $button-transition: 0.1s !default;
 $button-font-weight: 500 !default;
-$button-font-size: 14px !default;
+$button-font-size: $font-size-small !default;
 $button-border-radius: 4px !default;
 
 $button-default-padding-x: 12px !default;
@@ -36,8 +24,8 @@ $button-small-padding-x: 9px !default;
 $button-small-padding-y: 15px !default;
 
 $button-default-active-color: $primary !default;
-$button-default-active-border-color: #c6e2ff !default;
-$button-default-active-background-color: #ecf5ff !default;
+$button-default-active-border-color: rgba($primary, 0.1) !default;
+$button-default-active-background-color: rgba($primary, 0.2) !default;
 
 $button-theme-color-color: #fff !default;
 
@@ -53,40 +41,40 @@ $button-small-circle-padding: 8px !default;
 $button-icon-margin-left: 5px !default;
 
 $button-default-plain-active-background: #fff !default;
-$button-default-plain-active-border-color: #409eff !default;
-$button-default-plain-active-color: #409eff !default;
+$button-default-plain-active-border-color: $primary !default;
+$button-default-plain-active-color: $primary !default;
 
-$button-primary-plain-background: #ecf5ff !default;
-$button-primary-plain-border-color: #b3d8ff !default;
-$button-primary-plain-color: #409eff !default;
-$button-primary-plain-active-background: #409eff !default;
-$button-primary-plain-active-border-color: #409eff !default;
-$button-primary-plain-active-color: #fff !default;
+// $button-primary-plain-background: rgba($primary, 0.1) !default;
+// $button-primary-plain-border-color: rgba($primary, 0.3) !default;
+// $button-primary-plain-color: $primary !default;
+// $button-primary-plain-active-background: $primary !default;
+// $button-primary-plain-active-border-color: $primary !default;
+// $button-primary-plain-active-color: $button-active-color !default;
 
-$button-success-plain-background: #f0f9eb !default;
-$button-success-plain-border-color: #c2e7b0 !default;
-$button-success-plain-color: #67c23a !default;
-$button-success-plain-active-background: #67c23a !default;
-$button-success-plain-active-border-color: #67c23a !default;
-$button-success-plain-active-color: #fff !default;
+// $button-success-plain-background: rgba($success, 0.1) !default;
+// $button-success-plain-border-color: rgba($success, 0.3) !default;
+// $button-success-plain-color: $success !default;
+// $button-success-plain-active-background: $success !default;
+// $button-success-plain-active-border-color: $success !default;
+// $button-success-plain-active-color: $button-active-color !default;
 
-$button-info-plain-background: #f4f4f5 !default;
-$button-info-plain-border-color: #d3d4d6 !default;
-$button-info-plain-color: #909399 !default;
-$button-info-plain-active-background: #909399 !default;
-$button-info-plain-active-border-color: #909399 !default;
-$button-info-plain-active-color: #fff !default;
+// $button-info-plain-background: rgba($info, 0.1) !default;
+// $button-info-plain-border-color: rgba($info, 0.3) !default;
+// $button-info-plain-color: $info !default;
+// $button-info-plain-active-background: $info !default;
+// $button-info-plain-active-border-color: $info !default;
+// $button-info-plain-active-color: $button-active-color !default;
 
-$button-warning-plain-background: #fdf6ec !default;
-$button-warning-plain-border-color: #f5dab1 !default;
-$button-warning-plain-color: #e6a23c !default;
-$button-warning-plain-active-background: #e6a23c !default;
-$button-warning-plain-active-border-color: #e6a23c !default;
-$button-warning-plain-active-color: #fff !default;
+// $button-warning-plain-background: rgba($warning, 0.1) !default;
+// $button-warning-plain-border-color: rgba($warning, 0.3) !default;
+// $button-warning-plain-color: $warning !default;
+// $button-warning-plain-active-background: $warning !default;
+// $button-warning-plain-active-border-color: $warning !default;
+// $button-warning-plain-active-color: $button-active-color !default;
 
-$button-danger-plain-background: #fef0f0 !default;
-$button-danger-plain-border-color: #fbc4c4 !default;
-$button-danger-plain-color: #f56c6c !default;
-$button-danger-plain-active-background: #f56c6c !default;
-$button-danger-plain-active-border-color: #f56c6c !default;
-$button-danger-plain-active-color: #fff !default;
+// $button-danger-plain-background: rgba($danger, 0.1) !default;
+// $button-danger-plain-border-color: rgba($danger, 0.3) !default;
+// $button-danger-plain-color: $danger !default;
+// $button-danger-plain-active-background: $danger !default;
+// $button-danger-plain-active-border-color: $danger !default;
+// $button-danger-plain-active-color: $button-active-color !default;

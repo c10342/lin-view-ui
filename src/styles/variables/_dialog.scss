@@ -12,8 +12,8 @@ $dialog-width: 30% !default;
 $dialog-header-padding: 20px 20px 10px !default;
 
 $dialog-title-line-height: 24px !default;
-$dialog-title-font-size: 18px !default;
-$dialog-title-color: #303133 !default;
+$dialog-title-font-size: $font-size-big !default;
+$dialog-title-color: darken($font-color, 20%) !default;
 
 $dialog-headerbtn-top: 20px !default;
 $dialog-headerbtn-right: 20px !default;
@@ -21,13 +21,14 @@ $dialog-headerbtn-padding: 0 !default;
 $dialog-headerbtn-background: transparent !default;
 $dialog-headerbtn-border: none !default;
 $dialog-headerbtn-outline: none !default;
-$dialog-headerbtn-font-size: 16px !default;
+$dialog-headerbtn-font-size: $font-size-normal !default;
 
-$dialog-close-color: #909399 !default;
+// $dialog-close-color: lighten($font-color, 20%) !default;
+$dialog-close-color: rgba($font-color, 0.6) !default;
 
 $dialog-body-padding: 30px 20px !default;
-$dialog-body-color: #606266 !default;
-$dialog-body-font-size: 14px !default;
+$dialog-body-color: $font-color !default;
+$dialog-body-font-size: $font-size-small !default;
 $dialog-body-word-break: break-all !default;
 
 $dialog-footer-padding: 10px 20px 20px !default;

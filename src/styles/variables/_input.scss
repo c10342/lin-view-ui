@@ -2,31 +2,31 @@
 
 $input-height: 40px !default;
 
-$input-font-size: 14px !default;
+$input-font-size: $font-size-small !default;
 
 $input-inner-background-color: #fff !default;
 $input-inner-border-radius: 4px !default;
 $input-inner-border: 1px solid #dcdfe6 !default;
-$input-inner-color: #606266 !default;
+$input-inner-color: $font-color !default;
 $input-inner-height: $input-height !default;
 $input-inner-line-height: $input-height !default;
 $input-inner-padding: 0 15px !default;
 $input-inner-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
-$input-inner-focus-border-color: #409eff !default;
+$input-inner-focus-border-color: $primary !default;
 
-$input-inner-disabled-background-color: #f5f7fa !default;
-$input-inner-disabled-border-color: #e4e7ed !default;
-$input-inner-disabled-color: #c0c4cc !default;
+$input-inner-disabled-background-color: $disabled-background-color !default;
+$input-inner-disabled-border-color: $disabled-border-color !default;
+$input-inner-disabled-color: $disabled-font-color !default;
 
 $input-suffix-inner-padding-right: 30px !default;
 $input-suffix-right: 10px !default;
 $input-suffix-top: 0 !default;
 $input-suffix-line-height: $input-height !default;
 $input-suffix-text-align: center !default;
-$input-suffix-color: #c0c4cc !default;
+$input-suffix-color: $disabled-font-color !default;
 $input-suffix-transition: all 0.3s !default;
 $input-suffix-z-index: 900 !default;
-$input-suffix-icon-color: #c0c4cc !default;
-$input-suffix-icon-font-size: 14px !default;
+$input-suffix-icon-color: $disabled-font-color !default;
+$input-suffix-icon-font-size: $font-size-big !default;
 $input-suffix-icon-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
-$input-suffix-icon-active-color: blue !default;
+$input-suffix-icon-active-color: $primary !default;

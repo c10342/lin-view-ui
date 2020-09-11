@@ -1,6 +1,7 @@
-$magnifier-border: 1px solid #ccc !default;
+@import "./common";
+$magnifier-border: 1px solid $border-color !default;
 
-$magnifier-big-border: 1px solid #ccc !default;
+$magnifier-big-border: 1px solid $border-color !default;
 
 $magnifier-move-width: 100px !default;
 $magnifier-move-height: 100px !default;

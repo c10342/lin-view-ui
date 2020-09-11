@@ -1,7 +1,7 @@
 @import "./common";
 
 $video-card-background: #ffffff !default;
-$video-card-border: 1px solid #e7eff8 !default;
+$video-card-border: 1px solid $border-color !default;
 $video-card-border-radius: 4px !default;
 $video-card-transition: all 0.4s !default;
 $video-card-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15) !default;
@@ -9,8 +9,8 @@ $video-card-transform: translateY(-3px) !default;
 
 $video-card-cover-border-radius: 4px 4px 0px 0px !default;
 
-$video-card-error-tip-background: #f5f7fa !default;
-$video-card-error-tip-color: #c0c4cc !default;
+$video-card-error-tip-background: $background-color !default;
+$video-card-error-tip-color: $disabled-font-color !default;
 $video-card-error-tip-font-size: 14px !default;
 
 $video-card-cover-tip-bottom: 8px !default;

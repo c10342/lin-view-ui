@@ -7,8 +7,8 @@ $loading-icon-width: 40px !default;
 $loading-icon-height: 40px !default;
 $loading-icon-border-radius: 50% !default;
 $loading-icon-border: 1px solid transparent !default;
-$loading-icon-border-top-color: #409eff !default;
-$loading-icon-border-right-color: #409eff !default;
+$loading-icon-border-top-color: $primary !default;
+$loading-icon-border-right-color: $primary !default;
 $loading-icon-animation: rotate-animation 600ms linear infinite !default;
 
 $loading-text-margin-top: 10px !default;

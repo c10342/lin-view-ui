@@ -3,8 +3,8 @@
 $image-img-padding: 0 !default;
 $image-img-margin: 0 !default;
 
-$image-error-font-size: 14px !default;
-$image-error-color: #c0c4cc !default;
+$image-error-font-size: $font-size-small !default;
+$image-error-color: $disabled-font-color !default;
 
 $image-mask-z-index: 1000 !default;
 $image-mask-background-color: rgba(0, 0, 0, 0.5) !default;

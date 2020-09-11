@@ -49,30 +49,36 @@
     color: $alert-light-color;
   }
 
-  &.lin-alert-success {
-    @include alert-type(
-      lighten($success, $alert-light-success-lighten),
-      $success
-    );
+  @each $key, $val in $theme-color {
+    &.lin-alert-#{$key} {
+      @include alert-type($val);
+    }
   }
-  &.lin-alert-warning {
-    @include alert-type(
-      lighten($warning, $alert-light-warning-lighten),
-      $warning
-    );
-  }
-  &.lin-alert-info {
-    @include alert-type(lighten($info, $alert-light-info-lighten), $info);
-  }
-  &.lin-alert-danger {
-    @include alert-type(lighten($danger, $alert-light-danger-lighten), $danger);
-  }
+
+  // &.lin-alert-success {
+  //   @include alert-type(
+  //     lighten($success, $alert-light-success-lighten),
+  //     $success
+  //   );
+  // }
+  // &.lin-alert-warning {
+  //   @include alert-type(
+  //     lighten($warning, $alert-light-warning-lighten),
+  //     $warning
+  //   );
+  // }
+  // &.lin-alert-info {
+  //   @include alert-type(lighten($info, $alert-light-info-lighten), $info);
+  // }
+  // &.lin-alert-danger {
+  //   @include alert-type(lighten($danger, $alert-light-danger-lighten), $danger);
+  // }
 }
 
 .lin-alert-dark {
   @each $key, $val in $theme-color {
     &.lin-alert-#{$key} {
-      @include alert-type($val, $alert-dark-color);
+      @include alert-type($val);
     }
   }
 }

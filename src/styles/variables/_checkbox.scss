@@ -1,13 +1,13 @@
 @import "./common";
 
-$checkbox-color: #606266 !default;
+$checkbox-color: $font-color !default;
 $checkbox-font-weight: 500 !default;
-$checkbox-font-size: 14px !default;
+$checkbox-font-size: $font-size-small !default;
 $checkbox-margin-right: 30px !default;
 
 $checkbox-input-line-height: 1 !default;
 
-$checkbox-inner-border: 1px solid #dcdfe6 !default;
+$checkbox-inner-border: 1px solid $border-color !default;
 $checkbox-inner-border-radius: 2px !default;
 $checkbox-inner-width: 14px !default;
 $checkbox-inner-height: 14px !default;
@@ -30,11 +30,11 @@ $checkbox-inner-after-transform-origin: center !default;
 
 $checkbox-label-padding-left: 10px !default;
 $checkbox-label-line-height: 19px !default;
-$checkbox-label-font-size: 14px !default;
+$checkbox-label-font-size: $font-size-small !default;
 
-$checkbox-checked-background-color: #409eff !default;
-$checkbox-checked-border-color: #409eff !default;
-$checkbox-checked-color: #409eff !default;
+$checkbox-checked-background-color: $primary !default;
+$checkbox-checked-border-color: $primary !default;
+$checkbox-checked-color: $primary !default;
 $checkbox-checked-transform: rotate(45deg) scaleY(1) !default;
 
-$checkbox-disabled-color: #c0c4cc !default;
+$checkbox-disabled-color: $disabled-font-color !default;

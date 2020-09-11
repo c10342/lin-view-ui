@@ -9,10 +9,10 @@ $selector-item-height: $selector-height !default;
 $selector-item-line-height: $selector-height !default;
 $selector-item-padding: 0 10px !default;
 $selector-item-font-size: 12px !default;
-$selector-item-color: #5c657d !default;
+$selector-item-color: rgba($font-color, 0.9) !default;
 
-$selector-active-color: #1baafb !default;
-$selector-active-background-color: #e8f6ff !default;
+$selector-active-color: $primary !default;
+$selector-active-background-color: rgba($primary, 0.1) !default;
 
-$selector-disabled-background-color: #f5f7fa !default;
-$selector-disabled-color: #c0c4cc !default;
+$selector-disabled-background-color: $disabled-background-color !default;
+$selector-disabled-color: $disabled-font-color !default;

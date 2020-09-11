@@ -1,8 +1,9 @@
+@import "./common";
 $tooltip-background: #303133 !default;
 $tooltip-color: #fff !default;
 $tooltip-padding: 10px !default;
 $tooltip-border-radius: 4px !default;
-$tooltip-font-size: 12px !default;
+$tooltip-font-size: $font-size-base !default;
 $tooltip-min-width: 40px !default;
 $tooltip-max-width: 500px !default;
 $tooltip-z-index: 200 !default;

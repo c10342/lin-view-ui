@@ -1,8 +1,8 @@
 @import "./common";
 
-$show-more-font-size: 13px !default;
-$show-more-color: #000 !default;
+$show-more-font-size: $font-size-small !default;
+$show-more-color: $font-color !default;
 
-$show-more-tip-color: #3faaf5 !default;
+$show-more-tip-color: $primary !default;
 $show-more-tip-text-decoration: none !default;
 $show-more-tip-margin-left: 5px !default;

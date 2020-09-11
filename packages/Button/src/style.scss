@@ -66,99 +66,31 @@
 .lin-button.lin-button-plain {
   &:hover,
   &:focus {
-    @include button-plain(
+    @include button-plain-default(
       $button-default-plain-active-background,
       $button-default-plain-active-border-color,
       $button-default-plain-active-color
     );
   }
 }
-.lin-button-primary.lin-button-plain {
-  @include button-plain(
-    $button-primary-plain-background,
-    $button-primary-plain-border-color,
-    $button-primary-plain-color
-  );
-  &:hover,
-  &:focus {
-    @include button-plain(
-      $button-primary-plain-active-background,
-      $button-primary-plain-active-border-color,
-      $button-primary-plain-active-color
-    );
-  }
-}
-.lin-button-success.lin-button-plain {
-  @include button-plain(
-    $button-success-plain-background,
-    $button-success-plain-border-color,
-    $button-success-plain-color
-  );
-  &:hover,
-  &:focus {
-    @include button-plain(
-      $button-success-plain-active-background,
-      $button-success-plain-active-border-color,
-      $button-success-plain-active-color
-    );
-  }
-}
 
-.lin-button-info.lin-button-plain {
-  @include button-plain(
-    $button-info-plain-background,
-    $button-info-plain-border-color,
-    $button-info-plain-color
-  );
-  &:hover,
-  &:focus {
-    @include button-plain(
-      $button-info-plain-active-background,
-      $button-info-plain-active-border-color,
-      $button-info-plain-active-color
-    );
-  }
-}
-.lin-button-warning.lin-button-plain {
-  @include button-plain(
-    $button-warning-plain-background,
-    $button-warning-plain-border-color,
-    $button-warning-plain-color
-  );
-  &:hover,
-  &:focus {
-    @include button-plain(
-      $button-warning-plain-active-background,
-      $button-warning-plain-active-border-color,
-      $button-warning-plain-active-color
-    );
-  }
-}
-.lin-button-danger.lin-button-plain {
-  @include button-plain(
-    $button-danger-plain-background,
-    $button-danger-plain-border-color,
-    $button-danger-plain-color
-  );
-  &:hover,
-  &:focus {
-    @include button-plain(
-      $button-danger-plain-active-background,
-      $button-danger-plain-active-border-color,
-      $button-danger-plain-active-color
-    );
+@each $key, $val in $theme-color {
+  .lin-button-#{$key}.lin-button-plain {
+    @include button-plain-normal($val);
+    &:hover,
+    &:focus {
+      @include button-plain-active($val);
+    }
   }
 }
 
 .lin-button.lin-button-round {
   border-radius: $button-round-border-radius;
-  // padding: $button-round-padding-x $button-round-padding-y;
 }
 
 // 原形按钮
 .lin-button.lin-button-circle {
   border-radius: $button-circle-border-radius;
-  // padding: $button-default-circle-padding;
 }
 
 .lin-button [class*="lin-icon-"] + span {

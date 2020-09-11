@@ -3,15 +3,15 @@
 $switch-base-height: 20px !default;
 
 $switch-height: $switch-base-height !default;
-$switch-font-size: 14px !default;
+$switch-font-size: $font-size-small !default;
 $switch-line-height: $switch-base-height !default;
 
 $switch-core-margin: 0 !default;
 $switch-core-width: 40px !default;
 $switch-core-height: $switch-base-height !default;
-$switch-core-border: 1px solid #dcdfe6 !default;
+$switch-core-border: 1px solid $border-color !default;
 $switch-core-border-radius: 10px !default;
-$switch-core-background: #dcdfe6 !default;
+$switch-core-background: $border-color !default;
 $switch-core-transition: border-color 0.3s, background-color 0.3s !default;
 
 $switch-button-top: 1px !default;
@@ -22,6 +22,6 @@ $switch-button-width: 16px !default;
 $switch-button-height: 16px !default;
 $switch-button-background-color: #fff !default;
 
-$switch-checked-border-color: #409eff !default;
-$switch-checked-background-color: #409eff !default;
+$switch-checked-border-color: $primary !default;
+$switch-checked-background-color: $primary !default;
 $switch-checked-transform: translateX(20px) !default;

@@ -1,14 +1,15 @@
+@import "./common";
 $input-number-width: 180px !default;
 $input-number-height: 40px !default;
 $input-number-border-radius: 4px !default;
 
 $input-number-btn-width: 40px !default;
-$input-number-btn-background-color: #f5f7fa !default;
+$input-number-btn-background-color: $disabled-background-color !default;
 $input-number-btn-top: 0 !default;
-$input-number-btn-font-size: 20px !default;
+$input-number-btn-font-size: $font-size-bigger !default;
 
 $input-number-reduce-border-radius: 4px 0 0 4px !default;
-$input-number-reduce-border-right: 1px solid #dcdfe6 !default;
+$input-number-reduce-border-right: 1px solid $border-color !default;
 $input-number-reduce-left: 1px !default;
 $input-number-reduce-top: 1px !default;
 $input-number-reduce-bottom: 1px !default;
@@ -17,19 +18,19 @@ $input-number-text-padding: 0 50px !default;
 $input-number-text-width: 100% !default;
 $input-number-text-height: 100% !default;
 $input-number-text-border-radius: 4px !default;
-$input-number-text-border: 1px solid #dcdfe6 !default;
+$input-number-text-border: 1px solid $border-color !default;
 
-$input-number-text-focus-border-color: #409eff !default;
+$input-number-text-focus-border-color: $primary !default;
 
 $input-number-plus-border-radius: 0 4px 4px 0 !default;
-$input-number-plus-border-left: 1px solid #dcdfe6 !default;
+$input-number-plus-border-left: 1px solid $border-color !default;
 $input-number-plus-right: 1px !default;
 $input-number-plus-top: 1px !default;
 $input-number-plus-bottom: 1px !default;
 
-$input-number-btn-disabled-border-color: #e4e7ed !default;
-$input-number-btn-disabled-color: #e4e7ed !default;
+$input-number-btn-disabled-border-color: $disabled-border-color !default;
+$input-number-btn-disabled-color: $disabled-font-color !default;
 
-$input-number-text-disabled-background-color: #f5f7fa !default;
-$input-number-text-disabled-border-color: #e4e7ed !default;
-$input-number-text-disabled-color: #c0c4cc !default;
+$input-number-text-disabled-background-color: $disabled-background-color !default;
+$input-number-text-disabled-border-color: $disabled-border-color !default;
+$input-number-text-disabled-color: $disabled-font-color !default;

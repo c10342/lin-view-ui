@@ -3,15 +3,15 @@
 
 $form-item-margin-bottom: 20px !default;
 
-$form-item-label-font-size: 14px !default;
-$form-item-label-color: #606266 !default;
+$form-item-label-font-size: $font-size-small !default;
+$form-item-label-color: $font-color !default;
 $form-item-label-line-height: 40px !default;
 $form-item-label-padding: 0 12px 0 0 !default;
 
 $form-item-content-line-height: 40px !default;
-$form-item-content-font-size: 14px !default;
+$form-item-content-font-size: $font-size-small !default;
 
-$form-item-errormsg-font-size: 12px !default;
+$form-item-errormsg-font-size: $font-size-base !default;
 $form-item-errormsg-color: $danger !default;
 $form-item-errormsg-margin: 0 !default;
 $form-item-errormsg-padding: 0 !default;

@@ -36,6 +36,7 @@
 }
 .lin-date-picker-absolute {
   position: absolute;
+  z-index: 100;
 }
 .lin-date-picker-pannel {
   background-color: $date-picker-pannel-background-color;

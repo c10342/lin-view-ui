@@ -34,67 +34,13 @@
 }
 
 .lin-tag-light {
-  &.lin-tag-primary {
-    @include tag-type(
-      lighten($primary, $tag-light-primary-background-color-lighten),
-      $primary,
-      lighten($primary, $tag-light-primary-border-color-lighten)
-    );
-    .lin-tag-close {
-      &:hover {
-        background-color: $primary;
-      }
-    }
-  }
-
-  &.lin-tag-success {
-    @include tag-type(
-      lighten($success, $tag-light-success-background-color-lighten),
-      $success,
-      lighten($success, $tag-light-success-border-color-lighten)
-    );
-    .lin-tag-close {
-      &:hover {
-        background-color: $success;
-      }
-    }
-  }
-
-  &.lin-tag-info {
-    @include tag-type(
-      lighten($info, $tag-light-info-background-color-lighten),
-      $info,
-      lighten($info, $tag-light-info-border-color-lighten)
-    );
-    .lin-tag-close {
-      &:hover {
-        background-color: $info;
-      }
-    }
-  }
-
-  &.lin-tag-warning {
-    @include tag-type(
-      lighten($warning, $tag-light-warning-background-color-lighten),
-      $warning,
-      lighten($warning, $tag-light-warning-border-color-lighten)
-    );
-    .lin-tag-close {
-      &:hover {
-        background-color: $warning;
-      }
-    }
-  }
-
-  &.lin-tag-danger {
-    @include tag-type(
-      lighten($danger, $tag-light-danger-background-color-lighten),
-      $danger,
-      lighten($danger, $tag-light-danger-border-color-lighten)
-    );
-    .lin-tag-close {
-      &:hover {
-        background-color: $danger;
+  @each $key, $val in $theme-color {
+    &.lin-tag-#{$key} {
+      @include tag-type($val);
+      .lin-tag-close {
+        &:hover {
+          background-color: $val;
+        }
       }
     }
   }
@@ -103,10 +49,10 @@
 .lin-tag-dark {
   @each $key, $val in $theme-color {
     &.lin-tag-#{$key} {
-      @include tag-type($val, $tag-dark-color, $val);
+      @include tag-type($val);
       .lin-tag-close {
         &:hover {
-          background-color: lighten($val, $tag-dark-close-hover-lighten);
+          background-color: rgba($val, 0.4);
         }
       }
     }
@@ -116,7 +62,7 @@
 .lin-tag-plain {
   @each $key, $val in $theme-color {
     &.lin-tag-#{$key} {
-      @include tag-type($tag-plain-background-color, $val, $val);
+      @include tag-type($val);
       .lin-tag-close {
         &:hover {
           background-color: $val;

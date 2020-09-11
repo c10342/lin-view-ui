@@ -1,16 +1,17 @@
+@import "./common";
 $table-width: 100% !default;
 $table-border-collapse: collapse !default;
 $table-border-spacing: 0 !default;
-$table-color: #606266 !default;
+$table-color: $font-size-normal !default;
 
-$table-border-border: 1px solid #ebeef5 !default;
+$table-border-border: 1px solid rgba($border-color, 0.4) !default;
 
 $table-stripe-background-color: #fafafa !default;
 
 $table-cell-padding: 10px !default;
-$table-cell-border-bottom: 1px solid #ebeef5 !default;
+$table-cell-border-bottom: 1px solid rgba($border-color, 0.4) !default;
 
-$table-tbody-tr-hover-background-color: #eeeeee !default;
+$table-tbody-tr-hover-background-color: rgba($background-color, 0.9) !default;
 
 $table-checkbox-width: 16px !default;
 $table-checkbox-height: 16px !default;
