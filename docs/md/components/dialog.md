@@ -95,13 +95,13 @@ export default {
 
 ## 遮罩层不可点击
 
-使用`close-onClick-moda`属性来设置遮罩层为不可点击状态
+使用`closeOnClickModa`属性来设置遮罩层为不可点击状态
 
 <div class='demo-block'>
 <lin-button @click="click2">点击打开Dialog</lin-button>
 <lin-dialog 
     :visible.sync="visible2" 
-    :close-onClick-moda="false">
+    :closeOnClickModa="false">
     <span>这是一段信息</span>
 </lin-dialog>
 </div>
@@ -110,7 +110,7 @@ export default {
 
 ```html
 <lin-button @click="click2">点击打开Dialog</lin-button>
-<lin-dialog :visible.sync="visible2" :close-onClick-moda="false">
+<lin-dialog :visible.sync="visible2" :closeOnClickModa="false">
   <span>这是一段信息</span>
 </lin-dialog>
 
