@@ -34,7 +34,12 @@ export default {
         "lin-icon-rightarrow",
         "lin-icon-user",
         "lin-icon-downarrow",
-        "lin-icon-uparrow"
+        "lin-icon-play",
+        "lin-icon-volume",
+        "lin-icon-mute",
+        "lin-icon-pause",
+        "lin-icon-fullscreen",
+        "lin-icon-full-screen"
       ]
     };
   }
