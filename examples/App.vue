@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-pagination />
+    <test-hls-player />
   </div>
 </template>
 

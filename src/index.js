@@ -25,6 +25,7 @@ import TableColumn from "packages/TableColumn";
 // 视频组件
 import VideoCard from "packages/VideoCard";
 import LiveComment from "packages/LiveComment";
+import HlsPlayer from "packages/HlsPlayer";
 
 // 视图组件
 import ShowMore from "packages/ShowMore";
@@ -35,7 +36,7 @@ import Progress from "packages/Progress";
 import MetaInfo from "packages/MetaInfo";
 import Tag from "packages/Tag";
 import Alert from "packages/Alert";
-import Pagination from 'packages/Pagination'
+import Pagination from "packages/Pagination";
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -82,7 +83,8 @@ const install = (Vue) => {
     TableColumn,
     Magnifier,
     HoverEffect,
-    Pagination
+    Pagination,
+    HlsPlayer,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -127,5 +129,6 @@ export default {
   TableColumn,
   Magnifier,
   HoverEffect,
-  Pagination
+  Pagination,
+  HlsPlayer,
 };
