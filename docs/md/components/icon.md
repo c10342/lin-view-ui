@@ -39,7 +39,8 @@ export default {
         "lin-icon-mute",
         "lin-icon-pause",
         "lin-icon-fullscreen",
-        "lin-icon-full-screen"
+        "lin-icon-full-screen",
+        "lin-icon-loading"
       ]
     };
   }
