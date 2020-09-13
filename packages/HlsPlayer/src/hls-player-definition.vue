@@ -1,9 +1,9 @@
 <template>
-  <div class="lin-hls-player-speed" v-if="speedList.length!==0">
-    <span class="lin-hls-player-speed-label">{{currentSpeed?currentSpeed.label:'倍速'}}</span>
-    <ul class="lin-hls-player-speed-list" :style="{top}">
+  <div class="lin-hls-player-definition">
+    <span class="lin-hls-player-definition-label">{{currentVideo?currentVideo.label:''}}</span>
+    <ul class="lin-hls-player-definition-list" :style="{top}">
       <li
-        @click="switchSpeed(item)"
+        @click="setDefinition(item)"
         class="lin-hls-player-speed-label"
         v-for="(item,index) in list"
         :key="index"
@@ -15,7 +15,7 @@
 <script>
 import cloneDeep from "lodash/cloneDeep";
 export default {
-  name: "LinHlsPlayerSpeed",
+  name: "LinHlsPlayerDefinition",
   inject: {
     hlsPlayer: {
       default: null,
@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      currentSpeed: null,
+      currentVideo: null,
       list: [],
     };
   },
@@ -34,9 +34,9 @@ export default {
       }
       return null;
     },
-    speedList() {
+    videoList() {
       if (this.hlsPlayer) {
-        return this.hlsPlayer.speedList;
+        return this.hlsPlayer.videoList;
       }
       return [];
     },
@@ -49,32 +49,24 @@ export default {
     },
   },
   mounted() {
-    this.$nextTick(() => {
-      if (this.speedList.length > 0) {
-        const speedList = cloneDeep(this.speedList);
-        this.currentSpeed = speedList[0];
-        this.list = speedList.slice(1);
-        this.setSpeed();
-      }
-    });
+    if (this.videoList.length > 0) {
+      const videoList = cloneDeep(this.videoList);
+      this.currentVideo = videoList[0];
+      this.list = videoList.slice(1);
+    }
   },
   methods: {
-    switchSpeed(data) {
+    setDefinition(data) {
       const list = cloneDeep(this.list);
       const index = list.findIndex(
-        (item) => item.label === data.label && item.value === data.value
+        (item) => item.label === data.label && item.url === data.url
       );
       list.splice(index, 1);
-      list.push(this.currentSpeed);
+      list.push(this.currentVideo);
       this.list = list;
-      this.currentSpeed = data;
-      this.setSpeed();
-    },
-    setSpeed() {
-      if (this.video) {
-        let playbackRate = this.currentSpeed.value;
-        playbackRate = playbackRate < 0 ? 0 : playbackRate;
-        this.video.playbackRate = playbackRate;
+      this.currentVideo = data;
+      if (this.hlsPlayer) {
+        this.hlsPlayer.switchPlayerUrl(data);
       }
     },
   },
@@ -82,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss">
-.lin-hls-player-speed {
+.lin-hls-player-definition {
   margin-right: 10px;
   height: 100%;
   display: flex;
@@ -91,23 +83,21 @@ export default {
   color: #ffffff;
   position: relative;
   &:hover {
-    .lin-hls-player-speed-list {
+    .lin-hls-player-definition-list {
       display: block;
     }
   }
 }
-.lin-hls-player-speed-label {
+.lin-hls-player-definition-label {
   cursor: pointer;
   height: 20px;
   line-height: 20px;
-  // padding: 5px 10px;
-  padding: 5px 0px;
+  padding: 5px 10px;
   font-size: 12px;
   white-space: nowrap;
   text-align: center;
-  min-width: 70px;
 }
-.lin-hls-player-speed-list {
+.lin-hls-player-definition-list {
   list-style: none;
   position: absolute;
   top: 0;
@@ -117,7 +107,7 @@ export default {
   padding: 5px 0;
   background-color: rgba(0, 0, 0, 0.6);
   display: none;
-  .lin-hls-player-speed-label {
+  .lin-hls-player-definition-label {
     &:hover {
       background-color: rgba(0, 0, 0, 0.2);
     }

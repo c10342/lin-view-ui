@@ -170,7 +170,17 @@ export default {
     },
     seekByPercent(percent) {
       percent = percent > 1 ? 1 : percent;
-      this.hlsPlayer?.seek(this.totalTime * percent);
+      const time = this.totalTime * percent;
+      const offsetTime = time - this.currentTime;
+      this.hlsPlayer?.seek(time);
+      this.setTip(offsetTime);
+    },
+    setTip(offsetTime) {
+      if (offsetTime < 0) {
+        this.hlsPlayer?.setTip(`快退 ${Math.round(-offsetTime)} 秒`);
+      } else {
+        this.hlsPlayer?.setTip(`快进 ${Math.round(offsetTime)} 秒`);
+      }
     },
   },
   beforeDestroy() {

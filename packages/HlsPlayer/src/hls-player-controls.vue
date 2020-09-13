@@ -9,11 +9,10 @@
         <i class="lin-icon-play" v-if="!isPlaying"></i>
         <i class="lin-icon-pause" v-else></i>
       </span>
-      <span class="lin-hls-player-icon-item lin-hls-player-icon-volume">
-        <i class="lin-icon-volume"></i>
-      </span>
+      <player-volume></player-volume>
       <span class="lin-hls-player-time">{{currentTime|secondToTime}}/{{totalTime|secondToTime}}</span>
       <div class="lin-hls-player-controls-right">
+        <player-definition></player-definition>
         <player-speed></player-speed>
         <player-fullscreen></player-fullscreen>
       </div>
@@ -25,6 +24,8 @@
 import PlayerProcess from "./hls-player-process";
 import PlayerFullscreen from "./hls-player-fullscreen";
 import PlayerSpeed from "./hls-player-speed";
+import PlayerVolume from "./hls-player-volume";
+import PlayerDefinition from "./hls-player-definition";
 import secondToTime from "src/utils/secondToTime.js";
 export default {
   name: "LinHlsPlayerControls",
@@ -35,6 +36,8 @@ export default {
     PlayerProcess,
     PlayerFullscreen,
     PlayerSpeed,
+    PlayerVolume,
+    PlayerDefinition,
   },
   inject: {
     hlsPlayer: {
