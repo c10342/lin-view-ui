@@ -4,6 +4,7 @@
       class="lin-hls-player-video"
       id="lin_hls_player_video"
       ref="hlsPlayerVideo"
+      :autoplay="autoplay"
       @timeupdate="onTimeUpdate"
       @loadedmetadata="onLoadedmetadata"
       @progress="onprogress"
@@ -49,40 +50,13 @@ export default {
       preloadTime: 0,
       isPlaying: false,
       isFullscreen: false,
-      speedList: [
-        {
-          label: "正常",
-          value: 1,
-        },
-        {
-          label: "1.5倍",
-          value: 1.5,
-        },
-        {
-          label: "2倍",
-          value: 2,
-        },
-      ],
-      videoList: [
-        {
-          label: "标清",
-          url:
-            "https://th.alink.ava.com.cn/hls/ff808081722a7f9c0172309925d900d6/NR/master.m3u8",
-        },
-        {
-          label: "超清",
-          url:
-            "https://th.alink.ava.com.cn/hls/ff808081722a7f9c0172309925d900d6/HD/master.m3u8",
-        },
-        // {
-        //   label: "高清",
-        //   url:
-        //     "https://th.alink-test.ava.com.cn/hls/ff80808172c756580172cadf0f250035/SH/master.m3u8",
-        // },
-      ],
+      speedList: [],
+      videoList: [],
       imgSrc: "",
       isLoading: false,
       tip: "",
+      type: "hls",
+      autoplay: false,
     };
   },
   mounted() {
@@ -94,11 +68,14 @@ export default {
   methods: {
     initPlayer(videoSrc) {
       this.isLoading = true;
-      if (Hls.isSupported()) {
+      if (this.type === "hls" && Hls.isSupported()) {
         this.hls = new Hls();
         this.hls.loadSource(videoSrc);
         this.hls.attachMedia(this.video);
-      } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+      } else if (
+        this.video.canPlayType("application/vnd.apple.mpegurl") ||
+        this.type === "mp4"
+      ) {
         this.video.src = videoSrc;
       }
     },
@@ -110,21 +87,24 @@ export default {
       }
       this.tip = `已经切换至 ${label} 画质`;
       this.getImage();
-      if (Hls.isSupported()) {
+      if (this.type === "hls" && Hls.isSupported()) {
         if (!this.hls) {
           this.hls = new Hls();
         }
         this.hls.loadSource(videoSrc);
         this.hls.attachMedia(this.video);
-      } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+      } else if (
+        this.video.canPlayType("application/vnd.apple.mpegurl") ||
+        this.type === "mp4"
+      ) {
         this.video.src = videoSrc;
       }
       this.seek(this.currentTime);
-      if (this.isPlaying) {
-        this.play();
-      } else {
-        this.pause();
-      }
+      // if (this.isPlaying) {
+      //   this.play();
+      // } else {
+      //   this.pause();
+      // }
     },
     initHlsEvent() {
       // document.addEventListener
@@ -147,13 +127,20 @@ export default {
     onCanplaythrough() {
       this.imgSrc = "";
       this.isLoading = false;
+      if (this.isPlaying) {
+        this.play();
+      } else {
+        this.pause();
+      }
     },
     onWaiting() {
       this.isLoading = true;
     },
     onprogress() {
-      const preloadTime = this.video?.buffered.end(0) || 0;
-      this.preloadTime = preloadTime;
+      if (this.video && this.video.buffered?.length != 0) {
+        const preloadTime = this.video?.buffered.end(0) || 0;
+        this.preloadTime = preloadTime;
+      }
     },
     seek(time) {
       if (this.video) {
@@ -193,14 +180,19 @@ export default {
       ctx.drawImage(this.video, 0, 0, canvas.width, canvas.height);
       this.imgSrc = canvas.toDataURL();
     },
-    destory() {
+    destoryPlayer() {
       if (this.hls) {
-        this.hls.destory();
+        this.hls.destroy();
+        this.hls = null;
       }
+      this.video = null;
     },
     setTip(tip) {
       this.tip = tip;
     },
+  },
+  beforeDestroy() {
+    this.destoryPlayer();
   },
 };
 </script>

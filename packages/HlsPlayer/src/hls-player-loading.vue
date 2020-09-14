@@ -35,7 +35,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  // background-color: rgba(0, 0, 0, 0.3);
   > span {
     color: hsla(0, 0%, 100%, 0.7);
     font-size: 30px;

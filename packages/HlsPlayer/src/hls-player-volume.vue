@@ -115,6 +115,7 @@ export default {
   beforeDestroy() {
     window.removeEventListener("mouseup", this.onMouseUp);
     window.removeEventListener("mousemove", this.onMouseMove);
+    this.hlsPlayerVolumeProcess = null;
   },
 };
 </script>

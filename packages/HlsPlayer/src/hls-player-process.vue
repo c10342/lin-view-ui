@@ -182,10 +182,16 @@ export default {
         this.hlsPlayer?.setTip(`快进 ${Math.round(offsetTime)} 秒`);
       }
     },
+    destroyProcess() {
+      this.processBall = null;
+      this.hlsPlayerProcess = null;
+      this.processTime = null;
+    },
   },
   beforeDestroy() {
     window.removeEventListener("mouseup", this.onMouseUp);
     window.removeEventListener("mousemove", this.onMouseMove);
+    this.destroyProcess();
   },
 };
 </script>
