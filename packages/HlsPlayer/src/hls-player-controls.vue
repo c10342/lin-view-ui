@@ -1,23 +1,32 @@
 <template>
-  <div class="lin-hls-player-controls">
-    <div class="lin-hls-player-controls-mask"></div>
-    <div class="lin-hls-player-controls-group">
-      <div class="lin-hls-player-process-box">
-        <player-process></player-process>
-      </div>
-      <span class="lin-hls-player-icon-item" @click="onPlayBtnClick">
-        <i class="lin-icon-play" v-if="!isPlaying"></i>
-        <i class="lin-icon-pause" v-else></i>
-      </span>
-      <player-volume></player-volume>
-      <span class="lin-hls-player-time">{{currentTime|secondToTime}}/{{totalTime|secondToTime}}</span>
-      <div class="lin-hls-player-controls-right">
-        <player-definition></player-definition>
-        <player-speed></player-speed>
-        <player-fullscreen></player-fullscreen>
+  <transition name="lin-hls-player-fade">
+    <div class="lin-hls-player-controls" v-if="isEnter || !isPlaying">
+      <div class="lin-hls-player-controls-mask"></div>
+      <div class="lin-hls-player-controls-group">
+        <div class="lin-hls-player-process-box" v-if="!live">
+          <player-process></player-process>
+        </div>
+        <span class="lin-hls-player-icon-item" @click="onPlayBtnClick">
+          <i class="lin-icon-play" v-if="!isPlaying"></i>
+          <i class="lin-icon-pause" v-else></i>
+        </span>
+        <player-volume></player-volume>
+        <span
+          class="lin-hls-player-time"
+          v-if="!live"
+        >{{currentTime|secondToTime}}/{{totalTime|secondToTime}}</span>
+        <span class="lin-hls-player-live-tip" v-if="live">
+          <i></i>
+          直播
+        </span>
+        <div class="lin-hls-player-controls-right">
+          <player-definition></player-definition>
+          <player-speed v-if="!live"></player-speed>
+          <player-fullscreen></player-fullscreen>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -69,6 +78,18 @@ export default {
       }
       return 0;
     },
+    live() {
+      if (this.hlsPlayer) {
+        return this.hlsPlayer.live;
+      }
+      return 0;
+    },
+    isEnter() {
+      if (this.hlsPlayer) {
+        return this.hlsPlayer.isEnter;
+      }
+      return false;
+    },
   },
   methods: {
     onPlayBtnClick() {
@@ -83,78 +104,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-$controls-height: 40px;
-.lin-hls-player-controls {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-.lin-hls-player-controls-group {
-  position: relative;
-  width: 100%;
-  height: $controls-height;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  box-sizing: border-box;
-}
-.lin-hls-player-controls-mask {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==)
-    repeat-x bottom;
-  height: 98px;
-  width: 100%;
-}
-
-.lin-hls-player-icon-item {
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  vertical-align: top;
-  > i {
-    color: #ffffff;
-    font-size: 30px;
-  }
-}
-
-.lin-hls-player-icon-volume {
-  margin-left: 15px;
-  > i {
-    font-size: 20px;
-  }
-}
-
-.lin-hls-player-time {
-  margin-left: 15px;
-  font-size: 12px;
-  color: #ffffff;
-  user-select: none;
-}
-
-.lin-hls-player-process-box {
-  position: absolute;
-  top: -8px;
-  left: 0;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 20px;
-}
-
-.lin-hls-player-controls-right {
-  position: absolute;
-  right: 20px;
-  top: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-</style>

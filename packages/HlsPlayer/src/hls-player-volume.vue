@@ -40,8 +40,13 @@ export default {
     this.mousedown = false;
     this.hlsPlayerVolumeProcess = this.$refs.hlsPlayerVolumeProcess;
     this.initProcessWidth();
+    this.$on('onvolumechange',this.setProcessWidth)
   },
   methods: {
+    setProcessWidth(volume){
+      const clientWidth = this.hlsPlayerVolumeProcess.clientWidth || 0;
+      this.processWidth = clientWidth*volume
+    },
     onVolumeClick() {
       this.oldVolume = this.processWidth;
       this.processWidth = 0;
@@ -99,72 +104,20 @@ export default {
       window.removeEventListener("mousemove", this.onMouseMove);
     },
     setVolume() {
-      if (this.video) {
-        const clientWidth = this.hlsPlayerVolumeProcess.clientWidth || 0;
-        let volume = 0;
-        if (clientWidth) {
-          volume = this.processWidth / clientWidth;
-        }
-        volume = volume < 0 ? 0 : volume;
-        volume = volume > 1 ? 1 : volume;
-        this.video.volume = volume;
-        this.hlsPlayer?.setTip(`音量${Math.round(volume * 100)}%`);
+      const clientWidth = this.hlsPlayerVolumeProcess.clientWidth || 0;
+      let volume = 0;
+      if (clientWidth) {
+        volume = this.processWidth / clientWidth;
       }
+      this.hlsPlayer?.setVolume(volume);
     },
   },
   beforeDestroy() {
     window.removeEventListener("mouseup", this.onMouseUp);
     window.removeEventListener("mousemove", this.onMouseMove);
     this.hlsPlayerVolumeProcess = null;
+    this.$off('onvolumechange',this.setProcessWidth)
   },
 };
 </script>
 
-<style lang="scss">
-.lin-hls-player-volume {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  &:hover {
-    .lin-hls-player-volume-mask {
-      width: 60px;
-    }
-  }
-}
-
-.lin-hls-player-volume-mask {
-  padding: 5px 5px;
-  margin-left: 5px;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  //   width: 0;
-  transition: all 400ms;
-}
-.lin-hls-player-volume-process {
-  width: 60px;
-  height: 3px;
-  background-color: hsla(0, 0%, 100%, 0.2);
-  position: relative;
-  margin: 3px 0px;
-}
-.lin-hls-player-volume-process-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 3px;
-  width: 0;
-  background-color: rgb(183, 218, 255);
-}
-.lin-hls-player-volume-process-ball {
-  position: absolute;
-  right: -4px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: rgb(183, 218, 255);
-}
-</style>

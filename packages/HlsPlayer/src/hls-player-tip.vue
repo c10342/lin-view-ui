@@ -19,6 +19,19 @@ export default {
       }
       return "";
     },
+    tipTime:{
+      get() {
+      if (this.hlsPlayer) {
+        return this.hlsPlayer.tipTime;
+      }
+      return 2000;
+    },
+    set(value){
+      if (this.hlsPlayer) {
+        this.hlsPlayer.tipTime = 2000
+      }
+    }
+    },
   },
   mounted() {
     this.timer = null;
@@ -38,8 +51,9 @@ export default {
           if (this.hlsPlayer) {
             this.hlsPlayer.tip = "";
           }
+          this.tipTime = 2000
           this.destroyTimeout();
-        }, 2000);
+        }, this.tipTime);
       }
     },
   },
@@ -49,16 +63,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.lin-hls-player-tip {
-  position: absolute;
-  left: 20px;
-  bottom: 50px;
-  border-radius: 4px;
-  //   background-color: rgba(28, 28, 28, 0.9);
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-  font-size: 14px;
-  padding: 7px 20px;
-}
-</style>

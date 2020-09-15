@@ -1,15 +1,31 @@
 <template>
   <div class="hls-player">
-    <div id="video"></div>
+    <div id="video" class="hls-player-video"></div>
     <div>
-      <button @click="init">init</button>
-      <button @click="play">播放</button>
-      <button @click="pause">暂停</button>
-      <button @click="seek">seek</button>
-      <button @click="destory">destory</button>
+      <div>
+        <button @click="init">init</button>
+        <button @click="play">play</button>
+        <button @click="pause">pause</button>
+        <button @click="seek">seek</button>
+        <button @click="toggle">toggle</button>
+        <button @click="notice">notice</button>
+        <button @click="switchQuality">switchQuality</button>
+        <button @click="speed">speed</button>
+        <button @click="volume">volume</button>
+        <button @click="switchVideo">switchVideo</button>
+      </div>
+      <div>
+        <button @click="fullScreenRequest('web')">web fullScreenRequest</button>
+        <button @click="fullScreenCancel('web')">web fullScreenCancel</button>
+
+        <button @click="fullScreenRequest('browser')">browser fullScreenRequest</button>
+        <button @click="fullScreenCancel('browser')">browser fullScreenCancel</button>
+        <button @click="other">other</button>
+        <button @click="destory">destory</button>
+      </div>
     </div>
-    <!-- <lin-hls-player /> -->
-    <!-- <div class="test-demo"></div> -->
+
+    <div id="livevideo" class="hls-player-video"></div>
   </div>
 </template>
 
@@ -47,30 +63,24 @@ export default {
     };
   },
   mounted() {
-    this.$nextTick(() => {
-      this.player = new this.$HlsPlayer({
-        el: "#video",
-        type: "hls",
-        speedList: this.speedList,
-        videoList: this.videoList,
-      });
-      this.player?.on("timeupdate", () => {
-        console.log(this.player.currentTime);
-      });
+    // this.$nextTick(() => {
+    this.player = new this.$HlsPlayer({
+      el: "#video",
+      type: "hls",
+      speedList: this.speedList,
+      videoList: this.videoList,
     });
+    // });
+    this.init();
   },
   methods: {
     init() {
-      this.player1 = new this.$HlsPlayer({
-        el: "#video",
-        type: "mp4",
-        videoList: [
-          {
-            label: "哈哈",
-            url:
-              "http://127.0.0.1:8081/4-1%20%E8%AE%A4%E8%AF%86%20uniCloud%E5%BC%80%E5%8F%91%E3%80%90www.cong0sousuo.top%E3%80%91.mp4",
-          },
-        ],
+      new this.$HlsPlayer({
+        el: document.getElementById("livevideo"),
+        type: "hls",
+        speedList: this.speedList,
+        videoList: this.videoList,
+        live: true,
       });
     },
     play() {
@@ -81,6 +91,52 @@ export default {
     },
     seek() {
       this.player?.seek(30);
+    },
+    toggle() {
+      this.player?.toggle();
+    },
+    notice() {
+      this.player?.notice("你好", 5000);
+    },
+    speed() {
+      this.player?.speed(2);
+    },
+    volume() {
+      this.player?.volume(0.5);
+    },
+    switchQuality() {
+      this.player?.switchQuality(1);
+    },
+    switchVideo() {
+      this.player?.switchVideo({
+        type: "hls",
+        autoplay: true,
+        videoList: [
+          {
+            label: "高清",
+            url:
+              "https://th.alink-test.ava.com.cn/vod/ff80808173b749c90173b8029e2b0012/HD/master.m3u8?ver=null",
+          },
+          {
+            label: "标清",
+            url:
+              "https://th.alink-test.ava.com.cn/vod/ff80808173b749c90173b8029e2b0012/NR/master.m3u8?ver=null",
+          },
+        ],
+      });
+    },
+    other() {
+      console.log(this.player.currentTime);
+      console.log(this.player.totalTime);
+    },
+    fullScreenRequest(type) {
+      this.player.fullScreen.request(type);
+      setTimeout(() => {
+        this.fullScreenCancel(type);
+      }, 3000);
+    },
+    fullScreenCancel(type) {
+      this.player.fullScreen.cancel(type);
     },
     destory() {
       this.player?.destory();
@@ -94,12 +150,8 @@ export default {
   padding-left: 100px;
 }
 
-.test-demo {
-  border: 1px solid red;
-  height: 600px;
-  width: 400px;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==)
-    repeat-x bottom;
-  // background-position: 0 300px;
+.hls-player-video {
+  width: 600px;
+  height: 300px;
 }
 </style>

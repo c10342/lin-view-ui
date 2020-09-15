@@ -1,11 +1,11 @@
 <template>
   <div class="lin-hls-player-definition">
-    <span class="lin-hls-player-definition-label">{{currentVideo?currentVideo.label:''}}</span>
-    <ul class="lin-hls-player-definition-list" :style="{top}">
+    <span class="lin-hls-player-definition-label">{{currentDefinitionVideo?currentDefinitionVideo.label:''}}</span>
+    <ul class="lin-hls-player-definition-list" :style="{top}" v-if="definitionList.length>0">
       <li
         @click="setDefinition(item)"
         class="lin-hls-player-speed-label"
-        v-for="(item,index) in list"
+        v-for="(item,index) in definitionList"
         :key="index"
       >{{item.label}}</li>
     </ul>
@@ -21,12 +21,6 @@ export default {
       default: null,
     },
   },
-  data() {
-    return {
-      currentVideo: null,
-      list: [],
-    };
-  },
   computed: {
     video() {
       if (this.hlsPlayer) {
@@ -41,33 +35,62 @@ export default {
       return [];
     },
     top() {
-      if (!this.list.length) {
+      if (!this.definitionList.length) {
         return 0;
       }
-      const t = (20 + 10) * this.list.length + 10;
+      const t = (20 + 10) * this.definitionList.length + 10;
       return `${-t}px`;
     },
+    currentDefinitionVideo: {
+      get() {
+        if (this.hlsPlayer) {
+          return this.hlsPlayer.currentDefinitionVideo;
+        }
+        return null;
+      },
+      set(value) {
+        if (this.hlsPlayer) {
+          this.hlsPlayer.currentDefinitionVideo = value;
+        }
+      },
+    },
+    definitionList: {
+      get() {
+        if (this.hlsPlayer) {
+          return this.hlsPlayer.definitionList;
+        }
+        return [];
+      },
+      set(value) {
+        if (this.hlsPlayer) {
+          this.hlsPlayer.definitionList = value;
+        }
+      },
+    },
   },
-  mounted() {
-    if (this.videoList.length > 0) {
-      const videoList = cloneDeep(this.videoList);
-      this.currentVideo = videoList[0];
-      this.list = videoList.slice(1);
-    }
-  },
+  // mounted() {
+  //   if (this.videoList.length > 0) {
+  //     const videoList = cloneDeep(this.videoList);
+  //     this.currentDefinitionVideo = videoList[0];
+  //     this.definitionList = videoList.slice(1);
+  //   }
+  // },
   methods: {
     setDefinition(data) {
-      const list = cloneDeep(this.list);
-      const index = list.findIndex(
-        (item) => item.label === data.label && item.url === data.url
-      );
-      list.splice(index, 1);
-      list.push(this.currentVideo);
-      this.list = list;
-      this.currentVideo = data;
-      if (this.hlsPlayer) {
-        this.hlsPlayer.switchPlayerUrl(data);
-      }
+      this.hlsPlayer?.setDefinition(data)
+      // const definitionList = cloneDeep(this.definitionList);
+      // const index = definitionList.findIndex(
+      //   (item) => item.label === data.label && item.url === data.url
+      // );
+      // if (index > -1) {
+      //   definitionList.splice(index, 1);
+      //   definitionList.push(this.currentDefinitionVideo);
+      //   this.definitionList = definitionList;
+      //   this.currentDefinitionVideo = data;
+      //   if (this.hlsPlayer) {
+      //     this.hlsPlayer.switchPlayerUrl(data);
+      //   }
+      // }
     },
   },
 };

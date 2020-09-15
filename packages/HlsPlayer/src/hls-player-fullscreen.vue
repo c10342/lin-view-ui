@@ -1,13 +1,19 @@
 <template>
   <div class="lin-hls-player-fullscreen">
-    <span class="lin-icon-fullscreen" @click="onVideoScreen"></span>
+    <span class="lin-icon-fullscreen" @click="onBrowserFullscreen"></span>
     <div class="lin-hls-player-hover-full">
-      <span class="lin-icon-full-screen" @click="onFullscreen"></span>
+      <span class="lin-icon-full-screen" @click="onWebFullscreen"></span>
     </div>
   </div>
 </template>
 
 <script>
+import {
+  isBrowserFullscreen,
+  isBrowserFullscreenEnabled,
+  enterBrowserFullScreen,
+  exitBrowserFullscreen,
+} from "./utils";
 export default {
   name: "LinHlsPlayerFullscreen",
   inject: {
@@ -24,100 +30,23 @@ export default {
     },
   },
   methods: {
-    onVideoScreen() {
-      if (this.isFullscreenEnabled()) {
-        if (!this.isFullscreen()) {
-          this.fullScreen(this.hlsPlayer?.$refs?.hlsPlayerContainer);
+    onBrowserFullscreen() {
+      if (this.hlsPlayer) {
+        this.hlsPlayer.isWebFullscreen = false;
+      }
+      if (isBrowserFullscreenEnabled()) {
+        if (!isBrowserFullscreen()) {
+          enterBrowserFullScreen(this.hlsPlayer?.$refs?.hlsPlayerContainer);
         } else {
-          this.exitFullscreen();
+          exitBrowserFullscreen();
         }
       }
     },
-    onFullscreen() {
-      if (this.isFullscreenEnabled()) {
-        if (this.isFullscreen()) {
-          this.exitFullscreen();
-        } else {
-          this.hlsPlayer?.fullscreen();
-        }
-      } else {
-        this.hlsPlayer?.fullscreen();
-      }
-    },
-    //进入全屏
-    fullScreen(element) {
-      if (!element) {
-        return;
-      }
-      if (element.requestFullscreen) {
-        element.requestFullscreen();
-      } else if (element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-      } else if (element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
-      } else if (element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-      }
-    },
-    //退出全屏
-    exitFullscreen() {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      }
-    },
-    isFullscreen() {
-      return (
-        document.fullscreenElement ||
-        document.msFullscreenElement ||
-        document.mozFullScreenElement ||
-        document.webkitFullscreenElement ||
-        false
-      );
-    },
-
-    isFullscreenEnabled() {
-      return (
-        document.fullscreenEnabled ||
-        document.mozFullScreenEnabled ||
-        document.webkitFullscreenEnabled ||
-        document.msFullscreenEnabled ||
-        false
-      );
+    onWebFullscreen() {
+      exitBrowserFullscreen();
+      this.hlsPlayer?.switchWebfullscreen();
     },
   },
 };
 </script>
 
-<style lang="scss">
-.lin-hls-player-fullscreen {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  span {
-    color: #ffffff;
-    font-size: 30px;
-    cursor: pointer;
-    // padding: 5px;
-  }
-  &:hover {
-    .lin-hls-player-hover-full {
-      display: block;
-    }
-  }
-}
-
-.lin-hls-player-hover-full {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: -30px;
-  margin-bottom: 10px;
-  display: none;
-}
-</style>

@@ -1,7 +1,7 @@
 <template>
   <div class="lin-hls-player-speed" v-if="speedList.length!==0">
     <span class="lin-hls-player-speed-label">{{currentSpeed?currentSpeed.label:'倍速'}}</span>
-    <ul class="lin-hls-player-speed-list" :style="{top}">
+    <ul class="lin-hls-player-speed-list" :style="{top}" v-if="list.length>0">
       <li
         @click="switchSpeed(item)"
         class="lin-hls-player-speed-label"
@@ -28,12 +28,6 @@ export default {
     };
   },
   computed: {
-    video() {
-      if (this.hlsPlayer) {
-        return this.hlsPlayer.video;
-      }
-      return null;
-    },
     speedList() {
       if (this.hlsPlayer) {
         return this.hlsPlayer.speedList;
@@ -71,56 +65,12 @@ export default {
       this.setSpeed();
     },
     setSpeed() {
-      if (this.video) {
+      if (this.hlsPlayer) {
         let playbackRate = this.currentSpeed.value;
-        playbackRate = playbackRate < 0 ? 0 : playbackRate;
-        this.video.playbackRate = playbackRate;
+        this.hlsPlayer.setSpeed(playbackRate)
       }
     },
   },
 };
 </script>
 
-<style lang="scss">
-.lin-hls-player-speed {
-  margin-right: 10px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  position: relative;
-  &:hover {
-    .lin-hls-player-speed-list {
-      display: block;
-    }
-  }
-}
-.lin-hls-player-speed-label {
-  cursor: pointer;
-  height: 20px;
-  line-height: 20px;
-  // padding: 5px 10px;
-  padding: 5px 0px;
-  font-size: 12px;
-  white-space: nowrap;
-  text-align: center;
-  min-width: 70px;
-}
-.lin-hls-player-speed-list {
-  list-style: none;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  padding: 5px 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: none;
-  .lin-hls-player-speed-label {
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-  }
-}
-</style>

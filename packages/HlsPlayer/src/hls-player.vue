@@ -1,5 +1,10 @@
 <template>
-  <div :class="['lin-hls-player',{'lin-hls-player-fix':isFullscreen}]" ref="hlsPlayerContainer">
+  <div
+    :class="['lin-hls-player',{'lin-hls-player-fix':isWebFullscreen}]"
+    ref="hlsPlayerContainer"
+    @mouseleave="onMouseLeave"
+    @mouseenter="onMouseEnter"
+  >
     <video
       class="lin-hls-player-video"
       id="lin_hls_player_video"
@@ -29,6 +34,14 @@ import PlayerAnimation from "./hls-player-animation";
 import PlayerImage from "./hls-player-image";
 import PlayerLoading from "./hls-player-loading";
 import PlayerTip from "./hls-player-tip";
+import cloneDeep from "lodash/cloneDeep";
+import isEqual from "lodash/isEqual";
+import {
+  isBrowserFullscreen,
+  isBrowserFullscreenEnabled,
+  enterBrowserFullScreen,
+  exitBrowserFullscreen,
+} from "./utils";
 export default {
   name: "LinHlsPlayer",
   components: {
@@ -49,27 +62,42 @@ export default {
       totalTime: 0,
       preloadTime: 0,
       isPlaying: false,
-      isFullscreen: false,
+      isWebFullscreen: false,
       speedList: [],
       videoList: [],
       imgSrc: "",
       isLoading: false,
       tip: "",
+      tipTime: 2000,
       type: "hls",
       autoplay: false,
+      currentDefinitionVideo: null,
+      definitionList: [],
+      live: false,
+      isEnter: true,
     };
   },
   mounted() {
     this.hls = null;
     this.video = this.$refs.hlsPlayerVideo;
-    const videoSrc = this.videoList[0].url;
-    this.initPlayer(videoSrc);
+    this.initParams();
   },
   methods: {
+    initParams() {
+      if (this.videoList.length > 0) {
+        const videoList = cloneDeep(this.videoList);
+        this.currentDefinitionVideo = videoList[0];
+        this.definitionList = videoList.slice(1);
+        const videoSrc = this.currentDefinitionVideo.url;
+        this.initPlayer(videoSrc);
+      }
+    },
     initPlayer(videoSrc) {
       this.isLoading = true;
       if (this.type === "hls" && Hls.isSupported()) {
-        this.hls = new Hls();
+        if (!this.hls) {
+          this.hls = new Hls();
+        }
         this.hls.loadSource(videoSrc);
         this.hls.attachMedia(this.video);
       } else if (
@@ -106,19 +134,9 @@ export default {
       //   this.pause();
       // }
     },
-    initHlsEvent() {
-      // document.addEventListener
-      this.video.addEventListener("timeupdate");
-      this.video.addEventListener("loadedmetadata", this.onLoadedmetadata);
-      this.video.addEventListener("progress", () => {
-        console.log(this.video.buffered.end(0));
-      });
-    },
     onTimeUpdate() {
-      // return throttle(() => {
       const currentTime = this.video?.currentTime || 0;
       this.currentTime = currentTime;
-      // }, 1000);
     },
     onLoadedmetadata() {
       const duration = this.video?.duration || 0;
@@ -169,26 +187,90 @@ export default {
     pause() {
       this.video?.pause();
     },
-    fullscreen() {
-      this.isFullscreen = !this.isFullscreen;
-    },
     getImage() {
-      let canvas = document.createElement("canvas");
-      let ctx = canvas.getContext("2d");
-      canvas.width = this.video.clientWidth;
-      canvas.height = this.video.clientHeight;
-      ctx.drawImage(this.video, 0, 0, canvas.width, canvas.height);
-      this.imgSrc = canvas.toDataURL();
+      if (this.video) {
+        let canvas = document.createElement("canvas");
+        let ctx = canvas.getContext("2d");
+        canvas.width = this.video.clientWidth;
+        canvas.height = this.video.clientHeight;
+        ctx.drawImage(this.video, 0, 0, canvas.width, canvas.height);
+        this.imgSrc = canvas.toDataURL();
+      }
     },
-    destoryPlayer() {
+    destoryHls() {
       if (this.hls) {
         this.hls.destroy();
         this.hls = null;
       }
+    },
+    destoryPlayer() {
+      this.destoryHls();
       this.video = null;
     },
     setTip(tip) {
       this.tip = tip;
+    },
+    setSpeed(rate) {
+      if (this.video) {
+        let playbackRate = rate;
+        playbackRate = playbackRate < 0 ? 0 : playbackRate;
+        this.video.playbackRate = playbackRate;
+      }
+    },
+    setVolume(percentage) {
+      if (this.video) {
+        let volume = percentage;
+        volume = volume < 0 ? 0 : volume;
+        volume = volume > 1 ? 1 : volume;
+        this.video.volume = volume;
+        this.setTip(`音量${Math.round(volume * 100)}%`);
+        return volume;
+      }
+      return -1;
+    },
+    switchWebfullscreen() {
+      this.isWebFullscreen = !this.isWebFullscreen;
+    },
+    setWebFullScreen() {
+      exitBrowserFullscreen();
+
+      this.isWebFullscreen = true;
+    },
+    setBrowserFullScreen() {
+      if (this.isWebFullscreen) {
+        this.isWebFullscreen = false;
+      }
+      enterBrowserFullScreen(this.$refs?.hlsPlayerContainer);
+    },
+    cancelWebFullScreen() {
+      exitBrowserFullscreen();
+
+      this.isWebFullscreen = false;
+    },
+    cancelBrowserFullScreen() {
+      if (this.isWebFullscreen) {
+        this.isWebFullscreen = false;
+      }
+      exitBrowserFullscreen();
+    },
+    setDefinition(data) {
+      if (!isEqual(this.currentDefinitionVideo, data)) {
+        const definitionList = cloneDeep(this.definitionList);
+        const index = definitionList.findIndex((item) => isEqual(item, data));
+        if (index > -1) {
+          definitionList.splice(index, 1);
+          definitionList.push(this.currentDefinitionVideo);
+          this.definitionList = definitionList;
+          this.currentDefinitionVideo = data;
+          this.switchPlayerUrl(data);
+        }
+      }
+    },
+    onMouseLeave() {
+      this.isEnter = false;
+    },
+    onMouseEnter() {
+      this.isEnter = true;
     },
   },
   beforeDestroy() {

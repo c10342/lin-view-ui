@@ -22,10 +22,30 @@
   0% {
     opacity: 0;
     transform: translateY(-5px);
-    // height: 0;
   }
   100% {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+@keyframes BallEnterAnimation {
+  0% {
+    transform: translateY(-50%) scale(0);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+@keyframes EnterActiveAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  100% {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%) scale(1.4);
   }
 }

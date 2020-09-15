@@ -55,3 +55,52 @@ export const handleVideoList = (list) => {
     throw "videoList 类型不正确，每个数组项必须包含 label 和 url";
   }
 };
+
+//进入全屏
+export const enterBrowserFullScreen = (element) => {
+  if (!element) {
+    return;
+  }
+  if (isBrowserFullscreenEnabled() && !isBrowserFullscreen()) {
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+  }
+};
+//退出全屏
+export const exitBrowserFullscreen = () => {
+  if (isBrowserFullscreenEnabled() && isBrowserFullscreen()) {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+};
+export const isBrowserFullscreen = () => {
+  return (
+    document.fullscreenElement ||
+    document.msFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.webkitFullscreenElement ||
+    false
+  );
+};
+
+export const isBrowserFullscreenEnabled = () => {
+  return (
+    document.fullscreenEnabled ||
+    document.mozFullScreenEnabled ||
+    document.webkitFullscreenEnabled ||
+    document.msFullscreenEnabled ||
+    false
+  );
+};
