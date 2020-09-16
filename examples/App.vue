@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-hls-player />
+    <test-video-player />
   </div>
 </template>
 

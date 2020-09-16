@@ -1,5 +1,5 @@
 import Vue from "vue";
-import HlsPlayer from "./hls-player.vue";
+import VideoPlayer from "./video-player.vue";
 import broadcast from "src/utils/broadcast.js";
 
 import {
@@ -9,12 +9,14 @@ import {
   handleVideoList,
 } from "./utils.js";
 
-const HlsPlayerConstructor = Vue.extend(HlsPlayer);
+const VideoPlayerConstructor = Vue.extend(VideoPlayer);
 
 import "./style.scss";
 
-class HLSPlayer {
+class LinVideoPlayer {
   hls = null;
+
+  flv = null;
 
   video = null;
 
@@ -65,7 +67,7 @@ class HLSPlayer {
   }
 
   initPlayer() {
-    this.instance = new HlsPlayerConstructor({
+    this.instance = new VideoPlayerConstructor({
       data: {
         autoplay: this.autoplay,
         speedList: this.speedList,
@@ -80,12 +82,15 @@ class HLSPlayer {
       this.container = this.el;
     }
 
-    this.vm = this.instance.$mount();
+    this.vm = this.instance?.$mount();
 
     this.hls = this.instance?.hls;
+
+    this.flv = this.instance?.flv;
+
     this.video = this.instance?.video;
 
-    this.container.appendChild(this.vm.$el);
+    this.container?.appendChild(this.vm.$el);
   }
 
   // 事件监听
@@ -114,53 +119,51 @@ class HLSPlayer {
 
   // 切换播放和暂停
   toggle() {
-    this.instance.switchPlayingStatus();
+    this.instance?.switchPlayingStatus();
   }
 
   // 切换视频
   switchVideo(options) {
-    const { videoList = [], type, autoplay = false } = options;
+    const { videoList = [], autoplay = false } = options;
     handleVideoList(videoList);
-    handleType(type);
-    if (type === "mp4" && this.type === "hls") {
-      this.instance.destoryHls();
-    }
     this.videoList = videoList;
-    this.type = type;
     this.autoplay = autoplay;
-    this.instance.videoList = videoList;
-    this.instance.type = type;
-    this.instance.autoplay = autoplay;
-    this.instance.initParams();
+    if (this.instance) {
+      this.instance.videoList = videoList;
+      this.instance.autoplay = autoplay;
+      this.instance.initParams();
+    }
   }
 
   // 显示通知
   notice(text, time = 2000) {
-    this.instance.tipTime = time;
-    this.instance.tip = text;
+    if (this.instance) {
+      this.instance.tipTime = time;
+      this.instance.tip = text;
+    }
   }
 
   // 切换清晰度
   switchQuality(index) {
     const data = this.videoList[index];
     if (data) {
-      this.instance.setDefinition(data);
+      this.instance?.setDefinition(data);
     }
   }
 
   // 设置视频速度
   speed(rate) {
-    this.instance.setSpeed(rate);
+    this.instance?.setSpeed(rate);
   }
 
   // 设置视频音量
   volume(percent) {
-    const volume = this.instance.setVolume(percent);
-    if (volume > -1) {
+    const volume = this.instance?.setVolume(percent);
+    if (volume > -1 && this.instance) {
       broadcast.call(this.instance, {
         eventName: "onvolumechange",
         params: volume,
-        componentName: "LinHlsPlayerVolume",
+        componentName: "LinVideoPlayerVolume",
       });
     }
   }
@@ -171,16 +174,16 @@ class HLSPlayer {
     return {
       request(type) {
         if (type === "web") {
-          self.instance.setWebFullScreen();
+          self.instance?.setWebFullScreen();
         } else if (type === "browser") {
-          self.instance.setBrowserFullScreen();
+          self.instance?.setBrowserFullScreen();
         }
       },
       cancel(type) {
         if (type === "web") {
-          self.instance.cancelWebFullScreen();
+          self.instance?.cancelWebFullScreen();
         } else if (type === "browser") {
-          self.instance.cancelBrowserFullScreen();
+          self.instance?.cancelBrowserFullScreen();
         }
       },
     };
@@ -194,8 +197,14 @@ class HLSPlayer {
     return this.video?.duration || 0;
   }
 
-  clearObj() {
+  get paused(){
+    return this.video?.paused || true;
+  }
+
+  resetParams() {
     this.hls = null;
+
+    this.flv = null;
 
     this.video = null;
 
@@ -204,16 +213,29 @@ class HLSPlayer {
     this.container = null;
 
     this.vm = null;
+
+    this.videoList = [];
+
+    this.speedList = [];
+
+    this.type = null;
+
+    this.autoplay = false;
+
+    this.el = null;
+
+    this.live = false;
   }
 
   destory() {
-    this.instance.destoryPlayer();
+    this.instance?.destoryPlayer();
 
     if (this.vm && this.vm.$el && this.container) {
       this.container.removeChild(this.vm.$el);
     }
-    this.clearObj();
+    this.vm?.$destroy();
+    this.resetParams();
   }
 }
 
-export default HLSPlayer;
+export default LinVideoPlayer;

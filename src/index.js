@@ -25,7 +25,7 @@ import TableColumn from "packages/TableColumn";
 // 视频组件
 import VideoCard from "packages/VideoCard";
 import LiveComment from "packages/LiveComment";
-import HlsPlayer from "packages/HlsPlayer";
+import VideoPlayer from "packages/VideoPlayer";
 
 // 视图组件
 import ShowMore from "packages/ShowMore";
@@ -84,7 +84,7 @@ const install = (Vue) => {
     Magnifier,
     HoverEffect,
     Pagination,
-    HlsPlayer,
+    VideoPlayer,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -130,5 +130,5 @@ export default {
   Magnifier,
   HoverEffect,
   Pagination,
-  HlsPlayer,
+  VideoPlayer,
 };

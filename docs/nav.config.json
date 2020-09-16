@@ -177,6 +177,11 @@
           "desc": "LiveComment 直播评论",
           "name": "live-comment",
           "path": "/live-comment"
+        },
+        {
+          "desc": "VideoPlayer 播放器",
+          "name": "video-player",
+          "path": "/video-player"
         }
       ]
     },

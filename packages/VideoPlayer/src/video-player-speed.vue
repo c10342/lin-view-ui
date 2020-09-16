@@ -1,10 +1,10 @@
 <template>
-  <div class="lin-hls-player-speed" v-if="speedList.length!==0">
-    <span class="lin-hls-player-speed-label">{{currentSpeed?currentSpeed.label:'倍速'}}</span>
-    <ul class="lin-hls-player-speed-list" :style="{top}" v-if="list.length>0">
+  <div class="lin-video-player-speed" v-if="speedList.length!==0">
+    <span class="lin-video-player-speed-label">{{currentSpeed?currentSpeed.label:'倍速'}}</span>
+    <ul class="lin-video-player-speed-list" :style="{top}" v-if="list.length>0">
       <li
         @click="switchSpeed(item)"
-        class="lin-hls-player-speed-label"
+        class="lin-video-player-speed-label"
         v-for="(item,index) in list"
         :key="index"
       >{{item.label}}</li>
@@ -15,9 +15,9 @@
 <script>
 import cloneDeep from "lodash/cloneDeep";
 export default {
-  name: "LinHlsPlayerSpeed",
+  name: "LinVideoPlayerSpeed",
   inject: {
-    hlsPlayer: {
+    videoPlayer: {
       default: null,
     },
   },
@@ -29,8 +29,8 @@ export default {
   },
   computed: {
     speedList() {
-      if (this.hlsPlayer) {
-        return this.hlsPlayer.speedList;
+      if (this.videoPlayer) {
+        return this.videoPlayer.speedList;
       }
       return [];
     },
@@ -65,9 +65,9 @@ export default {
       this.setSpeed();
     },
     setSpeed() {
-      if (this.hlsPlayer) {
+      if (this.videoPlayer) {
         let playbackRate = this.currentSpeed.value;
-        this.hlsPlayer.setSpeed(playbackRate)
+        this.videoPlayer.setSpeed(playbackRate)
       }
     },
   },

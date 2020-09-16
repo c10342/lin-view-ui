@@ -1,21 +1,21 @@
 <template>
-  <div class="lin-hls-player-loading" v-if="isLoading">
+  <div class="lin-video-player-loading" v-if="isLoading">
     <span class="lin-icon-loading"></span>
   </div>
 </template>
 
 <script>
 export default {
-  name: "LinHlsPlayerLoading",
+  name: "LinVideoPlayerLoading",
   inject: {
-    hlsPlayer: {
+    videoPlayer: {
       default: null,
     },
   },
   computed: {
     isLoading() {
-      if (this.hlsPlayer) {
-        return this.hlsPlayer.isLoading;
+      if (this.videoPlayer) {
+        return this.videoPlayer.isLoading;
       }
       return false;
     },

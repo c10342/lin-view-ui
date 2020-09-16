@@ -1,7 +1,7 @@
 <template>
-  <div class="lin-hls-player-fullscreen">
+  <div class="lin-video-player-fullscreen">
     <span class="lin-icon-fullscreen" @click="onBrowserFullscreen"></span>
-    <div class="lin-hls-player-hover-full">
+    <div class="lin-video-player-hover-full">
       <span class="lin-icon-full-screen" @click="onWebFullscreen"></span>
     </div>
   </div>
@@ -15,28 +15,28 @@ import {
   exitBrowserFullscreen,
 } from "./utils";
 export default {
-  name: "LinHlsPlayerFullscreen",
+  name: "LinVideoPlayerFullscreen",
   inject: {
-    hlsPlayer: {
+    videoPlayer: {
       default: null,
     },
   },
   computed: {
     video() {
-      if (this.hlsPlayer) {
-        return this.hlsPlayer.video;
+      if (this.videoPlayer) {
+        return this.videoPlayer.video;
       }
       return null;
     },
   },
   methods: {
     onBrowserFullscreen() {
-      if (this.hlsPlayer) {
-        this.hlsPlayer.isWebFullscreen = false;
+      if (this.videoPlayer) {
+        this.videoPlayer.isWebFullscreen = false;
       }
       if (isBrowserFullscreenEnabled()) {
         if (!isBrowserFullscreen()) {
-          enterBrowserFullScreen(this.hlsPlayer?.$refs?.hlsPlayerContainer);
+          enterBrowserFullScreen(this.videoPlayer?.$refs?.videoPlayerContainer);
         } else {
           exitBrowserFullscreen();
         }
@@ -44,7 +44,7 @@ export default {
     },
     onWebFullscreen() {
       exitBrowserFullscreen();
-      this.hlsPlayer?.switchWebfullscreen();
+      this.videoPlayer?.switchWebfullscreen();
     },
   },
 };

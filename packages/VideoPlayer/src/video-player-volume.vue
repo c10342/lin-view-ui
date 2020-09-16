@@ -1,13 +1,13 @@
 <template>
-  <div class="lin-hls-player-volume">
-    <span class="lin-hls-player-icon-item lin-hls-player-icon-volume">
+  <div class="lin-video-player-volume">
+    <span class="lin-video-player-icon-item lin-video-player-icon-volume">
       <i class="lin-icon-volume" v-if="processWidth!==0" @click="onVolumeClick"></i>
       <i class="lin-icon-mute" v-else @click="onMuteClick"></i>
     </span>
-    <div class="lin-hls-player-volume-mask" @click="onMaskClick">
-      <div class="lin-hls-player-volume-process" ref="hlsPlayerVolumeProcess">
-        <div class="lin-hls-player-volume-process-line" :style="{'width':`${processWidth}px`}">
-          <span @mousedown="onBallMouseDown" @click.stop class="lin-hls-player-volume-process-ball"></span>
+    <div class="lin-video-player-volume-mask" @click="onMaskClick">
+      <div class="lin-video-player-volume-process" ref="videoPlayerVolumeProcess">
+        <div class="lin-video-player-volume-process-line" :style="{'width':`${processWidth}px`}">
+          <span @mousedown="onBallMouseDown" @click.stop class="lin-video-player-volume-process-ball"></span>
         </div>
       </div>
     </div>
@@ -16,21 +16,21 @@
 
 <script>
 export default {
-  name: "LinHlsPlayerVolume",
+  name: "LinVideoPlayerVolume",
   data() {
     return {
       processWidth: 0,
     };
   },
   inject: {
-    hlsPlayer: {
+    videoPlayer: {
       default: null,
     },
   },
   computed: {
     video() {
-      if (this.hlsPlayer) {
-        return this.hlsPlayer.video;
+      if (this.videoPlayer) {
+        return this.videoPlayer.video;
       }
       return null;
     },
@@ -38,13 +38,13 @@ export default {
   mounted() {
     this.oldVolume = 0;
     this.mousedown = false;
-    this.hlsPlayerVolumeProcess = this.$refs.hlsPlayerVolumeProcess;
+    this.videoPlayerVolumeProcess = this.$refs.videoPlayerVolumeProcess;
     this.initProcessWidth();
     this.$on('onvolumechange',this.setProcessWidth)
   },
   methods: {
     setProcessWidth(volume){
-      const clientWidth = this.hlsPlayerVolumeProcess.clientWidth || 0;
+      const clientWidth = this.videoPlayerVolumeProcess.clientWidth || 0;
       this.processWidth = clientWidth*volume
     },
     onVolumeClick() {
@@ -62,7 +62,7 @@ export default {
           this.processWidth = 0;
           this.oldVolume = 0;
         } else {
-          const clientWidth = this.hlsPlayerVolumeProcess.clientWidth || 0;
+          const clientWidth = this.videoPlayerVolumeProcess.clientWidth || 0;
           const processWidth = this.video.volume * clientWidth;
           this.processWidth = processWidth;
           this.oldVolume = processWidth;
@@ -70,7 +70,7 @@ export default {
       });
     },
     onMaskClick(event) {
-      const clientWidth = this.hlsPlayerVolumeProcess.clientWidth || 0;
+      const clientWidth = this.videoPlayerVolumeProcess.clientWidth || 0;
       let offsetX = event.offsetX || 0;
       offsetX = offsetX < 0 ? 0 : offsetX;
       offsetX = offsetX > clientWidth ? clientWidth : offsetX;
@@ -84,8 +84,8 @@ export default {
     },
     onMouseMove(e) {
       if (this.mousedown) {
-        let outLineX = this.hlsPlayerVolumeProcess.getBoundingClientRect().x;
-        let outLineWidth = this.hlsPlayerVolumeProcess.getBoundingClientRect()
+        let outLineX = this.videoPlayerVolumeProcess.getBoundingClientRect().x;
+        let outLineWidth = this.videoPlayerVolumeProcess.getBoundingClientRect()
           .width;
         let offsetX = e.pageX - outLineX;
         if (offsetX <= 0) {
@@ -104,18 +104,18 @@ export default {
       window.removeEventListener("mousemove", this.onMouseMove);
     },
     setVolume() {
-      const clientWidth = this.hlsPlayerVolumeProcess.clientWidth || 0;
+      const clientWidth = this.videoPlayerVolumeProcess.clientWidth || 0;
       let volume = 0;
       if (clientWidth) {
         volume = this.processWidth / clientWidth;
       }
-      this.hlsPlayer?.setVolume(volume);
+      this.videoPlayer?.setVolume(volume);
     },
   },
   beforeDestroy() {
     window.removeEventListener("mouseup", this.onMouseUp);
     window.removeEventListener("mousemove", this.onMouseMove);
-    this.hlsPlayerVolumeProcess = null;
+    this.videoPlayerVolumeProcess = null;
     this.$off('onvolumechange',this.setProcessWidth)
   },
 };

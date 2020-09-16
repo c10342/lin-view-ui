@@ -1,14 +1,14 @@
 <template>
   <div
-    :class="['lin-hls-player',{'lin-hls-player-fix':isWebFullscreen}]"
-    ref="hlsPlayerContainer"
+    :class="['lin-video-player',{'lin-video-player-fix':isWebFullscreen}]"
+    ref="videoPlayerContainer"
     @mouseleave="onMouseLeave"
     @mouseenter="onMouseEnter"
   >
     <video
-      class="lin-hls-player-video"
+      class="lin-video-player-video"
       id="lin_hls_player_video"
-      ref="hlsPlayerVideo"
+      ref="videoPlayerVideo"
       :autoplay="autoplay"
       @timeupdate="onTimeUpdate"
       @loadedmetadata="onLoadedmetadata"
@@ -29,11 +29,12 @@
 
 <script>
 import Hls from "hls.js";
-import PlayerControls from "./hls-player-controls";
-import PlayerAnimation from "./hls-player-animation";
-import PlayerImage from "./hls-player-image";
-import PlayerLoading from "./hls-player-loading";
-import PlayerTip from "./hls-player-tip";
+import Flv from "flv.js";
+import PlayerControls from "./video-player-controls";
+import PlayerAnimation from "./video-player-animation";
+import PlayerImage from "./video-player-image";
+import PlayerLoading from "./video-player-loading";
+import PlayerTip from "./video-player-tip";
 import cloneDeep from "lodash/cloneDeep";
 import isEqual from "lodash/isEqual";
 import {
@@ -43,7 +44,7 @@ import {
   exitBrowserFullscreen,
 } from "./utils";
 export default {
-  name: "LinHlsPlayer",
+  name: "LinVideoPlayer",
   components: {
     PlayerControls,
     PlayerAnimation,
@@ -53,7 +54,7 @@ export default {
   },
   provide() {
     return {
-      hlsPlayer: this,
+      videoPlayer: this,
     };
   },
   data() {
@@ -79,7 +80,8 @@ export default {
   },
   mounted() {
     this.hls = null;
-    this.video = this.$refs.hlsPlayerVideo;
+    this.flv = null;
+    this.video = this.$refs.videoPlayerVideo;
     this.initParams();
   },
   methods: {
@@ -94,16 +96,26 @@ export default {
     },
     initPlayer(videoSrc) {
       this.isLoading = true;
-      if (this.type === "hls" && Hls.isSupported()) {
-        if (!this.hls) {
-          this.hls = new Hls();
+      if (this.type === "hls") {
+        if (Hls.isSupported()) {
+          if (!this.hls) {
+            this.hls = new Hls();
+          }
+          this.hls.loadSource(videoSrc);
+          this.hls.attachMedia(this.video);
+        } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+          this.video.src = videoSrc;
         }
-        this.hls.loadSource(videoSrc);
-        this.hls.attachMedia(this.video);
-      } else if (
-        this.video.canPlayType("application/vnd.apple.mpegurl") ||
-        this.type === "mp4"
-      ) {
+      } else if (this.type === "flv") {
+        if (Flv.isSupported()) {
+          this.flv = Flv.createPlayer({
+            type: "flv",
+            url: videoSrc,
+          });
+          this.flv.attachMediaElement(this.video);
+          this.flv.load();
+        }
+      } else if (this.type === "mp4") {
         this.video.src = videoSrc;
       }
     },
@@ -115,24 +127,33 @@ export default {
       }
       this.tip = `已经切换至 ${label} 画质`;
       this.getImage();
-      if (this.type === "hls" && Hls.isSupported()) {
-        if (!this.hls) {
-          this.hls = new Hls();
+      if (this.type === "hls") {
+        if (Hls.isSupported()) {
+          if (!this.hls) {
+            this.hls = new Hls();
+          }
+          this.hls.loadSource(videoSrc);
+          this.hls.attachMedia(this.video);
+        } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+          this.video.src = videoSrc;
         }
-        this.hls.loadSource(videoSrc);
-        this.hls.attachMedia(this.video);
-      } else if (
-        this.video.canPlayType("application/vnd.apple.mpegurl") ||
-        this.type === "mp4"
-      ) {
+      } else if (this.type === "flv") {
+        if (Flv.isSupported()) {
+          if (!this.flv) {
+            this.flv = Flv.createPlayer({
+              type: "flv",
+              url: videoSrc,
+            });
+            this.flv.attachMediaElement(this.video);
+            this.flv.load();
+          } else {
+            this.flv.switchPlayerUrl(videoSrc);
+          }
+        }
+      } else if (this.type === "mp4") {
         this.video.src = videoSrc;
       }
       this.seek(this.currentTime);
-      // if (this.isPlaying) {
-      //   this.play();
-      // } else {
-      //   this.pause();
-      // }
     },
     onTimeUpdate() {
       const currentTime = this.video?.currentTime || 0;
@@ -203,7 +224,17 @@ export default {
         this.hls = null;
       }
     },
+    destoryFlv() {
+      if (this.flv) {
+        this.flv.pause();
+        this.flv.unload();
+        this.flv.detachMediaElement();
+        this.flv.destroy();
+        this.flv = null;
+      }
+    },
     destoryPlayer() {
+      this.destoryFlv();
       this.destoryHls();
       this.video = null;
     },
@@ -240,7 +271,7 @@ export default {
       if (this.isWebFullscreen) {
         this.isWebFullscreen = false;
       }
-      enterBrowserFullScreen(this.$refs?.hlsPlayerContainer);
+      enterBrowserFullScreen(this.$refs?.videoPlayerContainer);
     },
     cancelWebFullScreen() {
       exitBrowserFullscreen();

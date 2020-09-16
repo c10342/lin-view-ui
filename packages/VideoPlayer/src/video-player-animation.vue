@@ -1,6 +1,6 @@
 <template>
-  <transition name="lin-hls-player-animation">
-    <div class="lin-hls-player-animation" v-if="showAnimation" @animationend="animationend ">
+  <transition name="lin-video-player-animation">
+    <div class="lin-video-player-animation" v-if="showAnimation" @animationend="animationend ">
       <span class="lin-icon-play" v-if="isPlaying"></span>
       <span class="lin-icon-pause" v-else></span>
     </div>
@@ -9,9 +9,9 @@
 
 <script>
 export default {
-  name: "LinHlsPlayerAnimation",
+  name: "LinVideoPlayerAnimation",
   inject: {
-    hlsPlayer: {
+    videoPlayer: {
       default: null,
     },
   },
@@ -22,8 +22,8 @@ export default {
   },
   computed: {
     isPlaying() {
-      if (this.hlsPlayer) {
-        return this.hlsPlayer.isPlaying;
+      if (this.videoPlayer) {
+        return this.videoPlayer.isPlaying;
       }
       return false;
     },

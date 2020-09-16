@@ -1,34 +1,34 @@
 <template>
-  <transition name="lin-hls-player-fade">
-    <div class="lin-hls-player-tip" v-if="tip">{{tip}}</div>
+  <transition name="lin-video-player-fade">
+    <div class="lin-video-player-tip" v-if="tip">{{tip}}</div>
   </transition>
 </template>
 
 <script>
 export default {
-  name: "LinHlsPlayerTip",
+  name: "LinVideoPlayerTip",
   inject: {
-    hlsPlayer: {
+    videoPlayer: {
       default: null,
     },
   },
   computed: {
     tip() {
-      if (this.hlsPlayer) {
-        return this.hlsPlayer.tip;
+      if (this.videoPlayer) {
+        return this.videoPlayer.tip;
       }
       return "";
     },
     tipTime:{
       get() {
-      if (this.hlsPlayer) {
-        return this.hlsPlayer.tipTime;
+      if (this.videoPlayer) {
+        return this.videoPlayer.tipTime;
       }
       return 2000;
     },
     set(value){
-      if (this.hlsPlayer) {
-        this.hlsPlayer.tipTime = 2000
+      if (this.videoPlayer) {
+        this.videoPlayer.tipTime = 2000
       }
     }
     },
@@ -48,8 +48,8 @@ export default {
       if (value) {
         this.destroyTimeout();
         this.timer = setTimeout(() => {
-          if (this.hlsPlayer) {
-            this.hlsPlayer.tip = "";
+          if (this.videoPlayer) {
+            this.videoPlayer.tip = "";
           }
           this.tipTime = 2000
           this.destroyTimeout();
