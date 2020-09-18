@@ -6,6 +6,8 @@ import Row from "packages/Row";
 import Col from "packages/Col";
 import SelectorItem from "packages/SelectorItem";
 import SelectorGroup from "packages/SelectorGroup";
+import CollapseGroup from "packages/CollapseGroup";
+import CollapseItem from "packages/CollapseItem";
 
 // 表单组件
 import Input from "packages/Input";
@@ -85,6 +87,8 @@ const install = (Vue) => {
     HoverEffect,
     Pagination,
     VideoPlayer,
+    CollapseGroup,
+    CollapseItem,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -131,4 +135,6 @@ export default {
   HoverEffect,
   Pagination,
   VideoPlayer,
+  CollapseGroup,
+  CollapseItem,
 };
