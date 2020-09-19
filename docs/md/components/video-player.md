@@ -22,8 +22,40 @@ export default {
     this.initMp4();
     this.initHls();
     this.initFlv();
+    this.initLive();
+    this.initOther()
   },
   methods: {
+    initLive() {
+      this.flvPlayer =new this.$VideoPlayer({
+        el: document.getElementById("livevideo"),
+        type: "flv",
+        speedList: this.speedList,
+        live:true,
+        videoList: [
+          {
+            label: "标清",
+            url:
+              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+          },
+        ],
+      });
+    },
+    initOther(){
+       this.mp4Player = new this.$VideoPlayer({
+        el: document.getElementById("othervideo"),
+        videoList: [
+          {
+            label: "标清",
+            url:
+              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+          },
+        ],
+        customType(video,data){
+          video.src = data.currenVideo.url
+        }
+      });
+    },
     initHls() {
       new this.$VideoPlayer({
         el: "#hlsvideo",
@@ -151,9 +183,11 @@ export default {
 
 ---
 
-`VideoPlayer` 播放器 是基于 `hls.js` 和 `flv.js` 封装的一个播放器，可支持 `MP4` ，`hls` 和 `flv` 格式视频。灵感来自[DPlayer](http://dplayer.js.org/zh/)
+`VideoPlayer` 组件播放器 是基于 `hls.js` 和 `flv.js` 封装的一个播放器，可支持 `MP4` ，`hls` 和 `flv` 格式视频。灵感来自于[DPlayer](http://dplayer.js.org/zh/)
 
 ## 播放 Mp4
+
+设置 `type` 为 `mp4`，以及传入 `el` 和 `speedList` 即可
 
 <div class='demo-block'>
 <div id="mp4video" class="video-player-video"></div>
@@ -295,6 +329,8 @@ export default {
 
 ## 播放 HLS
 
+设置 `type` 为 `hls`，以及传入 `el` 和 `speedList` 即可
+
 <div class='demo-block'>
 <div id="hlsvideo" class="video-player-video"></div>
 </div>
@@ -351,6 +387,8 @@ export default {
 
 ## 播放 FLV
 
+设置 `type` 为 `flv`，以及传入 `el` 和 `speedList` 即可
+
 <div class='demo-block'>
 <div id="flvvideo" class="video-player-video"></div>
 </div>
@@ -405,16 +443,99 @@ export default {
 
 :::
 
+## 开启直播模式
+
+设置 `live` 为 `true`
+
+<div class='demo-block'>
+<div id="livevideo" class="video-player-video"></div>
+</div>
+
+:::demo
+
+```html
+<div id="livevideo" class="video-player-video"></div>
+
+<script>
+  export default {
+    mounted() {
+      this.initLive();
+    },
+    methods: {
+      initLive() {
+        this.flvPlayer = new this.$VideoPlayer({
+          el: document.getElementById("livevideo"),
+          type: "flv",
+          speedList: this.speedList,
+          live: true,
+          videoList: [
+            {
+              label: "标清",
+              url:
+                "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+            },
+          ],
+        });
+      },
+    },
+  };
+</script>
+```
+
+:::
+
+## 其他 MSE 库使用
+
+`VideoPlayer` 组件可以通过 `customType` 参数与任何 MSE 库一起使用
+
+<div class='demo-block'>
+<div id="othervideo" class="video-player-video"></div>
+</div>
+
+:::demo
+
+```html
+<div id="othervideo" class="video-player-video"></div>
+
+<script>
+  export default {
+    mounted() {
+      this.initOther();
+    },
+    methods: {
+      initOther() {
+        this.mp4Player = new this.$VideoPlayer({
+          el: document.getElementById("othervideo"),
+          videoList: [
+            {
+              label: "标清",
+              url:
+                "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+            },
+          ],
+          customType(video, data) {
+            video.src = data.currenVideo.url;
+          },
+        });
+      },
+    },
+  };
+</script>
+```
+
+:::
+
 ## 参数
 
-| 名称      | 说明                   | 类型                               | 可选值        | 默认值 |
-| --------- | ---------------------- | ---------------------------------- | ------------- | ------ |
-| el        | 播放器容器元素，必填项 | String                             | HTMLElement   | —      | — |
-| type      | 播放类型，必填项       | String                             | mp4、hls、flv | —      |
-| autoplay  | 视频自动播放           | Boolean                            | —             | false  |
-| speedList | 视频速度倍数列表       | Ayyay<{label:string,value:string}> | —             | —      |
-| videoList | 视频列表，必填项       | Ayyay<{label:string,url:string}>   | —             | —      |
-| live      | 是否开启直播           | Boolean                            | —             | false  |
+| 名称       | 说明                                             | 类型                               | 可选值        | 默认值 |
+| ---------- | ------------------------------------------------ | ---------------------------------- | ------------- | ------ |
+| el         | 播放器容器元素，必填项                           | String                             | HTMLElement   | —      | — |
+| type       | 播放类型，必填项，当 customType 参数存在时非必填 | String                             | mp4、hls、flv | —      |
+| autoplay   | 视频自动播放                                     | Boolean                            | —             | false  |
+| speedList  | 视频速度倍数列表                                 | Ayyay<{label:string,value:string}> | —             | —      |
+| videoList  | 视频列表，必填项                                 | Ayyay<{label:string,url:string}>   | —             | —      |
+| live       | 是否开启直播                                     | Boolean                            | —             | false  |
+| customType | 需要自定义支持其他 MSE 可使用此参数              | Function                           | —             | —      |
 
 ## API
 

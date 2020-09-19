@@ -76,6 +76,7 @@ export default {
       definitionList: [],
       live: false,
       isEnter: true,
+      customType: null,
     };
   },
   mounted() {
@@ -90,33 +91,46 @@ export default {
         const videoList = cloneDeep(this.videoList);
         this.currentDefinitionVideo = videoList[0];
         this.definitionList = videoList.slice(1);
-        const videoSrc = this.currentDefinitionVideo.url;
-        this.initPlayer(videoSrc);
+        this.initPlayer(this.currentDefinitionVideo);
       }
     },
-    initPlayer(videoSrc) {
+    initPlayer(data) {
       this.isLoading = true;
-      if (this.type === "hls") {
-        if (Hls.isSupported()) {
-          if (!this.hls) {
-            this.hls = new Hls();
+      if (typeof this.customType === "function") {
+        this.customType(
+          this.video,
+          cloneDeep({
+            currenVideo: data,
+            autoplay: this.autoplay,
+            speedList: this.speedList,
+            videoList: this.videoList,
+            live: this.live,
+          })
+        );
+      } else {
+        const videoSrc = data.url;
+        if (this.type === "hls") {
+          if (Hls.isSupported()) {
+            if (!this.hls) {
+              this.hls = new Hls();
+            }
+            this.hls.loadSource(videoSrc);
+            this.hls.attachMedia(this.video);
+          } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+            this.video.src = videoSrc;
           }
-          this.hls.loadSource(videoSrc);
-          this.hls.attachMedia(this.video);
-        } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+        } else if (this.type === "flv") {
+          if (Flv.isSupported()) {
+            this.flv = Flv.createPlayer({
+              type: "flv",
+              url: videoSrc,
+            });
+            this.flv.attachMediaElement(this.video);
+            this.flv.load();
+          }
+        } else if (this.type === "mp4") {
           this.video.src = videoSrc;
         }
-      } else if (this.type === "flv") {
-        if (Flv.isSupported()) {
-          this.flv = Flv.createPlayer({
-            type: "flv",
-            url: videoSrc,
-          });
-          this.flv.attachMediaElement(this.video);
-          this.flv.load();
-        }
-      } else if (this.type === "mp4") {
-        this.video.src = videoSrc;
       }
     },
     switchPlayerUrl(data) {
@@ -127,32 +141,46 @@ export default {
       }
       this.tip = `已经切换至 ${label} 画质`;
       this.getImage();
-      if (this.type === "hls") {
-        if (Hls.isSupported()) {
-          if (!this.hls) {
-            this.hls = new Hls();
+      if (typeof this.customType === "function") {
+        this.customType(
+          this.video,
+          cloneDeep({
+            currenVideo: data,
+            autoplay: this.autoplay,
+            speedList: this.speedList,
+            videoList: this.videoList,
+            live: this.live,
+          })
+        );
+      } else {
+        if (this.type === "hls") {
+          if (Hls.isSupported()) {
+            if (!this.hls) {
+              this.hls = new Hls();
+            }
+            this.hls.loadSource(videoSrc);
+            this.hls.attachMedia(this.video);
+          } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+            this.video.src = videoSrc;
           }
-          this.hls.loadSource(videoSrc);
-          this.hls.attachMedia(this.video);
-        } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+        } else if (this.type === "flv") {
+          if (Flv.isSupported()) {
+            if (!this.flv) {
+              this.flv = Flv.createPlayer({
+                type: "flv",
+                url: videoSrc,
+              });
+              this.flv.attachMediaElement(this.video);
+              this.flv.load();
+            } else {
+              this.flv.switchPlayerUrl(videoSrc);
+            }
+          }
+        } else if (this.type === "mp4") {
           this.video.src = videoSrc;
         }
-      } else if (this.type === "flv") {
-        if (Flv.isSupported()) {
-          if (!this.flv) {
-            this.flv = Flv.createPlayer({
-              type: "flv",
-              url: videoSrc,
-            });
-            this.flv.attachMediaElement(this.video);
-            this.flv.load();
-          } else {
-            this.flv.switchPlayerUrl(videoSrc);
-          }
-        }
-      } else if (this.type === "mp4") {
-        this.video.src = videoSrc;
       }
+
       this.seek(this.currentTime);
     },
     onTimeUpdate() {

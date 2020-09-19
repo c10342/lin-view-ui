@@ -16,12 +16,14 @@ export const isDOM = (dom) => {
   return fn(dom);
 };
 
-export const handleType = (type) => {
-  const typeList = ['mp4','hls','flv']
-  if (!type) {
-    throw "type 没有定义";
-  } else if (!typeList.includes(type)) {
-    throw "type 只能是 hls 或者 mp4 或者 flv";
+export const handleType = (type, customType) => {
+  if (typeof customType !== "function") {
+    const typeList = ["mp4", "hls", "flv"];
+    if (!type) {
+      throw "type 没有定义";
+    } else if (!typeList.includes(type)) {
+      throw "type 只能是 hls 或者 mp4 或者 flv";
+    }
   }
 };
 

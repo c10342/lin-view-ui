@@ -36,12 +36,14 @@ class LinVideoPlayer {
 
   el = null;
 
+  customType = null
+
   live = false;
 
   constructor(options) {
-    const { el, type, speedList = [], videoList = [] } = options;
+    const { el, type, speedList = [], videoList = [],customType } = options;
     handleEl(el);
-    handleType(type);
+    handleType(type,customType);
     handleSpeedList(speedList);
     handleVideoList(videoList);
 
@@ -57,6 +59,7 @@ class LinVideoPlayer {
       speedList = [],
       videoList = [],
       live = false,
+      customType
     } = options;
     this.videoList = videoList;
     this.speedList = speedList;
@@ -64,6 +67,9 @@ class LinVideoPlayer {
     this.type = type;
     this.el = el;
     this.live = live;
+    if(typeof customType === 'function'){
+      this.customType = customType
+    }
   }
 
   initPlayer() {
@@ -74,6 +80,7 @@ class LinVideoPlayer {
         videoList: this.videoList,
         type: this.type,
         live: this.live,
+        customType:this.customType
       },
     });
     if (typeof this.el === "string") {
@@ -124,13 +131,15 @@ class LinVideoPlayer {
 
   // 切换视频
   switchVideo(options) {
-    const { videoList = [], autoplay = false } = options;
+    const { videoList = [] } = options;
     handleVideoList(videoList);
     this.videoList = videoList;
-    this.autoplay = autoplay;
+    if ("autoplay" in options) {
+      this.autoplay = options.autoplay;
+    }
     if (this.instance) {
       this.instance.videoList = videoList;
-      this.instance.autoplay = autoplay;
+      this.instance.autoplay = this.autoplay;
       this.instance.initParams();
     }
   }
@@ -197,7 +206,7 @@ class LinVideoPlayer {
     return this.video?.duration || 0;
   }
 
-  get paused(){
+  get paused() {
     return this.video?.paused || true;
   }
 
@@ -225,6 +234,8 @@ class LinVideoPlayer {
     this.el = null;
 
     this.live = false;
+
+    this.customType = null
   }
 
   destory() {

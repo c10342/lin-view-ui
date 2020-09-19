@@ -22,6 +22,8 @@
       <lin-button @click="destory">destory</lin-button>
     </div>
     <div id="flvvideo" class="video-player-video"></div>
+    <div id="livevideo" class="video-player-video"></div>
+    <div id="othervideo" class="video-player-video"></div>
   </div>
 </template>
 
@@ -50,8 +52,41 @@ export default {
     this.initMp4();
     this.initHls();
     this.initFlv();
+    this.initLive()
+    this.initOther()
   },
   methods: {
+    initLive() {
+      this.flvPlayer =new this.$VideoPlayer({
+        el: document.getElementById("livevideo"),
+        type: "flv",
+        speedList: this.speedList,
+        live:true,
+        videoList: [
+          {
+            label: "标清",
+            url:
+              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+          },
+        ],
+      });
+    },
+    initOther(){
+       this.mp4Player = new this.$VideoPlayer({
+        el: document.getElementById("othervideo"),
+        speedList: this.speedList,
+        videoList: [
+          {
+            label: "标清",
+            url:
+              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+          },
+        ],
+        customType(video,data){
+          video.src = data.currenVideo.url
+        }
+      });
+    },
     initHls() {
       this.hlsPlayer = new this.$VideoPlayer({
         el: "#hlsvideo",
