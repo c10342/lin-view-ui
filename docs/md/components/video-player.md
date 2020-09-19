@@ -38,6 +38,11 @@ export default {
             url:
               "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
           },
+          {
+            label: "高清",
+            url:
+              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+          },
         ],
       });
     },
@@ -47,6 +52,11 @@ export default {
         videoList: [
           {
             label: "标清",
+            url:
+              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+          },
+          {
+            label: "高清",
             url:
               "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
           },
@@ -67,6 +77,11 @@ export default {
             url:
               "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
           },
+          {
+            label: "高清",
+            url:
+              "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
+          },
         ],
       });
     },
@@ -84,6 +99,11 @@ export default {
             url:
               "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
           },
+          {
+            label: "高清",
+            url:
+              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+          },
         ],
       });
     },
@@ -95,6 +115,11 @@ export default {
         videoList: [
           {
             label: "标清",
+            url:
+              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+          },
+          {
+            label: "高清",
             url:
               "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
           },
@@ -276,6 +301,11 @@ export default {
               url:
                 "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
             },
+            {
+              label: "高清",
+              url:
+                "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+            },
           ],
         });
       },
@@ -375,6 +405,11 @@ export default {
               url:
                 "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
             },
+            {
+              label: "高清",
+              url:
+                "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
+            },
           ],
         });
       },
@@ -433,6 +468,11 @@ export default {
               url:
                 "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
             },
+            {
+              label: "高清",
+              url:
+                "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+            },
           ],
         });
       },
@@ -474,6 +514,11 @@ export default {
               url:
                 "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
             },
+            {
+              label: "高清",
+              url:
+                "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+            },
           ],
         });
       },
@@ -509,6 +554,11 @@ export default {
           videoList: [
             {
               label: "标清",
+              url:
+                "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+            },
+            {
+              label: "高清",
               url:
                 "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
             },

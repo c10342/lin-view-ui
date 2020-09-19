@@ -6,6 +6,7 @@
     @mouseenter="onMouseEnter"
   >
     <video
+      crossorigin="anonymous"
       class="lin-video-player-video"
       id="lin_hls_player_video"
       ref="videoPlayerVideo"
@@ -97,37 +98,13 @@ export default {
     initPlayer(data) {
       this.isLoading = true;
       if (typeof this.customType === "function") {
-        this.customType(
-          this.video,
-          cloneDeep({
-            currenVideo: data,
-            autoplay: this.autoplay,
-            speedList: this.speedList,
-            videoList: this.videoList,
-            live: this.live,
-          })
-        );
+        this.initCustomType(data);
       } else {
         const videoSrc = data.url;
         if (this.type === "hls") {
-          if (Hls.isSupported()) {
-            if (!this.hls) {
-              this.hls = new Hls();
-            }
-            this.hls.loadSource(videoSrc);
-            this.hls.attachMedia(this.video);
-          } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
-            this.video.src = videoSrc;
-          }
+          this.initHls(videoSrc);
         } else if (this.type === "flv") {
-          if (Flv.isSupported()) {
-            this.flv = Flv.createPlayer({
-              type: "flv",
-              url: videoSrc,
-            });
-            this.flv.attachMediaElement(this.video);
-            this.flv.load();
-          }
+          this.initFlv(videoSrc);
         } else if (this.type === "mp4") {
           this.video.src = videoSrc;
         }
@@ -139,49 +116,60 @@ export default {
       if (!videoSrc) {
         return;
       }
+      this.isLoading = true;
       this.tip = `已经切换至 ${label} 画质`;
       this.getImage();
       if (typeof this.customType === "function") {
-        this.customType(
-          this.video,
-          cloneDeep({
-            currenVideo: data,
-            autoplay: this.autoplay,
-            speedList: this.speedList,
-            videoList: this.videoList,
-            live: this.live,
-          })
-        );
+        this.initCustomType(data);
       } else {
         if (this.type === "hls") {
-          if (Hls.isSupported()) {
-            if (!this.hls) {
-              this.hls = new Hls();
-            }
-            this.hls.loadSource(videoSrc);
-            this.hls.attachMedia(this.video);
-          } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
-            this.video.src = videoSrc;
-          }
+          this.initHls(videoSrc);
         } else if (this.type === "flv") {
-          if (Flv.isSupported()) {
-            if (!this.flv) {
-              this.flv = Flv.createPlayer({
-                type: "flv",
-                url: videoSrc,
-              });
-              this.flv.attachMediaElement(this.video);
-              this.flv.load();
-            } else {
-              this.flv.switchPlayerUrl(videoSrc);
-            }
-          }
+          this.destoryFlv();
+          this.initFlv(videoSrc);
         } else if (this.type === "mp4") {
           this.video.src = videoSrc;
         }
       }
 
       this.seek(this.currentTime);
+    },
+    initHls(videoSrc, hlsParams = {}) {
+      if (Hls.isSupported()) {
+        if (!this.hls) {
+          this.hls = new Hls(hlsParams);
+        }
+        this.hls.loadSource(videoSrc);
+        this.hls.attachMedia(this.video);
+      } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+        this.video.src = videoSrc;
+      }
+    },
+    initFlv(videoSrc, flvParams = {}) {
+      if (Flv.isSupported()) {
+        Flv.LoggingControl.enableAll = false;
+        // Flv.LoggingControl = this.LoggingControl;
+        this.flv = Flv.createPlayer({
+          type: "flv",
+          url: videoSrc,
+          isLive: this.live,
+          ...flvParams,
+        });
+        this.flv.attachMediaElement(this.video);
+        this.flv.load();
+      }
+    },
+    initCustomType(data) {
+      this.customType(
+        this.video,
+        cloneDeep({
+          currenVideo: data,
+          autoplay: this.autoplay,
+          speedList: this.speedList,
+          videoList: this.videoList,
+          live: this.live,
+        })
+      );
     },
     onTimeUpdate() {
       const currentTime = this.video?.currentTime || 0;
@@ -238,12 +226,16 @@ export default {
     },
     getImage() {
       if (this.video) {
-        let canvas = document.createElement("canvas");
-        let ctx = canvas.getContext("2d");
-        canvas.width = this.video.clientWidth;
-        canvas.height = this.video.clientHeight;
-        ctx.drawImage(this.video, 0, 0, canvas.width, canvas.height);
-        this.imgSrc = canvas.toDataURL();
+        try {
+          let canvas = document.createElement("canvas");
+          let ctx = canvas.getContext("2d");
+          canvas.width = this.video.clientWidth;
+          canvas.height = this.video.clientHeight;
+          ctx.drawImage(this.video, 0, 0, canvas.width, canvas.height);
+          this.imgSrc = canvas.toDataURL();
+        } catch (error) {
+          console.log(error);
+        }
       }
     },
     destoryHls() {
