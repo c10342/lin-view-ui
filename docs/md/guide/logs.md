@@ -2,6 +2,7 @@
 
 ---
 
+- 2020/09/19 新增 `CollapseGroup、CollapseItem` 组件
 - 2020/09/16 新增 `VideoPlayer` 组件
 - 2020/09/07 新增 `Pagination` 组件
 - 2020/08/30 新增 `Table` 组件

@@ -1,0 +1,17 @@
+@import './common';
+
+$collapse-border: 1px solid $border-color !default;
+
+
+$collapse-item-header-padding: 10px 16px !default;
+$collapse-item-header-background-color: $background-color !default;
+
+
+$collapse-arrow-margin-right: 5px !default;
+$collapse-arrow-transition: all 300ms !default;
+
+
+$collapse-arrow-down-transform: rotate(90deg) !default;
+
+$collapse-item-content-padding: 16px !default;
+

@@ -1,18 +1,20 @@
 <template>
-  <div class="lin-collapse-item">
+  <div :class="[{'lin-collapse-item-simple':simple},'lin-collapse-item']">
     <div class="lin-collapse-item-header" @click="onHeaderClick">
-      <i :class="[{'lin-collapse-arrow-down':show},'lin-icon-right','lin-collapse-arrow']"></i>
+      <i :class="[{'lin-collapse-arrow-down':show},'lin-icon-right','lin-collapse-arrow']" v-if="!hideArrow"></i>
       <slot></slot>
     </div>
-    <transition name="lin-collapse-item-animation">
+    <collapse-transition>
       <div class="lin-collapse-item-content" v-show="show">
         <slot name="content"></slot>
       </div>
-    </transition>
+    </collapse-transition>
   </div>
 </template>
 
 <script>
+import cloneDeep from "lodash/cloneDeep";
+import collapseTransition from "src/js/collapseTransition.js";
 export default {
   name: "LinCollapseItem",
   props: {
@@ -20,11 +22,79 @@ export default {
       type: String,
       require: true,
     },
+    hideArrow:{
+      type:Boolean,
+      default:false
+    }
   },
-  data() {
+  components: {
+    collapseTransition,
+  },
+  inject: {
+    collapseGroup: {
+      default: "",
+    },
+  },
+  data(){
     return {
-      show: false,
-    };
+      index:0
+    }
+  },
+  computed: {
+    simple() {
+      if (this.collapseGroup) {
+        return this.collapseGroup.simple;
+      }
+      return false;
+    },
+    collapseValue() {
+      if (this.collapseGroup) {
+        const val = this.collapseGroup.collapseValue;
+        if (val && typeof val === "string") {
+          return [val];
+        } else if (Array.isArray(val)) {
+          return val;
+        }
+      }
+      return [];
+    },
+    accordion() {
+      if (this.collapseGroup) {
+        return this.collapseGroup.accordion;
+      }
+      return false;
+    },
+    show: {
+      get() {
+        if (this.collapseValue.includes(this.name)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      set(val) {
+        if (this.collapseGroup) {
+          let data = cloneDeep(this.collapseValue);
+          if (this.accordion) {
+            if(val===false){
+              data = []
+            }else{
+              data = [this.name];
+            }
+          } else {
+            if (val === false) {
+              const index = data.findIndex((item) => item === this.name);
+              if (index > -1) {
+                data.splice(index, 1);
+              }
+            } else {
+              data.push(this.name);
+            }
+          }
+          this.collapseGroup.collapseValue = data;
+        }
+      },
+    },
   },
   methods: {
     onHeaderClick() {
@@ -34,61 +104,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.lin-collapse-item + .lin-collapse-item {
-  border-top: 1px solid #dcdee2;
-}
-.lin-collapse-item-header {
-  box-sizing: border-box;
-  padding: 10px 16px;
-  background-color: #f7f7f7;
-  cursor: pointer;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.lin-collapse-arrow {
-  margin-right: 5px;
-  transition: all 300ms;
-}
-.lin-collapse-item-content {
-  padding: 16px;
-  border-top: 1px solid #dcdee2;
-  //   height: 100%;
-  //   overflow: hidden;
-  //   transition: all 500ms;
-}
-
-.lin-collapse-arrow-down {
-  transform: rotate(90deg);
-}
-
-// @keyframes collapse-animation {
-//   0% {
-//     height: 0;
-//   }
-//   100% {
-//     height: auto;
-//   }
-// }
-
-// .lin-collapse-item-animation-enter-active {
-//   animation: collapse-animation 300ms ease-out;
-// }
-
-// .lin-collapse-item-animation-leave-active {
-//   animation: collapse-animation 300ms reverse ease-out;
-// }
-
-.lin-collapse-item-animation-enter-active,
-.lin-collapse-item-animation-leave-active {
-  transition: all 500ms;
-}
-
-.lin-collapse-item-animation-enter,
-.lin-collapse-item-animation-leave-to {
-  //   height: 0;
-  opacity: 0;
-}
-</style>

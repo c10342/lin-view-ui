@@ -59,6 +59,11 @@
           "desc": "Selector 选择器",
           "name": "selector",
           "path": "/selector"
+        },
+        {
+          "desc": "Collapse 折叠面板",
+          "name": "collapse",
+          "path": "/collapse"
         }
       ]
     },

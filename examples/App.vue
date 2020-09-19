@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-collapse />
+    <test-video-player />
   </div>
 </template>
 
