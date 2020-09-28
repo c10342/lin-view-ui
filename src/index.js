@@ -23,6 +23,8 @@ import InputNumber from "packages/InputNumber";
 import Upload from "packages/Upload";
 import Table from "packages/Table";
 import TableColumn from "packages/TableColumn";
+import ChoiceGroup from "packages/ChoiceGroup";
+import ChoiceItem from "packages/ChoiceItem";
 
 // 视频组件
 import VideoCard from "packages/VideoCard";
@@ -89,6 +91,8 @@ const install = (Vue) => {
     VideoPlayer,
     CollapseGroup,
     CollapseItem,
+    ChoiceGroup,
+    ChoiceItem,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -137,4 +141,6 @@ export default {
   VideoPlayer,
   CollapseGroup,
   CollapseItem,
+  ChoiceGroup,
+  ChoiceItem,
 };
