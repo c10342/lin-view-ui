@@ -49,3 +49,13 @@
     transform: translate(-50%, -50%) scale(1.4);
   }
 }
+
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 300ms;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 1;
+}

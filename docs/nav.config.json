@@ -64,6 +64,11 @@
           "desc": "Collapse 折叠面板",
           "name": "collapse",
           "path": "/collapse"
+        },
+        {
+          "desc": "Choice 选择器",
+          "name": "choice",
+          "path": "/choice"
         }
       ]
     },

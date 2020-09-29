@@ -1,0 +1,102 @@
+@import './common';
+@import '../animations/index.scss';
+
+$choice-group-input-background-color: #fff !default;
+$choice-group-input-background-image: none !default;
+$choice-group-input-border-radius: 4px !default;
+$choice-group-input-border: 1px solid $border-color !default;
+$choice-group-input-color: $font-color !default;
+$choice-group-input-height: 40px !default;
+$choice-group-input-padding-left: 15px !default;
+$choice-group-input-padding-right: 25px !default;
+$choice-group-input-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+$choice-group-input-focus-border-color: $primary !default;
+
+
+$choice-group-disabled-input-background-color: $disabled-background-color !default;
+$choice-group-disabled-input-border-color: $disabled-border-color !default;
+$choice-group-disabled-input-color: $disabled-font-color !default;
+
+$choice-group-icon-right: 5px !default;
+$choice-group-icon-top: 50% !default;
+$choice-group-icon-transform: translateY(-50%) !default;
+$choice-group-icon-transition: all 300ms !default;
+
+
+$choice-group-icon-up-transform: translateY(-50%) rotate(180deg) !default;
+
+$choice-group-close-icon-border-radius: 50% !default;
+$choice-group-close-icon-width: 12px !default;
+$choice-group-close-icon-height: 12px !default;
+$choice-group-close-icon-border: 1px solid $font-color !default;
+$choice-group-close-icon-font-size: $font-size-base !default;
+$choice-group-close-icon-color: $font-color !default;
+
+
+$choice-container-wrapper-top: 46px !default;
+$choice-container-wrapper-left: 50% !default;
+$choice-container-wrapper-transform: translateX(-50%) !default;
+$choice-container-wrapper-width: 100% !default;
+$choice-container-wrapper-background-color: #ffffff !default;
+$choice-container-wrapper-before-width: 12px !default;
+$choice-container-wrapper-before-height: 12px !default;
+$choice-container-wrapper-before-top: -6px !default;
+$choice-container-wrapper-before-left: 50% !default;
+$choice-container-wrapper-before-transform: translateX(-50%) rotate(135deg) !default;
+$choice-container-wrapper-before-border: 1px solid $disabled-border-color !default;
+$choice-container-wrapper-before-background-color: #fff !default;
+$choice-container-wrapper-before-border-radius: 2px !default;
+
+
+$choice-container-padding: 5px 0 !default;
+$choice-container-border: 1px solid $disabled-border-color !default;
+$choice-container-border-radius: 5px !default;
+$choice-container-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+$choice-container-max-height: 204px !default;
+
+
+$choice-empty-tip-height: 34px !default;
+$choice-empty-tip-font-size: $font-size-small !default;
+$choice-empty-tip-padding: 0 20px !default;
+$choice-empty-tip-margin: 0 !default;
+$choice-empty-tip-color: $font-color !default;
+
+
+$choice-loading-wrapper-text-align: center !default;
+
+$choice-loading-width: 12px !default;
+$choice-loading-margin: 0 auto !default;
+$choice-loading-border: 1px solid $primary !default;
+$choice-loading-border-radius: 50% !default;
+$choice-loading-animation: rotate-animation 300ms linear infinite !default;
+
+
+$choice-loading-tip-margin-left: 10px !default;
+$choice-loading-tip-font-size: $font-size-small !default;
+$choice-loading-tip-color: $font-color !default;
+$choice-loading-tip-vertical-align: top !default;
+
+
+
+$choice-item-height: 34px !default;
+$choice-item-font-size: $font-size-small !default;
+$choice-item-padding: 0 20px !default;
+$choice-item-color: $font-color !default;
+$choice-item-hover-background-color: $disabled-background-color !default;
+$choice-item-active-background-color: $disabled-background-color !default;
+$choice-item-active-color: $primary !default;
+$choice-item-disabled-color: $disabled-font-color !default;
+
+
+
+$choice-option-margin-top: 20px !default;
+$choice-option-after-left: 20px !default;
+$choice-option-after-right: 20px !default;
+$choice-option-after-top: -10px !default;
+$choice-option-after-height: 1px !default;
+$choice-option-after-background: $disabled-border-color !default;
+
+$choice-option-label-padding: 0 20px !default;
+$choice-option-label-font-size: $font-size-base !default;
+$choice-option-label-color: #909399 !default;
+$choice-option-label-line-height: 30px !default;

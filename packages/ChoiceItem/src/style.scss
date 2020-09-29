@@ -1,23 +1,33 @@
+@import "src/styles/variables/choice.scss";
+@import "src/styles/mixin/common.scss";
+
 .lin-choice-item {
-  height: 34px;
-  line-height: 34px;
+  height: $choice-item-height;
+  line-height: $choice-item-height;
   box-sizing: border-box;
-  //   padding: 0 10px;
   cursor: pointer;
 
-  font-size: 14px;
-  padding: 0 20px;
+  font-size: $choice-item-font-size;
+  padding: $choice-item-padding;
   position: relative;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #606266;
+  // white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  @include one-line();
+  color: $choice-item-color;
 
-  &:hover {
-    background-color: #f5f7fa;
+  &:not(.lin-choice-item-disabled):hover {
+    background-color: $choice-item-hover-background-color;
   }
   &.lin-choice-item-active {
-    background-color: #f5f7fa;
+    background-color: $choice-item-active-background-color;
+    color: $choice-item-active-color;
+  }
+
+  &.lin-choice-item-disabled{
+    color: $choice-item-disabled-color;
+    cursor: not-allowed;
   }
 }
-// background-color: #f5f7fa;
+
+

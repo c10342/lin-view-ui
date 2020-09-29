@@ -8,6 +8,7 @@ import SelectorItem from "packages/SelectorItem";
 import SelectorGroup from "packages/SelectorGroup";
 import CollapseGroup from "packages/CollapseGroup";
 import CollapseItem from "packages/CollapseItem";
+import ChoiceOption from "packages/ChoiceOption";
 
 // 表单组件
 import Input from "packages/Input";
@@ -93,6 +94,7 @@ const install = (Vue) => {
     CollapseItem,
     ChoiceGroup,
     ChoiceItem,
+    ChoiceOption
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -143,4 +145,5 @@ export default {
   CollapseItem,
   ChoiceGroup,
   ChoiceItem,
+  ChoiceOption
 };

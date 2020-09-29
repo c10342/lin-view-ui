@@ -1,0 +1,28 @@
+
+@import "src/styles/variables/choice.scss";
+@import "src/styles/mixin/common.scss";
+
+.lin-choice-option-label {
+  padding:$choice-option-label-padding;
+  font-size: $choice-option-label-font-size;
+  color: $choice-option-label-color;
+  line-height: $choice-option-label-line-height;
+  cursor: default;
+  box-sizing: border-box;
+  @include one-line();
+}
+
+.lin-choice-option+.lin-choice-option {
+  margin-top: $choice-option-margin-top;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: $choice-option-after-left;
+    right: $choice-option-after-right;
+    top: $choice-option-after-top;
+    height: $choice-option-after-height;
+    background: $choice-option-after-background;
+  }
+}
