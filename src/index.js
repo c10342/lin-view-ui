@@ -8,7 +8,9 @@ import SelectorItem from "packages/SelectorItem";
 import SelectorGroup from "packages/SelectorGroup";
 import CollapseGroup from "packages/CollapseGroup";
 import CollapseItem from "packages/CollapseItem";
-import ChoiceOption from "packages/ChoiceOption";
+import DropdownGroup from 'packages/DropdownGroup'
+import DropdownItem from 'packages/DropdownItem'
+import Dropdown from 'packages/Dropdown'
 
 // 表单组件
 import Input from "packages/Input";
@@ -26,6 +28,7 @@ import Table from "packages/Table";
 import TableColumn from "packages/TableColumn";
 import ChoiceGroup from "packages/ChoiceGroup";
 import ChoiceItem from "packages/ChoiceItem";
+import ChoiceOption from "packages/ChoiceOption";
 
 // 视频组件
 import VideoCard from "packages/VideoCard";
@@ -94,7 +97,10 @@ const install = (Vue) => {
     CollapseItem,
     ChoiceGroup,
     ChoiceItem,
-    ChoiceOption
+    ChoiceOption,
+    DropdownItem,
+    DropdownGroup,
+    Dropdown
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -145,5 +151,8 @@ export default {
   CollapseItem,
   ChoiceGroup,
   ChoiceItem,
-  ChoiceOption
+  ChoiceOption,
+  DropdownItem,
+  DropdownGroup,
+  Dropdown
 };

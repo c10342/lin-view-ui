@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-choice />
+    <test-dropdown />
   </div>
 </template>
 
