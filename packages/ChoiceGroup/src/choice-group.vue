@@ -1,6 +1,7 @@
 <template>
-  <div class="lin-choice-group">
+  <div class="lin-choice-group" ref="choiceGroup">
     <div
+      ref="choiceGroupInput"
       :class="[
         { 'lin-choice-group-disabled': disabled },
         'lin-choice-group-input-container',
@@ -34,12 +35,16 @@
       ></i>
     </div>
     <transition name="fade">
-      <div class="lin-choice-container-wrapper" v-show="isShow">
-        <div
-          ref="scrollContainer"
-          class="lin-choice-container"
-          @scroll="onScroll"
-        >
+      <div
+        :style="{top}"
+        :class="[
+      'lin-choice-container-wrapper',
+      {'lin-choice-container-wrapper-up':!isDown},
+      {'lin-choice-container-wrapper-down':isDown},
+      ]"
+        v-show="isShow"
+      >
+        <div ref="scrollContainer" class="lin-choice-container" @scroll="onScroll">
           <div ref="scrollContent">
             <slot></slot>
             <div class="lin-choice-group-empty" v-if="!$slots.default">
@@ -51,9 +56,11 @@
           <div class="lin-choice-loading-wrapper" v-show="loading">
             <slot name="loading">
               <span class="lin-choice-loading"></span>
-              <span class="lin-choice-loading-tip" v-if="loadingTip">{{
+              <span class="lin-choice-loading-tip" v-if="loadingTip">
+                {{
                 loadingTip
-              }}</span>
+                }}
+              </span>
             </slot>
           </div>
         </div>
@@ -116,6 +123,8 @@ export default {
       groupLabel: "",
       isShow: false,
       isHover: false,
+      isDown: true,
+      top: 0,
     };
   },
   provide() {
@@ -132,6 +141,7 @@ export default {
     this.timer = null;
     this.lock = false;
     this.lockTimer = null;
+    this.setPlacement();
   },
   watch: {
     loading(newVal) {
@@ -148,6 +158,32 @@ export default {
     },
   },
   methods: {
+    setPlacement() {
+      this.$nextTick(() => {
+        const scrollContainer = this.$refs.scrollContainer;
+        const choiceGroup = this.$refs.choiceGroup;
+        const bottom =
+          window.innerHeight - choiceGroup.getBoundingClientRect().bottom;
+        const top = choiceGroup.getBoundingClientRect().top;
+        if (bottom > scrollContainer.clientHeight) {
+          this.setDownTop();
+        } else if (top > scrollContainer.clientHeight) {
+          this.setUpTop();
+        } else {
+          this.setDownTop();
+        }
+      });
+    },
+    setDownTop() {
+      this.isDown = true;
+      const choiceGroupInput = this.$refs.choiceGroupInput;
+      this.top = `${choiceGroupInput.clientHeight + 8}px`;
+    },
+    setUpTop() {
+      this.isDown = false;
+      const scrollContainer = this.$refs.scrollContainer;
+      this.top = `${-(scrollContainer.clientHeight + 10)}px`;
+    },
     onScroll(event) {
       if (!this.scroll || this.loading || this.lock) {
         return;
@@ -190,6 +226,9 @@ export default {
         return;
       }
       this.isShow = !this.isShow;
+      if (this.isShow) {
+        this.setPlacement();
+      }
       this.$emit("visible-change", this.isShow);
     },
     clearValue() {

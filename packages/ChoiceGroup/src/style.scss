@@ -78,15 +78,27 @@
     position: absolute;
     width: $choice-container-wrapper-before-width;
     height: $choice-container-wrapper-before-height;
-    top: $choice-container-wrapper-before-top;
     left: $choice-container-wrapper-before-left;
-    transform: $choice-container-wrapper-before-transform;
     border: $choice-container-wrapper-before-border;
     box-sizing: border-box;
     background-color: $choice-container-wrapper-before-background-color;
     border-top-color: transparent;
     border-right-color: transparent;
     border-radius: $choice-container-wrapper-before-border-radius;
+  }
+}
+
+.lin-choice-container-wrapper-up{
+  &::before {
+    bottom: $choice-container-wrapper-up-before-top;
+    transform: $choice-container-wrapper-up-before-transform;
+  }
+}
+
+.lin-choice-container-wrapper-down{
+  &::before{
+    top: $choice-container-wrapper-down-before-top;
+    transform: $choice-container-wrapper-down-before-transform;
   }
 }
 

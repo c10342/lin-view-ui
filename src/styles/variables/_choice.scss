@@ -40,12 +40,16 @@ $choice-container-wrapper-width: 100% !default;
 $choice-container-wrapper-background-color: #ffffff !default;
 $choice-container-wrapper-before-width: 12px !default;
 $choice-container-wrapper-before-height: 12px !default;
-$choice-container-wrapper-before-top: -6px !default;
 $choice-container-wrapper-before-left: 50% !default;
-$choice-container-wrapper-before-transform: translateX(-50%) rotate(135deg) !default;
 $choice-container-wrapper-before-border: 1px solid $disabled-border-color !default;
 $choice-container-wrapper-before-background-color: #fff !default;
 $choice-container-wrapper-before-border-radius: 2px !default;
+
+$choice-container-wrapper-up-before-top: -6px !default;
+$choice-container-wrapper-up-before-transform: translateX(-50%) rotate(-45deg) !default;
+
+$choice-container-wrapper-down-before-top: -6px !default;
+$choice-container-wrapper-down-before-transform: translateX(-50%) rotate(135deg) !default;
 
 
 $choice-container-padding: 5px 0 !default;
