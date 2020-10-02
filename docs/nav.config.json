@@ -69,6 +69,11 @@
           "desc": "Choice 选择器",
           "name": "choice",
           "path": "/choice"
+        },
+        {
+          "desc": "Dropdown 下拉菜单",
+          "name": "dropdown",
+          "path": "/dropdown"
         }
       ]
     },

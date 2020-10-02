@@ -1,0 +1,56 @@
+
+@import './common';
+
+$dropdown-label-color: $primary !default;
+
+$dropdown-container-top: 30px !default;
+$dropdown-container-left: 50% !default;
+$dropdown-container-transform: translateX(-50%) !default;
+$dropdown-container-max-width: 300px !default;
+$dropdown-container-background-color: #ffffff !default;
+$dropdown-container-white-space: nowrap !default;
+$dropdown-container-padding: 5px 0 !default;
+$dropdown-container-border: 1px solid $disabled-border-color !default;
+$dropdown-container-border-radius: 5px !default;
+$dropdown-container-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+$dropdown-container-z-index: 101 !default;
+$dropdown-container-before-width: 12px !default;
+$dropdown-container-before-height: 12px !default;
+$dropdown-container-before-left: 50% !default;
+$dropdown-container-before-border: 1px solid $disabled-border-color !default;
+$dropdown-container-before-background-color: #ffffff !default;
+$dropdown-container-before-border-radius: 2px !default;
+
+
+
+$dropdown-container-down-top: -7px !default;
+$dropdown-container-down-transform: translateX(-50%) rotate(135deg) !default;
+
+
+$dropdown-container-up-bottom: -7px !default;
+$dropdown-container-up-transform: translateX(-50%) rotate(-45deg) !default;
+
+
+$dropdown-group-label-height: 34px !default;
+$dropdown-group-label-padding: 0 20px !default;
+$dropdown-group-label-border-bottom: 1px solid $border-color !default;
+$dropdown-group-label-font-size: $font-size-base !default;
+$dropdown-group-label-color: #909399 !default;
+
+
+$dropdown-item-height: 34px !default;
+$dropdown-item-font-size: 14px !default;
+$dropdown-item-padding: 0 20px !default;
+$dropdown-item-hover-color: $primary !default;
+$dropdown-item-hover-background-color: rgba($primary, 0.2) !default;
+
+$dropdown-item-icon-margin-right: 5px !default;
+
+$dropdown-item-disabled-color: $border-color !default;
+
+$dropdown-item-divided-margin-top: 6px !default;
+$dropdown-item-divided-before-top: -3px !default;
+$dropdown-item-divided-before-left: 0 !default;
+$dropdown-item-divided-before-width: 100% !default;
+$dropdown-item-divided-before-border-top: 1px solid $border-color !default;
+$dropdown-item-divided-before-z-index: 100 !default;

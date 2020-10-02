@@ -1,0 +1,45 @@
+@import "src/styles/variables/dropdown.scss";
+
+.lin-dropdown-item {
+    height: $dropdown-item-height;
+    line-height: $dropdown-item-height;
+    box-sizing: border-box;
+    cursor: pointer;
+  
+    font-size: $dropdown-item-font-size;
+    padding: $dropdown-item-padding;
+    position: relative;
+    user-select: none;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+  
+    &:not(.lin-dropdown-item-disabled):hover {
+      color:$dropdown-item-hover-color;
+      background-color:$dropdown-item-hover-background-color;
+    }
+  }
+  
+  .lin-dropdown-item-icon{
+      margin-right: $dropdown-item-icon-margin-right;
+  }
+  
+  .lin-dropdown-item-disabled {
+    color: $dropdown-item-disabled-color;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  .lin-dropdown-item-divided {
+    margin-top: $dropdown-item-divided-margin-top;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: $dropdown-item-divided-before-top;
+      left: $dropdown-item-divided-before-left;
+      width: $dropdown-item-divided-before-width;
+      border-top: $dropdown-item-divided-before-border-top;
+      z-index: $dropdown-item-divided-before-z-index;
+    }
+  }
