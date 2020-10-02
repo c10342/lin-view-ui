@@ -40,7 +40,8 @@ export default {
         "lin-icon-pause",
         "lin-icon-fullscreen",
         "lin-icon-full-screen",
-        "lin-icon-loading"
+        "lin-icon-loading",
+        "lin-icon-back"
       ]
     };
   }
