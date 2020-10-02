@@ -176,6 +176,11 @@
           "desc": "Pagination 分页",
           "name": "pagination",
           "path": "/pagination"
+        },
+        {
+          "desc": "PageHeader 页头",
+          "name": "page-header",
+          "path": "/page-header"
         }
       ]
     },

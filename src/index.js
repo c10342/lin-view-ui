@@ -45,6 +45,7 @@ import MetaInfo from "packages/MetaInfo";
 import Tag from "packages/Tag";
 import Alert from "packages/Alert";
 import Pagination from "packages/Pagination";
+import PageHeader from 'packages/PageHeader'
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -100,7 +101,8 @@ const install = (Vue) => {
     ChoiceOption,
     DropdownItem,
     DropdownGroup,
-    Dropdown
+    Dropdown,
+    PageHeader
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -154,5 +156,6 @@ export default {
   ChoiceOption,
   DropdownItem,
   DropdownGroup,
-  Dropdown
+  Dropdown,
+  PageHeader
 };

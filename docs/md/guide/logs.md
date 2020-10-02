@@ -2,7 +2,7 @@
 
 ---
 
-- 2020/10/02 新增 `Dropdpwn、DropdpwnItem、DropdpwnGroup` 组件
+- 2020/10/02 新增 `Dropdpwn、DropdpwnItem、DropdpwnGroup、PageHeader` 组件
 - 2020/09/29 新增 `ChoiceGroup、ChoiceItem、ChoiceOption` 组件
 - 2020/09/19 新增 `CollapseGroup、CollapseItem` 组件
 - 2020/09/16 新增 `VideoPlayer` 组件

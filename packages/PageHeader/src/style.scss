@@ -1,0 +1,92 @@
+@import "src/styles/variables/page-header.scss";
+
+.lin-page-header{
+    background-color: $page-header-background-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: $page-header-height;
+    cursor: default;
+    user-select: none;
+    padding: $page-header-padding;
+}
+
+.lin-page-header-border-bottom{
+    border-bottom: $page-header-border-border-bottom;
+}
+
+.lin-page-header-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.lin-page-header-back{
+    margin-right: $page-header-back-margin-right;
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        width: $page-header-back-after-width;
+    height: $page-header-back-after-height;
+    right: $page-header-back-after-right;
+    top: $page-header-back-after-top;
+    transform: $page-header-back-after-transform;
+    // background-color: #dcdfe6;
+    background-color: $page-header-back-after-background-color;
+    }
+    
+    
+}
+
+.lin-page-header-back-wrapper{
+    cursor: pointer;
+    &:hover{
+        color: $page-header-back-wrapper-hover-color;
+    }
+    >i{
+        margin-right: $page-header-back-wrapper-i-margin-right;
+    }
+    >span{
+        font-size: $page-header-back-wrapper-span-font-size;
+    font-weight: $page-header-back-wrapper-span-font-weight;
+    }
+}
+
+.lin-page-header-content{
+    font-size: $page-header-content-font-size;
+    color: $page-header-content-color;
+}
+
+.lin-page-header-active{
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        left: $page-header-active-left;
+        top: $page-header-active-top;
+        margin-top: $page-header-active-margin-top;
+        height: $page-header-active-height;
+        width: $page-header-active-width;
+        background-color: $page-header-active-background-color;
+    }
+}
+
+.lin-page-header-right{
+
+}
+
+.lin-page-header-more{
+    cursor: pointer;
+    &:hover{
+        color: $page-header-more-hover-color;
+    }
+    >i{
+        margin-right: $page-header-more-i-margin-right;
+    }
+    >span{
+        font-size: $page-header-more-span-font-size;
+    font-weight: $page-header-more-span-font-weight;
+    }
+}
