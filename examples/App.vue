@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-page-header />
+    <test-tab />
   </div>
 </template>
 

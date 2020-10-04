@@ -46,6 +46,8 @@ import Tag from "packages/Tag";
 import Alert from "packages/Alert";
 import Pagination from "packages/Pagination";
 import PageHeader from 'packages/PageHeader'
+import TabGroup from 'packages/TabGroup'
+import TabItem from 'packages/TabItem'
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -102,7 +104,9 @@ const install = (Vue) => {
     DropdownItem,
     DropdownGroup,
     Dropdown,
-    PageHeader
+    PageHeader,
+    TabItem,
+    TabGroup
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -157,5 +161,7 @@ export default {
   DropdownItem,
   DropdownGroup,
   Dropdown,
-  PageHeader
+  PageHeader,
+  TabItem,
+  TabGroup
 };
