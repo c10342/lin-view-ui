@@ -1,0 +1,63 @@
+
+@import './common';
+$tab-group-background-color: #ffffff !default;
+
+
+$tab-group-header-margin-bottom: 15px !default;
+$tab-group-header-scroll-padding: 0 20px !default;
+$tab-group-header-after-bottom: 0px !default;
+$tab-group-header-after-left: 0 !default;
+$tab-group-header-after-width: 100% !default;
+$tab-group-header-after-height: 1px !default;
+$tab-group-header-after-background-color: $disabled-border-color !default;
+
+
+$tab-group-icon-top: 0 !default;
+$tab-group-icon-width: 18px !default;
+$tab-group-icon-background-color: #fff !default;
+$tab-group-icon-height: 100% !default;
+$tab-group-icon-border-bottom: 1px solid $disabled-border-color !default;
+$tab-group-icon-left-left: 0 !default;
+$tab-group-icon-right-right: 0 !default;
+
+
+$tab-group-item-margin: 0 20px !default;
+$tab-group-item-height: 40px !default;
+$tab-group-item-font-size: $font-size-small !default;
+$tab-group-item-font-weight: 500 !default;
+$tab-group-item-color: #303133 !default;
+$tab-group-item-hover-color: $primary !default;
+$tab-group-item-first-margin-left: 0 !default;
+$tab-group-item-last-margin-right: 0 !default;
+
+$tab-group-line-bottom: 1px !default;
+$tab-group-line-left: 0 !default;
+$tab-group-line-height: 2px !default;
+$tab-group-line-background-color: $primary !default;
+$tab-group-line-transition: transform .3s cubic-bezier(.645,.045,.355,1) !default;
+
+$tab-group-active-color: $primary !default;
+
+$tab-group-item-disabled-color: $disabled-font-color !default;
+
+$tab-group-card-item-padding: 0 20px !default;
+$tab-group-card-item-margin: 0 !default;
+$tab-group-card-item-border: 1px solid $disabled-border-color !default;
+$tab-group-card-item-border-right: none !default;
+$tab-group-card-item-last-border-right: 1px solid $disabled-border-color !default;
+$tab-group-card-item-active-border-bottom-color: #ffffff !default;
+$tab-group-card-scroll-item-margin-left: 0 !default;
+
+
+$tab-group-border-border: 1px solid $border-color !default;
+$tab-group-border-box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04) !default;
+$tab-group-border-header-margin: 0 !default;
+$tab-group-border-header-background-color: $background-color !default;
+$tab-group-border-item-padding: 0 20px !default;
+$tab-group-border-item-margin: 0 !default;
+$tab-group-border-item-border: 1px solid transparent !default;
+$tab-group-border-item-active-background-color: #fff !default;
+$tab-group-border-item-active-border-right-color: $border-color !default;
+$tab-group-border-item-active-border-left-color: $border-color !default;
+$tab-group-border-content-padding: 15px !default;
+$tab-group-border-icon-background-color: $background-color !default;

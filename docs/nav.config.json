@@ -176,11 +176,6 @@
           "desc": "Pagination 分页",
           "name": "pagination",
           "path": "/pagination"
-        },
-        {
-          "desc": "PageHeader 页头",
-          "name": "page-header",
-          "path": "/page-header"
         }
       ]
     },
@@ -223,6 +218,22 @@
           "desc": "Tooltip 文字提示",
           "name": "tooltip",
           "path": "/tooltip"
+        }
+      ]
+    },
+    {
+      "desc": "导航组件",
+      "path": "/component",
+      "items":[
+        {
+          "desc": "PageHeader 页头",
+          "name": "page-header",
+          "path": "/page-header"
+        },
+        {
+          "desc": "Tab 标签页",
+          "name": "tab",
+          "path": "/tab"
         }
       ]
     },

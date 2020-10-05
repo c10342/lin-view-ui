@@ -1,145 +1,153 @@
+@import "src/styles/variables/tab.scss";
+
 
 .lin-tab-group{
-    background-color: #ffffff;
+    background-color: $tab-group-background-color;
 }
 .lin-tab-group-header{
-    
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: $tab-group-header-margin-bottom;
     user-select: none;
-    border-bottom: 1px solid #e4e7ed;
     overflow: hidden;
-    &.lin-tab-group-item-scroll{
-        padding: 0 20px;
+    &.lin-tab-group-header-scroll{
+        padding: $tab-group-header-scroll-padding;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: $tab-group-header-after-bottom;
+        left: $tab-group-header-after-left;
+        width: $tab-group-header-after-width;
+        height: $tab-group-header-after-height;
+        background-color: $tab-group-header-after-background-color;
     }
 }
 
 .lin-tab-group-item-wrapper{
     overflow: hidden;
-    margin-bottom: -1px;
+    position: relative;
+    z-index: 100;
 }
 
 .lin-tab-group-item-container{
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid #e4e7ed;
 }
 
 .lin-tab-group-icon{
     position: absolute;
-    top: 0;
+    top: $tab-group-icon-top;
     cursor: pointer;
-    width: 18px;
-    background-color: #fff;
-    height: 100%;
-    border-bottom: 1px solid #e4e7ed;
+    width: $tab-group-icon-width;
+    background-color: $tab-group-icon-background-color;
+    height: $tab-group-icon-height;
+    border-bottom: $tab-group-icon-border-bottom;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    z-index: 200;
+    box-sizing: border-box;
     &.lin-icon-left{
-        left: 0;
+        left: $tab-group-icon-left-left;
     }
     &.lin-icon-right{
-        right: 0;
+        right: $tab-group-icon-right-right;
     }
 }
 
 
 .lin-tab-group-header-item{
-    margin: 0 20px;
-    height: 40px;
+    margin: $tab-group-item-margin;
+    height: $tab-group-item-height;
     box-sizing: border-box;
-    line-height: 40px;
+    line-height: $tab-group-item-height;
     display: inline-block;
-    font-size: 14px;
-    font-weight: 500;
-    color: #303133;
+    font-size: $tab-group-item-font-size;
+    font-weight: $tab-group-item-font-weight;
+    color: $tab-group-item-color;
     position: relative;
     cursor: pointer;
     white-space: nowrap;
     z-index: 100;
 
     &:not(.lin-tab-group-header-item-disabled):hover{
-        color: #409eff;
+        color: $tab-group-item-hover-color;
     }
     &:nth-child(1){
-        margin-left: 0;
+        margin-left: $tab-group-item-first-margin-left;
     }
     &:nth-last-of-type(1){
 
-        margin-right: 0;
+        margin-right: $tab-group-item-last-margin-right;
     }
 }
 
 .lin-tab-group-active-line{
     position: absolute;
-    bottom: 1px;
-    left: 0;
-    height: 2px;
-    background-color: #409eff;
-    z-index: 1;
-    transition: transform .3s cubic-bezier(.645,.045,.355,1);
+    bottom: $tab-group-line-bottom;
+    left: $tab-group-line-left;
+    height: $tab-group-line-height;
+    background-color: $tab-group-line-background-color;
+    // z-index: 1;
+    transition: $tab-group-line-transition;
 }
 
 .lin-tab-group-active{
-    color: #409eff;
+    color: $tab-group-active-color;
 }
 
 .lin-tab-group-header-item-disabled{
     cursor: not-allowed;
-    color: #c0c4cc;
+    color: $tab-group-item-disabled-color;
 }
 
 
 .lin-tab-group-card{
     .lin-tab-group-header-item{
-        padding: 0 20px;
-        margin: 0;
-        border: 1px solid #e4e7ed;
-        border-right: none;
-        margin-bottom: -1px;
+        padding: $tab-group-card-item-padding;
+        margin: $tab-group-card-item-margin;
+        border: $tab-group-card-item-border;
+        border-right: $tab-group-card-item-border-right;
         &:nth-last-of-type(1){
-            border-right: 1px solid #e4e7ed;
+            border-right: $tab-group-card-item-last-border-right;
         }
         &.lin-tab-group-active{
-            border-bottom-color: #ffffff;
+            border-bottom-color: $tab-group-card-item-active-border-bottom-color;
         }
     }
-    .lin-tab-group-item-scroll{
+    .lin-tab-group-header-scroll{
         .lin-tab-group-header-item{
-            margin-left: 0;
+            margin-left: $tab-group-card-scroll-item-margin-left;
         }
     }
     
 }
 
 .lin-tab-group-border{
-    border: 1px solid #dcdfe6;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+    border: $tab-group-border-border;
+    box-shadow: $tab-group-border-box-shadow;
     .lin-tab-group-header{
-        margin: 0;
+        margin: $tab-group-border-header-margin;
         
-        background-color: #f5f7fa;
+        background-color: $tab-group-border-header-background-color;
     }
     .lin-tab-group-header-item{
-        padding: 0 20px;
-        margin: 0;
-        border: 1px solid transparent;
-        // margin-left: -1px;
-        margin-bottom: -1px;
+        padding: $tab-group-border-item-padding;
+        margin: $tab-group-border-item-margin;
+        border: $tab-group-border-item-border;
         &.lin-tab-group-active{
-            background-color: #fff;
-        border-right-color: #dcdfe6;
-        border-left-color: #dcdfe6;
+            background-color: $tab-group-border-item-active-background-color;
+        border-right-color: $tab-group-border-item-active-border-right-color;
+        border-left-color: $tab-group-border-item-active-border-left-color;
 
     }
     }
     .lin-tab-group-content{
-        padding: 15px;
+        padding: $tab-group-border-content-padding;
     }
     .lin-tab-group-icon{
-        background-color: #f5f7fa;
+        background-color: $tab-group-border-icon-background-color;
     }
 }

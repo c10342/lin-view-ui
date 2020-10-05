@@ -8,9 +8,6 @@ export default {
     render() {
         const {
             type,
-            currentValue,
-            tabChildren,
-            onTabClick,
             lineWidth,
             translateX,
             $slots,
@@ -18,7 +15,8 @@ export default {
             onNextClick,
             onPrevClick,
             containerTranslateX,
-            containerWidth
+            containerWidth,
+            renderTabLabel
         } = this;
         return (
             <div
@@ -30,32 +28,16 @@ export default {
                 ]}
             >
                 <div
-                    class={['lin-tab-group-header', { 'lin-tab-group-item-scroll': isScroll }]} ref="tabheader">
+                    class={['lin-tab-group-header', { 'lin-tab-group-header-scroll': isScroll }]} ref="tabheader">
                     <div
-                        style={{ transform: `translateX(${containerTranslateX}px)`,width:containerWidth }}
+                        style={{ transform: `translateX(${containerTranslateX}px)`, width: containerWidth }}
                         class='lin-tab-group-item-wrapper'
                         ref='tabheaderWrapper'
                     >
-                        <div
+                        {
+                            renderTabLabel()
+                        }
 
-                            class="lin-tab-group-item-container" ref='tabheaderContainer'>
-                            {tabChildren.map((item, index) => {
-                                return (
-                                    <div
-                                        class={[
-                                            { "lin-tab-group-active": currentValue === item.name },
-                                            "lin-tab-group-header-item",
-                                            { "lin-tab-group-header-item-disabled": item.disabled },
-                                        ]}
-                                        id={`tab-${item.name}`}
-                                        key={index}
-                                        onClick={() => onTabClick(item)}
-                                    >
-                                        {item.labelSlot || item.label}
-                                    </div>
-                                );
-                            })}
-                        </div>
                         {
                             type !== 'default' || (
                                 <div
@@ -115,6 +97,31 @@ export default {
         window.addEventListener('resize', this.onResize)
     },
     methods: {
+        renderTabLabel() {
+            const { tabChildren, currentValue, onTabClick } = this
+            return (
+                <div
+
+                    class="lin-tab-group-item-container" ref='tabheaderContainer'>
+                    {tabChildren.map((item, index) => {
+                        return (
+                            <div
+                                class={[
+                                    { "lin-tab-group-active": currentValue === item.name },
+                                    "lin-tab-group-header-item",
+                                    { "lin-tab-group-header-item-disabled": item.disabled },
+                                ]}
+                                id={`tab-${item.name}`}
+                                key={index}
+                                onClick={() => onTabClick(item)}
+                            >
+                                {item.labelSlot || item.label}
+                            </div>
+                        );
+                    })}
+                </div>
+            )
+        },
         onResize() {
             if (this.timer) {
                 clearTimeout(this.timer)
@@ -126,7 +133,7 @@ export default {
                 const tabheader = this.$refs.tabheader
                 const tabheaderContainer = this.$refs.tabheaderContainer
 
-                this.containerTranslateX=0
+                this.containerTranslateX = 0
                 if (tabheader.clientWidth < tabheaderContainer.scrollWidth) {
                     this.isScroll = true
                     this.containerWidth = `${tabheaderContainer.scrollWidth}px`
@@ -192,7 +199,7 @@ export default {
         onNextClick() {
             const tabheader = this.$refs.tabheader
             const tabheaderContainer = this.$refs.tabheaderContainer
-            const offsetWidth = tabheader.clientWidth - tabheaderContainer.scrollWidth-40
+            const offsetWidth = tabheader.clientWidth - tabheaderContainer.scrollWidth - 40
             this.containerTranslateX -= this.step
             if (this.containerTranslateX < offsetWidth) {
                 this.containerTranslateX = offsetWidth

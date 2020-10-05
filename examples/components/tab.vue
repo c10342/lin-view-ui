@@ -16,9 +16,7 @@
         <lin-tab-item label="用户管理" name="first">用户管理</lin-tab-item>
         <lin-tab-item label="配置管理" name="second">配置管理</lin-tab-item>
         <lin-tab-item label="角色管理" name="third">角色管理</lin-tab-item>
-        <lin-tab-item label="定时任务补偿" name="fourth"
-          >定时任务补偿</lin-tab-item
-        >
+        <lin-tab-item label="定时任务补偿" name="fourth">定时任务补偿</lin-tab-item>
       </lin-tab-group>
     </div>
 
