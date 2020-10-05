@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-tab />
+    <test-skeleton />
   </div>
 </template>
 

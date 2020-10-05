@@ -218,6 +218,11 @@
           "desc": "Tooltip 文字提示",
           "name": "tooltip",
           "path": "/tooltip"
+        },
+        {
+          "desc": "Skeleton 骨架屏",
+          "name": "skeleton",
+          "path": "/skeleton"
         }
       ]
     },

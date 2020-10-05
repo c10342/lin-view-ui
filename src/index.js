@@ -48,6 +48,7 @@ import Pagination from "packages/Pagination";
 import PageHeader from 'packages/PageHeader'
 import TabGroup from 'packages/TabGroup'
 import TabItem from 'packages/TabItem'
+import Skeleton from 'packages/Skeleton'
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -106,7 +107,8 @@ const install = (Vue) => {
     Dropdown,
     PageHeader,
     TabItem,
-    TabGroup
+    TabGroup,
+    Skeleton
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -163,5 +165,6 @@ export default {
   Dropdown,
   PageHeader,
   TabItem,
-  TabGroup
+  TabGroup,
+  Skeleton
 };
