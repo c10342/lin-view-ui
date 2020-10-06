@@ -7,7 +7,7 @@
         <slot name="back">
           <div class="lin-page-header-back-wrapper" @click="$emit('back')">
             <i class="lin-icon-back"></i>
-            <span v-if="backTip">{{ backTip }}</span>
+            <span>{{ backTip ||  t('LinViewUI.PageHeader.backTip')}}</span>
           </div>
         </slot>
       </div>
@@ -25,7 +25,7 @@
     <div class="lin-page-header-right" v-if="right">
       <slot name="right">
         <div class="lin-page-header-more" @click="$emit('more')">
-          <span>更多</span>
+          <span>{{t('LinViewUI.PageHeader.more')}}</span>
           <i class="lin-icon-right"></i>
         </div>
       </slot>
@@ -34,16 +34,17 @@
 </template>
 
 <script>
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinPageHeader",
+  mixins:[LocaleMixin],
   props: {
     back: {
       type: Boolean,
       default: true,
     },
     backTip: {
-      type: String,
-      default: "返回",
+      type: String
     },
     title: {
       type: String,

@@ -17,7 +17,7 @@
         >{{currentTime|secondToTime}}/{{totalTime|secondToTime}}</span>
         <span class="lin-video-player-live-tip" v-if="live">
           <i></i>
-          直播
+          {{t('LinViewUI.VideoPlayer.live')}}
         </span>
         <div class="lin-video-player-controls-right">
           <player-definition></player-definition>
@@ -36,8 +36,10 @@ import PlayerSpeed from "./video-player-speed";
 import PlayerVolume from "./video-player-volume";
 import PlayerDefinition from "./video-player-definition";
 import secondToTime from "src/utils/secondToTime.js";
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinVideoPlayerControls",
+  mixins:[LocaleMixin],
   filters: {
     secondToTime,
   },

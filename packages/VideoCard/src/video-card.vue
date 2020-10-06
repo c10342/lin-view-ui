@@ -2,8 +2,8 @@
   <div @click="onCardClick" class="video-card" :style="{'width':cardWidth,'height':cardHeight}">
     <slot name="top">
       <div class="video-cover-box" :style="{'height':imageHeight}">
-        <img @error="loadError" v-if="!imageLoadError" class="cover-image" :src="url" alt="图片" />
-        <div v-else class="error-tip">{{errorTip}}</div>
+        <img @error="loadError" v-if="!imageLoadError" class="cover-image" :src="url" :alt="t('LinViewUI.VideoCard.imgAlt')" />
+        <div v-else class="error-tip">{{errorTip || t('LinViewUI.VideoCard.errorTip')}}</div>
         <span class="cover-tip" v-if="coverTip">{{coverTip}}</span>
       </div>
     </slot>
@@ -12,8 +12,10 @@
 </template>
 
 <script>
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinVideoCard",
+  mixins:[LocaleMixin],
   props: {
     data: {
       type: Object,
@@ -35,8 +37,7 @@ export default {
       default: "",
     },
     errorTip: {
-      type: String,
-      default: "加载失败",
+      type: String
     },
     defaultImageUrl: {
       type: String,

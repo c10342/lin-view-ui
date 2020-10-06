@@ -3,8 +3,10 @@ import "./style.scss";
 import getDate from "src/utils/getDate.js";
 import getYearMonthDay from "src/utils/getYearMonthDay.js";
 import dispatch from "src/utils/dispatch.js";
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinDatePicker",
+  mixins:[LocaleMixin],
   render(h) {
     const {
       cellWidth,
@@ -30,6 +32,7 @@ export default {
       radius,
       showAlways,
       showInput,
+      t
     } = this;
     return (
       <div v-click-outside class="lin-date-picker">
@@ -39,7 +42,7 @@ export default {
             <input
               onClick={focus}
               readonly
-              placeholder={placeholder}
+              placeholder={placeholder || t('LinViewUI.DatePicker.placeholder')}
               type="text"
               value={formatDate}
               disabled={disabled}
@@ -63,8 +66,8 @@ export default {
                 <span onClick={prevYear} class="lin-icon-left"></span>
                 <span onClick={prevMonth} class="lin-icon-leftarrow"></span>
                 <span>
-                  <span>{time.year}年</span>
-                  <span class="lin-date-picker-month">{time.month}月</span>
+            <span>{time.year}{t('LinViewUI.DatePicker.year')}</span>
+            <span class="lin-date-picker-month">{time.month}{t('LinViewUI.DatePicker.month')}</span>
                 </span>
                 <span onClick={nextMonth} class="lin-icon-rightarrow"></span>
                 <span onClick={nextYear} class="lin-icon-right"></span>
@@ -189,8 +192,7 @@ export default {
       default: false,
     },
     placeholder: {
-      type: String,
-      default: "请选择日期",
+      type: String
     },
     disabledBeforeDate: {
       type: [Date, String, Number],
@@ -232,7 +234,14 @@ export default {
   data() {
     const { year, month } = getYearMonthDay(this.handleValue());
     return {
-      weekDays: ["日", "一", "二", "三", "四", "五", "六"],
+      weekDays: [
+        this.t('LinViewUI.DatePicker.sun'), 
+        this.t('LinViewUI.DatePicker.mon'), 
+        this.t('LinViewUI.DatePicker.tue'), 
+        this.t('LinViewUI.DatePicker.wed'), 
+        this.t('LinViewUI.DatePicker.thu'), 
+        this.t('LinViewUI.DatePicker.fir'), 
+        this.t('LinViewUI.DatePicker.sat')],
       isVisible: false,
       time: { year, month },
     };

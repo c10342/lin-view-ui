@@ -39,7 +39,9 @@
     "prepublishOnly": "npm run build && npm run build:utils && npm run upload:docs",
     "pub": "node ./build/publish.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "deepmerge": "^4.2.2"
+  },
   "peerDependencies": {
     "vue": "^2.6.11"
   },

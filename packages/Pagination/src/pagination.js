@@ -1,11 +1,13 @@
 // import Pagination from './pagination.vue'
 
 import "./style.scss";
+import LocaleMixin from 'src/mixins/locale.js'
 
 // export default Pagination
 
 export default {
   name: "LinPagination",
+  mixins:[LocaleMixin],
   props: {
     pageCount: {
       default: 7,
@@ -116,8 +118,8 @@ export default {
       e.target.value = index;
     },
     rendertotal() {
-      const { total } = this;
-      return <span class="lin-pagination-total">共{total}条</span>;
+      const { total,t } = this;
+      return <span class="lin-pagination-total">{t('LinViewUI.Pagination.total')}{total}{t('LinViewUI.Pagination.strip')}</span>;
     },
     renderprev() {
       const { disabledPrev, prevClick } = this;
@@ -177,10 +179,10 @@ export default {
       );
     },
     renderjumper() {
-      const { totalPage, gotoPageByEnter, gotoPageByBlur, currentPage } = this;
+      const { totalPage, gotoPageByEnter, gotoPageByBlur, currentPage,t } = this;
       return (
         <div class="lin-pagintaion-jumpe">
-          <span>前往</span>
+          <span>{t('LinViewUI.Pagination.goto')}</span>
           <input
             min="1"
             max={totalPage}
@@ -190,7 +192,7 @@ export default {
             class="lin-pagintaion-input"
             type="number"
           />
-          <span>页</span>
+          <span>{t('LinViewUI.Pagination.page')}</span>
         </div>
       );
     },

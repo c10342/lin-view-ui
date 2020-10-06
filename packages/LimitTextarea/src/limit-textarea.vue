@@ -2,34 +2,34 @@
   <div class="lin-limit-textarea">
     <textarea
       @input="handleInput"
-      v-bind="$props"
+      v-bind="textareaProps"
       class="lin-limit-textarea-input"
       :class="{'lin-limit-textarea-over': isOver}"
       :value="value"
       :maxlength="maxlength"
     ></textarea>
     <span v-if="maxLen!==-1" class="lin-limit-textarea-text">
-      {{isOver ? '已超出' : '还可以输入'}}
+      {{isOver ? t('LinViewUI.LimitTextarea.exceeded') : t('LinViewUI.LimitTextarea.enterInput')}}
       <span
         class="lin-limit-textarea-num"
         :class="{'lin-limit-textarea-num-over': isOver}"
-      >{{num}}</span>个字
+      >{{num}}</span>{{t('LinViewUI.LimitTextarea.word')}}
     </span>
     <span v-else class="lin-limit-textarea-text">
-      已输入
-      <span class="lin-limit-textarea-num">{{value.toString().length}}</span>个字
+      {{t('LinViewUI.LimitTextarea.entered')}}
+      <span class="lin-limit-textarea-num">{{value.toString().length}}</span>{{t('LinViewUI.LimitTextarea.word')}}
     </span>
   </div>
 </template>
 
 <script>
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinLimitTextarea",
-
+  mixins:[LocaleMixin],
   props: {
     placeholder: {
-      type: String,
-      default: "请输入内容",
+      type: String
     },
     rows: {
       type: Number,
@@ -94,6 +94,12 @@ export default {
         return -1;
       }
     },
+    textareaProps(){
+      return {
+        ...this.$props,
+        placeholder:this.placeholder?this.placeholder:this.t('LinViewUI.LimitTextarea.placeholder')
+      }
+    }
   },
 };
 </script>

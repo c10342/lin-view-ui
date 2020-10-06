@@ -1,3 +1,5 @@
+import locale from './locale/index.js'
+
 import "src/fonts/iconfont.css";
 // 基础组件
 import Button from "packages/Button";
@@ -59,7 +61,10 @@ import ToolTip from "packages/Tooltip";
 import Magnifier from "packages/Magnifier";
 import HoverEffect from "packages/HoverEffect";
 
-const install = (Vue) => {
+const install = (Vue, opts = {}) => {
+  locale.use(opts.locale)
+  locale.i18n(opts.i18n)
+  console.log();
   [
     Button,
     Dialog,
@@ -120,6 +125,8 @@ if (typeof window !== "undefined" && window.Vue) {
 }
 
 export default {
+  locale: locale.use,
+  i18n: locale.i18n,
   install,
   Button,
   Dialog,

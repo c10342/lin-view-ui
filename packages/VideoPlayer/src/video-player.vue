@@ -38,6 +38,7 @@ import PlayerLoading from "./video-player-loading";
 import PlayerTip from "./video-player-tip";
 import cloneDeep from "lodash/cloneDeep";
 import isEqual from "lodash/isEqual";
+import LocaleMixin from 'src/mixins/locale.js'
 import {
   isBrowserFullscreen,
   isBrowserFullscreenEnabled,
@@ -46,6 +47,7 @@ import {
 } from "./utils";
 export default {
   name: "LinVideoPlayer",
+  mixins:[LocaleMixin],
   components: {
     PlayerControls,
     PlayerAnimation,
@@ -117,7 +119,7 @@ export default {
         return;
       }
       this.isLoading = true;
-      this.tip = `已经切换至 ${label} 画质`;
+      this.tip = `${this.t('LinViewUI.VideoPlayer.switch')} ${label} ${this.t('LinViewUI.VideoPlayer.quality')}`;
       this.getImage();
       if (typeof this.customType === "function") {
         this.initCustomType(data);
@@ -274,7 +276,7 @@ export default {
         volume = volume < 0 ? 0 : volume;
         volume = volume > 1 ? 1 : volume;
         this.video.volume = volume;
-        this.setTip(`音量${Math.round(volume * 100)}%`);
+        this.setTip(`${this.t('LinViewUI.VideoPlayer.volume')}${Math.round(volume * 100)}%`);
         return volume;
       }
       return -1;

@@ -38,8 +38,10 @@
 
 <script>
 import secondToTime from "src/utils/secondToTime.js";
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinVideoPlayerProcess",
+  mixins:[LocaleMixin],
   filters: {
     secondToTime,
   },
@@ -177,9 +179,9 @@ export default {
     },
     setTip(offsetTime) {
       if (offsetTime < 0) {
-        this.videoPlayer?.setTip(`快退 ${Math.round(-offsetTime)} 秒`);
+        this.videoPlayer?.setTip(`${this.t('LinViewUI.VideoPlayer.goBack')} ${Math.round(-offsetTime)} ${this.t('LinViewUI.VideoPlayer.second')}`);
       } else {
-        this.videoPlayer?.setTip(`快进 ${Math.round(offsetTime)} 秒`);
+        this.videoPlayer?.setTip(`${this.t('LinViewUI.VideoPlayer.fastForward')} ${Math.round(offsetTime)} ${this.t('LinViewUI.VideoPlayer.second')}`);
       }
     },
     destroyProcess() {

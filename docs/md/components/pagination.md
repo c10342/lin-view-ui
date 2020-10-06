@@ -77,6 +77,45 @@
 
 :::
 
+## 附加功能
+<div class='demo-block'>
+<div>
+<p>显示总数</p>
+<lin-pagination background layout="total,prev, pager, next" :total="1000">
+</lin-pagination>
+</div>
+<div>
+<p>直接前往</p>
+<lin-pagination background layout="prev, pager, next,jumper" :total="1000">
+</lin-pagination>
+</div>
+<div>
+<p>完整功能</p>
+<lin-pagination background layout="total,prev, pager, next,jumper" :total="1000">
+</lin-pagination>
+</div>
+</div>
+
+:::demo
+```html
+<div>
+<p>显示总数</p>
+<lin-pagination background layout="total,prev, pager, next" :total="1000">
+</lin-pagination>
+</div>
+<div>
+<p>直接前往</p>
+<lin-pagination background layout="prev, pager, next,jumper" :total="1000">
+</lin-pagination>
+</div>
+<div>
+<p>完整功能</p>
+<lin-pagination background layout="total,prev, pager, next,jumper" :total="1000">
+</lin-pagination>
+</div>
+```
+:::
+
 ## Pagination 属性
 
 | 参数       | 说明                                     | 类型    | 可选值                                    | 默认值                          |

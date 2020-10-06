@@ -5,7 +5,7 @@
       <div class="lin-dialog" :style="{width, marginTop: top}">
         <div class="lin-dialog-header">
           <slot name="title">
-            <span class="lin-dialog-title">{{title}}</span>
+            <span class="lin-dialog-title">{{title || t('LinViewUI.Dialog.title')}}</span>
           </slot>
           <button class="lin-dialog-headerbtn" @click="handleClose">
             <i class="lin-icon-close"></i>
@@ -23,12 +23,13 @@
   </transition>
 </template>
 <script>
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinDialog",
+  mixins:[LocaleMixin],
   props: {
     title: {
-      type: String,
-      default: "提示",
+      type: String
     },
     width: {
       type: String,

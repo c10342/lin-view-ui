@@ -8,6 +8,10 @@ import demoBlock from "./components/demo-block.vue";
 Vue.component("demo-block", demoBlock);
 
 import LinVueUi from "lin-view-ui";
+// import lang from 'src/locale/lang/en-US.js'
+// import locale from 'src/locale/index.js'
+
+// locale.use(lang)
 
 Vue.use(LinVueUi);
 

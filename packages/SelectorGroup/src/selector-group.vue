@@ -1,9 +1,11 @@
 
 
 <script>
+import LocaleMixin from 'src/mixins/locale.js'
 const oneHeight = 26;
 export default {
   name: "LinSelectorGroup",
+  mixins:[LocaleMixin],
   render(h) {
     const {
       renderMore,
@@ -15,6 +17,7 @@ export default {
       label,
       status,
       renderLabel,
+      t
     } = this;
 
     return (
@@ -44,7 +47,7 @@ export default {
             {renderMore ? (
               renderMore(h, status)
             ) : (
-              <span class="lin-selector-more-text-tip">更多</span>
+              <span class="lin-selector-more-text-tip">{status===2?t('LinViewUI.Selector.hide'):t('LinViewUI.Selector.show')}</span>
             )}
           </span>
         ) : null}

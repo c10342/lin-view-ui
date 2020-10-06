@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-skeleton />
+    <test-show-more />
   </div>
 </template>
 

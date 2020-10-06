@@ -11,7 +11,7 @@
       @load="onLoad"
     />
     <slot v-else>
-      <div class="lin-image-error">{{errorMsg}}</div>
+      <div class="lin-image-error">{{errorMsg || t('LinViewUI.Image.errorMsg')}}</div>
     </slot>
     <transition :name="transitionName">
       <div class="lin-image-mask" v-if="showPreview" @click="onMaskClick">
@@ -26,8 +26,10 @@
 </template>
 
 <script>
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinImage",
+  mixins:[LocaleMixin],
   props: {
     imgUrl: [Array, String],
     fit: {
@@ -55,8 +57,7 @@ export default {
       default: true,
     },
     errorMsg: {
-      type: String,
-      default: "加载失败",
+      type: String
     },
   },
   data() {

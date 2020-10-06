@@ -5,18 +5,20 @@
       class="lin-show-more-tip"
       @click="showMore"
       v-if="textLen !== -1 && textLen < text.length"
-    >{{showText}}</a>
+    >{{showText||t('LinViewUI.ShowMore.showText')}}</a>
     <a
       class="lin-show-more-tip"
       @click="showMore"
       v-if="textLen !== -1 && textLen === text.length && allowFold"
-    >{{hiddenText}}</a>
+    >{{hiddenText||t('LinViewUI.ShowMore.hiddenText')}}</a>
   </span>
 </template>
 
 <script>
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinShowMore",
+  mixins:[LocaleMixin],
   props: {
     len: {
       type: Number,
@@ -27,12 +29,10 @@ export default {
       default: "",
     },
     showText: {
-      type: String,
-      default: "显示更多",
+      type: String
     },
     hiddenText: {
-      type: String,
-      default: "收起",
+      type: String
     },
     allowFold: Boolean,
   },

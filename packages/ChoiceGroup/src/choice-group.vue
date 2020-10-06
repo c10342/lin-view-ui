@@ -14,7 +14,7 @@
         @blur="onBlur"
         @focus="onFocus"
         readonly
-        :placeholder="placeholder"
+        :placeholder="placeholder || t('LinViewUI.Choice.placeholder')"
         class="lin-choice-group-input"
         type="text"
         :value="groupLabel"
@@ -49,7 +49,7 @@
             <slot></slot>
             <div class="lin-choice-group-empty" v-if="!$slots.default">
               <slot name="empty">
-                <p class="lin-choice-group-empty-tip">{{ emptyTip }}</p>
+                <p class="lin-choice-group-empty-tip">{{ emptyTip|| t('LinViewUI.Choice.emptyTip')}}</p>
               </slot>
             </div>
           </div>
@@ -71,12 +71,13 @@
 
 
 <script>
+import LocaleMixin from 'src/mixins/locale.js'
 export default {
   name: "LinChoiceGroup",
+  mixins:[LocaleMixin],
   props: {
     placeholder: {
-      type: String,
-      default: "请选择",
+      type: String
     },
     value: {
       type: [Object, String, Number],
@@ -114,8 +115,7 @@ export default {
       default: "",
     },
     emptyTip: {
-      type: String,
-      default: "暂无数据",
+      type: String
     },
   },
   data() {

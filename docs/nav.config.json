@@ -19,6 +19,12 @@
       "type": "guide"
     },
     {
+      "name": "i18n",
+      "path": "/i18n",
+      "desc": "国际化",
+      "type": "guide"
+    },
+    {
       "name": "index",
       "path": "/",
       "type": "pages"

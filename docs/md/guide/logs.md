@@ -2,6 +2,7 @@
 
 ---
 
+- 2020/10/06 新增 `i18n` 国际化功能
 - 2020/10/05 新增 `Tab、Skeleton` 组件
 - 2020/10/02 新增 `Dropdpwn、DropdpwnItem、DropdpwnGroup、PageHeader` 组件
 - 2020/09/29 新增 `ChoiceGroup、ChoiceItem、ChoiceOption` 组件

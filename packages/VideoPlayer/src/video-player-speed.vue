@@ -1,6 +1,6 @@
 <template>
   <div class="lin-video-player-speed" v-if="speedList.length!==0">
-    <span class="lin-video-player-speed-label">{{currentSpeed?currentSpeed.label:'倍速'}}</span>
+    <span class="lin-video-player-speed-label">{{currentSpeed?currentSpeed.label:t('LinViewUI.VideoPlayer.speed')}}</span>
     <ul class="lin-video-player-speed-list" :style="{top}" v-if="list.length>0">
       <li
         @click="switchSpeed(item)"
@@ -13,9 +13,11 @@
 </template>
 
 <script>
+import LocaleMixin from 'src/mixins/locale.js'
 import cloneDeep from "lodash/cloneDeep";
 export default {
   name: "LinVideoPlayerSpeed",
+  mixins:[LocaleMixin],
   inject: {
     videoPlayer: {
       default: null,
