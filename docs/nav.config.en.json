@@ -1,0 +1,268 @@
+{
+  "Development": [
+    {
+      "name": "giud",
+      "path": "/giud",
+      "desc": "Introduce",
+      "type": "guide"
+    },
+    {
+      "name": "install",
+      "path": "/install",
+      "desc": "Install",
+      "type": "guide"
+    },
+    {
+      "name": "start",
+      "path": "/start",
+      "desc": "Start",
+      "type": "guide"
+    },
+    {
+      "name": "i18n",
+      "path": "/i18n",
+      "desc": "Internationalization",
+      "type": "guide"
+    },
+    {
+      "name": "index",
+      "path": "/",
+      "type": "pages"
+    },
+    {
+      "name": "logs",
+      "path": "/logs",
+      "desc": "Logs",
+      "type": "guide"
+    }
+  ],
+  "Component": [
+    {
+      "desc": "Basic",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "Icon",
+          "name": "icon",
+          "path": "/icon"
+        },
+        {
+          "desc": "Button",
+          "name": "button",
+          "path": "/button"
+        },
+        {
+          "desc": "Dialog",
+          "name": "dialog",
+          "path": "/dialog"
+        },
+        {
+          "desc": "Layout",
+          "name": "layout",
+          "path": "/layout"
+        },
+        {
+          "desc": "Selector",
+          "name": "selector",
+          "path": "/selector"
+        },
+        {
+          "desc": "Collapse",
+          "name": "collapse",
+          "path": "/collapse"
+        },
+        {
+          "desc": "Choice",
+          "name": "choice",
+          "path": "/choice"
+        },
+        {
+          "desc": "Dropdown",
+          "name": "dropdown",
+          "path": "/dropdown"
+        }
+      ]
+    },
+    {
+      "desc": "Form",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "Input",
+          "name": "input",
+          "path": "/input"
+        },
+        {
+          "desc": "Switch",
+          "name": "switch",
+          "path": "/switch"
+        },
+        {
+          "desc": "Radio",
+          "name": "radio",
+          "path": "/radio"
+        },
+        {
+          "desc": "Checkbox",
+          "name": "checkbox",
+          "path": "/checkbox"
+        },
+        {
+          "desc": "DatePicker",
+          "name": "date-picker",
+          "path": "/date-picker"
+        },
+        {
+          "desc": "InputNumber",
+          "name": "input-number",
+          "path": "/input-number"
+        },
+        {
+          "desc": "Form",
+          "name": "form",
+          "path": "/form"
+        },
+        {
+          "desc": "Upload",
+          "name": "upload",
+          "path": "/upload"
+        }
+      ]
+    },
+    {
+      "desc": "View",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "ShowMore",
+          "name": "show-more",
+          "path": "/show-more"
+        },
+        {
+          "desc": "LimitTextarea",
+          "name": "limit-textarea",
+          "path": "/limit-textarea"
+        },
+        {
+          "desc": "ScrollView",
+          "name": "scroll-view",
+          "path": "/scroll-view"
+        },
+        {
+          "desc": "Image",
+          "name": "image",
+          "path": "/image"
+        },
+        {
+          "desc": "Progress",
+          "name": "progress",
+          "path": "/progress"
+        },
+        {
+          "desc": "MetaInfo",
+          "name": "meta-info",
+          "path": "/meta-info"
+        },
+        {
+          "desc": "Tag",
+          "name": "tag",
+          "path": "/tag"
+        },
+        {
+          "desc": "Alert",
+          "name": "alert",
+          "path": "/alert"
+        },
+        {
+          "desc": "Table",
+          "name": "table",
+          "path": "/table"
+        },
+        {
+          "desc": "Pagination",
+          "name": "pagination",
+          "path": "/pagination"
+        }
+      ]
+    },
+    {
+      "desc": "Video",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "VideoCard",
+          "name": "video-card",
+          "path": "/video-card"
+        },
+        {
+          "desc": "LiveComment",
+          "name": "live-comment",
+          "path": "/live-comment"
+        },
+        {
+          "desc": "VideoPlayer",
+          "name": "video-player",
+          "path": "/video-player"
+        }
+      ]
+    },
+    {
+      "desc": "Interactive",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "LoadingBar",
+          "name": "loading-bar",
+          "path": "/loading-bar"
+        },
+        {
+          "desc": "Loading",
+          "name": "loading",
+          "path": "/loading"
+        },
+        {
+          "desc": "Tooltip",
+          "name": "tooltip",
+          "path": "/tooltip"
+        },
+        {
+          "desc": "Skeleton",
+          "name": "skeleton",
+          "path": "/skeleton"
+        }
+      ]
+    },
+    {
+      "desc": "Navigation",
+      "path": "/component",
+      "items":[
+        {
+          "desc": "PageHeader",
+          "name": "page-header",
+          "path": "/page-header"
+        },
+        {
+          "desc": "Tab",
+          "name": "tab",
+          "path": "/tab"
+        }
+      ]
+    },
+    {
+      "desc": "Other",
+      "path": "/component",
+      "items": [
+        {
+          "desc": "Magnifier",
+          "name": "magnifier",
+          "path": "/magnifier"
+        },
+        {
+          "desc": "HoverEffect",
+          "name": "hover-effect",
+          "path": "/hover-effect"
+        }
+      ]
+    }
+  ]
+}

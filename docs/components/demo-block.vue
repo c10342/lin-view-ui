@@ -10,16 +10,19 @@
       </div>
     </div>
     <span class="docs-trans docs-demo__triangle" @click="toggle">{{
-      isExpand ? "隐藏代码" : "显示代码"
+      isExpand ? hideText : showText
     }}</span>
   </div>
 </template>
 
 <script>
+import {getLang} from '../utils/lang'
+import langConfig from '../i18n/index'
+const lang = getLang()
 export default {
   data() {
     return {
-      isExpand: false,
+      isExpand: false
     };
   },
   methods: {
@@ -27,6 +30,14 @@ export default {
       this.isExpand = !this.isExpand;
     },
   },
+  computed:{
+    showText(){
+      return langConfig[lang].demoBlock.showText
+    },
+    hideText(){
+      return langConfig[lang].demoBlock.hideText
+    }
+  }
 };
 </script>
 

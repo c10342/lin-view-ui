@@ -11,16 +11,61 @@
       <router-link :to="{ name: 'index' }">
         <img src="../assets/img/logo.png" width="100" />
       </router-link>
-      <router-link :to="{ name: 'giud' }">组件</router-link>
+      <div>
+        <router-link :to="{ name: 'giud' }">
+          {{ componentTitle }}
+        </router-link>
+        <lin-dropdown
+          @command="handleCommand"
+          trigger="click"
+          class="doc-dropdown"
+        >
+          <span class="doc-dropdown-link">
+            {{ langTitle }}
+            <i class="lin-icon-down"></i>
+          </span>
+          <lin-dropdown-group slot="dropdown">
+            <lin-dropdown-item :command="langType.zh">中文</lin-dropdown-item>
+            <lin-dropdown-item :command="langType.en"
+              >English</lin-dropdown-item
+            >
+          </lin-dropdown-group>
+        </lin-dropdown>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
+import { getLang, setLang, langType } from "../utils/lang";
+import langConfig from '../i18n/index'
+const lang = getLang()
 export default {
   data() {
-    return {};
+    return {
+      // lang: getLang(),
+      langType,
+    };
   },
+  methods: {
+    handleCommand(com) {
+      if (com === langType.zh && lang !== langType.zh) {
+        setLang(langType.zh);
+        window.location.reload();
+      } else if (com === langType.en && lang !== langType.en) {
+        setLang(langType.en);
+        window.location.reload();
+      }
+    },
+  },
+  computed:{
+    componentTitle(){
+      return langConfig[lang].header.component
+    },
+    langTitle(){
+      return langConfig[lang].header.langTitle
+    }
+  }
 };
 </script>
 
@@ -43,6 +88,15 @@ export default {
     align-items: center;
     height: 80px;
     justify-content: space-between;
+  }
+  .doc-dropdown {
+    margin-left: 30px;
+  }
+  .doc-dropdown-link {
+    color: #888;
+    &:hover {
+      color: #409eff;
+    }
   }
 }
 </style>

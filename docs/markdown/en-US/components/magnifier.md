@@ -10,8 +10,8 @@
 <lin-magnifier
       :smallStyle="{width:'350px',height:'350px'}"
       :bigStyle="{width:'450px',height:'450px'}"
-      :smallPic="require('../../assets/img/small.jpg')"
-      :bigPic="require('../../assets/img/big.jpg')"
+      :smallPic="require('../../../assets/img/small.jpg')"
+      :bigPic="require('../../../assets/img/big.jpg')"
     ></lin-magnifier>
 </div>
 
@@ -21,8 +21,8 @@
 <lin-magnifier
   :smallStyle="{width:'350px',height:'350px'}"
   :bigStyle="{width:'450px',height:'450px'}"
-  :smallPic="require('../../assets/img/small.jpg')"
-  :bigPic="require('../../assets/img/big.jpg')"
+  :smallPic="require('../../../assets/img/small.jpg')"
+  :bigPic="require('../../../assets/img/big.jpg')"
 ></lin-magnifier>
 ```
 
@@ -38,10 +38,10 @@
       :bigStyle="{width:'450px',height:'450px'}"
     >
       <template slot="small">
-        <img :src="require('../../assets/img/small.jpg')" />
+        <img :src="require('../../../assets/img/small.jpg')" />
       </template>
       <template slot="big">
-        <img :src="require('../../assets/img/big.jpg')" />
+        <img :src="require('../../../assets/img/big.jpg')" />
       </template>
       <template slot="move">
         <div style="width:50px;height:50px;background-color:green;"></div>
@@ -57,10 +57,10 @@
   :bigStyle="{width:'450px',height:'450px'}"
 >
   <template slot="small">
-    <img :src="require('../../assets/img/small.jpg')" />
+    <img :src="require('../../../assets/img/small.jpg')" />
   </template>
   <template slot="big">
-    <img :src="require('../../assets/img/big.jpg')" />
+    <img :src="require('../../../assets/img/big.jpg')" />
   </template>
   <template slot="move">
     <div style="width:50px;height:50px;background-color:green;"></div>

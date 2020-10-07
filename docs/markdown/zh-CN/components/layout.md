@@ -32,6 +32,8 @@
 
 ## 基础布局
 
+使用单一分栏创建基础的栅格布局。通过 `row` 和 `col` 组件，并通过 `col` 组件的 `span` 属性我们就可以自由地组合布局。
+
 <div class="demo-block">
     <lin-row class="mb-10">
     <lin-col :span="24">

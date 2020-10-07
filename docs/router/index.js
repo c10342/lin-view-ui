@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import navConf from "../nav.config.json";
+import navConf from "../nav.config.zh.json";
+import {getLang} from '../utils/lang'
+
+const lang = getLang()
 
 Vue.use(Router);
 
@@ -20,10 +23,10 @@ let addComponent = (router) => {
         route.component = () => import(`../pages/${route.name}.vue`);
         return;
       } else if (route.type === "guide") {
-        route.component = () => import(`../md/guide/${route.name}.md`);
+        route.component = () => import(`../markdown/${lang}/guide/${route.name}.md`);
         return;
       }
-      route.component = () => import(`../md/components/${route.name}.md`);
+      route.component = () => import(`../markdown/${lang}/components/${route.name}.md`);
     }
   });
 };

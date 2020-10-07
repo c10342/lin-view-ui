@@ -30,7 +30,7 @@
 
 <div class='demo-block'>
     <lin-video-card 
-    :imageUrl="require('../../assets/img/video-card.png')">
+    :imageUrl="require('../../../assets/img/video-card.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
@@ -44,7 +44,7 @@
 ::: demo
 
 ```html
-<lin-video-card :imageUrl="require('../../assets/img/video-card.png')">
+<lin-video-card :imageUrl="require('../../../assets/img/video-card.png')">
   <template>
     <div class="card-bottom">
       <p>春风得意</p>
@@ -65,7 +65,7 @@
     <lin-video-card
       cardHeight="270px"
       cardWidth="300px"
-      :imageUrl="require('../../assets/img/video-card.png')"
+      :imageUrl="require('../../../assets/img/video-card.png')"
     >
       <template>
         <div class="card-bottom">
@@ -83,7 +83,7 @@
 <lin-video-card
   cardHeight="270px"
   cardWidth="300px"
-  :imageUrl="require('../../assets/img/video-card.png')"
+  :imageUrl="require('../../../assets/img/video-card.png')"
 >
   <template>
     <div class="card-bottom">
@@ -104,7 +104,7 @@
 <div class='demo-block'>
     <lin-video-card 
     imageHeight="150px" 
-    :imageUrl="require('../../assets/img/video-card.png')">
+    :imageUrl="require('../../../assets/img/video-card.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
@@ -120,7 +120,7 @@
 ```html
 <lin-video-card
   imageHeight="150px"
-  :imageUrl="require('../../assets/img/video-card.png')"
+  :imageUrl="require('../../../assets/img/video-card.png')"
 >
   <template>
     <div class="card-bottom">
@@ -140,7 +140,7 @@
 
 <div class='demo-block'>
     <lin-video-card 
-    :defaultImageUrl="require('../../assets/img/logo.png')">
+    :defaultImageUrl="require('../../../assets/img/logo.png')">
       <template>
         <div class="card-bottom">
           <p>春风得意</p>
@@ -154,7 +154,7 @@
 :::demo
 
 ```html
-<lin-video-card :defaultImageUrl="require('../../assets/img/logo.png')">
+<lin-video-card :defaultImageUrl="require('../../../assets/img/logo.png')">
   <template>
     <div class="card-bottom">
       <p>春风得意</p>
@@ -174,8 +174,8 @@
 <div class='demo-block'>
     <lin-video-card
       coverTip="小提示"
-      :imageUrl="require('../../assets/img/video-card.png')"
-      :defaultImageUrl="require('../../assets/img/logo.png')"
+      :imageUrl="require('../../../assets/img/video-card.png')"
+      :defaultImageUrl="require('../../../assets/img/logo.png')"
     >
       <template>
         <div class="card-bottom">
@@ -192,8 +192,8 @@
 ```html
 <lin-video-card
   coverTip="小提示"
-  :imageUrl="require('../../assets/img/video-card.png')"
-  :defaultImageUrl="require('../../assets/img/logo.png')"
+  :imageUrl="require('../../../assets/img/video-card.png')"
+  :defaultImageUrl="require('../../../assets/img/logo.png')"
 >
   <template>
     <div class="card-bottom">

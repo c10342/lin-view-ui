@@ -22,11 +22,15 @@
 </template>
 
 <script>
-import navConf from "../nav.config.json";
+import zhNavConf from "../nav.config.zh.json";
+import enNavConf from "../nav.config.en.json";
+import {getLang,langType} from '../utils/lang'
+const lang = getLang()
+const navConfig = langType.en===lang?enNavConf:zhNavConf
 export default {
   data() {
     return {
-      data: navConf
+      data: navConfig
     };
   }
 };
