@@ -2,9 +2,10 @@ const devConfig = require("./build/webpack.dev");
 const proConfig = require("./build/webpack.build");
 const docsConfig = require("./build/webpack.docs");
 const utilsConfig = require("./build/webpack.utills");
+const localeConfig = require('./build/webpack.locale')
 const env = process.env.NODE_ENV;
 
-let config;
+let config = proConfig;
 
 if (env === "development") {
   config = devConfig;
@@ -12,8 +13,8 @@ if (env === "development") {
   config = docsConfig;
 } else if (env === "utils") {
   config = utilsConfig;
-} else {
-  config = proConfig;
+} else if(env === 'locale'){
+  config = localeConfig
 }
 
 module.exports = config;

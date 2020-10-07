@@ -70,7 +70,7 @@ module.exports = {
       .rule("fonts")
       .use("url-loader")
       .tap((option) => {
-        option.fallback.options.name = "static/fonts/[name].[hash:8].[ext]";
+        option.fallback.options.name = "assets/fonts/[name].[hash:8].[ext]";
         return option;
       });
     baseConfig.handleJs(config);
