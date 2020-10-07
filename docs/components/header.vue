@@ -1,12 +1,5 @@
 <template>
-  <header
-    class="page-header"
-    :style="
-      $route.name === 'index'
-        ? 'box-shadow:none'
-        : 'box-shadow:0 10px 60px 0 rgba(29,29,31,0.07)'
-    "
-  >
+  <header class="page-header">
     <div class="header-container">
       <router-link :to="{ name: 'index' }">
         <img src="../assets/img/logo.png" width="100" />
@@ -38,8 +31,8 @@
 
 <script>
 import { getLang, setLang, langType } from "../utils/lang";
-import langConfig from '../i18n/index'
-const lang = getLang()
+import langConfig from "../i18n/index";
+const lang = getLang();
 export default {
   data() {
     return {
@@ -58,35 +51,38 @@ export default {
       }
     },
   },
-  computed:{
-    componentTitle(){
-      return langConfig[lang].header.component
+  computed: {
+    componentTitle() {
+      return langConfig[lang].header.component;
     },
-    langTitle(){
-      return langConfig[lang].header.langTitle
-    }
-  }
+    langTitle() {
+      return langConfig[lang].header.langTitle;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+@import '../assets/styles/var.scss';
 .page-header {
   background-color: #fff;
-  box-shadow: 0 10px 60px 0 rgba(29, 29, 31, 0.07);
   opacity: 0.98;
   position: relative !important;
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: $header-height;
   transition: all 0.3s;
   z-index: 100;
+  box-sizing: border-box;
+  border-bottom: 1px solid #dcdfe6;
   .header-container {
-    width: 90%;
-    margin: 0 auto;
+    padding: 0 $padding;
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     align-items: center;
-    height: 80px;
+    height: 100%;
     justify-content: space-between;
   }
   .doc-dropdown {

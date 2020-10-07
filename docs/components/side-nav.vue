@@ -39,7 +39,8 @@ export default {
 <style lang="scss">
 .side-nav {
   display: inline-block;
-  margin: 32px 0;
+  // margin: 32px 0;
+  box-sizing: border-box;
   padding: 0;
   color: #3f536e;
   background-color: #fff;
@@ -49,6 +50,7 @@ export default {
   }
   .side-nav-title {
     padding: 0 24px 8px;
+    padding-left: 0;
     color: #8dabc4;
     font-size: 12px;
     font-weight: bold;
@@ -63,6 +65,7 @@ export default {
       display: block;
       position: relative;
       padding: 8px 24px;
+      padding-left: 0;
       color: #3f536e;
       font-weight: normal;
       line-height: 1.5;
@@ -72,13 +75,15 @@ export default {
       display: block;
       position: relative;
       padding: 6px 0 6px 24px;
+      padding-left: 0;
       color: #2c405a;
       font-weight: bold;
     }
     .slid-nav-component {
       display: block;
       position: relative;
-      padding: 6px 24px 6px 32px;
+      padding: 6px 24px 6px 8px;
+      // padding-left: 0;
       color: #616367;
       font-size: 14px;
     }

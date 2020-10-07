@@ -40,6 +40,8 @@ export default {
     margin: 0 auto;
     text-align: center;
     padding: 100px 0;
+    position: relative;
+    z-index: 100;
     p {
       margin-top: 56px;
       color: #8994c6;

@@ -25,11 +25,6 @@
       "type": "guide"
     },
     {
-      "name": "index",
-      "path": "/",
-      "type": "pages"
-    },
-    {
       "name": "logs",
       "path": "/logs",
       "desc": "Logs",
