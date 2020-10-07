@@ -2,11 +2,11 @@
   <div class="pg-index">
     <div class="index-container">
       <img src="../assets/img/logo.png" />
-      <p>一款轻量级、模块化的前端 UI 组件库</p>
+      <p>{{message}}</p>
     </div>
     <div class="separate-panel">
       <div class="about">
-        <router-link :to="{ name: 'giud' }">开始使用</router-link>
+        <router-link :to="{ name: 'giud' }">{{startToUse}}</router-link>
         <a target="_blank" class="btn-github" href="https://github.com/c10342/lin-view-ui">GitHub</a>
       </div>
     </div>
@@ -14,11 +14,22 @@
 </template>
 
 <script>
+import {getLang} from '../utils/lang'
+import langConfig from '../i18n/index'
+const lang = getLang()
 export default {
   data() {
     return {
       height: document.documentElement.clientHeight
     };
+  },
+  computed:{
+    message(){
+      return langConfig[lang].index.message
+    },
+    startToUse(){
+      return langConfig[lang].index.startToUse
+    }
   }
 };
 </script>

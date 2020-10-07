@@ -7,6 +7,10 @@ export default {
         header:{
             component:'组件',
             langTitle:'中文'
+        },
+        index:{
+            message:'一款轻量级、模块化的前端 UI 组件库',
+            startToUse:'开始使用'
         }
     },
     'en-US':{
@@ -17,6 +21,10 @@ export default {
         header:{
             component:'Component',
             langTitle:'English'
+        },
+        index:{
+            message:'A lightweight, modular front-end UI component library',
+            startToUse:'Getting started'
         }
     }
 }
