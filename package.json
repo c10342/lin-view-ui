@@ -1,6 +1,6 @@
 {
   "name": "lin-view-ui",
-  "version": "1.0.14",
+  "version": "1.0.16",
   "description": "vue components library",
   "author": "c10342",
   "private": false,
@@ -29,7 +29,7 @@
     "build": "rimraf lib && npm run build:index && npm run build:components && npm run build:locale",
     "build:index": "cross-env BUILD_TYPE=index vue-cli-service build --no-clean",
     "build:components": "cross-env BUILD_TYPE=components vue-cli-service build --no-clean",
-    "build:utils": "rimraf lib && npm run build:utils:index && npm run build:utils:components",
+    "build:utils": "rimraf utils && npm run build:utils:index && npm run build:utils:components",
     "build:utils:index": "cross-env NODE_ENV=utils BUILD_TYPE=index vue-cli-service build --no-clean",
     "build:utils:components": "cross-env NODE_ENV=utils vue-cli-service build --no-clean",
     "build:docs": "cross-env NODE_ENV=docs vue-cli-service build",
