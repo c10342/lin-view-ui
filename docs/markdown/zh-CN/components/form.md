@@ -153,7 +153,7 @@ export default {
       </lin-form-item>
       <lin-form-item>
         <lin-button type="primary" @click="validate">提交</lin-button>
-        <lin-button style="margin-left:10px" @click="resetForm">提交</lin-button>
+        <lin-button style="margin-left:10px" @click="resetForm">重置</lin-button>
       </lin-form-item>
     </lin-form>
 </div>
@@ -183,7 +183,7 @@ export default {
   </lin-form-item>
   <lin-form-item>
     <lin-button type="primary" @click="validate">提交</lin-button>
-    <lin-button @click="resetForm">提交</lin-button>
+    <lin-button @click="resetForm">重置</lin-button>
   </lin-form-item>
 </lin-form>
 
@@ -251,6 +251,7 @@ export default {
 | 方法名   | 说明                                                                                                         | 参数                                  |
 | -------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
 | validate | 对整个表单进行校验的方法，参数为一个回调函数。该回调函数会在校验结束后被调用，并传入一个参数：是否校验成功。 | Function(callback: Function(boolean)) |
+| clearValidate | 移除该表单项的校验结果 | — |
 
 ## FormItem 属性
 
@@ -258,6 +259,7 @@ export default {
 | ----- | ----------------- | ------ | --------------------------------- | ------ |
 | label | 标签文本          | String | —                                 | —      |
 | prop  | 表单域 model 字段 | String | 传入 Form 组件的 `model` 中的字段 | —      |
+| labelWidth | 表单域标签的宽度                      | String | —      | —   |
 
 ## FormItem 插槽
 

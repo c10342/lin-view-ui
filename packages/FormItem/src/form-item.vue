@@ -1,11 +1,11 @@
 <template>
   <div class="lin-form-item">
-    <label v-if="label" class="lin-form-item-label" :style="{width: labelWidth}">{{label}}</label>
+    <label v-if="label" class="lin-form-item-label" :style="{width: itemLabelWidth}">{{label}}</label>
     <div class="lin-form-item-content">
       <slot></slot>
     </div>
     <transition name="lin-formItem-fade">
-      <p v-if="errorMsg" class="lin-form-item-errormsg" :style="{left:labelWidth}">{{errorMsg}}</p>
+      <p v-if="errorMsg" class="lin-form-item-errormsg" :style="{left:itemLabelWidth}">{{errorMsg}}</p>
     </transition>
   </div>
 </template>
@@ -17,6 +17,7 @@ export default {
   props: {
     label: String,
     prop: String,
+    labelWidth:String
   },
   inject: ["Form"],
   data() {
@@ -61,8 +62,11 @@ export default {
     },
   },
   computed: {
-    labelWidth() {
+    itemLabelWidth() {
       if (this.label) {
+        if(this.labelWidth){
+          return this.labelWidth
+        }
         return this.Form.labelWidth;
       }
       return 0;
