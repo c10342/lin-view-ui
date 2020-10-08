@@ -36,14 +36,14 @@ module.exports = {
     entry: entryObj,
     output: output,
     resolve: baseConfig.resolve,
-    externals: {
-      vue: {
-        root: 'Vue',
-        commonjs: 'vue',
-        commonjs2: 'vue',
-        amd: 'vue'
-      }
-    },
+    // externals: {
+    //   vue: {
+    //     root: 'Vue',
+    //     commonjs: 'vue',
+    //     commonjs2: 'vue',
+    //     amd: 'vue'
+    //   }
+    // },
     module: {
       rules: [
         {
