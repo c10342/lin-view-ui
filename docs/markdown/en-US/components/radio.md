@@ -10,24 +10,24 @@ export default {
 };
 </script>
 
-# Radio 单选框
+# Radio
 
 ---
 
-## 基础用法
+## Basic usage
 
-要使用 Radio 组件，只需要设置 `v-model` 绑定变量，选中意味着变量的值为相应 Radio `label` 属性的值，label 可以是 `String` 、 `Number` 或 `Boolean`
+To use the radio component, you only need to set the `v-model` binding variable. Selecting means that the value of the variable is the value of the corresponding radio `label` property. The label can be `String`,`Number` or `Boolean`
 
 <div class='demo-block'>
-<lin-radio label="1" v-model="value1">男</lin-radio>
-<lin-radio label="2" v-model="value1">女</lin-radio>
+<lin-radio label="1" v-model="value1">man</lin-radio>
+<lin-radio label="2" v-model="value1">woman</lin-radio>
 </div>
 
 :::demo
 
 ```html
-<lin-radio label="1" v-model="value1">男</lin-radio>
-<lin-radio label="2" v-model="value1">女</lin-radio>
+<lin-radio label="1" v-model="value1">man</lin-radio>
+<lin-radio label="2" v-model="value1">woman</lin-radio>
 
 <script>
   export default {
@@ -42,20 +42,20 @@ export default {
 
 :::
 
-## 禁用状态
+## Disabled
 
-只要在 `lin-radio` 或者 `lin-radio-group` 元素中设置 `disabled` 属性即可，它接受一个 `Boolean` ，`true` 为禁用
+Just set the `disabled` attribute in the `lin-radio` or `lin-radio-group` elements. It accepts a `Boolean` and `true` is disabled
 
 <div class='demo-block'>
-<lin-radio disabled label="1" v-model="value2">男</lin-radio>
-<lin-radio disabled label="2" v-model="value2">女</lin-radio>
+<lin-radio disabled label="1" v-model="value2">man</lin-radio>
+<lin-radio disabled label="2" v-model="value2">woman</lin-radio>
 </div>
 
 :::demo
 
 ```html
-<lin-radio disabled label="1" v-model="value2">男</lin-radio>
-<lin-radio disabled label="2" v-model="value2">女</lin-radio>
+<lin-radio disabled label="1" v-model="value2">man</lin-radio>
+<lin-radio disabled label="2" v-model="value2">woman</lin-radio>
 
 <script>
   export default {
@@ -70,14 +70,14 @@ export default {
 
 :::
 
-## 单选框组
+## Radio box group
 
-结合 `lin-radio-group` 元素和子元素 `lin-radio` 可以实现单选组，在 `lin-radio-group` 中绑定 `v-model` ，在 `lin-radio` 中设置好 `label` 即可，无需再给每一个 `lin-radio` 绑定变量。
+The combination of the `lin-radio-group` element and the sub element `lin-radio` can realize the single selection group. Bind the `v-model` in the `lin-radio-group` and set the `label` in the `lin-radio` field. There is no need to bind each `lin-radio` variable.
 
 <div class='demo-block'>
     <lin-radio-group v-model="value3">
-      <lin-radio label="3">男</lin-radio>
-      <lin-radio label="4">女</lin-radio>
+      <lin-radio label="3">man</lin-radio>
+      <lin-radio label="4">woman</lin-radio>
     </lin-radio-group>
 </div>
 
@@ -85,8 +85,8 @@ export default {
 
 ```html
 <lin-radio-group v-model="value3">
-  <lin-radio label="3">男</lin-radio>
-  <lin-radio label="4">女</lin-radio>
+  <lin-radio label="3">man</lin-radio>
+  <lin-radio label="4">woman</lin-radio>
 </lin-radio-group>
 
 <script>
@@ -102,24 +102,24 @@ export default {
 
 :::
 
-## Radio 属性
+## Radio Attributes
 
-| 参数            | 说明           | 类型                    | 可选值 | 默认值 |
+| Attribute            | Description           | Type                    | Accepted Values | Default |
 | --------------- | -------------- | ----------------------- | ------ | ------ |
-| value / v-model | 绑定值         | String, Number, Boolean | —      | —      |
-| label           | Radio 的 value | String, Number, Boolean | —      | —      |
-| name            | 原生属性 name  | String                  | —      | —      |
-| disabled        | 是否禁用       | Boolean                 | —      | false  |
+| value / v-model | binding value         | String, Number, Boolean | —      | —      |
+| label           | the value of Radio | String, Number, Boolean | —      | —      |
+| name            | native 'name' attribute  | String                  | —      | —      |
+| disabled        | whether Radio is disabled       | Boolean                 | —      | false  |
 
-## Radio 插槽
+## Radio slots
 
-| 插槽名称 | 说明           |
+| Name | Description           |
 | -------- | -------------- |
-| —        | 自定义标签内容 |
+| —        | Custom label content |
 
-## RadioGroup 属性
+## RadioGroup Attributes
 
-| 参数            | 说明     | 类型                    | 可选值 | 默认值 |
+| Attribute            | Description     | Type                    | Accepted Values | Default |
 | --------------- | -------- | ----------------------- | ------ | ------ |
-| value / v-model | 绑定值   | String, Number, Boolean | —      | —      |
-| disabled        | 是否禁用 | Boolean                 | —      | false  |
+| value / v-model | binding value   | String, Number, Boolean | —      | —      |
+| disabled        | whether RadioGroup is disabled | Boolean                 | —      | false  |

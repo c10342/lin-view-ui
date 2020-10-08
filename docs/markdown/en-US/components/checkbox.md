@@ -10,22 +10,22 @@ export default {
 };
 </script>
 
-# Checkbox 多选框
+# Checkbox
 
 ---
 
-## 基础用法
+## Basic usage
 
-要使用 Checkbox 组件，只需要设置 `v-model` 绑定变量，选中意味着变量的值为`Boolean`
+To use the checkbox component, you only need to set the `v-model` binding variable. Selecting means that the value of the variable is `Boolean`
 
 <div class='demo-block'>
-<lin-checkbox v-model="value1">男</lin-checkbox>
+<lin-checkbox v-model="value1">man</lin-checkbox>
 </div>
 
 :::demo
 
 ```html
-<lin-checkbox v-model="value1">男</lin-checkbox>
+<lin-checkbox v-model="value1">man</lin-checkbox>
 
 <script>
   export default {
@@ -40,15 +40,15 @@ export default {
 
 :::
 
-## 禁用状态
+## Disabled
 
-只要在 `lin-checkbox` 或者 `lin-checkbox-group` 元素中设置 `disabled` 属性即可，它接受一个 `Boolean` ，`true` 为禁用
+Just set the `disabled` attribute in the `lin-checkbox` or `lin-checkbox-group` elements. It accepts a `Boolean` and `true` is disabled
 
 <div class='demo-block'>
 <lin-checkbox-group disabled v-model="value2">
-      <lin-checkbox label="抽烟"></lin-checkbox>
-      <lin-checkbox label="喝酒"></lin-checkbox>
-      <lin-checkbox label="探头"></lin-checkbox>
+      <lin-checkbox label="smoking"></lin-checkbox>
+      <lin-checkbox label="drink"></lin-checkbox>
+      <lin-checkbox label="probe"></lin-checkbox>
     </lin-checkbox-group>
 </div>
 
@@ -56,9 +56,9 @@ export default {
 
 ```html
 <lin-checkbox-group disabled v-model="value2">
-  <lin-checkbox label="抽烟"></lin-checkbox>
-  <lin-checkbox label="喝酒"></lin-checkbox>
-  <lin-checkbox label="探头"></lin-checkbox>
+  <lin-checkbox label="smoking"></lin-checkbox>
+  <lin-checkbox label="drink"></lin-checkbox>
+  <lin-checkbox label="probe"></lin-checkbox>
 </lin-checkbox-group>
 
 <script>
@@ -74,15 +74,15 @@ export default {
 
 :::
 
-## 多选框组
+## Multi box group
 
-结合 `lin-checkbox-group` 元素和子元素 `lin-checkbox` 可以实现多选组，在 `lin-checkbox-group` 中绑定 `v-model` ，在 `lin-checkbox` 中设置好 `label` 即可，无需再给每一个 `lin-checkbox` 绑定变量。
+The combination of the `lin-checkbox-group` element and the sub element `lin-checkbox` can realize multiple selection of groups. Bind the `v-model` in the `lin-checkbox-group` and set the `label` in the `lin-checkbox`. There is no need to bind variables to each `lin-checkbox`.
 
 <div class='demo-block'>
     <lin-checkbox-group v-model="value3">
-      <lin-checkbox label="抽烟"></lin-checkbox>
-      <lin-checkbox label="喝酒"></lin-checkbox>
-      <lin-checkbox label="探头"></lin-checkbox>
+      <lin-checkbox label="smoking"></lin-checkbox>
+      <lin-checkbox label="drink"></lin-checkbox>
+      <lin-checkbox label="probe"></lin-checkbox>
     </lin-checkbox-group>
 </div>
 
@@ -90,9 +90,9 @@ export default {
 
 ```html
 <lin-checkbox-group v-model="value3">
-  <lin-checkbox label="抽烟"></lin-checkbox>
-  <lin-checkbox label="喝酒"></lin-checkbox>
-  <lin-checkbox label="探头"></lin-checkbox>
+  <lin-checkbox label="smoking"></lin-checkbox>
+  <lin-checkbox label="drink"></lin-checkbox>
+  <lin-checkbox label="probe"></lin-checkbox>
 </lin-checkbox-group>
 
 <script>
@@ -108,24 +108,26 @@ export default {
 
 :::
 
-## Checkbox 属性
 
-| 参数            | 说明                                                    | 类型                    | 可选值 | 默认值 |
+
+## Checkbox Attributes
+
+| Attribute            | Description                                                    | Type                    | Accepted Values | Default |
 | --------------- | ------------------------------------------------------- | ----------------------- | ------ | ------ |
-| value / v-model | 绑定值                                                  | String, Number, Boolean | —      | —      |
-| label           | lin-checkbox 的 value，只能结合 lin-checkbox-group 使用 | String, Number, Boolean | —      | —      |
-| name            | 原生属性 name                                           | String                  | —      | —      |
-| disabled        | 是否禁用                                                | Boolean                 | —      | false  |
+| value / v-model | binding value                                                  | String, Number, Boolean | —      | —      |
+| label           | The value of lin-checkbox can only be used in combination with lin-checkbox-group | String, Number, Boolean | —      | —      |
+| name            | Native attribute name                                           | String                  | —      | —      |
+| disabled        | whether the Checkbox is disabled                                                | Boolean                 | —      | false  |
 
-## Checkbox 插槽
+## Checkbox Slots
 
-| 插槽名称 | 说明           |
+| Name | Description           |
 | -------- | -------------- |
-| —        | 自定义标签内容 |
+| —        | Custom label content |
 
-## CheckboxGroup 属性
+## CheckboxGroup Attributes
 
-| 参数            | 说明     | 类型                    | 可选值 | 默认值 |
+| Attribute            | Description     | Type                    | Accepted Values | Default |
 | --------------- | -------- | ----------------------- | ------ | ------ |
-| value / v-model | 绑定值   | String, Number, Boolean | —      | —      |
-| disabled        | 是否禁用 | Boolean                 | —      | false  |
+| value / v-model | binding value   | String, Number, Boolean | —      | —      |
+| disabled        | whether the CheckboxGroup is disabled | Boolean                 | —      | false  |

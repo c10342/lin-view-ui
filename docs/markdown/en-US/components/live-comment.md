@@ -53,7 +53,7 @@ export default {
 
 ---
 
-## 基础用法
+## Basic usage
 
 <div class='demo-block'>
     <lin-live-comment
@@ -185,7 +185,7 @@ export default {
 
 ## 属性
 
-| 参数          | 说明                                                                                             | 类型    | 可选值 | 默认值   |
+| 参数          | 说明                                                                                             | Type    | Accepted Values | Default   |
 | ------------- | ------------------------------------------------------------------------------------------------ | ------- | ------ | -------- |
 | commentList   | 评论列表，格式[{_username:'',_createTimeTip:'',_content:'',_avatorUrl:''}]                       | Array   | —      | []       |
 | fixComment    | 悬浮的评论，格式{\_username:'',\_content:''}，当 fixComment 不为空并且列表没有滚动到最底部时显示 | Object  |        | null     |
@@ -202,7 +202,7 @@ export default {
 
 ## 插槽
 
-| 插槽名称   | 说明                       |
+| Name   | 说明                       |
 | ---------- | -------------------------- |
 | —          | 评论列表项内容             |
 | title      | 标题区的内容               |
@@ -211,7 +211,7 @@ export default {
 
 ## 事件
 
-| 事件名称      | 说明                 | 回调参数 |
+| Event Name      | 说明                 | Parameters |
 | ------------- | -------------------- | -------- |
 | toBottom      | 列表滚动到底部时触发 | —        |
 | scroll        | 列表滚动时触发       | e(Event) |

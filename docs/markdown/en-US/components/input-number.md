@@ -16,9 +16,9 @@ export default {
 
 ---
 
-## 基础用法
+## Basic usage
 
-要使用它，只需要在 `lin-input-number` 元素中使用 `v-model` 绑定变量即可，变量的初始值即为默认值。
+要使用它，只需要在 `lin-input-number` 元素中使用 `v-model` 绑定变量即可，变量的初始值即为Default。
 
 <div class='demo-block'>
 <lin-input-number v-model="value1" />
@@ -119,7 +119,7 @@ export default {
 
 ## 属性
 
-| 参数            | 说明                     | 类型    | 可选值 | 默认值    |
+| 参数            | 说明                     | Type    | Accepted Values | Default    |
 | --------------- | ------------------------ | ------- | ------ | --------- |
 | value / v-model | 绑定值                   | Number  | —      | —         |
 | min             | 设置计数器允许的最小值   | Number  | —      | -Infinity |
@@ -131,7 +131,7 @@ export default {
 
 ## 事件
 
-| 事件名称 | 说明          | 回调参数     |
+| Event Name | 说明          | Parameters     |
 | -------- | ------------- | ------------ |
 | reduce   | 点击-号时触发 | value:Number |
 | plus     | 点击+号时触发 | value:Number |

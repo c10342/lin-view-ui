@@ -222,7 +222,7 @@ console.log(loadingInstance1 === loadingInstance2); // true
 
 ## 属性
 
-| 参数       | 说明                                             | 类型    | 可选值 | 默认值        |
+| 参数       | 说明                                             | Type    | Accepted Values | Default        |
 | ---------- | ------------------------------------------------ | ------- | ------ | ------------- |
 | target     | Loading 需要覆盖的 DOM 节点。需传入一个 DOM 对象 | object  | —      | document.body |
 | body       | 同 `v-loading` 指令中的 `body` 修饰符            | Boolean | —      | false         |

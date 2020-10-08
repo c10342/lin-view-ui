@@ -47,11 +47,6 @@
           "path": "/button"
         },
         {
-          "desc": "Dialog 对话框",
-          "name": "dialog",
-          "path": "/dialog"
-        },
-        {
           "desc": "Layout 布局",
           "name": "layout",
           "path": "/layout"
@@ -65,16 +60,6 @@
           "desc": "Collapse 折叠面板",
           "name": "collapse",
           "path": "/collapse"
-        },
-        {
-          "desc": "Choice 选择器",
-          "name": "choice",
-          "path": "/choice"
-        },
-        {
-          "desc": "Dropdown 下拉菜单",
-          "name": "dropdown",
-          "path": "/dropdown"
         }
       ]
     },
@@ -111,6 +96,11 @@
           "desc": "InputNumber 计数器",
           "name": "input-number",
           "path": "/input-number"
+        },
+        {
+          "desc": "Choice 选择器",
+          "name": "choice",
+          "path": "/choice"
         },
         {
           "desc": "Form 表单",
@@ -177,6 +167,16 @@
           "desc": "Pagination 分页",
           "name": "pagination",
           "path": "/pagination"
+        },
+        {
+          "desc": "Dialog 对话框",
+          "name": "dialog",
+          "path": "/dialog"
+        },
+        {
+          "desc": "Dropdown 下拉菜单",
+          "name": "dropdown",
+          "path": "/dropdown"
         }
       ]
     },

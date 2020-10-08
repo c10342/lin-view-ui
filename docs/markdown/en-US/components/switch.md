@@ -11,13 +11,13 @@ export default {
 };
 </script>
 
-# Switch 开关
+# Switch
 
 ---
 
-## 基础用法
+## Basic usage
 
-使用`v-model`进行双向数据绑定即可。
+Bi directional data binding using `v-model`
 
 <div class='demo-block'>
 <lin-switch v-model="value1" />
@@ -41,9 +41,9 @@ export default {
 
 :::
 
-## 背景颜色
+## Background color
 
-使用`activeColor`和`inactiveColor`属性即可设置开关的背景颜色。
+Use the `activeColor` and `inactiveColor` properties to set the background color of the switch
 
 <div class='demo-block'>
 <lin-switch v-model="value2" active-color="green" inactive-color="red" />
@@ -67,9 +67,9 @@ export default {
 
 :::
 
-## 禁用状态
+## Disabled
 
-使用`disabled`属性即可设置开关为不可用状态。
+Adding the disabled attribute `disabled` Switch.
 
 <div class='demo-block'>
 <lin-switch v-model="value3" disabled/>
@@ -93,9 +93,9 @@ export default {
 
 :::
 
-## 原生属性
+## Essential attribute
 
-目前可以绑定原生属性的只有`name`。
+Currently, only `name` can be bound to native properties
 
 <div class='demo-block'>
 <lin-switch v-model="value4" name='userName'/>
@@ -119,12 +119,12 @@ export default {
 
 :::
 
-## 属性
+## Attributes
 
-| 参数            | 说明                  | 类型    | 可选值 | 默认值 |
+| Attribute | Description  | Type  | Accepted Values | Default|
 | --------------- | --------------------- | ------- | ------ | ------ |
-| value / v-model | 绑定值                | Boolean | —      | false  |
-| activeColor     | switch 打开时的背景色 | String  | —      | —      |
-| inactiveColor   | switch 关闭时的背景色 | String  | —      | —      |
-| name            | 原生属性 name         | String  | —      | —      |
-| disabled        | 是否禁用              | Boolean | —      | false  |
+| value / v-model | binding value                | Boolean | —      | false  |
+| activeColor     | Background color when switch is on | String  | —      | —      |
+| inactiveColor   | Background color when switch is off | String  | —      | —      |
+| name            | input name of Switch         | String  | —      | —      |
+| disabled        | whether Switch is disabled              | Boolean | —      | false  |

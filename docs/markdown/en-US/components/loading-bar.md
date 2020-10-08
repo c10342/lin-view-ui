@@ -51,7 +51,7 @@
 全局创建了一个用于显示页面加载、异步请求的加载进度条。
 因为可复用性的关系，`LoadingBar` 只会全局创建一个实例，而且在 `Vue.prototype` 中添加了全局对象 `$loadingBar`，可以直接通过 `this.$loadingBar` 操作实例
 
-## 基础用法
+## Basic usage
 
 通过调用 \$loadingBar 提供的三种方法来控制全局的加载进度条 `start()`、`end()`、`error()`
 
@@ -142,7 +142,7 @@
 
 ## 参数
 
-| 参数        | 说明             | 类型    | 可选值                        | 默认值        |
+| 参数        | 说明             | Type    | Accepted Values                        | Default        |
 | ----------- | ---------------- | ------- | ----------------------------- | ------------- |
 | speed       | 加载速度         | Number  | 0-100                         | 5             |
 | easing      | spinner 加载动画 | String  | linear, ease, cubic-bezier... | linear        |

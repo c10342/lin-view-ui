@@ -50,7 +50,7 @@ export default {
 
 ---
 
-## 基础用法
+## Basic usage
 
 要使用 ScrollView 组件，需要设置 `height` 、 `data` 和 `isEnd` 属性 , `height` 给容器一个固定的高度。`data` 容器内显示的数据，数据发生变化时会重新计算内容的高度。`isEnd` 数据是否全部加载完毕
 
@@ -167,7 +167,7 @@ export default {
 
 ## 属性
 
-| 参数            | 说明                                                  | 类型          | 可选值 | 默认值 |
+| 参数            | 说明                                                  | Type          | Accepted Values | Default |
 | --------------- | ----------------------------------------------------- | ------------- | ------ | ------ |
 | height          | 容器高度                                              | Number        | —      | 700    |
 | isThrottle      | 是否需要节流                                          | Boolean       | —      | true   |
@@ -181,7 +181,7 @@ export default {
 
 ## 插槽
 
-| 插槽名称 | 说明                              |
+| Name | 说明                              |
 | -------- | --------------------------------- |
 | —        | ScrollView 中需要进行滚动的内容   |
 | loading  | ScrollView 上拉加载需要显示的内容 |
@@ -189,7 +189,7 @@ export default {
 
 ## 事件
 
-| 事件名称    | 说明                 | 回调参数 |
+| Event Name    | 说明                 | Parameters |
 | ----------- | -------------------- | -------- |
 | scrollToEnd | 容器滚动到底部时触发 | e(Event) |
 | scroll      | 容器正在滚动时触发   | e(Event) |

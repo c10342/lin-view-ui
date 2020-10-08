@@ -577,10 +577,10 @@ export default {
 
 ## 参数
 
-| 名称       | 说明                                             | 类型                               | 可选值        | 默认值 |
+| 名称       | 说明                                             | Type                               | Accepted Values        | Default |
 | ---------- | ------------------------------------------------ | ---------------------------------- | ------------- | ------ |
 | el         | 播放器容器元素，必填项                           | String                             | HTMLElement   | —      | — |
-| type       | 播放类型，必填项，当 customType 参数存在时非必填 | String                             | mp4、hls、flv | —      |
+| type       | 播放Type，必填项，当 customType 参数存在时非必填 | String                             | mp4、hls、flv | —      |
 | autoplay   | 视频自动播放                                     | Boolean                            | —             | false  |
 | speedList  | 视频速度倍数列表                                 | Ayyay<{label:string,value:string}> | —             | —      |
 | videoList  | 视频列表，必填项                                 | Ayyay<{label:string,url:string}>   | —             | —      |

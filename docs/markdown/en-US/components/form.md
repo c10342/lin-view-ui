@@ -15,15 +15,15 @@ export default {
         isPublich: false
       },
       rules: {
-        userName: [{ required: true, message: "请输入用户名" }],
+        userName: [{ required: true, message: "Please enter user name" }],
         sex: [
-          { required: true, message: "请选择性别" },
-          { pattern: "3", message: "请选择男性" }
+          { required: true, message: "Please select gender" },
+          { pattern: "3", message: "Please select male" }
         ],
-        hobby: [{ required: true, message: "请选择爱好" }],
+        hobby: [{ required: true, message: "Please choose a hobby" }],
         isPublich: [
-          { required: true, message: "请选择" },
-          { type: "enum", enum: [true], message: "请公开" }
+          { required: true, message: "Please select" },
+          { type: "enum", enum: [true], message: "Please make it public" }
         ]
       }
     };
@@ -32,9 +32,9 @@ export default {
     validate() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          alert("校验成功！");
+          alert("dVerification successful!");
         } else {
-          alert("校验失败！");
+          alert("Verification failed!");
         }
       });
     },
@@ -45,37 +45,38 @@ export default {
 };
 </script>
 
-# Form 表单
+# Form
 
 ---
 
-## 基础用法
+## Basic usage
 
-在 Form 组件中，每一个表单域由一个 Form-Item 组件构成，表单域中可以放置各种类型的表单控件，包括 Input、Checkbox、Radio、Switch
+In the Form component, each form field is composed of a Form-Item component. Various types of form controls can be placed in the form field, including Input, Checkbox, Radio, Switch
+
 
 <div class='demo-block'>
      <lin-form :model="form">
-      <lin-form-item label="用户名">
-        <lin-input v-model="form.userName" placeholder="请输入用户名" />
+      <lin-form-item label="UserName">
+        <lin-input v-model="form.userName" placeholder="Please enter user name" />
       </lin-form-item>
-      <lin-form-item label="性别">
+      <lin-form-item label="Gender">
         <lin-radio-group v-model="form.sex">
-          <lin-radio label="3">男</lin-radio>
-          <lin-radio label="4">女</lin-radio>
+          <lin-radio label="3">man</lin-radio>
+          <lin-radio label="4">woman</lin-radio>
         </lin-radio-group>
       </lin-form-item>
-      <lin-form-item label="爱好">
+      <lin-form-item label="hobby">
         <lin-checkbox-group v-model="form.hobby">
-          <lin-checkbox label="抽烟"></lin-checkbox>
-          <lin-checkbox label="喝酒"></lin-checkbox>
-          <lin-checkbox label="探头"></lin-checkbox>
+          <lin-checkbox label="smoking"></lin-checkbox>
+          <lin-checkbox label="drink"></lin-checkbox>
+          <lin-checkbox label="probe"></lin-checkbox>
         </lin-checkbox-group>
       </lin-form-item>
-      <lin-form-item label="是否公开">
+      <lin-form-item label="Public">
         <lin-switch v-model="form.sPublich" />
       </lin-form-item>
       <lin-form-item style='text-align:center;'>
-        <lin-button type="primary">提交</lin-button>
+        <lin-button type="primary">Submit</lin-button>
       </lin-form-item>
     </lin-form>
 </div>
@@ -84,27 +85,27 @@ export default {
 
 ```html
 <lin-form :model="form">
-  <lin-form-item label="用户名">
-    <lin-input v-model="form.userName" placeholder="请输入用户名" />
+  <lin-form-item label="UserName">
+    <lin-input v-model="form.userName" placeholder="Please enter user name" />
   </lin-form-item>
-  <lin-form-item label="性别">
+  <lin-form-item label="Gender">
     <lin-radio-group v-model="form.sex">
-      <lin-radio label="3">男</lin-radio>
-      <lin-radio label="4">女</lin-radio>
+      <lin-radio label="3">man</lin-radio>
+      <lin-radio label="4">woman</lin-radio>
     </lin-radio-group>
   </lin-form-item>
-  <lin-form-item label="爱好">
+  <lin-form-item label="hobby">
     <lin-checkbox-group v-model="form.hobby">
-      <lin-checkbox label="抽烟"></lin-checkbox>
-      <lin-checkbox label="喝酒"></lin-checkbox>
-      <lin-checkbox label="探头"></lin-checkbox>
+      <lin-checkbox label="smoking"></lin-checkbox>
+      <lin-checkbox label="drink"></lin-checkbox>
+      <lin-checkbox label="probe"></lin-checkbox>
     </lin-checkbox-group>
   </lin-form-item>
-  <lin-form-item label="是否公开">
+  <lin-form-item label="Public">
     <lin-switch v-model="form.isPublich" />
   </lin-form-item>
   <lin-form-item style="text-align:center;">
-    <lin-button type="primary">提交</lin-button>
+    <lin-button type="primary">Submit</lin-button>
   </lin-form-item>
 </lin-form>
 
@@ -126,34 +127,34 @@ export default {
 
 :::
 
-## 表单校验
+## Form verification
 
-数据校验内部使用的是 `async-validator`，更多高级用法可参考 [async-validator](https://github.com/yiminghe/async-validator)
+Data validation internally uses `async-validator`. For more advanced usage, please refer to [async-validator](https://github.com/yiminghe/async-validator)
 
 <div class='demo-block'>
   <lin-form :model="form1" :rules="rules" ref="loginForm">
-      <lin-form-item label="用户名" prop="userName">
-        <lin-input v-model="form1.userName" placeholder="请输入用户名" />
+      <lin-form-item label="UserName" prop="userName">
+        <lin-input v-model="form1.userName" placeholder="Please enter user name" />
       </lin-form-item>
-      <lin-form-item label="性别" prop="sex">
+      <lin-form-item label="Gender" prop="sex">
         <lin-radio-group v-model="form1.sex">
-          <lin-radio label="3">男</lin-radio>
-          <lin-radio label="4">女</lin-radio>
+          <lin-radio label="3">man</lin-radio>
+          <lin-radio label="4">woman</lin-radio>
         </lin-radio-group>
       </lin-form-item>
-      <lin-form-item label="爱好" prop="hobby">
+      <lin-form-item label="hobby" prop="hobby">
         <lin-checkbox-group v-model="form1.hobby">
-          <lin-checkbox label="抽烟"></lin-checkbox>
-          <lin-checkbox label="喝酒"></lin-checkbox>
-          <lin-checkbox label="探头"></lin-checkbox>
+          <lin-checkbox label="smoking"></lin-checkbox>
+          <lin-checkbox label="drink"></lin-checkbox>
+          <lin-checkbox label="probe"></lin-checkbox>
         </lin-checkbox-group>
       </lin-form-item>
-      <lin-form-item label="是否公开" prop="isPublich">
+      <lin-form-item label="Public" prop="isPublich">
         <lin-switch v-model="form1.isPublich" />
       </lin-form-item>
       <lin-form-item>
-        <lin-button type="primary" @click="validate">提交</lin-button>
-        <lin-button style="margin-left:10px" @click="resetForm">提交</lin-button>
+        <lin-button type="primary" @click="validate">Submit</lin-button>
+        <lin-button style="margin-left:10px" @click="resetForm">Reset</lin-button>
       </lin-form-item>
     </lin-form>
 </div>
@@ -162,28 +163,28 @@ export default {
 
 ```html
 <lin-form :model="form1" :rules="rules" ref="loginForm">
-  <lin-form-item label="用户名" prop="userName">
-    <lin-input v-model="form1.userName" placeholder="请输入用户名" />
+  <lin-form-item label="UserName" prop="userName">
+    <lin-input v-model="form1.userName" placeholder="Please enter user name" />
   </lin-form-item>
-  <lin-form-item label="性别" prop="sex">
+  <lin-form-item label="Gender" prop="sex">
     <lin-radio-group v-model="form1.sex">
-      <lin-radio label="3">男</lin-radio>
-      <lin-radio label="4">女</lin-radio>
+      <lin-radio label="3">man</lin-radio>
+      <lin-radio label="4">woman</lin-radio>
     </lin-radio-group>
   </lin-form-item>
-  <lin-form-item label="爱好" prop="hobby">
+  <lin-form-item label="hobby" prop="hobby">
     <lin-checkbox-group v-model="form1.hobby">
-      <lin-checkbox label="抽烟"></lin-checkbox>
-      <lin-checkbox label="喝酒"></lin-checkbox>
-      <lin-checkbox label="探头"></lin-checkbox>
+      <lin-checkbox label="smoking"></lin-checkbox>
+      <lin-checkbox label="drink"></lin-checkbox>
+      <lin-checkbox label="probe"></lin-checkbox>
     </lin-checkbox-group>
   </lin-form-item>
-  <lin-form-item label="是否公开" prop="isPublich">
+  <lin-form-item label="Public" prop="isPublich">
     <lin-switch v-model="form1.isPublich" />
   </lin-form-item>
   <lin-form-item>
-    <lin-button type="primary" @click="validate">提交</lin-button>
-    <lin-button @click="resetForm">提交</lin-button>
+    <lin-button type="primary" @click="validate">Submit</lin-button>
+    <lin-button @click="resetForm">Reset</lin-button>
   </lin-form-item>
 </lin-form>
 
@@ -198,15 +199,15 @@ export default {
           isPublich: false,
         },
         rules: {
-          userName: [{ required: true, message: "请输入用户名" }],
+          userName: [{ required: true, message: "Please enter user name" }],
           sex: [
-            { required: true, message: "请选择性别" },
-            { pattern: "3", message: "请选择男性" },
+            { required: true, message: "Please select gender" },
+            { pattern: "3", message: "Please select male" },
           ],
-          hobby: [{ required: true, message: "请选择爱好" }],
+          hobby: [{ required: true, message: "Please choose a hobby" }],
           isPublich: [
-            { required: true, message: "请选择" },
-            { type: "enum", enum: [true], message: "请公开" },
+            { required: true, message: "Please select" },
+            { type: "enum", enum: [true], message: "Please make it public" },
           ],
         },
       };
@@ -216,9 +217,9 @@ export default {
       validate() {
         this.$refs.loginForm.validate((valid) => {
           if (valid) {
-            alert("校验成功！");
+            alert("dVerification successful!");
           } else {
-            alert("校验失败！");
+            alert("Verification failed!");
           }
         });
       },
@@ -234,33 +235,35 @@ export default {
 
 ## Form 属性
 
-| 参数       | 说明                                  | 类型   | 可选值 | 默认值 |
+| Attribute       | Description                                  | Type   | Accepted Values | Default |
 | ---------- | ------------------------------------- | ------ | ------ | ------ |
-| model      | 表单数据对象                          | Object | —      | —      |
-| labelWidth | 表单域标签的宽度                      | String | —      | 80px   |
-| rules      | 表单校验规则，可参考`async-validator` | Object | —      | —      |
+| model      | data of form component                          | Object | —      | —      |
+| labelWidth | The width of the form field label                      | String | —      | 80px   |
+| rules      | validation rules of form,reference to`async-validator` | Object | —      | —      |
 
-## Form 事件
+## Form Events
 
-| 事件名称 | 说明                   | 回调参数                                                   |
+| Event Name | Description                   | Parameters                                                   |
 | -------- | ---------------------- | ---------------------------------------------------------- |
-| validate | 任一表单项被校验后触发 | 被校验的表单项 prop 值，校验是否通过，错误消息（如果存在） |
+| validate | Triggered after any table item is checked | The prop value of the verified form item, whether the verification passed or not, and the error message (if any) |
 
-## Form 方法
+## Form Methods
 
-| 方法名   | 说明                                                                                                         | 参数                                  |
+| Method   | Description                                                                                                         | Parameters                                  |
 | -------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
-| validate | 对整个表单进行校验的方法，参数为一个回调函数。该回调函数会在校验结束后被调用，并传入一个参数：是否校验成功。 | Function(callback: Function(boolean)) |
+| validate | The method for verifying the whole form. The parameter is a callback function. The callback function will be called after the end of verification, and pass in a parameter: whether the verification is successful or not | Function(callback: Function(boolean)) |
+| clearValidate | remove validation status of the field |—      |
 
-## FormItem 属性
+## FormItem Attributes
 
-| 参数  | 说明              | 类型   | 可选值                            | 默认值 |
+| Attribute  | Description              | Type   | Accepted Values                            | Default |
 | ----- | ----------------- | ------ | --------------------------------- | ------ |
-| label | 标签文本          | String | —                                 | —      |
-| prop  | 表单域 model 字段 | String | 传入 Form 组件的 `model` 中的字段 | —      |
+| label | label          | String | —                                 | —      |
+| prop  | a key of model. In the use of validate and resetFields method, the attribute is required | String | keys of `model` that passed to form | —      |
+| labelWidth | The width of the form field label                      | String | —      | —   |
 
-## FormItem 插槽
+## FormItem Slot
 
-| 插槽名称 | 说明           |
+| Name | Description           |
 | -------- | -------------- |
-| —        | 自定义表单内容 |
+| —        | content of Form Item |

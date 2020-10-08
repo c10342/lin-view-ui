@@ -466,7 +466,7 @@ Taking example by Bootstrap's responsive design, five breakpoints are preset: `x
 
 ## Row Attributes
 
-| 参数    | 说明                                  | 类型   | 可选值                            | 默认值 |
+| 参数    | 说明                                  | Type   | Accepted Values                            | Default |
 | ------- | ------------------------------------- | ------ | --------------------------------- | ------ |
 | gutter  | grid spacing                              | Number | —                                 | 0      |
 | type    | layout mode, you can use flex, works in modern browsers | String | —                                 | —      |
@@ -476,7 +476,7 @@ Taking example by Bootstrap's responsive design, five breakpoints are preset: `x
 
 ## Col Attributes
 
-| 参数   | 说明                                  | 类型                                        | 可选值 | 默认值 |
+| 参数   | 说明                                  | Type                                        | Accepted Values | Default |
 | ------ | ------------------------------------- | ------------------------------------------- | ------ | ------ |
 | span   | number of column the grid spans                        | Number                                      | —      | 24     |
 | offset | number of spacing on the left side of the grid                    | Number                                      | —      | 0      |

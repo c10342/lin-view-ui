@@ -24,7 +24,7 @@
 
 Tooltip 组件提供了一个 `v-tooltip` 指令，其效果跟dom标签的原生属性title类似，只是美化title的效果，并且定制了一系列属性
 
-## 基础用法
+## Basic usage
 
 在这里我们提供 4 种不同方向的展示方式，`v-tooltip`的绑定值就是提示的文字，默认是展示方向是下边
 
@@ -112,7 +112,7 @@ Tooltip 组件提供了一个 `v-tooltip` 指令，其效果跟dom标签的原�
 
 ## 属性
 
-| 参数             | 说明                                                                              | 类型    | 可选值 | 默认值 |
+| 参数             | 说明                                                                              | Type    | Accepted Values | Default |
 | ---------------- | --------------------------------------------------------------------------------- | ------- | ------ | ------ |
 | top              | `v-tooltip` 指令中的 `top` 修饰符，设置tooltip展示方向为上边                      | Boolean | —      | false  |
 | bottom           | `v-tooltip` 指令中的 `bottom` 修饰符，设置tooltip展示方向为下边                   | Boolean | —      | true   |

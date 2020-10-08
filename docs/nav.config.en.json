@@ -47,11 +47,6 @@
           "path": "/button"
         },
         {
-          "desc": "Dialog",
-          "name": "dialog",
-          "path": "/dialog"
-        },
-        {
           "desc": "Layout",
           "name": "layout",
           "path": "/layout"
@@ -65,16 +60,6 @@
           "desc": "Collapse",
           "name": "collapse",
           "path": "/collapse"
-        },
-        {
-          "desc": "Choice",
-          "name": "choice",
-          "path": "/choice"
-        },
-        {
-          "desc": "Dropdown",
-          "name": "dropdown",
-          "path": "/dropdown"
         }
       ]
     },
@@ -111,6 +96,11 @@
           "desc": "InputNumber",
           "name": "input-number",
           "path": "/input-number"
+        },
+        {
+          "desc": "Choice",
+          "name": "choice",
+          "path": "/choice"
         },
         {
           "desc": "Form",
@@ -177,6 +167,16 @@
           "desc": "Pagination",
           "name": "pagination",
           "path": "/pagination"
+        },
+        {
+          "desc": "Dialog",
+          "name": "dialog",
+          "path": "/dialog"
+        },
+        {
+          "desc": "Dropdown",
+          "name": "dropdown",
+          "path": "/dropdown"
         }
       ]
     },

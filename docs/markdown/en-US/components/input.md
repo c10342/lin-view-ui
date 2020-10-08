@@ -29,28 +29,28 @@ export default {
 };
 </script>
 
-# Input 输入框
+# Input
 
 ---
 
-Input 为受控组件，它总会显示 Vue 绑定值。
+Input is a controlled component, it always shows Vue binding value.
 
-通常情况下，应当处理 input 事件，并更新组件的绑定值（或使用 v-model）。否则，输入框内显示的值将不会改变。
+Under normal circumstances, `input` event should be handled. Its handler should update component's binding value (or use `v-model`). Otherwise, input box's value will not change.
 
-不支持 v-model 修饰符。
+Do not support `v-model` modifiers.
 
-## 基础用法
+## Basic usage
 
-使用`v-model`绑定输入框的值
+Use `v-model` to bind the value of the input
 
 <div class='demo-block'>
-<lin-input v-model="value1" placeholder="请输入"></lin-input>
+<lin-input v-model="value1" placeholder="Please input"></lin-input>
 </div>
 
 :::demo
 
 ```html
-<lin-input v-model="value1" placeholder="请输入"></lin-input>
+<lin-input v-model="value1" placeholder="Please input"></lin-input>
 
 <script>
   export default {
@@ -65,9 +65,9 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 
 :::
 
-## 原生属性
+## Essential attribute
 
-目前支持绑定到 input 输入框的原生属性用 3 个，分别是`name`、`maxlength` 、`minlength`
+Currently, three native attributes bound to the input field are supported, which are `name`,`maxlength`,`minlength`
 
 <div class='demo-block input-group'>
 <lin-input v-model="value2" placeholder="name" name="userName"></lin-input>
@@ -97,18 +97,18 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 
 :::
 
-## 禁用状态
+## Disabled
 
-使用 `disabled` 属性指定是否禁用 input 组件
+Disable the Input with the `disabled` attribute.
 
 <div class='demo-block'>
-<lin-input v-model="value3" placeholder="请输入" disabled></lin-input>
+<lin-input v-model="value3" placeholder="Please input" disabled></lin-input>
 </div>
 
 :::demo
 
 ```html
-<lin-input v-model="value3" placeholder="请输入" disabled></lin-input>
+<lin-input v-model="value3" placeholder="Please input" disabled></lin-input>
 
 <script>
   export default {
@@ -123,18 +123,18 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 
 :::
 
-## 可清空
+## Clearable
 
-使用`clearable`属性即可得到一个可清空的输入框
+Make the Input `clearable` with the clearable attribute.
 
 <div class='demo-block'>
-<lin-input v-model="value4" placeholder="请输入" clearable></lin-input>
+<lin-input v-model="value4" placeholder="Please input" clearable></lin-input>
 </div>
 
 :::demo
 
 ```html
-<lin-input v-model="value4" placeholder="请输入" clearable></lin-input>
+<lin-input v-model="value4" placeholder="Please input" clearable></lin-input>
 
 <script>
   export default {
@@ -149,18 +149,18 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 
 :::
 
-## 密码框
+## Password box
 
-使用`showPassword`属性即可得到一个可切换显示隐藏的密码框
+Make a toggleable password Input with the `showPassword` attribute.
 
 <div class='demo-block'>
-<lin-input v-model="value5" placeholder="请输入" show-password></lin-input>
+<lin-input v-model="value5" placeholder="Please input" show-password></lin-input>
 </div>
 
 :::demo
 
 ```html
-<lin-input v-model="value5" placeholder="请输入" show-password></lin-input>
+<lin-input v-model="value5" placeholder="Please input" show-password></lin-input>
 
 <script>
   export default {
@@ -175,12 +175,12 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 
 :::
 
-## 带 icon 的输入框
+## Input with icon
 
-通过 slot 来放置图标
+Place icons through slots
 
 <div class='demo-block'>
-    <lin-input v-model="value6" placeholder="请输入">
+    <lin-input v-model="value6" placeholder="Please input">
       <i class="lin-icon-user"></i>
     </lin-input>
 </div>
@@ -188,7 +188,7 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 :::demo
 
 ```html
-<lin-input v-model="value6" placeholder="请输入">
+<lin-input v-model="value6" placeholder="Please input">
   <i class="lin-icon-user"></i>
 </lin-input>
 
@@ -205,27 +205,27 @@ Input 为受控组件，它总会显示 Vue 绑定值。
 
 :::
 
-## 属性
+## Attributes
 
-| 参数            | 说明                 | 类型    | 可选值 | 默认值 |
+| Attribute            | Description                 | Type    | Accepted Values | Default |
 | --------------- | -------------------- | ------- | ------ | ------ |
-| placeholder     | 输入框占位文本       | String  | —      | —      |
-| type            | 类型                 | String  | —      | text   |
-| name            | 原生属性 name        | String  | —      | —      |
-| disabled        | 是否禁用状态         | Boolean | —      | false  |
-| value / v-model | 绑定值               | String  | —      | —      |
-| clearable       | 是否可清空           | Boolean | —      | false  |
-| showPassword    | 是否显示切换密码图标 | Boolean | —      | false  |
+| placeholder     | placeholder of Input       | String  | —      | —      |
+| type            | type of input                 | String  | —      | text   |
+| name            | same as `name` in native input        | String  | —      | —      |
+| disabled        | whether Input is disabled         | Boolean | —      | false  |
+| value / v-model | binding value               | String  | —      | —      |
+| clearable       | whether to show clear button           | Boolean | —      | false  |
+| showPassword    | whether to show toggleable password input | Boolean | —      | false  |
 
-## 事件
+## Events
 
-| 事件名称 | 说明                    | 回调参数       |
+| Event Name | Description                    | Parameters       |
 | -------- | ----------------------- | -------------- |
-| blur     | 在 Input 失去焦点时触发 | (event: Event) |
-| focus    | 在 Input 获得焦点时触发 | (event: Event) |
+| blur     | triggers when Input blurs | (event: Event) |
+| focus    | triggers when Input focuses | (event: Event) |
 
-## 插槽
+## Slots
 
-| 插槽名称 | 说明           |
+| Name | Description           |
 | -------- | -------------- |
-| —        | 输入框尾部内容 |
+| —        | Contents at the end of the input |

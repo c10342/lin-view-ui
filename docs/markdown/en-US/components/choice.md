@@ -742,8 +742,8 @@ Set the `scroll` property for the `lin-choice-group` to implement drop-down load
 | value / v-model | binding value                                            | Object/String/Number | —      | —        |
 | placeholder     | placeholder                                            | String               | —      | Select   |
 | valueKey        | unique identity key name for value, required when value is an object | String               | —      | —        |
-| clearable       | whether select can be cleared                                  | Boolean              | —      | false    |
-| disabled        | whether Select is disabled                                          | Boolean              | —      | false    |
+| clearable       | whether ChoiceGroup can be cleared                                  | Boolean              | —      | false    |
+| disabled        | whether ChoiceGroup is disabled                                          | Boolean              | —      | false    |
 | isThrottle      | Whether to perform anti shake when starting pull-down loading                        | Boolean              | —      | true     |
 | scroll          | Whether to enable pull-down loading                                  | Boolean              | —      | false    |
 | time            | Buffeting interval                                      | Number               | —      | 500ms    |
@@ -774,9 +774,9 @@ Set the `scroll` property for the `lin-choice-group` to implement drop-down load
 
 | Attribute     | Description                                      | Type                 | Accepted Values | Default |
 | -------- | ----------------------------------------- | -------------------- | ------ | ------ |
-| label    | label of option, same as `value` if omitted | String               | —      | —      |
-| value    | value of option                                  | Object/String/Number | —      | —      |
-| disabled | whether option is disabled                            | Boolean              | —      | false  |
+| label    | label of ChoiceItem, same as `value` if omitted | String               | —      | —      |
+| value    | value of ChoiceItem                                  | Object/String/Number | —      | —      |
+| disabled | whether ChoiceItem is disabled                            | Boolean              | —      | false  |
 
 ## ChoiceItem Slots
 
@@ -789,7 +789,7 @@ Set the `scroll` property for the `lin-choice-group` to implement drop-down load
 | Attribute     | Description                           | Type    | Accepted Values | Default |
 | -------- | ------------------------------ | ------- | ------ | ------ |
 | label    | name of the group                     | String  | —      | —      |
-| disabled | whether to disable all options in this group | Boolean | —      | false  |
+| disabled | whether ChoiceOption is disabled | Boolean | —      | false  |
 
 ## ChoiceItem Slots
 

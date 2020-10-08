@@ -16,7 +16,7 @@ export default {
 
 ---
 
-## 基础用法
+## Basic usage
 
 <div class='demo-block'>
 <lin-page-header title="详情页面" @back="back"></lin-page-header>
@@ -91,7 +91,7 @@ export default {
 
 ## 属性
 
-| 参数       | 说明                                     | 类型   | 可选值 | 默认值 |
+| 参数       | 说明                                     | Type   | Accepted Values | Default |
 | ---------- | ---------------------------------------- | ------ | ------ | ------ |
 | back   | 是否显示返回按钮                           | Boolean | —      | true      |
 | backTip     | 返回按钮文字                           | String | —      | 返回      |
@@ -102,7 +102,7 @@ export default {
 
 ## 插槽
 
-| 插槽名称 | 说明               |
+| Name | 说明               |
 | -------- | ------------------ |
 | —    | 标题的内容      |
 | back    | 返回按钮的内容      |
@@ -110,7 +110,7 @@ export default {
 
 ## 事件
 
-| 事件名称 | 说明                 | 回调参数       |
+| Event Name | 说明                 | Parameters       |
 | -------- | -------------------- | -------------- |
 | back     | 点击返回按钮的时候触发 | —              |
 | more     | 点击右侧按钮的时候触发 | —              |

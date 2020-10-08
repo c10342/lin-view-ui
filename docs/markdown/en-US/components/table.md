@@ -88,7 +88,7 @@ export default {
 
 ---
 
-## 基础用法
+## Basic usage
 
 当 `lin-table` 元素中注入 `dataSource` 对象数组后，在 `lin-table-column` 中用 `prop` 属性来对应对象中的键名即可填入数据，用 `label` 属性来定义表格的列名。`value-key` 用来做为数据唯一标识
 
@@ -608,7 +608,7 @@ export default {
 
 ## Table 属性
 
-| 参数         | 说明                                                                          | 类型                             | 可选值 | 默认值 |
+| 参数         | 说明                                                                          | Type                             | Accepted Values | Default |
 | ------------ | ----------------------------------------------------------------------------- | -------------------------------- | ------ | ------ |
 | dataSource   | 数据源                                                                        | Array                            | —      | —      |
 | border       | 是否带有纵向边框                                                              | Boolean                          | —      | false  |
@@ -618,7 +618,7 @@ export default {
 
 ## Table 事件
 
-| 事件名称         | 说明                                         | 回调参数                         |
+| Event Name         | 说明                                         | Parameters                         |
 | ---------------- | -------------------------------------------- | -------------------------------- |
 | selection-change | 当选择项发生变化时会触发该事件               | row                              |
 | select-all       | 当用户手动勾选全选 Checkbox 时触发的事件     | row                              |
@@ -636,16 +636,16 @@ export default {
 
 ## TableColumn 属性
 
-| 参数  | 说明                                                                                                    | 类型   | 可选值 | 默认值 |
+| 参数  | 说明                                                                                                    | Type   | Accepted Values | Default |
 | ----- | ------------------------------------------------------------------------------------------------------- | ------ | ------ | ------ |
 | prop  | 对应列内容的字段名                                                                                      | String | —      | —      |
 | label | 显示的标题                                                                                              | String | —      | —      |
 | width | 对应列的宽度                                                                                            | String | —      | —      |
 | align | 对齐方式                                                                                                | String | —      | left   |
-| type  | 对应列的类型。如果设置了 `selection` 则显示多选框；如果设置了 `index` 则显示该行的索引（从 1 开始计算） | String | —      | —      |
+| type  | 对应列的Type。如果设置了 `selection` 则显示多选框；如果设置了 `index` 则显示该行的索引（从 1 开始计算） | String | —      | —      |
 
 ## TableColumn 插槽
 
-| 插槽名称 | 说明                                             |
+| Name | 说明                                             |
 | -------- | ------------------------------------------------ |
 | —        | 自定义列的内容，参数为 { row, column, rowIndex } |
