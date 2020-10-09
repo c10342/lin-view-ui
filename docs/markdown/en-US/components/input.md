@@ -160,7 +160,11 @@ Make a toggleable password Input with the `showPassword` attribute.
 :::demo
 
 ```html
-<lin-input v-model="value5" placeholder="Please input" show-password></lin-input>
+<lin-input
+  v-model="value5"
+  placeholder="Please input"
+  show-password
+></lin-input>
 
 <script>
   export default {
@@ -207,25 +211,25 @@ Place icons through slots
 
 ## Attributes
 
-| Attribute            | Description                 | Type    | Accepted Values | Default |
-| --------------- | -------------------- | ------- | ------ | ------ |
-| placeholder     | placeholder of Input       | String  | —      | —      |
-| type            | type of input                 | String  | —      | text   |
-| name            | same as `name` in native input        | String  | —      | —      |
-| disabled        | whether Input is disabled         | Boolean | —      | false  |
-| value / v-model | binding value               | String  | —      | —      |
-| clearable       | whether to show clear button           | Boolean | —      | false  |
-| showPassword    | whether to show toggleable password input | Boolean | —      | false  |
+| Attribute       | Description                               | Type    | Accepted Values | Default |
+| --------------- | ----------------------------------------- | ------- | --------------- | ------- |
+| placeholder     | placeholder of Input                      | String  | —               | —       |
+| type            | type of input                             | String  | —               | text    |
+| name            | same as `name` in native input            | String  | —               | —       |
+| disabled        | whether Input is disabled                 | Boolean | —               | false   |
+| value / v-model | binding value                             | String  | —               | —       |
+| clearable       | whether to show clear button              | Boolean | —               | false   |
+| showPassword    | whether to show toggleable password input | Boolean | —               | false   |
 
 ## Events
 
-| Event Name | Description                    | Parameters       |
-| -------- | ----------------------- | -------------- |
-| blur     | triggers when Input blurs | (event: Event) |
-| focus    | triggers when Input focuses | (event: Event) |
+| Event Name | Description                 | Parameters     |
+| ---------- | --------------------------- | -------------- |
+| blur       | triggers when Input blurs   | (event: Event) |
+| focus      | triggers when Input focuses | (event: Event) |
 
 ## Slots
 
-| Name | Description           |
-| -------- | -------------- |
-| —        | Contents at the end of the input |
+| Name | Description                      |
+| ---- | -------------------------------- |
+| —    | Contents at the end of the input |

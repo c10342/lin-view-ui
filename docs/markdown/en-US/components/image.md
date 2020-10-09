@@ -111,27 +111,27 @@
 
 ## 属性
 
-| 参数           | 说明                                           | Type          | Accepted Values | Default              |
-| -------------- | ---------------------------------------------- | ------------- | ------ | ------------------- |
-| imgUrl         | 图片路径                                       | Array, String | —      | —                   |
-| fit            | 确定图片如何适应容器框，同原生 object-fit      | String        | —      | —                   |
-| referrerPolicy | 原生 referrerPolicy                            | String        | —      | —                   |
-| alt            | 原生 alt                                       | String        | —      | —                   |
-| preview        | 开启图片预览功能                               | Boolean       | —      | false               |
-| transitionName | 图片预览显示动画，即 transition 组件 name 属性 | String        | —      | lin-image-animation |
-| clickMask      | 点击遮罩层是否可以关闭图片预览                 | Boolean       | —      | true                |
-| errorMsg       | 图片加载失败提示语                             | String        | —      | 加载失败            |
+| 参数           | 说明                                           | Type          | Accepted Values | Default             |
+| -------------- | ---------------------------------------------- | ------------- | --------------- | ------------------- |
+| imgUrl         | 图片路径                                       | Array, String | —               | —                   |
+| fit            | 确定图片如何适应容器框，同原生 object-fit      | String        | —               | —                   |
+| referrerPolicy | 原生 referrerPolicy                            | String        | —               | —                   |
+| alt            | 原生 alt                                       | String        | —               | —                   |
+| preview        | 开启图片预览功能                               | Boolean       | —               | false               |
+| transitionName | 图片预览显示动画，即 transition 组件 name 属性 | String        | —               | lin-image-animation |
+| clickMask      | 点击遮罩层是否可以关闭图片预览                 | Boolean       | —               | true                |
+| errorMsg       | 图片加载失败提示语                             | String        | —               | 加载失败            |
 
 ## 插槽
 
 | Name | 说明                         |
-| -------- | ---------------------------- |
-| —        | Image 图片加载失败显示的内容 |
+| ---- | ---------------------------- |
+| —    | Image 图片加载失败显示的内容 |
 
 ## 事件
 
-| Event Name | 说明                                         | Parameters                           |
-| -------- | -------------------------------------------- | ---------------------------------- |
-| error    | 图片加载失败时触发                           | {url:String,index?:Number,e:Event} |
-| AllError | 当 imgUrl 为数组时并且所有图片加载失败时触发 | {url:Array\<String\>,e:Event}      |
-| success  | 图片加载成功时触发                           | {url:String,index?:Number,e:Event} |
+| Event Name | 说明                                         | Parameters                         |
+| ---------- | -------------------------------------------- | ---------------------------------- |
+| error      | 图片加载失败时触发                           | {url:String,index?:Number,e:Event} |
+| AllError   | 当 imgUrl 为数组时并且所有图片加载失败时触发 | {url:Array\<String\>,e:Event}      |
+| success    | 图片加载成功时触发                           | {url:String,index?:Number,e:Event} |

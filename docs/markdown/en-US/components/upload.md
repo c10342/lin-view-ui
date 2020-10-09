@@ -336,30 +336,30 @@ server.listen(3000, function() {
 
 ## Attributes
 
-| Attribute               | Description                                                                                          | Type     | Accepted Values | Default             |
-| ------------------ | --------------------------------------------------------------------------------------------- | -------- | ------ | ------------------ |
-| text               | text                                                                                          | String   |        | —                  |
-| fileChunkSize      | Slice size                                                                                      | Number   | —      | 10 \* 1024 \* 1024 |
-| uploadUrl          | Upload address                                                                                      | String   | —      | —                  |
-| mergeUrl           | Request merge slice address                                                                              | String   | —      | —                  |
-| isSlice            | whether slice                                                                              | Boolean  | —      | false              |
-| breakpoint         | whether breakpoint                                                                          | Boolean  | —      | false              |
-| beforeUpload       | Hook before uploading the file. The parameter is the uploaded file. If false is returned or project is returned and rejected, the upload will be stopped | Function | —      | —                  |
-| splitFileChunk     | The method of slicing files                                                                      | Function | —      | —                  |
-| caculateFileHash   | To calculate the hash value of a file, return a promise                                                    | Function | —      | —                  |
-| requestMergeFileFn | The method that requests to merge slices needs to return a promise                                                       | Function | —      | —                  |
+| Attribute          | Description                                                                                                                                              | Type     | Accepted Values | Default            |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- | ------------------ |
+| text               | text                                                                                                                                                     | String   |                 | —                  |
+| fileChunkSize      | Slice size                                                                                                                                               | Number   | —               | 10 \* 1024 \* 1024 |
+| uploadUrl          | Upload address                                                                                                                                           | String   | —               | —                  |
+| mergeUrl           | Request merge slice address                                                                                                                              | String   | —               | —                  |
+| isSlice            | whether slice                                                                                                                                            | Boolean  | —               | false              |
+| breakpoint         | whether breakpoint                                                                                                                                       | Boolean  | —               | false              |
+| beforeUpload       | Hook before uploading the file. The parameter is the uploaded file. If false is returned or project is returned and rejected, the upload will be stopped | Function | —               | —                  |
+| splitFileChunk     | The method of slicing files                                                                                                                              | Function | —               | —                  |
+| caculateFileHash   | To calculate the hash value of a file, return a promise                                                                                                  | Function | —               | —                  |
+| requestMergeFileFn | The method that requests to merge slices needs to return a promise                                                                                       | Function | —               | —                  |
 
 ## Events
 
-| Event Name                | Description                                                                            | Parameters       |
-| ----------------------- | ------------------------------------------------------------------------------- | -------------- |
-| caculateFileHashSuccess | It is triggered when the hash value of the file is successfully calculated. It is only valid when breakpoint is true                  | File hash value   |
-| caculateFileHashFail    | It is triggered when the hash value of the file fails to be calculated. It is only valid when breakpoint is true                  | Error error object |
-| uploadSuccess           | It is triggered when the file is uploaded successfully. It is only valid when breakpoint is false and isslice is false       | Request return value     |
-| uploadFail              | It is triggered when the file upload fails. It is only valid when breakpoint is false and isslice is false       | Request return value     | Error error object |
-| uploadChunkSuccess      | It is triggered when all slices are uploaded successfully. It is only valid when breakpoint is true or isslice is true   | Request return value     |
-| uploadChunkFail         | Triggered when all slices fail to upload. Only valid when breakpoint is true or isslice is true   | Error error object |
-| createChunkListSuccess  | Triggered when the file is sliced successfully. It is only valid if breakpoint is true or isslice is true | Slice array       |
-| createChunkListFail     | Triggered when file slicing fails. Only valid when breakpoint is true or isslice is true | Error error object |
-| mergeFileSuccess        | It is triggered when the request to merge files is successful. It is only valid if breakpoint is true or isslice is true   | Request return value     |
-| mergeFileFail           | It is triggered when the request to merge files fails. It is only valid if breakpoint is true or isslice is true   | Error error object |
+| Event Name              | Description                                                                                                              | Parameters           |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| caculateFileHashSuccess | It is triggered when the hash value of the file is successfully calculated. It is only valid when breakpoint is true     | File hash value      |
+| caculateFileHashFail    | It is triggered when the hash value of the file fails to be calculated. It is only valid when breakpoint is true         | Error error object   |
+| uploadSuccess           | It is triggered when the file is uploaded successfully. It is only valid when breakpoint is false and isslice is false   | Request return value |
+| uploadFail              | It is triggered when the file upload fails. It is only valid when breakpoint is false and isslice is false               | Request return value | Error error object |
+| uploadChunkSuccess      | It is triggered when all slices are uploaded successfully. It is only valid when breakpoint is true or isslice is true   | Request return value |
+| uploadChunkFail         | Triggered when all slices fail to upload. Only valid when breakpoint is true or isslice is true                          | Error error object   |
+| createChunkListSuccess  | Triggered when the file is sliced successfully. It is only valid if breakpoint is true or isslice is true                | Slice array          |
+| createChunkListFail     | Triggered when file slicing fails. Only valid when breakpoint is true or isslice is true                                 | Error error object   |
+| mergeFileSuccess        | It is triggered when the request to merge files is successful. It is only valid if breakpoint is true or isslice is true | Request return value |
+| mergeFileFail           | It is triggered when the request to merge files fails. It is only valid if breakpoint is true or isslice is true         | Error error object   |

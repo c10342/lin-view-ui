@@ -78,6 +78,7 @@
 :::
 
 ## 附加功能
+
 <div class='demo-block'>
 <div>
 <p>显示总数</p>
@@ -97,28 +98,34 @@
 </div>
 
 :::demo
+
 ```html
 <div>
-<p>显示总数</p>
-<lin-pagination background layout="total,prev, pager, next" :total="1000">
-</lin-pagination>
+  <p>显示总数</p>
+  <lin-pagination background layout="total,prev, pager, next" :total="1000">
+  </lin-pagination>
 </div>
 <div>
-<p>直接前往</p>
-<lin-pagination background layout="prev, pager, next,jumper" :total="1000">
-</lin-pagination>
+  <p>直接前往</p>
+  <lin-pagination background layout="prev, pager, next,jumper" :total="1000">
+  </lin-pagination>
 </div>
 <div>
-<p>完整功能</p>
-<lin-pagination background layout="total,prev, pager, next,jumper" :total="1000">
-</lin-pagination>
+  <p>完整功能</p>
+  <lin-pagination
+    background
+    layout="total,prev, pager, next,jumper"
+    :total="1000"
+  >
+  </lin-pagination>
 </div>
 ```
+
 :::
 
 ## Pagination 属性
 
-| 参数       | 说明                                     | Type    | Accepted Values                                    | Default                          |
+| 参数       | 说明                                     | Type    | Accepted Values                           | Default                         |
 | ---------- | ---------------------------------------- | ------- | ----------------------------------------- | ------------------------------- |
 | pageCount  | 页码按钮的数量，当总页数超过该值时会折叠 | Number  | —                                         | 7                               |
 | pageSize   | 每页显示条目个数                         | Number  | —                                         | 10                              |
@@ -129,8 +136,8 @@
 
 ## Pagination 事件
 
-| Event Name      | 说明                               | Parameters |
-| ------------- | ---------------------------------- | -------- |
-| currentChange | pageIndex 改变时会触发             | 当前页   |
-| prevClick     | 用户点击上一页按钮改变当前页后触发 | 当前页   |
-| nextClick     | 用户点击下一页按钮改变当前页后触发 | 当前页   |
+| Event Name    | 说明                               | Parameters |
+| ------------- | ---------------------------------- | ---------- |
+| currentChange | pageIndex 改变时会触发             | 当前页     |
+| prevClick     | 用户点击上一页按钮改变当前页后触发 | 当前页     |
+| nextClick     | 用户点击下一页按钮改变当前页后触发 | 当前页     |

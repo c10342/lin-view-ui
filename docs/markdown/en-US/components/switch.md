@@ -121,10 +121,10 @@ Currently, only `name` can be bound to native properties
 
 ## Attributes
 
-| Attribute | Description  | Type  | Accepted Values | Default|
-| --------------- | --------------------- | ------- | ------ | ------ |
-| value / v-model | binding value                | Boolean | —      | false  |
-| activeColor     | Background color when switch is on | String  | —      | —      |
-| inactiveColor   | Background color when switch is off | String  | —      | —      |
-| name            | input name of Switch         | String  | —      | —      |
-| disabled        | whether Switch is disabled              | Boolean | —      | false  |
+| Attribute       | Description                         | Type    | Accepted Values | Default |
+| --------------- | ----------------------------------- | ------- | --------------- | ------- |
+| value / v-model | binding value                       | Boolean | —               | false   |
+| activeColor     | Background color when switch is on  | String  | —               | —       |
+| inactiveColor   | Background color when switch is off | String  | —               | —       |
+| name            | input name of Switch                | String  | —               | —       |
+| disabled        | whether Switch is disabled          | Boolean | —               | false   |

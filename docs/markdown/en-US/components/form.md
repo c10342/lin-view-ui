@@ -53,7 +53,6 @@ export default {
 
 In the Form component, each form field is composed of a Form-Item component. Various types of form controls can be placed in the form field, including Input, Checkbox, Radio, Switch
 
-
 <div class='demo-block'>
      <lin-form :model="form">
       <lin-form-item label="UserName">
@@ -235,35 +234,35 @@ Data validation internally uses `async-validator`. For more advanced usage, plea
 
 ## Form 属性
 
-| Attribute       | Description                                  | Type   | Accepted Values | Default |
-| ---------- | ------------------------------------- | ------ | ------ | ------ |
-| model      | data of form component                          | Object | —      | —      |
-| labelWidth | The width of the form field label                      | String | —      | 80px   |
-| rules      | validation rules of form,reference to`async-validator` | Object | —      | —      |
+| Attribute  | Description                                            | Type   | Accepted Values | Default |
+| ---------- | ------------------------------------------------------ | ------ | --------------- | ------- |
+| model      | data of form component                                 | Object | —               | —       |
+| labelWidth | The width of the form field label                      | String | —               | 80px    |
+| rules      | validation rules of form,reference to`async-validator` | Object | —               | —       |
 
 ## Form Events
 
-| Event Name | Description                   | Parameters                                                   |
-| -------- | ---------------------- | ---------------------------------------------------------- |
-| validate | Triggered after any table item is checked | The prop value of the verified form item, whether the verification passed or not, and the error message (if any) |
+| Event Name | Description                               | Parameters                                                                                                       |
+| ---------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| validate   | Triggered after any table item is checked | The prop value of the verified form item, whether the verification passed or not, and the error message (if any) |
 
 ## Form Methods
 
-| Method   | Description                                                                                                         | Parameters                                  |
-| -------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
-| validate | The method for verifying the whole form. The parameter is a callback function. The callback function will be called after the end of verification, and pass in a parameter: whether the verification is successful or not | Function(callback: Function(boolean)) |
-| clearValidate | remove validation status of the field |—      |
+| Method        | Description                                                                                                                                                                                                               | Parameters                            |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| validate      | The method for verifying the whole form. The parameter is a callback function. The callback function will be called after the end of verification, and pass in a parameter: whether the verification is successful or not | Function(callback: Function(boolean)) |
+| clearValidate | remove validation status of the field                                                                                                                                                                                     | —                                     |
 
 ## FormItem Attributes
 
-| Attribute  | Description              | Type   | Accepted Values                            | Default |
-| ----- | ----------------- | ------ | --------------------------------- | ------ |
-| label | label          | String | —                                 | —      |
-| prop  | a key of model. In the use of validate and resetFields method, the attribute is required | String | keys of `model` that passed to form | —      |
-| labelWidth | The width of the form field label                      | String | —      | —   |
+| Attribute  | Description                                                                              | Type   | Accepted Values                     | Default |
+| ---------- | ---------------------------------------------------------------------------------------- | ------ | ----------------------------------- | ------- |
+| label      | label                                                                                    | String | —                                   | —       |
+| prop       | a key of model. In the use of validate and resetFields method, the attribute is required | String | keys of `model` that passed to form | —       |
+| labelWidth | The width of the form field label                                                        | String | —                                   | —       |
 
 ## FormItem Slot
 
-| Name | Description           |
-| -------- | -------------- |
-| —        | content of Form Item |
+| Name | Description          |
+| ---- | -------------------- |
+| —    | content of Form Item |

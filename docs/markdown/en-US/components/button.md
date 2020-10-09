@@ -169,24 +169,24 @@ Use attribute size to set additional sizes with `medium`, `small` or `size`.
 
 ## Attributes
 
-| Attribute     | Description                         | Type    | Accepted Values                                      | Default  |
-| -------- | ---------------------------- | ------- | ------------------------------------------- | ------- |
-| size     | button size                         | String  | default,medium,small                        | default |
-| type     | button type                         | String  | default,primary,success,warning,danger,info | default |
-| plain    | determine whether it's a plain button                 | Boolean | —                                           | false   |
-| disabled | disable the button                 | Boolean | —                                           | false   |
-| icon     | icon class name | String  | —                                           | —       |
-| round    | determine whether it's a round button                 | Boolean | —                                           | false   |
-| circle   | determine whether it's a circle button                 | Boolean | —                                           | false   |
+| Attribute | Description                            | Type    | Accepted Values                             | Default |
+| --------- | -------------------------------------- | ------- | ------------------------------------------- | ------- |
+| size      | button size                            | String  | default,medium,small                        | default |
+| type      | button type                            | String  | default,primary,success,warning,danger,info | default |
+| plain     | determine whether it's a plain button  | Boolean | —                                           | false   |
+| disabled  | disable the button                     | Boolean | —                                           | false   |
+| icon      | icon class name                        | String  | —                                           | —       |
+| round     | determine whether it's a round button  | Boolean | —                                           | false   |
+| circle    | determine whether it's a circle button | Boolean | —                                           | false   |
 
 ## Events
 
-| Event Name | Description           | Parameters |
-| -------- | -------------- | -------- |
-| click    | Triggered when the button is pressed | —        |
+| Event Name | Description                          | Parameters |
+| ---------- | ------------------------------------ | ---------- |
+| click      | Triggered when the button is pressed | —          |
 
 ## Slots
 
-| Name | Description          |
-| -------- | ------------- |
-| —        | Content of button |
+| Name | Description       |
+| ---- | ----------------- |
+| —    | Content of button |

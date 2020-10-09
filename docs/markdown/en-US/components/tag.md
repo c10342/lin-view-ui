@@ -18,7 +18,7 @@
 
 ## Basic usage
 
-由 `type` 属性来选择 tag 的Type，也可以通过 `color` 属性来自定义背景色。
+由 `type` 属性来选择 tag 的 Type，也可以通过 `color` 属性来自定义背景色。
 
 <div class='demo-block'>
       <lin-tag text="标签1"></lin-tag>
@@ -112,7 +112,7 @@
 
 ## 属性
 
-| 参数     | 说明       | Type    | Accepted Values                              | Default  |
+| 参数     | 说明       | Type    | Accepted Values                     | Default |
 | -------- | ---------- | ------- | ----------------------------------- | ------- |
 | type     | Type       | String  | primary/success/info/warning/danger | primary |
 | text     | 文本       | String  | —                                   | —       |
@@ -123,6 +123,6 @@
 ## 事件
 
 | Event Name | 说明                  | Parameters |
-| -------- | --------------------- | -------- |
-| click    | 点击 Tag 时触发的事件 | —        |
-| close    | 关闭 Tag 时触发的事件 | —        |
+| ---------- | --------------------- | ---------- |
+| click      | 点击 Tag 时触发的事件 | —          |
+| close      | 关闭 Tag 时触发的事件 | —          |

@@ -108,26 +108,24 @@ The combination of the `lin-checkbox-group` element and the sub element `lin-che
 
 :::
 
-
-
 ## Checkbox Attributes
 
-| Attribute            | Description                                                    | Type                    | Accepted Values | Default |
-| --------------- | ------------------------------------------------------- | ----------------------- | ------ | ------ |
-| value / v-model | binding value                                                  | String, Number, Boolean | —      | —      |
-| label           | The value of lin-checkbox can only be used in combination with lin-checkbox-group | String, Number, Boolean | —      | —      |
-| name            | Native attribute name                                           | String                  | —      | —      |
-| disabled        | whether the Checkbox is disabled                                                | Boolean                 | —      | false  |
+| Attribute       | Description                                                                       | Type                    | Accepted Values | Default |
+| --------------- | --------------------------------------------------------------------------------- | ----------------------- | --------------- | ------- |
+| value / v-model | binding value                                                                     | String, Number, Boolean | —               | —       |
+| label           | The value of lin-checkbox can only be used in combination with lin-checkbox-group | String, Number, Boolean | —               | —       |
+| name            | Native attribute name                                                             | String                  | —               | —       |
+| disabled        | whether the Checkbox is disabled                                                  | Boolean                 | —               | false   |
 
 ## Checkbox Slots
 
-| Name | Description           |
-| -------- | -------------- |
-| —        | Custom label content |
+| Name | Description          |
+| ---- | -------------------- |
+| —    | Custom label content |
 
 ## CheckboxGroup Attributes
 
-| Attribute            | Description     | Type                    | Accepted Values | Default |
-| --------------- | -------- | ----------------------- | ------ | ------ |
-| value / v-model | binding value   | String, Number, Boolean | —      | —      |
-| disabled        | whether the CheckboxGroup is disabled | Boolean                 | —      | false  |
+| Attribute       | Description                           | Type                    | Accepted Values | Default |
+| --------------- | ------------------------------------- | ----------------------- | --------------- | ------- |
+| value / v-model | binding value                         | String, Number, Boolean | —               | —       |
+| disabled        | whether the CheckboxGroup is disabled | Boolean                 | —               | false   |

@@ -258,13 +258,21 @@ If the `lin-selector-group` property is set for the `disabled`, the entire selec
   <lin-selector-item value="label-one" label="label-one" disabled
     >label-one</lin-selector-item
   >
-  <lin-selector-item value="label-two" label="label-two">label-two</lin-selector-item>
-  <lin-selector-item value="label-three" label="label-three">label-three</lin-selector-item>
+  <lin-selector-item value="label-two" label="label-two"
+    >label-two</lin-selector-item
+  >
+  <lin-selector-item value="label-three" label="label-three"
+    >label-three</lin-selector-item
+  >
   <lin-selector-item value="label-four" label="label-four" disabled
     >label-four</lin-selector-item
   >
-  <lin-selector-item value="label-five" label="label-five">label-five</lin-selector-item>
-  <lin-selector-item value="label-six" label="label-six">label-six</lin-selector-item>
+  <lin-selector-item value="label-five" label="label-five"
+    >label-five</lin-selector-item
+  >
+  <lin-selector-item value="label-six" label="label-six"
+    >label-six</lin-selector-item
+  >
 </lin-selector-group>
 
 <script>
@@ -282,35 +290,35 @@ If the `lin-selector-group` property is set for the `disabled`, the entire selec
 
 ## SelectorGroup Attributes
 
-| Attribute            | Description                                                                                                                  | Type                               | Accepted Values | Default |
-| --------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------ | ------ |
-| width           | width of SelectorGroup                                                                                                            | String                             | —      | —      |
-| labelWidth      | width of label                                                                                           | String                             | —      | 40px   |
-| value / v-model | binding value                                                                                            | Boolean / String / Number / Object | —      | —      |
-| valueKey        | unique identity key name for value, required when value is an object                                                                     | String                             | —      | value  |
-| renderMore      | Custom render more label content, use Vue's render function. Pass in two parameters, the first is h, and the second is whether to expand or collapse the state value. You can use JSX | Function                           | —      | —      |
-| renderLabel     | Custom render header label content, use Vue's render function, parameter is h, you can use jsx                                               | Function                           | —      | —      |
-| label           | content of label                                                                                                          | String                             | —      | —      |
-| disabled        | Disable                                                                                                              | Boolean                            | —      | false  |
+| Attribute       | Description                                                                                                                                                                           | Type                               | Accepted Values | Default |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | --------------- | ------- |
+| width           | width of SelectorGroup                                                                                                                                                                | String                             | —               | —       |
+| labelWidth      | width of label                                                                                                                                                                        | String                             | —               | 40px    |
+| value / v-model | binding value                                                                                                                                                                         | Boolean / String / Number / Object | —               | —       |
+| valueKey        | unique identity key name for value, required when value is an object                                                                                                                  | String                             | —               | value   |
+| renderMore      | Custom render more label content, use Vue's render function. Pass in two parameters, the first is h, and the second is whether to expand or collapse the state value. You can use JSX | Function                           | —               | —       |
+| renderLabel     | Custom render header label content, use Vue's render function, parameter is h, you can use jsx                                                                                        | Function                           | —               | —       |
+| label           | content of label                                                                                                                                                                      | String                             | —               | —       |
+| disabled        | Disable                                                                                                                                                                               | Boolean                            | —               | false   |
 
 ## SelectorGroup Events
 
-| Event Name | Description                   | Parameters     |
-| -------- | ---------------------- | ------------ |
-| show     | Triggered when all labels are displayed     | —            |
-| hide     | Triggered when label exceeds part hidden | —            |
-| onChange | Triggered when the selected value changes   | Current selected value |
+| Event Name | Description                               | Parameters             |
+| ---------- | ----------------------------------------- | ---------------------- |
+| show       | Triggered when all labels are displayed   | —                      |
+| hide       | Triggered when label exceeds part hidden  | —                      |
+| onChange   | Triggered when the selected value changes | Current selected value |
 
 ## SelectorItem Attributes
 
-| Attribute     | Description     | Type            | Accepted Values | Default |
-| -------- | -------- | --------------- | ------ | ------ |
-| label    | content of label | String          | —      | —      |
-| value    | The value of the option | String / Number | —      | —      |
-| disabled | Disable | Boolean         | —      | false  |
+| Attribute | Description             | Type            | Accepted Values | Default |
+| --------- | ----------------------- | --------------- | --------------- | ------- |
+| label     | content of label        | String          | —               | —       |
+| value     | The value of the option | String / Number | —               | —       |
+| disabled  | Disable                 | Boolean         | —               | false   |
 
 ## SelectorItem Slots
 
-| Name | Description           |
-| -------- | -------------- |
-| —        | Custom label content |
+| Name | Description          |
+| ---- | -------------------- |
+| —    | Custom label content |

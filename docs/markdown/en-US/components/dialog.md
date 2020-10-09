@@ -48,7 +48,6 @@ export default {
 
 You need to set the `visible` property, which receives `Boolean` and displays dialog when it is `true`. The dialog is divided into two parts: body and footer. The footer needs to have a slot named footer. The title property is used to define the title, which is optional and has a default value of prompt. The width property is used to define the width of the dialog. The default value is 50%. The top property is used to define the distance between the dialog and the top of the browser. The default value is 15vh.
 
-
 <div class='demo-block'>
 <lin-button @click="click1">click to open the Dialog</lin-button>
 <lin-dialog 
@@ -222,25 +221,25 @@ Use slot to name the slot, and the slot name is title
 
 ## Attributes
 
-| Attribute             | Description                                            | Type                                 | Accepted Values | Default |
-| ---------------- | ----------------------------------------------- | ------------------------------------ | ------ | ------ |
-| title            | title of Dialog. Can also be passed with a named slot (see the following table) | String                               | —      | Title   |
-| width            | width of Dialog                                   | String                               | —      | 50%    |
-| top              | value for `margin-top` of Dialog CSS                   | String                               | —      | 15vh   |
-| visible          | visibility of Dialog, supports the .sync modifier              | Boolean                              | —      | false  |
-| beforeClose      | callback before Dialog closes, and it will prevent Dialog from closing            | function(done)，done is used to close the Dialog | —      | —      |
-| closeOnClickModa | whether the Dialog can be closed by clicking the mask              | Boolean                              | —      | true   |
+| Attribute        | Description                                                                     | Type                                             | Accepted Values | Default |
+| ---------------- | ------------------------------------------------------------------------------- | ------------------------------------------------ | --------------- | ------- |
+| title            | title of Dialog. Can also be passed with a named slot (see the following table) | String                                           | —               | Title   |
+| width            | width of Dialog                                                                 | String                                           | —               | 50%     |
+| top              | value for `margin-top` of Dialog CSS                                            | String                                           | —               | 15vh    |
+| visible          | visibility of Dialog, supports the .sync modifier                               | Boolean                                          | —               | false   |
+| beforeClose      | callback before Dialog closes, and it will prevent Dialog from closing          | function(done)，done is used to close the Dialog | —               | —       |
+| closeOnClickModa | whether the Dialog can be closed by clicking the mask                           | Boolean                                          | —               | true    |
 
 ## Slot
 
-| Name | Name                    |
-| -------- | ----------------------- |
-| —        | content of Dialog           |
-| title    | content of the Dialog title     |
-| footer   | content of the Dialog footer |
+| Name   | Name                         |
+| ------ | ---------------------------- |
+| —      | content of Dialog            |
+| title  | content of the Dialog title  |
+| footer | content of the Dialog footer |
 
 ## Events
 
-| Event Name | Description              | Parameters |
-| -------- | ----------------- | -------- |
-| close    | triggers when the Dialog closes | —        |
+| Event Name | Description                     | Parameters |
+| ---------- | ------------------------------- | ---------- |
+| close      | triggers when the Dialog closes | —          |

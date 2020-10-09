@@ -737,63 +737,63 @@ Set the `scroll` property for the `lin-choice-group` to implement drop-down load
 
 ## ChoiceGroup Attributes
 
-| Attribute            | Description                                              | Type                 | Accepted Values | Default   |
-| --------------- | ------------------------------------------------- | -------------------- | ------ | -------- |
-| value / v-model | binding value                                            | Object/String/Number | —      | —        |
-| placeholder     | placeholder                                            | String               | —      | Select   |
-| valueKey        | unique identity key name for value, required when value is an object | String               | —      | —        |
-| clearable       | whether ChoiceGroup can be cleared                                  | Boolean              | —      | false    |
-| disabled        | whether ChoiceGroup is disabled                                          | Boolean              | —      | false    |
-| isThrottle      | Whether to perform anti shake when starting pull-down loading                        | Boolean              | —      | true     |
-| scroll          | Whether to enable pull-down loading                                  | Boolean              | —      | false    |
-| time            | Buffeting interval                                      | Number               | —      | 500ms    |
-| loading         | Whether to turn on loading animation                              | Boolean              | —      | false    |
-| loadingTip      | Loading prompt                                        | String               | —      | —        |
-| emptyTip        | Prompt when data is empty                            | String               | —      | No data available |
+| Attribute       | Description                                                          | Type                 | Accepted Values | Default           |
+| --------------- | -------------------------------------------------------------------- | -------------------- | --------------- | ----------------- |
+| value / v-model | binding value                                                        | Object/String/Number | —               | —                 |
+| placeholder     | placeholder                                                          | String               | —               | Select            |
+| valueKey        | unique identity key name for value, required when value is an object | String               | —               | —                 |
+| clearable       | whether ChoiceGroup can be cleared                                   | Boolean              | —               | false             |
+| disabled        | whether ChoiceGroup is disabled                                      | Boolean              | —               | false             |
+| isThrottle      | Whether to perform anti shake when starting pull-down loading        | Boolean              | —               | true              |
+| scroll          | Whether to enable pull-down loading                                  | Boolean              | —               | false             |
+| time            | Buffeting interval                                                   | Number               | —               | 500ms             |
+| loading         | Whether to turn on loading animation                                 | Boolean              | —               | false             |
+| loadingTip      | Loading prompt                                                       | String               | —               | —                 |
+| emptyTip        | Prompt when data is empty                                            | String               | —               | No data available |
 
 ## ChoiceGroup Events
 
-| Event Name       | Description                                     | Parameters                      |
-| -------------- | ---------------------------------------- | ----------------------------- |
-| scrollToBottom | Triggered when scrolling to the bottom                     | (event: Event)                |
-| blur           | Triggered when input loses focus                  | (event: Event)                |
-| focus          | Triggered when input gets focus                  | (event: Event)                |
-| visible-change | Triggered when drop-down box appears / hidden                    | True if it appears and false if it is hidden |
-| clear          | Triggered when the user clicks the clear button in radio mode that can be cleared | —                             |
-| change         | triggers when the selected value changes                     | current selected value                  |
+| Event Name     | Description                                                                       | Parameters                                   |
+| -------------- | --------------------------------------------------------------------------------- | -------------------------------------------- |
+| scrollToBottom | Triggered when scrolling to the bottom                                            | (event: Event)                               |
+| blur           | Triggered when input loses focus                                                  | (event: Event)                               |
+| focus          | Triggered when input gets focus                                                   | (event: Event)                               |
+| visible-change | Triggered when drop-down box appears / hidden                                     | True if it appears and false if it is hidden |
+| clear          | Triggered when the user clicks the clear button in radio mode that can be cleared | —                                            |
+| change         | triggers when the selected value changes                                          | current selected value                       |
 
 ## ChoiceGroup Slots
 
-| Name | Description                                           |
-| -------- | ---------------------------------------------- |
-| —        | Choiceitem component list or choiceoption component list |
-| empty    | Content when data is empty                               |
-| loading  | Custom loading animation                                 |
+| Name    | Description                                              |
+| ------- | -------------------------------------------------------- |
+| —       | Choiceitem component list or choiceoption component list |
+| empty   | Content when data is empty                               |
+| loading | Custom loading animation                                 |
 
 ## ChoiceItem Attributes
 
-| Attribute     | Description                                      | Type                 | Accepted Values | Default |
-| -------- | ----------------------------------------- | -------------------- | ------ | ------ |
-| label    | label of ChoiceItem, same as `value` if omitted | String               | —      | —      |
-| value    | value of ChoiceItem                                  | Object/String/Number | —      | —      |
-| disabled | whether ChoiceItem is disabled                            | Boolean              | —      | false  |
+| Attribute | Description                                     | Type                 | Accepted Values | Default |
+| --------- | ----------------------------------------------- | -------------------- | --------------- | ------- |
+| label     | label of ChoiceItem, same as `value` if omitted | String               | —               | —       |
+| value     | value of ChoiceItem                             | Object/String/Number | —               | —       |
+| disabled  | whether ChoiceItem is disabled                  | Boolean              | —               | false   |
 
 ## ChoiceItem Slots
 
-| Name | Description     |
-| -------- | -------- |
-| —        | content of label |
+| Name | Description      |
+| ---- | ---------------- |
+| —    | content of label |
 
 ## ChoiceOption Attributes
 
-| Attribute     | Description                           | Type    | Accepted Values | Default |
-| -------- | ------------------------------ | ------- | ------ | ------ |
-| label    | name of the group                     | String  | —      | —      |
-| disabled | whether ChoiceOption is disabled | Boolean | —      | false  |
+| Attribute | Description                      | Type    | Accepted Values | Default |
+| --------- | -------------------------------- | ------- | --------------- | ------- |
+| label     | name of the group                | String  | —               | —       |
+| disabled  | whether ChoiceOption is disabled | Boolean | —               | false   |
 
 ## ChoiceItem Slots
 
-| Name | Description                |
-| -------- | ------------------- |
-| —        | ChoiceItem component list |
-| label    | Group label content        |
+| Name  | Description               |
+| ----- | ------------------------- |
+| —     | ChoiceItem component list |
+| label | Group label content       |

@@ -104,22 +104,22 @@ The combination of the `lin-radio-group` element and the sub element `lin-radio`
 
 ## Radio Attributes
 
-| Attribute            | Description           | Type                    | Accepted Values | Default |
-| --------------- | -------------- | ----------------------- | ------ | ------ |
-| value / v-model | binding value         | String, Number, Boolean | —      | —      |
-| label           | the value of Radio | String, Number, Boolean | —      | —      |
-| name            | native 'name' attribute  | String                  | —      | —      |
-| disabled        | whether Radio is disabled       | Boolean                 | —      | false  |
+| Attribute       | Description               | Type                    | Accepted Values | Default |
+| --------------- | ------------------------- | ----------------------- | --------------- | ------- |
+| value / v-model | binding value             | String, Number, Boolean | —               | —       |
+| label           | the value of Radio        | String, Number, Boolean | —               | —       |
+| name            | native 'name' attribute   | String                  | —               | —       |
+| disabled        | whether Radio is disabled | Boolean                 | —               | false   |
 
 ## Radio slots
 
-| Name | Description           |
-| -------- | -------------- |
-| —        | Custom label content |
+| Name | Description          |
+| ---- | -------------------- |
+| —    | Custom label content |
 
 ## RadioGroup Attributes
 
-| Attribute            | Description     | Type                    | Accepted Values | Default |
-| --------------- | -------- | ----------------------- | ------ | ------ |
-| value / v-model | binding value   | String, Number, Boolean | —      | —      |
-| disabled        | whether RadioGroup is disabled | Boolean                 | —      | false  |
+| Attribute       | Description                    | Type                    | Accepted Values | Default |
+| --------------- | ------------------------------ | ----------------------- | --------------- | ------- |
+| value / v-model | binding value                  | String, Number, Boolean | —               | —       |
+| disabled        | whether RadioGroup is disabled | Boolean                 | —               | false   |

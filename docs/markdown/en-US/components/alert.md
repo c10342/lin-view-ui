@@ -112,10 +112,25 @@ Alert 组件提供了两个不同的主题：`light` 和 `dark` 。
 :::demo
 
 ```html
-<lin-alert center icon="lin-icon-chat" type="success" title="提示文案"></lin-alert>
+<lin-alert
+  center
+  icon="lin-icon-chat"
+  type="success"
+  title="提示文案"
+></lin-alert>
 <lin-alert center icon="lin-icon-chat" type="info" title="提示文案"></lin-alert>
-<lin-alert center icon="lin-icon-chat" type="warning" title="提示文案"></lin-alert>
-<lin-alert center icon="lin-icon-chat" type="danger" title="提示文案"></lin-alert>
+<lin-alert
+  center
+  icon="lin-icon-chat"
+  type="warning"
+  title="提示文案"
+></lin-alert>
+<lin-alert
+  center
+  icon="lin-icon-chat"
+  type="danger"
+  title="提示文案"
+></lin-alert>
 ```
 
 :::
@@ -222,7 +237,7 @@ Alert 组件提供了两个不同的主题：`light` 和 `dark` 。
 
 ## 属性
 
-| 参数        | 说明           | Type    | Accepted Values                      | Default  |
+| 参数        | 说明           | Type    | Accepted Values             | Default |
 | ----------- | -------------- | ------- | --------------------------- | ------- |
 | title       | 标题           | String  | —                           | —       |
 | description | 辅助性文字     | String  | —                           | —       |
@@ -234,7 +249,7 @@ Alert 组件提供了两个不同的主题：`light` 和 `dark` 。
 
 ## 插槽
 
-| Name    | 说明                 |
+| Name        | 说明                 |
 | ----------- | -------------------- |
 | icon        | Alert icon 区的内容  |
 | title       | Alert 标题区的内容   |
@@ -244,5 +259,5 @@ Alert 组件提供了两个不同的主题：`light` 和 `dark` 。
 ## 事件
 
 | Event Name | 说明                    | Parameters |
-| -------- | ----------------------- | -------- |
-| close    | 关闭 Alert 时触发的事件 | —        |
+| ---------- | ----------------------- | ---------- |
+| close      | 关闭 Alert 时触发的事件 | —          |

@@ -143,20 +143,20 @@
 
 ## 属性
 
-| 参数  | 说明     | Type   | Accepted Values                              | Default  |
-| ----- | -------- | ------ | ----------------------------------- | ------- |
-| type  | 效果Type | String | primary,success,warning,danger,info | primary |
-| theme | 效果主题 | String | neon, border, fillet, frozen, shiny | false   |
-| text  | 文本     | String | —                                   | —       |
+| 参数  | 说明      | Type   | Accepted Values                     | Default |
+| ----- | --------- | ------ | ----------------------------------- | ------- |
+| type  | 效果 Type | String | primary,success,warning,danger,info | primary |
+| theme | 效果主题  | String | neon, border, fillet, frozen, shiny | false   |
+| text  | 文本      | String | —                                   | —       |
 
 ## 事件
 
 | Event Name | 说明       | Parameters |
-| -------- | ---------- | -------- |
-| click    | 点击时触发 | —        |
+| ---------- | ---------- | ---------- |
+| click      | 点击时触发 | —          |
 
 ## 插槽
 
 | Name | 说明               |
-| -------- | ------------------ |
-| —        | HoverEffect 的内容 |
+| ---- | ------------------ |
+| —    | HoverEffect 的内容 |

@@ -168,28 +168,28 @@ export default {
 ## 属性
 
 | 参数            | 说明                                                  | Type          | Accepted Values | Default |
-| --------------- | ----------------------------------------------------- | ------------- | ------ | ------ |
-| height          | 容器高度                                              | Number        | —      | 700    |
-| isThrottle      | 是否需要节流                                          | Boolean       | —      | true   |
-| time            | 滚动执行间隔时长，isThrottle 为 true 才有效           | Number        | —      | 500    |
-| isEnd           | 数据是否全部加载完毕，即是否不在触发 scrollToEnd 事件 | Boolean       | —      | false  |
-| showLoading     | 是否显示正在加载动画                                  | Boolean       | —      | true   |
-| emitScrollEvent | 是否需要派发 scroll 滚动事件                          | Boolean       | —      | true   |
-| data            | 显示的视图数据，用于刷新内容的高度                    | Object, Array | —      | —      |
-| loadingTip      | 正在加载的提示语                                      | String        | —      | —      |
-| noMoreTip       | 数据加载完毕时候的提示语                              | String        | —      | —      |
+| --------------- | ----------------------------------------------------- | ------------- | --------------- | ------- |
+| height          | 容器高度                                              | Number        | —               | 700     |
+| isThrottle      | 是否需要节流                                          | Boolean       | —               | true    |
+| time            | 滚动执行间隔时长，isThrottle 为 true 才有效           | Number        | —               | 500     |
+| isEnd           | 数据是否全部加载完毕，即是否不在触发 scrollToEnd 事件 | Boolean       | —               | false   |
+| showLoading     | 是否显示正在加载动画                                  | Boolean       | —               | true    |
+| emitScrollEvent | 是否需要派发 scroll 滚动事件                          | Boolean       | —               | true    |
+| data            | 显示的视图数据，用于刷新内容的高度                    | Object, Array | —               | —       |
+| loadingTip      | 正在加载的提示语                                      | String        | —               | —       |
+| noMoreTip       | 数据加载完毕时候的提示语                              | String        | —               | —       |
 
 ## 插槽
 
-| Name | 说明                              |
-| -------- | --------------------------------- |
-| —        | ScrollView 中需要进行滚动的内容   |
-| loading  | ScrollView 上拉加载需要显示的内容 |
-| no-more  | ScrollView 数据加载完毕显示的内容 |
+| Name    | 说明                              |
+| ------- | --------------------------------- |
+| —       | ScrollView 中需要进行滚动的内容   |
+| loading | ScrollView 上拉加载需要显示的内容 |
+| no-more | ScrollView 数据加载完毕显示的内容 |
 
 ## 事件
 
-| Event Name    | 说明                 | Parameters |
-| ----------- | -------------------- | -------- |
-| scrollToEnd | 容器滚动到底部时触发 | e(Event) |
-| scroll      | 容器正在滚动时触发   | e(Event) |
+| Event Name  | 说明                 | Parameters |
+| ----------- | -------------------- | ---------- |
+| scrollToEnd | 容器滚动到底部时触发 | e(Event)   |
+| scroll      | 容器正在滚动时触发   | e(Event)   |

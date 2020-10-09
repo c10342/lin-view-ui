@@ -185,24 +185,24 @@ export default {
 
 ## 属性
 
-| 参数          | 说明                                                                                             | Type    | Accepted Values | Default   |
-| ------------- | ------------------------------------------------------------------------------------------------ | ------- | ------ | -------- |
-| commentList   | 评论列表，格式[{_username:'',_createTimeTip:'',_content:'',_avatorUrl:''}]                       | Array   | —      | []       |
-| fixComment    | 悬浮的评论，格式{\_username:'',\_content:''}，当 fixComment 不为空并且列表没有滚动到最底部时显示 | Object  |        | null     |
-| value/v-model | 绑定的值                                                                                         | String  | —      | —        |
-| btnText       | 按钮文字                                                                                         | String  | —      | 发送     |
-| arrowComment  | 是否允许发表评论                                                                                 | Boolean | —      | false    |
-| placeholder   | 输入框提示文本                                                                                   | String  | —      | 请输入   |
-| maxlength     | 文本输入框的最长长度                                                                             | Number  | —      | -1       |
-| throttle      | 滚动事件是否节流                                                                                 | Boolean | —      | true     |
-| title         | 标题                                                                                             | String  | —      | 直播评论 |
-| viewCount     | 观看人数                                                                                         | Number  | —      | 0        |
-| defaultAvator | 默认的用户头像                                                                                   | String  | —      | —        |
-| isLoading     | 是否正在加载，可防止用户多次点击按钮                                                             | Boolean | —      | false    |
+| 参数          | 说明                                                                                             | Type    | Accepted Values | Default  |
+| ------------- | ------------------------------------------------------------------------------------------------ | ------- | --------------- | -------- |
+| commentList   | 评论列表，格式[{_username:'',_createTimeTip:'',_content:'',_avatorUrl:''}]                       | Array   | —               | []       |
+| fixComment    | 悬浮的评论，格式{\_username:'',\_content:''}，当 fixComment 不为空并且列表没有滚动到最底部时显示 | Object  |                 | null     |
+| value/v-model | 绑定的值                                                                                         | String  | —               | —        |
+| btnText       | 按钮文字                                                                                         | String  | —               | 发送     |
+| arrowComment  | 是否允许发表评论                                                                                 | Boolean | —               | false    |
+| placeholder   | 输入框提示文本                                                                                   | String  | —               | 请输入   |
+| maxlength     | 文本输入框的最长长度                                                                             | Number  | —               | -1       |
+| throttle      | 滚动事件是否节流                                                                                 | Boolean | —               | true     |
+| title         | 标题                                                                                             | String  | —               | 直播评论 |
+| viewCount     | 观看人数                                                                                         | Number  | —               | 0        |
+| defaultAvator | 默认的用户头像                                                                                   | String  | —               | —        |
+| isLoading     | 是否正在加载，可防止用户多次点击按钮                                                             | Boolean | —               | false    |
 
 ## 插槽
 
-| Name   | 说明                       |
+| Name       | 说明                       |
 | ---------- | -------------------------- |
 | —          | 评论列表项内容             |
 | title      | 标题区的内容               |
@@ -211,9 +211,9 @@ export default {
 
 ## 事件
 
-| Event Name      | 说明                 | Parameters |
-| ------------- | -------------------- | -------- |
-| toBottom      | 列表滚动到底部时触发 | —        |
-| scroll        | 列表滚动时触发       | e(Event) |
-| sendBtnClick  | 点击按钮时触发       | —        |
-| loginBtnClick | 点击登录时触发       | —        |
+| Event Name    | 说明                 | Parameters |
+| ------------- | -------------------- | ---------- |
+| toBottom      | 列表滚动到底部时触发 | —          |
+| scroll        | 列表滚动时触发       | e(Event)   |
+| sendBtnClick  | 点击按钮时触发       | —          |
+| loginBtnClick | 点击登录时触发       | —          |

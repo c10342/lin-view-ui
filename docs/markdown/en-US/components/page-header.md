@@ -1,4 +1,3 @@
-
 <script>
 export default {
     methods:{
@@ -23,18 +22,20 @@ export default {
 </div>
 
 :::demo
+
 ```html
 <lin-page-header title="详情页面" @back="back"></lin-page-header>
 <script>
-export default {
-    methods:{
-       back(){
-           alert('back')
-       } 
-    }
-}
+  export default {
+    methods: {
+      back() {
+        alert("back");
+      },
+    },
+  };
 </script>
 ```
+
 :::
 
 ## 显示右侧按钮
@@ -46,18 +47,25 @@ export default {
 </div>
 
 :::demo
+
 ```html
-<lin-page-header title="列表页面" :back='false' right @more='more'></lin-page-header>
+<lin-page-header
+  title="列表页面"
+  :back="false"
+  right
+  @more="more"
+></lin-page-header>
 <script>
-export default {
-    methods:{
-       more(){
-           alert('more')
-       } 
-    }
-}
+  export default {
+    methods: {
+      more() {
+        alert("more");
+      },
+    },
+  };
 </script>
 ```
+
 :::
 
 ## 显示底部边框
@@ -69,9 +77,11 @@ export default {
 </div>
 
 :::demo
+
 ```html
 <lin-page-header title="详情页面" border></lin-page-header>
 ```
+
 :::
 
 ## 显示激活状态
@@ -83,36 +93,41 @@ export default {
 </div>
 
 :::demo
-```html
-<lin-page-header title="列表页面" :back='false' right active border></lin-page-header>
-```
-:::
 
+```html
+<lin-page-header
+  title="列表页面"
+  :back="false"
+  right
+  active
+  border
+></lin-page-header>
+```
+
+:::
 
 ## 属性
 
-| 参数       | 说明                                     | Type   | Accepted Values | Default |
-| ---------- | ---------------------------------------- | ------ | ------ | ------ |
-| back   | 是否显示返回按钮                           | Boolean | —      | true      |
-| backTip     | 返回按钮文字                           | String | —      | 返回      |
-| title | 标题 | String | —      | —      |
-| right   | 是否显示右侧按钮 | Boolean | —      | false      |
-| active  | 是否显示激活状态                   | Boolean | —      | false      |
-| border  | 是否显示底部边框                   | Boolean | —      | false      |
+| 参数    | 说明             | Type    | Accepted Values | Default |
+| ------- | ---------------- | ------- | --------------- | ------- |
+| back    | 是否显示返回按钮 | Boolean | —               | true    |
+| backTip | 返回按钮文字     | String  | —               | 返回    |
+| title   | 标题             | String  | —               | —       |
+| right   | 是否显示右侧按钮 | Boolean | —               | false   |
+| active  | 是否显示激活状态 | Boolean | —               | false   |
+| border  | 是否显示底部边框 | Boolean | —               | false   |
 
 ## 插槽
 
-| Name | 说明               |
-| -------- | ------------------ |
-| —    | 标题的内容      |
-| back    | 返回按钮的内容      |
-| right     | 右侧按钮的内容 |
+| Name  | 说明           |
+| ----- | -------------- |
+| —     | 标题的内容     |
+| back  | 返回按钮的内容 |
+| right | 右侧按钮的内容 |
 
 ## 事件
 
-| Event Name | 说明                 | Parameters       |
-| -------- | -------------------- | -------------- |
-| back     | 点击返回按钮的时候触发 | —              |
-| more     | 点击右侧按钮的时候触发 | —              |
-
-
+| Event Name | 说明                   | Parameters |
+| ---------- | ---------------------- | ---------- |
+| back       | 点击返回按钮的时候触发 | —          |
+| more       | 点击右侧按钮的时候触发 | —          |

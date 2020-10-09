@@ -11,34 +11,34 @@ export default {
 };
 </script>
 
-
 # InputNumber 计数器
 
 ---
 
 ## Basic usage
 
-要使用它，只需要在 `lin-input-number` 元素中使用 `v-model` 绑定变量即可，变量的初始值即为Default。
+要使用它，只需要在 `lin-input-number` 元素中使用 `v-model` 绑定变量即可，变量的初始值即为 Default。
 
 <div class='demo-block'>
 <lin-input-number v-model="value1" />
 </div>
 
 :::demo
+
 ```html
 <lin-input-number v-model="value1" />
 
 <script>
-export default {
-  data() {
-    return {
-      value1: 0
-    };
-  }
-};
+  export default {
+    data() {
+      return {
+        value1: 0,
+      };
+    },
+  };
 </script>
-
 ```
+
 :::
 
 ## 禁用状态
@@ -50,20 +50,21 @@ export default {
 </div>
 
 :::demo
+
 ```html
 <lin-input-number v-model="value2" disabled />
 
 <script>
-export default {
-  data() {
-    return {
-      value2: 0
-    };
-  }
-};
+  export default {
+    data() {
+      return {
+        value2: 0,
+      };
+    },
+  };
 </script>
-
 ```
+
 :::
 
 ## 步数
@@ -75,20 +76,21 @@ export default {
 </div>
 
 :::demo
+
 ```html
 <lin-input-number v-model="value3" :step="2" />
 
 <script>
-export default {
-  data() {
-    return {
-      value3: 0
-    };
-  }
-};
+  export default {
+    data() {
+      return {
+        value3: 0,
+      };
+    },
+  };
 </script>
-
 ```
+
 :::
 
 ## 严格步数
@@ -100,38 +102,38 @@ export default {
 </div>
 
 :::demo
+
 ```html
 <lin-input-number v-model="value4" :step="2" step-strictly />
 
 <script>
-export default {
-  data() {
-    return {
-      value4: 0
-    };
-  }
-};
+  export default {
+    data() {
+      return {
+        value4: 0,
+      };
+    },
+  };
 </script>
-
 ```
-:::
 
+:::
 
 ## 属性
 
-| 参数            | 说明                     | Type    | Accepted Values | Default    |
-| --------------- | ------------------------ | ------- | ------ | --------- |
-| value / v-model | 绑定值                   | Number  | —      | —         |
-| min             | 设置计数器允许的最小值   | Number  | —      | -Infinity |
-| max             | 设置计数器允许的最大值   | Number  | —      | Infinity  |
-| disabled        | 是否禁用计数器           | Boolean | —      | false     |
-| step            | 计数器步长               | Number  | —      | 1         |
-| stepStrictly    | 是否只能输入 step 的倍数 | Boolean | —      | false     |
-| placeholder     | 输入框默认 placeholder   | String  | —      | —         |
+| 参数            | 说明                     | Type    | Accepted Values | Default   |
+| --------------- | ------------------------ | ------- | --------------- | --------- |
+| value / v-model | 绑定值                   | Number  | —               | —         |
+| min             | 设置计数器允许的最小值   | Number  | —               | -Infinity |
+| max             | 设置计数器允许的最大值   | Number  | —               | Infinity  |
+| disabled        | 是否禁用计数器           | Boolean | —               | false     |
+| step            | 计数器步长               | Number  | —               | 1         |
+| stepStrictly    | 是否只能输入 step 的倍数 | Boolean | —               | false     |
+| placeholder     | 输入框默认 placeholder   | String  | —               | —         |
 
 ## 事件
 
-| Event Name | 说明          | Parameters     |
-| -------- | ------------- | ------------ |
-| reduce   | 点击-号时触发 | value:Number |
-| plus     | 点击+号时触发 | value:Number |
+| Event Name | 说明          | Parameters   |
+| ---------- | ------------- | ------------ |
+| reduce     | 点击-号时触发 | value:Number |
+| plus       | 点击+号时触发 | value:Number |

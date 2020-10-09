@@ -54,9 +54,9 @@
 
 ## 属性
 
-| 参数        | 说明               | Type   | Accepted Values | Default         |
-| ----------- | ------------------ | ------ | ------ | -------------- |
-| len         | 显示文本的长度     | Number | —      | -1(不进行折叠) |
-| text        | Type               | String | —      | —              |
-| show-text   | 折叠时需要显示文案 | String | —      | 显示更多       |
-| hidden-text | 隐藏时需要显示文案 | String | —      | 隐藏           |
+| 参数        | 说明               | Type   | Accepted Values | Default        |
+| ----------- | ------------------ | ------ | --------------- | -------------- |
+| len         | 显示文本的长度     | Number | —               | -1(不进行折叠) |
+| text        | Type               | String | —               | —              |
+| show-text   | 折叠时需要显示文案 | String | —               | 显示更多       |
+| hidden-text | 隐藏时需要显示文案 | String | —               | 隐藏           |

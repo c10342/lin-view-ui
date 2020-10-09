@@ -142,7 +142,7 @@
 
 ## 参数
 
-| 参数        | 说明             | Type    | Accepted Values                        | Default        |
+| 参数        | 说明             | Type    | Accepted Values               | Default       |
 | ----------- | ---------------- | ------- | ----------------------------- | ------------- |
 | speed       | 加载速度         | Number  | 0-100                         | 5             |
 | easing      | spinner 加载动画 | String  | linear, ease, cubic-bezier... | linear        |

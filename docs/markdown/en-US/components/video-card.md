@@ -242,25 +242,25 @@
 ## 属性
 
 | 参数            | 说明               | Type   | Accepted Values | Default |
-| --------------- | ------------------ | ------ | ------ | ------ |
-| data            | 卡片相关数据       | Object | —      | —      |
-| cardHeight      | 卡片高度           | String | —      | auto   |
-| cardWidth       | 卡片宽度           | String | —      | 262px  |
-| imageHeight     | 封面高度           | String | —      | 146px  |
-| coverTip        | 封面右下角提示     | String | —      | —      |
-| errorTip        | 图片加载失败提示语 | String | —      | —      |
-| defaultImageUrl | 封面默认图片       | String | —      | —      |
-| imageUrl        | 封面图片           | String | —      | —      |
+| --------------- | ------------------ | ------ | --------------- | ------- |
+| data            | 卡片相关数据       | Object | —               | —       |
+| cardHeight      | 卡片高度           | String | —               | auto    |
+| cardWidth       | 卡片宽度           | String | —               | 262px   |
+| imageHeight     | 封面高度           | String | —               | 146px   |
+| coverTip        | 封面右下角提示     | String | —               | —       |
+| errorTip        | 图片加载失败提示语 | String | —               | —       |
+| defaultImageUrl | 封面默认图片       | String | —               | —       |
+| imageUrl        | 封面图片           | String | —               | —       |
 
 ## 事件
 
-| Event Name | 说明           | Parameters        |
-| -------- | -------------- | --------------- |
-| click    | 点击卡片时触发 | data：data 属性 |
+| Event Name | 说明           | Parameters      |
+| ---------- | -------------- | --------------- |
+| click      | 点击卡片时触发 | data：data 属性 |
 
 ## 插槽
 
 | Name | 说明           |
-| -------- | -------------- |
-| —        | 自定义底部内容 |
-| top      | 自定义顶部内容 |
+| ---- | -------------- |
+| —    | 自定义底部内容 |
+| top  | 自定义顶部内容 |

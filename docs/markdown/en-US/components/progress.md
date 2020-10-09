@@ -143,7 +143,7 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 
 ## Progress 属性
 
-| 参数        | 说明                  | Type    | Accepted Values                         | Default  |
+| 参数        | 说明                  | Type    | Accepted Values                | Default |
 | ----------- | --------------------- | ------- | ------------------------------ | ------- |
 | percent     | 百分比（必填）        | Number  | 0-1                            | 0       |
 | innerColor  | 进度条底层颜色        | String  | —                              | —       |
@@ -152,11 +152,11 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 | radius      | 是否需要圆角          | Boolean | —                              | true    |
 | textOutside | 进度条外面的提示文字  | String  | —                              | —       |
 | textInside  | 进度条里面的提示文字  | String  | —                              | —       |
-| type        | 进度条Type            | String  | primary,success,warning,danger | primary |
+| type        | 进度条 Type           | String  | primary,success,warning,danger | primary |
 
 ## 插槽
 
 | Name | 说明                    |
-| -------- | ----------------------- |
-| —        | Progress 外面提示的内容 |
-| text     | Progress 里面提示的内容 |
+| ---- | ----------------------- |
+| —    | Progress 外面提示的内容 |
+| text | Progress 里面提示的内容 |

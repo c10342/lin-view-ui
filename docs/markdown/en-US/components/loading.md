@@ -222,13 +222,13 @@ console.log(loadingInstance1 === loadingInstance2); // true
 
 ## 属性
 
-| 参数       | 说明                                             | Type    | Accepted Values | Default        |
-| ---------- | ------------------------------------------------ | ------- | ------ | ------------- |
-| target     | Loading 需要覆盖的 DOM 节点。需传入一个 DOM 对象 | object  | —      | document.body |
-| body       | 同 `v-loading` 指令中的 `body` 修饰符            | Boolean | —      | false         |
-| fullscreen | 同 `v-loading` 指令中的 `fullscreen` 修饰符      | Boolean | —      | true          |
-| lock       | 同 `v-loading` 指令中的 `lock` 修饰符            | Boolean | —      | false         |
-| text       | 显示在加载图标下方的加载文案                     | String  | —      | —             |
-| textColor  | 加载文案颜色                                     | String  | —      | —             |
-| background | 遮罩背景色                                       | String  | —      | —             |
-| iconColor  | loading 颜色                                     | String  | —      | —             |
+| 参数       | 说明                                             | Type    | Accepted Values | Default       |
+| ---------- | ------------------------------------------------ | ------- | --------------- | ------------- |
+| target     | Loading 需要覆盖的 DOM 节点。需传入一个 DOM 对象 | object  | —               | document.body |
+| body       | 同 `v-loading` 指令中的 `body` 修饰符            | Boolean | —               | false         |
+| fullscreen | 同 `v-loading` 指令中的 `fullscreen` 修饰符      | Boolean | —               | true          |
+| lock       | 同 `v-loading` 指令中的 `lock` 修饰符            | Boolean | —               | false         |
+| text       | 显示在加载图标下方的加载文案                     | String  | —               | —             |
+| textColor  | 加载文案颜色                                     | String  | —               | —             |
+| background | 遮罩背景色                                       | String  | —               | —             |
+| iconColor  | loading 颜色                                     | String  | —               | —             |

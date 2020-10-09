@@ -609,16 +609,16 @@ export default {
 ## Table 属性
 
 | 参数         | 说明                                                                          | Type                             | Accepted Values | Default |
-| ------------ | ----------------------------------------------------------------------------- | -------------------------------- | ------ | ------ |
-| dataSource   | 数据源                                                                        | Array                            | —      | —      |
-| border       | 是否带有纵向边框                                                              | Boolean                          | —      | false  |
-| stripe       | 是否为斑马纹 table                                                            | Boolean                          | —      | false  |
-| rowClassName | 行的 className 的回调方法，也可以使用字符串为所有行设置一个固定的 className。 | Function({row, rowIndex})/String | —      | —      |
-| valueKey     | 每一行数据的唯一标识 key                                                      | String                           | —      | —      |
+| ------------ | ----------------------------------------------------------------------------- | -------------------------------- | --------------- | ------- |
+| dataSource   | 数据源                                                                        | Array                            | —               | —       |
+| border       | 是否带有纵向边框                                                              | Boolean                          | —               | false   |
+| stripe       | 是否为斑马纹 table                                                            | Boolean                          | —               | false   |
+| rowClassName | 行的 className 的回调方法，也可以使用字符串为所有行设置一个固定的 className。 | Function({row, rowIndex})/String | —               | —       |
+| valueKey     | 每一行数据的唯一标识 key                                                      | String                           | —               | —       |
 
 ## Table 事件
 
-| Event Name         | 说明                                         | Parameters                         |
+| Event Name       | 说明                                         | Parameters                       |
 | ---------------- | -------------------------------------------- | -------------------------------- |
 | selection-change | 当选择项发生变化时会触发该事件               | row                              |
 | select-all       | 当用户手动勾选全选 Checkbox 时触发的事件     | row                              |
@@ -636,16 +636,16 @@ export default {
 
 ## TableColumn 属性
 
-| 参数  | 说明                                                                                                    | Type   | Accepted Values | Default |
-| ----- | ------------------------------------------------------------------------------------------------------- | ------ | ------ | ------ |
-| prop  | 对应列内容的字段名                                                                                      | String | —      | —      |
-| label | 显示的标题                                                                                              | String | —      | —      |
-| width | 对应列的宽度                                                                                            | String | —      | —      |
-| align | 对齐方式                                                                                                | String | —      | left   |
-| type  | 对应列的Type。如果设置了 `selection` 则显示多选框；如果设置了 `index` 则显示该行的索引（从 1 开始计算） | String | —      | —      |
+| 参数  | 说明                                                                                                     | Type   | Accepted Values | Default |
+| ----- | -------------------------------------------------------------------------------------------------------- | ------ | --------------- | ------- |
+| prop  | 对应列内容的字段名                                                                                       | String | —               | —       |
+| label | 显示的标题                                                                                               | String | —               | —       |
+| width | 对应列的宽度                                                                                             | String | —               | —       |
+| align | 对齐方式                                                                                                 | String | —               | left    |
+| type  | 对应列的 Type。如果设置了 `selection` 则显示多选框；如果设置了 `index` 则显示该行的索引（从 1 开始计算） | String | —               | —       |
 
 ## TableColumn 插槽
 
 | Name | 说明                                             |
-| -------- | ------------------------------------------------ |
-| —        | 自定义列的内容，参数为 { row, column, rowIndex } |
+| ---- | ------------------------------------------------ |
+| —    | 自定义列的内容，参数为 { row, column, rowIndex } |
