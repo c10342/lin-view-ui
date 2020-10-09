@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['lin-video-player',{'lin-video-player-fix':isWebFullscreen}]"
+    :class="['lin-video-player', { 'lin-video-player-fix': isWebFullscreen }]"
     ref="videoPlayerContainer"
     @mouseleave="onMouseLeave"
     @mouseenter="onMouseEnter"
@@ -30,7 +30,7 @@
 
 <script>
 import Hls from "hls.js";
-import Flv from "flv.js";
+import flvjs from "flv.js";
 import PlayerControls from "./video-player-controls";
 import PlayerAnimation from "./video-player-animation";
 import PlayerImage from "./video-player-image";
@@ -38,7 +38,7 @@ import PlayerLoading from "./video-player-loading";
 import PlayerTip from "./video-player-tip";
 import cloneDeep from "lodash/cloneDeep";
 import isEqual from "lodash/isEqual";
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from "src/mixins/locale.js";
 import {
   isBrowserFullscreen,
   isBrowserFullscreenEnabled,
@@ -47,7 +47,7 @@ import {
 } from "./utils";
 export default {
   name: "LinVideoPlayer",
-  mixins:[LocaleMixin],
+  mixins: [LocaleMixin],
   components: {
     PlayerControls,
     PlayerAnimation,
@@ -119,7 +119,9 @@ export default {
         return;
       }
       this.isLoading = true;
-      this.tip = `${this.t('LinViewUI.VideoPlayer.switch')} ${label} ${this.t('LinViewUI.VideoPlayer.quality')}`;
+      this.tip = `${this.t("LinViewUI.VideoPlayer.switch")} ${label} ${this.t(
+        "LinViewUI.VideoPlayer.quality"
+      )}`;
       this.getImage();
       if (typeof this.customType === "function") {
         this.initCustomType(data);
@@ -137,6 +139,9 @@ export default {
       this.seek(this.currentTime);
     },
     initHls(videoSrc, hlsParams = {}) {
+      if (!Hls) {
+        throw "Hls is not defind";
+      }
       if (Hls.isSupported()) {
         if (!this.hls) {
           this.hls = new Hls(hlsParams);
@@ -148,10 +153,12 @@ export default {
       }
     },
     initFlv(videoSrc, flvParams = {}) {
-      if (Flv.isSupported()) {
-        Flv.LoggingControl.enableAll = false;
-        // Flv.LoggingControl = this.LoggingControl;
-        this.flv = Flv.createPlayer({
+      if (!flvjs) {
+        throw "flvjs is not defind";
+      }
+      if (flvjs.isSupported()) {
+        flvjs.LoggingControl.enableAll = false;
+        this.flv = flvjs.createPlayer({
           type: "flv",
           url: videoSrc,
           isLive: this.live,
@@ -276,7 +283,11 @@ export default {
         volume = volume < 0 ? 0 : volume;
         volume = volume > 1 ? 1 : volume;
         this.video.volume = volume;
-        this.setTip(`${this.t('LinViewUI.VideoPlayer.volume')}${Math.round(volume * 100)}%`);
+        this.setTip(
+          `${this.t("LinViewUI.VideoPlayer.volume")}${Math.round(
+            volume * 100
+          )}%`
+        );
         return volume;
       }
       return -1;

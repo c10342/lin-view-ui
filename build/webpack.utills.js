@@ -29,7 +29,7 @@ if (buildType === "index") {
 }
 
 module.exports = {
-  outputDir: resolve("utils"),
+  outputDir: resolve("lib/assets/utils"),
   configureWebpack: {
     mode: "production",
     entry: entryObj,

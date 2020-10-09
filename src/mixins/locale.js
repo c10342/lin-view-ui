@@ -1,9 +1,9 @@
-import { t } from '../locale/index.js';
+import { t } from "src/locale";
 
 export default {
   methods: {
-    t (...args) {
+    t(...args) {
       return t.apply(this, args);
-    }
-  }
+    },
+  },
 };

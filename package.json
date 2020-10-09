@@ -26,10 +26,10 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "rimraf lib && npm run build:index && npm run build:components && npm run build:locale",
-    "build:index": "cross-env BUILD_TYPE=index vue-cli-service build --no-clean",
-    "build:components": "cross-env BUILD_TYPE=components vue-cli-service build --no-clean",
-    "build:utils": "rimraf utils && npm run build:utils:index && npm run build:utils:components",
+    "build": "rimraf lib && npm run build:index && npm run build:components && npm run build:utils  && npm run build:locale",
+    "build:index": "cross-env NODE_ENV=index vue-cli-service build --no-clean",
+    "build:components": "cross-env NODE_ENV=components vue-cli-service build --no-clean",
+    "build:utils": "npm run build:utils:index && npm run build:utils:components",
     "build:utils:index": "cross-env NODE_ENV=utils BUILD_TYPE=index vue-cli-service build --no-clean",
     "build:utils:components": "cross-env NODE_ENV=utils vue-cli-service build --no-clean",
     "build:docs": "cross-env NODE_ENV=docs vue-cli-service build",
@@ -37,8 +37,12 @@
     "test:unit": "vue-cli-service test:unit --watch",
     "test": "vue-cli-service test:unit",
     "upload:docs": "npm run build:docs && node ./build/qiniu.js",
-    "prepublishOnly": "npm run build && npm run build:utils && npm run upload:docs",
+    "prepublishOnly": "npm run build && npm run upload:docs",
     "pub": "node ./build/publish.js"
+  },
+  "dependencies": {
+    "flv.js": "^1.5.0",
+    "hls.js": "^0.14.12"
   },
   "peerDependencies": {
     "vue": "^2.6.11"
@@ -55,9 +59,7 @@
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
     "deepmerge": "^4.2.2",
-    "flv.js": "^1.5.0",
     "highlight.js": "^10.0.3",
-    "hls.js": "^0.14.12",
     "inquirer": "^7.3.3",
     "lodash": "^4.17.20",
     "markdown-it-container": "^3.0.0",

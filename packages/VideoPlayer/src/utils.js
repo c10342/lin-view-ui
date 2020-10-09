@@ -32,6 +32,8 @@ export const handleEl = (el) => {
     throw "el 没有定义";
   } else if (typeof el !== "string" && !isDOM(el)) {
     throw "el 只能是 string 类型 或者是 HTMLElement 类型";
+  } else if (typeof el === "string" && !document.querySelector(el)) {
+    throw "can not find DOM";
   }
 };
 
