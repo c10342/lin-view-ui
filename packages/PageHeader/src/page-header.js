@@ -1,5 +1,7 @@
-import PageHeader from './page-header.vue'
+import PageHeader from "./page-header.vue";
 
-import './style.scss'
+import "./style.scss";
 
-export default PageHeader
+import "src/fonts/iconfont.css";
+
+export default PageHeader;

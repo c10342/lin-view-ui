@@ -1,13 +1,11 @@
-// import Pagination from './pagination.vue'
-
 import "./style.scss";
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from "src/mixins/locale.js";
 
-// export default Pagination
+import "src/fonts/iconfont.css";
 
 export default {
   name: "LinPagination",
-  mixins:[LocaleMixin],
+  mixins: [LocaleMixin],
   props: {
     pageCount: {
       default: 7,
@@ -118,8 +116,14 @@ export default {
       e.target.value = index;
     },
     rendertotal() {
-      const { total,t } = this;
-      return <span class="lin-pagination-total">{t('LinViewUI.Pagination.total')}{total}{t('LinViewUI.Pagination.strip')}</span>;
+      const { total, t } = this;
+      return (
+        <span class="lin-pagination-total">
+          {t("LinViewUI.Pagination.total")}
+          {total}
+          {t("LinViewUI.Pagination.strip")}
+        </span>
+      );
     },
     renderprev() {
       const { disabledPrev, prevClick } = this;
@@ -179,10 +183,16 @@ export default {
       );
     },
     renderjumper() {
-      const { totalPage, gotoPageByEnter, gotoPageByBlur, currentPage,t } = this;
+      const {
+        totalPage,
+        gotoPageByEnter,
+        gotoPageByBlur,
+        currentPage,
+        t,
+      } = this;
       return (
         <div class="lin-pagintaion-jumpe">
-          <span>{t('LinViewUI.Pagination.goto')}</span>
+          <span>{t("LinViewUI.Pagination.goto")}</span>
           <input
             min="1"
             max={totalPage}
@@ -192,7 +202,7 @@ export default {
             class="lin-pagintaion-input"
             type="number"
           />
-          <span>{t('LinViewUI.Pagination.page')}</span>
+          <span>{t("LinViewUI.Pagination.page")}</span>
         </div>
       );
     },

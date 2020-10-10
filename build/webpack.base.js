@@ -1,4 +1,6 @@
 const utils = require("./utils");
+const fs = require("fs");
+const path = require("path");
 
 const MarkdownItContainer = require("markdown-it-container");
 
@@ -111,6 +113,34 @@ const handleBuild = (config) => {
   config.entryPoints.delete("app");
 };
 
+const utilsList = fs.readdirSync(utils.resolve("src/utils"));
+const mixinsList = fs.readdirSync(utils.resolve("src/mixins"));
+const jsList = fs.readdirSync(utils.resolve("src/js"));
+
+const getExternalsList = () => {
+  const externals = {
+    "src/locale/index.js": "lin-view-ui/lib/assets/locale/index.js",
+    "src/locale/lang/zh-CN.js": "lin-view-ui/lib/assets/locale/lang/zh-CN.js",
+    "src/locale/lang/en-US.js": "lin-view-ui/lib/assets/locale/lang/en-US.js",
+    "src/locale/format.js": "lin-view-ui/lib/assets/locale/format.js",
+    "src/fonts/iconfont.css": "lin-view-ui/src/fonts/iconfont.css",
+  };
+
+  utilsList.forEach(function(file) {
+    file = path.basename(file);
+    externals[`src/utils/${file}`] = `lin-view-ui/lib/assets/utils/${file}`;
+  });
+  mixinsList.forEach(function(file) {
+    file = path.basename(file);
+    externals[`src/mixins/${file}`] = `lin-view-ui/lib/assets/mixins/${file}`;
+  });
+  jsList.forEach(function(file) {
+    file = path.basename(file);
+    externals[`src/js/${file}`] = `lin-view-ui/lib/assets/js/${file}`;
+  });
+  return externals;
+};
+
 module.exports = {
   resolve: {
     extensions: [".js", ".vue", ".json", "md"],
@@ -125,4 +155,5 @@ module.exports = {
   handleMD,
   handleJs,
   handleBuild,
+  externals: getExternalsList(),
 };

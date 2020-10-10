@@ -36,8 +36,7 @@ import PlayerAnimation from "./video-player-animation";
 import PlayerImage from "./video-player-image";
 import PlayerLoading from "./video-player-loading";
 import PlayerTip from "./video-player-tip";
-import cloneDeep from "lodash/cloneDeep";
-import isEqual from "lodash/isEqual";
+import { cloneDeep, isEqual } from "lodash";
 import LocaleMixin from "src/mixins/locale.js";
 import {
   isBrowserFullscreen,

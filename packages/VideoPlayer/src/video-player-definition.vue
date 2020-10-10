@@ -1,19 +1,27 @@
 <template>
   <div class="lin-video-player-definition">
-    <span class="lin-video-player-definition-label">{{currentDefinitionVideo?currentDefinitionVideo.label:''}}</span>
-    <ul class="lin-video-player-definition-list" :style="{top}" v-if="definitionList.length>0">
+    <span class="lin-video-player-definition-label">{{
+      currentDefinitionVideo ? currentDefinitionVideo.label : ""
+    }}</span>
+    <ul
+      class="lin-video-player-definition-list"
+      :style="{ top }"
+      v-if="definitionList.length > 0"
+    >
       <li
         @click="setDefinition(item)"
         class="lin-video-player-speed-label"
-        v-for="(item,index) in definitionList"
+        v-for="(item, index) in definitionList"
         :key="index"
-      >{{item.label}}</li>
+      >
+        {{ item.label }}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-import cloneDeep from "lodash/cloneDeep";
+import { cloneDeep } from "lodash";
 export default {
   name: "LinVideoPlayerDefinition",
   inject: {
@@ -77,7 +85,7 @@ export default {
   // },
   methods: {
     setDefinition(data) {
-      this.videoPlayer?.setDefinition(data)
+      this.videoPlayer?.setDefinition(data);
       // const definitionList = cloneDeep(this.definitionList);
       // const index = definitionList.findIndex(
       //   (item) => item.label === data.label && item.url === data.url

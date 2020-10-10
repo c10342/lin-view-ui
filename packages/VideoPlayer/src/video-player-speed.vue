@@ -1,23 +1,31 @@
 <template>
-  <div class="lin-video-player-speed" v-if="speedList.length!==0">
-    <span class="lin-video-player-speed-label">{{currentSpeed?currentSpeed.label:t('LinViewUI.VideoPlayer.speed')}}</span>
-    <ul class="lin-video-player-speed-list" :style="{top}" v-if="list.length>0">
+  <div class="lin-video-player-speed" v-if="speedList.length !== 0">
+    <span class="lin-video-player-speed-label">{{
+      currentSpeed ? currentSpeed.label : t("LinViewUI.VideoPlayer.speed")
+    }}</span>
+    <ul
+      class="lin-video-player-speed-list"
+      :style="{ top }"
+      v-if="list.length > 0"
+    >
       <li
         @click="switchSpeed(item)"
         class="lin-video-player-speed-label"
-        v-for="(item,index) in list"
+        v-for="(item, index) in list"
         :key="index"
-      >{{item.label}}</li>
+      >
+        {{ item.label }}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
-import cloneDeep from "lodash/cloneDeep";
+import LocaleMixin from "src/mixins/locale.js";
+import { cloneDeep } from "lodash";
 export default {
   name: "LinVideoPlayerSpeed",
-  mixins:[LocaleMixin],
+  mixins: [LocaleMixin],
   inject: {
     videoPlayer: {
       default: null,
@@ -69,7 +77,7 @@ export default {
     setSpeed() {
       if (this.videoPlayer) {
         let playbackRate = this.currentSpeed.value;
-        this.videoPlayer.setSpeed(playbackRate)
+        this.videoPlayer.setSpeed(playbackRate);
       }
     },
   },

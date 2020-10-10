@@ -1,12 +1,12 @@
 <template>
-  <div :class="[{'lin-collapse-group-simple':simple},'lin-collapse-group']">
+  <div :class="[{ 'lin-collapse-group-simple': simple }, 'lin-collapse-group']">
     <slot></slot>
   </div>
 </template>
 
 
 <script>
-import cloneDeep from "lodash/cloneDeep";
+import { cloneDeep } from "lodash";
 export default {
   name: "LinCollapseGroup",
   props: {
@@ -20,49 +20,49 @@ export default {
     simple: {
       type: Boolean,
       default: false,
-    }
+    },
   },
-  computed:{
-    collapseValue:{
-      get(){
-        if(typeof this.value === 'string' || Array.isArray(this.value)){
-          return this.value
+  computed: {
+    collapseValue: {
+      get() {
+        if (typeof this.value === "string" || Array.isArray(this.value)) {
+          return this.value;
         }
-        return this.valueData
+        return this.valueData;
       },
-      set(val){
-        if(typeof this.value === 'string' || Array.isArray(this.value)){
+      set(val) {
+        if (typeof this.value === "string" || Array.isArray(this.value)) {
           this.$emit("input", this.handleData(val));
-        }else{
-          this.valueData = this.handleData(val)
+        } else {
+          this.valueData = this.handleData(val);
         }
-        this.$emit('onChange',val)
-      }
-    }
+        this.$emit("onChange", val);
+      },
+    },
   },
   provide() {
     return {
       collapseGroup: this,
     };
   },
-  data(){
+  data() {
     return {
-      valueData:''
-    }
+      valueData: "",
+    };
   },
   methods: {
-    handleData(data){
+    handleData(data) {
       let da;
       if (this.accordion) {
-        if(data.length>0){
-          da =  data[0]
-        }else{
-          da = ''
+        if (data.length > 0) {
+          da = data[0];
+        } else {
+          da = "";
         }
       } else {
-        da = data
+        da = data;
       }
-      return cloneDeep(da)
+      return cloneDeep(da);
     },
   },
 };

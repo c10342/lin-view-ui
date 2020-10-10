@@ -13,6 +13,8 @@ const VideoPlayerConstructor = Vue.extend(VideoPlayer);
 
 import "./style.scss";
 
+import "src/fonts/iconfont.css";
+
 class LinVideoPlayer {
   hls = null;
 
@@ -36,14 +38,14 @@ class LinVideoPlayer {
 
   el = null;
 
-  customType = null
+  customType = null;
 
   live = false;
 
   constructor(options) {
-    const { el, type, speedList = [], videoList = [],customType } = options;
+    const { el, type, speedList = [], videoList = [], customType } = options;
     handleEl(el);
-    handleType(type,customType);
+    handleType(type, customType);
     handleSpeedList(speedList);
     handleVideoList(videoList);
 
@@ -59,7 +61,7 @@ class LinVideoPlayer {
       speedList = [],
       videoList = [],
       live = false,
-      customType
+      customType,
     } = options;
     this.videoList = videoList;
     this.speedList = speedList;
@@ -67,8 +69,8 @@ class LinVideoPlayer {
     this.type = type;
     this.el = el;
     this.live = live;
-    if(typeof customType === 'function'){
-      this.customType = customType
+    if (typeof customType === "function") {
+      this.customType = customType;
     }
   }
 
@@ -80,7 +82,7 @@ class LinVideoPlayer {
         videoList: this.videoList,
         type: this.type,
         live: this.live,
-        customType:this.customType
+        customType: this.customType,
       },
     });
     if (typeof this.el === "string") {
@@ -235,7 +237,7 @@ class LinVideoPlayer {
 
     this.live = false;
 
-    this.customType = null
+    this.customType = null;
   }
 
   destory() {

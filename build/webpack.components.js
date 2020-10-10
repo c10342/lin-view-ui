@@ -1,10 +1,5 @@
 const { resolve, getComponentEntries } = require("./utils");
 const baseConfig = require("./webpack.base");
-const fs = require("fs");
-const path = require("path");
-const utilsList = fs.readdirSync(resolve("src/utils"));
-const mixinsList = fs.readdirSync(resolve("src/mixins"));
-const jsList = fs.readdirSync(resolve("src/js"));
 
 const externals = {
   vue: {
@@ -20,26 +15,19 @@ const externals = {
     amd: "hls.js",
   },
   "flv.js": {
-    root: "flvjs",
+    root: "_",
     commonjs: "flv.js",
     commonjs2: "flv.js",
     amd: "flv.js",
   },
-  "src/locale": "lin-view-ui/lib/assets/locale",
+  lodash: {
+    root: "flvjs",
+    commonjs: "lodash",
+    commonjs2: "lodash",
+    amd: "lodash",
+  },
+  ...baseConfig.externals,
 };
-
-utilsList.forEach(function(file) {
-  file = path.basename(file);
-  externals[`src/utils/${file}`] = `lin-view-ui/lib/assets/utils/${file}`;
-});
-mixinsList.forEach(function(file) {
-  file = path.basename(file);
-  externals[`src/mixins/${file}`] = `lin-view-ui/lib/assets/mixins/${file}`;
-});
-jsList.forEach(function(file) {
-  file = path.basename(file);
-  externals[`src/js/${file}`] = `lin-view-ui/lib/assets/js/${file}`;
-});
 
 module.exports = {
   productionSourceMap: false,
@@ -64,14 +52,6 @@ module.exports = {
   },
   chainWebpack: (config) => {
     baseConfig.handleBuild(config);
-
-    // config.module
-    //   .rule("fonts")
-    //   .use("url-loader")
-    //   .tap((option) => {
-    //     option.fallback.options.name = "assets/fonts/[name].[hash:8].[ext]";
-    //     return option;
-    //   });
     baseConfig.handleJs(config);
   },
 };

@@ -1,7 +1,14 @@
 <template>
-  <div :class="[{'lin-collapse-item-simple':simple},'lin-collapse-item']">
+  <div :class="[{ 'lin-collapse-item-simple': simple }, 'lin-collapse-item']">
     <div class="lin-collapse-item-header" @click="onHeaderClick">
-      <i :class="[{'lin-collapse-arrow-down':show},'lin-icon-right','lin-collapse-arrow']" v-if="!hideArrow"></i>
+      <i
+        :class="[
+          { 'lin-collapse-arrow-down': show },
+          'lin-icon-right',
+          'lin-collapse-arrow',
+        ]"
+        v-if="!hideArrow"
+      ></i>
       <slot></slot>
     </div>
     <collapse-transition>
@@ -13,7 +20,7 @@
 </template>
 
 <script>
-import cloneDeep from "lodash/cloneDeep";
+import { cloneDeep } from "lodash";
 import collapseTransition from "src/js/collapseTransition.js";
 export default {
   name: "LinCollapseItem",
@@ -22,10 +29,10 @@ export default {
       type: String,
       require: true,
     },
-    hideArrow:{
-      type:Boolean,
-      default:false
-    }
+    hideArrow: {
+      type: Boolean,
+      default: false,
+    },
   },
   components: {
     collapseTransition,
@@ -35,10 +42,10 @@ export default {
       default: "",
     },
   },
-  data(){
+  data() {
     return {
-      index:0
-    }
+      index: 0,
+    };
   },
   computed: {
     simple() {
@@ -76,9 +83,9 @@ export default {
         if (this.collapseGroup) {
           let data = cloneDeep(this.collapseValue);
           if (this.accordion) {
-            if(val===false){
-              data = []
-            }else{
+            if (val === false) {
+              data = [];
+            } else {
               data = [this.name];
             }
           } else {
