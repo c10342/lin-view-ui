@@ -2,30 +2,30 @@ const { resolve, getComponentEntries } = require("./utils");
 const baseConfig = require("./webpack.base");
 
 const externals = {
-  vue: {
-    root: "Vue",
-    commonjs: "vue",
-    commonjs2: "vue",
-    amd: "vue",
-  },
-  "hls.js": {
-    root: "Hls",
-    commonjs: "hls.js",
-    commonjs2: "hls.js",
-    amd: "hls.js",
-  },
-  "flv.js": {
-    root: "_",
-    commonjs: "flv.js",
-    commonjs2: "flv.js",
-    amd: "flv.js",
-  },
-  lodash: {
-    root: "flvjs",
-    commonjs: "lodash",
-    commonjs2: "lodash",
-    amd: "lodash",
-  },
+  // vue: {
+  //   root: "Vue",
+  //   commonjs: "vue",
+  //   commonjs2: "vue",
+  //   amd: "vue",
+  // },
+  // "hls.js": {
+  //   root: "Hls",
+  //   commonjs: "hls.js",
+  //   commonjs2: "hls.js",
+  //   amd: "hls.js",
+  // },
+  // "flv.js": {
+  //   root: "flvjs",
+  //   commonjs: "flv.js",
+  //   commonjs2: "flv.js",
+  //   amd: "flv.js",
+  // },
+  // lodash: {
+  //   root: "_",
+  //   commonjs: "lodash",
+  //   commonjs2: "lodash",
+  //   amd: "lodash",
+  // },
   ...baseConfig.externals,
 };
 

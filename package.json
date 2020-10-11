@@ -38,6 +38,8 @@
     "pub": "node ./build/publish.js"
   },
   "dependencies": {
+    "deepmerge": "^4.2.2",
+    "async-validator": "^3.4.0",
     "lodash": "^4.17.20",
     "flv.js": "^1.5.0",
     "hls.js": "^0.14.12"
@@ -52,12 +54,10 @@
     "@vue/cli-plugin-unit-jest": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "@vue/test-utils": "^1.0.3",
-    "async-validator": "^3.4.0",
     "babel-runtime": "^6.26.0",
     "cheerio": "^1.0.0-rc.3",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
-    "deepmerge": "^4.2.2",
     "highlight.js": "^10.0.3",
     "inquirer": "^7.3.3",
     "markdown-it-container": "^3.0.0",

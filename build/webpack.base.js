@@ -1,8 +1,20 @@
 const utils = require("./utils");
 const fs = require("fs");
 const path = require("path");
-
 const MarkdownItContainer = require("markdown-it-container");
+
+const packageJson = require("../package.json");
+
+const dependencies = {};
+
+for (const key in packageJson.dependencies) {
+  dependencies[key] = {
+    root: key,
+    commonjs: key,
+    commonjs2: key,
+    amd: key,
+  };
+}
 
 const vueMarkdown = {
   preprocess: (MarkdownIt, source) => {
@@ -119,6 +131,13 @@ const jsList = fs.readdirSync(utils.resolve("src/js"));
 
 const getExternalsList = () => {
   const externals = {
+    vue: {
+      root: "Vue",
+      commonjs: "vue",
+      commonjs2: "vue",
+      amd: "vue",
+    },
+    ...dependencies,
     "src/locale/index.js": "lin-view-ui/lib/assets/locale/index.js",
     "src/locale/lang/zh-CN.js": "lin-view-ui/lib/assets/locale/lang/zh-CN.js",
     "src/locale/lang/en-US.js": "lin-view-ui/lib/assets/locale/lang/en-US.js",
