@@ -78,6 +78,7 @@
 :::
 
 ## 附加功能
+
 <div class='demo-block'>
 <div>
 <p>显示总数</p>
@@ -97,26 +98,32 @@
 </div>
 
 :::demo
+
 ```html
 <div>
-<p>显示总数</p>
-<lin-pagination background layout="total,prev, pager, next" :total="1000">
-</lin-pagination>
+  <p>显示总数</p>
+  <lin-pagination background layout="total,prev, pager, next" :total="1000">
+  </lin-pagination>
 </div>
 <div>
-<p>直接前往</p>
-<lin-pagination background layout="prev, pager, next,jumper" :total="1000">
-</lin-pagination>
+  <p>直接前往</p>
+  <lin-pagination background layout="prev, pager, next,jumper" :total="1000">
+  </lin-pagination>
 </div>
 <div>
-<p>完整功能</p>
-<lin-pagination background layout="total,prev, pager, next,jumper" :total="1000">
-</lin-pagination>
+  <p>完整功能</p>
+  <lin-pagination
+    background
+    layout="total,prev, pager, next,jumper"
+    :total="1000"
+  >
+  </lin-pagination>
 </div>
 ```
+
 :::
 
-## Pagination 属性
+## 属性
 
 | 参数       | 说明                                     | 类型    | 可选值                                    | 默认值                          |
 | ---------- | ---------------------------------------- | ------- | ----------------------------------------- | ------------------------------- |
@@ -127,7 +134,7 @@
 | background | 是否为分页按钮添加背景色                 | Boolean | —                                         | false                           |
 | layout     | 组件布局，子组件名用逗号分隔             | String  | `prev`, `pager`, `next`, `jumper`,`total` | prev, pager, next, jumper,total |
 
-## Pagination 事件
+## 事件
 
 | 事件名称      | 说明                               | 回调参数 |
 | ------------- | ---------------------------------- | -------- |

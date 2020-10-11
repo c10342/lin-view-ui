@@ -241,16 +241,16 @@
 
 ## 属性
 
-| 参数            | 说明               | 类型   | 可选值 | 默认值 |
-| --------------- | ------------------ | ------ | ------ | ------ |
-| data            | 卡片相关数据       | Object | —      | —      |
-| cardHeight      | 卡片高度           | String | —      | auto   |
-| cardWidth       | 卡片宽度           | String | —      | 262px  |
-| imageHeight     | 封面高度           | String | —      | 146px  |
-| coverTip        | 封面右下角提示     | String | —      | —      |
-| errorTip        | 图片加载失败提示语 | String | —      | —      |
-| defaultImageUrl | 封面默认图片       | String | —      | —      |
-| imageUrl        | 封面图片           | String | —      | —      |
+| 参数            | 说明               | 类型   | 可选值 | 默认值   |
+| --------------- | ------------------ | ------ | ------ | -------- |
+| data            | 卡片相关数据       | Object | —      | —        |
+| cardHeight      | 卡片高度           | String | —      | auto     |
+| cardWidth       | 卡片宽度           | String | —      | 262px    |
+| imageHeight     | 封面高度           | String | —      | 146px    |
+| coverTip        | 封面右下角提示     | String | —      | —        |
+| errorTip        | 图片加载失败提示语 | String | —      | 加载失败 |
+| defaultImageUrl | 封面默认图片       | String | —      | —        |
+| imageUrl        | 封面图片           | String | —      | —        |
 
 ## 事件
 
