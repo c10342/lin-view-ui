@@ -10,7 +10,7 @@
     >
       <li
         @click="setDefinition(item)"
-        class="lin-video-player-speed-label"
+        class="lin-video-player-definition-label"
         v-for="(item, index) in definitionList"
         :key="index"
       >

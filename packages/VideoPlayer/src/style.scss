@@ -237,7 +237,6 @@
 }
 // video-player-image  结束  --------------------------
 
-
 // video-player-fullscreen  开始  --------------------------
 .lin-video-player-fullscreen {
   height: 100%;
@@ -274,7 +273,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color:$video-player-definition-color;
+  color: $video-player-definition-color;
   position: relative;
   &:hover {
     .lin-video-player-definition-list {
