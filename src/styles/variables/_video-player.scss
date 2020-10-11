@@ -32,9 +32,9 @@ $video-player-tip-padding: 7px 20px !default;
 $video-player-speed-margin-right: 10px !default;
 $video-player-speed-color: #ffffff !default;
 $video-player-speed-label-height: 20px !default;
-$video-player-speed-label-padding: 5px 0px !default;
+$video-player-speed-label-padding: 5px !default;
 $video-player-speed-label-font-size: 12px !default;
-$video-player-speed-label-min-width: 70px !default;
+$video-player-speed-label-min-width: 60px !default;
 $video-player-speed-list-list-style: none !default;
 $video-player-speed-list-top: 0 !default;
 $video-player-speed-list-left: 50% !default;
@@ -71,8 +71,8 @@ $video-player-process-ball-background-color: rgb(183, 218, 255) !default;
 $video-player-process-ball-border-radius: 50% !default;
 $video-player-process-ball-enter-active-animation: BallEnterAnimation 0.3s
   ease-out !default;
-$video-player-process-ball-leave-active-animation: BallEnterAnimation 0.3s reverse
-  ease-out !default;
+$video-player-process-ball-leave-active-animation: BallEnterAnimation 0.3s
+  reverse ease-out !default;
 
 $video-player-loading-color: hsla(0, 0%, 100%, 0.7) !default;
 $video-player-loading-font-size: 30px !default;
@@ -118,8 +118,8 @@ $video-player-animation-height: 60px !default;
 $video-player-animation-border-radius: 50% !default;
 $video-player-animation-font-size: 40px !default;
 $video-player-animation-color: #ffffff !default;
-$video-player-animation-enter-active-animation: EnterActiveAnimation 0.3s ease-out !default;
-
+$video-player-animation-enter-active-animation: EnterActiveAnimation 0.3s
+  ease-out !default;
 
 $video-player-definition-margin-right: 10px !default;
 $video-player-definition-color: #ffffff !default;
@@ -132,5 +132,9 @@ $video-player-definition-list-transform: translateX(-50%) !default;
 $video-player-definition-list-margin: 0 !default;
 $video-player-definition-list-padding: 5px 0 !default;
 $video-player-definition-list-background-color: rgba(0, 0, 0, 0.6) !default;
-$video-player-definition-label-hover-background-color: rgba(0, 0, 0, 0.2) !default;
-
+$video-player-definition-label-hover-background-color: rgba(
+  0,
+  0,
+  0,
+  0.2
+) !default;
