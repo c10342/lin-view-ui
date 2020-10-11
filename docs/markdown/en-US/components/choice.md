@@ -737,19 +737,19 @@ Set the `scroll` property for the `lin-choice-group` to implement drop-down load
 
 ## ChoiceGroup Attributes
 
-| Attribute       | Description                                                          | Type                 | Accepted Values | Default           |
-| --------------- | -------------------------------------------------------------------- | -------------------- | --------------- | ----------------- |
-| value / v-model | binding value                                                        | Object/String/Number | —               | —                 |
-| placeholder     | placeholder                                                          | String               | —               | Select            |
-| valueKey        | unique identity key name for value, required when value is an object | String               | —               | —                 |
-| clearable       | whether ChoiceGroup can be cleared                                   | Boolean              | —               | false             |
-| disabled        | whether ChoiceGroup is disabled                                      | Boolean              | —               | false             |
-| isThrottle      | Whether to perform anti shake when starting pull-down loading        | Boolean              | —               | true              |
-| scroll          | Whether to enable pull-down loading                                  | Boolean              | —               | false             |
-| time            | Buffeting interval                                                   | Number               | —               | 500ms             |
-| loading         | Whether to turn on loading animation                                 | Boolean              | —               | false             |
-| loadingTip      | Loading prompt                                                       | String               | —               | —                 |
-| emptyTip        | Prompt when data is empty                                            | String               | —               | No data available |
+| Attribute       | Description                                                          | Type                 | Accepted Values | Default       |
+| --------------- | -------------------------------------------------------------------- | -------------------- | --------------- | ------------- |
+| value / v-model | binding value                                                        | Object/String/Number | —               | —             |
+| placeholder     | placeholder                                                          | String               | —               | Please select |
+| valueKey        | unique identity key name for value, required when value is an object | String               | —               | —             |
+| clearable       | whether ChoiceGroup can be cleared                                   | Boolean              | —               | false         |
+| disabled        | whether ChoiceGroup is disabled                                      | Boolean              | —               | false         |
+| isThrottle      | Whether to perform anti shake when starting pull-down loading        | Boolean              | —               | true          |
+| scroll          | Whether to enable pull-down loading                                  | Boolean              | —               | false         |
+| time            | Buffeting interval                                                   | Number               | —               | 500ms         |
+| loading         | Whether to turn on loading animation                                 | Boolean              | —               | false         |
+| loadingTip      | Loading prompt                                                       | String               | —               | —             |
+| emptyTip        | Prompt when data is empty                                            | String               | —               | No data       |
 
 ## ChoiceGroup Events
 

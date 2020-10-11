@@ -1,18 +1,21 @@
-# MetaInfo 三要素
+# MetaInfo
 
 ---
 
-`meta-info` 是一个基于[vue 2.0](https://vuejs.org)的插件，它会让你更好的管理你的 app 里面的 meta 信息。你可以直接
-在组件内设置 metaInfo 便可以自动挂载到你的页面中。如果你需要随着数据的变化，自动更新你的 title、meta 等信息，那么用此
-插件也是再合适不过了。
-当然，有时候我们也可能会遇到让人头疼的 SEO 问题，那么使用此插件配合 [prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) 也是再合适不过了。
+`meta-info` is based on [vue 2.0](https://vuejs.org) It will let you better manage the meta information in your app. You can directly
 
-> 更多使用介绍：[处理 seo 的另一种思路](https://zhuanlan.zhihu.com/p/29148760?group_id=890298677627879424)
+Set metalinfo in the component and you can mount it to your page automatically. If you need to automatically update your title, meta and other information as your data changes, use this
+
+The plug-in is perfect.
+
+Of course, sometimes we may encounter a headache SEO problem, so use this plug-in to cooperate with prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) It's just the right thing to do.
+
+> More introduction：[Another way to deal with SEO](https://zhuanlan.zhihu.com/p/29148760?group_id=890298677627879424)
 
 ## 常规用法
 
 <div class="demo-block">
-  <p>打开控制台，看看这个页面的 title, meta, 和 link 哦，是不是发生了变化</p>
+  <p>Open the console and see if the title, meta, and link of this page have changed</p>
 </div>
 
 ::: demo
@@ -39,10 +42,10 @@ export default {
 
 :::
 
-## async 异步加载
+## Asynchronous loading
 
 <div class="demo-block">
-  <p>如果你的title或者meta或者link是异步加载的，那么你可能需要这样使用</p>
+  <p>If your title or meta or link is loaded asynchronously, you may need to use this</p>
 </div>
 
 ::: demo

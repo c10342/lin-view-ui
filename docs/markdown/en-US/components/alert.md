@@ -6,107 +6,107 @@
 }
 </style>
 
-# Alert 警告
+# Alert
 
 ---
 
 ## Basic usage
 
-页面中的非浮层元素，不会自动消失。
+Non floating elements in the page will not disappear automatically.
 
 <div class='demo-block'>
-<lin-alert type="success" title="提示文案"></lin-alert>
-<lin-alert type="info" title="提示文案"></lin-alert>
-<lin-alert type="warning" title="提示文案"></lin-alert>
-<lin-alert type="danger" title="提示文案"></lin-alert>
+<lin-alert type="success" title="Prompt copy"></lin-alert>
+<lin-alert type="info" title="Prompt copy"></lin-alert>
+<lin-alert type="warning" title="Prompt copy"></lin-alert>
+<lin-alert type="danger" title="Prompt copy"></lin-alert>
 </div>
 
 :::demo
 
 ```html
-<lin-alert type="success" title="提示文案"></lin-alert>
-<lin-alert type="info" title="提示文案"></lin-alert>
-<lin-alert type="warning" title="提示文案"></lin-alert>
-<lin-alert type="danger" title="提示文案"></lin-alert>
+<lin-alert type="success" title="Prompt copy"></lin-alert>
+<lin-alert type="info" title="Prompt copy"></lin-alert>
+<lin-alert type="warning" title="Prompt copy"></lin-alert>
+<lin-alert type="danger" title="Prompt copy"></lin-alert>
 ```
 
 :::
 
-## 主题
+## Theme
 
-Alert 组件提供了两个不同的主题：`light` 和 `dark` 。
+The alert component provides two different themes: `light` and `dark`.
 
 <div class='demo-block'>
-<lin-alert effect="dark" type="success" title="提示文案"></lin-alert>
-<lin-alert effect="dark" type="info" title="提示文案"></lin-alert>
-<lin-alert effect="dark" type="warning" title="提示文案"></lin-alert>
-<lin-alert effect="dark" type="danger" title="提示文案"></lin-alert>
+<lin-alert effect="dark" type="success" title="Prompt copy"></lin-alert>
+<lin-alert effect="dark" type="info" title="Prompt copy"></lin-alert>
+<lin-alert effect="dark" type="warning" title="Prompt copy"></lin-alert>
+<lin-alert effect="dark" type="danger" title="Prompt copy"></lin-alert>
 </div>
 
 :::demo
 
 ```html
-<lin-alert effect="dark" type="success" title="提示文案"></lin-alert>
-<lin-alert effect="dark" type="info" title="提示文案"></lin-alert>
-<lin-alert effect="dark" type="warning" title="提示文案"></lin-alert>
-<lin-alert effect="dark" type="danger" title="提示文案"></lin-alert>
+<lin-alert effect="dark" type="success" title="Prompt copy"></lin-alert>
+<lin-alert effect="dark" type="info" title="Prompt copy"></lin-alert>
+<lin-alert effect="dark" type="warning" title="Prompt copy"></lin-alert>
+<lin-alert effect="dark" type="danger" title="Prompt copy"></lin-alert>
 ```
 
 :::
 
-## 自定义关闭按钮
+## Custom close button
 
-在 Alert 组件中，你可以设置是否可关闭，关闭按钮的文本以及关闭时的回调函数。`closable` 属性决定是否可关闭，接受 `boolean` ，默认为 `true` 。你可以使用 `close` 具名插槽来代替右侧的关闭图标。
+In the alert component, you can set whether it can be closed, the text of the close button, and the callback function when closing. The `closable` attribute determines whether it can be closed. It accepts `boolean`. The default value is `true`. You can use the `close` slot instead of the close icon on the right.
 
 <div class='demo-block'>
-<lin-alert closable type="success" title="不可关闭的 alert"></lin-alert>
-<lin-alert closable type="info" title="自定义">
-<template slot='close'><span>知道了</span></template>
+<lin-alert closable type="success" title="Uncloseable alert"></lin-alert>
+<lin-alert closable type="info" title="custom">
+<template slot='close'><span>got it</span></template>
 </lin-alert>
 </div>
 
 :::demo
 
 ```html
-<lin-alert closable type="success" title="不可关闭的 alert"></lin-alert>
-<lin-alert closable type="info" title="自定义">
-  <template slot="close"><span>知道了</span></template>
+<lin-alert closable type="success" title="Uncloseable alert"></lin-alert>
+<lin-alert closable type="info" title="custom">
+  <template slot="close"><span>got it</span></template>
 </lin-alert>
 ```
 
 :::
 
-## 带有 icon
+## With Icon
 
-表示某种状态时提升可读性。通过设置 `icon` 属性来显示 Alert 的 icon，这能更有效地向用户展示你的显示意图。
+Improves readability when representing a state. By setting the `icon` property to display alert's icon, this can more effectively show the user your display intention.
 
 <div class='demo-block'>
-<lin-alert icon="lin-icon-chat" type="success" title="提示文案"></lin-alert>
-<lin-alert icon="lin-icon-chat" type="info" title="提示文案"></lin-alert>
-<lin-alert icon="lin-icon-chat" type="warning" title="提示文案"></lin-alert>
-<lin-alert icon="lin-icon-chat" type="danger" title="提示文案"></lin-alert>
+<lin-alert icon="lin-icon-chat" type="success" title="Prompt copy"></lin-alert>
+<lin-alert icon="lin-icon-chat" type="info" title="Prompt copy"></lin-alert>
+<lin-alert icon="lin-icon-chat" type="warning" title="Prompt copy"></lin-alert>
+<lin-alert icon="lin-icon-chat" type="danger" title="Prompt copy"></lin-alert>
 </div>
 
 :::demo
 
 ```html
-<lin-alert icon="lin-icon-chat" type="success" title="提示文案"></lin-alert>
-<lin-alert icon="lin-icon-chat" type="info" title="提示文案"></lin-alert>
-<lin-alert icon="lin-icon-chat" type="warning" title="提示文案"></lin-alert>
-<lin-alert icon="lin-icon-chat" type="danger" title="提示文案"></lin-alert>
+<lin-alert icon="lin-icon-chat" type="success" title="Prompt copy"></lin-alert>
+<lin-alert icon="lin-icon-chat" type="info" title="Prompt copy"></lin-alert>
+<lin-alert icon="lin-icon-chat" type="warning" title="Prompt copy"></lin-alert>
+<lin-alert icon="lin-icon-chat" type="danger" title="Prompt copy"></lin-alert>
 ```
 
 :::
 
-## 文字居中
+## Text centered
 
-使用 `center` 属性让文字水平居中。
+Use the `center` property to center the text horizontally.
 
 <div class='demo-block'>
-<lin-alert center icon="lin-icon-chat" type="success" title="提示文案"></lin-alert>
-<lin-alert center icon="lin-icon-chat" type="info" title="提示文案"></lin-alert>
-<lin-alert center icon="lin-icon-chat" type="warning" title="提示文案"></lin-alert>
-<lin-alert center icon="lin-icon-chat" type="danger" title="提示文案"></lin-alert>
+<lin-alert center icon="lin-icon-chat" type="success" title="Prompt copy"></lin-alert>
+<lin-alert center icon="lin-icon-chat" type="info" title="Prompt copy"></lin-alert>
+<lin-alert center icon="lin-icon-chat" type="warning" title="Prompt copy"></lin-alert>
+<lin-alert center icon="lin-icon-chat" type="danger" title="Prompt copy"></lin-alert>
 </div>
 
 :::demo
@@ -116,91 +116,96 @@ Alert 组件提供了两个不同的主题：`light` 和 `dark` 。
   center
   icon="lin-icon-chat"
   type="success"
-  title="提示文案"
-></lin-alert>
-<lin-alert center icon="lin-icon-chat" type="info" title="提示文案"></lin-alert>
-<lin-alert
-  center
-  icon="lin-icon-chat"
-  type="warning"
-  title="提示文案"
+  title="Prompt copy"
 ></lin-alert>
 <lin-alert
   center
   icon="lin-icon-chat"
-  type="danger"
-  title="提示文案"
-></lin-alert>
-```
-
-:::
-
-## 带有辅助性文字介绍
-
-除了必填的 `title` 属性外，你可以设置 `description` 属性来帮助你更好地介绍，我们称之为辅助性文字。
-
-<div class='demo-block'>
-      <lin-alert description="文字说明文字说明文字说明" type="success" title="提示文案"></lin-alert>
-      <lin-alert description="文字说明文字说明文字说明" type="info" title="提示文案"></lin-alert>
-      <lin-alert description="文字说明文字说明文字说明" type="warning" title="提示文案"></lin-alert>
-      <lin-alert description="文字说明文字说明文字说明" type="danger" title="提示文案"></lin-alert>
-</div>
-
-:::demo
-
-```html
-<lin-alert
-  description="文字说明文字说明文字说明"
-  type="success"
-  title="提示文案"
-></lin-alert>
-<lin-alert
-  description="文字说明文字说明文字说明"
   type="info"
-  title="提示文案"
+  title="Prompt copy"
 ></lin-alert>
 <lin-alert
-  description="文字说明文字说明文字说明"
+  center
+  icon="lin-icon-chat"
   type="warning"
-  title="提示文案"
+  title="Prompt copy"
 ></lin-alert>
 <lin-alert
-  description="文字说明文字说明文字说明"
+  center
+  icon="lin-icon-chat"
   type="danger"
-  title="提示文案"
+  title="Prompt copy"
 ></lin-alert>
 ```
 
 :::
 
-## 带有 icon 和辅助性文字介绍
+## With supplementary text introduction
 
-最后，这是一个同时具有 icon 和辅助性文字的样例。
+In addition to the required `title` attribute, you can set the `description` attribute to help you better introduce it. We call it auxiliary text.
+
+<div class='demo-block'>
+      <lin-alert description="Text description" type="success" title="Prompt copy"></lin-alert>
+      <lin-alert description="Text description" type="info" title="Prompt copy"></lin-alert>
+      <lin-alert description="Text description" type="warning" title="Prompt copy"></lin-alert>
+      <lin-alert description="Text description" type="danger" title="Prompt copy"></lin-alert>
+</div>
+
+:::demo
+
+```html
+<lin-alert
+  description="Text description"
+  type="success"
+  title="Prompt copy"
+></lin-alert>
+<lin-alert
+  description="Text description"
+  type="info"
+  title="Prompt copy"
+></lin-alert>
+<lin-alert
+  description="Text description"
+  type="warning"
+  title="Prompt copy"
+></lin-alert>
+<lin-alert
+  description="Text description"
+  type="danger"
+  title="Prompt copy"
+></lin-alert>
+```
+
+:::
+
+## With icon and auxiliary text introduction
+
+This is an example of both icon and auxiliary text.
 
 <div class='demo-block'>
             <lin-alert
         icon="lin-icon-chat"
-        description="文字说明文字说明文字说明"
+        description="Text description"
         type="success"
-        title="提示文案"
+        title="Prompt copy"
       ></lin-alert>
       <lin-alert
         icon="lin-icon-chat"
-        description="文字说明文字说明文字说明"
+        description="Text description"
         type="info"
-        title="提示文案"
+        title="Prompt copy"
       ></lin-alert>
       <lin-alert
         icon="lin-icon-chat"
-        description="文字说明文字说明文字说明"
+        description="Text description"
         type="warning"
-        title="提示文案"
+        title="Prompt copy"
       ></lin-alert>
       <lin-alert
         icon="lin-icon-chat"
-        description="文字说明文字说明文字说明"
+        description="Text description"
         type="danger"
-        title="提示文案"
+        title="Prompt copy"
       ></lin-alert>
 </div>
 
@@ -209,55 +214,55 @@ Alert 组件提供了两个不同的主题：`light` 和 `dark` 。
 ```html
 <lin-alert
   icon="lin-icon-chat"
-  description="文字说明文字说明文字说明"
+  description="Text description"
   type="success"
-  title="提示文案"
+  title="Prompt copy"
 ></lin-alert>
 <lin-alert
   icon="lin-icon-chat"
-  description="文字说明文字说明文字说明"
+  description="Text description"
   type="info"
-  title="提示文案"
+  title="Prompt copy"
 ></lin-alert>
 <lin-alert
   icon="lin-icon-chat"
-  description="文字说明文字说明文字说明"
+  description="Text description"
   type="warning"
-  title="提示文案"
+  title="Prompt copy"
 ></lin-alert>
 <lin-alert
   icon="lin-icon-chat"
-  description="文字说明文字说明文字说明"
+  description="Text description"
   type="danger"
-  title="提示文案"
+  title="Prompt copy"
 ></lin-alert>
 ```
 
 :::
 
-## 属性
+## Attributes
 
-| 参数        | 说明           | Type    | Accepted Values             | Default |
-| ----------- | -------------- | ------- | --------------------------- | ------- |
-| title       | 标题           | String  | —                           | —       |
-| description | 辅助性文字     | String  | —                           | —       |
-| icon        | 图标           | String  | —                           | —       |
-| closable    | 是否可关闭     | Boolean | —                           | false   |
-| type        | 主题           | String  | success/warning/info/danger | success |
-| effect      | 选择提供的主题 | String  | light/dark                  | light   |
-| center      | 文字是否居中   | Boolean | —                           | false   |
+| Attribute   | Description               | Type    | Accepted Values             | Default |
+| ----------- | ------------------------- | ------- | --------------------------- | ------- |
+| title       | title                     | String  | —                           | —       |
+| description | Auxiliary text            | String  | —                           | —       |
+| icon        | Icon                      | String  | —                           | —       |
+| closable    | Can I close it            | Boolean | —                           | false   |
+| type        | theme                     | String  | success/warning/info/danger | success |
+| effect      | Select the theme provided | String  | light/dark                  | light   |
+| center      | Is the text centered      | Boolean | —                           | false   |
 
-## 插槽
+## Slots
 
-| Name        | 说明                 |
-| ----------- | -------------------- |
-| icon        | Alert icon 区的内容  |
-| title       | Alert 标题区的内容   |
-| description | Alert 描述区的内容   |
-| close       | Alert 关闭按钮的内容 |
+| Name        | Description                        |
+| ----------- | ---------------------------------- |
+| icon        | Content of alert icon area         |
+| title       | Content of alert title area        |
+| description | Content of alert description area  |
+| close       | Contents of the alert close button |
 
-## 事件
+## Events
 
-| Event Name | 说明                    | Parameters |
-| ---------- | ----------------------- | ---------- |
-| close      | 关闭 Alert 时触发的事件 | —          |
+| Event Name | Description                              | Parameters |
+| ---------- | ---------------------------------------- | ---------- |
+| close      | Event triggered when alert is turned off | —          |

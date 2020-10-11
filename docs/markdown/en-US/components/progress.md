@@ -13,13 +13,13 @@
 }
 </style>
 
-# Progress 进度条
+# Progress
 
 ---
 
-## 线形进度条
+## Linear progress bar
 
-Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比，必填，必须在 0-1。
+The progress component can set the `percent` property, which indicates the percentage corresponding to the progress bar. It must be 0-1.
 
 <div class='demo-block'>
 <lin-progress type="primary" :percent="0.5"></lin-progress>
@@ -39,43 +39,43 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 
 :::
 
-## 显示内外文字
+## Display internal and external text
 
-百分比不占用额外控件，适用于文件上传等场景
+Percentage does not take up additional controls, which is applicable to scenarios such as file upload
 
 <div class='demo-block'>
-<lin-progress text-outside="85分" text-inside="50%" :height="20" type="primary" :percent="0.5"></lin-progress>
-<lin-progress text-outside="85分" text-inside="50%" :height="20" type="success" :percent="0.5"></lin-progress>
-<lin-progress text-outside="85分" text-inside="50%" :height="20" type="warning" :percent="0.5"></lin-progress>
-<lin-progress text-outside="85分" text-inside="50%" :height="20" type="danger" :percent="0.5"></lin-progress>
+<lin-progress text-outside="85 mark" text-inside="50%" :height="20" type="primary" :percent="0.5"></lin-progress>
+<lin-progress text-outside="85 mark" text-inside="50%" :height="20" type="success" :percent="0.5"></lin-progress>
+<lin-progress text-outside="85 mark" text-inside="50%" :height="20" type="warning" :percent="0.5"></lin-progress>
+<lin-progress text-outside="85 mark" text-inside="50%" :height="20" type="danger" :percent="0.5"></lin-progress>
 </div>
 
 :::demo
 
 ```html
 <lin-progress
-  text-outside="85分"
+  text-outside="85 mark"
   text-inside="50%"
   :height="20"
   type="primary"
   :percent="0.5"
 />
 <lin-progress
-  text-outside="85分"
+  text-outside="85 mark"
   text-inside="50%"
   :height="20"
   type="success"
   :percent="0.5"
 />
 <lin-progress
-  text-outside="85分"
+  text-outside="85 mark"
   text-inside="50%"
   :height="20"
   type="warning"
   :percent="0.5"
 />
 <lin-progress
-  text-outside="85分"
+  text-outside="85 mark"
   text-inside="50%"
   :height="20"
   type="danger"
@@ -85,9 +85,9 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 
 :::
 
-## 自定义颜色
+## Custom color
 
-可通过 `outColor` 和 `innerColor` 属性来设置进度条的颜色
+You can set the color of the progress bar through the `outColor` and `innerColor` properties
 
 <div class='demo-block'>
 <lin-progress
@@ -111,17 +111,17 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 
 :::
 
-## 自定义提示文字
+## Custom prompt text
 
-通过具名插槽 `text` 和 默认插槽 `default` 来自定义你想要的文字效果
+Customize the text effect you want through the named slot `text` and the default slot `default`
 
 <div class='demo-block'>
 <lin-progress :height="20" type="danger" :percent="0.5">
         <template>
-          <p class="demo-out-tip">百分之五十</p>
+          <p class="demo-out-tip">fifty percent</p>
         </template>
         <template v-slot:text>
-          <p class="demo-in-tip">百分之五十</p>
+          <p class="demo-in-tip">fifty percent</p>
         </template>
       </lin-progress>
 </div>
@@ -131,32 +131,32 @@ Progress 组件设置 `percent` 属性即可，表示进度条对应的百分比
 ```html
 <lin-progress :height="20" type="danger" :percent="0.5">
   <template>
-    <p class="demo-out-tip">百分之五十</p>
+    <p class="demo-out-tip">fifty percent</p>
   </template>
   <template v-slot:text>
-    <p class="demo-in-tip">百分之五十</p>
+    <p class="demo-in-tip">fifty percent</p>
   </template>
 </lin-progress>
 ```
 
 :::
 
-## Progress 属性
+## Attributes
 
-| 参数        | 说明                  | Type    | Accepted Values                | Default |
-| ----------- | --------------------- | ------- | ------------------------------ | ------- |
-| percent     | 百分比（必填）        | Number  | 0-1                            | 0       |
-| innerColor  | 进度条底层颜色        | String  | —                              | —       |
-| outColor    | 进度条上层颜色        | String  | —                              | —       |
-| height      | 进度条的高度，单位 px | Number  |                                | 10      |
-| radius      | 是否需要圆角          | Boolean | —                              | true    |
-| textOutside | 进度条外面的提示文字  | String  | —                              | —       |
-| textInside  | 进度条里面的提示文字  | String  | —                              | —       |
-| type        | 进度条 Type           | String  | primary,success,warning,danger | primary |
+| Attribute   | Description                          | Type    | Accepted Values                | Default |
+| ----------- | ------------------------------------ | ------- | ------------------------------ | ------- |
+| percent     | Percentage (required)                | Number  | 0-1                            | 0       |
+| innerColor  | Bottom color of progress bar         | String  | —                              | —       |
+| outColor    | Top color of progress bar            | String  | —                              | —       |
+| height      | Height of progress bar, in PX        | Number  |                                | 10      |
+| radius      | Is fillet required                   | Boolean | —                              | true    |
+| textOutside | Prompt text outside the progress bar | String  | —                              | —       |
+| textInside  | Prompt text in progress bar          | String  | —                              | —       |
+| type        | Progress bar type                    | String  | primary,success,warning,danger | primary |
 
-## 插槽
+## Slots
 
-| Name | 说明                    |
-| ---- | ----------------------- |
-| —    | Progress 外面提示的内容 |
-| text | Progress 里面提示的内容 |
+| Name | Description                       |
+| ---- | --------------------------------- |
+| —    | What is prompted outside progress |
+| text | What is prompted in progress      |

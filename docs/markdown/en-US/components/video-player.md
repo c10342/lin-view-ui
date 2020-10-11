@@ -4,15 +4,15 @@ export default {
     return {
       speedList: [
         {
-          label: "正常",
+          label: "normal",
           value: 1,
         },
         {
-          label: "1.5倍",
+          label: "1.5 times",
           value: 1.5,
         },
         {
-          label: "2倍",
+          label: "2 times",
           value: 2,
         },
       ],
@@ -34,12 +34,12 @@ export default {
         live:true,
         videoList: [
           {
-            label: "标清",
+            label: "Standard definition",
             url:
               "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
           },
           {
-            label: "高清",
+            label: "high definition",
             url:
               "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
           },
@@ -51,12 +51,12 @@ export default {
         el: document.getElementById("othervideo"),
         videoList: [
           {
-            label: "标清",
+            label: "Standard definition",
             url:
               "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
           },
           {
-            label: "高清",
+            label: "high definition",
             url:
               "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
           },
@@ -73,12 +73,12 @@ export default {
         speedList: this.speedList,
         videoList: [
           {
-            label: "标清",
+            label: "Standard definition",
             url:
               "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
           },
           {
-            label: "高清",
+            label: "high definition",
             url:
               "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
           },
@@ -95,12 +95,12 @@ export default {
         speedList: this.speedList,
         videoList: [
           {
-            label: "标清",
+            label: "Standard definition",
             url:
               "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
           },
           {
-            label: "高清",
+            label: "high definition",
             url:
               "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
           },
@@ -114,12 +114,12 @@ export default {
         speedList: this.speedList,
         videoList: [
           {
-            label: "标清",
+            label: "Standard definition",
             url:
               "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
           },
           {
-            label: "高清",
+            label: "high definition",
             url:
               "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
           },
@@ -139,7 +139,7 @@ export default {
       this.mp4Player?.toggle();
     },
     notice() {
-      this.mp4Player?.notice("你好", 5000);
+      this.mp4Player?.notice("hello", 5000);
     },
     speed() {
       this.mp4Player?.speed(2);
@@ -204,15 +204,15 @@ export default {
 }
 </style>
 
-# VideoPlayer 播放器
+# VideoPlayer
 
 ---
 
-`VideoPlayer` 组件播放器 是基于 `hls.js` 和 `flv.js` 封装的一个播放器，可支持 `MP4` ，`hls` 和 `flv` 格式视频。灵感来自于[DPlayer](http://dplayer.js.org/zh/)
+`VideoPlayer` component player is based on `hls.js` And `flv.js` A packaged player can support `MP4`,`hls` and `flv` video formats. Inspired by [DPlayer](http://dplayer.js.org/zh/)
 
-## 播放 Mp4
+## Play mp4
 
-设置 `type` 为 `mp4`，以及传入 `el` 和 `speedList` 即可
+Set `type` to `mp4`, and pass in `el` and `speedList`
 
 <div class='demo-block'>
 <div id="mp4video" class="video-player-video"></div>
@@ -269,15 +269,15 @@ export default {
       return {
         speedList: [
           {
-            label: "正常",
+            label: "normal",
             value: 1,
           },
           {
-            label: "1.5倍",
+            label: "1.5 times",
             value: 1.5,
           },
           {
-            label: "2倍",
+            label: "2 times",
             value: 2,
           },
         ],
@@ -297,12 +297,12 @@ export default {
           speedList: this.speedList,
           videoList: [
             {
-              label: "标清",
+              label: "Standard definition",
               url:
                 "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
             },
             {
-              label: "高清",
+              label: "high definition",
               url:
                 "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
             },
@@ -322,7 +322,7 @@ export default {
         this.mp4Player?.toggle();
       },
       notice() {
-        this.mp4Player?.notice("你好", 5000);
+        this.mp4Player?.notice("hello", 5000);
       },
       speed() {
         this.mp4Player?.speed(2);
@@ -357,9 +357,9 @@ export default {
 
 :::
 
-## 播放 HLS
+## Play HLS
 
-设置 `type` 为 `hls`，以及传入 `el` 和 `speedList` 即可
+Set `type` to `hls`, and pass in `el` and `speedList`
 
 <div class='demo-block'>
 <div id="hlsvideo" class="video-player-video"></div>
@@ -376,15 +376,15 @@ export default {
       return {
         speedList: [
           {
-            label: "正常",
+            label: "normal",
             value: 1,
           },
           {
-            label: "1.5倍",
+            label: "1.5 times",
             value: 1.5,
           },
           {
-            label: "2倍",
+            label: "2 times",
             value: 2,
           },
         ],
@@ -401,12 +401,12 @@ export default {
           speedList: this.speedList,
           videoList: [
             {
-              label: "标清",
+              label: "Standard definition",
               url:
                 "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
             },
             {
-              label: "高清",
+              label: "high definition",
               url:
                 "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
             },
@@ -420,9 +420,9 @@ export default {
 
 :::
 
-## 播放 FLV
+## Play flv
 
-设置 `type` 为 `flv`，以及传入 `el` 和 `speedList` 即可
+Set `type` to `flv`, and pass in `el` and `speedList`
 
 <div class='demo-block'>
 <div id="flvvideo" class="video-player-video"></div>
@@ -439,15 +439,15 @@ export default {
       return {
         speedList: [
           {
-            label: "正常",
+            label: "normal",
             value: 1,
           },
           {
-            label: "1.5倍",
+            label: "1.5 times",
             value: 1.5,
           },
           {
-            label: "2倍",
+            label: "2 times",
             value: 2,
           },
         ],
@@ -464,12 +464,12 @@ export default {
           speedList: this.speedList,
           videoList: [
             {
-              label: "标清",
+              label: "Standard definition",
               url:
                 "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
             },
             {
-              label: "高清",
+              label: "high definition",
               url:
                 "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
             },
@@ -483,9 +483,9 @@ export default {
 
 :::
 
-## 开启直播模式
+## Open live mode
 
-设置 `live` 为 `true`
+Set `live` to `true`
 
 <div class='demo-block'>
 <div id="livevideo" class="video-player-video"></div>
@@ -510,12 +510,12 @@ export default {
           live: true,
           videoList: [
             {
-              label: "标清",
+              label: "Standard definition",
               url:
                 "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
             },
             {
-              label: "高清",
+              label: "high definition",
               url:
                 "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
             },
@@ -529,9 +529,9 @@ export default {
 
 :::
 
-## 其他 MSE 库使用
+## Use of other MSE Libraries
 
-`VideoPlayer` 组件可以通过 `customType` 参数与任何 MSE 库一起使用
+The `VideoPlayer` component can be used with any MSE library through the `customType` parameter
 
 <div class='demo-block'>
 <div id="othervideo" class="video-player-video"></div>
@@ -553,12 +553,12 @@ export default {
           el: document.getElementById("othervideo"),
           videoList: [
             {
-              label: "标清",
+              label: "Standard definition",
               url:
                 "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
             },
             {
-              label: "高清",
+              label: "high definition",
               url:
                 "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
             },
@@ -575,17 +575,17 @@ export default {
 
 :::
 
-## 参数
+## Parameter
 
-| 名称       | 说明                                              | Type                               | Accepted Values | Default |
-| ---------- | ------------------------------------------------- | ---------------------------------- | --------------- | ------- |
-| el         | 播放器容器元素，必填项                            | String                             | HTMLElement     | —       | — |
-| type       | 播放 Type，必填项，当 customType 参数存在时非必填 | String                             | mp4、hls、flv   | —       |
-| autoplay   | 视频自动播放                                      | Boolean                            | —               | false   |
-| speedList  | 视频速度倍数列表                                  | Ayyay<{label:string,value:string}> | —               | —       |
-| videoList  | 视频列表，必填项                                  | Ayyay<{label:string,url:string}>   | —               | —       |
-| live       | 是否开启直播                                      | Boolean                            | —               | false   |
-| customType | 需要自定义支持其他 MSE 可使用此参数               | Function                           | —               | —       |
+| Name       | Description                                                            | Type                               | Accepted Values | Default |
+| ---------- | ---------------------------------------------------------------------- | ---------------------------------- | --------------- | ------- |
+| el         | Player container element, required                                     | String                             | HTMLElement     | —       | — |
+| type       | Play type, required. Not required when the customtype parameter exists | String                             | mp4、hls、flv   | —       |
+| autoplay   | Automatic video playback                                               | Boolean                            | —               | false   |
+| speedList  | Video speed multiples list                                             | Ayyay<{label:string,value:string}> | —               | —       |
+| videoList  | Video list, required                                                   | Ayyay<{label:string,url:string}>   | —               | —       |
+| live       | Open live broadcast                                                    | Boolean                            | —               | false   |
+| customType | Custom support is required. Other MSEs can use this parameter          | Function                           | —               | —       |
 
 ## API
 
@@ -599,36 +599,36 @@ const player = new VideoPlayer({
 });
 ```
 
-- `player.play()` : 播放视频
-- `player.pause()` : 暂停视频
-- `player.seek(time: number)` : 跳转到特定时间
-- `player.toggle()` : 切换播放和暂停
-- `player.on(event: string, handler: function)` : 绑定 video 标签事件
-- `player.switchVideo(options)` : 切换到其他视频
+- `player.play()` : Play video
+- `player.pause()` : Pause video
+- `player.seek(time: number)` : Jump to a specific time
+- `player.toggle()` : Switch playback and pause
+- `player.on(event: string, handler: function)` : Bind video tag event
+- `player.switchVideo(options)` : Switch to another video
 
 ```javascript
 player.switchVideo({ videoList: [{ label: "", url: "" }], autoplay: true });
 ```
 
-- `player.notice(text: string, time: number)` : 显示通知，时间的单位为毫秒，默认时间 2000 毫秒
-- `player.switchQuality(index: number)` : 切换清晰度
-- `player.destroy()` : 销毁播放器
-- `player.speed(rate: number)` : 设置视频速度
-- `player.volume(percentage: number)` : 设置视频音量
-- `player.video` : 原生 video
-- `player.hls` : hls 实例对象
-- `player.flv` : flv 实例对象
-- `player.currentTime` : 返回视频当前播放时间
-- `player.totalTime` : 返回视频总时间
-- `player.paused` : 返回视频是否暂停
-- `player.fullScreen.request(type: string)` : 进入全屏
+- `player.notice(text: string, time: number)` : Display the notification. The unit of time is MS, and the default time is 2000 Ms
+- `player.switchQuality(index: number)` : Switching sharpness
+- `player.destroy()` : Destroy player
+- `player.speed(rate: number)` : Set video speed
+- `player.volume(percentage: number)` : Set video volume
+- `player.video` : Native video
+- `player.hls` : HLS instance object
+- `player.flv` : Flv instance object
+- `player.currentTime` : Returns the current playing time of the video
+- `player.totalTime` : Total time to return video
+- `player.paused` : Returns whether the video is suspended
+- `player.fullScreen.request(type: string)` : Enter full screen
 
 ```javascript
 player.fullScreen.request("web");
 player.fullScreen.request("browser");
 ```
 
-- `player.fullScreen.cancel(type: string)` : 退出全屏
+- `player.fullScreen.cancel(type: string)` : Exit full screen
 
 ```javascript
 player.fullScreen.cancel("web");

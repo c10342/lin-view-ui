@@ -20,21 +20,21 @@
 }
 </style>
 
-# VideoCard 卡片
+# VideoCard
 
 ---
 
 ## Basic usage
 
-使用`imageUrl`属性来定义卡片的封面，以及自定义卡片底部内容即可。
+Use the `imageUrl` attribute to define the cover of the card and customize the content at the bottom of the card.
 
 <div class='demo-block'>
     <lin-video-card 
     :imageUrl="require('../../../assets/img/video-card.png')">
       <template>
         <div class="card-bottom">
-          <p>春风得意</p>
-          <p>这是一个卡片</p>
+          <p>one has attained a success and is well-contented</p>
+          <p>This is a card</p>
           <p>lin-view-ui</p>
         </div>
       </template>
@@ -47,8 +47,8 @@
 <lin-video-card :imageUrl="require('../../../assets/img/video-card.png')">
   <template>
     <div class="card-bottom">
-      <p>春风得意</p>
-      <p>这是一个卡片</p>
+      <p>one has attained a success and is well-contented</p>
+      <p>This is a card</p>
       <p>lin-view-ui</p>
     </div>
   </template>
@@ -57,9 +57,9 @@
 
 :::
 
-## 定义卡片宽高
+## Define card width and height
 
-使用`cardHeight`和`cardWidth`属性来定义卡片的宽度和高度
+Use the `cardHeight` and `cardWidth` attributes to define the width and height of the card
 
 <div class='demo-block'>
     <lin-video-card
@@ -69,8 +69,8 @@
     >
       <template>
         <div class="card-bottom">
-          <p>春风得意</p>
-          <p>这是一个卡片</p>
+          <p>one has attained a success and is well-contented</p>
+          <p>This is a card</p>
           <p>lin-vue-ui</p>
         </div>
       </template>
@@ -87,8 +87,8 @@
 >
   <template>
     <div class="card-bottom">
-      <p>春风得意</p>
-      <p>这是一个卡片</p>
+      <p>one has attained a success and is well-contented</p>
+      <p>This is a card</p>
       <p>lin-vue-ui</p>
     </div>
   </template>
@@ -97,9 +97,9 @@
 
 :::
 
-## 定义图片高度
+## Define picture height
 
-使用`imageHeight`属性来定义图片的高度
+Use the `imageHeight` attribute to define the height of the image
 
 <div class='demo-block'>
     <lin-video-card 
@@ -107,8 +107,8 @@
     :imageUrl="require('../../../assets/img/video-card.png')">
       <template>
         <div class="card-bottom">
-          <p>春风得意</p>
-          <p>这是一个卡片</p>
+          <p>one has attained a success and is well-contented</p>
+          <p>This is a card</p>
           <p>lin-vue-ui</p>
         </div>
       </template>
@@ -124,8 +124,8 @@
 >
   <template>
     <div class="card-bottom">
-      <p>春风得意</p>
-      <p>这是一个卡片</p>
+      <p>one has attained a success and is well-contented</p>
+      <p>This is a card</p>
       <p>lin-vue-ui</p>
     </div>
   </template>
@@ -134,17 +134,17 @@
 
 :::
 
-## 定义默认图片
+## Define default picture
 
-使用`defaultImageUrl`属性来定义默认图片，当 imageUrl 的值为空或者 imageUrl 加载失败就会显示默认图片。
+Use the `defaultImageUrl` property to define the default image. When the imageurl value is empty or the imageurl fails to load, the default image will be displayed.
 
 <div class='demo-block'>
     <lin-video-card 
     :defaultImageUrl="require('../../../assets/img/logo.png')">
       <template>
         <div class="card-bottom">
-          <p>春风得意</p>
-          <p>这是一个卡片</p>
+          <p>one has attained a success and is well-contented</p>
+          <p>This is a card</p>
           <p>lin-vue-ui</p>
         </div>
       </template>
@@ -157,8 +157,8 @@
 <lin-video-card :defaultImageUrl="require('../../../assets/img/logo.png')">
   <template>
     <div class="card-bottom">
-      <p>春风得意</p>
-      <p>这是一个卡片</p>
+      <p>one has attained a success and is well-contented</p>
+      <p>This is a card</p>
       <p>lin-vue-ui</p>
     </div>
   </template>
@@ -167,20 +167,20 @@
 
 :::
 
-## 封面右下角提示
+## Tips at the bottom right corner of the cover
 
-使用`coverTip`属性来定义封面右下角的提示
+Use the `coverTip` property to define the prompt at the bottom right corner of the cover
 
 <div class='demo-block'>
     <lin-video-card
-      coverTip="小提示"
+      coverTip="Tips"
       :imageUrl="require('../../../assets/img/video-card.png')"
       :defaultImageUrl="require('../../../assets/img/logo.png')"
     >
       <template>
         <div class="card-bottom">
-          <p>春风得意</p>
-          <p>这是一个卡片</p>
+          <p>one has attained a success and is well-contented</p>
+          <p>This is a card</p>
           <p>lin-vue-ui</p>
         </div>
       </template>
@@ -191,14 +191,14 @@
 
 ```html
 <lin-video-card
-  coverTip="小提示"
+  coverTip="Tips"
   :imageUrl="require('../../../assets/img/video-card.png')"
   :defaultImageUrl="require('../../../assets/img/logo.png')"
 >
   <template>
     <div class="card-bottom">
-      <p>春风得意</p>
-      <p>这是一个卡片</p>
+      <p>one has attained a success and is well-contented</p>
+      <p>This is a card</p>
       <p>lin-vue-ui</p>
     </div>
   </template>
@@ -207,16 +207,16 @@
 
 :::
 
-## 图片加载失败提示语
+## Picture loading failure prompt
 
-使用`errorTip`属性来定义图片加载失败时显示的提示语，当 imageUrl 和 defaultImageUrl 为空或者都加载失败时就会显示该提示语
+Use the `errorTip` attribute to define the prompt displayed when the image fails to load. When imageurl and defaultimageurl are empty or both fail to load, the prompt will be displayed
 
 <div class='demo-block'>
-    <lin-video-card errorTip="图片加载失败">
+    <lin-video-card errorTip="Image loading failed">
       <template>
         <div class="card-bottom">
-          <p>春风得意</p>
-          <p>这是一个卡片</p>
+          <p>one has attained a success and is well-contented</p>
+          <p>This is a card</p>
           <p>lin-vue-ui</p>
         </div>
       </template>
@@ -226,11 +226,11 @@
 :::demo
 
 ```html
-<lin-video-card errorTip="图片加载失败">
+<lin-video-card errorTip="Image loading failed">
   <template>
     <div class="card-bottom">
-      <p>春风得意</p>
-      <p>这是一个卡片</p>
+      <p>one has attained a success and is well-contented</p>
+      <p>This is a card</p>
       <p>lin-vue-ui</p>
     </div>
   </template>
@@ -239,28 +239,28 @@
 
 :::
 
-## 属性
+## Attributes
 
-| 参数            | 说明               | Type   | Accepted Values | Default |
-| --------------- | ------------------ | ------ | --------------- | ------- |
-| data            | 卡片相关数据       | Object | —               | —       |
-| cardHeight      | 卡片高度           | String | —               | auto    |
-| cardWidth       | 卡片宽度           | String | —               | 262px   |
-| imageHeight     | 封面高度           | String | —               | 146px   |
-| coverTip        | 封面右下角提示     | String | —               | —       |
-| errorTip        | 图片加载失败提示语 | String | —               | —       |
-| defaultImageUrl | 封面默认图片       | String | —               | —       |
-| imageUrl        | 封面图片           | String | —               | —       |
+| Attribute       | Description                                  | Type   | Accepted Values | Default        |
+| --------------- | -------------------------------------------- | ------ | --------------- | -------------- |
+| data            | Card related data                            | Object | —               | —              |
+| cardHeight      | Card height                                  | String | —               | auto           |
+| cardWidth       | Card width                                   | String | —               | 262px          |
+| imageHeight     | Cover height                                 | String | —               | 146px          |
+| coverTip        | Tips at the bottom right corner of the cover | String | —               | —              |
+| errorTip        | Picture loading failure prompt               | String | —               | Loading failed |
+| defaultImageUrl | Default cover picture                        | String | —               | —              |
+| imageUrl        | cover photo                                  | String | —               | —              |
 
-## 事件
+## Events
 
-| Event Name | 说明           | Parameters      |
-| ---------- | -------------- | --------------- |
-| click      | 点击卡片时触发 | data：data 属性 |
+| Event Name | Description                        | Parameters           |
+| ---------- | ---------------------------------- | -------------------- |
+| click      | Triggered when the card is clicked | data：data attribute |
 
-## 插槽
+## Slots
 
-| Name | 说明           |
-| ---- | -------------- |
-| —    | 自定义底部内容 |
-| top  | 自定义顶部内容 |
+| Name | Description           |
+| ---- | --------------------- |
+| —    | Custom bottom content |
+| top  | Custom top content    |

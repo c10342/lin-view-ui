@@ -111,7 +111,7 @@ export default {
 | 参数    | 说明             | Type    | Accepted Values | Default |
 | ------- | ---------------- | ------- | --------------- | ------- |
 | back    | 是否显示返回按钮 | Boolean | —               | true    |
-| backTip | 返回按钮文字     | String  | —               | 返回    |
+| backTip | 返回按钮文字     | String  | —               | Back    |
 | title   | 标题             | String  | —               | —       |
 | right   | 是否显示右侧按钮 | Boolean | —               | false   |
 | active  | 是否显示激活状态 | Boolean | —               | false   |

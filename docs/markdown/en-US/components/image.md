@@ -25,13 +25,13 @@
     }
 </style>
 
-# Image 图片
+# Image
 
 ---
 
 ## Basic usage
 
-设置 `imgUrl` 属性即可
+Set the `imgUrl` property
 
 <div class='demo-block'>
 <lin-image :img-url="require('../../../assets/img/video-card.png')" />
@@ -45,9 +45,9 @@
 
 :::
 
-## 多图片
+## Multiple pictures
 
-`imgUrl` 属性可以传入一个数组，数组里面存放的是图片的路径，当第一张图片加载失败的时候就会加载第二张图片，如此类推，当全部图片都加载失败的时候就会显示默认的加载失败封面
+`imgUrl` attribute can pass in an array containing the path of the image. When the first image fails to load, the second image will be loaded, and so on. When all images fail to load, the default loading failure cover will be displayed
 
 <div class='demo-block'>
 <lin-image :img-url="['xxx.png',require('../../../assets/img/logo.png')]" />
@@ -61,9 +61,9 @@
 
 :::
 
-## 图片预览
+## Picture preview
 
-设置 `preview` 属性为 true 即可开启图片预览
+Set the `preview` property to true to enable image preview
 
 <div class='demo-block'>
 <lin-image preview :img-url="require('../../../assets/img/logo.png')" />
@@ -77,17 +77,17 @@
 
 :::
 
-## 加载失败
+## Loading failed
 
 <div class='demo-block'>
 <div>
-<p class='demo-title'>默认</p>
+<p class='demo-title'>Default</p>
 <lin-image class='demo-image' />
 </div>
 <div>
-<p class='demo-title'>自定义</p>
+<p class='demo-title'>Custom</p>
 <lin-image class='demo-image' >
-<div class='error-cover'>自定义失败封面</div>
+<div class='error-cover'>Custom failed cover</div>
 </lin-image>
 </div>
 </div>
@@ -96,42 +96,42 @@
 
 ```html
 <div>
-  <p class="demo-title">默认</p>
+  <p class="demo-title">Default</p>
   <lin-image class="demo-image" />
 </div>
 <div>
-  <p class="demo-title">自定义</p>
+  <p class="demo-title">Custom</p>
   <lin-image class="demo-image">
-    <div class="error-cover">自定义失败封面</div>
+    <div class="error-cover">Custom failed cover</div>
   </lin-image>
 </div>
 ```
 
 :::
 
-## 属性
+## Attributes
 
-| 参数           | 说明                                           | Type          | Accepted Values | Default             |
-| -------------- | ---------------------------------------------- | ------------- | --------------- | ------------------- |
-| imgUrl         | 图片路径                                       | Array, String | —               | —                   |
-| fit            | 确定图片如何适应容器框，同原生 object-fit      | String        | —               | —                   |
-| referrerPolicy | 原生 referrerPolicy                            | String        | —               | —                   |
-| alt            | 原生 alt                                       | String        | —               | —                   |
-| preview        | 开启图片预览功能                               | Boolean       | —               | false               |
-| transitionName | 图片预览显示动画，即 transition 组件 name 属性 | String        | —               | lin-image-animation |
-| clickMask      | 点击遮罩层是否可以关闭图片预览                 | Boolean       | —               | true                |
-| errorMsg       | 图片加载失败提示语                             | String        | —               | 加载失败            |
+| Attribute      | Description                                                                                   | Type          | Accepted Values | Default             |
+| -------------- | --------------------------------------------------------------------------------------------- | ------------- | --------------- | ------------------- |
+| imgUrl         | Picture path                                                                                  | Array, String | —               | —                   |
+| fit            | To determine how the image fits into the container box, the same as the native object fit     | String        | —               | —                   |
+| referrerPolicy | Native referrerPolicy                                                                         | String        | —               | —                   |
+| alt            | Native alt                                                                                    | String        | —               | —                   |
+| preview        | Enable picture preview                                                                        | Boolean       | —               | false               |
+| transitionName | The image preview shows the animation, that is, the name property of the transition component | String        | —               | lin-image-animation |
+| clickMask      | Can I turn off picture preview by clicking mask layer                                         | Boolean       | —               | true                |
+| errorMsg       | Picture loading failure prompt                                                                | String        | —               | Loading failed      |
 
-## 插槽
+## Slots
 
-| Name | 说明                         |
-| ---- | ---------------------------- |
-| —    | Image 图片加载失败显示的内容 |
+| Name | Description                |
+| ---- | -------------------------- |
+| —    | Image image failed to load |
 
-## 事件
+## Events
 
-| Event Name | 说明                                         | Parameters                         |
-| ---------- | -------------------------------------------- | ---------------------------------- |
-| error      | 图片加载失败时触发                           | {url:String,index?:Number,e:Event} |
-| AllError   | 当 imgUrl 为数组时并且所有图片加载失败时触发 | {url:Array\<String\>,e:Event}      |
-| success    | 图片加载成功时触发                           | {url:String,index?:Number,e:Event} |
+| Event Name | Description                                                   | Parameters                         |
+| ---------- | ------------------------------------------------------------- | ---------------------------------- |
+| error      | Triggered when image loading fails                            | {url:String,index?:Number,e:Event} |
+| AllError   | Triggered when imgurl is an array and all images fail to load | {url:Array\<String\>,e:Event}      |
+| success    | Triggered when the image is loaded successfully               | {url:String,index?:Number,e:Event} |

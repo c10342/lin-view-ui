@@ -11,16 +11,16 @@ export default {
 };
 </script>
 
-# LimitTextarea 限制输入域
+# LimitTextarea
 
 ---
 
 ## Basic usage
 
-LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始输入的提示文案
+Limittextarea can control the number of characters entered by the user, and `placeholder` specifies the prompt text for initial input
 
 <div class="demo-block">
-<lin-limit-textarea v-model="value1" :maxLen="10" placeholder="最多输入10个字符"></lin-limit-textarea>
+<lin-limit-textarea v-model="value1" :maxLen="10" placeholder="Enter up to 10 characters"></lin-limit-textarea>
 </div>
 
 ::: demo
@@ -29,7 +29,7 @@ LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始�
 <lin-limit-textarea
   v-model="value1"
   :max-len="10"
-  placeholder="最多输入10个字符"
+  placeholder="Enter up to 10 characters"
 />
 
 <script>
@@ -45,12 +45,12 @@ LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始�
 
 :::
 
-## 裁剪超出字符
+## Crop out of character
 
-如果超过了限制的字符数，可以通过设置`isCut`属性对超过部分进行裁剪
+If the number of characters exceeds the limit, you can crop the excess by setting the `isCut` attribute
 
 <div class="demo-block">
-<lin-limit-textarea v-model="value2" :max-len="10" placeholder="最多输入10个字符" is-cut></lin-limit-textarea>
+<lin-limit-textarea v-model="value2" :max-len="10" placeholder="Enter up to 10 characters" is-cut></lin-limit-textarea>
 </div>
 
 ::: demo
@@ -59,7 +59,7 @@ LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始�
 <lin-limit-textarea
   v-model="value2"
   :max-len="10"
-  placeholder="最多输入10个字符"
+  placeholder="Enter up to 10 characters"
   is-cut
 />
 
@@ -76,12 +76,12 @@ LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始�
 
 :::
 
-## 列高
+## Column height
 
-通过 `rows` 属性指定高度
+Specify the height through the `rows` attribute
 
 <div class="demo-block">
-<lin-limit-textarea v-model='value3' :max-len="10" :rows="3" placeholder="最多输入10个字符" is-cut></lin-limit-textarea>
+<lin-limit-textarea v-model='value3' :max-len="10" :rows="3" placeholder="Enter up to 10 characters" is-cut></lin-limit-textarea>
 </div>
 
 :::demo
@@ -91,7 +91,7 @@ LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始�
   v-model="value3"
   :max-len="10"
   :rows="3"
-  placeholder="最多输入10个字符"
+  placeholder="Enter up to 10 characters"
   is-cut
 />
 
@@ -108,19 +108,19 @@ LimitTextarea 可以控制用户输入的字符数，`placeholder` 指定初始�
 
 :::
 
-## 属性
+## Attributes
 
-| 参数            | 说明                     | Type         | Accepted Values | Default        |
-| --------------- | ------------------------ | ------------ | --------------- | -------------- |
-| rows            | 列高                     | Number       | —               | 4              |
-| max-len         | Number                   | 最大长度限制 | —               | -1(不限制长度) |
-| is-cut          | 超出字符是否裁剪         | Boolean      | —               | false          |
-| placeholder     | 输入时需要显示的提示文案 | String       | —               | 请输入内容     |
-| value / v-model | 绑定值                   | String       | —               | —              |
+| Attribute       | Description                              | Type    | Accepted Values | Default                  |
+| --------------- | ---------------------------------------- | ------- | --------------- | ------------------------ |
+| rows            | Column height                            | Number  | —               | 4                        |
+| max-len         | Maximum length limit                     | Number  | —               | -1(Unlimited length)     |
+| is-cut          | Whether to crop the exceeding characters | Boolean | —               | false                    |
+| placeholder     | Prompt copy to be displayed during input | String  | —               | Please enter the content |
+| value / v-model | Binding value                            | String  | —               | —                        |
 
-## 事件
+## Events
 
-| Event Name | 说明                                                                                | Parameters |
-| ---------- | ----------------------------------------------------------------------------------- | ---------- |
-| overText   | 超出限制长度并且 isCut 为 false 时触发                                              | content    |
-| change     | 在 Input 值改变时触发，当 isCut 为 true 并且 value 值长度大于最大长度限制时不会触发 | value      |
+| Event Name | Description                                                                                                                                              | Parameters |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| overText   | Triggered when the limit length is exceeded and iscut is false                                                                                           | content    |
+| change     | It is triggered when the input value changes. It is not triggered when iscut is true and the value value length is greater than the maximum length limit | value      |

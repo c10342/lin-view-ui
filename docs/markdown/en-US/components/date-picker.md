@@ -190,24 +190,24 @@ showAlways
 
 ## 属性
 
-| 参数               | 说明                                                                                                | Type                   | Accepted Values    | Default    |
-| ------------------ | --------------------------------------------------------------------------------------------------- | ---------------------- | ------------------ | ---------- |
-| radius             | 日期块是否为圆角                                                                                    | Boolean                | —                  | false      |
-| cellWidth          | 日期块宽度                                                                                          | Number                 | —                  | 32         |
-| value / v-model    | 绑定值                                                                                              | Date / String / Number | —                  | —          |
-| cellHeight         | 日期块高度                                                                                          | Number                 | —                  | 32         |
-| labelHeight        | 头部标签的高度                                                                                      | Number                 | —                  | 32         |
-| disabled           | 是否禁用                                                                                            | Boolean                | —                  | false      |
-| placeholder        | 输入框占位符                                                                                        | String                 | —                  | 请选择日期 |
-| disabledBeforeDate | 禁用小于等于该日期的日期                                                                            | Date / String / Number | —                  | —          |
-| disabledAfterDate  | 禁用大于等于该日期的日期                                                                            | Date / String / Number | —                  | —          |
-| disabledRangeDate  | 禁用指定范围内的日期                                                                                | Array                  | —                  | —          |
-| disabledDate       | 禁用指定日期                                                                                        | Array                  | —                  | —          |
-| renderInfo         | 自定义渲染日期块，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是日期对象。可以使用 jsx | Function               | —                  | —          |
-| format             | 格式化 value/v-model 绑定值                                                                         | String                 | string/number/Date | string     |
-| showFormat         | 自定义输入框的显示内容                                                                              | Function               | —                  | —          |
-| showAlways         | 是否一直显示时间选择器                                                                              | Boolean                | —                  | false      |
-| showInput          | 是否显示输入框                                                                                      | Boolean                | —                  | true       |
+| 参数               | 说明                                                                                                | Type                   | Accepted Values    | Default                |
+| ------------------ | --------------------------------------------------------------------------------------------------- | ---------------------- | ------------------ | ---------------------- |
+| radius             | 日期块是否为圆角                                                                                    | Boolean                | —                  | false                  |
+| cellWidth          | 日期块宽度                                                                                          | Number                 | —                  | 32                     |
+| value / v-model    | 绑定值                                                                                              | Date / String / Number | —                  | —                      |
+| cellHeight         | 日期块高度                                                                                          | Number                 | —                  | 32                     |
+| labelHeight        | 头部标签的高度                                                                                      | Number                 | —                  | 32                     |
+| disabled           | 是否禁用                                                                                            | Boolean                | —                  | false                  |
+| placeholder        | 输入框占位符                                                                                        | String                 | —                  | Please select the date |
+| disabledBeforeDate | 禁用小于等于该日期的日期                                                                            | Date / String / Number | —                  | —                      |
+| disabledAfterDate  | 禁用大于等于该日期的日期                                                                            | Date / String / Number | —                  | —                      |
+| disabledRangeDate  | 禁用指定范围内的日期                                                                                | Array                  | —                  | —                      |
+| disabledDate       | 禁用指定日期                                                                                        | Array                  | —                  | —                      |
+| renderInfo         | 自定义渲染日期块，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是日期对象。可以使用 jsx | Function               | —                  | —                      |
+| format             | 格式化 value/v-model 绑定值                                                                         | String                 | string/number/Date | string                 |
+| showFormat         | 自定义输入框的显示内容                                                                              | Function               | —                  | —                      |
+| showAlways         | 是否一直显示时间选择器                                                                              | Boolean                | —                  | false                  |
+| showInput          | 是否显示输入框                                                                                      | Boolean                | —                  | true                   |
 
 ## 事件
 
