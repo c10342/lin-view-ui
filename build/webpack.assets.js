@@ -70,33 +70,34 @@ function createConfig(entry, filename, library) {
           test: /\.(js)$/,
           use: {
             loader: "babel-loader",
-            // options: {
-            //   presets: [
-            //     [
-            //       "@babel/preset-env",
-            //       {
-            //         useBuiltIns: "usage",
-            //         corejs: 3,
-            //         targets: {
-            //           chrome: "58",
-            //           ie: "9",
-            //         },
-            //       },
-            //     ],
-            //   ],
-            //   plugins: [
-            //     [
-            //       "@babel/plugin-transform-runtime",
-            //       {
-            //         absoluteRuntime: false,
-            //         corejs: 3,
-            //         helpers: true,
-            //         regenerator: true,
-            //         useESModules: false,
-            //       },
-            //     ],
-            //   ],
-            // },
+            options: {
+              presets: [
+                [
+                  "@babel/preset-env",
+                  {
+                    useBuiltIns: "usage",
+                    corejs: 3,
+                    targets: {
+                      chrome: "58",
+                      ie: "9",
+                    },
+                  },
+                ],
+              ],
+              plugins: [
+                [
+                  "@babel/plugin-transform-runtime",
+                  {
+                    absoluteRuntime: false,
+                    corejs: false,
+                    helpers: true,
+                    regenerator: true,
+                    useESModules: false,
+                    version: "7.0.0-beta.0",
+                  },
+                ],
+              ],
+            },
           },
           exclude: /node_modules/,
         },
