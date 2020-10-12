@@ -1,4 +1,4 @@
-import locale from './locale/index.js'
+import locale from "./locale/index.js";
 
 import "src/fonts/iconfont.css";
 // 基础组件
@@ -10,9 +10,10 @@ import SelectorItem from "packages/SelectorItem";
 import SelectorGroup from "packages/SelectorGroup";
 import CollapseGroup from "packages/CollapseGroup";
 import CollapseItem from "packages/CollapseItem";
-import DropdownGroup from 'packages/DropdownGroup'
-import DropdownItem from 'packages/DropdownItem'
-import Dropdown from 'packages/Dropdown'
+import DropdownGroup from "packages/DropdownGroup";
+import DropdownItem from "packages/DropdownItem";
+import Dropdown from "packages/Dropdown";
+import Link from "packages/Link";
 
 // 表单组件
 import Input from "packages/Input";
@@ -47,10 +48,10 @@ import MetaInfo from "packages/MetaInfo";
 import Tag from "packages/Tag";
 import Alert from "packages/Alert";
 import Pagination from "packages/Pagination";
-import PageHeader from 'packages/PageHeader'
-import TabGroup from 'packages/TabGroup'
-import TabItem from 'packages/TabItem'
-import Skeleton from 'packages/Skeleton'
+import PageHeader from "packages/PageHeader";
+import TabGroup from "packages/TabGroup";
+import TabItem from "packages/TabItem";
+import Skeleton from "packages/Skeleton";
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -62,8 +63,8 @@ import Magnifier from "packages/Magnifier";
 import HoverEffect from "packages/HoverEffect";
 
 const install = (Vue, opts = {}) => {
-  locale.use(opts.locale)
-  locale.i18n(opts.i18n)
+  locale.use(opts.locale);
+  locale.i18n(opts.i18n);
   console.log();
   [
     Button,
@@ -113,7 +114,8 @@ const install = (Vue, opts = {}) => {
     PageHeader,
     TabItem,
     TabGroup,
-    Skeleton
+    Skeleton,
+    Link,
   ].forEach((comp) => {
     Vue.use(comp);
   });
@@ -173,5 +175,6 @@ export default {
   PageHeader,
   TabItem,
   TabGroup,
-  Skeleton
+  Skeleton,
+  Link,
 };

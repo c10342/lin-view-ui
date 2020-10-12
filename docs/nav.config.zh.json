@@ -60,6 +60,11 @@
           "desc": "Collapse 折叠面板",
           "name": "collapse",
           "path": "/collapse"
+        },
+        {
+          "desc": "Link 文字链接",
+          "name": "link",
+          "path": "/link"
         }
       ]
     },

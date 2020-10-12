@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-show-more />
+    <test-link />
   </div>
 </template>
 

@@ -60,6 +60,11 @@
           "desc": "Collapse",
           "name": "collapse",
           "path": "/collapse"
+        },
+        {
+          "desc": "Link",
+          "name": "link",
+          "path": "/link"
         }
       ]
     },
