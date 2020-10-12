@@ -17,7 +17,7 @@
 
 <div class='demo-block'>
     <div class="link-group">
-      <lin-link href="https://www.baidu.com/" target="_blank"
+      <lin-link href="https://github.com/c10342/lin-view-ui" target="_blank"
         >默认链接</lin-link
       >
       <lin-link type="primary">主要链接</lin-link>
