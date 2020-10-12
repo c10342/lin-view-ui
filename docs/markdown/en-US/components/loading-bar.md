@@ -44,29 +44,29 @@
 }
 </style>
 
-# LoadingBar 加载进度条
+# LoadingBar
 
 ---
 
-全局创建了一个用于显示页面加载、异步请求的加载进度条。
-因为可复用性的关系，`LoadingBar` 只会全局创建一个实例，而且在 `Vue.prototype` 中添加了全局对象 `$loadingBar`，可以直接通过 `this.$loadingBar` 操作实例
+A loading progress bar for displaying page loading and asynchronous requests is created globally.
+Because of the reusability, the `LoadingBar` only creates one instance globally, and `Vue.prototype` The global object `$loadingBar` is added to the. You can operate instances directly through `this.$loadingBar`
 
 ## Basic usage
 
-通过调用 \$loadingBar 提供的三种方法来控制全局的加载进度条 `start()`、`end()`、`error()`
+The global loading progress bar is controlled by calling the three methods provided by \$loadingbar `start()`、`end()`、`error()`
 
 <div class="demo-block">
-   <lin-button @click="start">开始</lin-button>
-   <lin-button @click="end">结束</lin-button>
-   <lin-button @click="error">错误</lin-button>
+   <lin-button @click="start">start</lin-button>
+   <lin-button @click="end">end</lin-button>
+   <lin-button @click="error">error</lin-button>
 </div>
 
 ::: demo
 
 ```html
-<lin-button @click="start">开始</lin-button>
-<lin-button @click="end">结束</lin-button>
-<lin-button @click="error">错误</lin-button>
+<lin-button @click="start">start</lin-button>
+<lin-button @click="end">end</lin-button>
+<lin-button @click="error">error</lin-button>
 
 <script>
   export default {
@@ -87,24 +87,24 @@
 
 :::
 
-## 常规配置
+## Conventional arrangement
 
-提供 LoadingBar 的全局配置，使用方法如下：
+The global configuration of LoadingBar is provided as follows:
 
 <div class="demo-block">
-   <lin-button @click="setSpeed">设置speed速度</lin-button>
-   <lin-button @click="setSpinner">设置spinner动画效果</lin-button>
-   <lin-button @click="setPercentNum">设置percentNum每次加载的比例</lin-button>
-   <lin-button @click="setShowSpinner">设置是否显示spinner</lin-button>
+   <lin-button @click="setSpeed">Set speed</lin-button>
+   <lin-button @click="setSpinner">Set spinner</lin-button>
+   <lin-button @click="setPercentNum">Set percentNum</lin-button>
+   <lin-button @click="setShowSpinner">Set spinner</lin-button>
 </div>
 
 ::: demo
 
 ```html
-<lin-button @click="setSpeed">设置speed速度</lin-button>
-<lin-button @click="setSpinner">设置spinner动画效果</lin-button>
-<lin-button @click="setPercentNum">设置percentNum每次加载的比例</lin-button>
-<lin-button @click="setShowSpinner">设置是否显示spinner</lin-button>
+<lin-button @click="setSpeed">Set speed</lin-button>
+<lin-button @click="setSpinner">Set spinner</lin-button>
+<lin-button @click="setPercentNum">Set percentNum</lin-button>
+<lin-button @click="setShowSpinner">Set spinner</lin-button>
 
 <script>
   export default {
@@ -140,11 +140,11 @@
 
 :::
 
-## 参数
+## Attributes
 
-| 参数        | 说明             | Type    | Accepted Values               | Default       |
-| ----------- | ---------------- | ------- | ----------------------------- | ------------- |
-| speed       | 加载速度         | Number  | 0-100                         | 5             |
-| easing      | spinner 加载动画 | String  | linear, ease, cubic-bezier... | linear        |
-| percentNum  | 每次前进的百分比 | Number  | 0-1                           | Math.random() |
-| showSpinner | 是否显示 spinner | Boolean | —                             | true          |
+| Attribute   | Description                | Type    | Accepted Values               | Default       |
+| ----------- | -------------------------- | ------- | ----------------------------- | ------------- |
+| speed       | Loading speed              | Number  | 0-100                         | 5             |
+| easing      | Spinner loads animation    | String  | linear, ease, cubic-bezier... | linear        |
+| percentNum  | Percentage per advance     | Number  | 0-1                           | Math.random() |
+| showSpinner | Whether to display spinner | Boolean | —                             | true          |

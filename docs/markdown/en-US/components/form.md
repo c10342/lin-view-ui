@@ -232,7 +232,7 @@ Data validation internally uses `async-validator`. For more advanced usage, plea
 
 :::
 
-## Form 属性
+## Form Attributes
 
 | Attribute  | Description                                            | Type   | Accepted Values | Default |
 | ---------- | ------------------------------------------------------ | ------ | --------------- | ------- |

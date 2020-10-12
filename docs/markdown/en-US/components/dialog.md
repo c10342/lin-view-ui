@@ -34,7 +34,7 @@ export default {
       done();
     },
     onClose(){
-        alert('关闭了弹框')
+        alert('The pop-up is closed')
     }
   }
 };
@@ -230,7 +230,7 @@ Use slot to name the slot, and the slot name is title
 | beforeClose      | callback before Dialog closes, and it will prevent Dialog from closing          | function(done)，done is used to close the Dialog | —               | —       |
 | closeOnClickModa | whether the Dialog can be closed by clicking the mask                           | Boolean                                          | —               | true    |
 
-## Slot
+## Slots
 
 | Name   | Name                         |
 | ------ | ---------------------------- |

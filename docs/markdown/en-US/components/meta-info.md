@@ -12,7 +12,7 @@ Of course, sometimes we may encounter a headache SEO problem, so use this plug-i
 
 > More introduction：[Another way to deal with SEO](https://zhuanlan.zhihu.com/p/29148760?group_id=890298677627879424)
 
-## 常规用法
+## General usage
 
 <div class="demo-block">
   <p>Open the console and see if the title, meta, and link of this page have changed</p>

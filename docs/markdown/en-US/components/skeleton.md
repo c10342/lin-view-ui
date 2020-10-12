@@ -1,67 +1,324 @@
-# Skeleton 骨架屏
+<script>
+export default {
+  data() {
+    return {
+      value1:'label-one',
+      list1:['label-one','label-two','label-three','label-four','label-five','label-six','label-seven','label-eight','label-nine','label-ten','label-eleven'],
+      value2:{
+          name: "label-one",
+          id: 1
+        },
+      list2: [
+        {
+          name: "label-one",
+          id: 1
+        },
+        {
+          name: "label-two",
+          id: 2
+        },
+        {
+          name: "label-three",
+          id: 3
+        },
+        {
+          name: "label-four",
+          id: 4
+        }
+      ],
+      value3:"label-one",
+      list3: ['label-one','label-two','label-three','label-four','label-five','label-six','label-seven','label-eight','label-nine','label-ten','label-eleven'],
+      value4:"label-three",
+    };
+  },
+  methods: {
+    renderMore(h,status) {
+      if (status === 1) {
+        return <span>open</span>;
+      } else {
+        return <span>close</span>;
+      }
+    },
+    renderLabel() {
+      return <span>label：</span>;
+    }
+  }
+};
+</script>
+
+# Selector
 
 ---
 
-## 关于骨架屏介绍
+## Basic usage
 
-骨架屏的作用主要是在网络请求较慢时，提供基础占位，当数据加载完成，恢复数据展示。这样给用户一种很自然的过渡，不会造成页面长时间白屏或者闪烁等情况。
-常见的骨架屏实现方案有 `ssr` 服务端渲染和 `prerender` 两种解决方案。这里的组件只是一个很简单的样式而已。
+The value of `v-model` is the value of the currently selected `lin-selector-item`
 
-## 骨架屏样式组件
-
-当文本没有加载出来时，显示文本的默认占位图。
-
-<div class="demo-block">
-    <lin-row>
-      <lin-col :span="4">
-        <lin-skeleton></lin-skeleton>
-      </lin-col>
-      <lin-col :span="4" class="ml-10">
-        <lin-row>
-          <lin-col :span="12">
-            <lin-skeleton :proportion="0.2"></lin-skeleton>
-          </lin-col>
-          <lin-col :span="24" class="mt-10">
-            <lin-skeleton :proportion="0.1"></lin-skeleton>
-          </lin-col>
-          <lin-col :span="24" class="mt-10">
-            <lin-skeleton :proportion="0.1"></lin-skeleton>
-          </lin-col>
-        </lin-row>
-      </lin-col>
-    </lin-row>
+<div class='demo-block'>
+  <lin-selector-group
+    label="label："
+    v-model="value1"
+  >
+    <lin-selector-item 
+    v-for='(item , index) in list1'
+    :key='index'
+    :value="item" >
+    {{item}}
+    </lin-selector-item>
+  </lin-selector-group>
 </div>
 
-::: demo
+:::demo
 
 ```html
-<lin-row>
-  <lin-col :span="4">
-    <lin-skeleton></lin-skeleton>
-  </lin-col>
-  <lin-col :span="4" class="ml-10">
-    <lin-row>
-      <lin-col :span="12">
-        <lin-skeleton :proportion="0.2"></lin-skeleton>
-      </lin-col>
-      <lin-col :span="24" class="mt-10">
-        <lin-skeleton :proportion="0.1"></lin-skeleton>
-      </lin-col>
-      <lin-col :span="24" class="mt-10">
-        <lin-skeleton :proportion="0.1"></lin-skeleton>
-      </lin-col>
-    </lin-row>
-  </lin-col>
-</lin-row>
+<lin-selector-group label="label：" v-model="value1">
+  <lin-selector-item v-for="(item , index) in list1" :key="index" :value="item">
+    {{item}}
+  </lin-selector-item>
+</lin-selector-group>
+
+<script>
+  export default {
+    data() {
+      return {
+        value1: "label-one",
+        list1: [
+          "label-one",
+          "label-two",
+          "label-three",
+          "label-four",
+          "label-five",
+          "label-six",
+          "label-seven",
+          "label-eight",
+          "label-nine",
+          "label-ten",
+          "label-eleven",
+        ],
+      };
+    },
+  };
+</script>
 ```
 
 :::
 
-## 属性
+## Binding values to objects
 
-| 参数       | 说明     | Type   | Accepted Values | Default |
-| ---------- | -------- | ------ | --------------- | ------- |
-| width      | 占位长度 | String | —               | 100%    |
-| height     | 占位宽度 | String | —               | —       |
-| proportion | 高、宽比 | Number | —               | 1       |
-| bgColor    | 背景色   | String | —               | #b4bccc |
+When the binding value is an object, you need to set the `valueKey` attribute as the key name that uniquely identifies the value
+
+<div class='demo-block'>
+  <lin-selector-group
+    label="subject："
+    value-key="id"
+    v-model="value2"
+  >
+    <lin-selector-item 
+    v-for="item in list2" 
+    :key="item.id" 
+    :value="item" 
+    :label="item.name"></lin-selector-item>
+  </lin-selector-group>
+</div>
+
+:::demo
+
+```html
+<lin-selector-group label="subject：" value-key="id" v-model="value2">
+  <lin-selector-item
+    v-for="item in list2"
+    :key="item.id"
+    :value="item"
+    :label="item.name"
+  ></lin-selector-item>
+</lin-selector-group>
+
+<script>
+  export default {
+    data() {
+      return {
+        value2: {
+          name: "label-one",
+          id: 1,
+        },
+        list2: [
+          {
+            name: "label-one",
+            id: 1,
+          },
+          {
+            name: "label-two",
+            id: 2,
+          },
+          {
+            name: "label-three",
+            id: 3,
+          },
+          {
+            name: "label-four",
+            id: 4,
+          },
+        ],
+      };
+    },
+  };
+</script>
+```
+
+:::
+
+## Use jsx
+
+When you need to customize the label column and more styles and structures, you can set the `renderMore` and `renderLabel` properties and return a JSX
+
+<div class='demo-block'>
+  <lin-selector-group
+  :render-more="renderMore"
+    :render-label="renderLabel"
+    label="subject："
+    value-key="id"
+    v-model="value3"
+  >
+    <lin-selector-item 
+     v-for="(item , index) in list3" :key="index" :value="item"
+     :label='item'
+    ></lin-selector-item>
+  </lin-selector-group>
+</div>
+
+:::demo
+
+```html
+<lin-selector-group label="subject：" v-model="value3">
+  <lin-selector-item v-for="(item , index) in list3" :key="index" :value="item"
+    >{{item}}</lin-selector-item
+  >
+</lin-selector-group>
+
+<script>
+  export default {
+    data() {
+      return {
+        value3: "label-one",
+        list3: [
+          "label-one",
+          "label-two",
+          "label-three",
+          "label-four",
+          "label-five",
+          "label-six",
+          "label-seven",
+          "label-eight",
+          "label-nine",
+          "label-ten",
+          "label-eleven",
+        ],
+      };
+    },
+    methods: {
+      renderMore(h, status) {
+        if (status === 1) {
+          return <span>open</span>;
+        } else {
+          return <span>close</span>;
+        }
+      },
+      renderLabel() {
+        return <span>label</span>;
+      },
+    },
+  };
+</script>
+```
+
+:::
+
+## Disabled state
+
+If the `lin-selector-group` property is set for the `disabled`, the entire selector is not available
+
+<div class='demo-block'>
+  <lin-selector-group
+    label="subject："
+    v-model="value4"
+  >
+    <lin-selector-item value="label-one" label="label-one" disabled>label-one</lin-selector-item>
+    <lin-selector-item value="label-two" label="label-two">label-two</lin-selector-item>
+    <lin-selector-item value="label-three" label="label-three">label-three</lin-selector-item>
+    <lin-selector-item value="label-four" label="label-four" disabled>label-four</lin-selector-item>
+    <lin-selector-item value="label-five" label="label-five">label-five</lin-selector-item>
+    <lin-selector-item value="label-six" label="label-six">label-six</lin-selector-item>
+  </lin-selector-group>
+</div>
+
+:::demo
+
+```html
+<lin-selector-group label="subject：" v-model="value4">
+  <lin-selector-item value="label-one" label="label-one" disabled
+    >label-one</lin-selector-item
+  >
+  <lin-selector-item value="label-two" label="label-two"
+    >label-two</lin-selector-item
+  >
+  <lin-selector-item value="label-three" label="label-three"
+    >label-three</lin-selector-item
+  >
+  <lin-selector-item value="label-four" label="label-four" disabled
+    >label-four</lin-selector-item
+  >
+  <lin-selector-item value="label-five" label="label-five"
+    >label-five</lin-selector-item
+  >
+  <lin-selector-item value="label-six" label="label-six"
+    >label-six</lin-selector-item
+  >
+</lin-selector-group>
+
+<script>
+  export default {
+    data() {
+      return {
+        value4: "label-three",
+      };
+    },
+  };
+</script>
+```
+
+:::
+
+## SelectorGroup Attributes
+
+| Attribute       | Description                                                                                                                                                                           | Type                               | Accepted Values | Default |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | --------------- | ------- |
+| width           | width of SelectorGroup                                                                                                                                                                | String                             | —               | —       |
+| labelWidth      | width of label                                                                                                                                                                        | String                             | —               | 40px    |
+| value / v-model | binding value                                                                                                                                                                         | Boolean / String / Number / Object | —               | —       |
+| valueKey        | unique identity key name for value, required when value is an object                                                                                                                  | String                             | —               | value   |
+| renderMore      | Custom render more label content, use Vue's render function. Pass in two parameters, the first is h, and the second is whether to expand or collapse the state value. You can use JSX | Function                           | —               | —       |
+| renderLabel     | Custom render header label content, use Vue's render function, parameter is h, you can use jsx                                                                                        | Function                           | —               | —       |
+| label           | content of label                                                                                                                                                                      | String                             | —               | —       |
+| disabled        | Disable                                                                                                                                                                               | Boolean                            | —               | false   |
+
+## SelectorGroup Events
+
+| Event Name | Description                               | Parameters             |
+| ---------- | ----------------------------------------- | ---------------------- |
+| show       | Triggered when all labels are displayed   | —                      |
+| hide       | Triggered when label exceeds part hidden  | —                      |
+| onChange   | Triggered when the selected value changes | Current selected value |
+
+## SelectorItem Attributes
+
+| Attribute | Description             | Type            | Accepted Values | Default |
+| --------- | ----------------------- | --------------- | --------------- | ------- |
+| label     | content of label        | String          | —               | —       |
+| value     | The value of the option | String / Number | —               | —       |
+| disabled  | Disable                 | Boolean         | —               | false   |
+
+## SelectorItem Slots
+
+| Name | Description          |
+| ---- | -------------------- |
+| —    | Custom label content |

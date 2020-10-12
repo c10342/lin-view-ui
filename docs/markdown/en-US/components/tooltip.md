@@ -15,43 +15,43 @@
 }
 </style>
 
-# Tooltip 文字提示
+# Tooltip
 
 ---
 
-Tooltip 组件提供了一个 `v-tooltip` 指令，其效果跟 dom 标签的原生属性 title 类似，只是美化 title 的效果，并且定制了一系列属性
+The tooltip component provides a `v-tooltip` instruction. Its effect is similar to the DOM tag's native attribute title, but it beautifies the effect of title and customizes a series of properties
 
 ## Basic usage
 
-在这里我们提供 4 种不同方向的展示方式，`v-tooltip`的绑定值就是提示的文字，默认是展示方向是下边
+Here, we provide four display methods in different directions. The binding value of `v-tooltip` is the prompt text, and the default display direction is below
 
 <div class='demo-block'>
-<lin-button class='mr-20' v-tooltip.top="'上边 文字提示'">上边</lin-button>
-<lin-button class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</lin-button>
-<lin-button class='mr-20' v-tooltip.left="'左边 文字提示'">左边</lin-button>
-<lin-button  v-tooltip.right="'右边 文字提示'">右边</lin-button>
+<lin-button class='mr-20' v-tooltip.top="'Above'">Above</lin-button>
+<lin-button class='mr-20' v-tooltip.bottom="'Below'">Below</lin-button>
+<lin-button class='mr-20' v-tooltip.left="'Left'">Left</lin-button>
+<lin-button  v-tooltip.right="'Right'">Right</lin-button>
 </div>
 
 :::demo
 
 ```html
-<lin-button class="mr-20" v-tooltip.top="'上边 文字提示'">上边</lin-button>
-<lin-button class="mr-20" v-tooltip.bottom="'下边 文字提示'">下边</lin-button>
-<lin-button class="mr-20" v-tooltip.left="'左边 文字提示'">左边</lin-button>
-<lin-button v-tooltip.right="'右边 文字提示'">右边</lin-button>
+<lin-button class="mr-20" v-tooltip.top="'Above'">Above</lin-button>
+<lin-button class="mr-20" v-tooltip.bottom="'Below'">Below</lin-button>
+<lin-button class="mr-20" v-tooltip.left="'Left'">Left</lin-button>
+<lin-button v-tooltip.right="'Right'">Right</lin-button>
 ```
 
 :::
 
-## 偏移量
+## Offset
 
-在绑定了 `v-tooltip` 指令的元素上添加 `lin-tooltip-top` 和 `lin-tooltip-left` 属性即可设置 tooltip 的偏移量
+Add the `lin-tooltip-top` and `lin-tooltip-left` attributes to the element bound with the `v-tooltip` instruction to set the toolip offset
 
 <div class='demo-block'>
-<lin-button lin-tooltip-top='-10' lin-tooltip-left='10' class='mr-20' v-tooltip.top="'上边 文字提示'">上边</lin-button>
-<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.bottom="'下边 文字提示'">下边</lin-button>
-<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.left="'左边 文字提示'">左边</lin-button>
-<lin-button lin-tooltip-top='10' lin-tooltip-left='-10'  v-tooltip.right="'右边 文字提示'">右边</lin-button>
+<lin-button lin-tooltip-top='-10' lin-tooltip-left='10' class='mr-20' v-tooltip.top="'Above'">Above</lin-button>
+<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.bottom="'Below'">Below</lin-button>
+<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.left="'Left'">Left</lin-button>
+<lin-button lin-tooltip-top='10' lin-tooltip-left='-10'  v-tooltip.right="'Right'">Right</lin-button>
 </div>
 
 :::demo
@@ -61,44 +61,44 @@ Tooltip 组件提供了一个 `v-tooltip` 指令，其效果跟 dom 标签的原
   lin-tooltip-top="-10"
   lin-tooltip-left="10"
   class="mr-20"
-  v-tooltip.top="'上边 文字提示'"
-  >上边</lin-button
+  v-tooltip.top="'Above'"
+  >Above</lin-button
 >
 <lin-button
   lin-tooltip-top="10"
   lin-tooltip-left="10"
   class="mr-20"
-  v-tooltip.bottom="'下边 文字提示'"
-  >下边</lin-button
+  v-tooltip.bottom="'Below'"
+  >Below</lin-button
 >
 <lin-button
   lin-tooltip-top="10"
   lin-tooltip-left="10"
   class="mr-20"
-  v-tooltip.left="'左边 文字提示'"
-  >左边</lin-button
+  v-tooltip.left="'Left'"
+  >Left</lin-button
 >
 <lin-button
   lin-tooltip-top="10"
   lin-tooltip-left="-10"
-  v-tooltip.right="'右边 文字提示'"
-  >右边</lin-button
+  v-tooltip.right="'Right'"
+  >Right</lin-button
 >
 ```
 
 :::
 
-## 超出显示提示
+## Exceed display prompt
 
-在 `v-tooltip` 指令上添加 `auto` 修饰符。当文字超出容器宽度的时候，鼠标悬浮上去就会显示 tooltip 提示文字。当文字没有超出容器宽度的时候，鼠标悬浮上去不会显示 tooltip 提示文字
+Add the `auto` modifier to the `v-tooltip` instruction. When the text exceeds the width of the container, the mouse hovers up to display the toolbar prompt text. When the text does not exceed the width of the container, the mouse will not display the toolbar prompt text
 
 <div class='demo-block'>
 <p class="one-line tooltip-message"
- v-tooltip.top.auto="'测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题'"
+ v-tooltip.top.auto="'When the text exceeds the width of the container, the mouse hovers up to display the toolbar prompt text. When the text does not exceed the width of the container, the mouse will not display the toolbar prompt text'"
  >
-测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题
+When the text exceeds the width of the container, the mouse hovers up to display the toolbar prompt text. When the text does not exceed the width of the container, the mouse will not display the toolbar prompt text
 </p>
-<p class="one-line tooltip-message" v-tooltip.top.auto="'标题文字'">标题文字</p>
+<p class="one-line tooltip-message" v-tooltip.top.auto="'Title Text'">Title Text</p>
 </div>
 
 :::demo
@@ -106,18 +106,22 @@ Tooltip 组件提供了一个 `v-tooltip` 指令，其效果跟 dom 标签的原
 ```html
 <p
   class="one-line tooltip-message"
-  v-tooltip.top.auto="'测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题'"
+  v-tooltip.top.auto="'When the text exceeds the width of the container, the mouse hovers up to display the toolbar prompt text. When the text does not exceed the width of the container, the mouse will not display the toolbar prompt text'"
 >
-  测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题
+  When the text exceeds the width of the container, the mouse hovers up to
+  display the toolbar prompt text. When the text does not exceed the width of
+  the container, the mouse will not display the toolbar prompt text
 </p>
-<p class="one-line tooltip-message" v-tooltip.top.auto="'标题文字'">标题文字</p>
+<p class="one-line tooltip-message" v-tooltip.top.auto="'Title Text'">
+  Title Text
+</p>
 
 <style lang="scss" scoped>
   .one-line {
-    overflow: hidden; /*超出部分隐藏*/
-    text-overflow: ellipsis; /* 超出部分显示省略号 */
-    white-space: nowrap; /*规定段落中的文本不进行换行 */
-    width: 500px; /*需要配合宽度来使用*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 500px;
     border: 1px solid red;
   }
 
@@ -132,14 +136,14 @@ Tooltip 组件提供了一个 `v-tooltip` 指令，其效果跟 dom 标签的原
 
 :::
 
-## 属性
+## Attributes
 
-| 参数             | 说明                                                                                | Type    | Accepted Values | Default |
-| ---------------- | ----------------------------------------------------------------------------------- | ------- | --------------- | ------- |
-| top              | `v-tooltip` 指令中的 `top` 修饰符，设置 tooltip 展示方向为上边                      | Boolean | —               | false   |
-| bottom           | `v-tooltip` 指令中的 `bottom` 修饰符，设置 tooltip 展示方向为下边                   | Boolean | —               | true    |
-| left             | `v-tooltip` 指令中的 `left` 修饰符，设置 tooltip 展示方向为左边                     | Boolean | —               | false   |
-| right            | `v-tooltip` 指令中的 `right` 修饰符，设置 tooltip 展示方向为右边                    | Boolean | —               | false   |
-| auto             | `v-tooltip` 指令中的 `auto` 修饰符，文字超出则显示 tooltip ，不超出则不显示 tooltip | Boolean | —               | false   |
-| lin-tooltip-top  | tooltip 距离屏幕上边的偏移量，在绑定了 `v-tooltip` 指令的元素上添加该属性           | String  | —               | —       |
-| lin-tooltip-left | tooltip 距离屏幕左边的偏移量，在绑定了 `v-tooltip` 指令的元素上添加该属性           | String  | —               | —       |
+| Attribute        | Description                                                                                                                                   | Type    | Accepted Values | Default |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --------------- | ------- |
+| top              | The `top` modifier in the `v-tooltip` instruction sets the toolbar display direction to the top                                               | Boolean | —               | false   |
+| bottom           | The `bottom` modifier in the `v-tooltip` instruction sets the toolbar display direction to the bottom                                         | Boolean | —               | true    |
+| left             | The `left` modifier in the `v-tooltip` instruction sets the toolbar display direction to the left                                             | Boolean | —               | false   |
+| right            | The `right` modifier in the `v-tooltip` instruction sets the toolbar display direction to the right                                           | Boolean | —               | false   |
+| auto             | The `auto` modifier in the `v-tooltip` instruction. If the text exceeds the value, toolip will be displayed; if not, it will not be displayed | Boolean | —               | false   |
+| lin-tooltip-top  | The offset of toolip from the top of the screen. Add this attribute to the element bound with the `v-toolip` instruction                      | String  | —               | —       |
+| lin-tooltip-left | The offset of toolip from the left of the screen. Add this attribute to the element bound with the `v-toolip` instruction                     | String  | —               | —       |

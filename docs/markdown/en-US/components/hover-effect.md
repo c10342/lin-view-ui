@@ -7,13 +7,13 @@
 }
 </style>
 
-# HoverEffect 悬浮效果
+# HoverEffect
 
 ---
 
-## 霓虹效果
+## Neon effect
 
-设置 `theme` 属性为 `neon` 即可
+Set the `theme` property to `neon`
 
 <div class='demo-block'>
 <div class="hover-group">
@@ -37,9 +37,9 @@
 
 :::
 
-## 边框效果
+## Border effect
 
-设置 `theme` 属性为 `border` 即可
+Set the `theme` property to `border`
 
 <div class='demo-block'>
 <div class="hover-group">
@@ -63,9 +63,9 @@
 
 :::
 
-## 圆角效果
+## Fillet effect
 
-设置 `theme` 属性为 `fillet` 即可
+Set the `theme` property to `fillet`
 
 <div class='demo-block'>
 <div class="hover-group">
@@ -89,9 +89,9 @@
 
 :::
 
-## 冰冻效果
+## Cold effect
 
-设置 `theme` 属性为 `frozen` 即可
+Set the `theme` property to `frozen`
 
 <div class='demo-block'>
 <div class="hover-group">
@@ -115,9 +115,9 @@
 
 :::
 
-## 闪亮效果
+## Shiny effect
 
-设置 `theme` 属性为 `shiny` 即可
+Set the `theme` property to `shiny`
 
 <div class='demo-block'>
 <div class="hover-group">
@@ -141,22 +141,22 @@
 
 :::
 
-## 属性
+## Attributes
 
-| 参数  | 说明      | Type   | Accepted Values                     | Default |
-| ----- | --------- | ------ | ----------------------------------- | ------- |
-| type  | 效果 Type | String | primary,success,warning,danger,info | primary |
-| theme | 效果主题  | String | neon, border, fillet, frozen, shiny | false   |
-| text  | 文本      | String | —                                   | —       |
+| Attribute | Description  | Type   | Accepted Values                     | Default |
+| --------- | ------------ | ------ | ----------------------------------- | ------- |
+| type      | Effect Type  | String | primary,success,warning,danger,info | primary |
+| theme     | Effect theme | String | neon, border, fillet, frozen, shiny | false   |
+| text      | text         | String | —                                   | —       |
 
-## 事件
+## Events
 
-| Event Name | 说明       | Parameters |
-| ---------- | ---------- | ---------- |
-| click      | 点击时触发 | —          |
+| Event Name | Description      | Parameters |
+| ---------- | ---------------- | ---------- |
+| click      | Trigger on Click | —          |
 
-## 插槽
+## Slots
 
-| Name | 说明               |
-| ---- | ------------------ |
-| —    | HoverEffect 的内容 |
+| Name | Description                |
+| ---- | -------------------------- |
+| —    | The content of hovereffect |

@@ -284,14 +284,14 @@ Clicking each dropdown item fires an event whose parameter is assigned by each i
 
 ## Dropdown Events
 
-| Event Name     | 说明                                          | Parameters                                    |
+| Event Name     | Description                                   | Parameters                                    |
 | -------------- | --------------------------------------------- | --------------------------------------------- |
 | command        | triggers when a dropdown item is clicked      | the command dispatched from the dropdown item |
 | visible-change | triggers when the dropdown appears/disappears | true when it appears, and false otherwise     |
 
 ## Dropdown Slots
 
-| Name     | 说明                                                                                                          |
+| Name     | Description                                                                                                   |
 | -------- | ------------------------------------------------------------------------------------------------------------- |
 | —        | content of Dropdown. Notice: Must be a valid html dom element or el-component, to attach the trigger listener |
 | dropdown | content of the Dropdown Menu, usually a &lt;lin-dropdown-group&gt; element                                    |
@@ -317,7 +317,7 @@ Clicking each dropdown item fires an event whose parameter is assigned by each i
 | command   | a command to be dispatched to Dropdown's command callback | string/number/object | —               | —       |
 | icon      | icon class name                                           | String               | —               | —       |
 
-## DropdownItem 插槽
+## DropdownItem Slots
 
 | Name | Description                  |
 | ---- | ---------------------------- |

@@ -52,7 +52,7 @@ If the text exceeds the display length, it can be folded. After unfolding, you c
 
 :::
 
-## 属性
+## Attributes
 
 | Attribute   | Description                                 | Type   | Accepted Values | Default         |
 | ----------- | ------------------------------------------- | ------ | --------------- | --------------- |

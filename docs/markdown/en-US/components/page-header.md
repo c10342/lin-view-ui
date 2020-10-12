@@ -11,20 +11,20 @@ export default {
 }
 </script>
 
-# PageHeader 页头
+# PageHeader
 
 ---
 
 ## Basic usage
 
 <div class='demo-block'>
-<lin-page-header title="详情页面" @back="back"></lin-page-header>
+<lin-page-header title="Details page" @back="back"></lin-page-header>
 </div>
 
 :::demo
 
 ```html
-<lin-page-header title="详情页面" @back="back"></lin-page-header>
+<lin-page-header title="Details page" @back="back"></lin-page-header>
 <script>
   export default {
     methods: {
@@ -38,19 +38,19 @@ export default {
 
 :::
 
-## 显示右侧按钮
+## Show right button
 
-设置 `right` 属性即可显示右侧按钮
+Set the `right` property to display the button on the right
 
 <div class='demo-block'>
-<lin-page-header title="列表页面" :back='false' right @more='more'></lin-page-header>
+<lin-page-header title="List page" :back='false' right @more='more'></lin-page-header>
 </div>
 
 :::demo
 
 ```html
 <lin-page-header
-  title="列表页面"
+  title="List page"
   :back="false"
   right
   @more="more"
@@ -68,35 +68,35 @@ export default {
 
 :::
 
-## 显示底部边框
+## Show bottom border
 
-设置 `border` 属性即可显示底部边框
+Set the `border` property to display the bottom border
 
 <div class='demo-block'>
-<lin-page-header title="详情页面" border></lin-page-header>
+<lin-page-header title="Details page" border></lin-page-header>
 </div>
 
 :::demo
 
 ```html
-<lin-page-header title="详情页面" border></lin-page-header>
+<lin-page-header title="Details page" border></lin-page-header>
 ```
 
 :::
 
-## 显示激活状态
+## Show active status
 
-设置 `active` 属性即可显示激活状态
+Set the `active` property to display the activation status
 
 <div class='demo-block'>
-<lin-page-header title="列表页面" :back='false' right active border></lin-page-header>
+<lin-page-header title="List page" :back='false' right active border></lin-page-header>
 </div>
 
 :::demo
 
 ```html
 <lin-page-header
-  title="列表页面"
+  title="List page"
   :back="false"
   right
   active
@@ -106,28 +106,28 @@ export default {
 
 :::
 
-## 属性
+## Attributes
 
-| 参数    | 说明             | Type    | Accepted Values | Default |
-| ------- | ---------------- | ------- | --------------- | ------- |
-| back    | 是否显示返回按钮 | Boolean | —               | true    |
-| backTip | 返回按钮文字     | String  | —               | Back    |
-| title   | 标题             | String  | —               | —       |
-| right   | 是否显示右侧按钮 | Boolean | —               | false   |
-| active  | 是否显示激活状态 | Boolean | —               | false   |
-| border  | 是否显示底部边框 | Boolean | —               | false   |
+| Attribute | Description                                | Type    | Accepted Values | Default |
+| --------- | ------------------------------------------ | ------- | --------------- | ------- |
+| back      | Is the return button displayed             | Boolean | —               | true    |
+| backTip   | Back to button text                        | String  | —               | Back    |
+| title     | title                                      | String  | —               | —       |
+| right     | Is the right button displayed              | Boolean | —               | false   |
+| active    | Whether the activation status is displayed | Boolean | —               | false   |
+| border    | Show bottom border                         | Boolean | —               | false   |
 
-## 插槽
+## Slots
 
-| Name  | 说明           |
-| ----- | -------------- |
-| —     | 标题的内容     |
-| back  | 返回按钮的内容 |
-| right | 右侧按钮的内容 |
+| Name  | Description                          |
+| ----- | ------------------------------------ |
+| —     | Content of the title                 |
+| back  | Return to the contents of the button |
+| right | Content of the right button          |
 
-## 事件
+## Events
 
-| Event Name | 说明                   | Parameters |
-| ---------- | ---------------------- | ---------- |
-| back       | 点击返回按钮的时候触发 | —          |
-| more       | 点击右侧按钮的时候触发 | —          |
+| Event Name | Description                                      | Parameters |
+| ---------- | ------------------------------------------------ | ---------- |
+| back       | Triggered when you click the back button         | —          |
+| more       | Triggered when you click the button on the right | —          |

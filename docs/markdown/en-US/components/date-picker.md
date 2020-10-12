@@ -16,7 +16,7 @@ export default {
         time.getDate() === new Date().getDate() &&
         time.getMonth() === new Date().getMonth()
       ) {
-        return <span>今天</span>;
+        return <span>today</span>;
       }
       return null;
     },
@@ -27,13 +27,13 @@ export default {
 };
 </script>
 
-# DatePicker 日期选择器
+# DatePicker
 
 ---
 
 # Basic usage
 
-`v-model` 绑定的值就是选中的日期
+The value of `v-model` binding is the selected date
 
 <div class='demo-block'>
 <lin-date-picker  v-model="now1" />
@@ -57,10 +57,9 @@ export default {
 
 :::
 
-## 禁用日期
+## Disable date
 
-`disabledBeforeDate` 可禁用小于等于该日期的日期。`disabledAfterDate` 可禁用大于等于该日期的日期。
-`disabledRangeDate` 可禁用范围内的时间，它是一个数组，第一项为开始时间，第二项为结束时间，数组只有一项的时候，效果跟 `disabledAfterDate` 属性一样。`disabledDate` 禁用指定日期，它接收一个数组。
+`disabledBeforeDate` to disable dates less than or equal to that date. `disabledAfterDate` to disable a date greater than or equal to that date.`disabledRangeDate` can disable the time in the range. It is an array. The first item is the start time and the second item is the end time. When there is only one item in the array, the effect is the same as the `disabledAfterDate` property. `disabledDate` disable the specified date, which receives an array.
 
 <div class='demo-block'>
     <lin-date-picker 
@@ -97,9 +96,9 @@ export default {
 
 :::
 
-## 禁用整个日期选择器
+## Disable entire date selector
 
-设置 `disabled` 属性为 `true` 即可禁用整个日期选择器
+Set the `disabled` property to `true` to disable the entire date selector
 
 <div class='demo-block'>
 <lin-date-picker disabled />
@@ -113,9 +112,9 @@ export default {
 
 :::
 
-## 自定义显示日期块
+## Custom display date block
 
-当你需要自定义显示日期块的样式和结构时，你可以设置 `renderInfo` ，并返回一个 jsx
+When you need to customize the style and structure of display date block, you can set `renderInfo` and return a JSX
 
 <div class='demo-block'>
 <lin-date-picker 
@@ -148,7 +147,7 @@ v-model="now3"
           time.getDate() === new Date().getDate() &&
           time.getMonth() === new Date().getMonth()
         ) {
-          return <span>今天</span>;
+          return <span>today</span>;
         }
         return null;
       },
@@ -159,9 +158,9 @@ v-model="now3"
 
 :::
 
-## 其他使用
+## Other uses
 
-当你需要日期选择一直显示并且隐藏输入框，你可以设置 `showAlways` 属性和 `showInput` 属性
+When you need the date selection to always show and hide the input box, you can set the `showAlways` and `showInput` properties
 
 <div class='demo-block'>
 <lin-date-picker 
@@ -188,35 +187,35 @@ showAlways
 
 :::
 
-## 属性
+## Attributes
 
-| 参数               | 说明                                                                                                | Type                   | Accepted Values    | Default                |
-| ------------------ | --------------------------------------------------------------------------------------------------- | ---------------------- | ------------------ | ---------------------- |
-| radius             | 日期块是否为圆角                                                                                    | Boolean                | —                  | false                  |
-| cellWidth          | 日期块宽度                                                                                          | Number                 | —                  | 32                     |
-| value / v-model    | 绑定值                                                                                              | Date / String / Number | —                  | —                      |
-| cellHeight         | 日期块高度                                                                                          | Number                 | —                  | 32                     |
-| labelHeight        | 头部标签的高度                                                                                      | Number                 | —                  | 32                     |
-| disabled           | 是否禁用                                                                                            | Boolean                | —                  | false                  |
-| placeholder        | 输入框占位符                                                                                        | String                 | —                  | Please select the date |
-| disabledBeforeDate | 禁用小于等于该日期的日期                                                                            | Date / String / Number | —                  | —                      |
-| disabledAfterDate  | 禁用大于等于该日期的日期                                                                            | Date / String / Number | —                  | —                      |
-| disabledRangeDate  | 禁用指定范围内的日期                                                                                | Array                  | —                  | —                      |
-| disabledDate       | 禁用指定日期                                                                                        | Array                  | —                  | —                      |
-| renderInfo         | 自定义渲染日期块，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是日期对象。可以使用 jsx | Function               | —                  | —                      |
-| format             | 格式化 value/v-model 绑定值                                                                         | String                 | string/number/Date | string                 |
-| showFormat         | 自定义输入框的显示内容                                                                              | Function               | —                  | —                      |
-| showAlways         | 是否一直显示时间选择器                                                                              | Boolean                | —                  | false                  |
-| showInput          | 是否显示输入框                                                                                      | Boolean                | —                  | true                   |
+| Attribute          | Description                                                                                                                                         | Type                   | Accepted Values    | Default                |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------ | ---------------------- |
+| radius             | Is the date block rounded                                                                                                                           | Boolean                | —                  | false                  |
+| cellWidth          | Date block width                                                                                                                                    | Number                 | —                  | 32                     |
+| value / v-model    | Binding value                                                                                                                                       | Date / String / Number | —                  | —                      |
+| cellHeight         | Date block height                                                                                                                                   | Number                 | —                  | 32                     |
+| labelHeight        | Height of head label                                                                                                                                | Number                 | —                  | 32                     |
+| disabled           | Wheter to disable                                                                                                                                   | Boolean                | —                  | false                  |
+| placeholder        | Input box placeholder                                                                                                                               | String                 | —                  | Please select the date |
+| disabledBeforeDate | Disable dates less than or equal to that date                                                                                                       | Date / String / Number | —                  | —                      |
+| disabledAfterDate  | Disable dates greater than or equal to this date                                                                                                    | Date / String / Number | —                  | —                      |
+| disabledRangeDate  | Disable dates in the specified range                                                                                                                | Array                  | —                  | —                      |
+| disabledDate       | Disable specified date                                                                                                                              | Array                  | —                  | —                      |
+| renderInfo         | Custom rendering date block, using Vue's render function. Pass in two parameters, the first is h and the second is the date object. You can use JSX | Function               | —                  | —                      |
+| format             | Format value / V-model binding value                                                                                                                | String                 | string/number/Date | string                 |
+| showFormat         | Customize the display of the input box                                                                                                              | Function               | —                  | —                      |
+| showAlways         | Is the time selector always displayed                                                                                                               | Boolean                | —                  | false                  |
+| showInput          | Display input box                                                                                                                                   | Boolean                | —                  | true                   |
 
-## 事件
+## Events
 
-| Event Name | 说明                 | Parameters     |
-| ---------- | -------------------- | -------------- |
-| prevYear   | 点击上一年按钮触发   | 日期对象       |
-| nextYear   | 点击下一年按钮触发   | 日期对象       |
-| prevMonth  | 点击上一个月按钮触发 | 日期对象       |
-| nextMonth  | 点击下一个月按钮触发 | 日期对象       |
-| select     | 选中日期时触发       | 选中的日期对象 |
-| focus      | 日期选择器显示时触发 | —              |
-| blur       | 日期选择器隐藏时触发 | —              |
+| Event Name | Description                                   | Parameters           |
+| ---------- | --------------------------------------------- | -------------------- |
+| prevYear   | Click the previous year button to trigger     | Date object          |
+| nextYear   | Click the next year button to trigger         | Date object          |
+| prevMonth  | Click the previous month button to trigger    | Date object          |
+| nextMonth  | Click the next month button to trigger        | Date object          |
+| select     | Triggered when a date is selected             | Selected date object |
+| focus      | Triggered when the date selector is displayed | —                    |
+| blur       | Triggered when the date selector is hidden    | —                    |

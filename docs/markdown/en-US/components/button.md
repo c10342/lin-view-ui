@@ -146,7 +146,7 @@ Use the `icon` attribute to add icon. You can find the icon list in lin-view-ui 
 
 :::
 
-## 不同尺寸
+## Sizes
 
 Besides default size, Button component provides three additional sizes for you to choose among different scenarios.
 Use attribute size to set additional sizes with `medium`, `small` or `size`.

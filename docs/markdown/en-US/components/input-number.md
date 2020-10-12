@@ -11,13 +11,13 @@ export default {
 };
 </script>
 
-# InputNumber 计数器
+# InputNumber
 
 ---
 
 ## Basic usage
 
-要使用它，只需要在 `lin-input-number` 元素中使用 `v-model` 绑定变量即可，变量的初始值即为 Default。
+To use it, you only need to bind variables in the `lin-input-number` element by using `v-model`, and the initial value of the variable is default.
 
 <div class='demo-block'>
 <lin-input-number v-model="value1" />
@@ -41,9 +41,9 @@ export default {
 
 :::
 
-## 禁用状态
+## Disabled state
 
-`disabled` 属性接受一个 `Boolean` ，设置为 `true` 即可禁用整个组件
+The `disabled` property accepts a `Boolean`. Setting it to `true` will disable the entire component
 
 <div class='demo-block'>
 <lin-input-number v-model="value2" disabled />
@@ -67,9 +67,9 @@ export default {
 
 :::
 
-## 步数
+## Steps
 
-允许定义递增递减的步数控制，设置 `step` 属性可以控制步长，接受一个 `Number` 。
+It is allowed to define the step number control of increasing and decreasing. Setting the `step` property can control the step size and accept a `Number`.
 
 <div class='demo-block'>
 <lin-input-number v-model="value3" :step="2" />
@@ -93,9 +93,9 @@ export default {
 
 :::
 
-## 严格步数
+## Strict steps
 
-`step-strictly` 属性接受一个 `Boolean` 。如果这个属性被设置为 `true` ，则只能输入步数的倍数。
+The `step-strictly` property accepts a `Boolean`. If this property is set to `true`, you can only enter a multiple of the number of steps.
 
 <div class='demo-block'>
 <lin-input-number v-model="value4" :step="2" step-strictly />
@@ -119,21 +119,21 @@ export default {
 
 :::
 
-## 属性
+## Attributes
 
-| 参数            | 说明                     | Type    | Accepted Values | Default   |
-| --------------- | ------------------------ | ------- | --------------- | --------- |
-| value / v-model | 绑定值                   | Number  | —               | —         |
-| min             | 设置计数器允许的最小值   | Number  | —               | -Infinity |
-| max             | 设置计数器允许的最大值   | Number  | —               | Infinity  |
-| disabled        | 是否禁用计数器           | Boolean | —               | false     |
-| step            | 计数器步长               | Number  | —               | 1         |
-| stepStrictly    | 是否只能输入 step 的倍数 | Boolean | —               | false     |
-| placeholder     | 输入框默认 placeholder   | String  | —               | —         |
+| Attribute       | Description                                  | Type    | Accepted Values | Default   |
+| --------------- | -------------------------------------------- | ------- | --------------- | --------- |
+| value / v-model | Binding value                                | Number  | —               | —         |
+| min             | Set the minimum allowed value of the counter | Number  | —               | -Infinity |
+| max             | Set the maximum allowed value of the counter | Number  | —               | Infinity  |
+| disabled        | Disable counter                              | Boolean | —               | false     |
+| step            | Counter step size                            | Number  | —               | 1         |
+| stepStrictly    | Can only multiple of step be entered         | Boolean | —               | false     |
+| placeholder     | Input box default holder                     | String  | —               | —         |
 
-## 事件
+## Events
 
-| Event Name | 说明          | Parameters   |
-| ---------- | ------------- | ------------ |
-| reduce     | 点击-号时触发 | value:Number |
-| plus       | 点击+号时触发 | value:Number |
+| Event Name | Description                          | Parameters   |
+| ---------- | ------------------------------------ | ------------ |
+| reduce     | Triggered when the - sign is pressed | value:Number |
+| plus       | Triggered when the + sign is pressed | value:Number |

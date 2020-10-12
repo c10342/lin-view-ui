@@ -466,24 +466,24 @@ Taking example by Bootstrap's responsive design, five breakpoints are preset: `x
 
 ## Row Attributes
 
-| 参数    | 说明                                                    | Type   | Accepted Values                   | Default |
-| ------- | ------------------------------------------------------- | ------ | --------------------------------- | ------- |
-| gutter  | grid spacing                                            | Number | —                                 | 0       |
-| type    | layout mode, you can use flex, works in modern browsers | String | —                                 | —       |
-| justify | horizontal alignment of flex layout                     | String | start/end/center/around/between   | —       |
-| align   | vertical alignment of flex layout                       | String | end/start/baseline/stretch/center | —       |
-| tag     | custom element tag                                      | String | \*                                | div     |
+| Attribute | Description                                             | Type   | Accepted Values                   | Default |
+| --------- | ------------------------------------------------------- | ------ | --------------------------------- | ------- |
+| gutter    | grid spacing                                            | Number | —                                 | 0       |
+| type      | layout mode, you can use flex, works in modern browsers | String | —                                 | —       |
+| justify   | horizontal alignment of flex layout                     | String | start/end/center/around/between   | —       |
+| align     | vertical alignment of flex layout                       | String | end/start/baseline/stretch/center | —       |
+| tag       | custom element tag                                      | String | \*                                | div     |
 
 ## Col Attributes
 
-| 参数   | 说明                                               | Type                                      | Accepted Values | Default |
-| ------ | -------------------------------------------------- | ----------------------------------------- | --------------- | ------- |
-| span   | number of column the grid spans                    | Number                                    | —               | 24      |
-| offset | number of spacing on the left side of the grid     | Number                                    | —               | 0       |
-| push   | number of columns that grid moves to the right     | Number                                    | —               | 0       |
-| pull   | number of columns that grid moves to the left      | Number                                    | —               | 0       |
-| xs     | `<768px` Responsive columns or column props object | Number/Object (e.g. {span: 4, offset: 4}) | —               | —       |
-| sm     | `≥768px` Responsive columns or column props object | Number/Object (e.g. {span: 4, offset: 4}) | —               | —       |
-| md     | `≥992` Responsive columns or column props object   | Number/Object (e.g. {span: 4, offset: 4}) | —               | —       |
-| lg     | `≥1200` Responsive columns or column props object  | Number/Object (e.g. {span: 4, offset: 4}) | —               | —       |
-| tag    | custom element tag                                 | String                                    | \*              | div     |
+| Attribute | Description                                        | Type                                      | Accepted Values | Default |
+| --------- | -------------------------------------------------- | ----------------------------------------- | --------------- | ------- |
+| span      | number of column the grid spans                    | Number                                    | —               | 24      |
+| offset    | number of spacing on the left side of the grid     | Number                                    | —               | 0       |
+| push      | number of columns that grid moves to the right     | Number                                    | —               | 0       |
+| pull      | number of columns that grid moves to the left      | Number                                    | —               | 0       |
+| xs        | `<768px` Responsive columns or column props object | Number/Object (e.g. {span: 4, offset: 4}) | —               | —       |
+| sm        | `≥768px` Responsive columns or column props object | Number/Object (e.g. {span: 4, offset: 4}) | —               | —       |
+| md        | `≥992` Responsive columns or column props object   | Number/Object (e.g. {span: 4, offset: 4}) | —               | —       |
+| lg        | `≥1200` Responsive columns or column props object  | Number/Object (e.g. {span: 4, offset: 4}) | —               | —       |
+| tag       | custom element tag                                 | String                                    | \*              | div     |
