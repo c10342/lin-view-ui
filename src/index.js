@@ -13,7 +13,6 @@ import CollapseItem from "packages/CollapseItem";
 import DropdownGroup from "packages/DropdownGroup";
 import DropdownItem from "packages/DropdownItem";
 import Dropdown from "packages/Dropdown";
-import Link from "packages/Link";
 
 // 表单组件
 import Input from "packages/Input";
@@ -52,6 +51,7 @@ import PageHeader from "packages/PageHeader";
 import TabGroup from "packages/TabGroup";
 import TabItem from "packages/TabItem";
 import Skeleton from "packages/Skeleton";
+import Badge from "packages/Badge";
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -61,12 +61,12 @@ import ToolTip from "packages/Tooltip";
 // 其他组件
 import Magnifier from "packages/Magnifier";
 import HoverEffect from "packages/HoverEffect";
+import Backtop from "packages/Backtop";
 
 const install = (Vue, opts = {}) => {
   locale.use(opts.locale);
   locale.i18n(opts.i18n);
-  console.log();
-  [
+  const components = [
     Button,
     Dialog,
     Row,
@@ -115,8 +115,10 @@ const install = (Vue, opts = {}) => {
     TabItem,
     TabGroup,
     Skeleton,
-    Link,
-  ].forEach((comp) => {
+    Badge,
+    Backtop,
+  ];
+  components.forEach((comp) => {
     Vue.use(comp);
   });
 };
@@ -176,5 +178,6 @@ export default {
   TabItem,
   TabGroup,
   Skeleton,
-  Link,
+  Badge,
+  Backtop,
 };

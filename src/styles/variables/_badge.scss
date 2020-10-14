@@ -1,0 +1,21 @@
+@import "./common";
+
+$badge-fix-right: 10px !default;
+$badge-fix-top: 0 !default;
+$badge-fix-z-index: 100 !default;
+$badge-fix-transform: translateY(-50%) translateX(100%) !default;
+
+$badge-text-border-radius: 10px !default;
+$badge-text-color: #fff !default;
+$badge-text-font-size: 12px !default;
+$badge-text-height: 18px !default;
+$badge-text-padding: 0 6px !default;
+$badge-text-text-align: center !default;
+$badge-text-white-space: nowrap !default;
+$badge-text-border: 1px solid #fff !default;
+
+$badge-dot-right: 5px !default;
+$badge-dot-height: 8px !default;
+$badge-dot-width: 8px !default;
+$badge-dot-padding: 0 !default;
+$badge-dot-border-radius: 50% !default;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-link />
+    <test-badge />
   </div>
 </template>
 

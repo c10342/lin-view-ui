@@ -1,0 +1,39 @@
+@import "src/styles/variables/badge.scss";
+
+.lin-badge {
+  position: relative;
+  display: inline-block;
+}
+
+.lin-badge-fix {
+  position: absolute;
+  right: $badge-fix-right;
+  top: $badge-fix-top;
+  z-index: $badge-fix-z-index;
+  transform: $badge-fix-transform;
+}
+.lin-badge-text {
+  border-radius: $badge-text-border-radius;
+  color: $badge-text-color;
+  font-size: $badge-text-font-size;
+  height: $badge-text-height;
+  line-height: $badge-text-height;
+  padding: $badge-text-padding;
+  text-align: $badge-text-text-align;
+  white-space: $badge-text-white-space;
+  border: $badge-text-border;
+}
+
+.lin-badge-dot {
+  right: $badge-dot-right;
+  height: $badge-dot-height;
+  width: $badge-dot-width;
+  padding: $badge-dot-padding;
+  border-radius: $badge-dot-border-radius;
+}
+
+@each $key, $val in $theme-color {
+  .lin-badge-#{$key} {
+    background-color: $val;
+  }
+}
