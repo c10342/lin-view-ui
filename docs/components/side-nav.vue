@@ -1,20 +1,31 @@
 <template>
-  <div class="side-nav">
-    <div v-for="(title, index) in Object.keys(data)" :key="index" class="group-container">
+  <div class="side-nav beautyScroll">
+    <div
+      v-for="(title, index) in Object.keys(data)"
+      :key="index"
+      class="group-container"
+    >
       <p class="side-nav-title">{{ title }}</p>
-      <div class="side-nav-items" v-for="nav in data[title]" v-if="nav.desc" :key="nav.name">
+      <div
+        class="side-nav-items"
+        v-for="nav in data[title]"
+        v-if="nav.desc"
+        :key="nav.name"
+      >
         <router-link
           :class="$route.name === nav.name ? 'active' : ''"
           v-if="nav.name"
           :to="{ name: nav.name }"
-        >{{ nav.desc }}</router-link>
+          >{{ nav.desc }}</router-link
+        >
         <p v-else class="side-nav-group">{{ nav.desc }}</p>
         <div v-for="(item, ix) in nav.items" :key="ix">
           <router-link
             :to="{ name: item.name }"
             :class="$route.name === item.name ? 'active' : ''"
             class="slid-nav-component"
-          >{{ item.desc }}</router-link>
+            >{{ item.desc }}</router-link
+          >
         </div>
       </div>
     </div>
@@ -24,15 +35,15 @@
 <script>
 import zhNavConf from "../nav.config.zh.json";
 import enNavConf from "../nav.config.en.json";
-import {getLang,langType} from '../utils/lang'
-const lang = getLang()
-const navConfig = langType.en===lang?enNavConf:zhNavConf
+import { getLang, langType } from "../utils/lang";
+const lang = getLang();
+const navConfig = langType.en === lang ? enNavConf : zhNavConf;
 export default {
   data() {
     return {
-      data: navConfig
+      data: navConfig,
     };
-  }
+  },
 };
 </script>
 
