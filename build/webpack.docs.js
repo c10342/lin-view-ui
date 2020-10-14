@@ -24,6 +24,7 @@ module.exports = {
     open: true,
   },
   configureWebpack: {
+    mode: "production",
     resolve: baseConfig.resolve,
   },
   css: {
