@@ -52,16 +52,6 @@
           "path": "/layout"
         },
         {
-          "desc": "Selector 选择器",
-          "name": "selector",
-          "path": "/selector"
-        },
-        {
-          "desc": "Collapse 折叠面板",
-          "name": "collapse",
-          "path": "/collapse"
-        },
-        {
           "desc": "Link 文字链接",
           "name": "link",
           "path": "/link"
@@ -182,6 +172,21 @@
           "desc": "Dropdown 下拉菜单",
           "name": "dropdown",
           "path": "/dropdown"
+        },
+        {
+          "desc": "Selector 选择器",
+          "name": "selector",
+          "path": "/selector"
+        },
+        {
+          "desc": "Collapse 折叠面板",
+          "name": "collapse",
+          "path": "/collapse"
+        },
+        {
+          "desc":"Badge 标记",
+          "name": "badge",
+          "path": "/badge"
         }
       ]
     },
@@ -245,6 +250,11 @@
           "desc": "Tab 标签页",
           "name": "tab",
           "path": "/tab"
+        },
+        {
+          "desc": "Backtop 回到顶部",
+          "name": "backtop",
+          "path": "/backtop"
         }
       ]
     },

@@ -52,16 +52,6 @@
           "path": "/layout"
         },
         {
-          "desc": "Selector",
-          "name": "selector",
-          "path": "/selector"
-        },
-        {
-          "desc": "Collapse",
-          "name": "collapse",
-          "path": "/collapse"
-        },
-        {
           "desc": "Link",
           "name": "link",
           "path": "/link"
@@ -182,6 +172,21 @@
           "desc": "Dropdown",
           "name": "dropdown",
           "path": "/dropdown"
+        },
+        {
+          "desc": "Selector",
+          "name": "selector",
+          "path": "/selector"
+        },
+        {
+          "desc": "Collapse",
+          "name": "collapse",
+          "path": "/collapse"
+        },
+        {
+          "desc":"Badge",
+          "name": "badge",
+          "path": "/badge"
         }
       ]
     },
@@ -245,6 +250,11 @@
           "desc": "Tab",
           "name": "tab",
           "path": "/tab"
+        },
+        {
+          "desc": "Backtop",
+          "name": "backtop",
+          "path": "/backtop"
         }
       ]
     },

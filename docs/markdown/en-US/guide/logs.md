@@ -2,6 +2,7 @@
 
 ---
 
+- 2020/10/14 Add `Backtop、Badge` Component
 - 2020/10/12 Add `Link` Component
 - 2020/10/06 Add `i18n` Internationalization function
 - 2020/10/05 Add `Tab、Skeleton` Component
