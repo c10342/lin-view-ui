@@ -1,12 +1,17 @@
 <template>
   <div>
-    <input @change="onFileChange" style="display:none" type="file" ref="linUploadInput" />
-    <lin-button @click="onBtnClick" type="primary">{{text}}</lin-button>
+    <input
+      @change="onFileChange"
+      style="display: none"
+      type="file"
+      ref="linUploadInput"
+    />
+    <lin-button @click="onBtnClick" type="primary">{{ text }}</lin-button>
   </div>
 </template>
 
 <script>
-import LinButton from "packages/Button";
+import LinButton from "packages/Button/index.js";
 import splitFileChunk from "src/utils/splitFileChunk.js";
 import caculateFileHash from "src/utils/caculateFileHash.js";
 import request from "src/js/request.js";

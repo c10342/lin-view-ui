@@ -1,34 +1,41 @@
 <template>
   <div class="lin-live-comment">
     <slot name="title">
-      <p class="lin-live-comment-title">{{title || t('LinViewUI.LiveComment.title')}}</p>
+      <p class="lin-live-comment-title">
+        {{ title || t("LinViewUI.LiveComment.title") }}
+      </p>
     </slot>
     <slot name="view-count">
-      <p class="lin-live-comment-view-count">{{viewCount}}{{t('LinViewUI.LiveComment.viewPeople')}}</p>
+      <p class="lin-live-comment-view-count">
+        {{ viewCount }}{{ t("LinViewUI.LiveComment.viewPeople") }}
+      </p>
     </slot>
     <div class="lin-live-comment-content" ref="scroll" @scroll="onScroll">
-      <slot v-for="(item,index) in commentList" :item="item">
+      <slot v-for="(item, index) in commentList" :item="item">
         <div class="lin-live-comment-item" :key="index">
           <lin-image
             errorMsg
             class="lin-live-comment-user-avator"
-            :imgUrl="[item._avatorUrl,defaultAvator]"
+            :imgUrl="[item._avatorUrl, defaultAvator]"
           />
           <div class="lin-live-comment-info-box">
             <div class="lin-live-comment-user-name">
-              <span>{{item._username}}</span>
-              <span>{{item._createTimeTip}}</span>
+              <span>{{ item._username }}</span>
+              <span>{{ item._createTimeTip }}</span>
             </div>
-            <div class="lin-live-comment-info" v-html="changeContent(item._content)"></div>
+            <div
+              class="lin-live-comment-info"
+              v-html="changeContent(item._content)"
+            ></div>
           </div>
         </div>
       </slot>
     </div>
     <div class="lin-live-comment-fix" v-if="!isScrollToBottom && fixComment">
-      <span>{{fixComment._username}}：</span>
+      <span>{{ fixComment._username }}：</span>
       <span v-html="changeContent(fixComment._content)"></span>
       <span @click="toBottom">
-        <span>{{t('LinViewUI.LiveComment.see')}}</span>
+        <span>{{ t("LinViewUI.LiveComment.see") }}</span>
         <i class="lin-icon-downarrow"></i>
       </span>
     </div>
@@ -36,30 +43,34 @@
       <div class="lin-live-comment-mask" v-if="!arrowComment">
         <slot name="mask">
           <span class="lin-live-comment-mask-default">
-            {{t('LinViewUI.LiveComment.publishOpinion')}} /
-            <span class="lin-live-comment-login-btn" @click="gotoLogin">{{t('LinViewUI.LiveComment.login')}}</span>
-            {{t('LinViewUI.LiveComment.commentAfter')}}
+            {{ t("LinViewUI.LiveComment.publishOpinion") }} /
+            <span class="lin-live-comment-login-btn" @click="gotoLogin">{{
+              t("LinViewUI.LiveComment.login")
+            }}</span>
+            {{ t("LinViewUI.LiveComment.commentAfter") }}
           </span>
         </slot>
       </div>
       <textarea
         :value="value"
         :maxlength="maxlength"
-        :placeholder="arrowComment? commentPlaceholder:''"
+        :placeholder="arrowComment ? commentPlaceholder : ''"
         @input="onInput"
         class="lin-live-comment-textarea"
       ></textarea>
-      <span class="lin-live-comment-send-btn" @click="publishComment">{{btnText || t('LinViewUI.LiveComment.btnText')}}</span>
+      <span class="lin-live-comment-send-btn" @click="publishComment">{{
+        btnText || t("LinViewUI.LiveComment.btnText")
+      }}</span>
     </div>
   </div>
 </template>
 
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
-import Image from "../../Image";
+import LocaleMixin from "src/mixins/locale.js";
+import Image from "packages/Image/index.js";
 export default {
   name: "LinLiveComment",
-  mixins:[LocaleMixin],
+  mixins: [LocaleMixin],
   components: {
     [Image.name]: Image,
   },
@@ -77,14 +88,14 @@ export default {
       default: "",
     },
     btnText: {
-      type: String
+      type: String,
     },
     arrowComment: {
       type: Boolean,
       default: false,
     },
     placeholder: {
-      type: String
+      type: String,
     },
     maxlength: {
       type: Number,
@@ -95,7 +106,7 @@ export default {
       default: true,
     },
     title: {
-      type: String
+      type: String,
     },
     viewCount: {
       type: Number,
@@ -174,13 +185,13 @@ export default {
       },
     },
   },
-  computed:{
-    commentPlaceholder(){
-      if(this.placeholder){
-        return this.placeholder
+  computed: {
+    commentPlaceholder() {
+      if (this.placeholder) {
+        return this.placeholder;
       }
-      return this.t('LinViewUI.LiveComment.placeholder')
-    }
+      return this.t("LinViewUI.LiveComment.placeholder");
+    },
   },
   beforeDestroy() {
     if (this.scrollTimer) {
