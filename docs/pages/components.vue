@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <sideNav class="nav"></sideNav>
-    <router-view class="view"></router-view>
+    <router-view class="view beautyScroll"></router-view>
+    <lin-backtop :key="$route.name" target=".container .view"></lin-backtop>
   </div>
 </template>
 
@@ -17,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/styles/var.scss';
+@import "../assets/styles/var.scss";
 .container {
   padding-left: $padding;
   background-color: #fff;
