@@ -1,35 +1,40 @@
 <template>
   <div class="lin-limit-textarea">
     <textarea
-      @input="handleInput"
+      @keyup="handleInput"
       v-bind="textareaProps"
       class="lin-limit-textarea-input"
-      :class="{'lin-limit-textarea-over': isOver}"
+      :class="{ 'lin-limit-textarea-over': isOver }"
       :value="value"
-      :maxlength="maxlength"
     ></textarea>
-    <span v-if="maxLen!==-1" class="lin-limit-textarea-text">
-      {{isOver ? t('LinViewUI.LimitTextarea.exceeded') : t('LinViewUI.LimitTextarea.enterInput')}}
+    <span v-if="maxLen !== -1" class="lin-limit-textarea-text">
+      {{
+        isOver
+          ? t("LinViewUI.LimitTextarea.exceeded")
+          : t("LinViewUI.LimitTextarea.enterInput")
+      }}
       <span
         class="lin-limit-textarea-num"
-        :class="{'lin-limit-textarea-num-over': isOver}"
-      >{{num}}</span>{{t('LinViewUI.LimitTextarea.word')}}
+        :class="{ 'lin-limit-textarea-num-over': isOver }"
+        >{{ num }}</span
+      >{{ t("LinViewUI.LimitTextarea.word") }}
     </span>
     <span v-else class="lin-limit-textarea-text">
-      {{t('LinViewUI.LimitTextarea.entered')}}
-      <span class="lin-limit-textarea-num">{{value.toString().length}}</span>{{t('LinViewUI.LimitTextarea.word')}}
+      {{ t("LinViewUI.LimitTextarea.entered") }}
+      <span class="lin-limit-textarea-num">{{ value.toString().length }}</span
+      >{{ t("LinViewUI.LimitTextarea.word") }}
     </span>
   </div>
 </template>
 
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from "src/mixins/locale.js";
 export default {
   name: "LinLimitTextarea",
-  mixins:[LocaleMixin],
+  mixins: [LocaleMixin],
   props: {
     placeholder: {
-      type: String
+      type: String,
     },
     rows: {
       type: Number,
@@ -94,12 +99,21 @@ export default {
         return -1;
       }
     },
-    textareaProps(){
-      return {
-        ...this.$props,
-        placeholder:this.placeholder?this.placeholder:this.t('LinViewUI.LimitTextarea.placeholder')
+    textareaProps() {
+      const obj = {
+        placeholder: this.placeholder
+          ? this.placeholder
+          : this.t("LinViewUI.LimitTextarea.placeholder"),
+        rows: this.rows,
+      };
+      if (this.maxlength !== -1) {
+        obj.maxlength = this.maxlength;
       }
-    }
+      return {
+        ...this.$attrs,
+        ...obj,
+      };
+    },
   },
 };
 </script>
