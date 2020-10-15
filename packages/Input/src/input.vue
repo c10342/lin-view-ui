@@ -1,29 +1,33 @@
 <template>
-  <div class="lin-input" :class="{'lin-input-suffix-content': showSuffix || $slots.default}">
+  <div
+    class="lin-input"
+    :class="{ 'lin-input-suffix-content': showSuffix || $slots.default }"
+  >
     <!-- 如果传了show-password, 判断是否需要切换 密码的显示 如果不传，不判断 -->
     <input
       @blur="onBlur"
       @focus="onFocus"
       autocomplete="off"
-      :maxlength="maxlength"
-      :minlength="minlength"
       class="lin-input-inner"
-      :class="{'lin-input-is-disabled': disabled}"
+      :class="{ 'lin-input-is-disabled': disabled }"
       :placeholder="placeholder"
-      :type="showPassword ? (passwordVisible ? 'text':'password') : type"
-      :name="name"
+      :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
       :disabled="disabled"
       :value="value"
-      @input="handleInput"
-      v-bind="$attrs"
+      @keyup="handleInput"
+      v-bind="inputAttr"
     />
     <span class="lin-input-suffix" v-if="showSuffix && !$slots.default">
-      <i class="lin-input-icon lin-icon-close" v-if="clearable && value" @click="clear"></i>
+      <i
+        class="lin-input-icon lin-icon-close"
+        v-if="clearable && value"
+        @click="clear"
+      ></i>
       <i
         class="lin-input-icon lin-icon-password"
         v-if="showPassword"
         @click="handlePassword"
-        :class="{'lin-icon-view-active':passwordVisible}"
+        :class="{ 'lin-icon-view-active': passwordVisible }"
       ></i>
     </span>
     <span v-if="$slots.default" class="lin-input-suffix">
@@ -85,6 +89,22 @@ export default {
     showSuffix() {
       return this.clearable || this.showPassword;
     },
+    inputAttr() {
+      const obj = {};
+      if (this.maxlength !== -1) {
+        obj.maxlength = this.maxlength;
+      }
+      if (this.minlength !== -1) {
+        obj.minlength = this.minlength;
+      }
+      if (this.name) {
+        obj.name = this.name;
+      }
+      return {
+        ...obj,
+        ...this.$attrs,
+      };
+    },
   },
   methods: {
     handleInput(e) {
@@ -93,6 +113,7 @@ export default {
     clear() {
       // 把内容清空
       this.emitInputEvent("");
+      this.$emit("clear");
     },
     emitInputEvent(data) {
       this.$emit("input", data);
