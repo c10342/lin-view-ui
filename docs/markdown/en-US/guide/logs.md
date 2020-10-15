@@ -2,6 +2,14 @@
 
 ---
 
+- 2020/10/15
+
+  1. Fix `Input、LimitTextarea、LiveComment` components cannot be input under ie;
+  2. Fix `VideoPlayer` components under ie because flv.js Syntax error of dependency report;
+  3. Fix `Tab` components cannot get the value of getboundingclientrect().X under ie;
+  4. Add `Input` components add clear event;
+  5. Add `Input` components clears the built-in clear button under ie;
+
 - 2020/10/14 Add `Backtop、Badge` Component
 - 2020/10/12 Add `Link` Component
 - 2020/10/06 Add `i18n` Internationalization function

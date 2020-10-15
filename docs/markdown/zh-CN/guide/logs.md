@@ -2,6 +2,14 @@
 
 ---
 
+- 2020/10/15
+
+  1. 修复 `Input、LimitTextarea、LiveComment` 组件在 ie 下无法输入的问题；
+  2. 修复 `VideoPlayer` 组件在 ie 下因为 flv.js 依赖报语法错误；
+  3. 修复 `Tab` 组件在 ie 下无法获取 getBoundingClientRect().x 的值；
+  4. 新增 `Input` 组件添加 clear 事件；
+  5. 新增 `Input` 组件清除在 ie 下自带的清除按钮；
+
 - 2020/10/14 新增 `Backtop、Badge` 组件
 - 2020/10/12 新增 `Link` 组件
 - 2020/10/06 新增 `i18n` 国际化功能
