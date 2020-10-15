@@ -20,7 +20,10 @@
     padding: $input-inner-padding;
     transition: $input-inner-transition;
     width: 100%;
-
+    &::-ms-clear,
+    &::-ms-reveal {
+      display: none;
+    }
     &:focus {
       outline: none;
       border-color: $input-inner-focus-border-color;
