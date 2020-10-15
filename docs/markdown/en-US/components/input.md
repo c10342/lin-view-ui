@@ -223,10 +223,11 @@ Place icons through slots
 
 ## Events
 
-| Event Name | Description                 | Parameters     |
-| ---------- | --------------------------- | -------------- |
-| blur       | triggers when Input blurs   | (event: Event) |
-| focus      | triggers when Input focuses | (event: Event) |
+| Event Name | Description                                                     | Parameters     |
+| ---------- | --------------------------------------------------------------- | -------------- |
+| blur       | triggers when Input blurs                                       | (event: Event) |
+| focus      | triggers when Input focuses                                     | (event: Event) |
+| clear      | triggers when the Input is cleared by clicking the clear button | —              |
 
 ## Slots
 
