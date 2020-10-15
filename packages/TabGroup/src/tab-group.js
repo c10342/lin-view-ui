@@ -185,10 +185,10 @@ export default {
           const dom = document.getElementById(`tab-${this.currentValue}`);
           if (dom) {
             this.lineWidth = `${dom.offsetWidth}px`;
-            const left = dom.getBoundingClientRect().x;
+            const left = dom.getBoundingClientRect().left;
             const tabheaderWrapper = this.$refs.tabheaderWrapper;
             const tabheaderWrapperX = tabheaderWrapper.getBoundingClientRect()
-              .x;
+              .left;
             this.translateX = `${left - tabheaderWrapperX}px`;
           }
         }
