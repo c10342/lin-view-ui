@@ -53,9 +53,8 @@
       </div>
       <textarea
         :value="value"
-        :maxlength="maxlength"
-        :placeholder="arrowComment ? commentPlaceholder : ''"
-        @input="onInput"
+        v-bind="textareaAttr"
+        @keyup="onInput"
         class="lin-live-comment-textarea"
       ></textarea>
       <span class="lin-live-comment-send-btn" @click="publishComment">{{
@@ -191,6 +190,16 @@ export default {
         return this.placeholder;
       }
       return this.t("LinViewUI.LiveComment.placeholder");
+    },
+    textareaAttr() {
+      let obj = {};
+      if (this.maxlength !== -1) {
+        obj.maxlength = this.maxlength;
+      }
+      if (this.arrowComment) {
+        obj.placeholder = this.commentPlaceholder;
+      }
+      return obj;
     },
   },
   beforeDestroy() {
