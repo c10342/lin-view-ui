@@ -30,7 +30,7 @@
 
 <script>
 import Hls from "hls.js";
-import flvjs from "flv.js";
+import flvjs from "flv.js/dist/flv.js";
 import PlayerControls from "./video-player-controls";
 import PlayerAnimation from "./video-player-animation";
 import PlayerImage from "./video-player-image";
