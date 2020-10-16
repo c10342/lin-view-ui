@@ -172,6 +172,7 @@
 | proportion        | 弧度             | String         | 1,2,3                                                               | 1       |
 | loadingColor      | 显示器颜色       | String         | —                                                                   | —       |
 | strokeWidth       | 圆环宽度         | String         | —                                                                   | —       |
+| size              | 显示器大小       | String         | —                                                                   | —       |
 | lineStyle         | 线条样式         | String         | dotted，dashed，solid，，double，groove，ridge，inset，outset       | —       |
 | animationName     | css3 动画名称    | String         | —                                                                   | —       |
 | animationDuration | 运动时长         | String         | —                                                                   | —       |

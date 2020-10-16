@@ -172,6 +172,7 @@ You can set the style of Spinner through the properties of `loadingColor`,`size`
 | proportion        | radian                   | String         | 1,2,3                                                               | 1       |
 | loadingColor      | Display color            | String         | —                                                                   | —       |
 | strokeWidth       | Ring width               | String         | —                                                                   | —       |
+| size              | size                     | String         | —                                                                   | —       |
 | lineStyle         | Line style               | String         | dotted，dashed，solid，，double，groove，ridge，inset，outset       | —       |
 | animationName     | CSS3 animation name      | String         | —                                                                   | —       |
 | animationDuration | Exercise duration        | String         | —                                                                   | —       |
