@@ -169,15 +169,18 @@ Use attribute size to set additional sizes with `medium`, `small` or `size`.
 
 ## Attributes
 
-| Attribute | Description                            | Type    | Accepted Values                             | Default |
-| --------- | -------------------------------------- | ------- | ------------------------------------------- | ------- |
-| size      | button size                            | String  | default,medium,small                        | default |
-| type      | button type                            | String  | default,primary,success,warning,danger,info | default |
-| plain     | determine whether it's a plain button  | Boolean | —                                           | false   |
-| disabled  | disable the button                     | Boolean | —                                           | false   |
-| icon      | icon class name                        | String  | —                                           | —       |
-| round     | determine whether it's a round button  | Boolean | —                                           | false   |
-| circle    | determine whether it's a circle button | Boolean | —                                           | false   |
+| Attribute    | Description                            | Type    | Accepted Values                             | Default |
+| ------------ | -------------------------------------- | ------- | ------------------------------------------- | ------- |
+| size         | button size                            | String  | default,medium,small                        | default |
+| type         | button type                            | String  | default,primary,success,warning,danger,info | default |
+| plain        | determine whether it's a plain button  | Boolean | —                                           | false   |
+| disabled     | disable the button                     | Boolean | —                                           | false   |
+| icon         | icon class name                        | String  | —                                           | —       |
+| round        | determine whether it's a round button  | Boolean | —                                           | false   |
+| circle       | determine whether it's a circle button | Boolean | —                                           | false   |
+| loading      | determine whether it's loading         | Boolean | —                                           | false   |
+| loadingColor | Loading color                          | String  | —                                           | #fff    |
+| loadingSize  | Loading display color                  | String  | —                                           | 14px    |
 
 ## Events
 

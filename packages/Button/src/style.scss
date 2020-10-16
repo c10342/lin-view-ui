@@ -59,6 +59,11 @@
       border-color: lighten($val, 10%);
       color: $button-theme-color-color;
     }
+    &.lin-button-loading {
+      background-color: lighten($val, 10%);
+      border-color: lighten($val, 10%);
+      color: $button-theme-color-color;
+    }
   }
 }
 
@@ -99,4 +104,8 @@
 
 .lin-button-disabled {
   cursor: not-allowed;
+}
+
+.lin-button-spinner {
+  margin-right: $button-spinner-margin-right;
 }

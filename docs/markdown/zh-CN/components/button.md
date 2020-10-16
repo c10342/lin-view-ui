@@ -167,17 +167,44 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 
 :::
 
+## 加载中
+
+点击按钮后进行数据加载操作，在按钮上显示加载状态。要设置为 `loading` 状态，只要设置 `loading` 属性为 `true` 即可。
+
+<div class="demo-block row">
+      <lin-button loading type="primary">主要按钮</lin-button>
+      <lin-button loading type="success">成功按钮</lin-button>
+      <lin-button loading type="info">信息按钮</lin-button>
+      <lin-button loading type="warning">警告按钮</lin-button>
+      <lin-button loading type="danger">危险按钮</lin-button>
+</div>
+
+::: demo
+
+```html
+<lin-button loading type="primary">主要按钮</lin-button>
+<lin-button loading type="success">成功按钮</lin-button>
+<lin-button loading type="info">信息按钮</lin-button>
+<lin-button loading type="warning">警告按钮</lin-button>
+<lin-button loading type="danger">危险按钮</lin-button>
+```
+
+:::
+
 ## 属性
 
-| 参数     | 说明                         | 类型    | 可选值                                      | 默认值  |
-| -------- | ---------------------------- | ------- | ------------------------------------------- | ------- |
-| size     | 尺寸                         | String  | default,medium,small                        | default |
-| type     | 类型                         | String  | default,primary,success,warning,danger,info | default |
-| plain    | 是否朴素按钮                 | Boolean | —                                           | false   |
-| disabled | 是否禁用状态                 | Boolean | —                                           | false   |
-| icon     | 图标，已有的图标库中的图标名 | String  | —                                           | —       |
-| round    | 是否圆角按钮                 | Boolean | —                                           | false   |
-| circle   | 是否圆形按钮                 | Boolean | —                                           | false   |
+| 参数         | 说明                         | 类型    | 可选值                                      | 默认值  |
+| ------------ | ---------------------------- | ------- | ------------------------------------------- | ------- |
+| size         | 尺寸                         | String  | default,medium,small                        | default |
+| type         | 类型                         | String  | default,primary,success,warning,danger,info | default |
+| plain        | 是否朴素按钮                 | Boolean | —                                           | false   |
+| disabled     | 是否禁用状态                 | Boolean | —                                           | false   |
+| icon         | 图标，已有的图标库中的图标名 | String  | —                                           | —       |
+| round        | 是否圆角按钮                 | Boolean | —                                           | false   |
+| circle       | 是否圆形按钮                 | Boolean | —                                           | false   |
+| loading      | 是否加载中状态               | Boolean | —                                           | false   |
+| loadingColor | 加载器颜色                   | String  | —                                           | #fff    |
+| loadingSize  | 加载器大小                   | String  | —                                           | 14px    |
 
 ## 事件
 
