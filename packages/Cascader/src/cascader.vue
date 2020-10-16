@@ -1,0 +1,236 @@
+<template>
+  <div class="lin-cascader" ref="notOutsideContainer">
+    <div
+      @mouseenter="onMouseEnter"
+      @mouseleave="onMouseLeave"
+      @click="onInputClick"
+    >
+      <lin-input
+      @blur="onBlur"
+      @focus="onFocus"
+        :value="text"
+        :placeholder="myPlaceholder"
+        readonly
+        class="lin-cascader-input"
+      >
+        <i class="lin-icon-down" v-if="!showClose && !showPopup"></i>
+        <i class="lin-icon-up" v-if="!showClose && showPopup"></i>
+        <i class="lin-icon-close" v-if="showClose" @click.stop="clearValue"></i>
+      </lin-input>
+    </div>
+    <transition name="fade">
+      <div class="lin-cascader-popup" v-show="showPopup">
+        <div class="lin-panel-wrapper" v-if="myOptions.length!==0">
+          <lin-panel :options="myOptions" />
+        </div>
+        <div class="lin-panel-wrapper" v-if="myOptions.length===0">
+          <div class="lin-panel-empty" @click="hidePuop">
+            <slot name='empty'>
+              {{myEmptyTip}}
+            </slot>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </div>
+</template>
+
+<script>
+import Input from "packages/Input";
+import Panel from "./panel.vue";
+import documentClick from "src/mixins/documentClick.js";
+import LocaleMixin from 'src/mixins/locale.js'
+export default {
+  name: "LinCascader",
+  mixins: [documentClick,LocaleMixin],
+  components: {
+    [Input.name]: Input,
+    [Panel.name]: Panel,
+  },
+  props: {
+    options: {
+      type: Array,
+      default: () => [],
+    },
+    showFormat: {
+      type: Function,
+    },
+    value: {
+      type: Array,
+      default: null,
+    },
+    clearable: {
+      type: Boolean,
+      default: false,
+    },
+    placeholder: {
+      type: String,
+    },
+    lazy: {
+      type: Boolean,
+      default: false,
+    },
+    lazyLoad: {
+      type: Function,
+    },
+     separator:{
+      type:String,
+      default:'/'
+    },
+    label:{
+      type:String,
+      default:'label'
+    },
+    children:{
+      type:String,
+      default:'children'
+    },
+    leaf:{
+      type:String,
+      default:'leaf'
+    },
+    disabled:{
+      type:String,
+      default:'disabled'
+    },
+    emptyTip:{
+      type:String,
+    }
+  },
+  provide() {
+    return {
+      cascader: this,
+    };
+  },
+  data() {
+    return {
+      myValueArr: [],
+      showPopup: false,
+      isHover: false,
+      optionsList: [],
+    };
+  },
+  async created() {
+    if (this.lazy && this.lazyLoad) {
+      this.optionsList = await this.lazyLoad({ level: 0 });
+    }
+  },
+  methods: {
+    onBlur(event){
+      this.$emit('blur',event)
+    },
+    onFocus(){
+      this.$emit('focus',event)
+    },
+    clearValue(event) {
+      this.valueArr = [];
+      this.showPopup = false;
+    },
+    onMouseEnter() {
+      this.isHover = true;
+    },
+    onMouseLeave() {
+      this.isHover = false;
+    },
+    setValue(data, level) {
+      let valueArr = this.valueArr;
+      valueArr = valueArr.slice(0, level);
+      valueArr.push(data);
+      this.valueArr = valueArr;
+      this.$emit('change',{data,level})
+      this.$emit('expand-change',valueArr)
+    },
+    onInputClick() {
+      if (this.showPopup) {
+        this.hidePuop();
+      } else {
+        this.displayPuop();
+      }
+    },
+    displayPuop() {
+      this.showPopup = true;
+      this.$children.forEach((child) => {
+        if (child.$options.name === "LinPanel") {
+          child.$emit("displayPuop", this.valueArr);
+        }
+      });
+      this.$emit('visible-change',true)
+    },
+    hidePuop() {
+      this.showPopup = false;
+      this.$emit('visible-change',false)
+    },
+    emitInputEvent(val){
+      this.$emit("input", val);
+    },
+    onDocumentClick(event) {
+      const notOutsideContainer = this.$refs.notOutsideContainer;
+      if (!notOutsideContainer.contains(event.target)) {
+        this.hidePuop();
+      }
+    },
+  },
+  computed: {
+    valueArr: {
+      get() {
+        if (this.value !== null) {
+          if (Array.isArray(this.value)) {
+            return this.value;
+          } else {
+            this.emitInputEvent([])
+            return [];
+          }
+        }
+        
+        return this.myValueArr || [];
+      },
+      set(val) {
+        if (this.value !== null) {
+          this.emitInputEvent(val)
+        } else {
+          this.myValueArr = val;
+        }
+      },
+    },
+    text() {
+      if (this.showFormat) {
+        return this.showFormat(this.valueArr);
+      }
+      if (this.valueArr && this.valueArr.length > 0) {
+        let str = "";
+        this.valueArr.forEach((item) => {
+          str += `${item[this.label]} ${this.separator} `;
+        });
+        return str.slice(0, -2);
+      }
+      return "";
+    },
+    showClose() {
+      return (
+        this.clearable &&
+        this.isHover &&
+        this.valueArr &&
+        this.valueArr.length !== 0
+      );
+    },
+    myPlaceholder() {
+      if (this.placeholder) {
+        return this.placeholder;
+      }
+      return this.t('LinViewUI.Cascader.placeholder');
+    },
+    myEmptyTip(){
+      if(this.emptyTip){
+        return this.emptyTip
+      }
+      return this.t('LinViewUI.Cascader.emptyTip')
+    },
+    myOptions() {
+      if (this.lazy && this.lazyLoad) {
+        return this.optionsList;
+      }
+      return this.options;
+    },
+  },
+};
+</script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-badge />
+    <test-cascader />
   </div>
 </template>
 
