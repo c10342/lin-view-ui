@@ -70,6 +70,10 @@ export default {
         PageHeader:{
             more:'更多',
             backTip:'返回'
+        },
+        Cascader:{
+            placeholder:'请选择',
+            emptyTip:'暂无数据'
         }
     }
 }

@@ -52,9 +52,14 @@
           "path": "/layout"
         },
         {
-          "desc": "Link",
-          "name": "link",
-          "path": "/link"
+          "desc": "Selector",
+          "name": "selector",
+          "path": "/selector"
+        },
+        {
+          "desc": "Collapse",
+          "name": "collapse",
+          "path": "/collapse"
         }
       ]
     },
@@ -172,21 +177,6 @@
           "desc": "Dropdown",
           "name": "dropdown",
           "path": "/dropdown"
-        },
-        {
-          "desc": "Selector",
-          "name": "selector",
-          "path": "/selector"
-        },
-        {
-          "desc": "Collapse",
-          "name": "collapse",
-          "path": "/collapse"
-        },
-        {
-          "desc":"Badge",
-          "name": "badge",
-          "path": "/badge"
         }
       ]
     },
@@ -234,6 +224,11 @@
           "desc": "Skeleton",
           "name": "skeleton",
           "path": "/skeleton"
+        },
+        {
+          "desc": "Spinner",
+          "name": "spinner",
+          "path": "/spinner"
         }
       ]
     },
@@ -250,11 +245,6 @@
           "desc": "Tab",
           "name": "tab",
           "path": "/tab"
-        },
-        {
-          "desc": "Backtop",
-          "name": "backtop",
-          "path": "/backtop"
         }
       ]
     },

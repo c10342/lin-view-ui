@@ -1,0 +1,58 @@
+@import "src/styles/variables/spinner.scss";
+
+.lin-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lin-spinner-row {
+  flex-direction: row;
+  .lin-spinner-text{
+    margin-left: $spinner-text-margin-left;
+  }
+}
+.lin-spinner-col {
+  flex-direction: column;
+  .lin-spinner-text{
+    margin-top: $spinner-text-margin-top;
+  }
+}
+
+.lin-spinner-loading {
+  width: $spinner-loading-width;
+  height: $spinner-loading-height;
+  border-radius: $spinner-loading-border-radius;
+  border-width: $spinner-loading-border-width;
+  border-style: $spinner-loading-border-style;
+
+  animation-name: $spinner-loading-animation-name;
+  animation-duration: $spinner-loading-animation-duration;
+  animation-timing-function: $spinner-loading-animation-timing-function;
+  animation-iteration-count: $spinner-loading-animation-iteration-count;
+}
+
+@each $key, $val in $theme-color {
+  .lin-spinner-type-#{$key} {
+    border-color: $val;
+  }
+}
+
+.lin-spinner-proportion-1 {
+    border-top-color: transparent !important;
+}
+.lin-spinner-proportion-2 {
+    border-top-color: transparent !important;
+    border-left-color: transparent !important;
+}
+.lin-spinner-proportion-3 {
+    border-top-color: transparent !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+}
+
+.lin-spinner-text{
+  font-size: $spinner-text-font-size;
+  color: $spinner-text-color;
+}
+

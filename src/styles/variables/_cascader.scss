@@ -1,0 +1,57 @@
+@import './common';
+@import '../animations/index.scss';
+
+$cascader-width: 220px !default;
+
+$cascader-popup-z-index: 1000 !default;
+$cascader-popup-margin-top: 10px !default;
+$cascader-popup-box-shadow: 0 2px 12px 0 rgba(0,0,0,.1) !default;
+$cascader-popup-before-width: 12px !default;
+$cascader-popup-before-height: 12px !default;
+$cascader-popup-before-left: 40px !default;
+$cascader-popup-before-top: -8px !default;
+$cascader-popup-before-border: 1px solid $disabled-border-color !default;
+$cascader-popup-before-border-bottom-color: transparent !default;
+$cascader-popup-before-border-right-color: transparent !default;
+$cascader-popup-before-transform: rotate(45deg) !default;
+$cascader-popup-before-background-color: #ffffff !default;
+
+
+$panel-wrapper-background-color: #ffffff !default;
+
+$panel-container-width: 179px !default;
+$panel-container-height: 187px !default;
+$panel-container-border: 1px solid $disabled-border-color !default;
+$panel-container-margin-left: -1px !default;
+$panel-container-margin-top: -1px !default;
+
+
+$panel-item-padding: 0 30px 0 20px !default;
+$panel-item-height: 34px !default;
+$panel-item-font-size: $font-size-small !default;
+$panel-item-right-right: 10px !default;
+
+
+$panel-empty-width: 179px !default;
+$panel-empty-padding: 0 30px 0 20px !default;
+$panel-empty-margin: 5px 0 !default;
+$panel-empty-height: 34px !default;
+$panel-empty-font-size: $font-size-small !default;
+
+
+$panel-disabled-color: $disabled-font-color !default;
+
+
+$panel-active-color: $primary !default;
+
+$panel-list-padding: 6px 0 !default;
+
+$panel-loading-width: 12px !default;
+$panel-loading-height: 12px !default;
+$panel-loading-border: 1px solid $primary !default;
+$panel-loading-border-radius: 50% !default;
+$panel-loading-border-left-color: transparent !default;
+$panel-loading-border-top-color: transparent !default;
+$panel-loading-right: 10px !default;
+$panel-loading-top: 25% !default;
+$panel-loading-animation: rotate-animation 400ms linear infinite !default;

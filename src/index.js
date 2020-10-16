@@ -1,4 +1,4 @@
-import locale from "./locale/index.js";
+import locale from './locale/index.js'
 
 import "src/fonts/iconfont.css";
 // 基础组件
@@ -10,9 +10,9 @@ import SelectorItem from "packages/SelectorItem";
 import SelectorGroup from "packages/SelectorGroup";
 import CollapseGroup from "packages/CollapseGroup";
 import CollapseItem from "packages/CollapseItem";
-import DropdownGroup from "packages/DropdownGroup";
-import DropdownItem from "packages/DropdownItem";
-import Dropdown from "packages/Dropdown";
+import DropdownGroup from 'packages/DropdownGroup'
+import DropdownItem from 'packages/DropdownItem'
+import Dropdown from 'packages/Dropdown'
 
 // 表单组件
 import Input from "packages/Input";
@@ -31,6 +31,7 @@ import TableColumn from "packages/TableColumn";
 import ChoiceGroup from "packages/ChoiceGroup";
 import ChoiceItem from "packages/ChoiceItem";
 import ChoiceOption from "packages/ChoiceOption";
+import Cascader from "packages/Cascader";
 
 // 视频组件
 import VideoCard from "packages/VideoCard";
@@ -47,11 +48,12 @@ import MetaInfo from "packages/MetaInfo";
 import Tag from "packages/Tag";
 import Alert from "packages/Alert";
 import Pagination from "packages/Pagination";
-import PageHeader from "packages/PageHeader";
-import TabGroup from "packages/TabGroup";
-import TabItem from "packages/TabItem";
-import Skeleton from "packages/Skeleton";
-import Badge from "packages/Badge";
+import PageHeader from 'packages/PageHeader'
+import TabGroup from 'packages/TabGroup'
+import TabItem from 'packages/TabItem'
+import Skeleton from 'packages/Skeleton'
+import Badge from 'packages/Badge'
+import Spinner from 'packages/Spinner'
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -63,10 +65,12 @@ import Magnifier from "packages/Magnifier";
 import HoverEffect from "packages/HoverEffect";
 import Backtop from "packages/Backtop";
 
+
 const install = (Vue, opts = {}) => {
-  locale.use(opts.locale);
-  locale.i18n(opts.i18n);
-  const components = [
+  // console.log(opts);
+  // locale.use(opts.locale)
+  // locale.i18n(opts.i18n)
+  [
     Button,
     Dialog,
     Row,
@@ -117,8 +121,9 @@ const install = (Vue, opts = {}) => {
     Skeleton,
     Badge,
     Backtop,
-  ];
-  components.forEach((comp) => {
+    Cascader,
+    Spinner
+  ].forEach((comp) => {
     Vue.use(comp);
   });
 };
@@ -180,4 +185,6 @@ export default {
   Skeleton,
   Badge,
   Backtop,
+  Cascader,
+  Spinner
 };

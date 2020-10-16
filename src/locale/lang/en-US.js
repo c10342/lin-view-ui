@@ -70,6 +70,10 @@ export default {
         PageHeader:{
             more:'More',
             backTip:'Back'
+        },
+        Cascader:{
+            placeholder:'Please select',
+            emptyTip:'No Data'
         }
     }
     
