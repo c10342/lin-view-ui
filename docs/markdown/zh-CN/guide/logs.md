@@ -2,6 +2,7 @@
 
 ---
 
+- 2020/10/16 `Button` 组件新增 `加载中` 功能
 - 2020/10/15
 
   1. 修复 `Input、LimitTextarea、LiveComment` 组件在 ie 下无法输入的问题；

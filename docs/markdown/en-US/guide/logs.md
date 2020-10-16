@@ -2,6 +2,7 @@
 
 ---
 
+- 2020/10/16 `Button` component add `loading` function
 - 2020/10/15
 
   1. Fix `Input、LimitTextarea、LiveComment` components cannot be input under ie;
