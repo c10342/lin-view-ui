@@ -1,6 +1,7 @@
 <template>
   <div class="lin-cascader" ref="notOutsideContainer">
     <div
+      ref="boxContainer"
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
       @click="onInputClick"
@@ -19,7 +20,17 @@
       </lin-input>
     </div>
     <transition name="fade">
-      <div class="lin-cascader-popup" v-show="showPopup">
+      <div
+        ref="popupContainer"
+        :class="[
+          'lin-cascader-popup',
+          { 'lin-cascader-popup-up': !isDown },
+          ,
+          { 'lin-cascader-popup-down': isDown },
+        ]"
+        v-show="showPopup"
+        :style="{ top }"
+      >
         <div class="lin-panel-wrapper" v-if="myOptions.length !== 0">
           <lin-panel :options="myOptions" />
         </div>
@@ -112,6 +123,8 @@ export default {
       showPopup: false,
       isHover: false,
       optionsList: [],
+      top: 0,
+      isDown: false,
     };
   },
   async created() {
@@ -120,6 +133,32 @@ export default {
     }
   },
   methods: {
+    setPlacement() {
+      this.$nextTick(() => {
+        const popupContainer = this.$refs.popupContainer;
+        const container = this.$refs.notOutsideContainer;
+        const bottom =
+          window.innerHeight - container.getBoundingClientRect().bottom;
+        const top = container.getBoundingClientRect().top;
+        if (bottom > popupContainer.clientHeight) {
+          this.setDownTop();
+        } else if (top > popupContainer.clientHeight) {
+          this.setUpTop();
+        } else {
+          this.setDownTop();
+        }
+      });
+    },
+    setDownTop() {
+      this.isDown = true;
+      const boxContainer = this.$refs.boxContainer;
+      this.top = `${boxContainer.clientHeight + 10}px`;
+    },
+    setUpTop() {
+      this.isDown = false;
+      const popupContainer = this.$refs.popupContainer;
+      this.top = `${-popupContainer.clientHeight - 10}px`;
+    },
     onBlur(event) {
       this.$emit("blur", event);
     },
@@ -128,7 +167,7 @@ export default {
     },
     clearValue(event) {
       this.valueArr = [];
-      this.showPopup = false;
+      this.hidePuop();
     },
     onMouseEnter() {
       this.isHover = true;
@@ -157,6 +196,7 @@ export default {
           child.$emit("displayPuop", this.valueArr);
         }
       });
+      this.setPlacement();
       this.$emit("visible-change", true);
     },
     hidePuop() {

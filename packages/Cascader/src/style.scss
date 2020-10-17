@@ -24,7 +24,6 @@
 .lin-cascader-popup {
   position: absolute;
   z-index: $cascader-popup-z-index;
-  margin-top: $cascader-popup-margin-top;
   box-shadow: $cascader-popup-box-shadow;
   &::before {
     content: "";
@@ -32,14 +31,27 @@
     width: $cascader-popup-before-width;
     height: $cascader-popup-before-height;
     left: $cascader-popup-before-left;
-    top: $cascader-popup-before-top;
     border: $cascader-popup-before-border;
     border-bottom-color: $cascader-popup-before-border-bottom-color;
     border-right-color: $cascader-popup-before-border-right-color;
-    transform: $cascader-popup-before-transform;
     background-color: $cascader-popup-before-background-color;
   }
 }
+
+.lin-cascader-popup-down {
+  &::before {
+    top: $cascader-popup-down-before-top;
+    transform: $cascader-popup-down-before-transform;
+  }
+}
+
+.lin-cascader-popup-up {
+  &::before {
+    bottom: $cascader-popup-up-before-bottom;
+    transform: $cascader-popup-up-before-transform;
+  }
+}
+
 .lin-panel-wrapper {
   background-color: $panel-wrapper-background-color;
 }
