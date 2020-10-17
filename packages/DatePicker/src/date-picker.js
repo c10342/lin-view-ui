@@ -82,7 +82,7 @@ export default {
               </div>
               <div class="lin-date-picker-pannel-content">
                 <div class="lin-date-picker-pannel-days">
-                  <div>
+                  <div class="lin-date-picker-pannel-row">
                     {weekDays.map((w) => {
                       return (
                         <span

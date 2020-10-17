@@ -3,6 +3,7 @@
 .lin-date-picker {
   display: inline-block;
   color: $date-picker-color;
+  position: relative;
 }
 .lin-date-picker-input-box {
   position: relative;
@@ -70,6 +71,10 @@
   margin: $date-picker-cell-margin;
   box-sizing: border-box;
   position: relative;
+}
+
+.lin-date-picker-pannel-row {
+  white-space: nowrap;
 }
 .lin-date-picker-pannel-cell {
   border: $date-picker-pannel-cell-border;
