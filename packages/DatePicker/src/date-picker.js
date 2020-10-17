@@ -35,11 +35,12 @@ export default {
       showAlways,
       showInput,
       t,
+      top,
     } = this;
     return (
-      <div v-click-outside class="lin-date-picker">
+      <div v-click-outside class="lin-date-picker" ref="container">
         {showInput && (
-          <div class="lin-date-picker-input-box">
+          <div class="lin-date-picker-input-box" ref="boxContainer">
             <i class="lin-icon-date lin-date-picker-icon"></i>
             <input
               onClick={focus}
@@ -59,6 +60,8 @@ export default {
         <transition name="fade">
           {(isVisible || showAlways) && (
             <div
+              style={{ top }}
+              ref="popupContainer"
               class={[
                 { "lin-date-picker-absolute": !showAlways },
                 "lin-date-picker-pannel",
@@ -253,6 +256,7 @@ export default {
       ],
       isVisible: false,
       time: { year, month },
+      top: 0,
     };
   },
   computed: {
@@ -295,7 +299,36 @@ export default {
       return `${year}-${month}-${day}`;
     },
   },
+  // mounted() {
+  //   this.setPlacement();
+  // },
   methods: {
+    setPlacement() {
+      this.$nextTick(() => {
+        const popupContainer = this.$refs.popupContainer;
+        const container = this.$refs.container;
+        const bottom =
+          window.innerHeight - container.getBoundingClientRect().bottom;
+        const top = container.getBoundingClientRect().top;
+        if (bottom > popupContainer.clientHeight) {
+          this.setDownTop();
+        } else if (top > popupContainer.clientHeight) {
+          this.setUpTop();
+        } else {
+          this.setDownTop();
+        }
+      });
+    },
+    setDownTop() {
+      // this.isDown = true;
+      const boxContainer = this.$refs.boxContainer;
+      this.top = `${boxContainer.clientHeight}px`;
+    },
+    setUpTop() {
+      // this.isDown = false;
+      const popupContainer = this.$refs.popupContainer;
+      this.top = `${-popupContainer.clientHeight}px`;
+    },
     isDisabledDate(date) {
       if (this.disabled) {
         return true;
@@ -413,8 +446,13 @@ export default {
       if (this.disabled) {
         return;
       }
-      this.isVisible = true;
-      this.$emit("focus");
+      this.isVisible = !this.isVisible;
+      if (this.isVisible) {
+        this.setPlacement();
+        this.$emit("focus");
+      } else {
+        this.$emit("blur");
+      }
     },
     blur() {
       this.isVisible = false;
