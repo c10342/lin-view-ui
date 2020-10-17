@@ -111,6 +111,11 @@
           "desc": "Upload 上传",
           "name": "upload",
           "path": "/upload"
+        },
+        {
+          "desc": "Cascader 级联选择器",
+          "name": "cascader",
+          "path": "/cascader"
         }
       ]
     },

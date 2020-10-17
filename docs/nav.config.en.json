@@ -111,6 +111,11 @@
           "desc": "Upload",
           "name": "upload",
           "path": "/upload"
+        },
+        {
+          "desc": "Cascader",
+          "name": "cascader",
+          "path": "/cascader"
         }
       ]
     },
