@@ -5,7 +5,7 @@
         <li
           :class="[
             'lin-panel-item',
-            { 'lin-panel-active': current.id === item.id },
+            { 'lin-panel-active': current[valueKey] === item[valueKey] },
             { 'lin-panel-disabled': item[disabled] },
           ]"
           v-for="(item, index) in options"
@@ -13,7 +13,10 @@
           @click="onItemClick(item)"
         >
           {{ item[label] }}
-          <span class="lin-icon-right" v-if="showIconRight(item) && !showLoading(item)"></span>
+          <span
+            class="lin-icon-right"
+            v-if="showIconRight(item) && !showLoading(item)"
+          ></span>
           <span class="lin-panel-loading" v-if="showLoading(item)"></span>
         </li>
       </ul>
@@ -40,29 +43,35 @@ export default {
   },
   inject: ["cascader"],
   computed: {
-    label(){
-      if(this.cascader){
-        return this.cascader.label
+    valueKey() {
+      if (this.cascader) {
+        return this.cascader.valueKey;
       }
-      return 'label'
+      return "id";
     },
-    disabled(){
-      if(this.cascader){
-        return this.cascader.disabled
+    label() {
+      if (this.cascader) {
+        return this.cascader.label;
       }
-      return 'disabled'
+      return "label";
     },
-    leaf(){
-      if(this.cascader){
-        return this.cascader.leaf
+    disabled() {
+      if (this.cascader) {
+        return this.cascader.disabled;
       }
-      return 'leaf'
+      return "disabled";
     },
-    children(){
-      if(this.cascader){
-        return this.cascader.children
+    leaf() {
+      if (this.cascader) {
+        return this.cascader.leaf;
       }
-      return 'children'
+      return "leaf";
+    },
+    children() {
+      if (this.cascader) {
+        return this.cascader.children;
+      }
+      return "children";
     },
     valueArr() {
       if (this.cascader) {
@@ -86,8 +95,9 @@ export default {
   created() {
     this.$on("displayPuop", (data) => {
       if (data && data[this.level]) {
+        const valueKey = this.valueKey;
         const index = this.options.findIndex(
-          (item) => item.id === data[this.level].id
+          (item) => item[valueKey] === data[this.level][valueKey]
         );
         if (index > -1) {
           const currentData = this.options[index];
@@ -117,7 +127,7 @@ export default {
     return {
       currentList: [],
       current: {},
-      loading:false
+      loading: false,
     };
   },
   methods: {
@@ -125,17 +135,20 @@ export default {
       if (data[this.disabled]) {
         return;
       }
-      if (data.id === this.current.id) {
+      const valueKey = this.valueKey;
+      if (data[valueKey] === this.current[valueKey]) {
         return;
       }
       this.current = data;
       if (this.lazy && this.lazyLoad && !data[this.leaf]) {
         if (!data[this.children]) {
-          this.loading = true
+          this.loading = true;
           const result = await this.lazyLoad({ level: this.level + 1, data });
-          const index = this.options.findIndex((item) => item.id === data.id);
+          const index = this.options.findIndex(
+            (item) => item[valueKey] === data[valueKey]
+          );
           this.options[index][this.children] = result;
-          this.loading = false
+          this.loading = false;
         }
       }
       this.handleBehaver(data);
@@ -164,9 +177,10 @@ export default {
       }
       return data[this.children] && data[this.children].length !== 0;
     },
-    showLoading(data){
-      return data.id===this.current.id && this.loading
-    }
+    showLoading(data) {
+      const valueKey = this.valueKey;
+      return data[valueKey] === this.current[valueKey] && this.loading;
+    },
   },
 };
 </script>

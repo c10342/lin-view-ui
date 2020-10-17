@@ -6,8 +6,8 @@
       @click="onInputClick"
     >
       <lin-input
-      @blur="onBlur"
-      @focus="onFocus"
+        @blur="onBlur"
+        @focus="onFocus"
         :value="text"
         :placeholder="myPlaceholder"
         readonly
@@ -20,13 +20,13 @@
     </div>
     <transition name="fade">
       <div class="lin-cascader-popup" v-show="showPopup">
-        <div class="lin-panel-wrapper" v-if="myOptions.length!==0">
+        <div class="lin-panel-wrapper" v-if="myOptions.length !== 0">
           <lin-panel :options="myOptions" />
         </div>
-        <div class="lin-panel-wrapper" v-if="myOptions.length===0">
+        <div class="lin-panel-wrapper" v-if="myOptions.length === 0">
           <div class="lin-panel-empty" @click="hidePuop">
-            <slot name='empty'>
-              {{myEmptyTip}}
+            <slot name="empty">
+              {{ myEmptyTip }}
             </slot>
           </div>
         </div>
@@ -39,10 +39,10 @@
 import Input from "packages/Input";
 import Panel from "./panel.vue";
 import documentClick from "src/mixins/documentClick.js";
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from "src/mixins/locale.js";
 export default {
   name: "LinCascader",
-  mixins: [documentClick,LocaleMixin],
+  mixins: [documentClick, LocaleMixin],
   components: {
     [Input.name]: Input,
     [Panel.name]: Panel,
@@ -73,29 +73,33 @@ export default {
     lazyLoad: {
       type: Function,
     },
-     separator:{
-      type:String,
-      default:'/'
+    separator: {
+      type: String,
+      default: "/",
     },
-    label:{
-      type:String,
-      default:'label'
+    label: {
+      type: String,
+      default: "label",
     },
-    children:{
-      type:String,
-      default:'children'
+    children: {
+      type: String,
+      default: "children",
     },
-    leaf:{
-      type:String,
-      default:'leaf'
+    leaf: {
+      type: String,
+      default: "leaf",
     },
-    disabled:{
-      type:String,
-      default:'disabled'
+    disabled: {
+      type: String,
+      default: "disabled",
     },
-    emptyTip:{
-      type:String,
-    }
+    valueKey: {
+      type: String,
+      default: "id",
+    },
+    emptyTip: {
+      type: String,
+    },
   },
   provide() {
     return {
@@ -116,11 +120,11 @@ export default {
     }
   },
   methods: {
-    onBlur(event){
-      this.$emit('blur',event)
+    onBlur(event) {
+      this.$emit("blur", event);
     },
-    onFocus(){
-      this.$emit('focus',event)
+    onFocus() {
+      this.$emit("focus", event);
     },
     clearValue(event) {
       this.valueArr = [];
@@ -137,8 +141,7 @@ export default {
       valueArr = valueArr.slice(0, level);
       valueArr.push(data);
       this.valueArr = valueArr;
-      this.$emit('change',{data,level})
-      this.$emit('expand-change',valueArr)
+      this.$emit("change", { data, level });
     },
     onInputClick() {
       if (this.showPopup) {
@@ -154,13 +157,13 @@ export default {
           child.$emit("displayPuop", this.valueArr);
         }
       });
-      this.$emit('visible-change',true)
+      this.$emit("visible-change", true);
     },
     hidePuop() {
       this.showPopup = false;
-      this.$emit('visible-change',false)
+      this.$emit("visible-change", false);
     },
-    emitInputEvent(val){
+    emitInputEvent(val) {
       this.$emit("input", val);
     },
     onDocumentClick(event) {
@@ -177,16 +180,16 @@ export default {
           if (Array.isArray(this.value)) {
             return this.value;
           } else {
-            this.emitInputEvent([])
+            this.emitInputEvent([]);
             return [];
           }
         }
-        
+
         return this.myValueArr || [];
       },
       set(val) {
         if (this.value !== null) {
-          this.emitInputEvent(val)
+          this.emitInputEvent(val);
         } else {
           this.myValueArr = val;
         }
@@ -217,13 +220,13 @@ export default {
       if (this.placeholder) {
         return this.placeholder;
       }
-      return this.t('LinViewUI.Cascader.placeholder');
+      return this.t("LinViewUI.Cascader.placeholder");
     },
-    myEmptyTip(){
-      if(this.emptyTip){
-        return this.emptyTip
+    myEmptyTip() {
+      if (this.emptyTip) {
+        return this.emptyTip;
       }
-      return this.t('LinViewUI.Cascader.emptyTip')
+      return this.t("LinViewUI.Cascader.emptyTip");
     },
     myOptions() {
       if (this.lazy && this.lazyLoad) {
