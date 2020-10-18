@@ -333,6 +333,7 @@
   background: $video-player-controls-mask-background;
   height: $video-player-controls-mask-height;
   width: 100%;
+  pointer-events: none;
 }
 
 .lin-video-player-icon-item {
