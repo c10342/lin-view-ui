@@ -103,6 +103,7 @@ describe("事件", () => {
   it("input", () => {
     const value = "hello";
     input.setValue(value);
+    input.trigger("keyup");
     expect(wrapper.emitted().input[0][0]).toEqual(value);
   });
 
