@@ -4,7 +4,7 @@ const indexConfig = require("./build/webpack.index");
 const componentsConfig = require("./build/webpack.components");
 const env = process.env.NODE_ENV;
 
-let config;
+let config = devConfig;
 
 if (env === "development") {
   config = devConfig;
