@@ -220,7 +220,7 @@ export default {
           if (Array.isArray(this.value)) {
             return this.value;
           } else {
-            this.emitInputEvent([]);
+            // this.emitInputEvent([]);
             return [];
           }
         }
