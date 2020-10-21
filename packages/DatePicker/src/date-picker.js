@@ -6,9 +6,10 @@ import getDate from "src/utils/getDate.js";
 import getYearMonthDay from "src/utils/getYearMonthDay.js";
 import dispatch from "src/utils/dispatch.js";
 import LocaleMixin from "src/mixins/locale.js";
+import DateMixin from "src/mixins/date.js";
 export default {
   name: "LinDatePicker",
-  mixins: [LocaleMixin],
+  mixins: [LocaleMixin, DateMixin],
   render(h) {
     const {
       cellWidth,
@@ -198,29 +199,29 @@ export default {
       type: [Date, String, Number],
       default: "",
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+    // disabled: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     placeholder: {
       type: String,
     },
-    disabledBeforeDate: {
-      type: [Date, String, Number],
-      default: "",
-    },
-    disabledAfterDate: {
-      type: [Date, String, Number],
-      default: "",
-    },
-    disabledRangeDate: {
-      type: Array,
-      default: () => [],
-    },
-    disabledDate: {
-      type: Array,
-      default: () => [],
-    },
+    // disabledBeforeDate: {
+    //   type: [Date, String, Number],
+    //   default: "",
+    // },
+    // disabledAfterDate: {
+    //   type: [Date, String, Number],
+    //   default: "",
+    // },
+    // disabledRangeDate: {
+    //   type: Array,
+    //   default: () => [],
+    // },
+    // disabledDate: {
+    //   type: Array,
+    //   default: () => [],
+    // },
     renderInfo: {
       type: Function,
       default: null,
@@ -320,59 +321,57 @@ export default {
       });
     },
     setDownTop() {
-      // this.isDown = true;
       const boxContainer = this.$refs.boxContainer;
       this.top = `${boxContainer.clientHeight}px`;
     },
     setUpTop() {
-      // this.isDown = false;
       const popupContainer = this.$refs.popupContainer;
       this.top = `${-popupContainer.clientHeight}px`;
     },
-    isDisabledDate(date) {
-      if (this.disabled) {
-        return true;
-      }
-      if (this.disabledBeforeDate) {
-        const d = new Date(this.disabledBeforeDate);
-        if (d >= date) {
-          return true;
-        }
-      }
-      if (this.disabledAfterDate) {
-        const d = new Date(this.disabledAfterDate);
-        if (d <= date) {
-          return true;
-        }
-      }
-      if (
-        Array.isArray(this.disabledRangeDate) &&
-        this.disabledRangeDate.length !== 0
-      ) {
-        if (this.disabledRangeDate.length === 1) {
-          const d = new Date(this.disabledRangeDate[0]);
-          if (d <= date) {
-            return true;
-          }
-        }
-        if (this.disabledRangeDate.length >= 2) {
-          const d1 = new Date(this.disabledRangeDate[0]);
-          const d2 = new Date(this.disabledRangeDate[1]);
-          if (d1 <= date && d2 >= date) {
-            return true;
-          }
-        }
-      }
-      if (Array.isArray(this.disabledDate) && this.disabledDate.length !== 0) {
-        const isdisable = this.disabledDate.some((item) => {
-          return new Date(item).getTime() == date.getTime();
-        });
-        if (isdisable) {
-          return true;
-        }
-      }
-      return false;
-    },
+    // isDisabledDate(date) {
+    //   if (this.disabled) {
+    //     return true;
+    //   }
+    //   if (this.disabledBeforeDate) {
+    //     const d = new Date(this.disabledBeforeDate);
+    //     if (d >= date) {
+    //       return true;
+    //     }
+    //   }
+    //   if (this.disabledAfterDate) {
+    //     const d = new Date(this.disabledAfterDate);
+    //     if (d <= date) {
+    //       return true;
+    //     }
+    //   }
+    //   if (
+    //     Array.isArray(this.disabledRangeDate) &&
+    //     this.disabledRangeDate.length !== 0
+    //   ) {
+    //     if (this.disabledRangeDate.length === 1) {
+    //       const d = new Date(this.disabledRangeDate[0]);
+    //       if (d <= date) {
+    //         return true;
+    //       }
+    //     }
+    //     if (this.disabledRangeDate.length >= 2) {
+    //       const d1 = new Date(this.disabledRangeDate[0]);
+    //       const d2 = new Date(this.disabledRangeDate[1]);
+    //       if (d1 <= date && d2 >= date) {
+    //         return true;
+    //       }
+    //     }
+    //   }
+    //   if (Array.isArray(this.disabledDate) && this.disabledDate.length !== 0) {
+    //     const isdisable = this.disabledDate.some((item) => {
+    //       return new Date(item).getTime() == date.getTime();
+    //     });
+    //     if (isdisable) {
+    //       return true;
+    //     }
+    //   }
+    //   return false;
+    // },
     handleValue() {
       if (!this.value) {
         return new Date();
