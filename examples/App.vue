@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-cascader />
+    <test-date-axis />
   </div>
 </template>
 

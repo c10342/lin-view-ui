@@ -1,0 +1,168 @@
+@import "src/styles/variables/date-axis.scss";
+
+.lin-data-axis {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: $date-axis-border-bottom;
+  padding: $date-axis-padding;
+  flex-wrap: nowrap;
+}
+
+.lin-date-axis-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.lin-date-axis-arrow {
+  padding: $date-axis-arrow-padding;
+  cursor: pointer;
+  &:hover {
+    color: $date-axis-arrow-hover-color;
+  }
+}
+
+.lin-data-axis-icon {
+  font-size: $date-axis-icon-font-size;
+}
+
+.lin-date-axis-list {
+  list-style: none;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.lin-date-axis-item {
+  flex: 1;
+  text-align: center;
+  margin: $date-axis-item-margin;
+  padding: $date-axis-item-padding;
+  cursor: pointer;
+  &:hover {
+    .lin-date-axis-text {
+      color: $date-axis-item-hover-color;
+    }
+  }
+}
+
+.lin-date-axis-disabled {
+  cursor: not-allowed;
+  background-color: $disabled-background-color;
+  &:not(.lin-date-axis-active):hover {
+    .lin-date-axis-text {
+      color: $date-axis-text-color;
+    }
+  }
+}
+
+.lin-date-axis-active {
+  color: $date-axis-active-color;
+  .lin-date-axis-text {
+    color: $date-axis-active-color;
+  }
+}
+
+.lin-date-axis-text {
+  margin: 0;
+  padding: 0;
+  color: $date-axis-text-color;
+  white-space: nowrap;
+}
+
+.lin-date-axis-day {
+  font-size: $date-axis-day-font-size;
+}
+.lin-date-axis-date {
+  font-size: $date-axis-date-font-size;
+}
+
+.lin-date-axis-more {
+  position: relative;
+}
+
+.lin-date-axis-popup {
+  position: absolute;
+  left: $date-axis-popup-left;
+  border: $date-axis-popup-border;
+  z-index: $date-axis-popup-z-index;
+  &::before {
+    content: "";
+    position: absolute;
+    width: $date-axis-popup-before-width;
+    height: $date-axis-popup-before-height;
+    border: $date-axis-popup-before-border;
+    border-top-color: $date-axis-popup-before-border-top-color;
+    border-right-color: $date-axis-popup-before-border-right-color;
+    top: $date-axis-popup-before-top;
+
+    transform: $date-axis-popup-before-transform;
+    z-index: $date-axis-popup-before-z-index;
+    background-color: $date-axis-popup-before-background-color;
+  }
+}
+
+.lin-date-axis-popup-left {
+  &::before {
+    right: $date-axis-popup-left-right;
+  }
+}
+
+.lin-date-axis-popup-right {
+  &::before {
+    left: $date-axis-popup-right-left;
+  }
+}
+
+.lin-date-axis-more-content {
+  cursor: pointer;
+  text-align: center;
+  padding: $date-axis-more-content-padding;
+  white-space: nowrap;
+  &:hover {
+    color: $date-axis-more-content-hover-color;
+  }
+  > .lin-icon-date {
+    margin-right: $date-axis-more-content-icon-margin-right;
+  }
+}
+
+.lin-date-axis-more {
+  margin: $date-axis-more-margin;
+}
+
+.lin-date-axis-line {
+  position: absolute;
+  border-bottom: $date-axis-line-border-bottom;
+  bottom: $date-axis-line-bottom;
+  transition: $date-axis-line-transition;
+  &::after {
+    content: "";
+    position: absolute;
+    width: $date-axis-line-after-width;
+    height: $date-axis-line-after-height;
+    border: $date-axis-line-after-border;
+    border-top-color: $date-axis-line-after-border-top-color;
+    border-right-color: $date-axis-line-after-border-right-color;
+    top: $date-axis-line-after-top;
+    left: $date-axis-line-after-left;
+    transform: $date-axis-line-after-transform;
+    z-index: $date-axis-line-after-z-index;
+    background-color: $date-axis-line-after-background-color;
+  }
+}
+
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity 100ms;
+}
+.fade-leave-to,
+.fade-enter {
+  opacity: 0;
+}

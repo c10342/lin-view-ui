@@ -1,4 +1,4 @@
-import locale from './locale/index.js'
+import locale from "./locale/index.js";
 
 import "src/fonts/iconfont.css";
 // 基础组件
@@ -10,9 +10,9 @@ import SelectorItem from "packages/SelectorItem";
 import SelectorGroup from "packages/SelectorGroup";
 import CollapseGroup from "packages/CollapseGroup";
 import CollapseItem from "packages/CollapseItem";
-import DropdownGroup from 'packages/DropdownGroup'
-import DropdownItem from 'packages/DropdownItem'
-import Dropdown from 'packages/Dropdown'
+import DropdownGroup from "packages/DropdownGroup";
+import DropdownItem from "packages/DropdownItem";
+import Dropdown from "packages/Dropdown";
 
 // 表单组件
 import Input from "packages/Input";
@@ -48,12 +48,13 @@ import MetaInfo from "packages/MetaInfo";
 import Tag from "packages/Tag";
 import Alert from "packages/Alert";
 import Pagination from "packages/Pagination";
-import PageHeader from 'packages/PageHeader'
-import TabGroup from 'packages/TabGroup'
-import TabItem from 'packages/TabItem'
-import Skeleton from 'packages/Skeleton'
-import Badge from 'packages/Badge'
-import Spinner from 'packages/Spinner'
+import PageHeader from "packages/PageHeader";
+import TabGroup from "packages/TabGroup";
+import TabItem from "packages/TabItem";
+import Skeleton from "packages/Skeleton";
+import Badge from "packages/Badge";
+import Spinner from "packages/Spinner";
+import DateAxis from "packages/DateAxis";
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -65,80 +66,11 @@ import Magnifier from "packages/Magnifier";
 import HoverEffect from "packages/HoverEffect";
 import Backtop from "packages/Backtop";
 
-
-const install = (Vue, opts = {}) => {
-  // console.log(opts);
-  // locale.use(opts.locale)
-  // locale.i18n(opts.i18n)
-  [
-    Button,
-    Dialog,
-    Row,
-    Col,
-    Input,
-    Switch,
-    Radio,
-    RadioGroup,
-    Checkbox,
-    CheckboxGroup,
-    Form,
-    FormItem,
-    VideoCard,
-    ShowMore,
-    LimitTextarea,
-    LoadingBar,
-    ScrollView,
-    Image,
-    Progress,
-    Loading,
-    MetaInfo,
-    SelectorItem,
-    SelectorGroup,
-    ToolTip,
-    DatePicker,
-    LiveComment,
-    InputNumber,
-    Tag,
-    Alert,
-    Upload,
-    Table,
-    TableColumn,
-    Magnifier,
-    HoverEffect,
-    Pagination,
-    VideoPlayer,
-    CollapseGroup,
-    CollapseItem,
-    ChoiceGroup,
-    ChoiceItem,
-    ChoiceOption,
-    DropdownItem,
-    DropdownGroup,
-    Dropdown,
-    PageHeader,
-    TabItem,
-    TabGroup,
-    Skeleton,
-    Badge,
-    Backtop,
-    Cascader,
-    Spinner
-  ].forEach((comp) => {
-    Vue.use(comp);
-  });
-};
-
-// 判断是否是直接引入文件,如果是，就不用调用 Vue.use()
-if (typeof window !== "undefined" && window.Vue) {
-  install(window.Vue);
-}
-
-export default {
-  locale: locale.use,
-  i18n: locale.i18n,
-  install,
+const componentObjs = {
   Button,
   Dialog,
+  Row,
+  Col,
   Input,
   Switch,
   Radio,
@@ -186,5 +118,26 @@ export default {
   Badge,
   Backtop,
   Cascader,
-  Spinner
+  Spinner,
+  DateAxis,
+};
+
+const install = (Vue, opts = {}) => {
+  locale.use(opts.locale);
+  locale.i18n(opts.i18n);
+  Object.keys(componentObjs).forEach((key) => {
+    Vue.use(componentObjs[key]);
+  });
+};
+
+// 判断是否是直接引入文件,如果是，就不用调用 Vue.use()
+if (typeof window !== "undefined" && window.Vue) {
+  install(window.Vue);
+}
+
+export default {
+  locale: locale.use,
+  i18n: locale.i18n,
+  install,
+  ...componentObjs,
 };

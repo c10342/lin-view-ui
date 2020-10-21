@@ -182,6 +182,11 @@
           "desc": "Dropdown",
           "name": "dropdown",
           "path": "/dropdown"
+        },
+        {
+          "desc": "DateAxis 日期轴",
+          "name": "data-axis",
+          "path": "/data-axis"
         }
       ]
     },
