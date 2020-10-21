@@ -4,8 +4,9 @@
 
 - 2020/10/21 Add `DateAxis` Component
 - 2020/10/17 Add `Cascader` Component
-- 2020/10/16 Add `Spinner` Component
-- 2020/10/16 `Button` component add `loading` function
+- 2020/10/16
+  1. `Button` component add `loading` function
+  2. Add `Spinner` Component
 - 2020/10/15
 
   1. Fix `Input、LimitTextarea、LiveComment` components cannot be input under ie;

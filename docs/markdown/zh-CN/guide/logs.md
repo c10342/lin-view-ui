@@ -4,8 +4,9 @@
 
 - 2020/10/21 新增 `DateAxis` 组件
 - 2020/10/17 新增 `Cascader` 组件
-- 2020/10/16 新增 `Spinner` 组件
-- 2020/10/16 `Button` 组件新增 `加载中` 功能
+- 2020/10/16
+  1. `Button` 组件新增 `加载中` 功能
+  2. 新增 `Spinner` 组件
 - 2020/10/15
 
   1. 修复 `Input、LimitTextarea、LiveComment` 组件在 ie 下无法输入的问题；
