@@ -2,6 +2,7 @@
 
 ---
 
+- 2020/10/24 Add `ScrollBar` Component
 - 2020/10/21 Add `DateAxis` Component
 - 2020/10/17 Add `Cascader` Component
 - 2020/10/16
