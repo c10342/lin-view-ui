@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import navConf from "../nav.config.zh.json";
-import { getLang } from '../utils/lang'
+import { getLang } from "../utils/lang";
 
-const lang = getLang()
+const lang = getLang();
 
 Vue.use(Router);
 
@@ -22,30 +22,31 @@ let addComponent = (router) => {
       // if (route.type === "pages") {
       //   route.component = () => import(`../pages/${route.name}.vue`);
       //   return;
-      // } else 
+      // } else
       if (route.type === "guide") {
-        route.component = () => import(`../markdown/${lang}/guide/${route.name}.md`);
+        route.component = () =>
+          import(`../markdown/${lang}/guide/${route.name}.md`);
         return;
       }
-      route.component = () => import(`../markdown/${lang}/components/${route.name}.md`);
+      route.component = () =>
+        import(`../markdown/${lang}/components/${route.name}.md`);
     }
   });
 };
 addComponent(routes);
 
-
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'index',
-      component: () => import(`../pages/index.vue`)
+      path: "/",
+      name: "index",
+      component: () => import(`../pages/index.vue`),
     },
     {
-      path: '/component',
-      name: 'component',
+      path: "/component",
+      name: "component",
       component: () => import(`../pages/components.vue`),
-      children: routes
+      children: routes,
     },
   ],
   scrollBehavior(to, from, savedPosition) {

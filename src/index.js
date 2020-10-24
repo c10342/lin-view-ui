@@ -55,6 +55,7 @@ import Skeleton from "packages/Skeleton";
 import Badge from "packages/Badge";
 import Spinner from "packages/Spinner";
 import DateAxis from "packages/DateAxis";
+import ScrollBar from "packages/ScrollBar";
 
 // 交互组件
 import LoadingBar from "packages/LoadingBar";
@@ -120,6 +121,7 @@ const componentObjs = {
   Cascader,
   Spinner,
   DateAxis,
+  ScrollBar,
 };
 
 const install = (Vue, opts = {}) => {

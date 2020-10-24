@@ -1,0 +1,44 @@
+@import "src/styles/variables/scroll-bar.scss";
+
+.user-no-select {
+  user-select: none;
+}
+
+.lin-scroll-bar {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.lin-scroll-bar-wrapper {
+  position: relative;
+  overflow-y: scroll;
+  margin-right: $scroll-bar-wrapper-margin-right;
+}
+
+.lin-srcoll-bar-barwrapper {
+  position: absolute;
+  right: $scroll-bar-barwrapper-right;
+  top: $scroll-bar-barwrapper-top;
+  height: 100%;
+  width: $scroll-bar-barwrapper-width;
+  background-color: $scroll-bar-barwrapper-background-color;
+}
+
+.lin-srcoll-bar-bar {
+  width: $scroll-bar-bar-width;
+  background-color: $scroll-bar-bar-background-color;
+  position: absolute;
+  left: $scroll-bar-bar-left;
+  top: $scroll-bar-bar-top;
+  border-radius: $scroll-bar-bar-border-radius;
+  cursor: pointer;
+  &:hover{
+    background-color: $scroll-bar-bar-hover-background-color;
+  }
+}
+
+.lin-scroll-bar-spinner{
+  text-align: $scroll-bar-spinner-text-align;
+  padding: $scroll-bar-spinner-padding;
+}

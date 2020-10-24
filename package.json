@@ -38,11 +38,12 @@
     "pub": "node ./build/publish.js"
   },
   "dependencies": {
-    "deepmerge": "^4.2.2",
     "async-validator": "^3.4.0",
-    "lodash": "^4.17.20",
+    "deepmerge": "^4.2.2",
     "flv.js": "^1.5.0",
-    "hls.js": "^0.14.12"
+    "hls.js": "^0.14.12",
+    "lodash": "^4.17.20",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "peerDependencies": {
     "vue": "^2.6.11"

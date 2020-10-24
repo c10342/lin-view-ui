@@ -139,6 +139,11 @@
           "path": "/scroll-view"
         },
         {
+          "desc": "ScrollBar",
+          "name": "scroll-bar",
+          "path": "/scroll-bar"
+        },
+        {
           "desc": "Image",
           "name": "image",
           "path": "/image"
@@ -245,7 +250,7 @@
     {
       "desc": "Navigation",
       "path": "/component",
-      "items":[
+      "items": [
         {
           "desc": "PageHeader",
           "name": "page-header",

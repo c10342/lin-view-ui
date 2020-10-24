@@ -139,6 +139,11 @@
           "path": "/scroll-view"
         },
         {
+          "desc": "ScrollBar 滚动条",
+          "name": "scroll-bar",
+          "path": "/scroll-bar"
+        },
+        {
           "desc": "Image 图片",
           "name": "image",
           "path": "/image"
@@ -245,7 +250,7 @@
     {
       "desc": "导航组件",
       "path": "/component",
-      "items":[
+      "items": [
         {
           "desc": "PageHeader 页头",
           "name": "page-header",

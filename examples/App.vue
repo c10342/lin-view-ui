@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-date-axis />
+    <test-scroll-bar />
   </div>
 </template>
 
