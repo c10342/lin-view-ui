@@ -158,11 +158,11 @@
   }
 }
 
-.fade-leave-active,
-.fade-enter-active {
-  transition: opacity 100ms;
+.lin-date-axis-fade-leave-active,
+.lin-date-axis-fade-enter-active {
+  transition: opacity 300ms;
 }
-.fade-leave-to,
-.fade-enter {
+.lin-date-axis-fade-leave-to,
+.lin-date-axis-fade-enter {
   opacity: 0;
 }

@@ -60,7 +60,7 @@
           </div>
         </slot>
       </div>
-      <transition name="fade">
+      <transition name="lin-date-axis-fade">
         <div
           :class="[
             'lin-date-axis-popup',
@@ -190,13 +190,13 @@ export default {
       this.$emit("select", date);
     },
     prevWeek() {
-      if(this.disabled){
-        return
+      if (this.disabled) {
+        return;
       }
       let currentDate = this.currentDate;
       currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24 * 7;
       currentDate = new Date(currentDate);
-      const selDate = currentDate
+      const selDate = currentDate;
       // 上一周的最后一天，即周六
       const sat = new Date(
         currentDate.getTime() + 60 * 60 * 1000 * 24 * (6 - currentDate.getDay())
@@ -208,16 +208,13 @@ export default {
         }
       }
       // 如果被禁用，先找后面的
-      while (
-        this.isDisabledDate(currentDate) &&
-        this.isLt(currentDate, sat)
-      ) {
+      while (this.isDisabledDate(currentDate) && this.isLt(currentDate, sat)) {
         currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24;
         currentDate = new Date(currentDate);
       }
 
       if (this.isDisabledDate(currentDate)) {
-        currentDate = new Date(selDate.getTime() -60 * 60 * 1000 * 24)
+        currentDate = new Date(selDate.getTime() - 60 * 60 * 1000 * 24);
         while (this.isDisabledDate(currentDate)) {
           currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24;
           currentDate = new Date(currentDate);
@@ -229,14 +226,14 @@ export default {
       this.$emit("prevWeek", currentDate);
     },
     nextWeek() {
-      if(this.disabled){
-        return
+      if (this.disabled) {
+        return;
       }
       let currentDate = this.currentDate;
       currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24 * 7;
       currentDate = new Date(currentDate);
 
-      const selDate = currentDate
+      const selDate = currentDate;
       // 上一周的第一天，即周日
       const sun = new Date(
         currentDate.getTime() - 60 * 60 * 1000 * 24 * currentDate.getDay()
@@ -248,30 +245,26 @@ export default {
         }
       }
       // 如果被禁用，先找前面的
-      while (
-        this.isDisabledDate(currentDate) &&
-        this.isGt(currentDate, sun)
-      ) {
+      while (this.isDisabledDate(currentDate) && this.isGt(currentDate, sun)) {
         currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24;
         currentDate = new Date(currentDate);
       }
 
       if (this.isDisabledDate(currentDate)) {
-        currentDate = new Date(selDate.getTime() +60 * 60 * 1000 * 24)
+        currentDate = new Date(selDate.getTime() + 60 * 60 * 1000 * 24);
         while (this.isDisabledDate(currentDate)) {
           currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24;
           currentDate = new Date(currentDate);
         }
       }
 
-
       this.currentDate = currentDate;
       this.init(currentDate);
       this.$emit("nextWeek", currentDate);
     },
     prevDay() {
-      if(this.disabled){
-        return
+      if (this.disabled) {
+        return;
       }
       let currentDate = this.currentDate;
       currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24;
@@ -296,8 +289,8 @@ export default {
       this.$emit("prevDay", currentDate);
     },
     nextDay() {
-      if(this.disabled){
-        return
+      if (this.disabled) {
+        return;
       }
       let currentDate = this.currentDate;
       currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24;
