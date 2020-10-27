@@ -28,11 +28,11 @@
   transform: $backtop-triangle-transform;
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.lin-backtop-fade-enter-active,
+.lin-backtop-fade-leave-active {
   transition: all 300ms;
 }
-.fade-enter,
-.fade-leave-to {
+.lin-backtop-fade-enter,
+.lin-backtop-fade-leave-to {
   opacity: 0;
 }

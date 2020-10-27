@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="lin-backtop-fade">
     <div
       @click="onClick"
       v-if="visible"
