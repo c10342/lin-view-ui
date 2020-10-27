@@ -19,7 +19,7 @@
         <i class="lin-icon-close" v-if="showClose" @click.stop="clearValue"></i>
       </lin-input>
     </div>
-    <transition name="fade">
+    <transition name="lin-cascader-fade">
       <div
         ref="popupContainer"
         :class="[
