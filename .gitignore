@@ -5,6 +5,7 @@ node_modules
 /lib
 /utils
 /build/userInfo.js
+/debug.log
 
 # local env files
 .env.local
