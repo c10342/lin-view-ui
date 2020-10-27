@@ -34,22 +34,28 @@
         @click="clearValue"
       ></i>
     </div>
-    <transition name="fade">
+    <transition name="lin-choice-group-fade">
       <div
-        :style="{top}"
+        :style="{ top }"
         :class="[
-      'lin-choice-container-wrapper',
-      {'lin-choice-container-wrapper-up':!isDown},
-      {'lin-choice-container-wrapper-down':isDown},
-      ]"
+          'lin-choice-container-wrapper',
+          { 'lin-choice-container-wrapper-up': !isDown },
+          { 'lin-choice-container-wrapper-down': isDown },
+        ]"
         v-show="isShow"
       >
-        <div ref="scrollContainer" class="lin-choice-container" @scroll="onScroll">
+        <div
+          ref="scrollContainer"
+          class="lin-choice-container"
+          @scroll="onScroll"
+        >
           <div ref="scrollContent">
             <slot></slot>
             <div class="lin-choice-group-empty" v-if="!$slots.default">
               <slot name="empty">
-                <p class="lin-choice-group-empty-tip">{{ emptyTip|| t('LinViewUI.Choice.emptyTip')}}</p>
+                <p class="lin-choice-group-empty-tip">
+                  {{ emptyTip || t("LinViewUI.Choice.emptyTip") }}
+                </p>
               </slot>
             </div>
           </div>
@@ -57,9 +63,7 @@
             <slot name="loading">
               <span class="lin-choice-loading"></span>
               <span class="lin-choice-loading-tip" v-if="loadingTip">
-                {{
-                loadingTip
-                }}
+                {{ loadingTip }}
               </span>
             </slot>
           </div>
@@ -71,13 +75,13 @@
 
 
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from "src/mixins/locale.js";
 export default {
   name: "LinChoiceGroup",
-  mixins:[LocaleMixin],
+  mixins: [LocaleMixin],
   props: {
     placeholder: {
-      type: String
+      type: String,
     },
     value: {
       type: [Object, String, Number],
@@ -115,7 +119,7 @@ export default {
       default: "",
     },
     emptyTip: {
-      type: String
+      type: String,
     },
   },
   data() {
