@@ -72,12 +72,12 @@
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.lin-tag-fade-enter-active,
+.lin-tag-fade-leave-active {
   transition: $tag-transition;
 }
 
-.fade-enter,
-.fade-leave-to {
+.lin-tag-fade-enter,
+.lin-tag-fade-leave-to {
   opacity: $tag-opacity;
 }

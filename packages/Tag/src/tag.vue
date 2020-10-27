@@ -1,13 +1,17 @@
 <template>
-  <transition name="fade" @after-leave="afterLeave">
+  <transition name="lin-tag-fade" @after-leave="afterLeave">
     <div
       v-if="show"
       @click="onTagclick"
-      :class="['lin-tag',`lin-tag-${type}`,`lin-tag-${effect}`]"
-      :style="{'background-color':color}"
+      :class="['lin-tag', `lin-tag-${type}`, `lin-tag-${effect}`]"
+      :style="{ 'background-color': color }"
     >
-      <span>{{text}}</span>
-      <i v-if="closable" @click="onCloseClick" class="lin-icon-close lin-tag-close"></i>
+      <span>{{ text }}</span>
+      <i
+        v-if="closable"
+        @click="onCloseClick"
+        class="lin-icon-close lin-tag-close"
+      ></i>
     </div>
   </transition>
 </template>
