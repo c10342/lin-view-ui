@@ -9,11 +9,15 @@
     <div class="lin-dropdown-label" @click="onLabelClick" ref="dropdownLabel">
       <slot></slot>
     </div>
-    <transition name="fade">
+    <transition name="lin-dropdown-fade">
       <div
         v-show="isShow"
-        :class="['lin-dropdown-container',{'lin-dropdown-container-down':isDown}, {'lin-dropdown-container-up':!isDown}]"
-        :style="{top}"
+        :class="[
+          'lin-dropdown-container',
+          { 'lin-dropdown-container-down': isDown },
+          { 'lin-dropdown-container-up': !isDown },
+        ]"
+        :style="{ top }"
         ref="dropdownContainer"
       >
         <slot name="dropdown"></slot>
