@@ -11,8 +11,7 @@
   flex-direction: row;
   align-items: center;
 }
-.lin-alert-icon {
-}
+
 .lin-alert-content {
   display: flex;
   flex-direction: column;
@@ -54,25 +53,6 @@
       @include alert-type($val);
     }
   }
-
-  // &.lin-alert-success {
-  //   @include alert-type(
-  //     lighten($success, $alert-light-success-lighten),
-  //     $success
-  //   );
-  // }
-  // &.lin-alert-warning {
-  //   @include alert-type(
-  //     lighten($warning, $alert-light-warning-lighten),
-  //     $warning
-  //   );
-  // }
-  // &.lin-alert-info {
-  //   @include alert-type(lighten($info, $alert-light-info-lighten), $info);
-  // }
-  // &.lin-alert-danger {
-  //   @include alert-type(lighten($danger, $alert-light-danger-lighten), $danger);
-  // }
 }
 
 .lin-alert-dark {
@@ -83,11 +63,11 @@
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.lin-alert-fade-enter-active,
+.lin-alert-fade-leave-active {
   transition: $alert-transition;
 }
-.fade-enter,
-.fade-leave-to {
+.lin-alert-fade-enter,
+.lin-alert-fade-leave-to {
   opacity: $alert-opacity;
 }
