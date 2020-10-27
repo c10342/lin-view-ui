@@ -41,7 +41,11 @@ export default {
         "lin-icon-fullscreen",
         "lin-icon-full-screen",
         "lin-icon-loading",
-        "lin-icon-back"
+        "lin-icon-back",
+        "lin-icon-warning",
+        "lin-icon-success",
+        "lin-icon-error",
+        "lin-icon-info",
       ]
     };
   }
