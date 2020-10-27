@@ -134,11 +134,11 @@
     border-radius: $date-picker-radius-hover-border-radius;
   }
 }
-.fade-leave-active,
-.fade-enter-active {
-  transition: all 100ms;
+.lin-date-picker-fade-leave-active,
+.lin-date-picker-fade-enter-active {
+  transition: all 300ms;
 }
-.fade-leave-to,
-.fade-enter {
+.lin-date-picker-fade-leave-to,
+.lin-date-picker-fade-enter {
   opacity: 0;
 }

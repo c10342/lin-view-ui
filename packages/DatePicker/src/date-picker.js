@@ -58,7 +58,7 @@ export default {
           </div>
         )}
 
-        <transition name="fade">
+        <transition name="lin-date-picker-fade">
           {(isVisible || showAlways) && (
             <div
               style={{ top }}
