@@ -56,11 +56,11 @@
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.lin-tooltip-fade-enter-active,
+.lin-tooltip-fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter,
-.fade-leave-to {
+.lin-tooltip-fade-enter,
+.lin-tooltip-fade-leave-to {
   opacity: 0;
 }

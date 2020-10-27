@@ -1,6 +1,8 @@
 <template>
-  <transition name="fade" @after-leave="handleAfterLeave">
-    <div v-if="show" :style="style" class="lin-tooltip" :class="classes">{{text}}</div>
+  <transition name="lin-tooltip-fade" @after-leave="handleAfterLeave">
+    <div v-if="show" :style="style" class="lin-tooltip" :class="classes">
+      {{ text }}
+    </div>
   </transition>
 </template>
 
