@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-scroll-bar />
+    <test-message-box />
   </div>
 </template>
 

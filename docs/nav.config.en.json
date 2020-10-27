@@ -60,6 +60,16 @@
           "desc": "Collapse",
           "name": "collapse",
           "path": "/collapse"
+        },
+        {
+          "desc": "Link",
+          "name": "link",
+          "path": "/link"
+        },
+        {
+          "desc": "Badge",
+          "name": "badge",
+          "path": "/badge"
         }
       ]
     },
@@ -189,7 +199,7 @@
           "path": "/dropdown"
         },
         {
-          "desc": "DateAxis 日期轴",
+          "desc": "DateAxis",
           "name": "data-axis",
           "path": "/data-axis"
         }
@@ -244,6 +254,16 @@
           "desc": "Spinner",
           "name": "spinner",
           "path": "/spinner"
+        },
+        {
+          "desc": "Message",
+          "name": "message",
+          "path": "/message"
+        },
+        {
+          "desc": "MessageBox",
+          "name": "message-box",
+          "path": "/message-box"
         }
       ]
     },
@@ -276,6 +296,11 @@
           "desc": "HoverEffect",
           "name": "hover-effect",
           "path": "/hover-effect"
+        },
+        {
+          "desc": "Backtop",
+          "name": "backtop",
+          "path": "/backtop"
         }
       ]
     }

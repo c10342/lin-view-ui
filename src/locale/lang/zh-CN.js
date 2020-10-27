@@ -85,5 +85,10 @@ export default {
       fir: "星期五",
       sat: "星期六",
     },
+    MessageBox: {
+      cancelButtonText: "取消",
+      confirmButtonText: "确定",
+      inputErrorMessage: "输入的数据不合法!",
+    },
   },
 };

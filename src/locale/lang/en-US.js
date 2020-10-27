@@ -85,5 +85,10 @@ export default {
       fir: "Fir",
       sat: "Sat",
     },
+    MessageBox: {
+      cancelButtonText: "Cancel",
+      confirmButtonText: "OK",
+      inputErrorMessage: "Illegal input!",
+    },
   },
 };

@@ -1,128 +1,21 @@
 import locale from "./locale/index.js";
 
 import "src/fonts/iconfont.css";
-// 基础组件
-import Button from "packages/Button";
-import Dialog from "packages/Dialog";
-import Row from "packages/Row";
-import Col from "packages/Col";
-import SelectorItem from "packages/SelectorItem";
-import SelectorGroup from "packages/SelectorGroup";
-import CollapseGroup from "packages/CollapseGroup";
-import CollapseItem from "packages/CollapseItem";
-import DropdownGroup from "packages/DropdownGroup";
-import DropdownItem from "packages/DropdownItem";
-import Dropdown from "packages/Dropdown";
 
-// 表单组件
-import Input from "packages/Input";
-import Switch from "packages/Switch";
-import Radio from "packages/Radio";
-import RadioGroup from "packages/RadioGroup";
-import Checkbox from "packages/Checkbox";
-import CheckboxGroup from "packages/CheckboxGroup";
-import Form from "packages/Form";
-import FormItem from "packages/FormItem";
-import DatePicker from "packages/DatePicker";
-import InputNumber from "packages/InputNumber";
-import Upload from "packages/Upload";
-import Table from "packages/Table";
-import TableColumn from "packages/TableColumn";
-import ChoiceGroup from "packages/ChoiceGroup";
-import ChoiceItem from "packages/ChoiceItem";
-import ChoiceOption from "packages/ChoiceOption";
-import Cascader from "packages/Cascader";
+const testComps = require.context(
+  "../packages",
+  true,
+  /^\.(\/\w+)\/index\.js$/
+);
 
-// 视频组件
-import VideoCard from "packages/VideoCard";
-import LiveComment from "packages/LiveComment";
-import VideoPlayer from "packages/VideoPlayer";
+const reg = /^\.\/(\w+)\/index\.js$/;
 
-// 视图组件
-import ShowMore from "packages/ShowMore";
-import LimitTextarea from "packages/LimitTextarea";
-import ScrollView from "packages/ScrollView";
-import Image from "packages/Image";
-import Progress from "packages/Progress";
-import MetaInfo from "packages/MetaInfo";
-import Tag from "packages/Tag";
-import Alert from "packages/Alert";
-import Pagination from "packages/Pagination";
-import PageHeader from "packages/PageHeader";
-import TabGroup from "packages/TabGroup";
-import TabItem from "packages/TabItem";
-import Skeleton from "packages/Skeleton";
-import Badge from "packages/Badge";
-import Spinner from "packages/Spinner";
-import DateAxis from "packages/DateAxis";
-import ScrollBar from "packages/ScrollBar";
-
-// 交互组件
-import LoadingBar from "packages/LoadingBar";
-import Loading from "packages/Loading";
-import ToolTip from "packages/Tooltip";
-
-// 其他组件
-import Magnifier from "packages/Magnifier";
-import HoverEffect from "packages/HoverEffect";
-import Backtop from "packages/Backtop";
-
-const componentObjs = {
-  Button,
-  Dialog,
-  Row,
-  Col,
-  Input,
-  Switch,
-  Radio,
-  RadioGroup,
-  Checkbox,
-  CheckboxGroup,
-  Form,
-  FormItem,
-  VideoCard,
-  ShowMore,
-  LimitTextarea,
-  LoadingBar,
-  ScrollView,
-  Image,
-  Progress,
-  Loading,
-  MetaInfo,
-  SelectorItem,
-  SelectorGroup,
-  ToolTip,
-  DatePicker,
-  LiveComment,
-  InputNumber,
-  Tag,
-  Alert,
-  Upload,
-  Table,
-  TableColumn,
-  Magnifier,
-  HoverEffect,
-  Pagination,
-  VideoPlayer,
-  CollapseGroup,
-  CollapseItem,
-  ChoiceGroup,
-  ChoiceItem,
-  ChoiceOption,
-  DropdownItem,
-  DropdownGroup,
-  Dropdown,
-  PageHeader,
-  TabItem,
-  TabGroup,
-  Skeleton,
-  Badge,
-  Backtop,
-  Cascader,
-  Spinner,
-  DateAxis,
-  ScrollBar,
-};
+const componentObjs = {};
+testComps.keys().forEach((key) => {
+  const componentEntity = testComps(key).default;
+  const result = reg.exec(key)[1];
+  componentObjs[result] = componentEntity;
+});
 
 const install = (Vue, opts = {}) => {
   locale.use(opts.locale);

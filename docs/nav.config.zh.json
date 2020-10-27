@@ -60,6 +60,16 @@
           "desc": "Collapse 折叠面板",
           "name": "collapse",
           "path": "/collapse"
+        },
+        {
+          "desc": "Link 文字链接",
+          "name": "link",
+          "path": "/link"
+        },
+        {
+          "desc": "Badge 标记",
+          "name": "badge",
+          "path": "/badge"
         }
       ]
     },
@@ -244,6 +254,16 @@
           "desc": "Spinner 旋转",
           "name": "spinner",
           "path": "/spinner"
+        },
+        {
+          "desc": "Message 消息提示",
+          "name": "message",
+          "path": "/message"
+        },
+        {
+          "desc": "MessageBox 弹框",
+          "name": "message-box",
+          "path": "/message-box"
         }
       ]
     },
@@ -276,6 +296,11 @@
           "desc": "HoverEffect 悬浮效果",
           "name": "hover-effect",
           "path": "/hover-effect"
+        },
+        {
+          "desc": "Backtop 回到顶部",
+          "name": "backtop",
+          "path": "/backtop"
         }
       ]
     }
