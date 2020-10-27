@@ -1,0 +1,32 @@
+@import './common';
+
+$message-min-width: 380px !default;
+$message-border-radius: 4px !default;
+$message-border-width: 1px !default;
+$message-border-style: solid !default;
+$message-border-color: rgba($info, 0.1) !default;
+$message-left: 50% !default;
+$message-top: 20px !default;
+$message-transform: translateX(-50%) !default;
+$message-background-color: rgba($info, 0.1) !default;
+$message-transition: opacity 0.3s, transform 0.4s, top 0.4s !default;
+$message-padding: 15px 15px 15px 20px !default;
+$message-z-index: 2000 !default;
+
+
+$message-content-margin: 0 !default;
+$message-content-padding: 0 !default;
+
+$message-icon-margin-right: 10px !default;
+$message-icon-font-size: $font-size-small !default;
+
+$message-close-icon-top: 50% !default;
+$message-close-icon-right: 15px !default;
+$message-close-icon-transform: translateY(-50%) !default;
+$message-close-icon-color: #c0c4cc !default;
+$message-close-icon-font-size: $font-size-normal !default;
+
+
+$message-active-transition: opacity 0.3s, transform 0.4s, top 0.4s !default;
+$message-enter-opacity: 0 !default;
+$message-enter-transform: translateY(-100%) $message-transform !default;
