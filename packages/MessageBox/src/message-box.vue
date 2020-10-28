@@ -56,6 +56,8 @@
             >{{ myCancelButtonText }}</lin-button
           >
           <lin-button
+            :loadingSize="loadingSize"
+            :loading="confirmButtonLoading"
             :round="roundButton"
             @click="onConfirmBtnClick"
             :class="[confirmButtonClass]"
@@ -125,6 +127,11 @@ export default {
     inputValidator: Function,
     inputErrorMessage: String,
     roundButton: Boolean,
+    confirmButtonLoading: Boolean,
+    loadingSize: {
+      type: String,
+      default: "11px",
+    },
   },
   data() {
     return {
