@@ -47,7 +47,7 @@ export default {
       });
     },
     initOther(){
-       this.mp4Player = new this.$VideoPlayer({
+       this.otherPlayer = new this.$VideoPlayer({
         el: document.getElementById("othervideo"),
         videoList: [
           {
@@ -178,10 +178,12 @@ export default {
     this.mp4Player?.destory();
     this.hlsPlayer?.destory()
     this.flvPlayer?.destory()
+    this.otherPlayer?.destory()
 
     this.mp4Player = null
     this.hlsPlayer = null
     this.flvPlayer = null
+    this.otherPlayer = null
   }
 };
 </script>
