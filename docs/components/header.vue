@@ -24,6 +24,12 @@
             >
           </lin-dropdown-group>
         </lin-dropdown>
+        <a
+          style="margin-left: 30px"
+          href="http://wxui.linjiafu.top"
+          target="_blank"
+          >{{ wechatTitle }}</a
+        >
       </div>
     </div>
   </header>
@@ -36,7 +42,6 @@ const lang = getLang();
 export default {
   data() {
     return {
-      // lang: getLang(),
       langType,
     };
   },
@@ -58,12 +63,15 @@ export default {
     langTitle() {
       return langConfig[lang].header.langTitle;
     },
+    wechatTitle() {
+      return langConfig[lang].header.wechatTitle;
+    },
   },
 };
 </script>
 
 <style lang="scss">
-@import '../assets/styles/var.scss';
+@import "../assets/styles/var.scss";
 .page-header {
   background-color: #fff;
   opacity: 0.98;

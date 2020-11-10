@@ -2,35 +2,40 @@
   <div class="pg-index">
     <div class="index-container">
       <img src="../assets/img/logo.png" />
-      <p>{{message}}</p>
+      <p>{{ message }}</p>
     </div>
     <div class="separate-panel">
       <div class="about">
-        <router-link :to="{ name: 'giud' }">{{startToUse}}</router-link>
-        <a target="_blank" class="btn-github" href="https://github.com/c10342/lin-view-ui">GitHub</a>
+        <router-link :to="{ name: 'giud' }">{{ startToUse }}</router-link>
+        <a
+          target="_blank"
+          class="btn-github"
+          href="https://github.com/c10342/lin-view-ui"
+          >GitHub</a
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {getLang} from '../utils/lang'
-import langConfig from '../i18n/index'
-const lang = getLang()
+import { getLang } from "../utils/lang";
+import langConfig from "../i18n/index";
+const lang = getLang();
 export default {
   data() {
     return {
-      height: document.documentElement.clientHeight
+      height: document.documentElement.clientHeight,
     };
   },
-  computed:{
-    message(){
-      return langConfig[lang].index.message
+  computed: {
+    message() {
+      return langConfig[lang].index.message;
     },
-    startToUse(){
-      return langConfig[lang].index.startToUse
-    }
-  }
+    startToUse() {
+      return langConfig[lang].index.startToUse;
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -41,7 +46,7 @@ export default {
     text-align: center;
     padding: 100px 0;
     position: relative;
-    z-index: 100;
+    z-index: 50;
     p {
       margin-top: 56px;
       color: #8994c6;
