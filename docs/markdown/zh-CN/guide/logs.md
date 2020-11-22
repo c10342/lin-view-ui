@@ -88,7 +88,8 @@ ul {
 - 2020/06/07
   1. 新增 `ScrollView` 滚动加载组件
   2. 新增 `Image` 图片组件
-- 2020/05/24 新增 `Layout` 布局组件
+- 2020/05/24
+  1. 新增 `Layout` 布局组件
 - 2020/05/17
   1. 新增 `Checkbox、CheckboxGroup` 多选框组件
   2. 新增 `Form、FormItem` 表单组件
