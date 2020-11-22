@@ -115,7 +115,9 @@ Open an alert by calling the `$MessageBox.alert` method. It simulates the system
 :::demo
 
 ```html
-<lin-button :plain="true" @click="open1">Click to open the Message Box</lin-button>
+<lin-button :plain="true" @click="open1"
+  >Click to open the Message Box</lin-button
+>
 <script>
   export default {
     methods: {
@@ -150,7 +152,9 @@ Call `$MessageBox.confirm` method to open a confirm, and it simulates the system
 :::demo
 
 ```html
-<lin-button :plain="true" @click="open2">Click to open the Message Box</lin-button>
+<lin-button :plain="true" @click="open2"
+  >Click to open the Message Box</lin-button
+>
 
 <script>
   export default {
@@ -195,7 +199,9 @@ Call `$MessageBox.prompt` method to open a `prompt`, and it simulates the system
 :::demo
 
 ```html
-<lin-button :plain="true" @click="open3">Click to open the Message Box</lin-button>
+<lin-button :plain="true" @click="open3"
+  >Click to open the Message Box</lin-button
+>
 
 <script>
   export default {
@@ -239,7 +245,9 @@ The three methods mentioned above are repackagings of the `$MessageBox` method. 
 :::demo
 
 ```html
-<lin-button :plain="true" @click="open4">Click to open the Message Box</lin-button>
+<lin-button :plain="true" @click="open4"
+  >Click to open the Message Box</lin-button
+>
 
 <script>
   export default {
@@ -289,7 +297,9 @@ Set `dangerouslyUseHTMLString` to `true` and `message` will be treated as an HTM
 :::demo
 
 ```html
-<lin-button :plain="true" @click="open5">Click to open the Message Box</lin-button>
+<lin-button :plain="true" @click="open5"
+  >Click to open the Message Box</lin-button
+>
 
 <script>
   export default {
@@ -364,3 +374,4 @@ The corresponding methods are: `MessageBox`, `MessageBox.alert`, `MessageBox.con
 | inputValidator           | validation function for the input. Should returns a boolean or string. If a string is returned, it will be assigned to inputErrorMessage | Function                                                                                                                                                                                                    | —                                | —                                                |
 | inputErrorMessage        | error message when validation fails                                                                                                      | String                                                                                                                                                                                                      | —                                | Illegal input!                                   |
 | roundButton              | whether to use round button                                                                                                              | Boolean                                                                                                                                                                                                     | —                                | false                                            |
+| drag                     | whether the MessageBox can be draged                                                                                                     | Boolean                                                                                                                                                                                                     | —                                | false                                            |

@@ -2,10 +2,15 @@
   <transition name="lin-message-fade">
     <div
       :class="['lin-message-box', customClass]"
-      @click="onMaskClick"
+      @click.self="onMaskClick"
       v-if="show"
     >
-      <div class="lin-message-box-wrapper" @click.stop>
+      <div
+        @mousedown="onDragClick"
+        :style="dialogStyle"
+        ref="dragContainer"
+        class="lin-message-box-wrapper"
+      >
         <div class="lin-message-box-header">
           <div class="lin-message-box-title">{{ title }}</div>
           <span
@@ -76,9 +81,10 @@
 import Button from "packages/Button/index.js";
 import Input from "packages/Input/index.js";
 import LocaleMixin from "src/mixins/locale.js";
+import DragMixin from "src/mixins/drag.js";
 export default {
   name: "LinMessageBox",
-  mixins: [LocaleMixin],
+  mixins: [LocaleMixin, DragMixin],
   components: {
     [Button.name]: Button,
     [Input.name]: Input,
@@ -139,6 +145,11 @@ export default {
       value: "",
       errorMessage: "",
       showErrorMessage: false,
+      dialogStyle: {
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%,-50%)",
+      },
     };
   },
   computed: {
