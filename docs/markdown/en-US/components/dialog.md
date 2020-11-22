@@ -13,7 +13,8 @@ export default {
       visible1: false,
       visible2: false,
       visible3: false,
-      visible4: false
+      visible4: false,
+      visible5: false
     };
   },
   methods: {
@@ -28,6 +29,9 @@ export default {
     },
     click4() {
       this.visible4 = true;
+    },
+    click5() {
+      this.visible5 = true;
     },
     handleClose(done) {
       alert("Click close");
@@ -219,6 +223,43 @@ Use slot to name the slot, and the slot name is title
 
 :::
 
+## drag
+
+Set the `drag` attribute to `true` to drag the `dialog` pop-up box
+
+<div class='demo-block'>
+    <lin-button @click="click5">click to open the Dialog</lin-button>
+      <lin-dialog drag :visible.sync="visible5" title='drag'>
+        <span>This dialog box can be dragged</span>
+    </lin-dialog>
+</div>
+
+:::demo
+
+```html
+<lin-button @click="click5">click to open the Dialog</lin-button>
+<lin-dialog drag :visible.sync="visible5" title="drag">
+  <span>This dialog box can be dragged</span>
+</lin-dialog>
+
+<script>
+  export default {
+    data() {
+      return {
+        visible5: false,
+      };
+    },
+    methods: {
+      click5() {
+        this.visible5 = true;
+      },
+    },
+  };
+</script>
+```
+
+:::
+
 ## Attributes
 
 | Attribute        | Description                                                                     | Type                                             | Accepted Values | Default |
@@ -229,6 +270,7 @@ Use slot to name the slot, and the slot name is title
 | visible          | visibility of Dialog, supports the .sync modifier                               | Boolean                                          | —               | false   |
 | beforeClose      | callback before Dialog closes, and it will prevent Dialog from closing          | function(done)，done is used to close the Dialog | —               | —       |
 | closeOnClickModa | whether the Dialog can be closed by clicking the mask                           | Boolean                                          | —               | true    |
+| drag             | whether the Dialog can be draged                                                | Boolean                                          | —               | false   |
 
 ## Slots
 

@@ -13,7 +13,8 @@ export default {
       visible1: false,
       visible2: false,
       visible3: false,
-      visible4: false
+      visible4: false,
+      visible5: false
     };
   },
   methods: {
@@ -28,6 +29,9 @@ export default {
     },
     click4() {
       this.visible4 = true;
+    },
+    click5() {
+      this.visible5 = true;
     },
     handleClose(done) {
       alert("点击了关闭");
@@ -219,6 +223,43 @@ export default {
 
 :::
 
+## 拖拽
+
+设置 `drag` 属性为 `true`，即可对 `Dialog` 弹框进行拖拽
+
+<div class='demo-block'>
+    <lin-button @click="click5">点击打开Dialog</lin-button>
+      <lin-dialog drag :visible.sync="visible5" title='拖拽'>
+        <span>这个 Dialog 弹框可进行拖拽</span>
+    </lin-dialog>
+</div>
+
+:::demo
+
+```html
+<lin-button @click="click5">点击打开Dialog</lin-button>
+<lin-dialog drag :visible.sync="visible5" title="拖拽">
+  <span>这个 Dialog 弹框可进行拖拽</span>
+</lin-dialog>
+
+<script>
+  export default {
+    data() {
+      return {
+        visible5: false,
+      };
+    },
+    methods: {
+      click5() {
+        this.visible5 = true;
+      },
+    },
+  };
+</script>
+```
+
+:::
+
 ## 属性
 
 | 参数             | 说明                                            | 类型                                 | 可选值 | 默认值 |
@@ -229,6 +270,7 @@ export default {
 | visible          | 是否显示 Dialog，支持 .sync 修饰符              | Boolean                              | —      | false  |
 | beforeClose      | 关闭前的回调，会暂停 Dialog 的关闭              | function(done)，done 用于关闭 Dialog | —      | —      |
 | closeOnClickModa | 是否可以通过点击 modal 关闭 Dialog              | Boolean                              | —      | true   |
+| drag             | 是否可以对 Dialog 进行拖拽                      | Boolean                              | —      | false  |
 
 ## 插槽
 

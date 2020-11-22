@@ -13,8 +13,12 @@
   background-color: $dialog-wrapper-background-color;
 
   .lin-dialog {
-    position: relative;
-    margin: $dialog-margin;
+    // position: relative;
+    // margin: $dialog-margin;
+    position: absolute;
+    // top: 0;
+    // left: 50%;
+    // transform: translateX(-50%);
     background: $dialog-background;
     border-radius: $dialog-border-radius;
     box-shadow: $dialog-box-shadow;
@@ -68,4 +72,8 @@
 
 .lin-dialog-fade-leave-active {
   animation: $dialog-animation-leave;
+}
+
+.user-select-none {
+  user-select: none;
 }

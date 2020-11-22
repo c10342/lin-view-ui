@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test-message-box />
+    <test-dialog />
   </div>
 </template>
 

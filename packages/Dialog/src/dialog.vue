@@ -1,11 +1,22 @@
 <template>
   <!-- 对话框的遮罩 .self代表只有点击自己才触发 -->
   <transition name="lin-dialog-fade">
-    <div class="lin-dialog-wrapper" v-show="visible" @click.self="onWrapperClick">
-      <div class="lin-dialog" :style="{width, marginTop: top}">
+    <div
+      class="lin-dialog-wrapper"
+      v-show="visible"
+      @click.self="onWrapperClick"
+    >
+      <div
+        ref="dragContainer"
+        @mousedown="onDragClick"
+        class="lin-dialog"
+        :style="{ width, marginTop: top, ...dialogStyle }"
+      >
         <div class="lin-dialog-header">
           <slot name="title">
-            <span class="lin-dialog-title">{{title || t('LinViewUI.Dialog.title')}}</span>
+            <span class="lin-dialog-title">{{
+              title || t("LinViewUI.Dialog.title")
+            }}</span>
           </slot>
           <button class="lin-dialog-headerbtn" @click="handleClose">
             <i class="lin-icon-close"></i>
@@ -23,13 +34,14 @@
   </transition>
 </template>
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from "src/mixins/locale.js";
+import DragMixin from "src/mixins/drag.js";
 export default {
   name: "LinDialog",
-  mixins:[LocaleMixin],
+  mixins: [LocaleMixin, DragMixin],
   props: {
     title: {
-      type: String
+      type: String,
     },
     width: {
       type: String,
@@ -51,6 +63,7 @@ export default {
       default: true,
     },
   },
+
   methods: {
     handleClose() {
       const done = () => {
