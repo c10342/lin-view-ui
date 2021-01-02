@@ -14,7 +14,7 @@ const setHome = (url) => {
   } catch (error) {
     if (window.netscape) {
       try {
-        netscape.security.PrivilegeManager.enablePrivilege(
+        window.netscape.security.PrivilegeManager.enablePrivilege(
           'UniversalXPConnect',
         );
       } catch (e) {

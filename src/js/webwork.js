@@ -4,8 +4,8 @@
 // 引入脚本
 self.importScripts('https://cdn.bootcss.com/spark-md5/3.0.0/spark-md5.js');
 
-self.onmessage = (e) => {
-  const { fileChunkList } = e.data;
+self.onmessage = (event) => {
+  const { fileChunkList } = event.data;
 
   const spark = new SparkMD5.ArrayBuffer();
 

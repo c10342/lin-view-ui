@@ -11,7 +11,7 @@ const saveToDesktop = (sName, sUrl) => {
     if (typeof sUrl !== 'string') {
       throw new TypeError('sUrl is not typeof string');
     }
-    const WshShell = new ActiveXObject('WScript.Shell');
+    const WshShell = new window.ActiveXObject('WScript.Shell');
     const oUrlLink = WshShell.CreateShortcut(
       `${WshShell.SpecialFolders('Desktop')}\\${sName}.url`,
     );
