@@ -11,17 +11,17 @@ module.exports = {
     // 用 `vue-jest` 处理 `*.vue` 文件
     '.*\\.(vue)$': 'vue-jest',
     '^.+\\.js$': 'babel-jest',
+    '\\.(css|scss)$': '<rootDir>/tests/__mocks__/styleTransformer.js',
   },
   moduleNameMapper: {
     'packages/(.*)$': '<rootDir>/packages/$1',
     '^src/(.*)$': '<rootDir>/src/$1',
-    '\\.(css|scss)$': 'identity-obj-proxy',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/tests/__mocks__/fileMock.js',
+    // '\\.(css|scss)$': 'identity-obj-proxy',
   },
   rootDir: path.join(__dirname),
   testMatch: [
     // 匹配测试用例的文件
     '<rootDir>/tests/**/*.test.js',
   ],
-  // testPathIgnorePatterns: ['./node_modules/'],
-  // transformIgnorePatterns: ["/node_modules/(?!vue-awesome)"],
 };
