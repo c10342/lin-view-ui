@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "LinProgress",
+  name: 'LinProgress',
   props: {
     percent: {
       type: Number,
@@ -27,11 +27,11 @@ export default {
     },
     innerColor: {
       type: String,
-      default: "",
+      default: '',
     },
     outColor: {
       type: String,
-      default: "",
+      default: '',
     },
     height: {
       type: Number,
@@ -43,24 +43,24 @@ export default {
     },
     textOutside: {
       type: String,
-      default: "",
+      default: '',
     },
     type: {
       type: String,
-      default: "primary",
+      default: 'primary',
     },
     textInside: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
     width() {
       if (this.percent < 0) {
-        return "0%";
+        return '0%';
       }
       if (this.percent > 1) {
-        return "100%";
+        return '100%';
       }
       return `${this.percent * 100}%`;
     },
@@ -109,4 +109,3 @@ export default {
   },
 };
 </script>
-

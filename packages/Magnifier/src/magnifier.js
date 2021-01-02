@@ -1,5 +1,5 @@
-import Magnifier from "./magnifier.vue";
+import Magnifier from './magnifier.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default Magnifier;

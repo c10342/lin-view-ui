@@ -1,0 +1,106 @@
+.lin-view-ui-doc {
+  .logs-container {
+    ul {
+      > li {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .demo-icon {
+    .icon-list {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-left: 0;
+      margin: 0;
+      > li {
+        box-sizing: border-box;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #eee;
+        margin-right: -1px;
+        margin-bottom: -1px;
+
+        width: 16.66%;
+        height: 120px;
+        font-size: 14px;
+        color: #666;
+        cursor: pointer;
+        &:hover {
+          color: #1989fa;
+        }
+        > i {
+          font-size: 22px;
+        }
+        > span {
+          font-size: 12px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  .demo-button {
+    .row {
+      .lin-button {
+        margin-right: 10px;
+      }
+      & + .row {
+        margin-top: 20px;
+      }
+    }
+  }
+  .demo-layout {
+    .grid-content {
+      border-radius: 4px;
+      min-height: 36px;
+    }
+    .bg-purple-dark {
+      background: #99a9bf;
+    }
+    .bg-purple {
+      background: #d3dce6;
+    }
+    .bg-purple-light {
+      background: #e5e9f2;
+    }
+
+    .mb-10 {
+      margin-bottom: 10px;
+    }
+
+    .mb-30 {
+      margin-bottom: 30px;
+    }
+  }
+  .demo-link {
+    .link-group {
+      margin-top: 10px;
+      > a {
+        margin-right: 10px;
+      }
+    }
+  }
+  .demo-badge {
+    .badge-item {
+      margin-top: 10px;
+      margin-right: 40px;
+    }
+  }
+  .demo-input {
+    .lin-input {
+      width: 250px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      .lin-input + .lin-input {
+        margin-top: 20px;
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
-import Skeleton from './skeleton.vue'
+import Skeleton from './skeleton.vue';
 
-import './style.scss'
+import './style.scss';
 
-
-export default Skeleton
+export default Skeleton;

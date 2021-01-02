@@ -1,28 +1,6 @@
-<style lang="scss" scoped>
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
-}
-.bg-purple-dark {
-  background: #99a9bf;
-}
-.bg-purple {
-  background: #d3dce6;
-}
-.bg-purple-light {
-  background: #e5e9f2;
-}
-
-.mb-10 {
-  margin-bottom: 10px;
-}
-
-.mb-30 {
-  margin-bottom: 30px;
-}
-</style>
-
 # Layout 布局
+
+[[toc]]
 
 ---
 
@@ -35,7 +13,14 @@
 使用单一分栏创建基础的栅格布局。通过 `row` 和 `col` 组件，并通过 `col` 组件的 `span` 属性我们就可以自由地组合布局。
 
 <div class="demo-block">
-    <lin-row class="mb-10">
+    
+</div>
+
+::: demo
+
+```vue
+<template>
+  <lin-row class="mb-10">
     <lin-col :span="24">
       <div class="grid-content bg-purple-dark"></div>
     </lin-col>
@@ -71,47 +56,7 @@
       <div class="grid-content bg-purple-light"></div>
     </lin-col>
   </lin-row>
-</div>
-
-::: demo
-
-```html
-<lin-row class="mb-10">
-  <lin-col :span="24">
-    <div class="grid-content bg-purple-dark"></div>
-  </lin-col>
-</lin-row>
-<lin-row class="mb-10">
-  <lin-col :span="8">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="8">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-  <lin-col :span="8">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
-<lin-row>
-  <lin-col :span="4">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="4">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-  <lin-col :span="4">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="4">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-  <lin-col :span="4">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="4">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-</lin-row>
+</template>
 ```
 
 :::
@@ -121,40 +66,25 @@
 分栏之间存在间隔
 Row 组件 提供 `gutter` 属性来指定每一栏之间的间隔，默认间隔为 0。
 
-<div class="demo-block">
-<lin-row :gutter="20">
-    <lin-col :span="6">
-        <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="6">
-        <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="6">
-        <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="6">
-        <div class="grid-content bg-purple"></div>
-    </lin-col>
-    </lin-row>
-</div>
-
 ::: demo
 
-```html
-<lin-row :gutter="20">
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
+```vue
+<template>
+  <lin-row :gutter="20">
+    <lin-col :span="6">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :span="6">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :span="6">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :span="6">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+  </lin-row>
+</template>
 ```
 
 :::
@@ -163,78 +93,44 @@ Row 组件 提供 `gutter` 属性来指定每一栏之间的间隔，默认间�
 
 通过基础的 1/24 分栏任意扩展组合形成较为复杂的混合布局。
 
-<div class="demo-block">
-  <lin-row :gutter="20" class="mb-10">
-    <lin-col :span="16">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="8">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-  </lin-row>
-  <lin-row :gutter="20" class="mb-10">
-    <lin-col :span="8">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="8">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="4">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="4">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-  </lin-row>
-  <lin-row :gutter="20" class="mb-10">
-    <lin-col :span="4">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="16">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="4">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-  </lin-row>
-</div>
-
 ::: demo
 
-```html
-<lin-row :gutter="20" class="mb-10">
-  <lin-col :span="16">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="8">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
-<lin-row :gutter="20" class="mb-10">
-  <lin-col :span="8">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="8">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="4">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="4">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
-<lin-row :gutter="20" class="mb-10">
-  <lin-col :span="4">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="16">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="4">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
+```vue
+<template>
+  <lin-row :gutter="20" class="mb-10">
+    <lin-col :span="16">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :span="8">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+  </lin-row>
+  <lin-row :gutter="20" class="mb-10">
+    <lin-col :span="8">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :span="8">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :span="4">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :span="4">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+  </lin-row>
+  <lin-row :gutter="20" class="mb-10">
+    <lin-col :span="4">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :span="16">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :span="4">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+  </lin-row>
+</template>
 ```
 
 :::
@@ -243,7 +139,10 @@ Row 组件 提供 `gutter` 属性来指定每一栏之间的间隔，默认间�
 
 支持偏移指定的栏数。通过制定 col 组件的 `offset` 属性可以指定分栏偏移的栏数。
 
-<div class="demo-block">
+::: demo
+
+```vue
+<template>
   <lin-row :gutter="20" class="mb-10">
     <lin-col :span="6">
       <div class="grid-content bg-purple"></div>
@@ -265,32 +164,7 @@ Row 组件 提供 `gutter` 属性来指定每一栏之间的间隔，默认间�
       <div class="grid-content bg-purple"></div>
     </lin-col>
   </lin-row>
-</div>
-
-::: demo
-
-```html
-<lin-row :gutter="20" class="mb-10">
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6" :offset="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
-<lin-row :gutter="20" class="mb-10">
-  <lin-col :span="6" :offset="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6" :offset="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
-<lin-row :gutter="20" class="mb-10">
-  <lin-col :span="12" :offset="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
+</template>
 ```
 
 :::
@@ -300,7 +174,10 @@ Row 组件 提供 `gutter` 属性来指定每一栏之间的间隔，默认间�
 通过 flex 布局来对分栏进行灵活的对齐。
 将 `type` 属性赋值为 'flex'，可以启用 flex 布局，并可通过 `justify` 属性来指定 start, center, end, between, around 其中的值来定义子元素的排版方式。
 
-<div class="demo-block">
+::: demo
+
+```vue
+<template>
   <lin-row type="flex" class="mb-10">
     <lin-col :span="6">
       <div class="grid-content bg-purple"></div>
@@ -356,66 +233,7 @@ Row 组件 提供 `gutter` 属性来指定每一栏之间的间隔，默认间�
       <div class="grid-content bg-purple"></div>
     </lin-col>
   </lin-row>
-</div>
-
-::: demo
-
-```html
-<lin-row type="flex" class="mb-10">
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
-<lin-row type="flex" class="mb-10" justify="center">
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
-<lin-row type="flex" class="mb-10" justify="end">
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
-<lin-row type="flex" class="mb-10" justify="between">
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
-<lin-row type="flex" class="mb-10" justify="around">
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-  <lin-col :span="6">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-</lin-row>
+</template>
 ```
 
 :::
@@ -424,40 +242,25 @@ Row 组件 提供 `gutter` 属性来指定每一栏之间的间隔，默认间�
 
 参照了 Bootstrap 的 响应式设计，预设了五个响应尺寸：`xs`、`sm`、`md`、`lg` 和 `xl`。
 
-<div class="demo-block">
-<lin-row :gutter="10">
-<lin-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-    <div class="grid-content bg-purple"></div>
-</lin-col>
-<lin-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-    <div class="grid-content bg-purple-light"></div>
-</lin-col>
-<lin-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-    <div class="grid-content bg-purple"></div>
-</lin-col>
-<lin-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-    <div class="grid-content bg-purple-light"></div>
-</lin-col>
-</lin-row>
-</div>
-
 ::: demo
 
-```html
-<lin-row :gutter="10">
-  <lin-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-  <lin-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-    <div class="grid-content bg-purple"></div>
-  </lin-col>
-  <lin-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-    <div class="grid-content bg-purple-light"></div>
-  </lin-col>
-</lin-row>
+```vue
+<template>
+  <lin-row :gutter="10">
+    <lin-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+      <div class="grid-content bg-purple-light"></div>
+    </lin-col>
+    <lin-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
+      <div class="grid-content bg-purple"></div>
+    </lin-col>
+    <lin-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+      <div class="grid-content bg-purple-light"></div>
+    </lin-col>
+  </lin-row>
+</template>
 ```
 
 :::

@@ -11,22 +11,21 @@
 
 <script>
 export default {
-  name: "LinChoiceOption",
+  name: 'LinChoiceOption',
   props: {
     label: {
       type: String,
-      default: "",
+      default: '',
     },
     disabled: {
       type: Boolean,
       default: false,
     },
   },
-  provide(){
-      return {
-          option:this
-      }
-  }
+  provide() {
+    return {
+      option: this,
+    };
+  },
 };
 </script>
-

@@ -1,5 +1,5 @@
-import DropdownItem from './dropdown-item.vue'
+import DropdownItem from './dropdown-item.vue';
 
-import './style.scss'
+import './style.scss';
 
-export default DropdownItem
+export default DropdownItem;

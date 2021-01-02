@@ -1,5 +1,5 @@
-import InputNumber from "./input-number.vue";
+import InputNumber from './input-number.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default InputNumber;

@@ -1,4 +1,4 @@
-import ShowMore from "./src/show-more.js";
+import ShowMore from './src/show-more.js';
 
 ShowMore.install = (Vue) => Vue.component(ShowMore.name, ShowMore);
 

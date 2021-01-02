@@ -1,9 +1,9 @@
-import { VUE_META_KEY_NAME } from "./src/common/constants.js";
-import updateMetaInfo from "./src/metaOperate/updateMetaInfo.js";
+import { VUE_META_KEY_NAME } from './src/common/constants.js';
+import updateMetaInfo from './src/metaOperate/updateMetaInfo.js';
 
 const VueMetaInfo = {};
 
-VueMetaInfo.install = function(Vue) {
+VueMetaInfo.install = function install(Vue) {
   Vue.mixin({
     beforeCreate() {
       const meta = this.$options[VUE_META_KEY_NAME];
@@ -15,12 +15,12 @@ VueMetaInfo.install = function(Vue) {
         this._hasMetaInfo = true;
 
         // 判断组件内是否存在computed对象
-        if (typeof this.$options.computed === "undefined") {
+        if (typeof this.$options.computed === 'undefined') {
           this.$options.computed = {};
         }
 
         // 为组件添加computed对象并返回meta信息
-        if (type === "function") {
+        if (type === 'function') {
           this.$options.computed.$metaInfo = meta;
         } else {
           this.$options.computed.$metaInfo = () => meta;
@@ -36,7 +36,7 @@ VueMetaInfo.install = function(Vue) {
     mounted() {
       // dom挂载之后，继续监听meta信息。如果发生变化，继续更新
       if (this._hasMetaInfo) {
-        this.$watch("$metaInfo", () => {
+        this.$watch('$metaInfo', () => {
           updateMetaInfo(this.$metaInfo);
         });
       }

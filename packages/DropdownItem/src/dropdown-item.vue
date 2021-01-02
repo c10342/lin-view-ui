@@ -1,7 +1,11 @@
 <template>
   <div
     @click="onItemClick"
-    :class="[{'lin-dropdown-item-divided':divided},{'lin-dropdown-item-disabled':disabled},'lin-dropdown-item']"
+    :class="[
+    {'lin-dropdown-item-divided':divided},
+    {'lin-dropdown-item-disabled':disabled},
+    'lin-dropdown-item'
+    ]"
   >
     <span :class="[icon,'lin-dropdown-item-icon']" v-if="icon"></span>
     <div>
@@ -12,7 +16,7 @@
 
 <script>
 export default {
-  name: "LinDropdownItem",
+  name: 'LinDropdownItem',
   props: {
     disabled: {
       type: Boolean,
@@ -23,10 +27,10 @@ export default {
       default: false,
     },
     command: null,
-    icon:{
-        type:String,
-        default:''
-    }
+    icon: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     hideOnClick() {
@@ -44,10 +48,9 @@ export default {
         if (this.hideOnClick) {
           this.dropdown.hideList();
         }
-        this.dropdown.$emit("command", this.command);
+        this.dropdown.$emit('command', this.command);
       }
     },
   },
 };
 </script>
-

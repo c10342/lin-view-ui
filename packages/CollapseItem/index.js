@@ -1,4 +1,4 @@
-import CollpaseItem from "./src/collapse-item.js";
+import CollpaseItem from './src/collapse-item.js';
 
 CollpaseItem.install = (Vue) => Vue.component(CollpaseItem.name, CollpaseItem);
 

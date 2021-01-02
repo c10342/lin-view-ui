@@ -20,8 +20,6 @@ if(lang === langType.en){
   locale.use(zhLang)
 }
 
-// locale.use(lang)
-
 Vue.use(LinVueUi);
 
 import "highlight.js/styles/color-brewer.css";

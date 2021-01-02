@@ -6,11 +6,11 @@ export default {
     },
     disabledBeforeDate: {
       type: [Date, String, Number],
-      default: "",
+      default: '',
     },
     disabledAfterDate: {
       type: [Date, String, Number],
-      default: "",
+      default: '',
     },
     disabledRangeDate: {
       type: Array,
@@ -39,8 +39,8 @@ export default {
         }
       }
       if (
-        Array.isArray(this.disabledRangeDate) &&
-        this.disabledRangeDate.length !== 0
+        Array.isArray(this.disabledRangeDate)
+        && this.disabledRangeDate.length !== 0
       ) {
         if (this.disabledRangeDate.length === 1) {
           const d = new Date(this.disabledRangeDate[0]);
@@ -57,9 +57,7 @@ export default {
         }
       }
       if (Array.isArray(this.disabledDate) && this.disabledDate.length !== 0) {
-        const isdisable = this.disabledDate.some((item) => {
-          return this.isEqual(item, date);
-        });
+        const isdisable = this.disabledDate.some((item) => this.isEqual(item, date));
         if (isdisable) {
           return true;
         }
@@ -74,34 +72,34 @@ export default {
         date2 = new Date(date2);
       }
       const newDate1 = new Date(
-        `${date1.getFullYear()}/${date1.getMonth()}/${date1.getDate()}`
+        `${date1.getFullYear()}/${date1.getMonth()}/${date1.getDate()}`,
       );
       const newDate2 = new Date(
-        `${date2.getFullYear()}/${date2.getMonth()}/${date2.getDate()}`
+        `${date2.getFullYear()}/${date2.getMonth()}/${date2.getDate()}`,
       );
       const obj = {
-        'Equal':newDate1.getTime() == newDate2.getTime(),
-        'EqAndLt':newDate1 <= newDate2,
-        'EqAndGt':newDate1 >= newDate2,
-        'Lt':newDate1 < newDate2,
-        'Gt':newDate1 > newDate2
-      }
-      return obj[type]
+        Equal: newDate1.getTime() === newDate2.getTime(),
+        EqAndLt: newDate1 <= newDate2,
+        EqAndGt: newDate1 >= newDate2,
+        Lt: newDate1 < newDate2,
+        Gt: newDate1 > newDate2,
+      };
+      return obj[type];
     },
     isEqual(date1, date2) {
-      return this.compareDate(date1,date2,'Equal')
+      return this.compareDate(date1, date2, 'Equal');
     },
     isEqAndLt(date1, date2) {
-      return this.compareDate(date1,date2,'EqAndLt')
+      return this.compareDate(date1, date2, 'EqAndLt');
     },
     isEqAndGt(date1, date2) {
-      return this.compareDate(date1,date2,'EqAndGt')
+      return this.compareDate(date1, date2, 'EqAndGt');
     },
     isLt(date1, date2) {
-      return this.compareDate(date1,date2,'Lt')
+      return this.compareDate(date1, date2, 'Lt');
     },
     isGt(date1, date2) {
-      return this.compareDate(date1,date2,'Gt')
+      return this.compareDate(date1, date2, 'Gt');
     },
   },
 };

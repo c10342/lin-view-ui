@@ -15,10 +15,11 @@
 </template>
 
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from 'src/mixins/locale.js';
+
 export default {
-  name: "LinShowMore",
-  mixins:[LocaleMixin],
+  name: 'LinShowMore',
+  mixins: [LocaleMixin],
   props: {
     len: {
       type: Number,
@@ -26,13 +27,13 @@ export default {
     },
     text: {
       type: String,
-      default: "",
+      default: '',
     },
     showText: {
-      type: String
+      type: String,
     },
     hiddenText: {
-      type: String
+      type: String,
     },
     allowFold: Boolean,
   },
@@ -43,19 +44,16 @@ export default {
   },
   methods: {
     showMore() {
-      this.textLen =
-        this.textLen === this.text.length ? this.len : this.text.length;
+      this.textLen = this.textLen === this.text.length ? this.len : this.text.length;
     },
   },
   filters: {
     filterText(value, textLen) {
       if (textLen !== -1 && textLen < value.length) {
-        return value.substring(0, textLen) + "...";
+        return `${value.substring(0, textLen)}...`;
       }
       return value;
     },
   },
 };
 </script>
-
-

@@ -1,5 +1,5 @@
-import FormItem from "./form-item.vue";
+import FormItem from './form-item.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default FormItem;

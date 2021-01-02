@@ -21,11 +21,11 @@
 
 <script>
 export default {
-  name: "LinLink",
+  name: 'LinLink',
   props: {
     type: {
       type: String,
-      default: "default",
+      default: 'default',
     },
     underline: {
       type: Boolean,
@@ -37,11 +37,11 @@ export default {
     },
     href: {
       type: String,
-      default: "",
+      default: '',
     },
     icon: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   methods: {

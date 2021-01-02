@@ -19,10 +19,10 @@
 
 <script>
 export default {
-  name: "LinLoadingBar",
+  name: 'LinLoadingBar',
   data() {
     return {
-      easing: "linear",
+      easing: 'linear',
       isError: false,
       showSpinner: true,
       totalProgress: 0,

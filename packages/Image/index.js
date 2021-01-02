@@ -1,4 +1,4 @@
-import Image from "./src/image.js";
+import Image from './src/image.js';
 
 Image.install = (Vue) => Vue.component(Image.name, Image);
 

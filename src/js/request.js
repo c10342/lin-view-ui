@@ -10,7 +10,7 @@
  */
 function request({
   url,
-  method = "post",
+  method = 'post',
   data,
   headers = {},
   requestList,
@@ -24,7 +24,7 @@ function request({
       xhr.setRequestHeader(key, headers[key]);
     });
     xhr.send(data);
-    xhr.onload = function(e) {
+    xhr.onload = function onload(e) {
       // 将请求成功的xhr从列表中删除
       if (requestList) {
         const xhrIndex = requestList.findIndex((item) => item === xhr);
@@ -34,7 +34,9 @@ function request({
         if (window.localStorage.getItem(fileHash)) {
           try {
             upList = JSON.parse(window.localStorage.getItem(fileHash));
-          } catch (error) {}
+          } catch (error) {
+            // todo
+          }
         }
         upList.push(hash);
 
@@ -46,7 +48,7 @@ function request({
     if (requestList) {
       requestList.push(xhr);
     }
-    xhr.onerror = function(e) {
+    xhr.onerror = function onerror(e) {
       reject(e);
     };
   });

@@ -1,14 +1,15 @@
-import "./style.scss";
+import './style.scss';
 
-import "src/fonts/iconfont.css";
+import 'src/fonts/iconfont.css';
 
-import getDate from "src/utils/getDate.js";
-import getYearMonthDay from "src/utils/getYearMonthDay.js";
-import dispatch from "src/utils/dispatch.js";
-import LocaleMixin from "src/mixins/locale.js";
-import DateMixin from "src/mixins/date.js";
+import getDate from 'src/utils/getDate.js';
+import getYearMonthDay from 'src/utils/getYearMonthDay.js';
+import dispatch from 'src/utils/dispatch.js';
+import LocaleMixin from 'src/mixins/locale.js';
+import DateMixin from 'src/mixins/date.js';
+
 export default {
-  name: "LinDatePicker",
+  name: 'LinDatePicker',
   mixins: [LocaleMixin, DateMixin],
   render(h) {
     const {
@@ -39,20 +40,20 @@ export default {
       top,
     } = this;
     return (
-      <div v-click-outside class="lin-date-picker" ref="container">
+    <div v-click-outside class="lin-date-picker" ref="container">
         {showInput && (
           <div class="lin-date-picker-input-box" ref="boxContainer">
             <i class="lin-icon-date lin-date-picker-icon"></i>
             <input
               onClick={focus}
               readonly
-              placeholder={placeholder || t("LinViewUI.DatePicker.placeholder")}
+              placeholder={placeholder || t('LinViewUI.DatePicker.placeholder')}
               type="text"
               value={formatDate}
               disabled={disabled}
               class={[
-                { "lin-date-picker-disabled": disabled },
-                "lin-date-picker-input",
+                { 'lin-date-picker-disabled': disabled },
+                'lin-date-picker-input',
               ]}
             />
           </div>
@@ -64,8 +65,8 @@ export default {
               style={{ top }}
               ref="popupContainer"
               class={[
-                { "lin-date-picker-absolute": !showAlways },
-                "lin-date-picker-pannel",
+                { 'lin-date-picker-absolute': !showAlways },
+                'lin-date-picker-pannel',
               ]}
             >
               <div class="lin-date-picker-pannel-header">
@@ -74,11 +75,11 @@ export default {
                 <span>
                   <span>
                     {time.year}
-                    {t("LinViewUI.DatePicker.year")}
+                    {t('LinViewUI.DatePicker.year')}
                   </span>
                   <span class="lin-date-picker-month">
                     {time.month}
-                    {t("LinViewUI.DatePicker.month")}
+                    {t('LinViewUI.DatePicker.month')}
                   </span>
                 </span>
                 <span onClick={nextMonth} class="lin-icon-rightarrow"></span>
@@ -87,8 +88,7 @@ export default {
               <div class="lin-date-picker-pannel-content">
                 <div class="lin-date-picker-pannel-days">
                   <div class="lin-date-picker-pannel-row">
-                    {weekDays.map((w) => {
-                      return (
+                    {weekDays.map((w) => (
                         <span
                           style={{
                             width: `${cellWidth}px`,
@@ -99,12 +99,10 @@ export default {
                         >
                           {w}
                         </span>
-                      );
-                    })}
+                    ))}
                   </div>
 
-                  {[1, 2, 3, 4, 5, 6].map((i) => {
-                    return (
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
                       <div key={i}>
                         {[1, 2, 3, 4, 5, 6, 7].map((j) => {
                           const currentTime = visibeDays[(i - 1) * 7 + (j - 1)];
@@ -118,30 +116,28 @@ export default {
                               }}
                               onClick={() => selectDate(currentTime)}
                               class={[
-                                "lin-date-picker-pannel-cell lin-date-picker-cell",
+                                'lin-date-picker-pannel-cell lin-date-picker-cell',
                                 {
-                                  "lin-date-picker-not-current-month": !isCurrentMonth(
-                                    currentTime
+                                  'lin-date-picker-not-current-month': !isCurrentMonth(
+                                    currentTime,
                                   ),
                                 },
                                 {
-                                  "lin-date-picker-current-val": isCurrentval(
-                                    currentTime
+                                  'lin-date-picker-current-val': isCurrentval(
+                                    currentTime,
                                   ),
                                 },
                                 {
-                                  "lin-date-picker-disabled-date": isDisabledDate(
-                                    currentTime
+                                  'lin-date-picker-disabled-date': isDisabledDate(
+                                    currentTime,
                                   ),
                                 },
                                 {
-                                  "lin-date-picker-radius": radius,
+                                  'lin-date-picker-radius': radius,
                                 },
                               ]}
                             >
-                              {info ? (
-                                info
-                              ) : (
+                              {info || (
                                 <span class="lin-date-picker-info">
                                   {currentTime.getDate()}
                                 </span>
@@ -150,8 +146,7 @@ export default {
                           );
                         })}
                       </div>
-                    );
-                  })}
+                  ))}
                 </div>
               </div>
             </div>
@@ -171,10 +166,10 @@ export default {
           }
         };
         el.handler = handler;
-        document.addEventListener("click", handler);
+        document.addEventListener('click', handler);
       },
       unbind(el) {
-        document.removeEventListener("click", el.handler);
+        document.removeEventListener('click', el.handler);
       },
     },
   },
@@ -197,38 +192,18 @@ export default {
     },
     value: {
       type: [Date, String, Number],
-      default: "",
+      default: '',
     },
-    // disabled: {
-    //   type: Boolean,
-    //   default: false,
-    // },
     placeholder: {
       type: String,
     },
-    // disabledBeforeDate: {
-    //   type: [Date, String, Number],
-    //   default: "",
-    // },
-    // disabledAfterDate: {
-    //   type: [Date, String, Number],
-    //   default: "",
-    // },
-    // disabledRangeDate: {
-    //   type: Array,
-    //   default: () => [],
-    // },
-    // disabledDate: {
-    //   type: Array,
-    //   default: () => [],
-    // },
     renderInfo: {
       type: Function,
       default: null,
     },
     format: {
       type: String,
-      default: "string",
+      default: 'string',
     },
     showFormat: {
       type: Function,
@@ -247,13 +222,13 @@ export default {
     const { year, month } = getYearMonthDay(this.handleValue());
     return {
       weekDays: [
-        this.t("LinViewUI.DatePicker.sun"),
-        this.t("LinViewUI.DatePicker.mon"),
-        this.t("LinViewUI.DatePicker.tue"),
-        this.t("LinViewUI.DatePicker.wed"),
-        this.t("LinViewUI.DatePicker.thu"),
-        this.t("LinViewUI.DatePicker.fir"),
-        this.t("LinViewUI.DatePicker.sat"),
+        this.t('LinViewUI.DatePicker.sun'),
+        this.t('LinViewUI.DatePicker.mon'),
+        this.t('LinViewUI.DatePicker.tue'),
+        this.t('LinViewUI.DatePicker.wed'),
+        this.t('LinViewUI.DatePicker.thu'),
+        this.t('LinViewUI.DatePicker.fir'),
+        this.t('LinViewUI.DatePicker.sat'),
       ],
       isVisible: false,
       time: { year, month },
@@ -263,18 +238,18 @@ export default {
   computed: {
     currentValue() {
       if (!this.value) {
-        return "";
+        return '';
       }
-      if (typeof this.value === "string" || typeof this.value === "number") {
+      if (typeof this.value === 'string' || typeof this.value === 'number') {
         return new Date(this.value);
-      } else if (this.value instanceof Date) {
+      } if (this.value instanceof Date) {
         return this.value;
       }
-      return "";
+      return '';
     },
     visibeDays() {
       const { year, month } = getYearMonthDay(
-        getDate(this.time.year, this.time.month, 1)
+        getDate(this.time.year, this.time.month, 1),
       );
       //   本月1号的时间对象
       const currentFirstDay = getDate(year, month, 1);
@@ -294,22 +269,18 @@ export default {
         return this.showFormat(this.currentValue);
       }
       if (!this.currentValue) {
-        return "";
+        return '';
       }
       const { year, month, day } = getYearMonthDay(this.currentValue);
       return `${year}-${month}-${day}`;
     },
   },
-  // mounted() {
-  //   this.setPlacement();
-  // },
   methods: {
     setPlacement() {
       this.$nextTick(() => {
         const popupContainer = this.$refs.popupContainer;
         const container = this.$refs.container;
-        const bottom =
-          window.innerHeight - container.getBoundingClientRect().bottom;
+        const bottom = window.innerHeight - container.getBoundingClientRect().bottom;
         const top = container.getBoundingClientRect().top;
         if (bottom > popupContainer.clientHeight) {
           this.setDownTop();
@@ -328,57 +299,13 @@ export default {
       const popupContainer = this.$refs.popupContainer;
       this.top = `${-popupContainer.clientHeight}px`;
     },
-    // isDisabledDate(date) {
-    //   if (this.disabled) {
-    //     return true;
-    //   }
-    //   if (this.disabledBeforeDate) {
-    //     const d = new Date(this.disabledBeforeDate);
-    //     if (d >= date) {
-    //       return true;
-    //     }
-    //   }
-    //   if (this.disabledAfterDate) {
-    //     const d = new Date(this.disabledAfterDate);
-    //     if (d <= date) {
-    //       return true;
-    //     }
-    //   }
-    //   if (
-    //     Array.isArray(this.disabledRangeDate) &&
-    //     this.disabledRangeDate.length !== 0
-    //   ) {
-    //     if (this.disabledRangeDate.length === 1) {
-    //       const d = new Date(this.disabledRangeDate[0]);
-    //       if (d <= date) {
-    //         return true;
-    //       }
-    //     }
-    //     if (this.disabledRangeDate.length >= 2) {
-    //       const d1 = new Date(this.disabledRangeDate[0]);
-    //       const d2 = new Date(this.disabledRangeDate[1]);
-    //       if (d1 <= date && d2 >= date) {
-    //         return true;
-    //       }
-    //     }
-    //   }
-    //   if (Array.isArray(this.disabledDate) && this.disabledDate.length !== 0) {
-    //     const isdisable = this.disabledDate.some((item) => {
-    //       return new Date(item).getTime() == date.getTime();
-    //     });
-    //     if (isdisable) {
-    //       return true;
-    //     }
-    //   }
-    //   return false;
-    // },
     handleValue() {
       if (!this.value) {
         return new Date();
       }
-      if (typeof this.value === "string" || typeof this.value === "number") {
+      if (typeof this.value === 'string' || typeof this.value === 'number') {
         return new Date(this.value);
-      } else if (this.value instanceof Date) {
+      } if (this.value instanceof Date) {
         return this.value;
       }
       return new Date();
@@ -387,29 +314,29 @@ export default {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setFullYear(d.getFullYear() - 1);
       this.setTime(d);
-      this.$emit("prevYear", d);
+      this.$emit('prevYear', d);
     },
     prevMonth() {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setMonth(d.getMonth() - 1);
       this.setTime(d);
-      this.$emit("prevMonth", d);
+      this.$emit('prevMonth', d);
     },
     nextMonth() {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setMonth(d.getMonth() + 1);
       this.setTime(d);
-      this.$emit("nextMonth", d);
+      this.$emit('nextMonth', d);
     },
     nextYear() {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setFullYear(d.getFullYear() + 1);
       this.setTime(d);
-      this.$emit("nextYear", d);
+      this.$emit('nextYear', d);
     },
     isCurrentMonth(date) {
       const { year, month } = getYearMonthDay(
-        getDate(this.time.year, this.time.month, 1)
+        getDate(this.time.year, this.time.month, 1),
       );
       const { year: y, month: m } = getYearMonthDay(date);
       return year === y && month === m;
@@ -426,19 +353,19 @@ export default {
       const { year, month, day } = getYearMonthDay(date);
       this.time = { year, month };
       let d;
-      if (this.format === "string") {
+      if (this.format === 'string') {
         d = `${year}-${month}-${day}`;
-      } else if (this.format === "number") {
+      } else if (this.format === 'number') {
         d = new Date(date).getTime();
       } else {
         d = date;
       }
-      this.$emit("input", d);
+      this.$emit('input', d);
       dispatch.call(this, {
-        eventName: "validate",
-        componentName: "LinFormItem",
+        eventName: 'validate',
+        componentName: 'LinFormItem',
       });
-      this.$emit("select", d);
+      this.$emit('select', d);
       this.blur();
     },
     focus() {
@@ -448,14 +375,14 @@ export default {
       this.isVisible = !this.isVisible;
       if (this.isVisible) {
         this.setPlacement();
-        this.$emit("focus");
+        this.$emit('focus');
       } else {
-        this.$emit("blur");
+        this.$emit('blur');
       }
     },
     blur() {
       this.isVisible = false;
-      this.$emit("blur");
+      this.$emit('blur');
     },
     setTime(date) {
       const { year, month } = getYearMonthDay(date);

@@ -1,6 +1,5 @@
-import Dropdown from './src/dropdown.js'
+import Dropdown from './src/dropdown.js';
 
-Dropdown.install = Vue=>Vue.component(Dropdown.name,Dropdown)
+Dropdown.install = (Vue) => Vue.component(Dropdown.name, Dropdown);
 
-
-export default Dropdown
+export default Dropdown;

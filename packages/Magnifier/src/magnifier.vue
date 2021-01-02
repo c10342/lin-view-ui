@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: "LinMagnifier",
+  name: 'LinMagnifier',
   props: {
     smallPic: {
       type: String,
@@ -67,7 +67,7 @@ export default {
     bigBoxStyle() {
       return {
         ...this.bigStyle,
-        left: parseFloat(this.smallStyle.width) + 10 + "px",
+        left: `${parseFloat(this.smallStyle.width) + 10}px`,
       };
     },
   },
@@ -80,26 +80,24 @@ export default {
     onMouseover() {
       this.showMoveMask = true;
       this.showBigImg = true;
-      this.$emit("show");
+      this.$emit('show');
     },
     onMouseout() {
       this.showMoveMask = false;
       this.showBigImg = false;
-      this.$emit("hide");
+      this.$emit('hide');
     },
     onMousemove(event) {
-      const smallBox = this.smallBox;
-      const moveMask = this.moveMask;
-      const bigBox = this.bigBox;
-      let x =
-        event.clientX -
-        smallBox.getBoundingClientRect().left -
-        moveMask.offsetWidth / 2;
+      const { smallBox } = this;
+      const { moveMask } = this;
+      const { bigBox } = this;
+      let x = event.clientX
+        - smallBox.getBoundingClientRect().left
+        - moveMask.offsetWidth / 2;
 
-      let y =
-        event.clientY -
-        smallBox.getBoundingClientRect().top -
-        moveMask.offsetHeight / 2;
+      let y = event.clientY
+        - smallBox.getBoundingClientRect().top
+        - moveMask.offsetHeight / 2;
       // let x =
       //   event.clientX -
       //   smallBox.offsetParent.offsetLeft -
@@ -129,9 +127,8 @@ export default {
         top: `${(-y * bigBox.offsetHeight) / smallBox.offsetHeight}px`,
       };
 
-      this.$emit("move", event);
+      this.$emit('move', event);
     },
   },
 };
 </script>
-

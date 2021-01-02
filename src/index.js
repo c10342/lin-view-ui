@@ -1,11 +1,11 @@
-import locale from "./locale/index.js";
+import locale from './locale/index.js';
 
-import "src/fonts/iconfont.css";
+import 'src/fonts/iconfont.css';
 
 const testComps = require.context(
-  "../packages",
+  '../packages',
   true,
-  /^\.(\/\w+)\/index\.js$/
+  /^\.(\/\w+)\/index\.js$/,
 );
 
 const reg = /^\.\/(\w+)\/index\.js$/;
@@ -26,7 +26,7 @@ const install = (Vue, opts = {}) => {
 };
 
 // 判断是否是直接引入文件,如果是，就不用调用 Vue.use()
-if (typeof window !== "undefined" && window.Vue) {
+if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 

@@ -1,5 +1,5 @@
-import Form from "./form.vue";
+import Form from './form.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default Form;

@@ -4,7 +4,7 @@
  */
 const getYearMonthDay = (date) => {
   if (!date) {
-    return "";
+    return '';
   }
   const year = date.getFullYear();
   const month = date.getMonth() + 1;

@@ -1,6 +1,5 @@
-import TabGroup from './src/tab-group.js'
+import TabGroup from './src/tab-group.js';
 
-TabGroup.install = Vue=>Vue.component(TabGroup.name,TabGroup)
+TabGroup.install = (Vue) => Vue.component(TabGroup.name, TabGroup);
 
-
-export default TabGroup
+export default TabGroup;

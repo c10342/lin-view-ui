@@ -29,23 +29,22 @@
 </template>
 
 <script>
-import Hls from "hls.js";
-import flvjs from "flv.js/dist/flv.js";
-import PlayerControls from "./video-player-controls";
-import PlayerAnimation from "./video-player-animation";
-import PlayerImage from "./video-player-image";
-import PlayerLoading from "./video-player-loading";
-import PlayerTip from "./video-player-tip";
-import { cloneDeep, isEqual } from "lodash";
-import LocaleMixin from "src/mixins/locale.js";
+import Hls from 'hls.js';
+import flvjs from 'flv.js/dist/flv.js';
+import { cloneDeep, isEqual } from 'lodash';
+import LocaleMixin from 'src/mixins/locale.js';
+import PlayerControls from './video-player-controls.vue';
+import PlayerAnimation from './video-player-animation.vue';
+import PlayerImage from './video-player-image.vue';
+import PlayerLoading from './video-player-loading.vue';
+import PlayerTip from './video-player-tip.vue';
 import {
-  isBrowserFullscreen,
-  isBrowserFullscreenEnabled,
   enterBrowserFullScreen,
   exitBrowserFullscreen,
-} from "./utils";
+} from './utils.js';
+
 export default {
-  name: "LinVideoPlayer",
+  name: 'LinVideoPlayer',
   mixins: [LocaleMixin],
   components: {
     PlayerControls,
@@ -68,11 +67,11 @@ export default {
       isWebFullscreen: false,
       speedList: [],
       videoList: [],
-      imgSrc: "",
+      imgSrc: '',
       isLoading: false,
-      tip: "",
+      tip: '',
       tipTime: 2000,
-      type: "hls",
+      type: 'hls',
       autoplay: false,
       currentDefinitionVideo: null,
       definitionList: [],
@@ -98,15 +97,15 @@ export default {
     },
     initPlayer(data) {
       this.isLoading = true;
-      if (typeof this.customType === "function") {
+      if (typeof this.customType === 'function') {
         this.initCustomType(data);
       } else {
         const videoSrc = data.url;
-        if (this.type === "hls") {
+        if (this.type === 'hls') {
           this.initHls(videoSrc);
-        } else if (this.type === "flv") {
+        } else if (this.type === 'flv') {
           this.initFlv(videoSrc);
-        } else if (this.type === "mp4") {
+        } else if (this.type === 'mp4') {
           this.video.src = videoSrc;
         }
       }
@@ -118,28 +117,26 @@ export default {
         return;
       }
       this.isLoading = true;
-      this.tip = `${this.t("LinViewUI.VideoPlayer.switch")} ${label} ${this.t(
-        "LinViewUI.VideoPlayer.quality"
+      this.tip = `${this.t('LinViewUI.VideoPlayer.switch')} ${label} ${this.t(
+        'LinViewUI.VideoPlayer.quality',
       )}`;
       this.getImage();
-      if (typeof this.customType === "function") {
+      if (typeof this.customType === 'function') {
         this.initCustomType(data);
-      } else {
-        if (this.type === "hls") {
-          this.initHls(videoSrc);
-        } else if (this.type === "flv") {
-          this.destoryFlv();
-          this.initFlv(videoSrc);
-        } else if (this.type === "mp4") {
-          this.video.src = videoSrc;
-        }
+      } else if (this.type === 'hls') {
+        this.initHls(videoSrc);
+      } else if (this.type === 'flv') {
+        this.destoryFlv();
+        this.initFlv(videoSrc);
+      } else if (this.type === 'mp4') {
+        this.video.src = videoSrc;
       }
 
       this.seek(this.currentTime);
     },
     initHls(videoSrc, hlsParams = {}) {
       if (!Hls) {
-        throw "Hls is not defind";
+        throw new ReferenceError('Hls is not defind');
       }
       if (Hls.isSupported()) {
         if (!this.hls) {
@@ -147,18 +144,18 @@ export default {
         }
         this.hls.loadSource(videoSrc);
         this.hls.attachMedia(this.video);
-      } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
+      } else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
         this.video.src = videoSrc;
       }
     },
     initFlv(videoSrc, flvParams = {}) {
       if (!flvjs) {
-        throw "flvjs is not defind";
+        throw new ReferenceError('flvjs is not defind');
       }
       if (flvjs.isSupported()) {
         flvjs.LoggingControl.enableAll = false;
         this.flv = flvjs.createPlayer({
-          type: "flv",
+          type: 'flv',
           url: videoSrc,
           isLive: this.live,
           ...flvParams,
@@ -176,7 +173,7 @@ export default {
           speedList: this.speedList,
           videoList: this.videoList,
           live: this.live,
-        })
+        }),
       );
     },
     onTimeUpdate() {
@@ -188,7 +185,7 @@ export default {
       this.totalTime = duration;
     },
     onCanplaythrough() {
-      this.imgSrc = "";
+      this.imgSrc = '';
       this.isLoading = false;
       if (this.isPlaying) {
         this.play();
@@ -200,7 +197,7 @@ export default {
       this.isLoading = true;
     },
     onprogress() {
-      if (this.video && this.video.buffered?.length != 0) {
+      if (this.video && this.video.buffered?.length !== 0) {
         const preloadTime = this.video?.buffered.end(0) || 0;
         this.preloadTime = preloadTime;
       }
@@ -235,14 +232,14 @@ export default {
     getImage() {
       if (this.video) {
         try {
-          let canvas = document.createElement("canvas");
-          let ctx = canvas.getContext("2d");
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
           canvas.width = this.video.clientWidth;
           canvas.height = this.video.clientHeight;
           ctx.drawImage(this.video, 0, 0, canvas.width, canvas.height);
           this.imgSrc = canvas.toDataURL();
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       }
     },
@@ -283,9 +280,9 @@ export default {
         volume = volume > 1 ? 1 : volume;
         this.video.volume = volume;
         this.setTip(
-          `${this.t("LinViewUI.VideoPlayer.volume")}${Math.round(
-            volume * 100
-          )}%`
+          `${this.t('LinViewUI.VideoPlayer.volume')}${Math.round(
+            volume * 100,
+          )}%`,
         );
         return volume;
       }

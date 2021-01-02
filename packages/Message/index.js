@@ -1,8 +1,7 @@
-import Message from './src/message.js'
+import Message from './src/message.js';
 
+Message.install = (Vue) => {
+  Vue.prototype.$Message = Message;
+};
 
-Message.install = Vue=>(Vue.prototype.$Message = Message);
-
-
-
-export default Message
+export default Message;

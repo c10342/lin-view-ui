@@ -1,4 +1,4 @@
-import LoadingConstruct from "./construct.js";
+import LoadingConstruct from './construct.js';
 
 let instance = null;
 

@@ -1,5 +1,5 @@
-import  Skeleton from './src/skeleton.js'
+import Skeleton from './src/skeleton.js';
 
-Skeleton.install = Vue=>Vue.component(Skeleton.name,Skeleton)
+Skeleton.install = (Vue) => Vue.component(Skeleton.name, Skeleton);
 
-export default Skeleton
+export default Skeleton;

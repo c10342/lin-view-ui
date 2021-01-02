@@ -4,11 +4,11 @@
   </div>
 </template>
 
-
 <script>
-import { cloneDeep } from "lodash";
+import { cloneDeep } from 'lodash';
+
 export default {
-  name: "LinCollapseGroup",
+  name: 'LinCollapseGroup',
   props: {
     value: {
       type: [Array, String],
@@ -25,18 +25,18 @@ export default {
   computed: {
     collapseValue: {
       get() {
-        if (typeof this.value === "string" || Array.isArray(this.value)) {
+        if (typeof this.value === 'string' || Array.isArray(this.value)) {
           return this.value;
         }
         return this.valueData;
       },
       set(val) {
-        if (typeof this.value === "string" || Array.isArray(this.value)) {
-          this.$emit("input", this.handleData(val));
+        if (typeof this.value === 'string' || Array.isArray(this.value)) {
+          this.$emit('input', this.handleData(val));
         } else {
           this.valueData = this.handleData(val);
         }
-        this.$emit("onChange", val);
+        this.$emit('onChange', val);
       },
     },
   },
@@ -47,7 +47,7 @@ export default {
   },
   data() {
     return {
-      valueData: "",
+      valueData: '',
     };
   },
   methods: {
@@ -57,7 +57,7 @@ export default {
         if (data.length > 0) {
           da = data[0];
         } else {
-          da = "";
+          da = '';
         }
       } else {
         da = data;

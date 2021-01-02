@@ -1,14 +1,10 @@
-<style lang="scss" scoped>
-ul {
-  >li{
-      margin-bottom:20px;
-  }
-}
-</style>
-
 # 更新日志
 
+[[toc]]
+
 ---
+
+<div class='logs-container'>
 
 - 2020/11/22
   1. `MessageBox` 弹框组件新增拖拽功能
@@ -109,3 +105,5 @@ ul {
   1. 新增 `Dialog` 对话框组件
 - 2020/04/06
   1. 新增 `Button` 按钮组件
+
+</div>

@@ -13,37 +13,36 @@
   </div>
 </template>
 
-
 <script>
 export default {
-  name: "LinChoiceItem",
+  name: 'LinChoiceItem',
   props: {
     label: {
       type: String,
-      default: "",
+      default: '',
     },
     value: {
       type: [Object, String, Number],
     },
-    disabled:{
-      type:Boolean,
-      default:false
-    }
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   inject: {
     group: {
-      default: "",
+      default: '',
     },
-    option:{
-      default:''
-    }
+    option: {
+      default: '',
+    },
   },
   computed: {
-    itemDisabled(){
-      if(this.option && this.option.disabled){
-        return true
+    itemDisabled() {
+      if (this.option && this.option.disabled) {
+        return true;
       }
-      return this.disabled
+      return this.disabled;
     },
     itemValue() {
       const valueKey = this.group?.valueKey;
@@ -60,14 +59,14 @@ export default {
       }
       return value;
     },
-    itemLabel(){
-      return this.label?this.label:this.value
-    }
+    itemLabel() {
+      return this.label ? this.label : this.value;
+    },
   },
   methods: {
     onItemClick() {
       if (this.group && !this.itemDisabled) {
-        this.group.emitInputEvent(this.value)
+        this.group.emitInputEvent(this.value);
       }
     },
   },
@@ -83,4 +82,3 @@ export default {
   },
 };
 </script>
-

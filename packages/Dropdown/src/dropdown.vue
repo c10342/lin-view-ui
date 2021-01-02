@@ -27,14 +27,15 @@
 </template>
 
 <script>
-import documentClick from "src/mixins/documentClick.js";
+import documentClick from 'src/mixins/documentClick.js';
+
 export default {
-  name: "LinDropdown",
+  name: 'LinDropdown',
   mixins: [documentClick],
   props: {
     trigger: {
       type: String,
-      default: "hover",
+      default: 'hover',
     },
     hideOnClick: {
       type: Boolean,
@@ -58,17 +59,17 @@ export default {
   },
   methods: {
     onMouseEnter() {
-      if (this.trigger === "hover") {
+      if (this.trigger === 'hover') {
         this.showList();
       }
     },
     onMouseLeave() {
-      if (this.trigger === "hover") {
+      if (this.trigger === 'hover') {
         this.hideList();
       }
     },
     onLabelClick() {
-      if (this.trigger === "click") {
+      if (this.trigger === 'click') {
         this.toggleList();
       }
     },
@@ -76,28 +77,27 @@ export default {
       if (!this.isShow) {
         this.isShow = true;
         this.setPlacement();
-        this.$emit("visible-change", true);
+        this.$emit('visible-change', true);
       }
     },
 
     setDownTop() {
       this.isDown = true;
-      const dropdownLabel = this.$refs.dropdownLabel;
+      const { dropdownLabel } = this.$refs;
       this.top = `${dropdownLabel.clientHeight + 8}px`;
     },
     setUpTop() {
       this.isDown = false;
-      const dropdownContainer = this.$refs.dropdownContainer;
+      const { dropdownContainer } = this.$refs;
       this.top = `${-(dropdownContainer.clientHeight + 10)}px`;
     },
     setPlacement() {
       this.$nextTick(() => {
-        const dropdownContainer = this.$refs.dropdownContainer;
-        const notOutsideContainer = this.$refs.notOutsideContainer;
-        const bottom =
-          window.innerHeight -
-          notOutsideContainer.getBoundingClientRect().bottom;
-        const top = notOutsideContainer.getBoundingClientRect().top;
+        const { dropdownContainer } = this.$refs;
+        const { notOutsideContainer } = this.$refs;
+        const bottom = window.innerHeight
+          - notOutsideContainer.getBoundingClientRect().bottom;
+        const { top } = notOutsideContainer.getBoundingClientRect();
         if (bottom > dropdownContainer.clientHeight) {
           this.setDownTop();
         } else if (top > dropdownContainer.clientHeight) {
@@ -110,7 +110,7 @@ export default {
     hideList() {
       if (this.isShow) {
         this.isShow = false;
-        this.$emit("visible-change", false);
+        this.$emit('visible-change', false);
       }
     },
     toggleList() {
@@ -121,7 +121,7 @@ export default {
       }
     },
     onDocumentClick(event) {
-      const notOutsideContainer = this.$refs.notOutsideContainer;
+      const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
         this.hideList();
       }

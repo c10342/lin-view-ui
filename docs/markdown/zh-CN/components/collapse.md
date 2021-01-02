@@ -1,16 +1,6 @@
-<script>
-export default {
-  data(){
-    return {
-      value1:'1',
-      value2:'2',
-      value3:'3'
-    }
-  }
-};
-</script>
-
 # Collapse 折叠面板
+
+[[toc]]
 
 ---
 
@@ -18,47 +8,36 @@ export default {
 
 默认可以同时展开多个面板，可以设置默认展开第几个。
 
-<div class='demo-block'>
-<lin-collapse-group v-model='value1'>
-    <lin-collapse-item name="1">
-    史蒂夫·乔布斯
-    <div slot="content">史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。</div>
-    </lin-collapse-item>
-    <lin-collapse-item name="2">
-    史蒂夫·乔布斯
-    <div slot="content">史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。</div>
-    </lin-collapse-item>
-</lin-collapse-group>
-</div>
-
 :::demo
 
-```html
-<lin-collapse-group v-model="value1">
-  <lin-collapse-item name="1">
-    史蒂夫·乔布斯
-    <div slot="content">
-      史蒂夫·乔布斯（Steve
-      Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
-    </div>
-  </lin-collapse-item>
-  <lin-collapse-item name="2">
-    史蒂夫·乔布斯
-    <div slot="content">
-      史蒂夫·乔布斯（Steve
-      Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
-    </div>
-  </lin-collapse-item>
-</lin-collapse-group>
+```vue
+<template>
+  <lin-collapse-group v-model="value1">
+    <lin-collapse-item name="1">
+      史蒂夫·乔布斯
+      <div slot="content">
+        史蒂夫·乔布斯（Steve
+        Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
+      </div>
+    </lin-collapse-item>
+    <lin-collapse-item name="2">
+      史蒂夫·乔布斯
+      <div slot="content">
+        史蒂夫·乔布斯（Steve
+        Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
+      </div>
+    </lin-collapse-item>
+  </lin-collapse-group>
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        value1: "1",
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      value1: "1",
+    };
+  },
+};
 </script>
 ```
 
@@ -68,47 +47,36 @@ export default {
 
 通过设置属性 `accordion` 开启手风琴模式，每次只能打开一个面板。
 
-<div class='demo-block'>
-<lin-collapse-group accordion v-model='value2'>
-    <lin-collapse-item name="1">
-    史蒂夫·乔布斯
-    <div slot="content">史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。</div>
-    </lin-collapse-item>
-    <lin-collapse-item name="2">
-    史蒂夫·乔布斯
-    <div slot="content">史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。</div>
-    </lin-collapse-item>
-</lin-collapse-group>
-</div>
-
 :::demo
 
-```html
-<lin-collapse-group accordion v-model="value2">
-  <lin-collapse-item name="1">
-    史蒂夫·乔布斯
-    <div slot="content">
-      史蒂夫·乔布斯（Steve
-      Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
-    </div>
-  </lin-collapse-item>
-  <lin-collapse-item name="2">
-    史蒂夫·乔布斯
-    <div slot="content">
-      史蒂夫·乔布斯（Steve
-      Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
-    </div>
-  </lin-collapse-item>
-</lin-collapse-group>
+```vue
+<template>
+  <lin-collapse-group accordion v-model="value2">
+    <lin-collapse-item name="1">
+      史蒂夫·乔布斯
+      <div slot="content">
+        史蒂夫·乔布斯（Steve
+        Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
+      </div>
+    </lin-collapse-item>
+    <lin-collapse-item name="2">
+      史蒂夫·乔布斯
+      <div slot="content">
+        史蒂夫·乔布斯（Steve
+        Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
+      </div>
+    </lin-collapse-item>
+  </lin-collapse-group>
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        value2: "1",
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      value2: "1",
+    };
+  },
+};
 </script>
 ```
 
@@ -118,47 +86,36 @@ export default {
 
 设置属性 `simple` 可以显示为不带边框和背景色的简洁模式。
 
-<div class='demo-block'>
-<lin-collapse-group simple v-model='value3'>
-    <lin-collapse-item name="1">
-    史蒂夫·乔布斯
-    <div slot="content">史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。</div>
-    </lin-collapse-item>
-    <lin-collapse-item name="2">
-    史蒂夫·乔布斯
-    <div slot="content">史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。</div>
-    </lin-collapse-item>
-</lin-collapse-group>
-</div>
-
 :::demo
 
-```html
-<lin-collapse-group simple v-model="value3">
-  <lin-collapse-item name="1">
-    史蒂夫·乔布斯
-    <div slot="content">
-      史蒂夫·乔布斯（Steve
-      Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
-    </div>
-  </lin-collapse-item>
-  <lin-collapse-item name="2">
-    史蒂夫·乔布斯
-    <div slot="content">
-      史蒂夫·乔布斯（Steve
-      Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
-    </div>
-  </lin-collapse-item>
-</lin-collapse-group>
+```vue
+<template>
+  <lin-collapse-group simple v-model="value3">
+    <lin-collapse-item name="1">
+      史蒂夫·乔布斯
+      <div slot="content">
+        史蒂夫·乔布斯（Steve
+        Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
+      </div>
+    </lin-collapse-item>
+    <lin-collapse-item name="2">
+      史蒂夫·乔布斯
+      <div slot="content">
+        史蒂夫·乔布斯（Steve
+        Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。
+      </div>
+    </lin-collapse-item>
+  </lin-collapse-group>
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        value3: "1",
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      value3: "1",
+    };
+  },
+};
 </script>
 ```
 

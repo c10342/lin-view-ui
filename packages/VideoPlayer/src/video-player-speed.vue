@@ -21,10 +21,11 @@
 </template>
 
 <script>
-import LocaleMixin from "src/mixins/locale.js";
-import { cloneDeep } from "lodash";
+import LocaleMixin from 'src/mixins/locale.js';
+import { cloneDeep } from 'lodash';
+
 export default {
-  name: "LinVideoPlayerSpeed",
+  name: 'LinVideoPlayerSpeed',
   mixins: [LocaleMixin],
   inject: {
     videoPlayer: {
@@ -66,7 +67,7 @@ export default {
     switchSpeed(data) {
       const list = cloneDeep(this.list);
       const index = list.findIndex(
-        (item) => item.label === data.label && item.value === data.value
+        (item) => item.label === data.label && item.value === data.value,
       );
       list.splice(index, 1);
       list.push(this.currentSpeed);
@@ -76,11 +77,10 @@ export default {
     },
     setSpeed() {
       if (this.videoPlayer) {
-        let playbackRate = this.currentSpeed.value;
+        const playbackRate = this.currentSpeed.value;
         this.videoPlayer.setSpeed(playbackRate);
       }
     },
   },
 };
 </script>
-

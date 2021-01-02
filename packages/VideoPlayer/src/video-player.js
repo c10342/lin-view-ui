@@ -1,19 +1,19 @@
-import Vue from "vue";
-import VideoPlayer from "./video-player.vue";
-import broadcast from "src/utils/broadcast.js";
+import Vue from 'vue';
+import broadcast from 'src/utils/broadcast.js';
+import VideoPlayer from './video-player.vue';
 
 import {
   handleType,
   handleEl,
   handleSpeedList,
   handleVideoList,
-} from "./utils.js";
+} from './utils.js';
+
+import './style.scss';
+
+import 'src/fonts/iconfont.css';
 
 const VideoPlayerConstructor = Vue.extend(VideoPlayer);
-
-import "./style.scss";
-
-import "src/fonts/iconfont.css";
 
 class LinVideoPlayer {
   hls = null;
@@ -43,7 +43,9 @@ class LinVideoPlayer {
   live = false;
 
   constructor(options) {
-    const { el, type, speedList = [], videoList = [], customType } = options;
+    const {
+      el, type, speedList = [], videoList = [], customType,
+    } = options;
     handleEl(el);
     handleType(type, customType);
     handleSpeedList(speedList);
@@ -69,7 +71,7 @@ class LinVideoPlayer {
     this.type = type;
     this.el = el;
     this.live = live;
-    if (typeof customType === "function") {
+    if (typeof customType === 'function') {
       this.customType = customType;
     }
   }
@@ -85,7 +87,7 @@ class LinVideoPlayer {
         customType: this.customType,
       },
     });
-    if (typeof this.el === "string") {
+    if (typeof this.el === 'string') {
       this.container = document.querySelector(this.el);
     } else {
       this.container = this.el;
@@ -136,7 +138,7 @@ class LinVideoPlayer {
     const { videoList = [] } = options;
     handleVideoList(videoList);
     this.videoList = videoList;
-    if ("autoplay" in options) {
+    if ('autoplay' in options) {
       this.autoplay = options.autoplay;
     }
     if (this.instance) {
@@ -172,9 +174,9 @@ class LinVideoPlayer {
     const volume = this.instance?.setVolume(percent);
     if (volume > -1 && this.instance) {
       broadcast.call(this.instance, {
-        eventName: "onvolumechange",
+        eventName: 'onvolumechange',
         params: volume,
-        componentName: "LinVideoPlayerVolume",
+        componentName: 'LinVideoPlayerVolume',
       });
     }
   }
@@ -184,16 +186,16 @@ class LinVideoPlayer {
     const self = this;
     return {
       request(type) {
-        if (type === "web") {
+        if (type === 'web') {
           self.instance?.setWebFullScreen();
-        } else if (type === "browser") {
+        } else if (type === 'browser') {
           self.instance?.setBrowserFullScreen();
         }
       },
       cancel(type) {
-        if (type === "web") {
+        if (type === 'web') {
           self.instance?.cancelWebFullScreen();
-        } else if (type === "browser") {
+        } else if (type === 'browser') {
           self.instance?.cancelBrowserFullScreen();
         }
       },

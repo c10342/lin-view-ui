@@ -13,9 +13,10 @@ import {
   isBrowserFullscreenEnabled,
   enterBrowserFullScreen,
   exitBrowserFullscreen,
-} from "./utils";
+} from './utils.js';
+
 export default {
-  name: "LinVideoPlayerFullscreen",
+  name: 'LinVideoPlayerFullscreen',
   inject: {
     videoPlayer: {
       default: null,
@@ -49,4 +50,3 @@ export default {
   },
 };
 </script>
-

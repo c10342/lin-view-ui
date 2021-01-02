@@ -1,32 +1,43 @@
 <template>
   <div class="lin-form-item">
-    <label v-if="label" class="lin-form-item-label" :style="{width: itemLabelWidth}">{{label}}</label>
+    <label
+    v-if="label"
+    class="lin-form-item-label"
+    :style="{width: itemLabelWidth}">
+    {{label}}
+    </label>
     <div class="lin-form-item-content">
       <slot></slot>
     </div>
     <transition name="lin-formItem-fade">
-      <p v-if="errorMsg" class="lin-form-item-errormsg" :style="{left:itemLabelWidth}">{{errorMsg}}</p>
+      <p
+      v-if="errorMsg"
+      class="lin-form-item-errormsg"
+      :style="{left:itemLabelWidth}">
+      {{errorMsg}}
+      </p>
     </transition>
   </div>
 </template>
 
 <script>
-import Schema from "async-validator";
+import Schema from 'async-validator';
+
 export default {
-  name: "LinFormItem",
+  name: 'LinFormItem',
   props: {
     label: String,
     prop: String,
-    labelWidth:String
+    labelWidth: String,
   },
-  inject: ["Form"],
+  inject: ['Form'],
   data() {
     return {
-      errorMsg: "",
+      errorMsg: '',
     };
   },
   mounted() {
-    this.$on("validate", this.validate);
+    this.$on('validate', this.validate);
   },
   methods: {
     validate() {
@@ -40,8 +51,8 @@ export default {
       return schema
         .validate({ [this.prop]: value })
         .then(() => {
-          this.errorMsg = "";
-          this.Form.$emit("validate", {
+          this.errorMsg = '';
+          this.Form.$emit('validate', {
             result: true,
             [this.prop]: value,
           });
@@ -49,7 +60,7 @@ export default {
         })
         .catch(({ fields }) => {
           this.errorMsg = fields[this.prop][0].message;
-          this.Form.$emit("validate", {
+          this.Form.$emit('validate', {
             result: false,
             [this.prop]: value,
             ...fields,
@@ -58,14 +69,14 @@ export default {
         });
     },
     clearValidate() {
-      this.errorMsg = "";
+      this.errorMsg = '';
     },
   },
   computed: {
     itemLabelWidth() {
       if (this.label) {
-        if(this.labelWidth){
-          return this.labelWidth
+        if (this.labelWidth) {
+          return this.labelWidth;
         }
         return this.Form.labelWidth;
       }
@@ -74,4 +85,3 @@ export default {
   },
 };
 </script>
-

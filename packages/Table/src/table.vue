@@ -14,11 +14,12 @@
 </template>
 
 <script>
-import LinTableHeader from "./TableHeader.js";
-import LinTableBody from "./TableBody.js";
-import { cloneDeep } from "lodash";
+import { cloneDeep } from 'lodash';
+import LinTableHeader from './TableHeader.js';
+import LinTableBody from './TableBody.js';
+
 export default {
-  name: "LinTable",
+  name: 'LinTable',
   components: {
     LinTableHeader,
     LinTableBody,
@@ -64,20 +65,20 @@ export default {
   methods: {
     emitSelectChange() {
       const data = cloneDeep(this.selectData);
-      this.$emit("selection-change", data);
+      this.$emit('selection-change', data);
     },
     emitSelectAll() {
       const data = cloneDeep(this.selectData);
-      this.$emit("select-all", data);
+      this.$emit('select-all', data);
     },
     emitSelect(data) {
-      this.$emit("select", cloneDeep(data));
+      this.$emit('select', cloneDeep(data));
     },
     emitrRowClick(data) {
-      this.$emit("row-click", cloneDeep(data));
+      this.$emit('row-click', cloneDeep(data));
     },
     emitrCellClick(data) {
-      this.$emit("cell-click", cloneDeep(data));
+      this.$emit('cell-click', cloneDeep(data));
     },
     clearSelection() {
       this.selectData = [];
@@ -88,7 +89,7 @@ export default {
       this.$refs.linTableBodyComp.toggleAllSelection();
       this.selectData = this.dataSource.filter((item) => {
         const flag = !!this.selectData.find(
-          (data) => data[this.valueKey] === item[this.valueKey]
+          (data) => data[this.valueKey] === item[this.valueKey],
         );
         return !flag;
       });

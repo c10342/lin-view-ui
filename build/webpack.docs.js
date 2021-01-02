@@ -1,41 +1,107 @@
-const { resolve } = require("./utils");
+const path = require("path");
+
+const fs = require("fs");
+
+const { merge } = require("webpack-merge");
+
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
 const baseConfig = require("./webpack.base");
 
-module.exports = {
-  pages: {
-    docs: {
-      // page 的入口
-      entry: "docs/main.js",
-      // 模板来源
-      template: "public/index.html",
-      // 在 dist/index.html 的输出
-      filename: "index.html",
-      // 当使用 title 选项时，
-      // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
-      title: "组件文档",
-      // 在这个页面中包含的块，默认情况下会包含
-      // 提取出来的通用 chunk 和 vendor chunk。
-      chunks: ["chunk-vendors", "chunk-common", "docs"],
-    },
+const output = path.resolve(__dirname, "../docs-dist");
+const entry = path.resolve(__dirname, "../docs/main.js");
+
+const isDev = process.env.NODE_ENV === "development";
+
+const devConfig = {
+  mode: isDev ? "development" : "production",
+  entry,
+  output: {
+    path: output,
+    filename: isDev ? "js/[name].js" : "js/[name].[hash].js",
   },
-  productionSourceMap: false,
-  outputDir: resolve("docs-dist"),
+  devtool: isDev ? "cheap-module-eval-source-map" : false,
   devServer: {
     open: true,
+    overlay: true, //错误直接显示在浏览器中
+    contentBase: output,
+    hot: true,
+    historyApiFallback: true,
   },
-  configureWebpack: {
-    mode: "production",
-    resolve: baseConfig.resolve,
+  module: {
+    rules: [
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: "vue-loader",
+          },
+          {
+            loader: path.resolve(__dirname, "./md-loader/index.js"),
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+            },
+          },
+          "postcss-loader",
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 2,
+            },
+          },
+          "postcss-loader",
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|eot|ttf|svg|woff|woff2)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: "[name].[hash].[ext]",
+            outputPath: "images/",
+            limit: 10240,
+            esModule:false
+          },
+        },
+      },
+    ],
   },
-  css: {
-    sourceMap: false,
-    extract: {
-      filename: "css/style.css",
-    },
-  },
-  chainWebpack: (config) => {
-    baseConfig.handleJs(config);
-
-    baseConfig.handleMD(config);
-  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "../docs/public/index.html"),
+      filename: "index.html",
+    }),
+  ],
 };
+
+if (!isDev) {
+  devConfig.plugins.push(new CleanWebpackPlugin());
+  devConfig.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: "css/[name].[contenthash].css",
+      chunkFilename: "css/[name].[contenthash].chunk.css",
+    })
+  );
+}
+
+module.exports = merge(baseConfig, devConfig);

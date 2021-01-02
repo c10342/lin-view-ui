@@ -1,11 +1,11 @@
-import dispatch from "src/utils/dispatch.js";
+import dispatch from 'src/utils/dispatch.js';
 
 const validate = {
   created() {
-    this.$on("input", () => {
+    this.$on('input', () => {
       dispatch.call(this, {
-        eventName: "validate",
-        componentName: "LinFormItem",
+        eventName: 'validate',
+        componentName: 'LinFormItem',
       });
     });
   },

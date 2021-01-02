@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <sideNav class="nav"></sideNav>
-    <router-view class="view beautyScroll"></router-view>
+    <router-view
+      :class="['view', 'beautyScroll', componentClass]"
+    ></router-view>
     <lin-backtop :key="$route.name" target=".container .view"></lin-backtop>
   </div>
 </template>
@@ -13,6 +15,11 @@ export default {
   components: {
     mainHeader,
     sideNav,
+  },
+  computed: {
+    componentClass() {
+      return `component-${this.$route.path.split("/").pop()}`;
+    },
   },
 };
 </script>
@@ -32,10 +39,14 @@ export default {
   .view {
     float: left;
     width: calc(100% - 215px);
-    padding: 32px $padding 48px 48px;
+    padding: 32px 250px 48px 48px;
     box-sizing: border-box;
     height: calc(100vh - #{$header-height});
     overflow-y: auto;
+  }
+
+  .component-icon {
+    padding-right: 100px;
   }
 }
 

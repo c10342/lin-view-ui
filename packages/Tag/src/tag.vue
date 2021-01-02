@@ -18,19 +18,19 @@
 
 <script>
 export default {
-  name: "LinTag",
+  name: 'LinTag',
   props: {
     type: {
       type: String,
-      default: "primary",
+      default: 'primary',
     },
     text: {
       type: String,
-      default: "",
+      default: '',
     },
     color: {
       type: String,
-      default: "",
+      default: '',
     },
     closable: {
       type: Boolean,
@@ -38,7 +38,7 @@ export default {
     },
     effect: {
       type: String,
-      default: "light",
+      default: 'light',
     },
   },
   data() {
@@ -48,15 +48,14 @@ export default {
   },
   methods: {
     onTagclick() {
-      this.$emit("click");
+      this.$emit('click');
     },
     onCloseClick() {
       this.show = false;
     },
     afterLeave() {
-      this.$emit("close");
+      this.$emit('close');
     },
   },
 };
 </script>
-

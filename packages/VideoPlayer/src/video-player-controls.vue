@@ -30,16 +30,17 @@
 </template>
 
 <script>
-import PlayerProcess from "./video-player-process";
-import PlayerFullscreen from "./video-player-fullscreen";
-import PlayerSpeed from "./video-player-speed";
-import PlayerVolume from "./video-player-volume";
-import PlayerDefinition from "./video-player-definition";
-import secondToTime from "src/utils/secondToTime.js";
-import LocaleMixin from 'src/mixins/locale.js'
+import secondToTime from 'src/utils/secondToTime.js';
+import LocaleMixin from 'src/mixins/locale.js';
+import PlayerProcess from './video-player-process.vue';
+import PlayerFullscreen from './video-player-fullscreen.vue';
+import PlayerSpeed from './video-player-speed.vue';
+import PlayerVolume from './video-player-volume.vue';
+import PlayerDefinition from './video-player-definition.vue';
+
 export default {
-  name: "LinVideoPlayerControls",
-  mixins:[LocaleMixin],
+  name: 'LinVideoPlayerControls',
+  mixins: [LocaleMixin],
   filters: {
     secondToTime,
   },
@@ -101,8 +102,7 @@ export default {
     },
   },
   beforeDestroy() {
-    this.videoPlayer.$off("playingStatus", this.onPlayingStatus);
+    this.videoPlayer.$off('playingStatus', this.onPlayingStatus);
   },
 };
 </script>
-

@@ -27,10 +27,9 @@
   </div>
 </template>
 
-
 <script>
 export default {
-  name: "LinPanel",
+  name: 'LinPanel',
   props: {
     options: {
       type: Array,
@@ -41,37 +40,37 @@ export default {
       default: 0,
     },
   },
-  inject: ["cascader"],
+  inject: ['cascader'],
   computed: {
     valueKey() {
       if (this.cascader) {
         return this.cascader.valueKey;
       }
-      return "id";
+      return 'id';
     },
     label() {
       if (this.cascader) {
         return this.cascader.label;
       }
-      return "label";
+      return 'label';
     },
     disabled() {
       if (this.cascader) {
         return this.cascader.disabled;
       }
-      return "disabled";
+      return 'disabled';
     },
     leaf() {
       if (this.cascader) {
         return this.cascader.leaf;
       }
-      return "leaf";
+      return 'leaf';
     },
     children() {
       if (this.cascader) {
         return this.cascader.children;
       }
-      return "children";
+      return 'children';
     },
     valueArr() {
       if (this.cascader) {
@@ -93,11 +92,11 @@ export default {
     },
   },
   created() {
-    this.$on("displayPuop", (data) => {
+    this.$on('displayPuop', (data) => {
       if (data && data[this.level]) {
-        const valueKey = this.valueKey;
+        const { valueKey } = this;
         const index = this.options.findIndex(
-          (item) => item[valueKey] === data[this.level][valueKey]
+          (item) => item[valueKey] === data[this.level][valueKey],
         );
         if (index > -1) {
           const currentData = this.options[index];
@@ -108,8 +107,8 @@ export default {
           this.current = currentData || {};
           this.$nextTick(() => {
             this.$children.forEach((child) => {
-              if (child.$options.name === "LinPanel") {
-                child.$emit("displayPuop", this.valueArr);
+              if (child.$options.name === 'LinPanel') {
+                child.$emit('displayPuop', this.valueArr);
               }
             });
           });
@@ -135,7 +134,7 @@ export default {
       if (data[this.disabled]) {
         return;
       }
-      const valueKey = this.valueKey;
+      const { valueKey } = this;
       if (data[valueKey] === this.current[valueKey]) {
         return;
       }
@@ -145,8 +144,9 @@ export default {
           this.loading = true;
           const result = await this.lazyLoad({ level: this.level + 1, data });
           const index = this.options.findIndex(
-            (item) => item[valueKey] === data[valueKey]
+            (item) => item[valueKey] === data[valueKey],
           );
+          // eslint-disable-next-line
           this.options[index][this.children] = result;
           this.loading = false;
         }
@@ -178,7 +178,7 @@ export default {
       return data[this.children] && data[this.children].length !== 0;
     },
     showLoading(data) {
-      const valueKey = this.valueKey;
+      const { valueKey } = this;
       return data[valueKey] === this.current[valueKey] && this.loading;
     },
   },

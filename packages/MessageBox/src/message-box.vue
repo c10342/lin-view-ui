@@ -76,14 +76,14 @@
   </transition>
 </template>
 
-
 <script>
-import Button from "packages/Button/index.js";
-import Input from "packages/Input/index.js";
-import LocaleMixin from "src/mixins/locale.js";
-import DragMixin from "src/mixins/drag.js";
+import Button from 'packages/Button/index.js';
+import Input from 'packages/Input/index.js';
+import LocaleMixin from 'src/mixins/locale.js';
+import DragMixin from 'src/mixins/drag.js';
+
 export default {
-  name: "LinMessageBox",
+  name: 'LinMessageBox',
   mixins: [LocaleMixin, DragMixin],
   components: {
     [Button.name]: Button,
@@ -126,7 +126,7 @@ export default {
     inputPlaceholder: String,
     inputType: {
       type: String,
-      default: "text",
+      default: 'text',
     },
     inputValue: String,
     inputPattern: RegExp,
@@ -136,19 +136,19 @@ export default {
     confirmButtonLoading: Boolean,
     loadingSize: {
       type: String,
-      default: "11px",
+      default: '11px',
     },
   },
   data() {
     return {
       show: false,
-      value: "",
-      errorMessage: "",
+      value: '',
+      errorMessage: '',
       showErrorMessage: false,
       dialogStyle: {
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%,-50%)",
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%,-50%)',
       },
     };
   },
@@ -157,27 +157,27 @@ export default {
       if (this.cancelButtonText) {
         return this.cancelButtonText;
       }
-      return this.t("LinViewUI.MessageBox.cancelButtonText");
+      return this.t('LinViewUI.MessageBox.cancelButtonText');
     },
     myConfirmButtonText() {
       if (this.confirmButtonText) {
         return this.confirmButtonText;
       }
-      return this.t("LinViewUI.MessageBox.confirmButtonText");
+      return this.t('LinViewUI.MessageBox.confirmButtonText');
     },
     myInputErrorMessage() {
       if (this.inputErrorMessage) {
         return this.inputErrorMessage;
       }
-      return this.t("LinViewUI.MessageBox.inputErrorMessage");
+      return this.t('LinViewUI.MessageBox.inputErrorMessage');
     },
   },
   mounted() {
     if (this.closeOnPressEscape) {
-      window.addEventListener("keyup", this.onESCDown);
+      window.addEventListener('keyup', this.onESCDown);
     }
     if (this.closeOnHashChange) {
-      window.addEventListener("hashchange", this.hashchange);
+      window.addEventListener('hashchange', this.hashchange);
     }
     if (this.inputValue) {
       this.value = this.inputValue;
@@ -188,13 +188,13 @@ export default {
   },
   methods: {
     emitClose(by) {
-      this.$emit("close", {
+      this.$emit('close', {
         by,
         value: this.value,
       });
     },
     handleClose(by) {
-      if (typeof this.beforeClose === "function") {
+      if (typeof this.beforeClose === 'function') {
         const done = () => {
           this.show = false;
           this.emitClose(by);
@@ -207,39 +207,39 @@ export default {
     },
     onMaskClick() {
       if (this.closeOnClickModal) {
-        this.handleClose("mask");
+        this.handleClose('mask');
       }
     },
     onCancelBtnClick() {
-      this.handleClose("cancelButton");
+      this.handleClose('cancelButton');
     },
     onConfirmBtnClick() {
       if (this.showInput && (this.inputPattern || this.inputValidator)) {
         this.onInputChange(this.value);
         if (!this.showErrorMessage) {
-          this.handleClose("confirmButton");
+          this.handleClose('confirmButton');
         }
       } else {
-        this.handleClose("confirmButton");
+        this.handleClose('confirmButton');
       }
     },
     onIconClick() {
-      this.handleClose("icon");
+      this.handleClose('icon');
     },
     onESCDown(event) {
       if (event.keyCode === 27) {
-        this.handleClose("esc");
+        this.handleClose('esc');
       }
     },
     hashchange() {
-      this.handleClose("hash");
+      this.handleClose('hash');
     },
     onInputChange(data) {
-      if (typeof this.inputValidator === "function") {
+      if (typeof this.inputValidator === 'function') {
         const result = this.inputValidator(data);
-        if (typeof result === "boolean") {
+        if (typeof result === 'boolean') {
           this.showErrorMessage = !result;
-        } else if (typeof result === "string") {
+        } else if (typeof result === 'string') {
           if (result) {
             this.showErrorMessage = true;
             this.errorMessage = result;
@@ -256,10 +256,10 @@ export default {
   },
   beforeDestroy() {
     if (this.closeOnPressEscape) {
-      window.removeEventListener("keyup", this.onESCDown);
+      window.removeEventListener('keyup', this.onESCDown);
     }
     if (this.closeOnHashChange) {
-      window.removeEventListener("hashchange", this.hashchange);
+      window.removeEventListener('hashchange', this.hashchange);
     }
   },
 };

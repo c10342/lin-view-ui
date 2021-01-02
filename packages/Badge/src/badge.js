@@ -1,6 +1,5 @@
-import Badge from './badge.vue'
+import Badge from './badge.vue';
 
-import './style.scss'
+import './style.scss';
 
-
-export default Badge
+export default Badge;

@@ -1,5 +1,5 @@
-import HoverEffect from "./hover-effect.vue";
+import HoverEffect from './hover-effect.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default HoverEffect;

@@ -28,9 +28,10 @@
 </template>
 
 <script>
-import LocaleMixin from "src/mixins/locale.js";
+import LocaleMixin from 'src/mixins/locale.js';
+
 export default {
-  name: "LinLimitTextarea",
+  name: 'LinLimitTextarea',
   mixins: [LocaleMixin],
   props: {
     placeholder: {
@@ -50,7 +51,7 @@ export default {
     },
     value: {
       type: [String, Number],
-      default: "",
+      default: '',
     },
   },
   data() {
@@ -61,18 +62,16 @@ export default {
   },
   methods: {
     handleInput(event) {
-      const value = event.target.value;
+      const { value } = event.target;
       if (this.maxLen === -1) {
         // 不限制长度
-        this.$emit("input", value);
-        this.$emit("change", value);
-      } else {
+        this.$emit('input', value);
+        this.$emit('change', value);
+      } else if (value.length <= this.maxLen || !this.isCut) {
         // 限制长度
-        if (value.length <= this.maxLen || !this.isCut) {
-          this.$emit("input", value);
-          this.$emit("change", value);
-          this.setCurrentValue(value);
-        }
+        this.$emit('input', value);
+        this.$emit('change', value);
+        this.setCurrentValue(value);
       }
     },
     setCurrentValue(value) {
@@ -87,7 +86,7 @@ export default {
         }
         this.isOver = true;
         this.num = currentValue.length - this.maxLen;
-        this.$emit("overText", currentValue);
+        this.$emit('overText', currentValue);
       }
     },
   },
@@ -95,15 +94,14 @@ export default {
     maxlength() {
       if (this.isCut) {
         return this.maxLen;
-      } else {
-        return -1;
       }
+      return -1;
     },
     textareaProps() {
       const obj = {
         placeholder: this.placeholder
           ? this.placeholder
-          : this.t("LinViewUI.LimitTextarea.placeholder"),
+          : this.t('LinViewUI.LimitTextarea.placeholder'),
         rows: this.rows,
       };
       if (this.maxlength !== -1) {

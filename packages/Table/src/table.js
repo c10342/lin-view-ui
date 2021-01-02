@@ -1,5 +1,5 @@
-import Table from "./table.vue";
+import Table from './table.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default Table;

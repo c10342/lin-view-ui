@@ -1,7 +1,5 @@
-import Badge from './src/badge.js'
+import Badge from './src/badge.js';
 
+Badge.install = (Vue) => Vue.component(Badge.name, Badge);
 
-Badge.install = Vue=>Vue.component(Badge.name,Badge)
-
-
-export default Badge
+export default Badge;

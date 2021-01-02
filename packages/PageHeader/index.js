@@ -1,5 +1,5 @@
-import PageHeader from './src/page-header.js'
+import PageHeader from './src/page-header.js';
 
-PageHeader.install = Vue=>Vue.component(PageHeader.name,PageHeader)
+PageHeader.install = (Vue) => Vue.component(PageHeader.name, PageHeader);
 
-export default PageHeader
+export default PageHeader;

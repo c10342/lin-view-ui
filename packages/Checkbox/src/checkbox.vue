@@ -22,12 +22,13 @@
 </template>
 
 <script>
-import dispatch from "src/utils/dispatch.js";
+import dispatch from 'src/utils/dispatch.js';
+
 export default {
-  name: "LinCheckbox",
+  name: 'LinCheckbox',
   inject: {
     CheckboxGroup: {
-      default: "",
+      default: '',
     },
   },
   computed: {
@@ -39,12 +40,17 @@ export default {
         return this.isGroup ? this.CheckboxGroup.value : this.value;
       },
       set(value) {
-        this.isGroup
-          ? this.CheckboxGroup.$emit("input", value)
-          : this.$emit("input", value);
+        // this.isGroup
+        //   ? this.CheckboxGroup.$emit('input', value)
+        //   : this.$emit('input', value);
+        if (this.isGroup) {
+          this.CheckboxGroup.$emit('input', value);
+        } else {
+          this.$emit('input', value);
+        }
         dispatch.call(this, {
-          eventName: "validate",
-          componentName: "LinFormItem",
+          eventName: 'validate',
+          componentName: 'LinFormItem',
         });
       },
     },
@@ -69,11 +75,11 @@ export default {
     },
     name: {
       type: String,
-      default: "",
+      default: '',
     },
     label: {
       type: String,
-      default: "",
+      default: '',
     },
     disabled: {
       type: Boolean,

@@ -1,12 +1,19 @@
 section {
   color: #3f536e;
   font-size: 14px;
-  .demo-block {
-    padding: 32px;
-    border: 1px solid #e2ecf4;
-    border-radius: 4px 4px 0 0;
-    background-color: #fff;
-    margin-top: 16px;
+  .hljs {
+    background-color: #f7f7f7;
+  }
+  .table-of-contents {
+    position: fixed;
+    right: 0;
+    // left: calc(100vw - 250px);
+    top: 100px;
+    // max-width: 250px;
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
   hr {
     margin: 1.2em 0;
@@ -61,10 +68,11 @@ section {
     border: 1px solid #ececec;
     border-radius: 2px;
     background-color: #f7f7f7;
-  }
-  code.code_inline {
     padding: 0 0.5em;
   }
+  // code.code_inline {
+  //   padding: 0 0.5em;
+  // }
   img {
     vertical-align: middle;
   }
@@ -74,7 +82,7 @@ section {
   a {
     color: #6190e8;
   }
-  table.table {
+  table {
     // display: block;
     width: 100%;
     background-color: #fff;

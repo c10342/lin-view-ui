@@ -1,4 +1,4 @@
-import LoadingConstruct from "./construct.js";
+import LoadingConstruct from './construct.js';
 
 function openLoading(el, binding) {
   if (!el) {
@@ -7,18 +7,18 @@ function openLoading(el, binding) {
   if (!el.instance) {
     el.instance = new LoadingConstruct();
   }
-  const fullscreen = binding.modifiers.fullscreen;
-  const lock = binding.modifiers.lock;
-  const body = binding.modifiers.body;
+  const { fullscreen } = binding.modifiers;
+  const { lock } = binding.modifiers;
+  const { body } = binding.modifiers;
   const target = body ? document.body : el;
   const options = {
     fullscreen,
     target,
     lock,
   };
-  const text = el.getAttribute("lin-loading-text");
-  const background = el.getAttribute("lin-loading-background");
-  const textColor = el.getAttribute("lin-loading-textColor");
+  const text = el.getAttribute('lin-loading-text');
+  const background = el.getAttribute('lin-loading-background');
+  const textColor = el.getAttribute('lin-loading-textColor');
   options.text = text;
   options.background = background;
   options.textColor = textColor;
@@ -39,7 +39,7 @@ function closeLoading(el) {
 const loadingDirective = {};
 
 loadingDirective.install = (Vue) => {
-  Vue.directive("loading", {
+  Vue.directive('loading', {
     bind(el, binding) {
       if (binding.value) {
         openLoading(el, binding);

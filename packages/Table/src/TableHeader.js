@@ -1,7 +1,7 @@
-import { cloneDeep } from "lodash";
+import { cloneDeep } from 'lodash';
 
 export default {
-  name: "LinTableHeader",
+  name: 'LinTableHeader',
 
   inject: {
     table: {
@@ -38,7 +38,7 @@ export default {
     renderTh(column) {
       let th = null;
       switch (column.type) {
-        case "selection":
+        case 'selection':
           th = (
             <input
               class="lin-table-checkbox"
@@ -48,7 +48,7 @@ export default {
             />
           );
           break;
-        case "index":
+        case 'index':
           th = column.label;
           break;
         default:
@@ -86,6 +86,8 @@ export default {
           linTableHeaderCheckbox.indeterminate = false;
           linTableHeaderCheckbox.checked = false;
           break;
+        default:
+          break;
       }
     },
     changeCheckboxStatus(data) {
@@ -101,21 +103,19 @@ export default {
     },
   },
   render() {
-    let { renderTh } = this;
+    const { renderTh } = this;
     const { columns = [] } = this.table;
     return (
       <thead>
         <tr class="lin-table-tr">
-          {columns.map((column, index) => {
-            return (
+          {columns.map((column, index) => (
               <th
-                class={["lin-table-th", `lin-table-align-${column.align}`]}
+                class={['lin-table-th', `lin-table-align-${column.align}`]}
                 key={index}
               >
                 {renderTh(column)}
               </th>
-            );
-          })}
+          ))}
         </tr>
       </thead>
     );

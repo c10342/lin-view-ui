@@ -1,16 +1,16 @@
+import './style.scss';
+
 let columnId = 0;
 
-import "./style.scss";
-
 export default {
-  name: "LinTableColumn",
+  name: 'LinTableColumn',
   props: {
     prop: String,
     label: String,
     width: String,
     align: {
       type: String,
-      default: "left",
+      default: 'left',
     },
     type: String,
   },
@@ -24,7 +24,7 @@ export default {
       if (this.table) {
         return this.table.valueKey;
       }
-      return "";
+      return '';
     },
   },
   watch: {
@@ -39,13 +39,14 @@ export default {
     this.colums = {};
   },
   created() {
-    let column = {
+    const column = {
       ...this.$props,
       id: `col-${columnId++}`,
     };
     column.renderCell = (h, rowData) => {
+      // eslint-disable-next-line
       let render = (h, data) => {
-        if (data.column.type === "selection") {
+        if (data.column.type === 'selection') {
           return (
             <input
               class="lin-table-checkbox"
@@ -53,12 +54,13 @@ export default {
               type="checkbox"
             />
           );
-        } else if (data.column.type === "index") {
+        } if (data.column.type === 'index') {
           return data.rowIndex + 1;
         }
         return data.row[column.prop];
       };
-      if (this.$scopedSlots.default && rowData.column.type !== "selection") {
+      if (this.$scopedSlots.default && rowData.column.type !== 'selection') {
+        // eslint-disable-next-line
         render = (h, data) => this.$scopedSlots.default(data);
       }
 
@@ -74,7 +76,7 @@ export default {
   destroyed() {
     if (this.table) {
       const index = this.table.columns.findIndex(
-        (column) => column.id === this.column.id
+        (column) => column.id === this.column.id,
       );
       if (index > -1) {
         this.table.columns.splice(index, 1);
@@ -86,19 +88,17 @@ export default {
       e.stopPropagation();
       if (this.table) {
         const index = this.table.selectData.findIndex(
-          (item) => item[this.valueKey] === data.row[this.valueKey]
+          (item) => item[this.valueKey] === data.row[this.valueKey],
         );
         const checked = e.target.checked;
         if (checked) {
-          if (index == -1) {
+          if (index === -1) {
             this.table.selectData.push(data.row);
           }
           this.table.emitSelectChange();
-        } else {
-          if (index > -1) {
-            this.table.selectData.splice(index, 1);
-            this.table.emitSelectChange();
-          }
+        } else if (index > -1) {
+          this.table.selectData.splice(index, 1);
+          this.table.emitSelectChange();
         }
         this.table.emitSelect({
           row: data.row,
@@ -108,7 +108,7 @@ export default {
       }
     },
   },
-  render(h) {
+  render() {
     return null;
   },
 };

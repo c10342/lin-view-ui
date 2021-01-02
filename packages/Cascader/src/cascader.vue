@@ -47,12 +47,13 @@
 </template>
 
 <script>
-import Input from "packages/Input";
-import Panel from "./panel.vue";
-import documentClick from "src/mixins/documentClick.js";
-import LocaleMixin from "src/mixins/locale.js";
+import Input from 'packages/Input/index.js';
+import documentClick from 'src/mixins/documentClick.js';
+import LocaleMixin from 'src/mixins/locale.js';
+import Panel from './panel.vue';
+
 export default {
-  name: "LinCascader",
+  name: 'LinCascader',
   mixins: [documentClick, LocaleMixin],
   components: {
     [Input.name]: Input,
@@ -86,27 +87,27 @@ export default {
     },
     separator: {
       type: String,
-      default: "/",
+      default: '/',
     },
     label: {
       type: String,
-      default: "label",
+      default: 'label',
     },
     children: {
       type: String,
-      default: "children",
+      default: 'children',
     },
     leaf: {
       type: String,
-      default: "leaf",
+      default: 'leaf',
     },
     disabled: {
       type: String,
-      default: "disabled",
+      default: 'disabled',
     },
     valueKey: {
       type: String,
-      default: "id",
+      default: 'id',
     },
     emptyTip: {
       type: String,
@@ -135,11 +136,10 @@ export default {
   methods: {
     setPlacement() {
       this.$nextTick(() => {
-        const popupContainer = this.$refs.popupContainer;
+        const { popupContainer } = this.$refs;
         const container = this.$refs.notOutsideContainer;
-        const bottom =
-          window.innerHeight - container.getBoundingClientRect().bottom;
-        const top = container.getBoundingClientRect().top;
+        const bottom = window.innerHeight - container.getBoundingClientRect().bottom;
+        const { top } = container.getBoundingClientRect();
         if (bottom > popupContainer.clientHeight) {
           this.setDownTop();
         } else if (top > popupContainer.clientHeight) {
@@ -151,21 +151,21 @@ export default {
     },
     setDownTop() {
       this.isDown = true;
-      const boxContainer = this.$refs.boxContainer;
+      const { boxContainer } = this.$refs;
       this.top = `${boxContainer.clientHeight + 10}px`;
     },
     setUpTop() {
       this.isDown = false;
-      const popupContainer = this.$refs.popupContainer;
+      const { popupContainer } = this.$refs;
       this.top = `${-popupContainer.clientHeight - 10}px`;
     },
     onBlur(event) {
-      this.$emit("blur", event);
+      this.$emit('blur', event);
     },
-    onFocus() {
-      this.$emit("focus", event);
+    onFocus(event) {
+      this.$emit('focus', event);
     },
-    clearValue(event) {
+    clearValue() {
       this.valueArr = [];
       this.hidePuop();
     },
@@ -176,11 +176,11 @@ export default {
       this.isHover = false;
     },
     setValue(data, level) {
-      let valueArr = this.valueArr;
+      let { valueArr } = this;
       valueArr = valueArr.slice(0, level);
       valueArr.push(data);
       this.valueArr = valueArr;
-      this.$emit("change", { data, level });
+      this.$emit('change', { data, level });
     },
     onInputClick() {
       if (this.showPopup) {
@@ -192,22 +192,22 @@ export default {
     displayPuop() {
       this.showPopup = true;
       this.$children.forEach((child) => {
-        if (child.$options.name === "LinPanel") {
-          child.$emit("displayPuop", this.valueArr);
+        if (child.$options.name === 'LinPanel') {
+          child.$emit('displayPuop', this.valueArr);
         }
       });
       this.setPlacement();
-      this.$emit("visible-change", true);
+      this.$emit('visible-change', true);
     },
     hidePuop() {
       this.showPopup = false;
-      this.$emit("visible-change", false);
+      this.$emit('visible-change', false);
     },
     emitInputEvent(val) {
-      this.$emit("input", val);
+      this.$emit('input', val);
     },
     onDocumentClick(event) {
-      const notOutsideContainer = this.$refs.notOutsideContainer;
+      const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
         this.hidePuop();
       }
@@ -219,10 +219,9 @@ export default {
         if (this.value !== null) {
           if (Array.isArray(this.value)) {
             return this.value;
-          } else {
-            // this.emitInputEvent([]);
-            return [];
           }
+          // this.emitInputEvent([]);
+          return [];
         }
 
         return this.myValueArr || [];
@@ -240,33 +239,33 @@ export default {
         return this.showFormat(this.valueArr);
       }
       if (this.valueArr && this.valueArr.length > 0) {
-        let str = "";
+        let str = '';
         this.valueArr.forEach((item) => {
           str += `${item[this.label]} ${this.separator} `;
         });
         return str.slice(0, -2);
       }
-      return "";
+      return '';
     },
     showClose() {
       return (
-        this.clearable &&
-        this.isHover &&
-        this.valueArr &&
-        this.valueArr.length !== 0
+        this.clearable
+        && this.isHover
+        && this.valueArr
+        && this.valueArr.length !== 0
       );
     },
     myPlaceholder() {
       if (this.placeholder) {
         return this.placeholder;
       }
-      return this.t("LinViewUI.Cascader.placeholder");
+      return this.t('LinViewUI.Cascader.placeholder');
     },
     myEmptyTip() {
       if (this.emptyTip) {
         return this.emptyTip;
       }
-      return this.t("LinViewUI.Cascader.emptyTip");
+      return this.t('LinViewUI.Cascader.emptyTip');
     },
     myOptions() {
       if (this.lazy && this.lazyLoad) {

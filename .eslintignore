@@ -1,0 +1,6 @@
+/dist
+/docs-dist
+/lib
+/build
+node_modules
+.vscode

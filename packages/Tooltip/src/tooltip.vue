@@ -8,27 +8,27 @@
 
 <script>
 export default {
-  name: "LinTooltip",
+  name: 'LinTooltip',
   data() {
     return {
       style: {},
       show: false,
-      placement: "bottom",
-      text: "",
+      placement: 'bottom',
+      text: '',
     };
   },
   methods: {
     handleAfterLeave() {
-      this.$emit("after-leave");
+      this.$emit('after-leave');
     },
   },
   computed: {
     classes() {
       return {
-        "lin-tooltip-bottom": this.placement === "top",
-        "lin-tooltip-top": this.placement === "bottom",
-        "lin-tooltip-left": this.placement === "right",
-        "lin-tooltip-right": this.placement === "left",
+        'lin-tooltip-bottom': this.placement === 'top',
+        'lin-tooltip-top': this.placement === 'bottom',
+        'lin-tooltip-left': this.placement === 'right',
+        'lin-tooltip-right': this.placement === 'left',
       };
     },
   },

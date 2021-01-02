@@ -1,5 +1,5 @@
-import ChoiceOption from './src/choice-option.js'
+import ChoiceOption from './src/choice-option.js';
 
-ChoiceOption.install = Vue=>Vue.component(ChoiceOption.name,ChoiceOption)
+ChoiceOption.install = (Vue) => Vue.component(ChoiceOption.name, ChoiceOption);
 
-export default ChoiceOption
+export default ChoiceOption;

@@ -12,9 +12,10 @@
 </template>
 
 <script>
-import dispatch from "src/utils/dispatch.js";
+import dispatch from 'src/utils/dispatch.js';
+
 export default {
-  name: "LinSwitch",
+  name: 'LinSwitch',
   props: {
     value: {
       type: Boolean,
@@ -22,15 +23,15 @@ export default {
     },
     activeColor: {
       type: String,
-      default: "",
+      default: '',
     },
     inactiveColor: {
       type: String,
-      default: "",
+      default: '',
     },
     name: {
       type: String,
-      default: "",
+      default: '',
     },
     disabled: {
       type: Boolean,
@@ -40,10 +41,10 @@ export default {
   methods: {
     handleClick() {
       if (!this.disabled) {
-        this.$emit("input", !this.value);
+        this.$emit('input', !this.value);
         dispatch.call(this, {
-          eventName: "validate",
-          componentName: "LinFormItem",
+          eventName: 'validate',
+          componentName: 'LinFormItem',
         });
       }
     },
@@ -54,15 +55,13 @@ export default {
         if (this.activeColor) {
           return this.activeColor;
         }
-        return "";
-      } else {
-        if (this.inactiveColor) {
-          return this.inactiveColor;
-        }
-        return "";
+        return '';
       }
+      if (this.inactiveColor) {
+        return this.inactiveColor;
+      }
+      return '';
     },
   },
 };
 </script>
-

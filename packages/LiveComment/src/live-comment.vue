@@ -65,10 +65,12 @@
 </template>
 
 <script>
-import LocaleMixin from "src/mixins/locale.js";
-import Image from "packages/Image/index.js";
+import LocaleMixin from 'src/mixins/locale.js';
+import Image from 'packages/Image/index.js';
+import defaultAvator from 'src/images/default_avatar.png';
+
 export default {
-  name: "LinLiveComment",
+  name: 'LinLiveComment',
   mixins: [LocaleMixin],
   components: {
     [Image.name]: Image,
@@ -84,7 +86,7 @@ export default {
     },
     value: {
       type: String,
-      default: "",
+      default: '',
     },
     btnText: {
       type: String,
@@ -113,7 +115,7 @@ export default {
     },
     defaultAvator: {
       type: String,
-      default: require("src/images/default_avatar.png"),
+      default: defaultAvator,
     },
     isLoading: {
       type: Boolean,
@@ -144,15 +146,15 @@ export default {
         this.isScrollToBottom = false;
       } else {
         this.isScrollToBottom = true;
-        this.$emit("toBottom");
+        this.$emit('toBottom');
       }
-      this.$emit("scroll", e);
+      this.$emit('scroll', e);
     },
     changeContent(str) {
       if (!str) {
-        return "";
+        return '';
       }
-      return str.replace(/\n/g, "<br/>");
+      return str.replace(/\n/g, '<br/>');
     },
     toBottom() {
       this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
@@ -162,20 +164,20 @@ export default {
       if (this.isLoading) {
         return;
       }
-      this.$emit("sendBtnClick");
+      this.$emit('sendBtnClick');
     },
     onInput(e) {
       const { value } = e.target;
-      this.$emit("input", value);
+      this.$emit('input', value);
     },
     gotoLogin() {
-      this.$emit("loginBtnClick");
+      this.$emit('loginBtnClick');
     },
   },
   watch: {
     commentList: {
       immediate: true,
-      handler: function (newVal) {
+      handler(newVal) {
         if (newVal.length > 0 && this.isScrollToBottom) {
           this.$nextTick(() => {
             this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
@@ -189,10 +191,10 @@ export default {
       if (this.placeholder) {
         return this.placeholder;
       }
-      return this.t("LinViewUI.LiveComment.placeholder");
+      return this.t('LinViewUI.LiveComment.placeholder');
     },
     textareaAttr() {
-      let obj = {};
+      const obj = {};
       if (this.maxlength !== -1) {
         obj.maxlength = this.maxlength;
       }
@@ -209,5 +211,3 @@ export default {
   },
 };
 </script>
-
-

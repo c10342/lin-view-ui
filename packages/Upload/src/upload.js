@@ -1,5 +1,5 @@
-import Upload from "./upload.vue";
+import Upload from './upload.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default Upload;

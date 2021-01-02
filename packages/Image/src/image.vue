@@ -26,23 +26,24 @@
 </template>
 
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from 'src/mixins/locale.js';
+
 export default {
-  name: "LinImage",
-  mixins:[LocaleMixin],
+  name: 'LinImage',
+  mixins: [LocaleMixin],
   props: {
     imgUrl: [Array, String],
     fit: {
       type: String,
-      default: "",
+      default: '',
     },
     referrerPolicy: {
       type: String,
-      default: "",
+      default: '',
     },
     alt: {
       type: String,
-      default: "",
+      default: '',
     },
     preview: {
       type: Boolean,
@@ -50,14 +51,14 @@ export default {
     },
     transitionName: {
       type: String,
-      default: "lin-image-animation",
+      default: 'lin-image-animation',
     },
     clickMask: {
       type: Boolean,
       default: true,
     },
     errorMsg: {
-      type: String
+      type: String,
     },
   },
   data() {
@@ -80,22 +81,22 @@ export default {
     },
     onError(e) {
       if (Array.isArray(this.imgUrl)) {
-        this.$emit("error", {
+        this.$emit('error', {
           url: this.imgUrl[this.index],
           index: this.index,
           e,
         });
         if (this.index === this.imgUrl.length - 1) {
           this.isError = true;
-          this.$emit("AllError", {
+          this.$emit('AllError', {
             urls: this.imgUrl.slice(),
             e,
           });
           return;
         }
-        this.index = this.index + 1;
+        this.index += 1;
       } else {
-        this.$emit("error", {
+        this.$emit('error', {
           url: this.imgUrl,
           e,
         });
@@ -103,13 +104,13 @@ export default {
     },
     onLoad(e) {
       if (Array.isArray(this.imgUrl)) {
-        this.$emit("success", {
+        this.$emit('success', {
           url: this.imgUrl[this.index],
           index: this.index,
           e,
         });
       } else {
-        this.$emit("success", {
+        this.$emit('success', {
           url: this.imgUrl,
           e,
         });
@@ -120,22 +121,24 @@ export default {
       if (!url && this.imgUrl.length > this.index) {
         this.index += 1;
         return this.getUrl();
-      } else {
-        return url;
       }
+      return url;
+    },
+    setError(flag) {
+      this.isError = flag;
     },
   },
   computed: {
     url() {
       if (Array.isArray(this.imgUrl)) {
-        const url = this.getUrl();
-        if (!url) {
-          this.isError = true;
+        const imgUrl = this.getUrl();
+        if (!imgUrl) {
+          // this.isError = true;
+          this.setError(true);
         }
-        return url;
-      } else {
-        return this.imgUrl;
+        return imgUrl;
       }
+      return this.imgUrl;
     },
     isShowImg() {
       if (!this.imgUrl) {

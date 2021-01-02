@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "LinVideoPlayerAnimation",
+  name: 'LinVideoPlayerAnimation',
   inject: {
     videoPlayer: {
       default: null,

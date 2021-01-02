@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "LinCheckboxGroup",
+  name: 'LinCheckboxGroup',
   props: {
     value: {
       type: Array,
@@ -23,4 +23,3 @@ export default {
   },
 };
 </script>
-

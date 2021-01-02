@@ -10,14 +10,14 @@
 
 <script>
 export default {
-  name: "LinSelectorItem",
+  name: 'LinSelectorItem',
   props: {
     label: {
       type: String,
-      default: "",
+      default: '',
     },
     value: {
-      default: "",
+      default: '',
     },
     disabled: {
       type: Boolean,
@@ -26,21 +26,20 @@ export default {
   },
   inject: {
     group: {
-      default: "",
+      default: '',
     },
   },
   computed: {
     active() {
       if (this.group) {
-        const valueKey = this.group.valueKey;
-        const toString = Object.prototype.toString;
-        if (toString.call(this.value) === "[object Object]" && valueKey) {
+        const { valueKey } = this.group;
+        const { toString } = Object.prototype;
+        if (toString.call(this.value) === '[object Object]' && valueKey) {
           return this.value[valueKey] === this.group.value[valueKey];
         }
         return this.value === this.group.value;
-      } else {
-        return false;
       }
+      return false;
     },
     isDisabled() {
       if (this.group && this.group.disabled) {
@@ -53,11 +52,10 @@ export default {
     onClick() {
       if (this.group && !this.isDisabled) {
         const value = JSON.parse(JSON.stringify(this.value));
-        this.group.$emit("input", value);
-        this.group.$emit("onChange", value);
+        this.group.$emit('input', value);
+        this.group.$emit('onChange', value);
       }
     },
   },
 };
 </script>
-

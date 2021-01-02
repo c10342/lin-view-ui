@@ -33,19 +33,19 @@
 
 <script>
 export default {
-  name: "LinAlert",
+  name: 'LinAlert',
   props: {
     title: {
       type: String,
-      default: "",
+      default: '',
     },
     description: {
       type: String,
-      default: "",
+      default: '',
     },
     icon: {
       type: String,
-      default: "",
+      default: '',
     },
     closable: {
       type: Boolean,
@@ -53,11 +53,11 @@ export default {
     },
     type: {
       type: String,
-      default: "success",
+      default: 'success',
     },
     effect: {
       type: String,
-      default: "light",
+      default: 'light',
     },
     center: {
       type: Boolean,
@@ -74,9 +74,8 @@ export default {
       this.show = false;
     },
     afterLeave() {
-      this.$emit("close");
+      this.$emit('close');
     },
   },
 };
 </script>
-

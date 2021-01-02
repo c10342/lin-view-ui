@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "LinScrollView",
+  name: 'LinScrollView',
   props: {
     height: {
       type: Number,
@@ -48,11 +48,11 @@ export default {
     data: [Object, Array],
     loadingTip: {
       type: String,
-      default: "",
+      default: '',
     },
     noMoreTip: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   data() {
@@ -83,13 +83,13 @@ export default {
     },
     handelScroll(e) {
       if (!this.isEnd) {
-        const scrollTop = e.target.scrollTop;
+        const { scrollTop } = e.target;
         if (scrollTop + this.height >= this.contentHeight) {
-          this.$emit("scrollToEnd", e);
+          this.$emit('scrollToEnd', e);
         }
       }
       if (this.emitScrollEvent) {
-        this.$emit("scroll", e);
+        this.$emit('scroll', e);
       }
     },
   },
@@ -107,7 +107,7 @@ export default {
       if (this.contentHeight <= this.height) {
         return false;
       }
-      if (this.isEnd && (this.noMoreTip || this.$slots["no-more"])) {
+      if (this.isEnd && (this.noMoreTip || this.$slots['no-more'])) {
         return true;
       }
       // if (this.isEnd && this.$slots["no-more"]) {

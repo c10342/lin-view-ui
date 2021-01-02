@@ -1,5 +1,5 @@
-import VideoCard from "./video-card.vue";
+import VideoCard from './video-card.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default VideoCard;

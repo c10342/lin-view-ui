@@ -6,25 +6,25 @@
 
 <script>
 export default {
-  name: "LinTabItem",
+  name: 'LinTabItem',
   props: {
     label: {
       type: String,
-      default: "",
+      default: '',
     },
     name: {
       type: String,
-      default: "",
+      default: '',
     },
-    disabled:{
-        type:Boolean,
-        default:false
-    }
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
-  inject:{
-      tabGroup:{
-          default:null
-      }
+  inject: {
+    tabGroup: {
+      default: null,
+    },
   },
   data() {
     return {
@@ -35,13 +35,13 @@ export default {
     childrenIndex() {
       return this.name ? this.name : this.index;
     },
-    currentValue(){
-        if(this.tabGroup){
-            return this.tabGroup.currentValue
-        }
+    currentValue() {
+      if (this.tabGroup) {
+        return this.tabGroup.currentValue;
+      }
 
-        return 0
-    }
+      return 0;
+    },
   },
 };
 </script>

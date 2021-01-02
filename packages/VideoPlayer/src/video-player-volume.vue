@@ -7,7 +7,10 @@
     <div class="lin-video-player-volume-mask" @click="onMaskClick">
       <div class="lin-video-player-volume-process" ref="videoPlayerVolumeProcess">
         <div class="lin-video-player-volume-process-line" :style="{'width':`${processWidth}px`}">
-          <span @mousedown="onBallMouseDown" @click.stop class="lin-video-player-volume-process-ball"></span>
+          <span
+          @mousedown="onBallMouseDown"
+          @click.stop
+          class="lin-video-player-volume-process-ball"></span>
         </div>
       </div>
     </div>
@@ -16,7 +19,7 @@
 
 <script>
 export default {
-  name: "LinVideoPlayerVolume",
+  name: 'LinVideoPlayerVolume',
   data() {
     return {
       processWidth: 0,
@@ -40,12 +43,12 @@ export default {
     this.mousedown = false;
     this.videoPlayerVolumeProcess = this.$refs.videoPlayerVolumeProcess;
     this.initProcessWidth();
-    this.$on('onvolumechange',this.setProcessWidth)
+    this.$on('onvolumechange', this.setProcessWidth);
   },
   methods: {
-    setProcessWidth(volume){
+    setProcessWidth(volume) {
       const clientWidth = this.videoPlayerVolumeProcess.clientWidth || 0;
-      this.processWidth = clientWidth*volume
+      this.processWidth = clientWidth * volume;
     },
     onVolumeClick() {
       this.oldVolume = this.processWidth;
@@ -79,13 +82,13 @@ export default {
     },
     onBallMouseDown() {
       this.mousedown = true;
-      window.addEventListener("mousemove", this.onMouseMove);
-      window.addEventListener("mouseup", this.onMouseUp);
+      window.addEventListener('mousemove', this.onMouseMove);
+      window.addEventListener('mouseup', this.onMouseUp);
     },
     onMouseMove(e) {
       if (this.mousedown) {
-        let outLineX = this.videoPlayerVolumeProcess.getBoundingClientRect().x;
-        let outLineWidth = this.videoPlayerVolumeProcess.getBoundingClientRect()
+        const outLineX = this.videoPlayerVolumeProcess.getBoundingClientRect().x;
+        const outLineWidth = this.videoPlayerVolumeProcess.getBoundingClientRect()
           .width;
         let offsetX = e.pageX - outLineX;
         if (offsetX <= 0) {
@@ -100,8 +103,8 @@ export default {
       this.onMouseMove(e);
       this.setVolume();
       this.mousedown = false;
-      window.removeEventListener("mouseup", this.onMouseUp);
-      window.removeEventListener("mousemove", this.onMouseMove);
+      window.removeEventListener('mouseup', this.onMouseUp);
+      window.removeEventListener('mousemove', this.onMouseMove);
     },
     setVolume() {
       const clientWidth = this.videoPlayerVolumeProcess.clientWidth || 0;
@@ -113,11 +116,10 @@ export default {
     },
   },
   beforeDestroy() {
-    window.removeEventListener("mouseup", this.onMouseUp);
-    window.removeEventListener("mousemove", this.onMouseMove);
+    window.removeEventListener('mouseup', this.onMouseUp);
+    window.removeEventListener('mousemove', this.onMouseMove);
     this.videoPlayerVolumeProcess = null;
-    this.$off('onvolumechange',this.setProcessWidth)
+    this.$off('onvolumechange', this.setProcessWidth);
   },
 };
 </script>
-

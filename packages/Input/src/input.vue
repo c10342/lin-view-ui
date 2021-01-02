@@ -37,10 +37,10 @@
 </template>
 
 <script>
-import dispatch from "src/utils/dispatch.js";
+import dispatch from 'src/utils/dispatch.js';
 
 export default {
-  name: "LinInput",
+  name: 'LinInput',
   data() {
     return {
       // 用于控制是否显示密码框
@@ -50,15 +50,15 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: "",
+      default: '',
     },
     type: {
       type: String,
-      default: "text",
+      default: 'text',
     },
     name: {
       type: String,
-      default: "",
+      default: '',
     },
     disabled: {
       type: Boolean,
@@ -66,7 +66,7 @@ export default {
     },
     value: {
       type: String,
-      default: "",
+      default: '',
     },
     clearable: {
       type: Boolean,
@@ -112,14 +112,14 @@ export default {
     },
     clear() {
       // 把内容清空
-      this.emitInputEvent("");
-      this.$emit("clear");
+      this.emitInputEvent('');
+      this.$emit('clear');
     },
     emitInputEvent(data) {
-      this.$emit("input", data);
+      this.$emit('input', data);
       dispatch.call(this, {
-        eventName: "validate",
-        componentName: "LinFormItem",
+        eventName: 'validate',
+        componentName: 'LinFormItem',
       });
     },
 
@@ -127,12 +127,11 @@ export default {
       this.passwordVisible = !this.passwordVisible;
     },
     onBlur(e) {
-      this.$emit("blur", e);
+      this.$emit('blur', e);
     },
     onFocus(e) {
-      this.$emit("focus", e);
+      this.$emit('focus', e);
     },
   },
 };
 </script>
-

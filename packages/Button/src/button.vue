@@ -27,16 +27,17 @@
 </template>
 
 <script>
-import Spinner from "packages/Spinner/index.js";
+import Spinner from 'packages/Spinner/index.js';
+
 export default {
-  name: "LinButton",
+  name: 'LinButton',
   components: {
     [Spinner.name]: Spinner,
   },
   props: {
     type: {
       type: String,
-      default: "default",
+      default: 'default',
     },
     plain: {
       type: Boolean,
@@ -56,11 +57,11 @@ export default {
     },
     icon: {
       type: String,
-      default: "",
+      default: '',
     },
     size: {
       type: String,
-      default: "default",
+      default: 'default',
     },
     loading: {
       type: Boolean,
@@ -68,21 +69,20 @@ export default {
     },
     loadingColor: {
       type: String,
-      default: "#fff",
+      default: '#fff',
     },
     loadingSize: {
       type: String,
-      default: "14px",
+      default: '14px',
     },
   },
 
   methods: {
     onButtonClick() {
       if (!this.loading) {
-        this.$emit("click");
+        this.$emit('click');
       }
     },
   },
 };
 </script>
-

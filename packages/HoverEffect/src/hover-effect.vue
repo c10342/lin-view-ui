@@ -7,18 +7,17 @@
   </button>
 </template>
 
-
 <script>
 export default {
-  name: "LinHoverEffect",
+  name: 'LinHoverEffect',
   props: {
     type: {
       type: String,
-      default: "primary",
+      default: 'primary',
     },
     theme: {
       type: String,
-      default: "neon",
+      default: 'neon',
     },
     text: {
       type: String,
@@ -26,7 +25,7 @@ export default {
   },
   methods: {
     onClick() {
-      this.$emit("click");
+      this.$emit('click');
     },
   },
 };

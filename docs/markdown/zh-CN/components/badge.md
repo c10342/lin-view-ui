@@ -1,11 +1,6 @@
-<style lang="scss" scoped>
-.badge-item {
-  margin-top: 10px;
-  margin-right: 40px;
-}
-</style>
-
 # Badge 标记
+
+[[toc]]
 
 ---
 
@@ -13,36 +8,23 @@
 
 展示新消息数量。定义 `value` 属性，它接受 `Number` 或者 `String`。
 
-<div class='demo-block'>
-<lin-badge :value="12" class="badge-item">
-    <lin-button>评论</lin-button>
-    </lin-badge>
-    <lin-badge :value="3" class="badge-item">
-    <lin-button>回复</lin-button>
-    </lin-badge>
-    <lin-badge :value="1" class="badge-item" type="danger">
-    <lin-button>评论</lin-button>
-    </lin-badge>
-    <lin-badge :value="2" class="badge-item" type="warning">
-    <lin-button>回复</lin-button>
-    </lin-badge>
-</div>
-
 :::demo
 
-```html
-<lin-badge :value="12" class="badge-item">
-  <lin-button>评论</lin-button>
-</lin-badge>
-<lin-badge :value="3" class="badge-item">
-  <lin-button>回复</lin-button>
-</lin-badge>
-<lin-badge :value="1" class="badge-item" type="danger">
-  <lin-button>评论</lin-button>
-</lin-badge>
-<lin-badge :value="2" class="badge-item" type="warning">
-  <lin-button>回复</lin-button>
-</lin-badge>
+```vue
+<template>
+  <lin-badge :value="12" class="badge-item">
+    <lin-button>评论</lin-button>
+  </lin-badge>
+  <lin-badge :value="3" class="badge-item">
+    <lin-button>回复</lin-button>
+  </lin-badge>
+  <lin-badge :value="1" class="badge-item" type="danger">
+    <lin-button>评论</lin-button>
+  </lin-badge>
+  <lin-badge :value="2" class="badge-item" type="warning">
+    <lin-button>回复</lin-button>
+  </lin-badge>
+</template>
 ```
 
 :::
@@ -51,24 +33,17 @@
 
 可自定义最大值。由 `max` 属性定义，它接受一个 `Number`，需要注意的是，只有当 `value` 为 `Number` 时，它才会生效。
 
-<div class='demo-block'>
-      <lin-badge :value="200" :max="99" class="badge-item">
-        <lin-button>评论</lin-button>
-      </lin-badge>
-      <lin-badge :value="100" :max="10" class="badge-item">
-        <lin-button>回复</lin-button>
-      </lin-badge>
-</div>
-
 :::demo
 
-```html
-<lin-badge :value="200" :max="99" class="badge-item">
-  <lin-button>评论</lin-button>
-</lin-badge>
-<lin-badge :value="100" :max="10" class="badge-item">
-  <lin-button>回复</lin-button>
-</lin-badge>
+```vue
+<template>
+  <lin-badge :value="200" :max="99" class="badge-item">
+    <lin-button>评论</lin-button>
+  </lin-badge>
+  <lin-badge :value="100" :max="10" class="badge-item">
+    <lin-button>回复</lin-button>
+  </lin-badge>
+</template>
 ```
 
 :::
@@ -77,24 +52,17 @@
 
 可以显示数字以外的文本内容。定义 `value` 为 `String` 类型是时可以用于显示自定义文本。
 
-<div class='demo-block'>
-      <lin-badge value="new" class="badge-item">
-        <lin-button>评论</lin-button>
-      </lin-badge>
-      <lin-badge value="hot" class="badge-item">
-        <lin-button>回复</lin-button>
-      </lin-badge>
-</div>
-
 :::demo
 
-```html
-<lin-badge value="new" class="badge-item">
-  <lin-button>评论</lin-button>
-</lin-badge>
-<lin-badge value="hot" class="badge-item">
-  <lin-button>回复</lin-button>
-</lin-badge>
+```vue
+<template>
+  <lin-badge value="new" class="badge-item">
+    <lin-button>评论</lin-button>
+  </lin-badge>
+  <lin-badge value="hot" class="badge-item">
+    <lin-button>回复</lin-button>
+  </lin-badge>
+</template>
 ```
 
 :::
@@ -103,20 +71,15 @@
 
 以红点的形式标注需要关注的内容。除了数字外，设置 `is-dot` 属性，它接受一个 `Boolean`。
 
-<div class='demo-block'>
-      <lin-badge is-dot class="badge-item">数据查询</lin-badge>
-      <lin-badge is-dot class="badge-item">
-        <lin-button icon="lin-icon-thumbsup" type="primary"></lin-button>
-      </lin-badge>
-</div>
-
 :::demo
 
-```html
-<lin-badge is-dot class="badge-item">数据查询</lin-badge>
-<lin-badge is-dot class="badge-item">
-  <lin-button icon="lin-icon-thumbsup" type="primary"></lin-button>
-</lin-badge>
+```vue
+<template>
+  <lin-badge is-dot class="badge-item">数据查询</lin-badge>
+  <lin-badge is-dot class="badge-item">
+    <lin-button icon="lin-icon-thumbsup" type="primary"></lin-button>
+  </lin-badge>
+</template>
 ```
 
 :::

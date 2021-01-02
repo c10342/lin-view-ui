@@ -1,8 +1,6 @@
-import Vue from "vue";
-
-import Loading from "./loading.vue";
-
-import getScroll from "src/utils/getScroll.js";
+import Vue from 'vue';
+import getScroll from 'src/utils/getScroll.js';
+import Loading from './loading.vue';
 
 function handleOnScroll(target, targetDom, scrollDom) {
   if (document.body === target) {
@@ -14,24 +12,27 @@ function handleOnScroll(target, targetDom, scrollDom) {
 
 function addScrollListener(target, fn) {
   if (document.body === target) {
-    window.addEventListener("scroll", fn);
+    window.addEventListener('scroll', fn);
   } else {
-    target.addEventListener("scroll", fn);
+    target.addEventListener('scroll', fn);
   }
 }
 
 function delScrollListener(target, fn) {
   if (document.body === target) {
-    window.removeEventListener("scroll", fn);
+    window.removeEventListener('scroll', fn);
   } else {
-    target.removeEventListener("scroll", fn);
+    target.removeEventListener('scroll', fn);
   }
 }
 
 const LoadingConstruct = Vue.extend(Loading);
 
-LoadingConstruct.prototype.open = function(
-  options = { text: null, background: null, target, fullscreen }
+// {
+//   text: null, background: null, target, fullscreen,
+// },
+LoadingConstruct.prototype.open = function open(
+  options,
 ) {
   if (!options.target) {
     return;
@@ -42,14 +43,14 @@ LoadingConstruct.prototype.open = function(
   });
 
   if (
-    !this.fullscreen &&
-    !this.target.classList.contains("lin-loading-position-relative")
+    !this.fullscreen
+    && !this.target.classList.contains('lin-loading-position-relative')
   ) {
-    this.target.classList.add("lin-loading-position-relative");
+    this.target.classList.add('lin-loading-position-relative');
   }
 
-  if (this.lock && !this.target.classList.contains("lin-loading-lock")) {
-    this.target.classList.add("lin-loading-lock");
+  if (this.lock && !this.target.classList.contains('lin-loading-lock')) {
+    this.target.classList.add('lin-loading-lock');
   }
 
   if (this.visible) {
@@ -73,30 +74,33 @@ LoadingConstruct.prototype.open = function(
   this.visible = true;
 };
 
-LoadingConstruct.prototype.close = function() {
+LoadingConstruct.prototype.close = function close() {
   if (!this.target || !this.visible) {
     return;
   }
   this.visible = false;
 
-  this.$once("after-leave", () => {
+  this.$once('after-leave', () => {
     if (
-      !this.fullscreen &&
-      this.target.classList.contains("lin-loading-position-relative")
+      !this.fullscreen
+      && this.target.classList.contains('lin-loading-position-relative')
     ) {
-      this.target.classList.remove("lin-loading-position-relative");
+      this.target.classList.remove('lin-loading-position-relative');
     }
 
-    if (this.lock && this.target.classList.contains("lin-loading-lock")) {
-      this.target.classList.remove("lin-loading-lock");
+    if (this.lock && this.target.classList.contains('lin-loading-lock')) {
+      this.target.classList.remove('lin-loading-lock');
     }
     if (!this.fullscreen) {
-      this.vm.$el.style.marginTop = "";
+      this.vm.$el.style.marginTop = '';
       if (!this.lock) {
         delScrollListener(this.target, this.onScroll);
       }
     }
-    this.vm.$el && this.target.removeChild(this.vm.$el);
+    if (this.vm.$el) {
+      this.target.removeChild(this.vm.$el);
+    }
+    // this.vm.$el && this.target.removeChild(this.vm.$el);
   });
 };
 

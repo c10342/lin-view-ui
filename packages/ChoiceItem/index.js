@@ -1,4 +1,4 @@
-import ChoiceItem from "./src/choice-item.js";
+import ChoiceItem from './src/choice-item.js';
 
 ChoiceItem.install = (Vue) => Vue.component(ChoiceItem.name, ChoiceItem);
 

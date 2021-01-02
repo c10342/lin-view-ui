@@ -1,8 +1,8 @@
-import service from "./service.js";
+import service from './service.js';
 
-import directive from "./directive.js";
+import directive from './directive.js';
 
-import "./style.scss";
+import './style.scss';
 
 export default {
   service,

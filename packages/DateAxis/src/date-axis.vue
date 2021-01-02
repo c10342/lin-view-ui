@@ -90,21 +90,22 @@
 </template>
 
 <script>
-import DatePicker from "packages/DatePicker/index.js";
-import documentClick from "src/mixins/documentClick.js";
-import LocaleMixin from "src/mixins/locale.js";
-import DateMixin from "src/mixins/date.js";
-import getYearMonthDay from "src/utils/getYearMonthDay.js";
-import { throttle } from "lodash";
+import DatePicker from 'packages/DatePicker/index.js';
+import documentClick from 'src/mixins/documentClick.js';
+import LocaleMixin from 'src/mixins/locale.js';
+import DateMixin from 'src/mixins/date.js';
+import getYearMonthDay from 'src/utils/getYearMonthDay.js';
+import { throttle } from 'lodash';
+
 export default {
-  name: "LinDateAxis",
+  name: 'LinDateAxis',
   mixins: [documentClick, LocaleMixin, DateMixin],
   components: {
     [DatePicker.name]: DatePicker,
   },
   model: {
-    prop: "value",
-    event: "change",
+    prop: 'value',
+    event: 'change',
   },
   props: {
     value: {
@@ -124,39 +125,38 @@ export default {
       isShowPopup: false,
       selectTime: new Date(),
       timeList: [],
-      lineWidth: "0px",
-      lineTranslateX: "0px",
+      lineWidth: '0px',
+      lineTranslateX: '0px',
       isRight: true,
-      left: "0px",
+      left: '0px',
     };
   },
   created() {
     this.daysObj = {
-      0: this.t("LinViewUI.DateAxis.sun"),
-      1: this.t("LinViewUI.DateAxis.mon"),
-      2: this.t("LinViewUI.DateAxis.tue"),
-      3: this.t("LinViewUI.DateAxis.wed"),
-      4: this.t("LinViewUI.DateAxis.thu"),
-      5: this.t("LinViewUI.DateAxis.fir"),
-      6: this.t("LinViewUI.DateAxis.sat"),
+      0: this.t('LinViewUI.DateAxis.sun'),
+      1: this.t('LinViewUI.DateAxis.mon'),
+      2: this.t('LinViewUI.DateAxis.tue'),
+      3: this.t('LinViewUI.DateAxis.wed'),
+      4: this.t('LinViewUI.DateAxis.thu'),
+      5: this.t('LinViewUI.DateAxis.fir'),
+      6: this.t('LinViewUI.DateAxis.sat'),
     };
     this.init(this.currentDate);
   },
   mounted() {
     this.throttleFn = throttle(this.setLine, 500);
-    window.addEventListener("resize", this.throttleFn);
+    window.addEventListener('resize', this.throttleFn);
   },
   beforeDestroy() {
-    window.removeEventListener("resize", this.throttleFn);
+    window.removeEventListener('resize', this.throttleFn);
   },
   methods: {
     setPlacement() {
       this.$nextTick(() => {
-        const scrollContainer = this.$refs.scrollContainer;
-        const notOutsideContainer = this.$refs.notOutsideContainer;
-        const right =
-          window.innerWidth - notOutsideContainer.getBoundingClientRect().left;
-        const left = notOutsideContainer.getBoundingClientRect().left;
+        const { scrollContainer } = this.$refs;
+        const { notOutsideContainer } = this.$refs;
+        const right = window.innerWidth - notOutsideContainer.getBoundingClientRect().left;
+        const { left } = notOutsideContainer.getBoundingClientRect();
         if (right > scrollContainer.clientWidth) {
           this.setToRight();
         } else if (left > scrollContainer.clientWidth) {
@@ -168,12 +168,12 @@ export default {
     },
     setToRight() {
       this.isRight = true;
-      this.left = "0px";
+      this.left = '0px';
     },
     setToLeft() {
       this.isRight = false;
-      const scrollContainer = this.$refs.scrollContainer;
-      const notOutsideContainer = this.$refs.notOutsideContainer;
+      const { scrollContainer } = this.$refs;
+      const { notOutsideContainer } = this.$refs;
       this.left = `${
         -scrollContainer.clientWidth + notOutsideContainer.clientWidth
       }px`;
@@ -187,19 +187,19 @@ export default {
         this.setLine();
       }
       this.hidePopup();
-      this.$emit("select", date);
+      this.$emit('select', date);
     },
     prevWeek() {
       if (this.disabled) {
         return;
       }
-      let currentDate = this.currentDate;
+      let { currentDate } = this;
       currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24 * 7;
       currentDate = new Date(currentDate);
       const selDate = currentDate;
       // 上一周的最后一天，即周六
       const sat = new Date(
-        currentDate.getTime() + 60 * 60 * 1000 * 24 * (6 - currentDate.getDay())
+        currentDate.getTime() + 60 * 60 * 1000 * 24 * (6 - currentDate.getDay()),
       );
       if (this.disabledBeforeDate) {
         const d = new Date(this.disabledBeforeDate);
@@ -223,20 +223,20 @@ export default {
 
       this.currentDate = currentDate;
       this.init(currentDate);
-      this.$emit("prevWeek", currentDate);
+      this.$emit('prevWeek', currentDate);
     },
     nextWeek() {
       if (this.disabled) {
         return;
       }
-      let currentDate = this.currentDate;
+      let { currentDate } = this;
       currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24 * 7;
       currentDate = new Date(currentDate);
 
       const selDate = currentDate;
       // 上一周的第一天，即周日
       const sun = new Date(
-        currentDate.getTime() - 60 * 60 * 1000 * 24 * currentDate.getDay()
+        currentDate.getTime() - 60 * 60 * 1000 * 24 * currentDate.getDay(),
       );
       if (this.disabledAfterDate) {
         const d = new Date(this.disabledAfterDate);
@@ -260,13 +260,13 @@ export default {
 
       this.currentDate = currentDate;
       this.init(currentDate);
-      this.$emit("nextWeek", currentDate);
+      this.$emit('nextWeek', currentDate);
     },
     prevDay() {
       if (this.disabled) {
         return;
       }
-      let currentDate = this.currentDate;
+      let { currentDate } = this;
       currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24;
       currentDate = new Date(currentDate);
       if (this.disabledBeforeDate) {
@@ -286,13 +286,13 @@ export default {
       } else {
         this.setLine();
       }
-      this.$emit("prevDay", currentDate);
+      this.$emit('prevDay', currentDate);
     },
     nextDay() {
       if (this.disabled) {
         return;
       }
-      let currentDate = this.currentDate;
+      let { currentDate } = this;
       currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24;
       currentDate = new Date(currentDate);
       if (this.disabledAfterDate) {
@@ -312,7 +312,7 @@ export default {
       } else {
         this.setLine();
       }
-      this.$emit("nextDay", currentDate);
+      this.$emit('nextDay', currentDate);
     },
     onItemClick(date) {
       if (this.isDisabledDate(date)) {
@@ -323,7 +323,7 @@ export default {
       }
       this.currentDate = date;
       this.setLine();
-      this.$emit("select", date);
+      this.$emit('select', date);
     },
     formatDate(date) {
       const d = getYearMonthDay(date);
@@ -348,12 +348,12 @@ export default {
     setLine() {
       this.$nextTick(() => {
         const dom = document.getElementById(
-          `dateAxis-${this.currentDate.getDay()}`
+          `dateAxis-${this.currentDate.getDay()}`,
         );
         if (dom) {
           this.lineWidth = `${dom.offsetWidth}px`;
-          const left = dom.getBoundingClientRect().left;
-          const dateAxisWrapper = this.$refs.dateAxisWrapper;
+          const { left } = dom.getBoundingClientRect();
+          const { dateAxisWrapper } = this.$refs;
           const dateAxisWrapperX = dateAxisWrapper.getBoundingClientRect().left;
           this.lineTranslateX = `${left - dateAxisWrapperX}px`;
         }
@@ -368,15 +368,15 @@ export default {
     },
     hidePopup() {
       this.isShowPopup = false;
-      this.$emit("hide");
+      this.$emit('hide');
     },
     showPopup() {
       this.isShowPopup = true;
-      this.$emit("show");
+      this.$emit('show');
       this.setPlacement();
     },
     onDocumentClick(event) {
-      const notOutsideContainer = this.$refs.notOutsideContainer;
+      const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
         this.hidePopup();
       }
@@ -387,13 +387,12 @@ export default {
       get() {
         if (this.value == null) {
           return this.selectTime;
-        } else {
-          if (this.value instanceof Date) {
-            return this.value;
-          }
-          const now = new Date();
-          return now;
         }
+        if (this.value instanceof Date) {
+          return this.value;
+        }
+        const now = new Date();
+        return now;
       },
       set(val) {
         if (this.isEqual(this.currentDate, val)) {
@@ -402,7 +401,7 @@ export default {
         if (this.value == null) {
           this.selectTime = val;
         }
-        this.$emit("change", val);
+        this.$emit('change', val);
       },
     },
   },

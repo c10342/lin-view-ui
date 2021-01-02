@@ -34,21 +34,22 @@
 </template>
 
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from 'src/mixins/locale.js';
+
 export default {
-  name: "LinPageHeader",
-  mixins:[LocaleMixin],
+  name: 'LinPageHeader',
+  mixins: [LocaleMixin],
   props: {
     back: {
       type: Boolean,
       default: true,
     },
     backTip: {
-      type: String
+      type: String,
     },
     title: {
       type: String,
-      default: "",
+      default: '',
     },
     right: {
       type: Boolean,

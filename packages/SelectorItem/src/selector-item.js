@@ -1,5 +1,5 @@
-import Selector from "./selector-item.vue";
+import Selector from './selector-item.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default Selector;

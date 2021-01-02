@@ -73,11 +73,11 @@
   </div>
 </template>
 
-
 <script>
-import LocaleMixin from "src/mixins/locale.js";
+import LocaleMixin from 'src/mixins/locale.js';
+
 export default {
-  name: "LinChoiceGroup",
+  name: 'LinChoiceGroup',
   mixins: [LocaleMixin],
   props: {
     placeholder: {
@@ -88,7 +88,7 @@ export default {
     },
     valueKey: {
       type: String,
-      default: "",
+      default: '',
     },
     clearable: {
       type: Boolean,
@@ -116,7 +116,7 @@ export default {
     },
     loadingTip: {
       type: String,
-      default: "",
+      default: '',
     },
     emptyTip: {
       type: String,
@@ -124,7 +124,7 @@ export default {
   },
   data() {
     return {
-      groupLabel: "",
+      groupLabel: '',
       isShow: false,
       isHover: false,
       isDown: true,
@@ -164,11 +164,10 @@ export default {
   methods: {
     setPlacement() {
       this.$nextTick(() => {
-        const scrollContainer = this.$refs.scrollContainer;
-        const choiceGroup = this.$refs.choiceGroup;
-        const bottom =
-          window.innerHeight - choiceGroup.getBoundingClientRect().bottom;
-        const top = choiceGroup.getBoundingClientRect().top;
+        const { scrollContainer } = this.$refs;
+        const { choiceGroup } = this.$refs;
+        const bottom = window.innerHeight - choiceGroup.getBoundingClientRect().bottom;
+        const { top } = choiceGroup.getBoundingClientRect();
         if (bottom > scrollContainer.clientHeight) {
           this.setDownTop();
         } else if (top > scrollContainer.clientHeight) {
@@ -180,12 +179,12 @@ export default {
     },
     setDownTop() {
       this.isDown = true;
-      const choiceGroupInput = this.$refs.choiceGroupInput;
+      const { choiceGroupInput } = this.$refs;
       this.top = `${choiceGroupInput.clientHeight + 8}px`;
     },
     setUpTop() {
       this.isDown = false;
-      const scrollContainer = this.$refs.scrollContainer;
+      const { scrollContainer } = this.$refs;
       this.top = `${-(scrollContainer.clientHeight + 10)}px`;
     },
     onScroll(event) {
@@ -204,11 +203,11 @@ export default {
       }
     },
     handleScroll(event) {
-      const scrollTop = event.target.scrollTop;
+      const { scrollTop } = event.target;
       const height = this.$refs.scrollContainer.clientHeight;
       const contentHeight = this.$refs.scrollContent.clientHeight;
       if (scrollTop + height >= contentHeight) {
-        this.$emit("scrollToBottom", event);
+        this.$emit('scrollToBottom', event);
       }
     },
     onMouseLeave() {
@@ -219,11 +218,11 @@ export default {
     },
     onBlur(event) {
       this.isShow = false;
-      this.$emit("blur", event);
-      this.$emit("visible-change", false);
+      this.$emit('blur', event);
+      this.$emit('visible-change', false);
     },
     onFocus(event) {
-      this.$emit("focus", event);
+      this.$emit('focus', event);
     },
     onClick() {
       if (this.disabled) {
@@ -233,16 +232,16 @@ export default {
       if (this.isShow) {
         this.setPlacement();
       }
-      this.$emit("visible-change", this.isShow);
+      this.$emit('visible-change', this.isShow);
     },
     clearValue() {
-      this.groupLabel = "";
-      this.emitInputEvent("");
-      this.$emit("clear");
+      this.groupLabel = '';
+      this.emitInputEvent('');
+      this.$emit('clear');
     },
     emitInputEvent(value) {
-      this.$emit("input", value);
-      this.$emit("change", value);
+      this.$emit('input', value);
+      this.$emit('change', value);
     },
   },
   beforeDestroy() {
@@ -255,4 +254,3 @@ export default {
   },
 };
 </script>
-

@@ -5,13 +5,11 @@
   </div>
 </template>
 
-
 <script>
 export default {
-  name: "LinDropdownGroup",
-  props:{
-    label:String
-  }
+  name: 'LinDropdownGroup',
+  props: {
+    label: String,
+  },
 };
 </script>
-

@@ -35,11 +35,11 @@
 
 <script>
 export default {
-  name: "LinMessage",
+  name: 'LinMessage',
   props: {
     type: {
       type: String,
-      default: "info",
+      default: 'info',
     },
     showClose: {
       type: Boolean,
@@ -84,11 +84,11 @@ export default {
     onCloseClick() {
       if (this.show) {
         this.show = false;
-        this.$emit("close");
+        this.$emit('close');
       }
     },
     afterLeave() {
-      this.$emit("closed");
+      this.$emit('closed');
       if (this.onClose) {
         this.onClose();
       }

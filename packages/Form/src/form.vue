@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "LinForm",
+  name: 'LinForm',
   props: {
     model: {
       type: Object,
@@ -14,7 +14,7 @@ export default {
     },
     labelWidth: {
       type: String,
-      default: "80px",
+      default: '80px',
     },
     rules: {
       type: Object,
@@ -42,7 +42,7 @@ export default {
     clearValidate() {
       const broad = (children) => {
         children.forEach((child) => {
-          if (child.$options.name === "LinFormItem" && child.clearValidate) {
+          if (child.$options.name === 'LinFormItem' && child.clearValidate) {
             child.clearValidate();
           }
           if (child.$children) {

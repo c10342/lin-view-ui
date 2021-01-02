@@ -37,10 +37,11 @@
 </template>
 
 <script>
-import ResizeObserver from "resize-observer-polyfill";
-import Spinner from "packages/Spinner/index.js";
+import ResizeObserver from 'resize-observer-polyfill';
+import Spinner from 'packages/Spinner/index.js';
+
 export default {
-  name: "LinScrollBar",
+  name: 'LinScrollBar',
   components: {
     [Spinner.name]: Spinner,
   },
@@ -51,11 +52,11 @@ export default {
     },
     height: {
       type: String,
-      default: "100%",
+      default: '100%',
     },
     width: {
       type: String,
-      default: "100%",
+      default: '100%',
     },
     maxHeight: {
       type: String,
@@ -91,7 +92,7 @@ export default {
   },
   methods: {
     initObserver() {
-      this.observer = new ResizeObserver((entries, observer) => {
+      this.observer = new ResizeObserver(() => {
         this.init();
       });
 
@@ -106,9 +107,9 @@ export default {
       this.contentHeight = this.$refs.content.clientHeight;
     },
     initBar() {
-      const wrapperHeight = this.wrapperHeight;
-      const contentHeight = this.contentHeight;
-      //求 滚动条的高度
+      const { wrapperHeight } = this;
+      const { contentHeight } = this;
+      // 求 滚动条的高度
       if (wrapperHeight / contentHeight < 1) {
         this.barHeight = (wrapperHeight / contentHeight) * wrapperHeight;
         this.showBar = true;
@@ -116,30 +117,30 @@ export default {
         this.showBar = false;
       }
       if (this.showBar) {
-        const scrollTop = this.$refs.wrapper.scrollTop;
+        const { scrollTop } = this.$refs.wrapper;
         const percent = scrollTop / contentHeight;
         const barTop = percent * wrapperHeight;
         this.barTop = barTop;
       }
     },
     onWrapperScroll(event) {
-      const contentHeight = this.contentHeight;
-      const wrapperHeight = this.wrapperHeight;
-      const scrollTop = event.target.scrollTop;
+      const { contentHeight } = this;
+      const { wrapperHeight } = this;
+      const { scrollTop } = event.target;
       const percent = scrollTop / (contentHeight - wrapperHeight);
       const barTop = percent * (wrapperHeight - this.barHeight);
       this.barTop = barTop;
-      this.$emit("scroll", event);
+      this.$emit('scroll', event);
       if (scrollTop + wrapperHeight >= contentHeight) {
-        this.$emit("scrollToBottom", event);
+        this.$emit('scrollToBottom', event);
       }
     },
     onMouseDown(event) {
       this.isMove = true;
-      document.getElementsByTagName("body")[0].classList.add("user-no-select");
+      document.getElementsByTagName('body')[0].classList.add('user-no-select');
       this.startY = event.clientY;
-      document.addEventListener("mousemove", this.onMousemove);
-      document.addEventListener("mouseup", this.onMouseup);
+      document.addEventListener('mousemove', this.onMousemove);
+      document.addEventListener('mouseup', this.onMouseup);
     },
     onMousemove(event) {
       // 纵轴坐标
@@ -154,14 +155,14 @@ export default {
         this.hoverBar = false;
       }
       document
-        .getElementsByTagName("body")[0]
-        .classList.remove("user-no-select");
-      document.removeEventListener("mousemove", this.onMousemove);
-      document.removeEventListener("mouseup", this.onMouseup);
+        .getElementsByTagName('body')[0]
+        .classList.remove('user-no-select');
+      document.removeEventListener('mousemove', this.onMousemove);
+      document.removeEventListener('mouseup', this.onMouseup);
     },
     updatePosition(barTop) {
-      const wrapperHeight = this.wrapperHeight;
-      const contentHeight = this.contentHeight;
+      const { wrapperHeight } = this;
+      const { contentHeight } = this;
       const barHeight = this.$refs.bar.clientHeight;
       if (barTop >= wrapperHeight - barHeight) {
         barTop = wrapperHeight - barHeight;
@@ -185,7 +186,7 @@ export default {
       }
     },
     onBarWrapperClick(event) {
-      const clientY = event.clientY;
+      const { clientY } = event;
       const marginTop = this.$refs.wrapper.getBoundingClientRect().top;
       // console.log(clientY,marginTop);
       this.updatePosition(clientY - marginTop - this.barHeight / 2);
@@ -198,10 +199,10 @@ export default {
         style.height = this.height;
       }
       if (this.maxHeight) {
-        style["max-height"] = this.maxHeight;
+        style['max-height'] = this.maxHeight;
       }
       if (this.minHeight) {
-        style["min-height"] = this.minHeight;
+        style['min-height'] = this.minHeight;
       }
       return style;
     },
@@ -211,8 +212,8 @@ export default {
       this.observer.disconnect();
       this.observer = null;
     }
-    document.removeEventListener("mousemove", this.onMousemove);
-    document.removeEventListener("mouseup", this.onMouseup);
+    document.removeEventListener('mousemove', this.onMousemove);
+    document.removeEventListener('mouseup', this.onMouseup);
   },
 };
 </script>

@@ -23,14 +23,14 @@
 </template>
 
 <script>
-import dispatch from "src/utils/dispatch.js";
+import dispatch from 'src/utils/dispatch.js';
 
 export default {
-  name: "LinRadio",
+  name: 'LinRadio',
   // 需要提供一个计算属性 model
   inject: {
     RadioGroup: {
-      default: "",
+      default: '',
     },
   },
   computed: {
@@ -42,12 +42,17 @@ export default {
       set(value) {
         // 触发父组件给当前组件注册的input事件
         // this.$emit("input", value);
-        this.isGroup
-          ? this.RadioGroup.$emit("input", value)
-          : this.$emit("input", value);
+        // this.isGroup
+        //   ? this.RadioGroup.$emit('input', value)
+        //   : this.$emit('input', value);
+        if (this.isGroup) {
+          this.RadioGroup.$emit('input', value);
+        } else {
+          this.$emit('input', value);
+        }
         dispatch.call(this, {
-          eventName: "validate",
-          componentName: "LinFormItem",
+          eventName: 'validate',
+          componentName: 'LinFormItem',
         });
       },
     },
@@ -68,12 +73,12 @@ export default {
   props: {
     label: {
       type: [String, Number, Boolean],
-      default: "",
+      default: '',
     },
     value: null,
     name: {
       type: String,
-      default: "",
+      default: '',
     },
     disabled: {
       type: Boolean,

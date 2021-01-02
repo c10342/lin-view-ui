@@ -1,6 +1,6 @@
 function hasOwn(obj, key) {
   return hasOwnProperty.call(obj, key);
-};
+}
 
 const RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g;
 /**
@@ -8,8 +8,7 @@ const RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g;
  *  - Inspired:
  *    https://github.com/Matt-Esch/string-template/index.js
  */
-export default function(Vue) {
-
+export default function format() {
   /**
    * template
    *
@@ -28,19 +27,18 @@ export default function(Vue) {
     }
 
     return string.replace(RE_NARGS, (match, prefix, i, index) => {
-      let result;
+      // let result;
 
-      if (string[index - 1] === '{' &&
-        string[index + match.length] === '}') {
+      if (string[index - 1] === '{'
+        && string[index + match.length] === '}') {
         return i;
-      } else {
-        result = hasOwn(args, i) ? args[i] : null;
-        if (result === null || result === undefined) {
-          return '';
-        }
-
-        return result;
       }
+      const result = hasOwn(args, i) ? args[i] : null;
+      if (result === null || result === undefined) {
+        return '';
+      }
+
+      return result;
     });
   }
 

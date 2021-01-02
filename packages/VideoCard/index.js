@@ -1,4 +1,4 @@
-import VideoCard from "./src/video-card.js";
+import VideoCard from './src/video-card.js';
 
 VideoCard.install = (Vue) => Vue.component(VideoCard.name, VideoCard);
 

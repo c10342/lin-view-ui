@@ -2,10 +2,9 @@
   <img v-if="imgSrc" :src="imgSrc" class="lin-video-player-image" />
 </template>
 
-
 <script>
 export default {
-  name: "LinVideoPlayerImage",
+  name: 'LinVideoPlayerImage',
   inject: {
     videoPlayer: {
       default: null,
@@ -16,7 +15,7 @@ export default {
       if (this.videoPlayer) {
         return this.videoPlayer.imgSrc;
       }
-      return "";
+      return '';
     },
   },
 };

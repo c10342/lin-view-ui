@@ -1,4 +1,4 @@
-import { t } from "src/locale/index.js";
+import { t } from 'src/locale/index.js';
 
 export default {
   methods: {

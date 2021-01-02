@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import navConf from "../nav.config.zh.json";
 import { getLang } from "../utils/lang";
+import hljs from 'highlight.js'
 
 const lang = getLang();
 
@@ -19,10 +20,6 @@ let addComponent = (router) => {
       addComponent(route.items);
       routes = routes.concat(route.items);
     } else {
-      // if (route.type === "pages") {
-      //   route.component = () => import(`../pages/${route.name}.vue`);
-      //   return;
-      // } else
       if (route.type === "guide") {
         route.component = () =>
           import(`../markdown/${lang}/guide/${route.name}.md`);
@@ -35,7 +32,8 @@ let addComponent = (router) => {
 };
 addComponent(routes);
 
-export default new Router({
+const router = new Router({
+  mode:'history',
   routes: [
     {
       path: "/",
@@ -57,3 +55,13 @@ export default new Router({
     }
   },
 });
+
+router.afterEach((route) => {
+  Vue.nextTick(() => {
+    const blocks = document.querySelectorAll('pre code:not(.hljs)')
+    Array.prototype.forEach.call(blocks, hljs.highlightBlock)
+  })
+})
+
+
+export default router

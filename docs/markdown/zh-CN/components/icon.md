@@ -4,11 +4,14 @@
 
 ## 图标集合
 
+:::demo
+
+```vue
 <template>
   <ul class="icon-list">
-    <li v-for="(item ,index) in list" :key="index">
+    <li v-for="(item, index) in list" :key="index">
       <i :class="item"></i>
-      <span>{{item}}</span>
+      <span>{{ item }}</span>
     </li>
   </ul>
 </template>
@@ -46,45 +49,11 @@ export default {
         "lin-icon-success",
         "lin-icon-error",
         "lin-icon-info",
-      ]
+      ],
     };
-  }
+  },
 };
 </script>
+```
 
-<style lang="scss" scoped>
-.icon-list {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding-left: 0;
-  > li {
-    box-sizing: border-box;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #eee;
-    margin-right: -1px;
-    margin-bottom: -1px;
-
-    width: 16.66%;
-    height: 120px;
-    font-size: 14px;
-    color: #666;
-        cursor: pointer;
-    &:hover {
-      color: #1989fa;
-    }
-    >i{
-      font-size:22px;
-    }
-    > span {
-      font-size: 12px;
-      margin-top: 10px;
-    }
-  }
-}
-</style>
+:::

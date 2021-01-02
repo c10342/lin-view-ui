@@ -1,5 +1,5 @@
-import CheckboxGroup from "./checkbox-group.vue";
+import CheckboxGroup from './checkbox-group.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default CheckboxGroup;

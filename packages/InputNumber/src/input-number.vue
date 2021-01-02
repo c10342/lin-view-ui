@@ -21,8 +21,10 @@
 </template>
 
 <script>
+import dispatch from 'src/utils/dispatch.js';
+
 export default {
-  name: "LinInputNumber",
+  name: 'LinInputNumber',
   props: {
     value: {
       type: [Number, String],
@@ -45,7 +47,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "",
+      default: '',
     },
     stepStrictly: {
       type: Boolean,
@@ -59,7 +61,7 @@ export default {
       }
       const value = this.value * 1 - this.step;
       this.emitInputEvent(value);
-      this.$emit("reduce", value);
+      this.$emit('reduce', value);
     },
     plus() {
       if (this.disabledPlus) {
@@ -67,32 +69,30 @@ export default {
       }
       const value = this.value * 1 + this.step;
       this.emitInputEvent(value);
-      this.$emit("plus", value);
+      this.$emit('plus', value);
     },
     onBlur(e) {
       let value = e.target.value * 1;
       if (this.stepStrictly) {
-        if (this.min !== NaN && value < this.min) {
+        if (!Number.isNaN(this.min) && value < this.min) {
           value = this.min + (this.step - (this.min % this.step));
-        } else if (this.max !== NaN && value > this.max) {
+        } else if (!Number.isNaN(this.max) && value > this.max) {
           value = this.max - (this.min % this.step);
         } else {
-          value = value - (value % this.step);
+          value -= (value % this.step);
         }
-      } else {
-        if (this.min !== NaN && value < this.min) {
-          value = this.min;
-        } else if (this.max !== NaN && value > this.max) {
-          value = this.max;
-        }
+      } else if (!Number.isNaN(this.min) && value < this.min) {
+        value = this.min;
+      } else if (!Number.isNaN(this.max) && value > this.max) {
+        value = this.max;
       }
       this.emitInputEvent(value);
     },
     emitInputEvent(value) {
-      this.$emit("input", value);
+      this.$emit('input', value);
       dispatch.call(this, {
-        eventName: "validate",
-        componentName: "LinFormItem",
+        eventName: 'validate',
+        componentName: 'LinFormItem',
       });
     },
   },
@@ -101,43 +101,36 @@ export default {
       if (this.disabled) {
         return true;
       }
-      if (this.min === NaN) {
+      if (Number.isNaN(this.min)) {
         return false;
-      } else if (
-        this.value === "" ||
-        this.value === null ||
-        this.value === undefined
+      } if (
+        this.value === ''
+        || this.value === null
+        || this.value === undefined
       ) {
         return false;
-      } else {
-        if (this.value <= this.min) {
-          return true;
-        } else {
-          return false;
-        }
+      } if (this.value <= this.min) {
+        return true;
       }
+      return false;
     },
     disabledPlus() {
       if (this.disabled) {
         return true;
       }
-      if (this.max === NaN) {
+      if (Number.isNaN(this.max)) {
         return false;
-      } else if (
-        this.value === "" ||
-        this.value === null ||
-        this.value === undefined
+      } if (
+        this.value === ''
+        || this.value === null
+        || this.value === undefined
       ) {
         return false;
-      } else {
-        if (this.value >= this.max) {
-          return true;
-        } else {
-          return false;
-        }
+      } if (this.value >= this.max) {
+        return true;
       }
+      return false;
     },
   },
 };
 </script>
-

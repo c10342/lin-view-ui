@@ -1,6 +1,6 @@
-import Vue from "vue";
-import LoadingBar from "./loading-bar.vue";
-import "./style.scss";
+import Vue from 'vue';
+import LoadingBar from './loading-bar.vue';
+import './style.scss';
 
 const LoadingBarConstructor = Vue.extend(LoadingBar);
 
@@ -8,20 +8,18 @@ let timer = null;
 
 let removeTimer = null;
 
-const LLoadingBar = () => {
-  return new LoadingBarConstructor();
-};
+const LLoadingBar = () => new LoadingBarConstructor();
 
-LoadingBarConstructor.prototype.config = function(options) {
+LoadingBarConstructor.prototype.config = function config(options) {
   Object.keys(options).forEach((key) => {
-    if (key === "isError" || key === "totalProgress") {
+    if (key === 'isError' || key === 'totalProgress') {
       return;
     }
     this[key] = options[key];
   });
 };
 
-LoadingBarConstructor.prototype.init = function() {
+LoadingBarConstructor.prototype.init = function init() {
   clearTimeout(timer);
   this.totalProgress = 0;
   this.isError = false;
@@ -30,7 +28,7 @@ LoadingBarConstructor.prototype.init = function() {
   return this;
 };
 
-LoadingBarConstructor.prototype.start = function() {
+LoadingBarConstructor.prototype.start = function start() {
   this.init();
 
   timer = setInterval(() => {
@@ -40,8 +38,11 @@ LoadingBarConstructor.prototype.start = function() {
   }, 100);
 };
 
-LoadingBarConstructor.prototype.end = function() {
-  timer || this.init();
+LoadingBarConstructor.prototype.end = function end() {
+  // timer || this.init();
+  if (!timer) {
+    this.init();
+  }
   this.totalProgress = 100;
   clearTimeout(removeTimer);
   removeTimer = setTimeout(() => {
@@ -51,7 +52,7 @@ LoadingBarConstructor.prototype.end = function() {
   }, 200);
 };
 
-LoadingBarConstructor.prototype.error = function() {
+LoadingBarConstructor.prototype.error = function error() {
   this.end();
   this.totalProgress = 100;
   this.isError = true;

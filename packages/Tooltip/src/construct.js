@@ -1,19 +1,22 @@
-import Vue from "vue";
+import Vue from 'vue';
 
-import Tooltip from "./tooltip.vue";
+import Tooltip from './tooltip.vue';
 
 const TooltipConstruct = Vue.extend(Tooltip);
 
-TooltipConstruct.prototype.addTip = function(options = {}) {
+TooltipConstruct.prototype.addTip = function addTip() {
   this.vm = this.$mount();
 
   document.body.appendChild(this.vm.$el);
 };
 
-TooltipConstruct.prototype.removeTip = function() {
+TooltipConstruct.prototype.removeTip = function removeTip() {
   this.show = false;
-  this.$once("after-leave", () => {
-    this.vm.$el && document.body.removeChild(this.vm.$el);
+  this.$once('after-leave', () => {
+    if (this.vm.$el) {
+      document.body.removeChild(this.vm.$el);
+    }
+    // this.vm.$el && document.body.removeChild(this.vm.$el);
   });
 };
 

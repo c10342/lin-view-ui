@@ -1,12 +1,12 @@
-import "./style.scss";
+import './style.scss';
 
 export default {
-  name: "LinRow",
+  name: 'LinRow',
 
   props: {
     tag: {
       type: String,
-      default: "div",
+      default: 'div',
     },
     gutter: {
       type: Number,
@@ -14,15 +14,15 @@ export default {
     },
     type: {
       type: String,
-      default: "",
+      default: '',
     },
     justify: {
       type: String,
-      default: "",
+      default: '',
     },
     align: {
       type: String,
-      default: "",
+      default: '',
     },
   },
 
@@ -46,9 +46,9 @@ export default {
     return h(
       this.tag,
       {
-        class: ["lin-row", classList],
+        class: ['lin-row', classList],
       },
-      this.$slots.default
+      this.$slots.default,
     );
   },
 };

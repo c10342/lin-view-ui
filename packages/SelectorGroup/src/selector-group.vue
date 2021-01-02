@@ -1,11 +1,10 @@
-
-
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from 'src/mixins/locale.js';
+
 const oneHeight = 26;
 export default {
-  name: "LinSelectorGroup",
-  mixins:[LocaleMixin],
+  name: 'LinSelectorGroup',
+  mixins: [LocaleMixin],
   render(h) {
     const {
       renderMore,
@@ -17,7 +16,7 @@ export default {
       label,
       status,
       renderLabel,
-      t
+      t,
     } = this;
 
     return (
@@ -38,7 +37,7 @@ export default {
         <div
           class="lin-selector-list"
           ref="selectorList"
-          style={{ height: height }}
+          style={{ height }}
         >
           {$slots.default}
         </div>
@@ -47,7 +46,7 @@ export default {
             {renderMore ? (
               renderMore(h, status)
             ) : (
-              <span class="lin-selector-more-text-tip">{status===2?t('LinViewUI.Selector.hide'):t('LinViewUI.Selector.show')}</span>
+              <span class="lin-selector-more-text-tip">{status === 2 ? t('LinViewUI.Selector.hide') : t('LinViewUI.Selector.show')}</span>
             )}
           </span>
         ) : null}
@@ -57,18 +56,18 @@ export default {
   props: {
     width: {
       type: String,
-      default: "",
+      default: '',
     },
     labelWidth: {
       type: String,
-      default: "40px",
+      default: '40px',
     },
     value: {
       type: [String, Object, Number, Boolean],
     },
     valueKey: {
       type: String,
-      default: "",
+      default: '',
     },
     renderMore: {
       type: Function,
@@ -80,7 +79,7 @@ export default {
     },
     label: {
       type: String,
-      default: "",
+      default: '',
     },
     disabled: {
       type: Boolean,
@@ -95,7 +94,7 @@ export default {
   data() {
     return {
       isShowBtn: false,
-      height: "auto",
+      height: 'auto',
       //   1-收起，2-展开
       status: 1,
     };
@@ -103,7 +102,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.init();
-      window.addEventListener("resize", this.onResize);
+      window.addEventListener('resize', this.onResize);
     });
   },
   methods: {
@@ -111,13 +110,13 @@ export default {
       this.resetStatus();
     },
     resetStatus() {
-      const clientHeight = this.$refs.selectorList.clientHeight;
+      // const clientHeight = this.$refs.selectorList.clientHeight;
       const style = this.$refs.selectorList.style;
       // console.log(style.height);
-      if (style.height === "auto") {
+      if (style.height === 'auto') {
         this.init();
       } else {
-        this.height = "auto";
+        this.height = 'auto';
         this.$nextTick(() => {
           this.init();
         });
@@ -137,14 +136,14 @@ export default {
     switchMore() {
       if (this.status === 1) {
         this.show();
-        this.$emit("show");
+        this.$emit('show');
       } else {
         this.hide();
-        this.$emit("hide");
+        this.$emit('hide');
       }
     },
     show() {
-      this.height = "auto";
+      this.height = 'auto';
       this.status = 2;
     },
     hide() {
@@ -161,7 +160,7 @@ export default {
     },
   },
   beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
+    window.removeEventListener('resize', this.onResize);
   },
 };
 </script>

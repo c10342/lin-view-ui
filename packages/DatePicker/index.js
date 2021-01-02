@@ -1,4 +1,4 @@
-import DatePicker from "./src/date-picker.js";
+import DatePicker from './src/date-picker.js';
 
 DatePicker.install = (Vue) => Vue.component(DatePicker.name, DatePicker);
 

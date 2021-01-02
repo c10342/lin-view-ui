@@ -1,20 +1,22 @@
-
 <template>
   <div class="lin-badge">
     <slot></slot>
-    <span v-if="!isDot" :class="['lin-badge-fix','lin-badge-text', `lin-badge-${type}`]">{{ text }}</span>
+    <span
+    v-if="!isDot"
+    :class="['lin-badge-fix','lin-badge-text', `lin-badge-${type}`]">
+    {{ text }}
+    </span>
     <span v-if="isDot" :class="['lin-badge-fix','lin-badge-dot', `lin-badge-${type}`]"></span>
   </div>
 </template>
 
-
 <script>
 export default {
-  name: "LinBadge",
+  name: 'LinBadge',
   props: {
     value: {
       type: [String, Number],
-      default: "",
+      default: '',
     },
     max: {
       type: Number,
@@ -25,21 +27,20 @@ export default {
     },
     type: {
       type: String,
-      default: "primary",
+      default: 'primary',
     },
   },
   computed: {
     text() {
-      if (typeof this.value === "string") {
+      if (typeof this.value === 'string') {
         return this.value;
-      } else if (typeof this.value === "number") {
+      } if (typeof this.value === 'number') {
         if (this.max && this.max < this.value) {
           return `${this.max}+`;
-        } else {
-          return this.value;
         }
+        return this.value;
       }
-      return "";
+      return '';
     },
   },
 };

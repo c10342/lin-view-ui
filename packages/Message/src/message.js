@@ -1,8 +1,8 @@
-import Vue from "vue";
+import Vue from 'vue';
 
-import Message from "./message.vue";
+import Message from './message.vue';
 
-import "./style.scss";
+import './style.scss';
 
 const MessageConstruct = Vue.extend(Message);
 
@@ -19,6 +19,7 @@ function updateTop(index) {
 
 class LinMessage {
   options = null;
+
   instance = null;
 
   propsData = {};
@@ -33,15 +34,15 @@ class LinMessage {
 
   initProps() {
     const props = [
-      "type",
-      "showClose",
-      "message",
-      "iconClass",
-      "dangerouslyUseHTMLString",
-      "customClass",
-      "center",
-      "onClose",
-      "offset",
+      'type',
+      'showClose',
+      'message',
+      'iconClass',
+      'dangerouslyUseHTMLString',
+      'customClass',
+      'center',
+      'onClose',
+      'offset',
     ];
     const propsData = {};
     props.forEach((prop) => {
@@ -68,14 +69,16 @@ class LinMessage {
       this.instance.show = true;
       this.saveOffsetTop();
       this.setTimer();
-      this.instance.$once("closed", () => {
+      this.instance.$once('closed', () => {
         this.destory();
       });
     }
   }
+
   saveOffsetTop() {
     const index = instanceList.findIndex(
-      (instance) => instance._uid === this.instance._uid
+      // eslint-disable-next-line
+      (instance) => instance._uid === this.instance._uid,
     );
     if (index > 0) {
       const prevInstance = instanceList[index - 1];
@@ -87,6 +90,7 @@ class LinMessage {
       this.instance.top = 0;
     }
   }
+
   setTimer() {
     const { duration } = this.options;
     if (duration !== 0) {
@@ -95,15 +99,18 @@ class LinMessage {
       }, duration || 3000);
     }
   }
+
   close() {
     if (this.instance && this.instance.show) {
       this.instance.show = false;
     }
   }
+
   destory() {
     if (this.instance) {
       const index = instanceList.findIndex(
-        (instance) => instance._uid === this.instance._uid
+        // eslint-disable-next-line
+        (instance) => instance._uid === this.instance._uid,
       );
       if (index > -1) {
         updateTop(index);
@@ -121,7 +128,7 @@ class LinMessage {
 
 function createInstance(options) {
   const toString = Object.prototype.toString;
-  if (toString.call(options).includes("Object")) {
+  if (toString.call(options).includes('Object')) {
     return new LinMessage(options);
   }
   return new LinMessage({
@@ -131,7 +138,7 @@ function createInstance(options) {
 
 function createInstanceByType(options, type) {
   const toString = Object.prototype.toString;
-  if (toString.call(options).includes("Object")) {
+  if (toString.call(options).includes('Object')) {
     return new LinMessage({
       ...options,
       type,
@@ -143,26 +150,26 @@ function createInstanceByType(options, type) {
   });
 }
 
-createInstance.success = function(options) {
-  return createInstanceByType(options,'success')
+createInstance.success = function success(options) {
+  return createInstanceByType(options, 'success');
 };
 
-createInstance.info = function(options) {
-  return createInstanceByType(options,'info')
+createInstance.info = function info(options) {
+  return createInstanceByType(options, 'info');
 };
 
-createInstance.error = function(options) {
-  return createInstanceByType(options,'error')
+createInstance.error = function error(options) {
+  return createInstanceByType(options, 'error');
 };
 
-createInstance.warning = function(options) {
-  return createInstanceByType(options,'warning')
+createInstance.warning = function warning(options) {
+  return createInstanceByType(options, 'warning');
 };
 
-createInstance.closeAll = function() {
-  instanceList.forEach(instance=>{
-    instance.onCloseClick()
-  })
+createInstance.closeAll = function closeAll() {
+  instanceList.forEach((instance) => {
+    instance.onCloseClick();
+  });
 };
 
 export default createInstance;

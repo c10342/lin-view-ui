@@ -1,5 +1,8 @@
+/* eslint no-restricted-globals: "off" */
+/* eslint no-undef: "off" */
+
 // 引入脚本
-self.importScripts("https://cdn.bootcss.com/spark-md5/3.0.0/spark-md5.js");
+self.importScripts('https://cdn.bootcss.com/spark-md5/3.0.0/spark-md5.js');
 
 self.onmessage = (e) => {
   const { fileChunkList } = e.data;

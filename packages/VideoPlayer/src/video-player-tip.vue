@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "LinVideoPlayerTip",
+  name: 'LinVideoPlayerTip',
   inject: {
     videoPlayer: {
       default: null,
@@ -17,20 +17,20 @@ export default {
       if (this.videoPlayer) {
         return this.videoPlayer.tip;
       }
-      return "";
+      return '';
     },
-    tipTime:{
+    tipTime: {
       get() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.tipTime;
-      }
-      return 2000;
-    },
-    set(value){
-      if (this.videoPlayer) {
-        this.videoPlayer.tipTime = 2000
-      }
-    }
+        if (this.videoPlayer) {
+          return this.videoPlayer.tipTime;
+        }
+        return 2000;
+      },
+      set(value) {
+        if (this.videoPlayer) {
+          this.videoPlayer.tipTime = value;
+        }
+      },
     },
   },
   mounted() {
@@ -49,9 +49,9 @@ export default {
         this.destroyTimeout();
         this.timer = setTimeout(() => {
           if (this.videoPlayer) {
-            this.videoPlayer.tip = "";
+            this.videoPlayer.tip = '';
           }
-          this.tipTime = 2000
+          this.tipTime = 2000;
           this.destroyTimeout();
         }, this.tipTime);
       }
@@ -62,4 +62,3 @@ export default {
   },
 };
 </script>
-

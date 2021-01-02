@@ -16,14 +16,16 @@
 </template>
 
 <script>
-import { throttle } from "lodash";
-// const cubic = (value) => Math.pow(value, 3);
+import { throttle } from 'lodash';
+
 const cubic = (value) => value ** 3;
-const easeInOutCubic = (value) =>
-  value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2;
+const easeInOutCubic = (value) => {
+  const percent = (value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2);
+  return percent;
+};
 
 export default {
-  name: "LinBacktop",
+  name: 'LinBacktop',
   props: {
     right: {
       type: Number,
@@ -52,7 +54,7 @@ export default {
     this.container = null;
     this.init();
     this.throttledScrollHandler = throttle(this.onScroll, 300);
-    this.container.addEventListener("scroll", this.throttledScrollHandler);
+    this.container.addEventListener('scroll', this.throttledScrollHandler);
   },
   methods: {
     init() {
@@ -67,38 +69,36 @@ export default {
       }
     },
     onScroll() {
-      const scrollTop = this.el.scrollTop;
+      const { scrollTop } = this.el;
       this.visible = scrollTop >= this.visibilityHeight;
     },
     onClick(e) {
       this.scrollToTop();
-      this.$emit("click", e);
+      this.$emit('click', e);
     },
     scrollToTop() {
-      const el = this.el;
+      const { el } = this;
       const beginTime = Date.now();
       const beginValue = el.scrollTop;
-      const rAF =
-        window.requestAnimationFrame || ((func) => setTimeout(func, 16));
+      const rAF = window.requestAnimationFrame || ((func) => setTimeout(func, 16));
       const frameFunc = () => {
         const progress = (Date.now() - beginTime) / 500;
         if (progress < 1) {
           el.scrollTop = beginValue * (1 - easeInOutCubic(progress));
-          this.$emit("scroll", el.scrollTop);
+          this.$emit('scroll', el.scrollTop);
           rAF(frameFunc);
         } else {
           el.scrollTop = 0;
-          this.$emit("end");
+          this.$emit('end');
         }
       };
       rAF(frameFunc);
     },
   },
   beforeDestroy() {
-    this.container.removeEventListener("scroll", this.throttledScrollHandler);
+    this.container.removeEventListener('scroll', this.throttledScrollHandler);
     this.el = null;
     this.container = null;
   },
 };
 </script>
-

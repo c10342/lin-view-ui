@@ -37,11 +37,12 @@
 </template>
 
 <script>
-import secondToTime from "src/utils/secondToTime.js";
-import LocaleMixin from 'src/mixins/locale.js'
+import secondToTime from 'src/utils/secondToTime.js';
+import LocaleMixin from 'src/mixins/locale.js';
+
 export default {
-  name: "LinVideoPlayerProcess",
-  mixins:[LocaleMixin],
+  name: 'LinVideoPlayerProcess',
+  mixins: [LocaleMixin],
   filters: {
     secondToTime,
   },
@@ -68,9 +69,8 @@ export default {
     currentPlayedWidth() {
       if (this.mousedown) {
         return `${this.mousedownWidth}px`;
-      } else {
-        return this.playedWidth;
       }
+      return this.playedWidth;
     },
     playedWidth() {
       if (this.totalTime === 0) {
@@ -128,18 +128,18 @@ export default {
       }
       // console.log(this.totalTime,);
     },
-    onBallMouseDown(event) {
+    onBallMouseDown() {
       this.mousedownWidth = this.playedWidth;
       this.mousedown = true;
-      window.addEventListener("mousemove", this.onMouseMove);
-      window.addEventListener("mouseup", this.onMouseUp);
+      window.addEventListener('mousemove', this.onMouseMove);
+      window.addEventListener('mouseup', this.onMouseUp);
     },
     // 鼠标移动
     onMouseMove(e) {
       // 实现拖拽移动事件
       if (this.mousedown) {
-        let outLineX = this.videoPlayerProcess.getBoundingClientRect().x;
-        let outLineWidth = this.videoPlayerProcess.getBoundingClientRect().width;
+        const outLineX = this.videoPlayerProcess.getBoundingClientRect().x;
+        const outLineWidth = this.videoPlayerProcess.getBoundingClientRect().width;
         let offsetX = e.pageX - outLineX;
         if (offsetX <= 0) {
           offsetX = 0;
@@ -158,8 +158,8 @@ export default {
       }
       this.seekByPercent(percent);
       this.mousedown = false;
-      window.removeEventListener("mouseup", this.onMouseUp);
-      window.removeEventListener("mousemove", this.onMouseMove);
+      window.removeEventListener('mouseup', this.onMouseUp);
+      window.removeEventListener('mousemove', this.onMouseMove);
     },
     onMaskClick(event) {
       const offsetX = event.offsetX || 0;
@@ -178,10 +178,13 @@ export default {
       this.setTip(offsetTime);
     },
     setTip(offsetTime) {
+      if (!this.videoPlayer) {
+        return;
+      }
       if (offsetTime < 0) {
-        this.videoPlayer?.setTip(`${this.t('LinViewUI.VideoPlayer.goBack')} ${Math.round(-offsetTime)} ${this.t('LinViewUI.VideoPlayer.second')}`);
+        this.videoPlayer.setTip(`${this.t('LinViewUI.VideoPlayer.goBack')} ${Math.round(-offsetTime)} ${this.t('LinViewUI.VideoPlayer.second')}`);
       } else {
-        this.videoPlayer?.setTip(`${this.t('LinViewUI.VideoPlayer.fastForward')} ${Math.round(offsetTime)} ${this.t('LinViewUI.VideoPlayer.second')}`);
+        this.videoPlayer.setTip(`${this.t('LinViewUI.VideoPlayer.fastForward')} ${Math.round(offsetTime)} ${this.t('LinViewUI.VideoPlayer.second')}`);
       }
     },
     destroyProcess() {
@@ -191,10 +194,9 @@ export default {
     },
   },
   beforeDestroy() {
-    window.removeEventListener("mouseup", this.onMouseUp);
-    window.removeEventListener("mousemove", this.onMouseMove);
+    window.removeEventListener('mouseup', this.onMouseUp);
+    window.removeEventListener('mousemove', this.onMouseMove);
     this.destroyProcess();
   },
 };
 </script>
-

@@ -26,7 +26,7 @@
     },
     {
       "name": "logs",
-      "path": "logs",
+      "path": "/logs",
       "desc": "更新日志",
       "type": "guide"
     }

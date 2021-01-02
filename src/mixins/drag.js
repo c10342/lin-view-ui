@@ -8,9 +8,9 @@ const drag = {
   data() {
     return {
       dialogStyle: {
-        top: "0",
-        left: "50%",
-        transform: "translateX(-50%)",
+        top: '0',
+        left: '50%',
+        transform: 'translateX(-50%)',
       },
     };
   },
@@ -26,11 +26,11 @@ const drag = {
       if (!this.drag) {
         return;
       }
-      document.body.classList.add("user-select-none");
+      document.body.classList.add('user-select-none');
       this.startY = event.clientY;
       this.startX = event.clientX;
-      document.addEventListener("mousemove", this.onMousemove);
-      document.addEventListener("mouseup", this.onMouseup);
+      document.addEventListener('mousemove', this.onMousemove);
+      document.addEventListener('mouseup', this.onMouseup);
     },
     onMousemove(event) {
       const endY = event.clientY;
@@ -47,18 +47,16 @@ const drag = {
       const windowHeight = window.innerHeight;
       this.startY = endY;
       this.startX = endX;
-      let dialogTop = parseInt(top + offsetY);
-      let dialogLeft = parseInt(left + offsetX);
+      let dialogTop = parseInt(top + offsetY, 10);
+      let dialogLeft = parseInt(left + offsetX, 10);
       dialogTop = dialogTop < 0 ? 0 : dialogTop;
       dialogLeft = dialogLeft < 0 ? 0 : dialogLeft;
-      dialogTop =
-        dialogTop > windowHeight - height ? windowHeight - height : dialogTop;
-      dialogLeft =
-        dialogLeft > windowWidth - width ? windowWidth - width : dialogLeft;
+      dialogTop = dialogTop > windowHeight - height ? windowHeight - height : dialogTop;
+      dialogLeft = dialogLeft > windowWidth - width ? windowWidth - width : dialogLeft;
       this.dialogStyle = {
         top: `${dialogTop}px`,
         left: `${dialogLeft}px`,
-        transform: "none",
+        transform: 'none',
         marginTop: 0,
         marginBottom: 0,
         marginLeft: 0,
@@ -66,12 +64,12 @@ const drag = {
       };
     },
     onMouseup() {
-      document.body.classList.remove("user-select-none");
+      document.body.classList.remove('user-select-none');
       this.removeListener();
     },
     removeListener() {
-      document.removeEventListener("mousemove", this.onMousemove);
-      document.removeEventListener("mouseup", this.onMouseup);
+      document.removeEventListener('mousemove', this.onMousemove);
+      document.removeEventListener('mouseup', this.onMouseup);
     },
   },
 };

@@ -34,10 +34,11 @@
   </transition>
 </template>
 <script>
-import LocaleMixin from "src/mixins/locale.js";
-import DragMixin from "src/mixins/drag.js";
+import LocaleMixin from 'src/mixins/locale.js';
+import DragMixin from 'src/mixins/drag.js';
+
 export default {
-  name: "LinDialog",
+  name: 'LinDialog',
   mixins: [LocaleMixin, DragMixin],
   props: {
     title: {
@@ -45,11 +46,11 @@ export default {
     },
     width: {
       type: String,
-      default: "50%",
+      default: '50%',
     },
     top: {
       type: String,
-      default: "15vh",
+      default: '15vh',
     },
     visible: {
       type: Boolean,
@@ -67,8 +68,8 @@ export default {
   methods: {
     handleClose() {
       const done = () => {
-        this.$emit("update:visible", false);
-        this.$emit("close");
+        this.$emit('update:visible', false);
+        this.$emit('close');
       };
       if (this.beforeClose) {
         this.beforeClose(done);

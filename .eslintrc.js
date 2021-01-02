@@ -1,0 +1,39 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  // 识别webpack别名
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: './build/webpack.base.js',
+      },
+    },
+  },
+  extends: [
+    'plugin:vue/essential',
+    'airbnb-base',
+  ],
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+    // ecmaFeatures: {
+    //   jsx: true, // 启动JSX
+    // },
+    parser: 'babel-eslint',
+  },
+  plugins: [
+    'vue',
+  ],
+  rules: {
+    'import/extensions': ['error', 'always'],
+    'prefer-destructuring': 'off',
+    'no-param-reassign': 'off',
+    'no-plusplus': 'off',
+    'consistent-return': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'no-underscore-dangle': 'off',
+    'import/no-named-as-default-member': 'off',
+  },
+};

@@ -1,5 +1,5 @@
-import RadioGroup from "./radio-group.vue";
+import RadioGroup from './radio-group.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default RadioGroup;

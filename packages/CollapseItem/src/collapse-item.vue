@@ -20,10 +20,11 @@
 </template>
 
 <script>
-import { cloneDeep } from "lodash";
-import collapseTransition from "src/js/collapseTransition.js";
+import { cloneDeep } from 'lodash';
+import collapseTransition from 'src/js/collapseTransition.js';
+
 export default {
-  name: "LinCollapseItem",
+  name: 'LinCollapseItem',
   props: {
     name: {
       type: String,
@@ -39,7 +40,7 @@ export default {
   },
   inject: {
     collapseGroup: {
-      default: "",
+      default: '',
     },
   },
   data() {
@@ -57,9 +58,9 @@ export default {
     collapseValue() {
       if (this.collapseGroup) {
         const val = this.collapseGroup.collapseValue;
-        if (val && typeof val === "string") {
+        if (val && typeof val === 'string') {
           return [val];
-        } else if (Array.isArray(val)) {
+        } if (Array.isArray(val)) {
           return val;
         }
       }
@@ -75,9 +76,8 @@ export default {
       get() {
         if (this.collapseValue.includes(this.name)) {
           return true;
-        } else {
-          return false;
         }
+        return false;
       },
       set(val) {
         if (this.collapseGroup) {
@@ -88,15 +88,13 @@ export default {
             } else {
               data = [this.name];
             }
-          } else {
-            if (val === false) {
-              const index = data.findIndex((item) => item === this.name);
-              if (index > -1) {
-                data.splice(index, 1);
-              }
-            } else {
-              data.push(this.name);
+          } else if (val === false) {
+            const index = data.findIndex((item) => item === this.name);
+            if (index > -1) {
+              data.splice(index, 1);
             }
+          } else {
+            data.push(this.name);
           }
           this.collapseGroup.collapseValue = data;
         }
@@ -110,4 +108,3 @@ export default {
   },
 };
 </script>
-

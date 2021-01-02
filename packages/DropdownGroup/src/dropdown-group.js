@@ -1,7 +1,5 @@
-import DropdownGroup from './dropdown-group.vue'
+import DropdownGroup from './dropdown-group.vue';
 
+import './style.scss';
 
-import './style.scss'
-
-
-export default DropdownGroup
+export default DropdownGroup;

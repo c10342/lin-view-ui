@@ -3,7 +3,7 @@
  * @param {*} opts
  */
 
-import operate from "./operate.js";
+import operate from './operate.js';
 
 export default function updateMetaInfo(opts) {
   operate().removeMetaInfo();

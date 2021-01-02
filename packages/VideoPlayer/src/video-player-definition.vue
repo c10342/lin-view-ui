@@ -21,9 +21,10 @@
 </template>
 
 <script>
-import { cloneDeep } from "lodash";
+// import { cloneDeep } from 'lodash';
+
 export default {
-  name: "LinVideoPlayerDefinition",
+  name: 'LinVideoPlayerDefinition',
   inject: {
     videoPlayer: {
       default: null,
@@ -103,4 +104,3 @@ export default {
   },
 };
 </script>
-

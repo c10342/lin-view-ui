@@ -1,6 +1,5 @@
-import TabItem from './tab-item.vue'
+import TabItem from './tab-item.vue';
 
-import './style.scss'
+import './style.scss';
 
-
-export default TabItem
+export default TabItem;

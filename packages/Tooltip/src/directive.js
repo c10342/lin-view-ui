@@ -1,14 +1,14 @@
-import TooltipConstruct from "./construct.js";
+import TooltipConstruct from './construct.js';
 
 const TooltipDirective = {};
 
 let instance = null;
 
 TooltipDirective.install = (Vue) => {
-  Vue.directive("tooltip", {
+  Vue.directive('tooltip', {
     bind(el, binding) {
       el.mouseenter = (e) => {
-        if (e.currentTarget != el) {
+        if (e.currentTarget !== el) {
           return;
         }
         const text = binding.value;
@@ -26,15 +26,15 @@ TooltipDirective.install = (Vue) => {
           right: r,
           auto,
         } = binding.modifiers;
-        let placement = "bottom";
+        let placement = 'bottom';
         if (b) {
-          placement = "bottom";
+          placement = 'bottom';
         } else if (t) {
-          placement = "top";
+          placement = 'top';
         } else if (l) {
-          placement = "left";
+          placement = 'left';
         } else if (r) {
-          placement = "right";
+          placement = 'right';
         }
 
         instance.placement = placement;
@@ -62,25 +62,25 @@ TooltipDirective.install = (Vue) => {
 
           let styleLeft;
           let styleTop;
-          let top = el.getAttribute("lin-tooltip-top") * 1;
-          let left = el.getAttribute("lin-tooltip-left") * 1;
-          if (typeof top !== "number") {
+          let top = el.getAttribute('lin-tooltip-top') * 1;
+          let left = el.getAttribute('lin-tooltip-left') * 1;
+          if (typeof top !== 'number') {
             top = 0;
           }
-          if (typeof left !== "number") {
+          if (typeof left !== 'number') {
             left = 0;
           }
 
-          if (placement === "bottom") {
+          if (placement === 'bottom') {
             styleLeft = `${boxLeft + (boxWidth / 2 - tipWidth / 2) - left}px`;
             styleTop = `${boxTop + boxHeight + 7 + top}px`;
-          } else if (placement === "top") {
+          } else if (placement === 'top') {
             styleLeft = `${boxLeft + (boxWidth / 2 - tipWidth / 2) - left}px`;
             styleTop = `${boxTop - tipHeight - 7 + top}px`;
-          } else if (placement === "left") {
+          } else if (placement === 'left') {
             styleLeft = `${boxLeft - tipWidth - 7 - left}px`;
             styleTop = `${boxTop + (boxHeight / 2 - tipHeight / 2) + top}px`;
-          } else if (placement === "right") {
+          } else if (placement === 'right') {
             styleLeft = `${boxLeft + boxWidth + 7 - left}px`;
             styleTop = `${boxTop + (boxHeight / 2 - tipHeight / 2) + top}px`;
           }
@@ -94,8 +94,8 @@ TooltipDirective.install = (Vue) => {
           instance = null;
         }
       };
-      el.addEventListener("mouseenter", el.mouseenter);
-      el.addEventListener("mouseleave", el.mouseleave);
+      el.addEventListener('mouseenter', el.mouseenter);
+      el.addEventListener('mouseleave', el.mouseleave);
     },
     // update(el, binding) {},
     unbind(el) {
@@ -103,8 +103,8 @@ TooltipDirective.install = (Vue) => {
         instance.removeTip();
         instance = null;
       }
-      el.removeEventListener("mouseenter", el.mouseenter);
-      el.removeEventListener("mouseleave", el.mouseleave);
+      el.removeEventListener('mouseenter', el.mouseenter);
+      el.removeEventListener('mouseleave', el.mouseleave);
     },
   });
 };

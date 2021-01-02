@@ -2,7 +2,12 @@
   <div @click="onCardClick" class="video-card" :style="{'width':cardWidth,'height':cardHeight}">
     <slot name="top">
       <div class="video-cover-box" :style="{'height':imageHeight}">
-        <img @error="loadError" v-if="!imageLoadError" class="cover-image" :src="url" :alt="t('LinViewUI.VideoCard.imgAlt')" />
+        <img
+        @error="loadError"
+         v-if="!imageLoadError"
+         class="cover-image"
+         :src="url"
+         :alt="t('LinViewUI.VideoCard.imgAlt')" />
         <div v-else class="error-tip">{{errorTip || t('LinViewUI.VideoCard.errorTip')}}</div>
         <span class="cover-tip" v-if="coverTip">{{coverTip}}</span>
       </div>
@@ -12,46 +17,47 @@
 </template>
 
 <script>
-import LocaleMixin from 'src/mixins/locale.js'
+import LocaleMixin from 'src/mixins/locale.js';
+
 export default {
-  name: "LinVideoCard",
-  mixins:[LocaleMixin],
+  name: 'LinVideoCard',
+  mixins: [LocaleMixin],
   props: {
     data: {
       type: Object,
     },
     cardHeight: {
       type: String,
-      default: "auto",
+      default: 'auto',
     },
     cardWidth: {
       type: String,
-      default: "262px",
+      default: '262px',
     },
     imageHeight: {
       type: String,
-      default: "146px",
+      default: '146px',
     },
     coverTip: {
       type: String,
-      default: "",
+      default: '',
     },
     errorTip: {
-      type: String
+      type: String,
     },
     defaultImageUrl: {
       type: String,
-      default: "",
+      default: '',
     },
     imageUrl: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   data() {
     return {
       imageLoadError: false,
-      url: "",
+      url: '',
     };
   },
   methods: {
@@ -63,17 +69,16 @@ export default {
       this.url = this.defaultImageUrl;
     },
     onCardClick() {
-      this.$emit("click", this.data);
+      this.$emit('click', this.data);
     },
   },
   watch: {
     imageUrl: {
       immediate: true,
-      handler: function (newVal) {
+      handler(newVal) {
         this.url = newVal;
       },
     },
   },
 };
 </script>
-

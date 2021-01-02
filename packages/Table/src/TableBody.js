@@ -1,5 +1,5 @@
 export default {
-  name: "LinTableBody",
+  name: 'LinTableBody',
   computed: {
     dataSource() {
       if (this.table) {
@@ -17,7 +17,7 @@ export default {
       if (this.table) {
         return this.table.valueKey;
       }
-      return "";
+      return '';
     },
   },
   inject: {
@@ -27,20 +27,20 @@ export default {
   },
   mounted() {
     if (this.table) {
-      this.table.$on("select-all", this.selectAll);
+      this.table.$on('select-all', this.selectAll);
     }
   },
   methods: {
     trClassName(row, rowIndex) {
-      const classArr = ["lin-table-tr"];
+      const classArr = ['lin-table-tr'];
       if (this.table) {
         const rowClassName = this.table.rowClassName;
-        if (typeof rowClassName === "function") {
+        if (typeof rowClassName === 'function') {
           const result = rowClassName({ row, rowIndex });
           if (result) {
             classArr.push(result);
           }
-        } else if (typeof rowClassName === "string") {
+        } else if (typeof rowClassName === 'string') {
           classArr.push(rowClassName);
         }
       }
@@ -49,7 +49,7 @@ export default {
     selectAll(data) {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        "lin-table-checkbox"
+        'lin-table-checkbox',
       );
       for (let i = 0; i < checkboxs.length; i++) {
         const element = checkboxs[i];
@@ -63,7 +63,7 @@ export default {
     clearSelection() {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        "lin-table-checkbox"
+        'lin-table-checkbox',
       );
       for (let i = 0; i < checkboxs.length; i++) {
         const element = checkboxs[i];
@@ -73,7 +73,7 @@ export default {
     toggleAllSelection() {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        "lin-table-checkbox"
+        'lin-table-checkbox',
       );
       for (let i = 0; i < checkboxs.length; i++) {
         const element = checkboxs[i];
@@ -83,13 +83,13 @@ export default {
     selectSelection(data) {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        "lin-table-checkbox"
+        'lin-table-checkbox',
       );
       const len = this.dataSource.length;
       for (let i = 0; i < len; i++) {
         const element = this.dataSource[i];
         const flag = data.find(
-          (item) => item[this.valueKey] === element[this.valueKey]
+          (item) => item[this.valueKey] === element[this.valueKey],
         );
         checkboxs[i].checked = flag;
       }
@@ -98,7 +98,9 @@ export default {
       this.table?.emitrRowClick({ row, rowIndex });
     },
     cellClick(row, prop, rowIndex, idx) {
-      this.table?.emitrCellClick({ row, prop, rowIndex, cellIndex: idx });
+      this.table?.emitrCellClick({
+        row, prop, rowIndex, cellIndex: idx,
+      });
     },
   },
   render(h) {
@@ -120,13 +122,12 @@ export default {
               class={trClassName(row, rowIndex)}
               onClick={() => rowClick(row, rowIndex)}
             >
-              {columns.map((column, idx) => {
-                return (
+              {columns.map((column, idx) => (
                   <td
                     onClick={() => {
                       cellClick(row, column.prop, rowIndex, idx);
                     }}
-                    class={["lin-table-td", `lin-table-align-${column.align}`]}
+                    class={['lin-table-td', `lin-table-align-${column.align}`]}
                     key={`${rowKey}-${idx}`}
                   >
                     {column.renderCell(h, {
@@ -135,8 +136,7 @@ export default {
                       rowIndex,
                     })}
                   </td>
-                );
-              })}
+              ))}
             </tr>
           );
         })}

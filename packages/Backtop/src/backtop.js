@@ -1,5 +1,5 @@
-import Backtop from "./backtop.vue";
+import Backtop from './backtop.vue';
 
-import "./style.scss";
+import './style.scss';
 
 export default Backtop;

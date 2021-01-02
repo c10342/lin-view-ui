@@ -1,7 +1,5 @@
-import Spinner from './spinner.vue'
+import Spinner from './spinner.vue';
 
+import './style.scss';
 
-import './style.scss'
-
-
-export default Spinner
+export default Spinner;

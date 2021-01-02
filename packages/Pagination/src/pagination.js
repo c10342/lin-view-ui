@@ -1,10 +1,10 @@
-import "./style.scss";
-import LocaleMixin from "src/mixins/locale.js";
+import './style.scss';
+import LocaleMixin from 'src/mixins/locale.js';
 
-import "src/fonts/iconfont.css";
+import 'src/fonts/iconfont.css';
 
 export default {
-  name: "LinPagination",
+  name: 'LinPagination',
   mixins: [LocaleMixin],
   props: {
     pageCount: {
@@ -28,7 +28,7 @@ export default {
     },
     layout: {
       type: String,
-      default: "prev, pager, next, jumper,total",
+      default: 'prev, pager, next, jumper,total',
     },
   },
   data() {
@@ -40,7 +40,7 @@ export default {
     const { background, layoutList } = this;
     return (
       <div
-        class={["lin-pagination", { "lin-pagination-background": background }]}
+        class={['lin-pagination', { 'lin-pagination-background': background }]}
       >
         {layoutList.map((fnstr) => {
           const fn = this[`render${fnstr}`];
@@ -52,15 +52,15 @@ export default {
   methods: {
     onItemClick(data) {
       let index = 1;
-      if (data.type === "number") {
+      if (data.type === 'number') {
         index = data.index;
-      } else if (data.type === "prev") {
+      } else if (data.type === 'prev') {
         index = this.currentPage - 1;
-      } else if (data.type === "next") {
+      } else if (data.type === 'next') {
         index = this.currentPage + 1;
       }
       this.currentPage = index;
-      this.$emit("currentChange", index);
+      this.$emit('currentChange', index);
     },
     prevClick() {
       if (this.disabledPrev) {
@@ -68,7 +68,7 @@ export default {
       }
       const index = this.currentPage - 1;
       this.currentPage = index;
-      this.$emit("prevClick", index);
+      this.$emit('prevClick', index);
     },
     nextClick() {
       if (this.disabledNext) {
@@ -76,7 +76,7 @@ export default {
       }
       const index = this.currentPage + 1;
       this.currentPage = index;
-      this.$emit("nextClick", index);
+      this.$emit('nextClick', index);
     },
     gotoPageByEnter(e) {
       if (e.keyCode !== 13) {
@@ -86,14 +86,12 @@ export default {
       let index;
       if (!value) {
         index = 1;
+      } else if (value < 1) {
+        index = 1;
+      } else if (value > this.totalPage) {
+        index = this.totalPage;
       } else {
-        if (value < 1) {
-          index = 1;
-        } else if (value > this.totalPage) {
-          index = this.totalPage;
-        } else {
-          index = value;
-        }
+        index = value;
       }
       this.currentPage = index * 1;
       e.target.value = index;
@@ -103,14 +101,12 @@ export default {
       let index;
       if (!value) {
         index = 1;
+      } else if (value < 1) {
+        index = 1;
+      } else if (value > this.totalPage) {
+        index = this.totalPage;
       } else {
-        if (value < 1) {
-          index = 1;
-        } else if (value > this.totalPage) {
-          index = this.totalPage;
-        } else {
-          index = value;
-        }
+        index = value;
       }
       this.currentPage = index * 1;
       e.target.value = index;
@@ -119,9 +115,9 @@ export default {
       const { total, t } = this;
       return (
         <span class="lin-pagination-total">
-          {t("LinViewUI.Pagination.total")}
+          {t('LinViewUI.Pagination.total')}
           {total}
-          {t("LinViewUI.Pagination.strip")}
+          {t('LinViewUI.Pagination.strip')}
         </span>
       );
     },
@@ -130,9 +126,9 @@ export default {
       return (
         <span
           class={[
-            "lin-pagination-item",
-            "lin-icon-left",
-            { "lin-pagination-disabled": disabledPrev },
+            'lin-pagination-item',
+            'lin-icon-left',
+            { 'lin-pagination-disabled': disabledPrev },
           ]}
           onClick={prevClick}
         ></span>
@@ -142,30 +138,28 @@ export default {
       const { pageList, currentPage, onItemClick } = this;
       return (
         <ul class="lin-pagination-pager">
-          {pageList.map((item, index) => {
-            return (
+          {pageList.map((item, index) => (
               <li
                 class={[
-                  "lin-pagination-item",
-                  { "lin-pagination-active": item.index === currentPage },
+                  'lin-pagination-item',
+                  { 'lin-pagination-active': item.index === currentPage },
                   {
-                    "lin-pagination-ellipsis":
-                      item.type === "prev" || item.type === "next",
+                    'lin-pagination-ellipsis':
+                      item.type === 'prev' || item.type === 'next',
                   },
                 ]}
                 key={index}
                 onClick={() => onItemClick(item)}
               >
                 {item.index}
-                {item.type === "prev" ? (
+                {item.type === 'prev' ? (
                   <span class="lin-pagination-icon lin-icon-leftarrow"></span>
                 ) : null}
-                {item.type === "next" ? (
+                {item.type === 'next' ? (
                   <span class="lin-pagination-icon lin-icon-rightarrow"></span>
                 ) : null}
               </li>
-            );
-          })}
+          ))}
         </ul>
       );
     },
@@ -174,9 +168,9 @@ export default {
       return (
         <span
           class={[
-            "lin-pagination-item",
-            "lin-icon-right",
-            { "lin-pagination-disabled": disabledNext },
+            'lin-pagination-item',
+            'lin-icon-right',
+            { 'lin-pagination-disabled': disabledNext },
           ]}
           onClick={nextClick}
         ></span>
@@ -192,7 +186,7 @@ export default {
       } = this;
       return (
         <div class="lin-pagintaion-jumpe">
-          <span>{t("LinViewUI.Pagination.goto")}</span>
+          <span>{t('LinViewUI.Pagination.goto')}</span>
           <input
             min="1"
             max={totalPage}
@@ -202,7 +196,7 @@ export default {
             class="lin-pagintaion-input"
             type="number"
           />
-          <span>{t("LinViewUI.Pagination.page")}</span>
+          <span>{t('LinViewUI.Pagination.page')}</span>
         </div>
       );
     },
@@ -217,7 +211,7 @@ export default {
       },
       set(val) {
         if (this.pageIndex) {
-          this.$emit("update:pageIndex", val);
+          this.$emit('update:pageIndex', val);
         } else {
           this.myPageIndex = val;
         }
@@ -241,8 +235,8 @@ export default {
       const arr = [];
       if (this.totalPage >= this.pageCount) {
         if (
-          this.currentPage > Math.ceil(this.pageCount / 2) &&
-          this.currentPage < this.totalPage - Math.floor(this.pageCount / 2)
+          this.currentPage > Math.ceil(this.pageCount / 2)
+          && this.currentPage < this.totalPage - Math.floor(this.pageCount / 2)
         ) {
           left = this.currentPage - Math.floor(this.pageCount / 2);
           right = this.currentPage + Math.floor(this.pageCount / 2);
@@ -255,27 +249,27 @@ export default {
         }
       }
       while (left <= right) {
-        arr.push({ index: left, type: "number" });
+        arr.push({ index: left, type: 'number' });
         left++;
       }
       // ellipsis
       if (this.totalPage > this.pageCount) {
-        arr[0] = { index: 1, type: "number" };
+        arr[0] = { index: 1, type: 'number' };
         if (this.currentPage > Math.ceil(this.pageCount / 2)) {
-          arr[1] = { index: "...", type: "prev" };
+          arr[1] = { index: '...', type: 'prev' };
         }
         if (
-          this.currentPage <
-          this.totalPage - Math.floor(this.pageCount / 2)
+          this.currentPage
+          < this.totalPage - Math.floor(this.pageCount / 2)
         ) {
-          arr[arr.length - 2] = { index: "...", type: "next" };
+          arr[arr.length - 2] = { index: '...', type: 'next' };
         }
-        arr[arr.length - 1] = { index: this.totalPage, type: "number" };
+        arr[arr.length - 1] = { index: this.totalPage, type: 'number' };
       }
       return arr;
     },
     layoutList() {
-      let splitArr = this.layout.split(",") || [];
+      let splitArr = this.layout.split(',') || [];
       splitArr = splitArr.map((item) => item.trim());
       return splitArr;
     },

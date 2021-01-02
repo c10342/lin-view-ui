@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "LinLoading",
+  name: 'LinLoading',
   data() {
     return {
       text: null,
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     handleAfterLeave() {
-      this.$emit("after-leave");
+      this.$emit('after-leave');
     },
   },
 };

@@ -1,10 +1,3 @@
-<style lang="scss" scoped>
-ul {
-  >li{
-      margin-bottom:20px;
-  }
-}
-</style>
 
 # Logs
 
