@@ -3,6 +3,7 @@
 /docs-dist
 /lib
 /build
+/tests
 postcss.config.js
 node_modules
 .vscode
