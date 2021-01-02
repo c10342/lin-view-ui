@@ -1,6 +1,8 @@
 /dist
+/docs
 /docs-dist
 /lib
 /build
+postcss.config.js
 node_modules
 .vscode

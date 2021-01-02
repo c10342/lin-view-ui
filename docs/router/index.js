@@ -22,11 +22,11 @@ let addComponent = (router) => {
     } else {
       if (route.type === "guide") {
         route.component = () =>
-          import(`../markdown/${lang}/guide/${route.name}.md`);
+          import('../markdown/'+lang+'/guide/'+route.name+'.md');
         return;
       }
       route.component = () =>
-        import(`../markdown/${lang}/components/${route.name}.md`);
+        import('../markdown/'+lang+'/components/'+route.name+'.md');
     }
   });
 };
