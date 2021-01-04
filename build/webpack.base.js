@@ -1,4 +1,5 @@
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require("path");
 const baseConfig = {
   stats: {
@@ -28,7 +29,7 @@ const baseConfig = {
       },
     ],
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [new VueLoaderPlugin(),new ESLintPlugin()],
 };
 
 module.exports = baseConfig;
