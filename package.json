@@ -38,7 +38,8 @@
     "lint-fix": "eslint --fix --ext .js,.vue packages src",
     "lint:style": "stylelint **/*.{html,vue,css,sass,scss} --fix",
     "test:unit": "vue-cli-service test:unit --watch",
-    "test": "jest"
+    "test": "jest",
+    "commit": "git cz"
   },
   "husky": {
     "hooks": {
@@ -53,6 +54,57 @@
     "*.{js,ts,vue}": [
       "npm run lint"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "types": {
+        "build": {
+          "description": "主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交",
+          "title": "build"
+        },
+        "ci": {
+          "description": "主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交",
+          "title": "ci"
+        },
+        "docs": {
+          "description": "文档更新",
+          "title": "docs"
+        },
+        "feat": {
+          "description": "新增功能",
+          "title": "feat"
+        },
+        "fix": {
+          "description": "bug 修复",
+          "title": "fix"
+        },
+        "perf": {
+          "description": "性能优化",
+          "title": "perf"
+        },
+        "refactor": {
+          "description": "重构代码(既没有新增功能，也没有修复 bug)",
+          "title": "refactor"
+        },
+        "style": {
+          "description": "不影响程序逻辑的代码修改(修改空白字符，补全缺失的分号等)",
+          "title": "style"
+        },
+        "test": {
+          "description": "文档更新",
+          "title": "test"
+        },
+        "revert": {
+          "description": "回滚某个更早之前的提交",
+          "title": "revert"
+        },
+        "chore": {
+          "description": "不属于以上类型的其他类型(日常事务)",
+          "title": "chore"
+        }
+      }
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -71,10 +123,12 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.2.2",
     "copy-webpack-plugin": "^7.0.0",
     "core-js": "^3.8.1",
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.16.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-import-resolver-webpack": "^0.13.0",
