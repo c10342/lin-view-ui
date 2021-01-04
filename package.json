@@ -102,6 +102,7 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.18.0",
+    "stylelint-webpack-plugin": "^2.1.1",
     "url-loader": "^4.1.1",
     "vue": "^2.6.12",
     "vue-jest": "^3.0.7",
