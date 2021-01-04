@@ -36,8 +36,22 @@
     "pub": "node ./build/publish.js",
     "lint": "eslint --ext .js,.vue packages src",
     "lint-fix": "eslint --fix --ext .js,.vue packages src",
+    "lint:style": "stylelint **/*.{html,vue,css,sass,scss} --fix",
     "test:unit": "vue-cli-service test:unit --watch",
     "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{html,vue,css,sass,scss}": [
+      "npm run lint:style"
+    ],
+    "*.{js,ts,vue}": [
+      "npm run lint"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -63,9 +77,11 @@
     "eslint-import-resolver-webpack": "^0.13.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-vue": "^7.4.0",
+    "eslint-webpack-plugin": "^2.4.1",
     "file-loader": "^6.2.0",
     "highlight.js": "^9.18.5",
     "html-webpack-plugin": "^4.5.0",
+    "husky": "^4.3.6",
     "jest": "^26.6.3",
     "markdown-it": "^12.0.4",
     "markdown-it-anchor": "^6.0.1",
@@ -79,6 +95,12 @@
     "rimraf": "^3.0.2",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-recess-order": "^2.3.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0",
     "url-loader": "^4.1.1",
     "vue": "^2.6.12",
     "vue-jest": "^3.0.7",

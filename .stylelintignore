@@ -1,0 +1,6 @@
+lib
+docs
+docs-dist
+node_modules
+tests
+src/fonts/iconfont.css
