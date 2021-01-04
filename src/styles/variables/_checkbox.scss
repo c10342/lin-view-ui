@@ -14,7 +14,7 @@ $checkbox-inner-height: 14px !default;
 $checkbox-inner-background-color: #fff !default;
 $checkbox-inner-z-index: 1 !default;
 $checkbox-inner-transition: border-color 0.25s
-    cubic-bezier(0.71, -0.46, 0.29, 1.46),
+  cubic-bezier(0.71, -0.46, 0.29, 1.46),
   background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46) !default;
 
 $checkbox-inner-after-border: 1px solid #fff !default;

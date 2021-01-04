@@ -2,7 +2,7 @@
   <div>
     <input
       @change="onFileChange"
-      style="display: none"
+      style="display: none;"
       type="file"
       ref="linUploadInput"
     />

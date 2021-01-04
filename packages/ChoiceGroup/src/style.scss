@@ -2,26 +2,26 @@
 @import "src/styles/mixin/common.scss";
 
 .lin-choice-group {
-  display: inline-block;
   position: relative;
+  display: inline-block;
 }
-.lin-choice-group-input {
-  outline: none;
-  appearance: none;
 
-  background-color: $choice-group-input-background-color;
-  background-image: $choice-group-input-background-image;
-  border-radius: $choice-group-input-border-radius;
-  border: $choice-group-input-border;
+.lin-choice-group-input {
   box-sizing: border-box;
-  color: $choice-group-input-color;
   display: inline-block;
   height: $choice-group-input-height;
-  line-height: $choice-group-input-height;
-  padding-left: $choice-group-input-padding-left;
   padding-right: $choice-group-input-padding-right;
-  transition: $choice-group-input-transition;
+  padding-left: $choice-group-input-padding-left;
+  line-height: $choice-group-input-height;
+  color: $choice-group-input-color;
   cursor: pointer;
+  background-color: $choice-group-input-background-color;
+  background-image: $choice-group-input-background-image;
+  border: $choice-group-input-border;
+  border-radius: $choice-group-input-border-radius;
+  outline: none;
+  transition: $choice-group-input-transition;
+  appearance: none;
 
   &:focus {
     border-color: $choice-group-input-focus-border-color;
@@ -34,19 +34,19 @@
 
 .lin-choice-group-disabled {
   .lin-choice-group-input {
+    color: $choice-group-disabled-input-color;
     background-color: $choice-group-disabled-input-background-color;
     border-color: $choice-group-disabled-input-border-color;
-    color: $choice-group-disabled-input-color;
   }
 }
 
 .lin-choice-group-icon {
   position: absolute;
-  right: $choice-group-icon-right;
   top: $choice-group-icon-top;
-  transform: $choice-group-icon-transform;
+  right: $choice-group-icon-right;
   cursor: pointer;
   transition: $choice-group-icon-transition;
+  transform: $choice-group-icon-transform;
 }
 
 .lin-choice-group-down-icon {
@@ -58,30 +58,31 @@
 }
 
 .lin-choice-group-close-icon {
-  border-radius: $choice-group-close-icon-border-radius;
   width: $choice-group-close-icon-width;
   height: $choice-group-close-icon-height;
-  border: $choice-group-close-icon-border;
-  color: $choice-group-close-icon-color;
   font-size: $choice-group-close-icon-font-size;
+  color: $choice-group-close-icon-color;
+  border: $choice-group-close-icon-border;
+  border-radius: $choice-group-close-icon-border-radius;
 }
 
 .lin-choice-container-wrapper {
   position: absolute;
   top: $choice-container-wrapper-top;
   left: $choice-container-wrapper-left;
-  transform: $choice-container-wrapper-transform;
   width: $choice-container-wrapper-width;
   background-color: $choice-container-wrapper-background-color;
+  transform: $choice-container-wrapper-transform;
+
   &::before {
-    content: "";
     position: absolute;
+    left: $choice-container-wrapper-before-left;
+    box-sizing: border-box;
     width: $choice-container-wrapper-before-width;
     height: $choice-container-wrapper-before-height;
-    left: $choice-container-wrapper-before-left;
-    border: $choice-container-wrapper-before-border;
-    box-sizing: border-box;
+    content: "";
     background-color: $choice-container-wrapper-before-background-color;
+    border: $choice-container-wrapper-before-border;
     border-top-color: transparent;
     border-right-color: transparent;
     border-radius: $choice-container-wrapper-before-border-radius;
@@ -103,28 +104,28 @@
 }
 
 .lin-choice-container {
+  box-sizing: border-box;
+  max-height: $choice-container-max-height;
   padding: $choice-container-padding;
+  overflow-y: auto;
   border: $choice-container-border;
   border-radius: $choice-container-border-radius;
   box-shadow: $choice-container-box-shadow;
-  box-sizing: border-box;
-  max-height: $choice-container-max-height;
-  overflow-y: auto;
+
   @include beautyScroll();
 }
 
 .lin-choice-group-empty {
   .lin-choice-group-empty-tip {
-    height: $choice-empty-tip-height;
-    line-height: $choice-empty-tip-height;
-    box-sizing: border-box;
-    cursor: pointer;
-
-    font-size: $choice-empty-tip-font-size;
-    padding: $choice-empty-tip-padding;
     position: relative;
+    box-sizing: border-box;
+    height: $choice-empty-tip-height;
+    padding: $choice-empty-tip-padding;
     margin: $choice-empty-tip-margin;
+    font-size: $choice-empty-tip-font-size;
+    line-height: $choice-empty-tip-height;
     color: $choice-empty-tip-color;
+    cursor: pointer;
   }
 }
 
@@ -132,6 +133,7 @@
 .lin-choice-group-fade-leave-active {
   transition: all 300ms;
 }
+
 .lin-choice-group-fade-enter,
 .lin-choice-group-fade-leave-to {
   opacity: 0;
@@ -140,15 +142,16 @@
 .lin-choice-loading-wrapper {
   text-align: $choice-loading-wrapper-text-align;
 }
+
 .lin-choice-loading {
+  display: inline-block;
   width: $choice-loading-width;
   height: $choice-loading-width;
-  display: inline-block;
   margin: $choice-loading-margin;
   border: $choice-loading-border;
-  border-radius: $choice-loading-border-radius;
-  border-left-color: transparent;
   border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: $choice-loading-border-radius;
   animation: $choice-loading-animation;
 }
 

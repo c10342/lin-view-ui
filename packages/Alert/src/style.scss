@@ -2,14 +2,14 @@
 @import "src/styles/mixin/alert.scss";
 
 .lin-alert {
-  padding: $alert-padding;
-  box-sizing: border-box;
-  border-radius: $alert-border-radius;
   position: relative;
-  overflow: hidden;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: $alert-padding;
+  overflow: hidden;
+  border-radius: $alert-border-radius;
 }
 
 .lin-alert-content {
@@ -17,26 +17,30 @@
   flex-direction: column;
   padding: $alert-content-padding;
 }
+
 .lin-alert-title {
-  font-weight: $alert-title-font-weight;
   font-size: $alert-title-font-size;
+  font-weight: $alert-title-font-weight;
+
   &:only-child {
     font-weight: normal;
   }
 }
+
 .lin-alert-description {
-  font-size: $alert-description-font-size;
   margin-top: $alert-description-margin-top;
+  font-size: $alert-description-font-size;
 }
+
 .lin-alert-close {
   position: absolute;
   top: $alert-close-top;
   right: $alert-close-right;
-  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .lin-alert-center {
@@ -67,6 +71,7 @@
 .lin-alert-fade-leave-active {
   transition: $alert-transition;
 }
+
 .lin-alert-fade-enter,
 .lin-alert-fade-leave-to {
   opacity: $alert-opacity;

@@ -1,38 +1,43 @@
 @import "src/styles/variables/input.scss";
+
 .lin-input {
-  width: 100%;
   position: relative;
-  font-size: $input-font-size;
   display: inline-block;
+  width: 100%;
+  font-size: $input-font-size;
+
   .lin-input-inner {
-    -webkit-appearance: none;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    height: $input-inner-height;
+    padding: $input-inner-padding;
+    font-size: inherit;
+    line-height: $input-inner-line-height;
+    color: $input-inner-color;
     background-color: $input-inner-background-color;
     background-image: none;
-    border-radius: $input-inner-border-radius;
     border: $input-inner-border;
-    box-sizing: border-box;
-    color: $input-inner-color;
-    display: inline-block;
-    font-size: inherit;
-    height: $input-inner-height;
-    line-height: $input-inner-line-height;
+    border-radius: $input-inner-border-radius;
     outline: none;
-    padding: $input-inner-padding;
     transition: $input-inner-transition;
-    width: 100%;
+    -webkit-appearance: none;
+
     &::-ms-clear,
     &::-ms-reveal {
       display: none;
     }
+
     &:focus {
-      outline: none;
       border-color: $input-inner-focus-border-color;
+      outline: none;
     }
+
     &.lin-input-is-disabled {
-      background-color: $input-inner-disabled-background-color;
-      border-color: $input-inner-disabled-border-color;
       color: $input-inner-disabled-color;
       cursor: not-allowed;
+      background-color: $input-inner-disabled-background-color;
+      border-color: $input-inner-disabled-border-color;
     }
   }
 }
@@ -42,22 +47,25 @@
     padding-right: $input-suffix-inner-padding-right;
   }
 }
+
 .lin-input-suffix {
   position: absolute;
-  height: 100%;
-  right: $input-suffix-right;
   top: $input-suffix-top;
-  line-height: $input-suffix-line-height;
-  text-align: $input-suffix-text-align;
-  color: $input-suffix-color;
-  transition: $input-suffix-transition;
+  right: $input-suffix-right;
   z-index: $input-suffix-z-index;
+  height: 100%;
+  line-height: $input-suffix-line-height;
+  color: $input-suffix-color;
+  text-align: $input-suffix-text-align;
+  transition: $input-suffix-transition;
+
   .lin-input-icon {
-    color: $input-suffix-icon-color;
     font-size: $input-suffix-icon-font-size;
+    color: $input-suffix-icon-color;
     cursor: pointer;
     transition: $input-suffix-icon-transition;
   }
+
   .lin-icon-view-active {
     color: $input-suffix-icon-active-color;
   }

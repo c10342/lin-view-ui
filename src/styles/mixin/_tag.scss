@@ -1,5 +1,5 @@
 @mixin tag-type($color) {
-  background-color: rgba($color, 0.1);
   color: $color;
+  background-color: rgba($color, 0.1);
   border-color: rgba($color, 0.3);
 }

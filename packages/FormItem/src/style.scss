@@ -1,38 +1,40 @@
 @import "src/styles/variables/form-item.scss";
+
 .lin-form-item {
-  margin-bottom: $form-item-margin-bottom;
   position: relative;
+  margin-bottom: $form-item-margin-bottom;
   // display: flex;
   // flex-direction: row;
   // align-items: center;
   .lin-form-item-label {
+    box-sizing: border-box;
     float: left;
+    padding: $form-item-label-padding;
+    font-size: $form-item-label-font-size;
+    line-height: $form-item-label-line-height;
+    color: $form-item-label-color;
     text-align: right;
     vertical-align: middle;
-    font-size: $form-item-label-font-size;
-    color: $form-item-label-color;
-    line-height: $form-item-label-line-height;
-    padding: $form-item-label-padding;
-    box-sizing: border-box;
   }
+
   .lin-form-item-content {
+    position: relative;
+    overflow: hidden;
+    font-size: $form-item-content-font-size;
     // flex: 1;
     // width: 0;
     line-height: $form-item-content-line-height;
-    position: relative;
-    font-size: $form-item-content-font-size;
-    overflow: hidden;
   }
 
-  .lin-form-item-errormsg{
-    font-size: $form-item-errormsg-font-size;
-    color: $form-item-errormsg-color;
-    margin: $form-item-errormsg-margin;
-    padding: $form-item-errormsg-padding;
-    line-height: $form-item-errormsg-line-height;
+  .lin-form-item-errormsg {
     position: absolute;
-    left: $form-item-errormsg-left;
     bottom: $form-item-errormsg-bottom;
+    left: $form-item-errormsg-left;
+    padding: $form-item-errormsg-padding;
+    margin: $form-item-errormsg-margin;
+    font-size: $form-item-errormsg-font-size;
+    line-height: $form-item-errormsg-line-height;
+    color: $form-item-errormsg-color;
   }
 }
 

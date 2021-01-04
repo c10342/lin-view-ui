@@ -8,23 +8,23 @@ $message-theme-color: (
 );
 
 .lin-message {
-  min-width: $message-min-width;
-  box-sizing: border-box;
-  border-radius: $message-border-radius;
-  border-width: $message-border-width;
-  border-style: $message-border-style;
-  border-color: $message-border-color;
   position: fixed;
-  left: $message-left;
   top: $message-top;
-  transform: $message-transform;
-  background-color:$message-background-color;
-  transition: $message-transition;
-  overflow: hidden;
-  padding: $message-padding;
+  left: $message-left;
+  z-index: $message-z-index;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  z-index: $message-z-index;
+  min-width: $message-min-width;
+  padding: $message-padding;
+  overflow: hidden;
+  background-color: $message-background-color;
+  border-color: $message-border-color;
+  border-style: $message-border-style;
+  border-width: $message-border-width;
+  border-radius: $message-border-radius;
+  transition: $message-transition;
+  transform: $message-transform;
 }
 
 .lin-message-center {
@@ -32,8 +32,8 @@ $message-theme-color: (
 }
 
 .lin-message-content {
-  margin: $message-content-margin;
   padding: $message-content-padding;
+  margin: $message-content-margin;
 }
 
 .lin-message-icon {
@@ -45,10 +45,10 @@ $message-theme-color: (
   position: absolute;
   top: $message-close-icon-top;
   right: $message-close-icon-right;
-  transform: $message-close-icon-transform;
-  cursor: pointer;
-  color: $message-close-icon-color;
   font-size: $message-close-icon-font-size;
+  color: $message-close-icon-color;
+  cursor: pointer;
+  transform: $message-close-icon-transform;
 }
 
 // @each $key, $val in $message-theme-color {
@@ -59,26 +59,29 @@ $message-theme-color: (
 //   }
 // }
 
-  .lin-message-success {
-    background-color: lighten($success, 45%);
-    border-color: lighten($success, 45%);
-    color: $success;
-  }
-  .lin-message-info {
-    background-color: lighten($info, 35%);
-    border-color: lighten($info, 35%);
-    color: $info;
-  }
-  .lin-message-error {
-    background-color: lighten($danger, 28%);
-    border-color: lighten($danger, 28%);
-    color: $danger;
-  }
-  .lin-message-warning {
-    background-color: lighten($warning, 40%);
-    border-color: lighten($warning, 40%);
-    color: $warning;
-  }
+.lin-message-success {
+  color: $success;
+  background-color: lighten($success, 45%);
+  border-color: lighten($success, 45%);
+}
+
+.lin-message-info {
+  color: $info;
+  background-color: lighten($info, 35%);
+  border-color: lighten($info, 35%);
+}
+
+.lin-message-error {
+  color: $danger;
+  background-color: lighten($danger, 28%);
+  border-color: lighten($danger, 28%);
+}
+
+.lin-message-warning {
+  color: $warning;
+  background-color: lighten($warning, 40%);
+  border-color: lighten($warning, 40%);
+}
 
 .message-enter-active,
 .message-leave-active {

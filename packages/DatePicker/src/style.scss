@@ -1,57 +1,64 @@
 @import "src/styles/variables/date-picker.scss";
 
 .lin-date-picker {
+  position: relative;
   display: inline-block;
   color: $date-picker-color;
-  position: relative;
 }
+
 .lin-date-picker-input-box {
   position: relative;
 }
+
 .lin-date-picker-icon {
   position: absolute;
   top: $date-picker-icon-top;
-  transform: $date-picker-icon-transform;
   left: $date-picker-icon-left;
   font-size: $date-picker-icon-font-size;
+  transform: $date-picker-icon-transform;
 }
+
 .lin-date-picker-input {
+  box-sizing: border-box;
+  display: inline-block;
+  width: $date-picker-input-width;
+  height: $date-picker-input-height;
+  padding: $date-picker-input-padding;
+  font-size: inherit;
+  line-height: $date-picker-input-line-height;
+  color: $date-picker-input-color;
+  cursor: pointer;
   background-color: $date-picker-input-background-color;
   background-image: $date-picker-input-background-image;
-  border-radius: $date-picker-input-border-radius;
   border: $date-picker-input-border;
-  box-sizing: border-box;
-  color: $date-picker-input-color;
-  display: inline-block;
-  font-size: inherit;
-  height: $date-picker-input-height;
-  line-height: $date-picker-input-line-height;
+  border-radius: $date-picker-input-border-radius;
   outline: none;
-  padding: $date-picker-input-padding;
   transition: $date-picker-input-transition;
-  width: $date-picker-input-width;
-  cursor: pointer;
+
   &:hover {
     border-color: $date-picker-input-hover-border-color;
   }
 }
+
 .lin-date-picker-absolute {
   position: absolute;
   z-index: 100;
 }
-.lin-date-picker-pannel {
-  background-color: $date-picker-pannel-background-color;
-  box-shadow: $date-picker-pannel-box-shadow;
-  border-radius: $date-picker-pannel-border-radius;
 
+.lin-date-picker-pannel {
   box-sizing: border-box;
   padding: $date-picker-pannel-padding;
+  background-color: $date-picker-pannel-background-color;
+  border-radius: $date-picker-pannel-border-radius;
+  box-shadow: $date-picker-pannel-box-shadow;
 }
+
 .lin-date-picker-pannel-header {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
   height: $date-picker-pannel-header-height;
+
   span {
     cursor: pointer;
     user-select: none;
@@ -63,28 +70,30 @@
 }
 
 .lin-date-picker-cell {
+  position: relative;
+  box-sizing: border-box;
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: $date-picker-cell-padding;
   margin: $date-picker-cell-margin;
-  box-sizing: border-box;
-  position: relative;
 }
 
 .lin-date-picker-pannel-row {
   white-space: nowrap;
 }
+
 .lin-date-picker-pannel-cell {
-  border: $date-picker-pannel-cell-border;
   cursor: pointer;
+  border: $date-picker-pannel-cell-border;
+
   .lin-date-picker-info {
     font-size: $date-picker-info-font-size;
   }
+
   &:hover {
     border: $date-picker-pannel-cell-hover-border;
-
     border-radius: $date-picker-pannel-cell-hover-border-radius;
   }
 }
@@ -103,41 +112,47 @@
 }
 
 .lin-date-picker-disabled {
+  color: $date-picker-disabled-color;
   cursor: not-allowed;
   background-color: $date-picker-disabled-background-color;
   border-color: $date-picker-disabled-border-color;
-  color: $date-picker-disabled-color;
 }
 
 .lin-date-picker-disabled-date {
+  color: $date-picker-disabled-date-color;
   cursor: not-allowed;
   background-color: $date-picker-disabled-date-background-color;
   border-color: $date-picker-disabled-date-border-color;
-  color: $date-picker-disabled-date-color;
+
   &:hover {
     border: $date-picker-disabled-date-hover-border;
-
     border-radius: $date-picker-disabled-date-hover-border-radius;
   }
 }
+
 .lin-date-picker-current-val {
-  background-color: $date-picker-current-val-background-color;
   color: $date-picker-current-val-color;
+  background-color: $date-picker-current-val-background-color;
   border-radius: $date-picker-current-val-border-radius;
+
   &:hover {
     border-color: $date-picker-current-val-hover-border-color;
   }
 }
+
 .lin-date-picker-radius {
   border-radius: $date-picker-radius-border-radius;
+
   &:hover {
     border-radius: $date-picker-radius-hover-border-radius;
   }
 }
+
 .lin-date-picker-fade-leave-active,
 .lin-date-picker-fade-enter-active {
   transition: all 300ms;
 }
+
 .lin-date-picker-fade-leave-to,
 .lin-date-picker-fade-enter {
   opacity: 0;

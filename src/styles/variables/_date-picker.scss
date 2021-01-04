@@ -21,7 +21,7 @@ $date-picker-input-transition: border-color 0.2s
 $date-picker-input-width: 100% !default;
 $date-picker-input-hover-border-color: darken($border-color, 30%) !default;
 
-$date-picker-pannel-background-color: #ffffff !default;
+$date-picker-pannel-background-color: #fff !default;
 $date-picker-pannel-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
 $date-picker-pannel-border-radius: 4px !default;
 $date-picker-pannel-padding: 5px !default;
@@ -52,7 +52,7 @@ $date-picker-disabled-date-hover-border: 1px solid transparent !default;
 $date-picker-disabled-date-hover-border-radius: 4px !default;
 
 $date-picker-current-val-background-color: $primary !default;
-$date-picker-current-val-color: #ffffff !default;
+$date-picker-current-val-color: #fff !default;
 $date-picker-current-val-border-radius: 4px !default;
 $date-picker-current-val-hover-border-color: $primary !default;
 

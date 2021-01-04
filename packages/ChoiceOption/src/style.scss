@@ -3,26 +3,28 @@
 @import "src/styles/mixin/common.scss";
 
 .lin-choice-option-label {
-  padding:$choice-option-label-padding;
-  font-size: $choice-option-label-font-size;
-  color: $choice-option-label-color;
-  line-height: $choice-option-label-line-height;
-  cursor: default;
   box-sizing: border-box;
+  padding: $choice-option-label-padding;
+  font-size: $choice-option-label-font-size;
+  line-height: $choice-option-label-line-height;
+  color: $choice-option-label-color;
+  cursor: default;
+
   @include one-line();
 }
 
-.lin-choice-option+.lin-choice-option {
-  margin-top: $choice-option-margin-top;
+.lin-choice-option + .lin-choice-option {
   position: relative;
+  margin-top: $choice-option-margin-top;
+
   &::after {
-    content: "";
     position: absolute;
-    display: block;
-    left: $choice-option-after-left;
-    right: $choice-option-after-right;
     top: $choice-option-after-top;
+    right: $choice-option-after-right;
+    left: $choice-option-after-left;
+    display: block;
     height: $choice-option-after-height;
+    content: "";
     background: $choice-option-after-background;
   }
 }

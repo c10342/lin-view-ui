@@ -13,38 +13,41 @@
 }
 
 .lin-progress-inner {
-  height: 100%;
   /* width: 50%; */
   position: relative;
+  height: 100%;
 }
 
 .lin-progress-outside-tip {
   margin-left: $progress-outside-tip-margin-left;
-  color: $progress-outside-tip-color;
   font-size: $progress-outside-tip-font-size;
+  color: $progress-outside-tip-color;
 }
 
 .lin-progress-inside-text {
   position: absolute;
-  right: $progress-inside-text-right;
   top: $progress-inside-text-top;
+  right: $progress-inside-text-right;
   transform: $progress-inside-text-transform;
 }
 
 .lin-progress-inside-tip {
-  color: $progress-inside-tip-color;
   font-size: $progress-inside-tip-font-size;
+  color: $progress-inside-tip-color;
 }
 
 .lin-progress-primary {
   background-color: $progress-primary-background-color;
 }
+
 .lin-progress-success {
   background-color: $progress-success-background-color;
 }
+
 .lin-progress-warning {
   background-color: $progress-warning-background-color;
 }
+
 .lin-progress-danger {
   background-color: $progress-danger-background-color;
 }

@@ -1,4 +1,4 @@
 @mixin alert-type($color) {
-  background-color: rgba($color, 0.1);
   color: $color;
+  background-color: rgba($color, 0.1);
 }

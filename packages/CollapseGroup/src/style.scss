@@ -1,11 +1,11 @@
 @import "src/styles/variables/collapse.scss";
 
 .lin-collapse-group {
-    position: relative;
-    border: $collapse-border;
-  }
-  
-  .lin-collapse-group-simple {
-    border-left: none;
-    border-right: none;
-  }
+  position: relative;
+  border: $collapse-border;
+}
+
+.lin-collapse-group-simple {
+  border-right: none;
+  border-left: none;
+}

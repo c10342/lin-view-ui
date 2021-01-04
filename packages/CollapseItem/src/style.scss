@@ -1,36 +1,39 @@
 @import "src/styles/variables/collapse.scss";
 
 .lin-collapse-item-simple {
-    .lin-collapse-item-header {
-      background: none;
-    }
-    .lin-collapse-item-content {
-      border-top: none;
-    }
-  }
-  .lin-collapse-item + .lin-collapse-item {
-    border-top: $collapse-border;
-  }
   .lin-collapse-item-header {
-    box-sizing: border-box;
-    padding: $collapse-item-header-padding;
-    background-color: $collapse-item-header-background-color;
-    cursor: pointer;
-  
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    background: none;
   }
-  
-  .lin-collapse-arrow {
-    margin-right: $collapse-arrow-margin-right;
-    transition: $collapse-arrow-transition;
-  }
+
   .lin-collapse-item-content {
-    padding: $collapse-item-content-padding;
-    border-top: $collapse-border;
+    border-top: none;
   }
-  
-  .lin-collapse-arrow-down {
-    transform: $collapse-arrow-down-transform;
-  }
+}
+
+.lin-collapse-item + .lin-collapse-item {
+  border-top: $collapse-border;
+}
+
+.lin-collapse-item-header {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: $collapse-item-header-padding;
+  cursor: pointer;
+  background-color: $collapse-item-header-background-color;
+}
+
+.lin-collapse-arrow {
+  margin-right: $collapse-arrow-margin-right;
+  transition: $collapse-arrow-transition;
+}
+
+.lin-collapse-item-content {
+  padding: $collapse-item-content-padding;
+  border-top: $collapse-border;
+}
+
+.lin-collapse-arrow-down {
+  transform: $collapse-arrow-down-transform;
+}

@@ -1,28 +1,32 @@
 @import "src/styles/variables/magnifier.scss";
 
 .lin-magnifier {
-  border: $magnifier-border;
-  display: inline-block;
   position: relative;
   top: 0;
   left: 0;
+  display: inline-block;
+  border: $magnifier-border;
 }
+
 .lin-magnifier-small {
   width: 100%;
   height: 100%;
   cursor: move;
 }
+
 .lin-magnifier-big {
   position: absolute;
   top: 0;
   overflow: hidden;
   border: $magnifier-big-border;
 }
+
 .lin-magnifier-move-slot {
   position: absolute;
   top: 0;
   left: 0;
 }
+
 .lin-magnifier-move {
   width: $magnifier-move-width;
   height: $magnifier-move-height;
@@ -34,6 +38,7 @@
   top: 0;
   left: 0;
 }
+
 .lin-magnifier-big-img {
   display: block;
 }

@@ -1,13 +1,13 @@
 @import "./common";
 
-$video-card-background: #ffffff !default;
+$video-card-background: #fff !default;
 $video-card-border: 1px solid $border-color !default;
 $video-card-border-radius: 4px !default;
 $video-card-transition: all 0.4s !default;
-$video-card-box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.15) !default;
+$video-card-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15) !default;
 $video-card-transform: translateY(-3px) !default;
 
-$video-card-cover-border-radius: 4px 4px 0px 0px !default;
+$video-card-cover-border-radius: 4px 4px 0 0 !default;
 
 $video-card-error-tip-background: $background-color !default;
 $video-card-error-tip-color: $disabled-font-color !default;

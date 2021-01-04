@@ -7,7 +7,7 @@ $dropdown-container-top: 30px !default;
 $dropdown-container-left: 50% !default;
 $dropdown-container-transform: translateX(-50%) !default;
 $dropdown-container-max-width: 300px !default;
-$dropdown-container-background-color: #ffffff !default;
+$dropdown-container-background-color: #fff !default;
 $dropdown-container-white-space: nowrap !default;
 $dropdown-container-padding: 5px 0 !default;
 $dropdown-container-border: 1px solid $disabled-border-color !default;
@@ -18,25 +18,20 @@ $dropdown-container-before-width: 12px !default;
 $dropdown-container-before-height: 12px !default;
 $dropdown-container-before-left: 50% !default;
 $dropdown-container-before-border: 1px solid $disabled-border-color !default;
-$dropdown-container-before-background-color: #ffffff !default;
+$dropdown-container-before-background-color: #fff !default;
 $dropdown-container-before-border-radius: 2px !default;
-
-
 
 $dropdown-container-down-top: -7px !default;
 $dropdown-container-down-transform: translateX(-50%) rotate(135deg) !default;
 
-
 $dropdown-container-up-bottom: -7px !default;
 $dropdown-container-up-transform: translateX(-50%) rotate(-45deg) !default;
-
 
 $dropdown-group-label-height: 34px !default;
 $dropdown-group-label-padding: 0 20px !default;
 $dropdown-group-label-border-bottom: 1px solid $border-color !default;
 $dropdown-group-label-font-size: $font-size-base !default;
 $dropdown-group-label-color: #909399 !default;
-
 
 $dropdown-item-height: 34px !default;
 $dropdown-item-font-size: 14px !default;

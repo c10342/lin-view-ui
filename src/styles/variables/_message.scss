@@ -13,7 +13,6 @@ $message-transition: opacity 0.3s, transform 0.4s, top 0.4s !default;
 $message-padding: 15px 15px 15px 20px !default;
 $message-z-index: 2000 !default;
 
-
 $message-content-margin: 0 !default;
 $message-content-padding: 0 !default;
 
@@ -25,7 +24,6 @@ $message-close-icon-right: 15px !default;
 $message-close-icon-transform: translateY(-50%) !default;
 $message-close-icon-color: #c0c4cc !default;
 $message-close-icon-font-size: $font-size-normal !default;
-
 
 $message-active-transition: opacity 0.3s, transform 0.4s, top 0.4s !default;
 $message-enter-opacity: 0 !default;

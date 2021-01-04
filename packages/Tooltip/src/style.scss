@@ -2,25 +2,26 @@
 
 .lin-tooltip {
   position: fixed;
-  top: 0px;
-  left: 0px;
-  background: $tooltip-background;
-  color: $tooltip-color;
+  top: 0;
+  left: 0;
+  z-index: 200;
   box-sizing: border-box;
-  padding: $tooltip-padding;
-  border-radius: $tooltip-border-radius;
-  font-size: $tooltip-font-size;
   min-width: $tooltip-min-width;
   max-width: $tooltip-max-width;
-  word-wrap: break-word;
+  padding: $tooltip-padding;
+  font-size: $tooltip-font-size;
+  color: $tooltip-color;
   word-break: break-all;
-  z-index: 200;
+  word-wrap: break-word;
+  background: $tooltip-background;
+  border-radius: $tooltip-border-radius;
+
   &::after {
+    position: absolute;
     content: "";
     border: $tooltip-after-border;
     border-top-color: transparent;
     border-right-color: transparent;
-    position: absolute;
   }
 }
 
@@ -60,6 +61,7 @@
 .lin-tooltip-fade-leave-active {
   transition: opacity 0.5s;
 }
+
 .lin-tooltip-fade-enter,
 .lin-tooltip-fade-leave-to {
   opacity: 0;

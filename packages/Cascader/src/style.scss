@@ -2,15 +2,16 @@
 @import "src/styles/variables/cascader";
 
 .lin-cascader {
+  position: relative;
   display: inline-block;
   width: $cascader-width;
-  position: relative;
 }
 
 .lin-cascader-input {
   > input {
     cursor: pointer;
   }
+
   .lin-icon-close {
     cursor: pointer;
   }
@@ -25,16 +26,17 @@
   position: absolute;
   z-index: $cascader-popup-z-index;
   box-shadow: $cascader-popup-box-shadow;
+
   &::before {
-    content: "";
     position: absolute;
+    left: $cascader-popup-before-left;
     width: $cascader-popup-before-width;
     height: $cascader-popup-before-height;
-    left: $cascader-popup-before-left;
-    border: $cascader-popup-before-border;
-    border-bottom-color: $cascader-popup-before-border-bottom-color;
-    border-right-color: $cascader-popup-before-border-right-color;
+    content: "";
     background-color: $cascader-popup-before-background-color;
+    border: $cascader-popup-before-border;
+    border-right-color: $cascader-popup-before-border-right-color;
+    border-bottom-color: $cascader-popup-before-border-bottom-color;
   }
 }
 
@@ -58,28 +60,30 @@
 
 .lin-panel-scroll {
   @include one-line();
-
   @include beautyScroll();
 }
+
 .lin-panel-container {
+  box-sizing: border-box;
+  flex-shrink: 0;
   width: $panel-container-width;
   height: $panel-container-height;
-  box-sizing: border-box;
-  border: $panel-container-border;
-  margin-left: $panel-container-margin-left;
   margin-top: $panel-container-margin-top;
-  flex-shrink: 0;
+  margin-left: $panel-container-margin-left;
+  border: $panel-container-border;
 }
 
 .lin-panel-item {
-  cursor: pointer;
-  padding: $panel-item-padding;
+  position: relative;
   height: $panel-item-height;
+  padding: $panel-item-padding;
+  font-size: $panel-item-font-size;
   line-height: $panel-item-height;
   white-space: nowrap;
-  font-size: $panel-item-font-size;
-  position: relative;
+  cursor: pointer;
+
   @include one-line();
+
   > .lin-icon-right {
     position: absolute;
     right: $panel-item-right-right;
@@ -87,41 +91,42 @@
 }
 
 .lin-panel-empty {
+  position: relative;
   width: $panel-empty-width;
+  height: $panel-empty-height;
   padding: $panel-empty-padding;
   margin: $panel-empty-margin;
-  height: $panel-empty-height;
+  font-size: $panel-empty-font-size;
   line-height: $panel-empty-height;
   white-space: nowrap;
-  font-size: $panel-empty-font-size;
-  position: relative;
 }
 
 .lin-panel-disabled {
-  cursor: not-allowed;
   color: $panel-disabled-color;
+  cursor: not-allowed;
 }
 
 .lin-panel-active {
   color: $panel-active-color;
 }
+
 .lin-panel-list {
-  list-style: none;
-  margin: 0;
   padding: 0;
   padding: $panel-list-padding;
+  margin: 0;
+  list-style: none;
 }
 
 .lin-panel-loading {
+  position: absolute;
+  top: $panel-loading-top;
+  right: $panel-loading-right;
   width: $panel-loading-width;
   height: $panel-loading-height;
   border: $panel-loading-border;
-  border-radius: $panel-loading-border-radius;
-  border-left-color: $panel-loading-border-left-color;
   border-top-color: $panel-loading-border-top-color;
-  position: absolute;
-  right: $panel-loading-right;
-  top: $panel-loading-top;
+  border-left-color: $panel-loading-border-left-color;
+  border-radius: $panel-loading-border-radius;
   animation: $panel-loading-animation;
 }
 
@@ -129,6 +134,7 @@
 .lin-cascader-fade-leave-active {
   transition: all 300ms;
 }
+
 .lin-cascader-fade-enter,
 .lin-cascader-fade-leave-to {
   opacity: 0;

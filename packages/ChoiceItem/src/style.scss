@@ -2,32 +2,30 @@
 @import "src/styles/mixin/common.scss";
 
 .lin-choice-item {
-  height: $choice-item-height;
-  line-height: $choice-item-height;
-  box-sizing: border-box;
-  cursor: pointer;
-
-  font-size: $choice-item-font-size;
-  padding: $choice-item-padding;
   position: relative;
+  box-sizing: border-box;
+  height: $choice-item-height;
+  padding: $choice-item-padding;
+  font-size: $choice-item-font-size;
+  line-height: $choice-item-height;
+  color: $choice-item-color;
+  cursor: pointer;
   // white-space: nowrap;
   // overflow: hidden;
   // text-overflow: ellipsis;
   @include one-line();
-  color: $choice-item-color;
 
   &:not(.lin-choice-item-disabled):hover {
     background-color: $choice-item-hover-background-color;
   }
+
   &.lin-choice-item-active {
-    background-color: $choice-item-active-background-color;
     color: $choice-item-active-color;
+    background-color: $choice-item-active-background-color;
   }
 
-  &.lin-choice-item-disabled{
+  &.lin-choice-item-disabled {
     color: $choice-item-disabled-color;
     cursor: not-allowed;
   }
 }
-
-

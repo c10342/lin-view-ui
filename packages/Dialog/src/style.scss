@@ -7,41 +7,44 @@
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: auto;
-  margin: 0;
   z-index: 2001;
+  margin: 0;
+  overflow: auto;
   background-color: $dialog-wrapper-background-color;
 
   .lin-dialog {
     // position: relative;
     // margin: $dialog-margin;
     position: absolute;
+    box-sizing: border-box;
+    width: $dialog-width;
     // top: 0;
     // left: 50%;
     // transform: translateX(-50%);
     background: $dialog-background;
     border-radius: $dialog-border-radius;
     box-shadow: $dialog-box-shadow;
-    box-sizing: border-box;
-    width: $dialog-width;
 
     &-header {
       padding: $dialog-header-padding;
+
       .lin-dialog-title {
-        line-height: $dialog-title-line-height;
         font-size: $dialog-title-font-size;
+        line-height: $dialog-title-line-height;
         color: $dialog-title-color;
       }
+
       .lin-dialog-headerbtn {
         position: absolute;
         top: $dialog-headerbtn-top;
         right: $dialog-headerbtn-right;
         padding: $dialog-headerbtn-padding;
+        font-size: $dialog-headerbtn-font-size;
+        cursor: pointer;
         background: $dialog-headerbtn-background;
         border: $dialog-headerbtn-border;
         outline: $dialog-headerbtn-outline;
-        cursor: pointer;
-        font-size: $dialog-headerbtn-font-size;
+
         .lin-icon-close {
           color: $dialog-close-color;
         }
@@ -50,14 +53,15 @@
 
     &-body {
       padding: $dialog-body-padding;
-      color: $dialog-body-color;
       font-size: $dialog-body-font-size;
+      color: $dialog-body-color;
       word-break: $dialog-body-word-break;
     }
+
     &-footer {
+      box-sizing: border-box;
       padding: $dialog-footer-padding;
       text-align: $dialog-footer-text-align;
-      box-sizing: border-box;
       // 深度选择器 scss ::v-deep  less /deep/  css >>>
       // ::v-deep .lin-button:first-child {
       //   margin-right: 20px;

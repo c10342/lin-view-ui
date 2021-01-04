@@ -1,9 +1,8 @@
 @import './common';
 
-$page-header-background-color: #ffffff !default;
+$page-header-background-color: #fff !default;
 $page-header-height: 30px !default;
 $page-header-padding: 10px 0 !default;
-
 
 $page-header-border-border-bottom: 1px solid $border-color !default;
 
@@ -15,17 +14,13 @@ $page-header-back-after-top: 50% !default;
 $page-header-back-after-transform: translateY(-50%) !default;
 $page-header-back-after-background-color: $border-color !default;
 
-
-
 $page-header-back-wrapper-hover-color: $primary !default;
 $page-header-back-wrapper-i-margin-right: 5px !default;
 $page-header-back-wrapper-span-font-size: $font-size-small !default;
 $page-header-back-wrapper-span-font-weight: 500 !default;
 
-
 $page-header-content-font-size: $font-size-big !default;
 $page-header-content-color: #303133 !default;
-
 
 $page-header-active-left: 0 !default;
 $page-header-active-top: 100% !default;
@@ -33,7 +28,6 @@ $page-header-active-margin-top: 12px !default;
 $page-header-active-height: 3px !default;
 $page-header-active-width: 100% !default;
 $page-header-active-background-color:$primary !default;
-
 
 $page-header-more-hover-color:$primary !default;
 $page-header-more-i-margin-right: 5px !default;

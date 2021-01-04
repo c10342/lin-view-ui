@@ -2,10 +2,11 @@
 
 .lin-table {
   width: $table-width;
-  border-collapse: $table-border-collapse;
-  border-spacing: $table-border-spacing;
   color: $table-color;
+  border-spacing: $table-border-spacing;
+  border-collapse: $table-border-collapse;
 }
+
 .lin-table-align-left {
   text-align: left;
 }
@@ -17,8 +18,10 @@
 .lin-table-align-right {
   text-align: right;
 }
+
 .lin-table-border {
   border: $table-border-border;
+
   .lin-table-th,
   .lin-table-td {
     border: $table-border-border;
@@ -32,6 +35,7 @@
     }
   }
 }
+
 .lin-table-tr {
   .lin-table-th,
   .lin-table-td {
@@ -49,41 +53,41 @@
 }
 
 .lin-table-checkbox {
+  position: relative;
+  display: inline-block;
   width: $table-checkbox-width;
   height: $table-checkbox-height;
-  display: inline-block;
+  margin: 0;
+  line-height: $table-checkbox-line-height;
   text-align: center;
   vertical-align: middle;
-  line-height: $table-checkbox-line-height;
-  position: relative;
-  margin: 0;
   cursor: pointer;
 }
 
 .lin-table-checkbox::before {
-  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  background: #fff;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
+  content: "";
+  background: #fff;
   border: $table-checkbox-before-border;
   border-radius: $table-checkbox-border-radius;
-  box-sizing: border-box;
 }
 
 .lin-table-checkbox:checked::before {
-  content: "\2713";
-  background-color: $table-checkbox-checked-background-color;
   position: absolute;
   top: 0;
   left: 0;
+  box-sizing: border-box;
   width: 100%;
-  border: $table-checkbox-checked-border;
-  border-radius: $table-checkbox-border-radius;
-  color: $table-checkbox-checked-color;
   font-size: $table-checkbox-checked-font-size;
   font-weight: $table-checkbox-checked-font-weight;
-  box-sizing: border-box;
+  color: $table-checkbox-checked-color;
+  content: "\2713";
+  background-color: $table-checkbox-checked-background-color;
+  border: $table-checkbox-checked-border;
+  border-radius: $table-checkbox-border-radius;
 }

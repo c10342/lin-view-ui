@@ -2,32 +2,31 @@
 @import "src/styles/mixin/tag.scss";
 
 .lin-tag {
+  box-sizing: border-box;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
   height: $tag-height;
   padding: $tag-padding;
-  line-height: $tag-line-height;
   font-size: $tag-font-size;
-
+  line-height: $tag-line-height;
+  white-space: nowrap;
   border: $tag-border;
   border-radius: $tag-border-radius;
-  box-sizing: border-box;
-  white-space: nowrap;
 }
 
 .lin-tag-close {
-  cursor: pointer;
-  margin-left: $tag-close-margin-left;
+  box-sizing: border-box;
   width: $tag-close-width;
   height: $tag-close-height;
+  margin-left: $tag-close-margin-left;
+  font-size: $tag-close-font-size;
   line-height: $tag-close-line-height;
   text-align: center;
+  cursor: pointer;
   border-radius: $tag-close-border-radius;
-  box-sizing: border-box;
-  font-size: $tag-close-font-size;
+
   &:hover {
     color: $tag-close-hover-color;
   }
@@ -37,6 +36,7 @@
   @each $key, $val in $theme-color {
     &.lin-tag-#{$key} {
       @include tag-type($val);
+
       .lin-tag-close {
         &:hover {
           background-color: $val;
@@ -50,6 +50,7 @@
   @each $key, $val in $theme-color {
     &.lin-tag-#{$key} {
       @include tag-type($val);
+
       .lin-tag-close {
         &:hover {
           background-color: rgba($val, 0.4);
@@ -63,6 +64,7 @@
   @each $key, $val in $theme-color {
     &.lin-tag-#{$key} {
       @include tag-type($val);
+
       .lin-tag-close {
         &:hover {
           background-color: $val;

@@ -1,13 +1,12 @@
 @import "src/styles/variables/hover-effect.scss";
 
 .lin-hover-effect {
-  border: 0;
   position: relative;
-  outline: none;
   padding: $hover-effect-padding;
-
   overflow: hidden;
   font-weight: $hover-effect-font-weight;
+  border: 0;
+  outline: none;
 }
 
 .lin-hover-effect-theme-neon {
@@ -18,10 +17,11 @@
     &.lin-hover-effect-type-#{$key} {
       color: $val;
       border: $hover-effect-neon-border-width solid $val;
+
       &:hover {
         color: white;
-        border-color: $val;
         background-color: $val;
+        border-color: $val;
         box-shadow: $hover-effect-neon-box-shadow $val;
       }
     }
@@ -29,22 +29,22 @@
 }
 
 .lin-hover-effect-theme-border {
-  background: none;
   box-sizing: border-box;
+  background: none;
 
   &::before,
   &::after {
-    box-sizing: inherit;
     position: absolute;
-    content: "";
-    border: $hover-effect-border-border-width solid transparent;
+    box-sizing: inherit;
     width: 0;
     height: 0;
+    content: "";
+    border: $hover-effect-border-border-width solid transparent;
   }
 
   &::after {
-    bottom: 0;
     right: 0;
+    bottom: 0;
   }
 
   &::before {
@@ -61,6 +61,7 @@
   &:hover::before {
     transition: $hover-effect-border-before-transition;
   }
+
   &:hover::after {
     transition: $hover-effect-border-after-transition;
   }
@@ -68,10 +69,12 @@
   @each $key, $val in $theme-color {
     &.lin-hover-effect-type-#{$key} {
       color: $val;
+
       &:hover::before {
         border-top-color: $val;
         border-right-color: $val;
       }
+
       &:hover::after {
         border-bottom-color: $val;
         border-left-color: $val;
@@ -81,8 +84,8 @@
 }
 
 .lin-hover-effect-theme-fillet {
-  border-radius: $hover-effect-fillet-border-radius;
   color: $hover-effect-fillet-color;
+  border-radius: $hover-effect-fillet-border-radius;
   transition: $hover-effect-fillet-transition;
 
   @each $key, $val in $theme-color {
@@ -92,30 +95,30 @@
   }
 
   &:hover {
-    border-bottom-right-radius: $hover-effect-fillet-bottom-right-radius;
     border-top-left-radius: $hover-effect-fillet-top-left-radius;
-    border-bottom-left-radius: $hover-effect-fillet-bottom-left-radius;
     border-top-right-radius: $hover-effect-fillet-top-right-radius;
+    border-bottom-right-radius: $hover-effect-fillet-bottom-right-radius;
+    border-bottom-left-radius: $hover-effect-fillet-bottom-left-radius;
   }
 }
 
 .lin-hover-effect-theme-frozen {
-  border-radius: $hover-effect-frozen-border-radius;
   color: $hover-effect-frozen-color;
+  border-radius: $hover-effect-frozen-border-radius;
 
-  &:before {
-    content: "";
-    display: block;
-    background: $hover-effect-frozen-background;
-    background-size: 210% 100%;
-    background-position: right bottom;
-    height: 100%;
-    width: 100%;
+  &::before {
     position: absolute;
     top: 0;
-    bottom: 0;
     right: 0;
+    bottom: 0;
     left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: $hover-effect-frozen-background;
+    background-position: right bottom;
+    background-size: 210% 100%;
     border-radius: $hover-effect-frozen-border-radius;
     transition: $hover-effect-frozen-transition;
   }
@@ -138,27 +141,28 @@
 
   @each $key, $val in $theme-color {
     &.lin-hover-effect-type-#{$key} {
-      border: $hover-effect-shiny-border-width solid $val;
       color: $val;
-      &:after {
+      border: $hover-effect-shiny-border-width solid $val;
+
+      &::after {
         background: $val;
       }
     }
   }
 
-  &:after {
-    content: "";
-    display: block;
+  &::after {
     position: absolute;
     top: $hover-effect-shiny-top;
     left: $hover-effect-shiny-left;
+    display: block;
     width: $hover-effect-shiny-width;
     height: $hover-effect-shiny-height;
+    content: "";
     opacity: $hover-effect-shiny-opacity;
     transform: $hover-effect-shiny-transform;
   }
 
-  &:hover:after {
+  &:hover::after {
     left: $hover-effect-shiny-hover-left;
     transition: $hover-effect-shiny-transition;
   }

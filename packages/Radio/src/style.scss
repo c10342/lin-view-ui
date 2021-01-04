@@ -1,95 +1,106 @@
 @import "src/styles/variables/radio.scss";
+
 .lin-radio {
-  color: $radio-color;
+  position: relative;
+  display: inline-block;
+  margin-right: $radio-margin-right;
+  font-size: $radio-font-size;
   font-weight: $radio-font-weight;
   line-height: $radio-line-height;
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
+  color: $radio-color;
   white-space: nowrap;
-  outline: none;
-  font-size: $radio-font-size;
-  margin-right: $radio-margin-right;
+  cursor: pointer;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  outline: none;
+
   .lin-radio-input {
-    white-space: nowrap;
-    cursor: pointer;
-    outline: none;
+    position: relative;
     display: inline-block;
     line-height: $radio-input-line-height;
-    position: relative;
+    white-space: nowrap;
     vertical-align: middle;
+    cursor: pointer;
+    outline: none;
+
     .lin-radio-inner {
-      border: $radio-inner-border;
-      border-radius: $radio-inner-border-radius;
+      position: relative;
+      box-sizing: border-box;
+      display: inline-block;
       width: $radio-inner-width;
       height: $radio-inner-height;
-      background-color: $radio-inner-background-color;
-      position: relative;
       cursor: pointer;
-      display: inline-block;
-      box-sizing: border-box;
-      &:after {
+      background-color: $radio-inner-background-color;
+      border: $radio-inner-border;
+      border-radius: $radio-inner-border-radius;
+
+      &::after {
+        position: absolute;
+        top: $radio-inner-after-top;
+        left: $radio-inner-after-left;
         width: $radio-inner-after-width;
         height: $radio-inner-after-height;
-        border-radius: $radio-inner-after-border-radius;
-        background-color: $radio-inner-after-background-color;
         content: "";
-        position: absolute;
-        left: $radio-inner-after-left;
-        top: $radio-inner-after-top;
-        transform: $radio-inner-after-transform;
+        background-color: $radio-inner-after-background-color;
+        border-radius: $radio-inner-after-border-radius;
         transition: $radio-inner-after-transition;
+        transform: $radio-inner-after-transform;
       }
     }
+
     .lin-radio-original {
-      opacity: 0;
-      outline: none;
       position: absolute;
-      z-index: -1;
       top: 0;
-      left: 0px;
       right: 0;
       bottom: 0;
+      left: 0;
+      z-index: -1;
       margin: 0;
+      outline: none;
+      opacity: 0;
     }
   }
+
   .lin-radio-label {
-    font-size: $radio-label-font-size;
     padding-left: $radio-label-padding-left;
+    font-size: $radio-label-font-size;
   }
 }
 
 .lin-radio-is-checked {
   .lin-radio-input {
     .lin-radio-inner {
-      border-color: $radio-checked-border-color;
       background: $radio-checked-background;
-      &:after {
+      border-color: $radio-checked-border-color;
+
+      &::after {
         transform: $radio-checked-transform;
       }
     }
   }
+
   .lin-radio-label {
     color: $radio-checked-color;
   }
 }
 
 .lin-radio-is-disabled {
-  cursor: not-allowed;
   color: $radio-disabled-color;
+  cursor: not-allowed;
+
   .lin-radio-input {
     .lin-radio-inner {
       cursor: not-allowed;
-      border-color: $radio-disabled-border-color;
       background-color: $radio-disabled-background-color;
-      &:after {
+      border-color: $radio-disabled-border-color;
+
+      &::after {
         background-color: $radio-disabled-after-background-color;
       }
     }
   }
+
   .lin-radio-label {
     color: $radio-disabled-color;
   }

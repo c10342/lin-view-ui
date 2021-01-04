@@ -2,17 +2,15 @@
 
 .lin-selecotr-item {
   max-width: $selector-item-max-width;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-right: $selector-item-margin-right;
-
   height: $selector-item-height;
-  line-height: $selector-item-line-height;
   padding: $selector-item-padding;
+  margin-right: $selector-item-margin-right;
+  overflow: hidden;
   font-size: $selector-item-font-size;
-  white-space: nowrap;
+  line-height: $selector-item-line-height;
   color: $selector-item-color;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   cursor: pointer;
   user-select: none;
 }
@@ -23,7 +21,7 @@
 }
 
 .lin-selecotr-item.lin-selecotr-disabled {
+  color: $selector-disabled-color;
   cursor: not-allowed;
   background-color: $selector-disabled-background-color;
-  color: $selector-disabled-color;
 }
