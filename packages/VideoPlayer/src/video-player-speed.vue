@@ -29,31 +29,31 @@ export default {
   mixins: [LocaleMixin],
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
-  data() {
+  data () {
     return {
       currentSpeed: null,
-      list: [],
+      list: []
     };
   },
   computed: {
-    speedList() {
+    speedList () {
       if (this.videoPlayer) {
         return this.videoPlayer.speedList;
       }
       return [];
     },
-    top() {
+    top () {
       if (!this.list.length) {
         return 0;
       }
       const t = (20 + 10) * this.list.length + 10;
       return `${-t}px`;
-    },
+    }
   },
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
       if (this.speedList.length > 0) {
         const speedList = cloneDeep(this.speedList);
@@ -64,10 +64,10 @@ export default {
     });
   },
   methods: {
-    switchSpeed(data) {
+    switchSpeed (data) {
       const list = cloneDeep(this.list);
       const index = list.findIndex(
-        (item) => item.label === data.label && item.value === data.value,
+        (item) => item.label === data.label && item.value === data.value
       );
       list.splice(index, 1);
       list.push(this.currentSpeed);
@@ -75,12 +75,12 @@ export default {
       this.currentSpeed = data;
       this.setSpeed();
     },
-    setSpeed() {
+    setSpeed () {
       if (this.videoPlayer) {
         const playbackRate = this.currentSpeed.value;
         this.videoPlayer.setSpeed(playbackRate);
       }
-    },
-  },
+    }
+  }
 };
 </script>

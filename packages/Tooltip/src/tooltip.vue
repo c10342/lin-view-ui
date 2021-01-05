@@ -9,28 +9,28 @@
 <script>
 export default {
   name: 'LinTooltip',
-  data() {
+  data () {
     return {
       style: {},
       show: false,
       placement: 'bottom',
-      text: '',
+      text: ''
     };
   },
   methods: {
-    handleAfterLeave() {
+    handleAfterLeave () {
       this.$emit('after-leave');
-    },
+    }
   },
   computed: {
-    classes() {
+    classes () {
       return {
         'lin-tooltip-bottom': this.placement === 'top',
         'lin-tooltip-top': this.placement === 'bottom',
         'lin-tooltip-left': this.placement === 'right',
-        'lin-tooltip-right': this.placement === 'left',
+        'lin-tooltip-right': this.placement === 'left'
       };
-    },
-  },
+    }
+  }
 };
 </script>

@@ -37,45 +37,45 @@ export default {
   props: {
     title: {
       type: String,
-      default: '',
+      default: ''
     },
     description: {
       type: String,
-      default: '',
+      default: ''
     },
     icon: {
       type: String,
-      default: '',
+      default: ''
     },
     closable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     type: {
       type: String,
-      default: 'success',
+      default: 'success'
     },
     effect: {
       type: String,
-      default: 'light',
+      default: 'light'
     },
     center: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  data() {
+  data () {
     return {
-      show: true,
+      show: true
     };
   },
   methods: {
-    onCloseClick() {
+    onCloseClick () {
       this.show = false;
     },
-    afterLeave() {
+    afterLeave () {
       this.$emit('close');
-    },
-  },
+    }
+  }
 };
 </script>

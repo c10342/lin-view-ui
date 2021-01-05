@@ -23,39 +23,39 @@ export default {
   props: {
     percent: {
       type: Number,
-      default: 0,
+      default: 0
     },
     innerColor: {
       type: String,
-      default: '',
+      default: ''
     },
     outColor: {
       type: String,
-      default: '',
+      default: ''
     },
     height: {
       type: Number,
-      default: 10,
+      default: 10
     },
     radius: {
       type: Boolean,
-      default: true,
+      default: true
     },
     textOutside: {
       type: String,
-      default: '',
+      default: ''
     },
     type: {
       type: String,
-      default: 'primary',
+      default: 'primary'
     },
     textInside: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
-    width() {
+    width () {
       if (this.percent < 0) {
         return '0%';
       }
@@ -65,9 +65,9 @@ export default {
       return `${this.percent * 100}%`;
     },
 
-    innerStyle() {
+    innerStyle () {
       const style = {
-        width: this.width,
+        width: this.width
       };
       if (this.innerColor) {
         style.backgroundColor = this.innerColor;
@@ -79,7 +79,7 @@ export default {
 
       return style;
     },
-    outStyle() {
+    outStyle () {
       const style = {};
       if (this.outColor) {
         style.backgroundColor = this.outColor;
@@ -93,19 +93,19 @@ export default {
 
       return style;
     },
-    isShowOutsideText() {
+    isShowOutsideText () {
       if (this.textOutside || this.$slots.default) {
         return true;
       }
       return false;
     },
-    isShowInsideText() {
+    isShowInsideText () {
       if (this.textInside || this.$slots.text) {
         return true;
       }
 
       return false;
-    },
-  },
+    }
+  }
 };
 </script>

@@ -13,20 +13,20 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'primary',
+      default: 'primary'
     },
     theme: {
       type: String,
-      default: 'neon',
+      default: 'neon'
     },
     text: {
-      type: String,
-    },
+      type: String
+    }
   },
   methods: {
-    onClick() {
+    onClick () {
       this.$emit('click');
-    },
-  },
+    }
+  }
 };
 </script>

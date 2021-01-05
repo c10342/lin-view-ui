@@ -2,7 +2,7 @@ import Vue from 'vue';
 import getScroll from 'src/utils/getScroll.js';
 import Loading from './loading.vue';
 
-function handleOnScroll(target, targetDom, scrollDom) {
+function handleOnScroll (target, targetDom, scrollDom) {
   if (document.body === target) {
     targetDom.style.marginTop = `${getScroll().scrollTop}px`;
   } else {
@@ -10,7 +10,7 @@ function handleOnScroll(target, targetDom, scrollDom) {
   }
 }
 
-function addScrollListener(target, fn) {
+function addScrollListener (target, fn) {
   if (document.body === target) {
     window.addEventListener('scroll', fn);
   } else {
@@ -18,7 +18,7 @@ function addScrollListener(target, fn) {
   }
 }
 
-function delScrollListener(target, fn) {
+function delScrollListener (target, fn) {
   if (document.body === target) {
     window.removeEventListener('scroll', fn);
   } else {
@@ -31,8 +31,8 @@ const LoadingConstruct = Vue.extend(Loading);
 // {
 //   text: null, background: null, target, fullscreen,
 // },
-LoadingConstruct.prototype.open = function open(
-  options,
+LoadingConstruct.prototype.open = function open (
+  options
 ) {
   if (!options.target) {
     return;
@@ -43,8 +43,8 @@ LoadingConstruct.prototype.open = function open(
   });
 
   if (
-    !this.fullscreen
-    && !this.target.classList.contains('lin-loading-position-relative')
+    !this.fullscreen &&
+    !this.target.classList.contains('lin-loading-position-relative')
   ) {
     this.target.classList.add('lin-loading-position-relative');
   }
@@ -74,7 +74,7 @@ LoadingConstruct.prototype.open = function open(
   this.visible = true;
 };
 
-LoadingConstruct.prototype.close = function close() {
+LoadingConstruct.prototype.close = function close () {
   if (!this.target || !this.visible) {
     return;
   }
@@ -82,8 +82,8 @@ LoadingConstruct.prototype.close = function close() {
 
   this.$once('after-leave', () => {
     if (
-      !this.fullscreen
-      && this.target.classList.contains('lin-loading-position-relative')
+      !this.fullscreen &&
+      this.target.classList.contains('lin-loading-position-relative')
     ) {
       this.target.classList.remove('lin-loading-position-relative');
     }

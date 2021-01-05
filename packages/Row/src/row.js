@@ -6,33 +6,33 @@ export default {
   props: {
     tag: {
       type: String,
-      default: 'div',
+      default: 'div'
     },
     gutter: {
       type: Number,
-      default: 0,
+      default: 0
     },
     type: {
       type: String,
-      default: '',
+      default: ''
     },
     justify: {
       type: String,
-      default: '',
+      default: ''
     },
     align: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
 
-  provide() {
+  provide () {
     return {
-      row: this,
+      row: this
     };
   },
 
-  render(h) {
+  render (h) {
     const classList = [];
     if (this.type) {
       classList.push(`lin-row-${this.type}`);
@@ -46,9 +46,9 @@ export default {
     return h(
       this.tag,
       {
-        class: ['lin-row', classList],
+        class: ['lin-row', classList]
       },
-      this.$slots.default,
+      this.$slots.default
     );
-  },
+  }
 };

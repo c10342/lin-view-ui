@@ -1,14 +1,14 @@
 export const isDOM = (dom) => {
   const fn = typeof HTMLElement === 'object'
-    ? function isDOMFn(obj) {
-      return obj instanceof HTMLElement;
-    }
-    : function isDOMFn(obj) {
+    ? function isDOMFn (obj) {
+        return obj instanceof HTMLElement;
+      }
+    : function isDOMFn (obj) {
       return (
-        obj
-            && typeof obj === 'object'
-            && obj.nodeType === 1
-            && typeof obj.nodeName === 'string'
+        obj &&
+            typeof obj === 'object' &&
+            obj.nodeType === 1 &&
+            typeof obj.nodeName === 'string'
       );
     };
 
@@ -57,19 +57,19 @@ export const handleVideoList = (list) => {
 };
 
 export const isBrowserFullscreen = () => (
-  document.fullscreenElement
-    || document.msFullscreenElement
-    || document.mozFullScreenElement
-    || document.webkitFullscreenElement
-    || false
+  document.fullscreenElement ||
+    document.msFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.webkitFullscreenElement ||
+    false
 );
 
 export const isBrowserFullscreenEnabled = () => (
-  document.fullscreenEnabled
-    || document.mozFullScreenEnabled
-    || document.webkitFullscreenEnabled
-    || document.msFullscreenEnabled
-    || false
+  document.fullscreenEnabled ||
+    document.mozFullScreenEnabled ||
+    document.webkitFullscreenEnabled ||
+    document.msFullscreenEnabled ||
+    false
 );
 
 // 进入全屏

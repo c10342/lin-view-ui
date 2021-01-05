@@ -20,15 +20,15 @@
 <script>
 export default {
   name: 'LinLoadingBar',
-  data() {
+  data () {
     return {
       easing: 'linear',
       isError: false,
       showSpinner: true,
       totalProgress: 0,
       percentNum: 0,
-      speed: 5,
+      speed: 5
     };
-  },
+  }
 };
 </script>

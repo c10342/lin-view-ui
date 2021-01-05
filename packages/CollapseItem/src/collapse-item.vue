@@ -28,34 +28,34 @@ export default {
   props: {
     name: {
       type: String,
-      require: true,
+      require: true
     },
     hideArrow: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   components: {
-    collapseTransition,
+    collapseTransition
   },
   inject: {
     collapseGroup: {
-      default: '',
-    },
+      default: ''
+    }
   },
-  data() {
+  data () {
     return {
-      index: 0,
+      index: 0
     };
   },
   computed: {
-    simple() {
+    simple () {
       if (this.collapseGroup) {
         return this.collapseGroup.simple;
       }
       return false;
     },
-    collapseValue() {
+    collapseValue () {
       if (this.collapseGroup) {
         const val = this.collapseGroup.collapseValue;
         if (val && typeof val === 'string') {
@@ -66,20 +66,20 @@ export default {
       }
       return [];
     },
-    accordion() {
+    accordion () {
       if (this.collapseGroup) {
         return this.collapseGroup.accordion;
       }
       return false;
     },
     show: {
-      get() {
+      get () {
         if (this.collapseValue.includes(this.name)) {
           return true;
         }
         return false;
       },
-      set(val) {
+      set (val) {
         if (this.collapseGroup) {
           let data = cloneDeep(this.collapseValue);
           if (this.accordion) {
@@ -98,13 +98,13 @@ export default {
           }
           this.collapseGroup.collapseValue = data;
         }
-      },
-    },
+      }
+    }
   },
   methods: {
-    onHeaderClick() {
+    onHeaderClick () {
       this.show = !this.show;
-    },
-  },
+    }
+  }
 };
 </script>

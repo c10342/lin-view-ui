@@ -10,24 +10,24 @@ export default {
   props: {
     model: {
       type: Object,
-      required: true,
+      required: true
     },
     labelWidth: {
       type: String,
-      default: '80px',
+      default: '80px'
     },
     rules: {
       type: Object,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
-  provide() {
+  provide () {
     return {
-      Form: this,
+      Form: this
     };
   },
   methods: {
-    validate(cb) {
+    validate (cb) {
       const tasks = this.$children
         .filter((item) => item.prop)
         .map((item) => item.validate());
@@ -39,7 +39,7 @@ export default {
         })
         .catch(() => cb(false));
     },
-    clearValidate() {
+    clearValidate () {
       const broad = (children) => {
         children.forEach((child) => {
           if (child.$options.name === 'LinFormItem' && child.clearValidate) {
@@ -52,7 +52,7 @@ export default {
       };
 
       broad(this.$children);
-    },
-  },
+    }
+  }
 };
 </script>

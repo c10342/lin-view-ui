@@ -9,34 +9,34 @@ export default {
   props: {
     pageCount: {
       default: 7,
-      type: Number,
+      type: Number
     },
     pageSize: {
       default: 10,
-      type: Number,
+      type: Number
     },
     total: {
       type: Number,
-      default: 0,
+      default: 0
     },
     pageIndex: {
-      type: Number,
+      type: Number
     },
     background: {
       type: Boolean,
-      default: false,
+      default: false
     },
     layout: {
       type: String,
-      default: 'prev, pager, next, jumper,total',
-    },
+      default: 'prev, pager, next, jumper,total'
+    }
   },
-  data() {
+  data () {
     return {
-      myPageIndex: 1,
+      myPageIndex: 1
     };
   },
-  render() {
+  render () {
     const { background, layoutList } = this;
     return (
       <div
@@ -50,7 +50,7 @@ export default {
     );
   },
   methods: {
-    onItemClick(data) {
+    onItemClick (data) {
       let index = 1;
       if (data.type === 'number') {
         index = data.index;
@@ -62,7 +62,7 @@ export default {
       this.currentPage = index;
       this.$emit('currentChange', index);
     },
-    prevClick() {
+    prevClick () {
       if (this.disabledPrev) {
         return;
       }
@@ -70,7 +70,7 @@ export default {
       this.currentPage = index;
       this.$emit('prevClick', index);
     },
-    nextClick() {
+    nextClick () {
       if (this.disabledNext) {
         return;
       }
@@ -78,7 +78,7 @@ export default {
       this.currentPage = index;
       this.$emit('nextClick', index);
     },
-    gotoPageByEnter(e) {
+    gotoPageByEnter (e) {
       if (e.keyCode !== 13) {
         return;
       }
@@ -96,7 +96,7 @@ export default {
       this.currentPage = index * 1;
       e.target.value = index;
     },
-    gotoPageByBlur(e) {
+    gotoPageByBlur (e) {
       const value = e.target.value;
       let index;
       if (!value) {
@@ -111,7 +111,7 @@ export default {
       this.currentPage = index * 1;
       e.target.value = index;
     },
-    rendertotal() {
+    rendertotal () {
       const { total, t } = this;
       return (
         <span class="lin-pagination-total">
@@ -121,20 +121,20 @@ export default {
         </span>
       );
     },
-    renderprev() {
+    renderprev () {
       const { disabledPrev, prevClick } = this;
       return (
         <span
           class={[
             'lin-pagination-item',
             'lin-icon-left',
-            { 'lin-pagination-disabled': disabledPrev },
+            { 'lin-pagination-disabled': disabledPrev }
           ]}
           onClick={prevClick}
         ></span>
       );
     },
-    renderpager() {
+    renderpager () {
       const { pageList, currentPage, onItemClick } = this;
       return (
         <ul class="lin-pagination-pager">
@@ -145,44 +145,48 @@ export default {
                   { 'lin-pagination-active': item.index === currentPage },
                   {
                     'lin-pagination-ellipsis':
-                      item.type === 'prev' || item.type === 'next',
-                  },
+                      item.type === 'prev' || item.type === 'next'
+                  }
                 ]}
                 key={index}
                 onClick={() => onItemClick(item)}
               >
                 {item.index}
-                {item.type === 'prev' ? (
+              {item.type === 'prev'
+                ? (
                   <span class="lin-pagination-icon lin-icon-leftarrow"></span>
-                ) : null}
-                {item.type === 'next' ? (
+                  )
+                : null}
+              {item.type === 'next'
+                ? (
                   <span class="lin-pagination-icon lin-icon-rightarrow"></span>
-                ) : null}
+                  )
+                : null}
               </li>
           ))}
         </ul>
       );
     },
-    rendernext() {
+    rendernext () {
       const { disabledNext, nextClick } = this;
       return (
         <span
           class={[
             'lin-pagination-item',
             'lin-icon-right',
-            { 'lin-pagination-disabled': disabledNext },
+            { 'lin-pagination-disabled': disabledNext }
           ]}
           onClick={nextClick}
         ></span>
       );
     },
-    renderjumper() {
+    renderjumper () {
       const {
         totalPage,
         gotoPageByEnter,
         gotoPageByBlur,
         currentPage,
-        t,
+        t
       } = this;
       return (
         <div class="lin-pagintaion-jumpe">
@@ -199,34 +203,34 @@ export default {
           <span>{t('LinViewUI.Pagination.page')}</span>
         </div>
       );
-    },
+    }
   },
   computed: {
     currentPage: {
-      get() {
+      get () {
         if (this.pageIndex) {
           return this.pageIndex;
         }
         return this.myPageIndex;
       },
-      set(val) {
+      set (val) {
         if (this.pageIndex) {
           this.$emit('update:pageIndex', val);
         } else {
           this.myPageIndex = val;
         }
-      },
+      }
     },
-    disabledPrev() {
+    disabledPrev () {
       return this.currentPage === 1 || this.total === 0;
     },
-    disabledNext() {
+    disabledNext () {
       return this.currentPage === this.totalPage || this.total === 0;
     },
-    totalPage() {
+    totalPage () {
       return Math.ceil(this.total / this.pageSize);
     },
-    pageList() {
+    pageList () {
       if (this.total === 0) {
         return [];
       }
@@ -235,8 +239,8 @@ export default {
       const arr = [];
       if (this.totalPage >= this.pageCount) {
         if (
-          this.currentPage > Math.ceil(this.pageCount / 2)
-          && this.currentPage < this.totalPage - Math.floor(this.pageCount / 2)
+          this.currentPage > Math.ceil(this.pageCount / 2) &&
+          this.currentPage < this.totalPage - Math.floor(this.pageCount / 2)
         ) {
           left = this.currentPage - Math.floor(this.pageCount / 2);
           right = this.currentPage + Math.floor(this.pageCount / 2);
@@ -259,8 +263,8 @@ export default {
           arr[1] = { index: '...', type: 'prev' };
         }
         if (
-          this.currentPage
-          < this.totalPage - Math.floor(this.pageCount / 2)
+          this.currentPage <
+          this.totalPage - Math.floor(this.pageCount / 2)
         ) {
           arr[arr.length - 2] = { index: '...', type: 'next' };
         }
@@ -268,10 +272,10 @@ export default {
       }
       return arr;
     },
-    layoutList() {
+    layoutList () {
       let splitArr = this.layout.split(',') || [];
       splitArr = splitArr.map((item) => item.trim());
       return splitArr;
-    },
-  },
+    }
+  }
 };

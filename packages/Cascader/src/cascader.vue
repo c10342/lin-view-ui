@@ -57,84 +57,84 @@ export default {
   mixins: [documentClick, LocaleMixin],
   components: {
     [Input.name]: Input,
-    [Panel.name]: Panel,
+    [Panel.name]: Panel
   },
   props: {
     options: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     showFormat: {
-      type: Function,
+      type: Function
     },
     value: {
       type: Array,
-      default: null,
+      default: null
     },
     clearable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     placeholder: {
-      type: String,
+      type: String
     },
     lazy: {
       type: Boolean,
-      default: false,
+      default: false
     },
     lazyLoad: {
-      type: Function,
+      type: Function
     },
     separator: {
       type: String,
-      default: '/',
+      default: '/'
     },
     label: {
       type: String,
-      default: 'label',
+      default: 'label'
     },
     children: {
       type: String,
-      default: 'children',
+      default: 'children'
     },
     leaf: {
       type: String,
-      default: 'leaf',
+      default: 'leaf'
     },
     disabled: {
       type: String,
-      default: 'disabled',
+      default: 'disabled'
     },
     valueKey: {
       type: String,
-      default: 'id',
+      default: 'id'
     },
     emptyTip: {
-      type: String,
-    },
+      type: String
+    }
   },
-  provide() {
+  provide () {
     return {
-      cascader: this,
+      cascader: this
     };
   },
-  data() {
+  data () {
     return {
       myValueArr: [],
       showPopup: false,
       isHover: false,
       optionsList: [],
       top: 0,
-      isDown: false,
+      isDown: false
     };
   },
-  async created() {
+  async created () {
     if (this.lazy && this.lazyLoad) {
       this.optionsList = await this.lazyLoad({ level: 0 });
     }
   },
   methods: {
-    setPlacement() {
+    setPlacement () {
       this.$nextTick(() => {
         const { popupContainer } = this.$refs;
         const container = this.$refs.notOutsideContainer;
@@ -149,47 +149,47 @@ export default {
         }
       });
     },
-    setDownTop() {
+    setDownTop () {
       this.isDown = true;
       const { boxContainer } = this.$refs;
       this.top = `${boxContainer.clientHeight + 10}px`;
     },
-    setUpTop() {
+    setUpTop () {
       this.isDown = false;
       const { popupContainer } = this.$refs;
       this.top = `${-popupContainer.clientHeight - 10}px`;
     },
-    onBlur(event) {
+    onBlur (event) {
       this.$emit('blur', event);
     },
-    onFocus(event) {
+    onFocus (event) {
       this.$emit('focus', event);
     },
-    clearValue() {
+    clearValue () {
       this.valueArr = [];
       this.hidePuop();
     },
-    onMouseEnter() {
+    onMouseEnter () {
       this.isHover = true;
     },
-    onMouseLeave() {
+    onMouseLeave () {
       this.isHover = false;
     },
-    setValue(data, level) {
+    setValue (data, level) {
       let { valueArr } = this;
       valueArr = valueArr.slice(0, level);
       valueArr.push(data);
       this.valueArr = valueArr;
       this.$emit('change', { data, level });
     },
-    onInputClick() {
+    onInputClick () {
       if (this.showPopup) {
         this.hidePuop();
       } else {
         this.displayPuop();
       }
     },
-    displayPuop() {
+    displayPuop () {
       this.showPopup = true;
       this.$children.forEach((child) => {
         if (child.$options.name === 'LinPanel') {
@@ -199,23 +199,23 @@ export default {
       this.setPlacement();
       this.$emit('visible-change', true);
     },
-    hidePuop() {
+    hidePuop () {
       this.showPopup = false;
       this.$emit('visible-change', false);
     },
-    emitInputEvent(val) {
+    emitInputEvent (val) {
       this.$emit('input', val);
     },
-    onDocumentClick(event) {
+    onDocumentClick (event) {
       const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
         this.hidePuop();
       }
-    },
+    }
   },
   computed: {
     valueArr: {
-      get() {
+      get () {
         if (this.value !== null) {
           if (Array.isArray(this.value)) {
             return this.value;
@@ -226,15 +226,15 @@ export default {
 
         return this.myValueArr || [];
       },
-      set(val) {
+      set (val) {
         if (this.value !== null) {
           this.emitInputEvent(val);
         } else {
           this.myValueArr = val;
         }
-      },
+      }
     },
-    text() {
+    text () {
       if (this.showFormat) {
         return this.showFormat(this.valueArr);
       }
@@ -247,32 +247,32 @@ export default {
       }
       return '';
     },
-    showClose() {
+    showClose () {
       return (
-        this.clearable
-        && this.isHover
-        && this.valueArr
-        && this.valueArr.length !== 0
+        this.clearable &&
+        this.isHover &&
+        this.valueArr &&
+        this.valueArr.length !== 0
       );
     },
-    myPlaceholder() {
+    myPlaceholder () {
       if (this.placeholder) {
         return this.placeholder;
       }
       return this.t('LinViewUI.Cascader.placeholder');
     },
-    myEmptyTip() {
+    myEmptyTip () {
       if (this.emptyTip) {
         return this.emptyTip;
       }
       return this.t('LinViewUI.Cascader.emptyTip');
     },
-    myOptions() {
+    myOptions () {
       if (this.lazy && this.lazyLoad) {
         return this.optionsList;
       }
       return this.options;
-    },
-  },
+    }
+  }
 };
 </script>

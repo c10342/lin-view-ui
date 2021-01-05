@@ -9,25 +9,25 @@ export default {
   props: {
     proportion: {
       type: Number,
-      default: 1,
+      default: 1
     }, // h : w
     bgColor: {
       type: String,
-      default: '#b4bccc',
+      default: '#b4bccc'
     },
     width: {
       type: String,
-      default: '100%',
+      default: '100%'
     },
     height: {
       type: [String, Boolean],
-      default: false,
-    },
+      default: false
+    }
   },
-  data() {
+  data () {
     return {
-      paddingBottom: this.height || `${this.proportion * 100}%`,
+      paddingBottom: this.height || `${this.proportion * 100}%`
     };
-  },
+  }
 };
 </script>

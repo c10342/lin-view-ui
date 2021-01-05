@@ -41,55 +41,55 @@ import dispatch from 'src/utils/dispatch.js';
 
 export default {
   name: 'LinInput',
-  data() {
+  data () {
     return {
       // 用于控制是否显示密码框
-      passwordVisible: false,
+      passwordVisible: false
     };
   },
   props: {
     placeholder: {
       type: String,
-      default: '',
+      default: ''
     },
     type: {
       type: String,
-      default: 'text',
+      default: 'text'
     },
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     value: {
       type: String,
-      default: '',
+      default: ''
     },
     clearable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     showPassword: {
       type: Boolean,
-      default: false,
+      default: false
     },
     maxlength: {
       type: Number,
-      default: -1,
+      default: -1
     },
     minlength: {
       type: Number,
-      default: -1,
-    },
+      default: -1
+    }
   },
   computed: {
-    showSuffix() {
+    showSuffix () {
       return this.clearable || this.showPassword;
     },
-    inputAttr() {
+    inputAttr () {
       const obj = {};
       if (this.maxlength !== -1) {
         obj.maxlength = this.maxlength;
@@ -102,36 +102,36 @@ export default {
       }
       return {
         ...obj,
-        ...this.$attrs,
+        ...this.$attrs
       };
-    },
+    }
   },
   methods: {
-    handleInput(e) {
+    handleInput (e) {
       this.emitInputEvent(e.target.value);
     },
-    clear() {
+    clear () {
       // 把内容清空
       this.emitInputEvent('');
       this.$emit('clear');
     },
-    emitInputEvent(data) {
+    emitInputEvent (data) {
       this.$emit('input', data);
       dispatch.call(this, {
         eventName: 'validate',
-        componentName: 'LinFormItem',
+        componentName: 'LinFormItem'
       });
     },
 
-    handlePassword() {
+    handlePassword () {
       this.passwordVisible = !this.passwordVisible;
     },
-    onBlur(e) {
+    onBlur (e) {
       this.$emit('blur', e);
     },
-    onFocus(e) {
+    onFocus (e) {
       this.$emit('focus', e);
-    },
-  },
+    }
+  }
 };
 </script>

@@ -15,17 +15,17 @@ export default {
   props: {
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  provide() {
+  provide () {
     return {
-      option: this,
+      option: this
     };
-  },
+  }
 };
 </script>

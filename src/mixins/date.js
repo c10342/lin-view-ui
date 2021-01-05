@@ -2,27 +2,27 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabledBeforeDate: {
       type: [Date, String, Number],
-      default: '',
+      default: ''
     },
     disabledAfterDate: {
       type: [Date, String, Number],
-      default: '',
+      default: ''
     },
     disabledRangeDate: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     disabledDate: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   methods: {
-    isDisabledDate(date) {
+    isDisabledDate (date) {
       if (this.disabled) {
         return true;
       }
@@ -39,8 +39,8 @@ export default {
         }
       }
       if (
-        Array.isArray(this.disabledRangeDate)
-        && this.disabledRangeDate.length !== 0
+        Array.isArray(this.disabledRangeDate) &&
+        this.disabledRangeDate.length !== 0
       ) {
         if (this.disabledRangeDate.length === 1) {
           const d = new Date(this.disabledRangeDate[0]);
@@ -64,7 +64,7 @@ export default {
       }
       return false;
     },
-    compareDate(date1, date2, type) {
+    compareDate (date1, date2, type) {
       if (!(date1 instanceof Date)) {
         date1 = new Date(date1);
       }
@@ -72,34 +72,34 @@ export default {
         date2 = new Date(date2);
       }
       const newDate1 = new Date(
-        `${date1.getFullYear()}/${date1.getMonth()}/${date1.getDate()}`,
+        `${date1.getFullYear()}/${date1.getMonth()}/${date1.getDate()}`
       );
       const newDate2 = new Date(
-        `${date2.getFullYear()}/${date2.getMonth()}/${date2.getDate()}`,
+        `${date2.getFullYear()}/${date2.getMonth()}/${date2.getDate()}`
       );
       const obj = {
         Equal: newDate1.getTime() === newDate2.getTime(),
         EqAndLt: newDate1 <= newDate2,
         EqAndGt: newDate1 >= newDate2,
         Lt: newDate1 < newDate2,
-        Gt: newDate1 > newDate2,
+        Gt: newDate1 > newDate2
       };
       return obj[type];
     },
-    isEqual(date1, date2) {
+    isEqual (date1, date2) {
       return this.compareDate(date1, date2, 'Equal');
     },
-    isEqAndLt(date1, date2) {
+    isEqAndLt (date1, date2) {
       return this.compareDate(date1, date2, 'EqAndLt');
     },
-    isEqAndGt(date1, date2) {
+    isEqAndGt (date1, date2) {
       return this.compareDate(date1, date2, 'EqAndGt');
     },
-    isLt(date1, date2) {
+    isLt (date1, date2) {
       return this.compareDate(date1, date2, 'Lt');
     },
-    isGt(date1, date2) {
+    isGt (date1, date2) {
       return this.compareDate(date1, date2, 'Gt');
-    },
-  },
+    }
+  }
 };

@@ -19,48 +19,48 @@ import request from 'src/js/request.js';
 export default {
   name: 'LinUpload',
   components: {
-    'lin-button': LinButton,
+    'lin-button': LinButton
   },
   props: {
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     fileChunkSize: {
       type: Number,
-      default: 10 * 1024 * 1024,
+      default: 10 * 1024 * 1024
     },
     uploadUrl: {
       type: String,
-      required: true,
+      required: true
     },
     mergeUrl: {
-      type: String,
+      type: String
     },
     // 是否切片上传
     isSlice: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 开启断点续传功能
     breakpoint: {
       type: Boolean,
-      default: false,
+      default: false
     },
     beforeUpload: {
-      type: Function,
+      type: Function
     },
     splitFileChunk: {
-      type: Function,
+      type: Function
     },
     caculateFileHash: {
-      type: Function,
+      type: Function
     },
     requestMergeFileFn: {
-      type: Function,
-    },
+      type: Function
+    }
   },
-  mounted() {
+  mounted () {
     // 文件
     this.selectedFile = null;
     // 文件切片数据
@@ -72,7 +72,7 @@ export default {
     this.fileChunkList = [];
   },
   methods: {
-    onFileChange(e) {
+    onFileChange (e) {
       // 获取文件
       this.selectedFile = e.target.files[0];
       this.$refs.linUploadInput.value = '';
@@ -91,10 +91,10 @@ export default {
         this.handleUpload();
       }
     },
-    onBtnClick() {
+    onBtnClick () {
       this.$refs.linUploadInput.click();
     },
-    handleUpload() {
+    handleUpload () {
       // 或者切片上传
       if (this.breakpoint) {
         // 开启断点续传
@@ -108,18 +108,18 @@ export default {
     },
 
     // 切片上传逻辑
-    uploadFileBySlice() {
+    uploadFileBySlice () {
       this.createFileChunkList();
       this.fileChunkListData = this.fileChunkList.map((file, index) => ({
         // 切片
         chunk: file,
-        hash: `${this.selectedFile.name}-${index}`,
+        hash: `${this.selectedFile.name}-${index}`
       }));
       this.uploadChunksBySlice();
     },
 
     // 断点上传逻辑
-    async uploadFileByBreakpoint() {
+    async uploadFileByBreakpoint () {
       this.createFileChunkList();
       try {
         // 计算出文件hash值
@@ -138,7 +138,7 @@ export default {
       if (window.localStorage.getItem(this.fileHash)) {
         try {
           uploadedChunkList = JSON.parse(
-            window.localStorage.getItem(this.fileHash),
+            window.localStorage.getItem(this.fileHash)
           );
         } catch (error) {
           // todo
@@ -149,7 +149,7 @@ export default {
       this.fileChunkListData = this.fileChunkList.map((file, index) => ({
         chunk: file,
         hash: `${this.fileHash}-${index}`,
-        fileHash: this.fileHash,
+        fileHash: this.fileHash
       }));
 
       // 上传切片
@@ -157,13 +157,13 @@ export default {
     },
 
     // 普通上传
-    async uploadFile() {
+    async uploadFile () {
       try {
         const formData = new FormData();
         formData.append('file', this.selectedFile);
         const res = await request({
           url: this.uploadUrl,
-          data: formData,
+          data: formData
         });
         this.$emit('uploadSuccess', res);
       } catch (error) {
@@ -172,7 +172,7 @@ export default {
     },
 
     // 切片上传切片
-    async uploadChunksBySlice() {
+    async uploadChunksBySlice () {
       if (!this.uploadUrl) {
         throw new TypeError('uploadUrl is not define');
       }
@@ -186,7 +186,7 @@ export default {
         })
         .map(({ formData }) => request({
           url: this.uploadUrl,
-          data: formData,
+          data: formData
         }));
       try {
         const res = await Promise.all(requestList);
@@ -199,7 +199,7 @@ export default {
     },
 
     // 断点续传上传切片
-    async uploadChunksByBreakpoint(uploadedChunkList) {
+    async uploadChunksByBreakpoint (uploadedChunkList) {
       if (!this.uploadUrl) {
         throw new TypeError('uploadUrl is not define');
       }
@@ -219,7 +219,7 @@ export default {
           data: formData,
           requestList: this.requestList,
           hash,
-          fileHash,
+          fileHash
         }));
 
       // 上传切片
@@ -233,8 +233,8 @@ export default {
       }
 
       if (
-        uploadedChunkList.length + requestPromiseList.length
-        === this.fileChunkListData.length
+        uploadedChunkList.length + requestPromiseList.length ===
+        this.fileChunkListData.length
       ) {
         // 请求合并切片
         this.requestMergeFile();
@@ -242,18 +242,18 @@ export default {
     },
 
     // 创建chuank
-    createFileChunkList() {
+    createFileChunkList () {
       // 将文件进行切片
       try {
         if (typeof this.splitFileChunk === 'function') {
           this.fileChunkList = this.splitFileChunk(
             this.selectedFile,
-            this.fileChunkSize,
+            this.fileChunkSize
           );
         } else {
           this.fileChunkList = splitFileChunk(
             this.selectedFile,
-            this.fileChunkSize,
+            this.fileChunkSize
           );
         }
         this.$emit('createChunkListSuccess', this.fileChunkList);
@@ -263,7 +263,7 @@ export default {
     },
 
     // 请求合并切片
-    async requestMergeFile() {
+    async requestMergeFile () {
       try {
         if (!this.mergeUrl) {
           throw new TypeError('mergeUrl is not define');
@@ -271,7 +271,7 @@ export default {
         let res;
         const parmas = {
           filename: this.selectedFile.name,
-          size: this.fileChunkSize,
+          size: this.fileChunkSize
         };
         if (this.breakpoint) {
           parmas.fileHash = this.fileHash;
@@ -282,9 +282,9 @@ export default {
           res = await request({
             url: this.mergeUrl,
             headers: {
-              'content-type': 'application/json',
+              'content-type': 'application/json'
             },
-            data: JSON.stringify(parmas),
+            data: JSON.stringify(parmas)
           });
         }
         this.$emit('mergeFileSuccess', res);
@@ -292,7 +292,7 @@ export default {
       } catch (error) {
         this.$emit('mergeFileFail', error);
       }
-    },
-  },
+    }
+  }
 };
 </script>

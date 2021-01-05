@@ -39,24 +39,24 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'info',
+      default: 'info'
     },
     showClose: {
       type: Boolean,
-      default: false,
+      default: false
     },
     message: {
-      type: String,
+      type: String
     },
     iconClass: {
-      type: String,
+      type: String
     },
     dangerouslyUseHTMLString: {
       type: Boolean,
-      default: false,
+      default: false
     },
     customClass: {
-      type: String,
+      type: String
     },
     // duration: {
     //   type: Number,
@@ -64,40 +64,40 @@ export default {
     // },
     center: {
       type: Boolean,
-      default: false,
+      default: false
     },
     onClose: {
-      type: Function,
+      type: Function
     },
     offset: {
       type: Number,
-      default: 20,
-    },
+      default: 20
+    }
   },
-  data() {
+  data () {
     return {
       show: false,
-      top: 0,
+      top: 0
     };
   },
   methods: {
-    onCloseClick() {
+    onCloseClick () {
       if (this.show) {
         this.show = false;
         this.$emit('close');
       }
     },
-    afterLeave() {
+    afterLeave () {
       this.$emit('closed');
       if (this.onClose) {
         this.onClose();
       }
-    },
+    }
   },
   computed: {
-    offsetTop() {
+    offsetTop () {
       return this.top + this.offset;
-    },
-  },
+    }
+  }
 };
 </script>

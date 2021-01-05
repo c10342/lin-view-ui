@@ -2,18 +2,18 @@ export default {
   LinViewUI: {
     ShowMore: {
       showText: 'Show',
-      hiddenText: 'Hide',
+      hiddenText: 'Hide'
     },
     Dialog: {
-      title: 'Title',
+      title: 'Title'
     },
     Selector: {
       show: 'Show',
-      hide: 'Hide',
+      hide: 'Hide'
     },
     Choice: {
       placeholder: 'Please select',
-      emptyTip: 'No data',
+      emptyTip: 'No data'
     },
     DatePicker: {
       year: 'Year',
@@ -25,27 +25,27 @@ export default {
       wed: 'Wed',
       thu: 'Thu',
       fir: 'Fir',
-      sat: 'Sat',
+      sat: 'Sat'
     },
     LimitTextarea: {
       exceeded: 'Exceeded',
       enterInput: 'You can also enter',
       word: 'Word',
       entered: 'Entered',
-      placeholder: 'Please enter the content',
+      placeholder: 'Please enter the content'
     },
     Image: {
-      errorMsg: 'Loading failed',
+      errorMsg: 'Loading failed'
     },
     Pagination: {
       total: 'Total',
       strip: 'Strip',
       goto: 'Goto',
-      page: 'page',
+      page: 'page'
     },
     VideoCard: {
       imgAlt: 'Picture',
-      errorTip: 'Loading failed',
+      errorTip: 'Loading failed'
     },
     LiveComment: {
       viewPeople: 'Number of viewers',
@@ -55,7 +55,7 @@ export default {
       commentAfter: 'Comment after',
       btnText: 'Send',
       placeholder: 'Please enter',
-      title: 'Live commentary',
+      title: 'Live commentary'
     },
     VideoPlayer: {
       live: 'Live',
@@ -65,15 +65,15 @@ export default {
       speed: 'Speed',
       switch: 'Switch',
       quality: 'Quality',
-      volume: 'Volume',
+      volume: 'Volume'
     },
     PageHeader: {
       more: 'More',
-      backTip: 'Back',
+      backTip: 'Back'
     },
     Cascader: {
       placeholder: 'Please select',
-      emptyTip: 'No Data',
+      emptyTip: 'No Data'
     },
     DateAxis: {
       more: 'More',
@@ -83,12 +83,12 @@ export default {
       wed: 'Wed',
       thu: 'Thu',
       fir: 'Fir',
-      sat: 'Sat',
+      sat: 'Sat'
     },
     MessageBox: {
       cancelButtonText: 'Cancel',
       confirmButtonText: 'OK',
-      inputErrorMessage: 'Illegal input!',
-    },
-  },
+      inputErrorMessage: 'Illegal input!'
+    }
+  }
 };

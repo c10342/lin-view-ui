@@ -14,23 +14,23 @@ export default {
   props: {
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     value: {
-      default: '',
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   inject: {
     group: {
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
-    active() {
+    active () {
       if (this.group) {
         const { valueKey } = this.group;
         const { toString } = Object.prototype;
@@ -41,21 +41,21 @@ export default {
       }
       return false;
     },
-    isDisabled() {
+    isDisabled () {
       if (this.group && this.group.disabled) {
         return true;
       }
       return this.disabled;
-    },
+    }
   },
   methods: {
-    onClick() {
+    onClick () {
       if (this.group && !this.isDisabled) {
         const value = JSON.parse(JSON.stringify(this.value));
         this.group.$emit('input', value);
         this.group.$emit('onChange', value);
       }
-    },
-  },
+    }
+  }
 };
 </script>

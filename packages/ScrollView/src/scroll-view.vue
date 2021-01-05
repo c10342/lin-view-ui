@@ -23,44 +23,44 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 700,
+      default: 700
     },
     isThrottle: {
       type: Boolean,
-      default: true,
+      default: true
     },
     time: {
       type: Number,
-      default: 500,
+      default: 500
     },
     isEnd: {
       type: Boolean,
-      default: false,
+      default: false
     },
     showLoading: {
       type: Boolean,
-      default: true,
+      default: true
     },
     emitScrollEvent: {
       type: Boolean,
-      default: true,
+      default: true
     },
     data: [Object, Array],
     loadingTip: {
       type: String,
-      default: '',
+      default: ''
     },
     noMoreTip: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
-  data() {
+  data () {
     return {
-      contentHeight: 0,
+      contentHeight: 0
     };
   },
-  mounted() {
+  mounted () {
     this.timer = null;
     this.$nextTick(() => {
       if (this.$refs.lScrollViewContent) {
@@ -69,7 +69,7 @@ export default {
     });
   },
   methods: {
-    onScroll(e) {
+    onScroll (e) {
       if (this.isThrottle) {
         if (this.timer) {
           clearTimeout(this.timer);
@@ -81,7 +81,7 @@ export default {
         this.handelScroll(e);
       }
     },
-    handelScroll(e) {
+    handelScroll (e) {
       if (!this.isEnd) {
         const { scrollTop } = e.target;
         if (scrollTop + this.height >= this.contentHeight) {
@@ -91,10 +91,10 @@ export default {
       if (this.emitScrollEvent) {
         this.$emit('scroll', e);
       }
-    },
+    }
   },
   computed: {
-    isShowLoading() {
+    isShowLoading () {
       if (this.contentHeight <= this.height) {
         return false;
       }
@@ -103,7 +103,7 @@ export default {
       }
       return false;
     },
-    isShowNoMoreTip() {
+    isShowNoMoreTip () {
       if (this.contentHeight <= this.height) {
         return false;
       }
@@ -114,21 +114,21 @@ export default {
       //   return true;
       // }
       return false;
-    },
+    }
   },
   watch: {
-    data() {
+    data () {
       if (this.$refs.lScrollViewContent) {
         this.contentHeight = this.$refs.lScrollViewContent.clientHeight;
       } else {
         this.contentHeight = 0;
       }
-    },
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.timer) {
       clearTimeout(this.timer);
     }
-  },
+  }
 };
 </script>

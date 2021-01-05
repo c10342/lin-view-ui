@@ -7,16 +7,16 @@ export default {
   name: 'LinVideoPlayerImage',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
-    imgSrc() {
+    imgSrc () {
       if (this.videoPlayer) {
         return this.videoPlayer.imgSrc;
       }
       return '';
-    },
-  },
+    }
+  }
 };
 </script>

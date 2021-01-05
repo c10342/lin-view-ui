@@ -42,67 +42,67 @@ export default {
   name: 'LinVideoPlayerControls',
   mixins: [LocaleMixin],
   filters: {
-    secondToTime,
+    secondToTime
   },
   components: {
     PlayerProcess,
     PlayerFullscreen,
     PlayerSpeed,
     PlayerVolume,
-    PlayerDefinition,
+    PlayerDefinition
   },
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
-    isPlaying() {
+    isPlaying () {
       if (this.videoPlayer) {
         return this.videoPlayer.isPlaying;
       }
       return false;
     },
-    video() {
+    video () {
       if (this.videoPlayer) {
         return this.videoPlayer.video;
       }
       return null;
     },
-    currentTime() {
+    currentTime () {
       if (this.videoPlayer) {
         return this.videoPlayer.currentTime;
       }
       return 0;
     },
-    totalTime() {
+    totalTime () {
       if (this.videoPlayer) {
         return this.videoPlayer.totalTime;
       }
       return 0;
     },
-    live() {
+    live () {
       if (this.videoPlayer) {
         return this.videoPlayer.live;
       }
       return 0;
     },
-    isEnter() {
+    isEnter () {
       if (this.videoPlayer) {
         return this.videoPlayer.isEnter;
       }
       return false;
-    },
+    }
   },
   methods: {
-    onPlayBtnClick() {
+    onPlayBtnClick () {
       if (this.videoPlayer) {
         this.videoPlayer.switchPlayingStatus();
       }
-    },
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.videoPlayer.$off('playingStatus', this.onPlayingStatus);
-  },
+  }
 };
 </script>

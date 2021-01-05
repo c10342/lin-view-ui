@@ -33,71 +33,71 @@ export default {
   props: {
     smallPic: {
       type: String,
-      require: true,
+      require: true
     },
     bigPic: {
       type: String,
-      require: true,
+      require: true
     },
     smallStyle: {
       type: Object,
       default: () => ({
         width: 0,
-        height: 0,
-      }),
+        height: 0
+      })
     },
     bigStyle: {
       type: Object,
       default: () => ({
         width: 0,
-        height: 0,
-      }),
+        height: 0
+      })
     },
-    maskColor: String,
+    maskColor: String
   },
-  data() {
+  data () {
     return {
       showMoveMask: false,
       showBigImg: false,
       moveStyle: { left: 0, top: 0 },
-      bigImgStyle: { left: 0, top: 0 },
+      bigImgStyle: { left: 0, top: 0 }
     };
   },
   computed: {
-    bigBoxStyle() {
+    bigBoxStyle () {
       return {
         ...this.bigStyle,
-        left: `${parseFloat(this.smallStyle.width) + 10}px`,
+        left: `${parseFloat(this.smallStyle.width) + 10}px`
       };
-    },
+    }
   },
-  mounted() {
+  mounted () {
     this.smallBox = this.$refs.smallBox;
     this.moveMask = this.$refs.moveMask;
     this.bigBox = this.$refs.bigBox;
   },
   methods: {
-    onMouseover() {
+    onMouseover () {
       this.showMoveMask = true;
       this.showBigImg = true;
       this.$emit('show');
     },
-    onMouseout() {
+    onMouseout () {
       this.showMoveMask = false;
       this.showBigImg = false;
       this.$emit('hide');
     },
-    onMousemove(event) {
+    onMousemove (event) {
       const { smallBox } = this;
       const { moveMask } = this;
       const { bigBox } = this;
-      let x = event.clientX
-        - smallBox.getBoundingClientRect().left
-        - moveMask.offsetWidth / 2;
+      let x = event.clientX -
+        smallBox.getBoundingClientRect().left -
+        moveMask.offsetWidth / 2;
 
-      let y = event.clientY
-        - smallBox.getBoundingClientRect().top
-        - moveMask.offsetHeight / 2;
+      let y = event.clientY -
+        smallBox.getBoundingClientRect().top -
+        moveMask.offsetHeight / 2;
       // let x =
       //   event.clientX -
       //   smallBox.offsetParent.offsetLeft -
@@ -120,15 +120,15 @@ export default {
 
       this.moveStyle = {
         left: `${x}px`,
-        top: `${y}px`,
+        top: `${y}px`
       };
       this.bigImgStyle = {
         left: `${(-x * bigBox.offsetWidth) / smallBox.offsetWidth}px`,
-        top: `${(-y * bigBox.offsetHeight) / smallBox.offsetHeight}px`,
+        top: `${(-y * bigBox.offsetHeight) / smallBox.offsetHeight}px`
       };
 
       this.$emit('move', event);
-    },
-  },
+    }
+  }
 };
 </script>

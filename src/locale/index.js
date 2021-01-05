@@ -6,21 +6,21 @@ import Format from 'src/locale/format.js';
 const format = Format(Vue);
 let lang = defaultLang;
 let merged = false;
-let i18nHandler = function i18nHandler(...reset) {
+let i18nHandler = function i18nHandler (...reset) {
   const vuei18n = Object.getPrototypeOf(this || Vue).$t;
   if (typeof vuei18n === 'function' && !!Vue.locale) {
     if (!merged) {
       merged = true;
       Vue.locale(
         Vue.config.lang,
-        deepmerge(lang, Vue.locale(Vue.config.lang) || {}, { clone: true }),
+        deepmerge(lang, Vue.locale(Vue.config.lang) || {}, { clone: true })
       );
     }
     return vuei18n.apply(this, [...reset]);
   }
 };
 
-export const t = function t(path, options) {
+export const t = function t (path, options) {
   let value = i18nHandler.apply(this, [path, options]);
   if (value !== null && value !== undefined) return value;
 
@@ -37,12 +37,12 @@ export const t = function t(path, options) {
   return '';
 };
 
-export const use = function use(l) {
+export const use = function use (l) {
   // lang = l || lang;
   lang = l || lang;
 };
 
-export const i18n = function i18n(fn) {
+export const i18n = function i18n (fn) {
   // i18nHandler = fn || i18nHandler;
   i18nHandler = fn || i18nHandler;
 };

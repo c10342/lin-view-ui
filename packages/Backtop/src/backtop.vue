@@ -29,27 +29,27 @@ export default {
   props: {
     right: {
       type: Number,
-      default: 40,
+      default: 40
     },
     bottom: {
       type: Number,
-      default: 40,
+      default: 40
     },
     target: {
       type: String,
-      default: null,
+      default: null
     },
     visibilityHeight: {
       type: Number,
-      default: 200,
-    },
+      default: 200
+    }
   },
-  data() {
+  data () {
     return {
-      visible: false,
+      visible: false
     };
   },
-  mounted() {
+  mounted () {
     this.el = null;
     this.container = null;
     this.init();
@@ -57,7 +57,7 @@ export default {
     this.container.addEventListener('scroll', this.throttledScrollHandler);
   },
   methods: {
-    init() {
+    init () {
       this.container = document;
       this.el = document.documentElement || document.body;
       if (this.target) {
@@ -68,15 +68,15 @@ export default {
         this.container = this.el;
       }
     },
-    onScroll() {
+    onScroll () {
       const { scrollTop } = this.el;
       this.visible = scrollTop >= this.visibilityHeight;
     },
-    onClick(e) {
+    onClick (e) {
       this.scrollToTop();
       this.$emit('click', e);
     },
-    scrollToTop() {
+    scrollToTop () {
       const { el } = this;
       const beginTime = Date.now();
       const beginValue = el.scrollTop;
@@ -93,12 +93,12 @@ export default {
         }
       };
       rAF(frameFunc);
-    },
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.container.removeEventListener('scroll', this.throttledScrollHandler);
     this.el = null;
     this.container = null;
-  },
+  }
 };
 </script>

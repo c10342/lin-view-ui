@@ -40,7 +40,7 @@ import PlayerLoading from './video-player-loading.vue';
 import PlayerTip from './video-player-tip.vue';
 import {
   enterBrowserFullScreen,
-  exitBrowserFullscreen,
+  exitBrowserFullscreen
 } from './utils.js';
 
 export default {
@@ -51,14 +51,14 @@ export default {
     PlayerAnimation,
     PlayerImage,
     PlayerLoading,
-    PlayerTip,
+    PlayerTip
   },
-  provide() {
+  provide () {
     return {
-      videoPlayer: this,
+      videoPlayer: this
     };
   },
-  data() {
+  data () {
     return {
       currentTime: 0,
       totalTime: 0,
@@ -77,17 +77,17 @@ export default {
       definitionList: [],
       live: false,
       isEnter: true,
-      customType: null,
+      customType: null
     };
   },
-  mounted() {
+  mounted () {
     this.hls = null;
     this.flv = null;
     this.video = this.$refs.videoPlayerVideo;
     this.initParams();
   },
   methods: {
-    initParams() {
+    initParams () {
       if (this.videoList.length > 0) {
         const videoList = cloneDeep(this.videoList);
         this.currentDefinitionVideo = videoList[0];
@@ -95,7 +95,7 @@ export default {
         this.initPlayer(this.currentDefinitionVideo);
       }
     },
-    initPlayer(data) {
+    initPlayer (data) {
       this.isLoading = true;
       if (typeof this.customType === 'function') {
         this.initCustomType(data);
@@ -110,7 +110,7 @@ export default {
         }
       }
     },
-    switchPlayerUrl(data) {
+    switchPlayerUrl (data) {
       const videoSrc = data.url;
       const label = data.label;
       if (!videoSrc) {
@@ -118,7 +118,7 @@ export default {
       }
       this.isLoading = true;
       this.tip = `${this.t('LinViewUI.VideoPlayer.switch')} ${label} ${this.t(
-        'LinViewUI.VideoPlayer.quality',
+        'LinViewUI.VideoPlayer.quality'
       )}`;
       this.getImage();
       if (typeof this.customType === 'function') {
@@ -134,7 +134,7 @@ export default {
 
       this.seek(this.currentTime);
     },
-    initHls(videoSrc, hlsParams = {}) {
+    initHls (videoSrc, hlsParams = {}) {
       if (!Hls) {
         throw new ReferenceError('Hls is not defind');
       }
@@ -148,7 +148,7 @@ export default {
         this.video.src = videoSrc;
       }
     },
-    initFlv(videoSrc, flvParams = {}) {
+    initFlv (videoSrc, flvParams = {}) {
       if (!flvjs) {
         throw new ReferenceError('flvjs is not defind');
       }
@@ -158,13 +158,13 @@ export default {
           type: 'flv',
           url: videoSrc,
           isLive: this.live,
-          ...flvParams,
+          ...flvParams
         });
         this.flv.attachMediaElement(this.video);
         this.flv.load();
       }
     },
-    initCustomType(data) {
+    initCustomType (data) {
       this.customType(
         this.video,
         cloneDeep({
@@ -172,19 +172,19 @@ export default {
           autoplay: this.autoplay,
           speedList: this.speedList,
           videoList: this.videoList,
-          live: this.live,
-        }),
+          live: this.live
+        })
       );
     },
-    onTimeUpdate() {
+    onTimeUpdate () {
       const currentTime = this.video?.currentTime || 0;
       this.currentTime = currentTime;
     },
-    onLoadedmetadata() {
+    onLoadedmetadata () {
       const duration = this.video?.duration || 0;
       this.totalTime = duration;
     },
-    onCanplaythrough() {
+    onCanplaythrough () {
       this.imgSrc = '';
       this.isLoading = false;
       if (this.isPlaying) {
@@ -193,43 +193,43 @@ export default {
         this.pause();
       }
     },
-    onWaiting() {
+    onWaiting () {
       this.isLoading = true;
     },
-    onprogress() {
+    onprogress () {
       if (this.video && this.video.buffered?.length !== 0) {
         const preloadTime = this.video?.buffered.end(0) || 0;
         this.preloadTime = preloadTime;
       }
     },
-    seek(time) {
+    seek (time) {
       if (this.video) {
         this.video.currentTime = time;
       }
     },
-    onPlay() {
+    onPlay () {
       this.emitPlayingStatus(this.video?.paused);
     },
-    onPause() {
+    onPause () {
       this.emitPlayingStatus(this.video?.paused);
     },
-    emitPlayingStatus(status) {
+    emitPlayingStatus (status) {
       this.isPlaying = !status;
     },
-    switchPlayingStatus() {
+    switchPlayingStatus () {
       if (this.video && this.video.paused) {
         this.play();
       } else if (this.video && !this.video.paused) {
         this.pause();
       }
     },
-    play() {
+    play () {
       this.video?.play();
     },
-    pause() {
+    pause () {
       this.video?.pause();
     },
-    getImage() {
+    getImage () {
       if (this.video) {
         try {
           const canvas = document.createElement('canvas');
@@ -243,13 +243,13 @@ export default {
         }
       }
     },
-    destoryHls() {
+    destoryHls () {
       if (this.hls) {
         this.hls.destroy();
         this.hls = null;
       }
     },
-    destoryFlv() {
+    destoryFlv () {
       if (this.flv) {
         this.flv.pause();
         this.flv.unload();
@@ -258,22 +258,22 @@ export default {
         this.flv = null;
       }
     },
-    destoryPlayer() {
+    destoryPlayer () {
       this.destoryFlv();
       this.destoryHls();
       this.video = null;
     },
-    setTip(tip) {
+    setTip (tip) {
       this.tip = tip;
     },
-    setSpeed(rate) {
+    setSpeed (rate) {
       if (this.video) {
         let playbackRate = rate;
         playbackRate = playbackRate < 0 ? 0 : playbackRate;
         this.video.playbackRate = playbackRate;
       }
     },
-    setVolume(percentage) {
+    setVolume (percentage) {
       if (this.video) {
         let volume = percentage;
         volume = volume < 0 ? 0 : volume;
@@ -281,39 +281,39 @@ export default {
         this.video.volume = volume;
         this.setTip(
           `${this.t('LinViewUI.VideoPlayer.volume')}${Math.round(
-            volume * 100,
-          )}%`,
+            volume * 100
+          )}%`
         );
         return volume;
       }
       return -1;
     },
-    switchWebfullscreen() {
+    switchWebfullscreen () {
       this.isWebFullscreen = !this.isWebFullscreen;
     },
-    setWebFullScreen() {
+    setWebFullScreen () {
       exitBrowserFullscreen();
 
       this.isWebFullscreen = true;
     },
-    setBrowserFullScreen() {
+    setBrowserFullScreen () {
       if (this.isWebFullscreen) {
         this.isWebFullscreen = false;
       }
       enterBrowserFullScreen(this.$refs?.videoPlayerContainer);
     },
-    cancelWebFullScreen() {
+    cancelWebFullScreen () {
       exitBrowserFullscreen();
 
       this.isWebFullscreen = false;
     },
-    cancelBrowserFullScreen() {
+    cancelBrowserFullScreen () {
       if (this.isWebFullscreen) {
         this.isWebFullscreen = false;
       }
       exitBrowserFullscreen();
     },
-    setDefinition(data) {
+    setDefinition (data) {
       if (!isEqual(this.currentDefinitionVideo, data)) {
         const definitionList = cloneDeep(this.definitionList);
         const index = definitionList.findIndex((item) => isEqual(item, data));
@@ -326,15 +326,15 @@ export default {
         }
       }
     },
-    onMouseLeave() {
+    onMouseLeave () {
       this.isEnter = false;
     },
-    onMouseEnter() {
+    onMouseEnter () {
       this.isEnter = true;
-    },
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.destoryPlayer();
-  },
+  }
 };
 </script>

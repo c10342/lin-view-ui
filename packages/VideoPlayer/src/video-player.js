@@ -6,7 +6,7 @@ import {
   handleType,
   handleEl,
   handleSpeedList,
-  handleVideoList,
+  handleVideoList
 } from './utils.js';
 
 import './style.scss';
@@ -42,9 +42,9 @@ class LinVideoPlayer {
 
   live = false;
 
-  constructor(options) {
+  constructor (options) {
     const {
-      el, type, speedList = [], videoList = [], customType,
+      el, type, speedList = [], videoList = [], customType
     } = options;
     handleEl(el);
     handleType(type, customType);
@@ -55,7 +55,7 @@ class LinVideoPlayer {
     this.initPlayer(options);
   }
 
-  initParams(options) {
+  initParams (options) {
     const {
       el,
       type,
@@ -63,7 +63,7 @@ class LinVideoPlayer {
       speedList = [],
       videoList = [],
       live = false,
-      customType,
+      customType
     } = options;
     this.videoList = videoList;
     this.speedList = speedList;
@@ -76,7 +76,7 @@ class LinVideoPlayer {
     }
   }
 
-  initPlayer() {
+  initPlayer () {
     this.instance = new VideoPlayerConstructor({
       data: {
         autoplay: this.autoplay,
@@ -84,8 +84,8 @@ class LinVideoPlayer {
         videoList: this.videoList,
         type: this.type,
         live: this.live,
-        customType: this.customType,
-      },
+        customType: this.customType
+      }
     });
     if (typeof this.el === 'string') {
       this.container = document.querySelector(this.el);
@@ -105,36 +105,36 @@ class LinVideoPlayer {
   }
 
   // 事件监听
-  on(eventName, func) {
+  on (eventName, func) {
     if (this.video) {
       this.video.addEventListener(eventName, func);
     }
   }
 
   // 跳转到特定时间
-  seek(time) {
+  seek (time) {
     if (this.video) {
       this.video.currentTime = time;
     }
   }
 
   // 播放
-  play() {
+  play () {
     this.video?.play();
   }
 
   // 暂停
-  pause() {
+  pause () {
     this.video?.pause();
   }
 
   // 切换播放和暂停
-  toggle() {
+  toggle () {
     this.instance?.switchPlayingStatus();
   }
 
   // 切换视频
-  switchVideo(options) {
+  switchVideo (options) {
     const { videoList = [] } = options;
     handleVideoList(videoList);
     this.videoList = videoList;
@@ -149,7 +149,7 @@ class LinVideoPlayer {
   }
 
   // 显示通知
-  notice(text, time = 2000) {
+  notice (text, time = 2000) {
     if (this.instance) {
       this.instance.tipTime = time;
       this.instance.tip = text;
@@ -157,7 +157,7 @@ class LinVideoPlayer {
   }
 
   // 切换清晰度
-  switchQuality(index) {
+  switchQuality (index) {
     const data = this.videoList[index];
     if (data) {
       this.instance?.setDefinition(data);
@@ -165,56 +165,56 @@ class LinVideoPlayer {
   }
 
   // 设置视频速度
-  speed(rate) {
+  speed (rate) {
     this.instance?.setSpeed(rate);
   }
 
   // 设置视频音量
-  volume(percent) {
+  volume (percent) {
     const volume = this.instance?.setVolume(percent);
     if (volume > -1 && this.instance) {
       broadcast.call(this.instance, {
         eventName: 'onvolumechange',
         params: volume,
-        componentName: 'LinVideoPlayerVolume',
+        componentName: 'LinVideoPlayerVolume'
       });
     }
   }
 
   // 全屏 web 和 browser，默认类型是 browser
-  get fullScreen() {
+  get fullScreen () {
     const self = this;
     return {
-      request(type) {
+      request (type) {
         if (type === 'web') {
           self.instance?.setWebFullScreen();
         } else if (type === 'browser') {
           self.instance?.setBrowserFullScreen();
         }
       },
-      cancel(type) {
+      cancel (type) {
         if (type === 'web') {
           self.instance?.cancelWebFullScreen();
         } else if (type === 'browser') {
           self.instance?.cancelBrowserFullScreen();
         }
-      },
+      }
     };
   }
 
-  get currentTime() {
+  get currentTime () {
     return this.video?.currentTime || 0;
   }
 
-  get totalTime() {
+  get totalTime () {
     return this.video?.duration || 0;
   }
 
-  get paused() {
+  get paused () {
     return this.video?.paused || true;
   }
 
-  resetParams() {
+  resetParams () {
     this.hls = null;
 
     this.flv = null;
@@ -242,7 +242,7 @@ class LinVideoPlayer {
     this.customType = null;
   }
 
-  destory() {
+  destory () {
     this.instance?.destoryPlayer();
 
     if (this.vm && this.vm.$el && this.container) {

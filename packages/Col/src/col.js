@@ -6,45 +6,45 @@ export default {
   props: {
     tag: {
       type: String,
-      default: 'div',
+      default: 'div'
     },
     span: {
       type: Number,
-      default: 24,
+      default: 24
     },
     offset: {
       type: Number,
-      default: 0,
+      default: 0
     },
     pull: {
       type: Number,
-      default: 0,
+      default: 0
     },
     push: {
       type: Number,
-      default: 0,
+      default: 0
     },
     xs: [Number, Object],
     sm: [Number, Object],
     md: [Number, Object],
-    lg: [Number, Object],
+    lg: [Number, Object]
   },
 
   inject: {
     row: {
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
-    gutter() {
+    gutter () {
       if (this.row) {
         return this.row.gutter;
       }
       return 0;
-    },
+    }
   },
 
-  render(h) {
+  render (h) {
     const style = {};
     const classList = [];
 
@@ -80,9 +80,9 @@ export default {
       this.tag,
       {
         class: ['lin-col', classList],
-        style,
+        style
       },
-      this.$slots.default,
+      this.$slots.default
     );
-  },
+  }
 };

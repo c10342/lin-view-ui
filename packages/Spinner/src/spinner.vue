@@ -21,32 +21,32 @@ export default {
     type: {
       type: String,
       default: 'primary',
-      validator(value) {
+      validator (value) {
         return ['primary', 'success', 'info', 'warning', 'danger'].includes(
-          value,
+          value
         );
-      },
+      }
     },
     vertical: {
       type: String,
       default: 'row',
-      validator(value) {
+      validator (value) {
         return ['col', 'row'].includes(value);
-      },
+      }
     },
     proportion: {
       type: String,
       default: '1',
-      validator(value) {
+      validator (value) {
         return ['1', '2', '3'].includes(value);
-      },
+      }
     },
     loadingColor: String,
     size: String,
     strokeWidth: String,
     lineStyle: {
       type: String,
-      validator(value) {
+      validator (value) {
         return [
           'dotted',
           'dashed',
@@ -55,21 +55,21 @@ export default {
           'groove',
           'ridge',
           'inset',
-          'outset',
+          'outset'
         ].includes(value);
-      },
+      }
     },
     animationName: String,
     animationDuration: String,
     timingFunction: {
       type: String,
-      validator(value) {
+      validator (value) {
         const result = [
           'linear',
           'ease',
           'ease-in',
           'ease-out',
-          'ease-in-out',
+          'ease-in-out'
         ].includes(value);
         if (result) {
           return true;
@@ -77,25 +77,25 @@ export default {
           return true;
         }
         return false;
-      },
+      }
     },
     iterationCount: {
       type: [String, Number],
-      validator(value) {
+      validator (value) {
         if (typeof value === 'number') {
           return true;
         } if (value === 'infinite') {
           return true;
         }
         return false;
-      },
+      }
     },
     text: String,
     textSize: String,
-    textColor: String,
+    textColor: String
   },
   computed: {
-    loadingStyle() {
+    loadingStyle () {
       const obj = {};
       if (this.loadingColor) {
         obj['border-color'] = this.loadingColor;
@@ -124,7 +124,7 @@ export default {
       }
       return obj;
     },
-    textStyle() {
+    textStyle () {
       const obj = {};
       if (this.textSize) {
         obj['font-size'] = this.textSize;
@@ -133,7 +133,7 @@ export default {
         obj.color = this.textColor;
       }
       return obj;
-    },
-  },
+    }
+  }
 };
 </script>

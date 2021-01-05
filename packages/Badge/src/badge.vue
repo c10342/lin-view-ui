@@ -16,22 +16,22 @@ export default {
   props: {
     value: {
       type: [String, Number],
-      default: '',
+      default: ''
     },
     max: {
-      type: Number,
+      type: Number
     },
     isDot: {
       type: Boolean,
-      default: false,
+      default: false
     },
     type: {
       type: String,
-      default: 'primary',
-    },
+      default: 'primary'
+    }
   },
   computed: {
-    text() {
+    text () {
       if (typeof this.value === 'string') {
         return this.value;
       } if (typeof this.value === 'number') {
@@ -41,7 +41,7 @@ export default {
         return this.value;
       }
       return '';
-    },
-  },
+    }
+  }
 };
 </script>

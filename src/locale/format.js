@@ -1,4 +1,4 @@
-function hasOwn(obj, key) {
+function hasOwn (obj, key) {
   return hasOwnProperty.call(obj, key);
 }
 
@@ -8,7 +8,7 @@ const RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g;
  *  - Inspired:
  *    https://github.com/Matt-Esch/string-template/index.js
  */
-export default function format() {
+export default function format () {
   /**
    * template
    *
@@ -17,7 +17,7 @@ export default function format() {
    * @return {String}
    */
 
-  function template(string, ...args) {
+  function template (string, ...args) {
     if (args.length === 1 && typeof args[0] === 'object') {
       args = args[0];
     }
@@ -29,8 +29,8 @@ export default function format() {
     return string.replace(RE_NARGS, (match, prefix, i, index) => {
       // let result;
 
-      if (string[index - 1] === '{'
-        && string[index + match.length] === '}') {
+      if (string[index - 1] === '{' &&
+        string[index + match.length] === '}') {
         return i;
       }
       const result = hasOwn(args, i) ? args[i] : null;

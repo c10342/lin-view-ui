@@ -24,61 +24,61 @@ export default {
   mixins: [LocaleMixin],
   props: {
     data: {
-      type: Object,
+      type: Object
     },
     cardHeight: {
       type: String,
-      default: 'auto',
+      default: 'auto'
     },
     cardWidth: {
       type: String,
-      default: '262px',
+      default: '262px'
     },
     imageHeight: {
       type: String,
-      default: '146px',
+      default: '146px'
     },
     coverTip: {
       type: String,
-      default: '',
+      default: ''
     },
     errorTip: {
-      type: String,
+      type: String
     },
     defaultImageUrl: {
       type: String,
-      default: '',
+      default: ''
     },
     imageUrl: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
-  data() {
+  data () {
     return {
       imageLoadError: false,
-      url: '',
+      url: ''
     };
   },
   methods: {
-    loadError() {
+    loadError () {
       if (!this.defaultImageUrl || this.url === this.defaultImageUrl) {
         this.imageLoadError = true;
         return;
       }
       this.url = this.defaultImageUrl;
     },
-    onCardClick() {
+    onCardClick () {
       this.$emit('click', this.data);
-    },
+    }
   },
   watch: {
     imageUrl: {
       immediate: true,
-      handler(newVal) {
+      handler (newVal) {
         this.url = newVal;
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>

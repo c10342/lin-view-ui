@@ -2,27 +2,27 @@ const drag = {
   props: {
     drag: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  data() {
+  data () {
     return {
       dialogStyle: {
         top: '0',
         left: '50%',
-        transform: 'translateX(-50%)',
-      },
+        transform: 'translateX(-50%)'
+      }
     };
   },
-  mounted() {
+  mounted () {
     this.startY = 0;
     this.startX = 0;
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.removeListener();
   },
   methods: {
-    onDragClick(event) {
+    onDragClick (event) {
       if (!this.drag) {
         return;
       }
@@ -32,7 +32,7 @@ const drag = {
       document.addEventListener('mousemove', this.onMousemove);
       document.addEventListener('mouseup', this.onMouseup);
     },
-    onMousemove(event) {
+    onMousemove (event) {
       const endY = event.clientY;
       const endX = event.clientX;
       const offsetY = endY - this.startY;
@@ -60,18 +60,18 @@ const drag = {
         marginTop: 0,
         marginBottom: 0,
         marginLeft: 0,
-        marginRight: 0,
+        marginRight: 0
       };
     },
-    onMouseup() {
+    onMouseup () {
       document.body.classList.remove('user-select-none');
       this.removeListener();
     },
-    removeListener() {
+    removeListener () {
       document.removeEventListener('mousemove', this.onMousemove);
       document.removeEventListener('mouseup', this.onMouseup);
-    },
-  },
+    }
+  }
 };
 
 export default drag;

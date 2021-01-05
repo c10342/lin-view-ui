@@ -5,7 +5,7 @@ const oneHeight = 26;
 export default {
   name: 'LinSelectorGroup',
   mixins: [LocaleMixin],
-  render(h) {
+  render (h) {
     const {
       renderMore,
       width,
@@ -16,7 +16,7 @@ export default {
       label,
       status,
       renderLabel,
-      t,
+      t
     } = this;
 
     return (
@@ -26,13 +26,15 @@ export default {
         style={{ width: `${width}px` }}
       >
         <label>
-          {renderLabel ? (
-            renderLabel(h)
-          ) : (
+          {renderLabel
+            ? (
+                renderLabel(h)
+              )
+            : (
             <span class="lin-selector-label" style={{ width: labelWidth }}>
               {label}
             </span>
-          )}
+              )}
         </label>
         <div
           class="lin-selector-list"
@@ -41,75 +43,83 @@ export default {
         >
           {$slots.default}
         </div>
-        {this.isShowBtn ? (
+        {this.isShowBtn
+          ? (
           <span class="lin-selector-more-text" ref="more" onClick={switchMore}>
-            {renderMore ? (
-              renderMore(h, status)
-            ) : (
-              <span class="lin-selector-more-text-tip">{status === 2 ? t('LinViewUI.Selector.hide') : t('LinViewUI.Selector.show')}</span>
-            )}
+            {renderMore
+              ? (
+                  renderMore(h, status)
+                )
+              : (
+              <span class="lin-selector-more-text-tip">
+              {status === 2
+                ? t('LinViewUI.Selector.hide')
+                : t('LinViewUI.Selector.show')}
+                </span>
+                )}
           </span>
-        ) : null}
+            )
+          : null}
       </div>
     );
   },
   props: {
     width: {
       type: String,
-      default: '',
+      default: ''
     },
     labelWidth: {
       type: String,
-      default: '40px',
+      default: '40px'
     },
     value: {
-      type: [String, Object, Number, Boolean],
+      type: [String, Object, Number, Boolean]
     },
     valueKey: {
       type: String,
-      default: '',
+      default: ''
     },
     renderMore: {
       type: Function,
-      default: null,
+      default: null
     },
     renderLabel: {
       type: Function,
-      default: null,
+      default: null
     },
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  provide() {
+  provide () {
     return {
-      group: this,
+      group: this
     };
   },
-  data() {
+  data () {
     return {
       isShowBtn: false,
       height: 'auto',
       //   1-收起，2-展开
-      status: 1,
+      status: 1
     };
   },
-  mounted() {
+  mounted () {
     this.$nextTick(() => {
       this.init();
       window.addEventListener('resize', this.onResize);
     });
   },
   methods: {
-    onResize() {
+    onResize () {
       this.resetStatus();
     },
-    resetStatus() {
+    resetStatus () {
       // const clientHeight = this.$refs.selectorList.clientHeight;
       const style = this.$refs.selectorList.style;
       // console.log(style.height);
@@ -122,7 +132,7 @@ export default {
         });
       }
     },
-    init() {
+    init () {
       const clientHeight = this.$refs.selectorList.clientHeight;
 
       if (clientHeight > oneHeight) {
@@ -133,7 +143,7 @@ export default {
         this.show();
       }
     },
-    switchMore() {
+    switchMore () {
       if (this.status === 1) {
         this.show();
         this.$emit('show');
@@ -142,25 +152,25 @@ export default {
         this.$emit('hide');
       }
     },
-    show() {
+    show () {
       this.height = 'auto';
       this.status = 2;
     },
-    hide() {
+    hide () {
       this.height = `${oneHeight}px`;
       this.status = 1;
-    },
+    }
   },
   computed: {
-    outWidth() {
+    outWidth () {
       if (this.width) {
         return this.width;
       }
       return this.$refs.selector?.clientWidth || 0;
-    },
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     window.removeEventListener('resize', this.onResize);
-  },
+  }
 };
 </script>

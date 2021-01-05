@@ -35,45 +35,45 @@ export default {
   props: {
     trigger: {
       type: String,
-      default: 'hover',
+      default: 'hover'
     },
     hideOnClick: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
-  data() {
+  data () {
     return {
       isShow: false,
       top: 0,
-      isDown: true,
+      isDown: true
     };
   },
-  mounted() {
+  mounted () {
     this.setPlacement();
   },
-  provide() {
+  provide () {
     return {
-      dropdown: this,
+      dropdown: this
     };
   },
   methods: {
-    onMouseEnter() {
+    onMouseEnter () {
       if (this.trigger === 'hover') {
         this.showList();
       }
     },
-    onMouseLeave() {
+    onMouseLeave () {
       if (this.trigger === 'hover') {
         this.hideList();
       }
     },
-    onLabelClick() {
+    onLabelClick () {
       if (this.trigger === 'click') {
         this.toggleList();
       }
     },
-    showList() {
+    showList () {
       if (!this.isShow) {
         this.isShow = true;
         this.setPlacement();
@@ -81,22 +81,22 @@ export default {
       }
     },
 
-    setDownTop() {
+    setDownTop () {
       this.isDown = true;
       const { dropdownLabel } = this.$refs;
       this.top = `${dropdownLabel.clientHeight + 8}px`;
     },
-    setUpTop() {
+    setUpTop () {
       this.isDown = false;
       const { dropdownContainer } = this.$refs;
       this.top = `${-(dropdownContainer.clientHeight + 10)}px`;
     },
-    setPlacement() {
+    setPlacement () {
       this.$nextTick(() => {
         const { dropdownContainer } = this.$refs;
         const { notOutsideContainer } = this.$refs;
-        const bottom = window.innerHeight
-          - notOutsideContainer.getBoundingClientRect().bottom;
+        const bottom = window.innerHeight -
+          notOutsideContainer.getBoundingClientRect().bottom;
         const { top } = notOutsideContainer.getBoundingClientRect();
         if (bottom > dropdownContainer.clientHeight) {
           this.setDownTop();
@@ -107,25 +107,25 @@ export default {
         }
       });
     },
-    hideList() {
+    hideList () {
       if (this.isShow) {
         this.isShow = false;
         this.$emit('visible-change', false);
       }
     },
-    toggleList() {
+    toggleList () {
       if (this.isShow) {
         this.hideList();
       } else {
         this.showList();
       }
     },
-    onDocumentClick(event) {
+    onDocumentClick (event) {
       const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
         this.hideList();
       }
-    },
-  },
+    }
+  }
 };
 </script>

@@ -1,7 +1,7 @@
 /**
  * 浏览器视口的宽高
  */
-function getWindowHeightAndWidth() {
+function getWindowHeightAndWidth () {
   let windowHeight = 0;
   let windowWidth = 0;
   if (document.compatMode === 'CSS1Compat') {

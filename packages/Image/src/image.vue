@@ -35,62 +35,62 @@ export default {
     imgUrl: [Array, String],
     fit: {
       type: String,
-      default: '',
+      default: ''
     },
     referrerPolicy: {
       type: String,
-      default: '',
+      default: ''
     },
     alt: {
       type: String,
-      default: '',
+      default: ''
     },
     preview: {
       type: Boolean,
-      default: false,
+      default: false
     },
     transitionName: {
       type: String,
-      default: 'lin-image-animation',
+      default: 'lin-image-animation'
     },
     clickMask: {
       type: Boolean,
-      default: true,
+      default: true
     },
     errorMsg: {
-      type: String,
-    },
+      type: String
+    }
   },
-  data() {
+  data () {
     return {
       index: 0,
       isError: false,
-      showPreview: false,
+      showPreview: false
     };
   },
   methods: {
-    onImageClick() {
+    onImageClick () {
       if (this.preview) {
         this.showPreview = !this.showPreview;
       }
     },
-    onMaskClick() {
+    onMaskClick () {
       if (this.clickMask) {
         this.onImageClick();
       }
     },
-    onError(e) {
+    onError (e) {
       if (Array.isArray(this.imgUrl)) {
         this.$emit('error', {
           url: this.imgUrl[this.index],
           index: this.index,
-          e,
+          e
         });
         if (this.index === this.imgUrl.length - 1) {
           this.isError = true;
           this.$emit('AllError', {
             urls: this.imgUrl.slice(),
-            e,
+            e
           });
           return;
         }
@@ -98,25 +98,25 @@ export default {
       } else {
         this.$emit('error', {
           url: this.imgUrl,
-          e,
+          e
         });
       }
     },
-    onLoad(e) {
+    onLoad (e) {
       if (Array.isArray(this.imgUrl)) {
         this.$emit('success', {
           url: this.imgUrl[this.index],
           index: this.index,
-          e,
+          e
         });
       } else {
         this.$emit('success', {
           url: this.imgUrl,
-          e,
+          e
         });
       }
     },
-    getUrl() {
+    getUrl () {
       const url = this.imgUrl[this.index];
       if (!url && this.imgUrl.length > this.index) {
         this.index += 1;
@@ -124,12 +124,12 @@ export default {
       }
       return url;
     },
-    setError(flag) {
+    setError (flag) {
       this.isError = flag;
-    },
+    }
   },
   computed: {
-    url() {
+    url () {
       if (Array.isArray(this.imgUrl)) {
         const imgUrl = this.getUrl();
         if (!imgUrl) {
@@ -140,7 +140,7 @@ export default {
       }
       return this.imgUrl;
     },
-    isShowImg() {
+    isShowImg () {
       if (!this.imgUrl) {
         return false;
       }
@@ -148,7 +148,7 @@ export default {
         return false;
       }
       return !this.isError;
-    },
-  },
+    }
+  }
 };
 </script>

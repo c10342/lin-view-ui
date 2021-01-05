@@ -4,9 +4,10 @@ import 'src/fonts/iconfont.css';
 
 export default {
   name: 'LinTabGroup',
-  render() {
+  render () {
     const {
       type,
+      // eslint-disable-next-line
       lineWidth,
       translateX,
       $slots,
@@ -14,28 +15,30 @@ export default {
       onNextClick,
       onPrevClick,
       containerTranslateX,
+      // eslint-disable-next-line
       containerWidth,
-      renderTabLabel,
+      renderTabLabel
     } = this;
     return (
       <div
         class={[
           { 'lin-tab-group-card': type === 'card' },
           { 'lin-tab-group-border': type === 'border-card' },
-          'lin-tab-group',
+          'lin-tab-group'
         ]}
       >
         <div
           class={[
             'lin-tab-group-header',
-            { 'lin-tab-group-header-scroll': isScroll },
+            { 'lin-tab-group-header-scroll': isScroll }
           ]}
           ref="tabheader"
         >
           <div
             style={{
               transform: `translateX(${containerTranslateX}px)`,
-              width: containerWidth,
+              // eslint-disable-next-line
+              width: containerwidth
             }}
             class="lin-tab-group-item-wrapper"
             ref="tabheaderWrapper"
@@ -46,30 +49,35 @@ export default {
               <div
                 class="lin-tab-group-active-line"
                 style={{
-                  width: lineWidth,
-                  transform: `translateX(${translateX})`,
+                  // eslint-disable-next-line
+                  width: linewidth,
+                  transform: `translateX(${translateX})`
                 }}
               ></div>
             )}
           </div>
-          {isScroll ? (
+          {isScroll
+            ? (
             <span
               class="lin-tab-group-icon lin-icon-left"
               onClick={onPrevClick}
             ></span>
-          ) : null}
-          {isScroll ? (
+              )
+            : null}
+          {isScroll
+            ? (
             <span
               class="lin-tab-group-icon lin-icon-right"
               onClick={onNextClick}
             ></span>
-          ) : null}
+              )
+            : null}
         </div>
         <div class="lin-tab-group-content">{$slots.default}</div>
       </div>
     );
   },
-  data() {
+  data () {
     return {
       tabChildren: [],
       currentIndex: -1,
@@ -78,33 +86,33 @@ export default {
       isScroll: false,
       containerTranslateX: 0,
       containerWidth: '0px',
-      step: 60,
+      step: 60
     };
   },
   props: {
     value: {
       type: String,
-      default: null,
+      default: null
     },
     type: {
       // card/border-card
       type: String,
-      default: 'default',
-    },
+      default: 'default'
+    }
   },
-  provide() {
+  provide () {
     return {
-      tabGroup: this,
+      tabGroup: this
     };
   },
-  mounted() {
+  mounted () {
     this.initTabChildren();
     this.initScroll();
     this.timer = null;
     window.addEventListener('resize', this.onResize);
   },
   methods: {
-    renderTabLabel() {
+    renderTabLabel () {
       const { tabChildren, currentValue, onTabClick } = this;
       return (
         <div class="lin-tab-group-item-container" ref="tabheaderContainer">
@@ -113,7 +121,7 @@ export default {
                 class={[
                   { 'lin-tab-group-active': currentValue === item.name },
                   'lin-tab-group-header-item',
-                  { 'lin-tab-group-header-item-disabled': item.disabled },
+                  { 'lin-tab-group-header-item-disabled': item.disabled }
                 ]}
                 id={`tab-${item.name}`}
                 key={index}
@@ -125,13 +133,13 @@ export default {
         </div>
       );
     },
-    onResize() {
+    onResize () {
       if (this.timer) {
         clearTimeout(this.timer);
       }
       this.timer = setTimeout(this.initScroll, 500);
     },
-    initScroll() {
+    initScroll () {
       this.$nextTick(() => {
         const tabheader = this.$refs.tabheader;
         const tabheaderContainer = this.$refs.tabheaderContainer;
@@ -149,14 +157,14 @@ export default {
         }
       });
     },
-    onTabClick(data) {
+    onTabClick (data) {
       if (data.disabled) {
         return;
       }
       this.currentValue = data.name;
       this.$emit('tab-click', data.name);
     },
-    initTabChildren() {
+    initTabChildren () {
       const tabChildren = this.getTabs();
       const _tabChildren = tabChildren.map((child, index) => {
         if (!child.name) {
@@ -166,16 +174,16 @@ export default {
           label: child.label,
           name: child.name || index,
           labelSlot: child.$slots.label || null,
-          disabled: child.disabled,
+          disabled: child.disabled
         };
       });
       this.tabChildren = _tabChildren;
       this.currentIndex = _tabChildren.length > 0 ? _tabChildren[0].name : 0;
     },
-    getTabs() {
+    getTabs () {
       return this.$children.filter((item) => item.$options.name === 'LinTabItem');
     },
-    initVar() {
+    initVar () {
       this.$nextTick(() => {
         if (this.currentValue !== -1) {
           const dom = document.getElementById(`tab-${this.currentValue}`);
@@ -190,13 +198,13 @@ export default {
         }
       });
     },
-    onPrevClick() {
+    onPrevClick () {
       this.containerTranslateX += this.step;
       if (this.containerTranslateX > 0) {
         this.containerTranslateX = 0;
       }
     },
-    onNextClick() {
+    onNextClick () {
       const tabheader = this.$refs.tabheader;
       const tabheaderContainer = this.$refs.tabheaderContainer;
       const offsetWidth = tabheader.clientWidth - tabheaderContainer.scrollWidth - 40;
@@ -204,41 +212,41 @@ export default {
       if (this.containerTranslateX < offsetWidth) {
         this.containerTranslateX = offsetWidth;
       }
-    },
+    }
   },
   computed: {
     currentValue: {
-      get() {
+      get () {
         if (this.value !== null) {
           return (
-            this.value
-            || (this.tabChildren.length > 0 ? this.tabChildren[0].name : 0)
+            this.value ||
+            (this.tabChildren.length > 0 ? this.tabChildren[0].name : 0)
           );
         }
         return this.currentIndex;
       },
-      set(value) {
+      set (value) {
         if (this.value !== null) {
           this.$emit('input', value);
         } else {
           this.currentIndex = value;
         }
-      },
-    },
+      }
+    }
   },
   watch: {
     currentValue: {
       immediate: true,
-      handler() {
+      handler () {
         this.initVar();
-      },
-    },
+      }
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.timer) {
       clearTimeout(this.timer);
       this.timer = null;
     }
     window.removeEventListener('resize', this.onResize);
-  },
+  }
 };

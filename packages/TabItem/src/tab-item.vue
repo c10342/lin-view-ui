@@ -10,38 +10,38 @@ export default {
   props: {
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   inject: {
     tabGroup: {
-      default: null,
-    },
+      default: null
+    }
   },
-  data() {
+  data () {
     return {
-      index: 0,
+      index: 0
     };
   },
   computed: {
-    childrenIndex() {
+    childrenIndex () {
       return this.name ? this.name : this.index;
     },
-    currentValue() {
+    currentValue () {
       if (this.tabGroup) {
         return this.tabGroup.currentValue;
       }
 
       return 0;
-    },
-  },
+    }
+  }
 };
 </script>

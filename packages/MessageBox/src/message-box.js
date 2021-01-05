@@ -10,13 +10,13 @@ class LinMessageBox {
 
   instance = null;
 
-  constructor(options) {
+  constructor (options) {
     this.options = options || {};
     this.handleLockScroll();
     this.init();
   }
 
-  init() {
+  init () {
     this.instance = new MessageBoxConstruct();
     if (this.instance) {
       Object.keys(this.instance.$props || {}).forEach((key) => {
@@ -40,7 +40,7 @@ class LinMessageBox {
     }
   }
 
-  handleLockScroll() {
+  handleLockScroll () {
     let lockScroll = true;
     if ('lockScroll' in this.options) {
       lockScroll = this.options.lockScroll;
@@ -50,7 +50,7 @@ class LinMessageBox {
     }
   }
 
-  destory() {
+  destory () {
     if (this.instance) {
       document.body.removeChild(this.instance.$el);
       this.instance.$destroy();
@@ -60,36 +60,36 @@ class LinMessageBox {
   }
 }
 
-function createInstance(options) {
+function createInstance (options) {
   return new Promise((resolve, reject) => new LinMessageBox({ ...options, resolve, reject }));
 }
 
-createInstance.alert = function alert(options) {
+createInstance.alert = function alert (options) {
   const common = {
     closeOnClickModal: false,
-    closeOnPressEscape: false,
+    closeOnPressEscape: false
   };
   return new Promise((resolve, reject) => new LinMessageBox({
-    ...options, ...common, resolve, reject,
+    ...options, ...common, resolve, reject
   }));
 };
 
-createInstance.confirm = function confirm(options) {
+createInstance.confirm = function confirm (options) {
   const common = {
-    showCancelButton: true,
+    showCancelButton: true
   };
   return new Promise((resolve, reject) => new LinMessageBox({
-    ...options, ...common, resolve, reject,
+    ...options, ...common, resolve, reject
   }));
 };
 
-createInstance.prompt = function prompt(options) {
+createInstance.prompt = function prompt (options) {
   const common = {
     showInput: true,
-    showCancelButton: true,
+    showCancelButton: true
   };
   return new Promise((resolve, reject) => new LinMessageBox({
-    ...options, ...common, resolve, reject,
+    ...options, ...common, resolve, reject
   }));
 };
 

@@ -25,31 +25,31 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'default',
+      default: 'default'
     },
     underline: {
       type: Boolean,
-      default: true,
+      default: true
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     href: {
       type: String,
-      default: '',
+      default: ''
     },
     icon: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
   methods: {
-    onClick(event) {
+    onClick (event) {
       if (!this.href || this.disabled) {
         event.preventDefault();
       }
-    },
-  },
+    }
+  }
 };
 </script>

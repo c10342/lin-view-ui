@@ -81,74 +81,74 @@ export default {
   mixins: [LocaleMixin],
   props: {
     placeholder: {
-      type: String,
+      type: String
     },
     value: {
-      type: [Object, String, Number],
+      type: [Object, String, Number]
     },
     valueKey: {
       type: String,
-      default: '',
+      default: ''
     },
     clearable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     isThrottle: {
       type: Boolean,
-      default: true,
+      default: true
     },
     scroll: {
       type: Boolean,
-      default: false,
+      default: false
     },
     time: {
       type: Number,
-      default: 500,
+      default: 500
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loadingTip: {
       type: String,
-      default: '',
+      default: ''
     },
     emptyTip: {
-      type: String,
-    },
+      type: String
+    }
   },
-  data() {
+  data () {
     return {
       groupLabel: '',
       isShow: false,
       isHover: false,
       isDown: true,
-      top: 0,
+      top: 0
     };
   },
-  provide() {
+  provide () {
     return {
-      group: this,
+      group: this
     };
   },
   computed: {
-    showCloseIcon() {
+    showCloseIcon () {
       return this.clearable && this.isHover && this.value;
-    },
+    }
   },
-  mounted() {
+  mounted () {
     this.timer = null;
     this.lock = false;
     this.lockTimer = null;
     this.setPlacement();
   },
   watch: {
-    loading(newVal) {
+    loading (newVal) {
       if (newVal) {
         this.lock = true;
       } else {
@@ -159,10 +159,10 @@ export default {
           this.lock = false;
         }, 500);
       }
-    },
+    }
   },
   methods: {
-    setPlacement() {
+    setPlacement () {
       this.$nextTick(() => {
         const { scrollContainer } = this.$refs;
         const { choiceGroup } = this.$refs;
@@ -177,17 +177,17 @@ export default {
         }
       });
     },
-    setDownTop() {
+    setDownTop () {
       this.isDown = true;
       const { choiceGroupInput } = this.$refs;
       this.top = `${choiceGroupInput.clientHeight + 8}px`;
     },
-    setUpTop() {
+    setUpTop () {
       this.isDown = false;
       const { scrollContainer } = this.$refs;
       this.top = `${-(scrollContainer.clientHeight + 10)}px`;
     },
-    onScroll(event) {
+    onScroll (event) {
       if (!this.scroll || this.loading || this.lock) {
         return;
       }
@@ -202,7 +202,7 @@ export default {
         this.handleScroll(event);
       }
     },
-    handleScroll(event) {
+    handleScroll (event) {
       const { scrollTop } = event.target;
       const height = this.$refs.scrollContainer.clientHeight;
       const contentHeight = this.$refs.scrollContent.clientHeight;
@@ -210,21 +210,21 @@ export default {
         this.$emit('scrollToBottom', event);
       }
     },
-    onMouseLeave() {
+    onMouseLeave () {
       this.isHover = false;
     },
-    onMouseEnter() {
+    onMouseEnter () {
       this.isHover = true;
     },
-    onBlur(event) {
+    onBlur (event) {
       this.isShow = false;
       this.$emit('blur', event);
       this.$emit('visible-change', false);
     },
-    onFocus(event) {
+    onFocus (event) {
       this.$emit('focus', event);
     },
-    onClick() {
+    onClick () {
       if (this.disabled) {
         return;
       }
@@ -234,23 +234,23 @@ export default {
       }
       this.$emit('visible-change', this.isShow);
     },
-    clearValue() {
+    clearValue () {
       this.groupLabel = '';
       this.emitInputEvent('');
       this.$emit('clear');
     },
-    emitInputEvent(value) {
+    emitInputEvent (value) {
       this.$emit('input', value);
       this.$emit('change', value);
-    },
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.timer) {
       clearTimeout(this.timer);
     }
     if (this.lockTimer) {
       clearTimeout(this.lockTimer);
     }
-  },
+  }
 };
 </script>

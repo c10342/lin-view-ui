@@ -9,17 +9,17 @@ export default {
   name: 'LinCheckboxGroup',
   props: {
     value: {
-      type: Array,
+      type: Array
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  provide() {
+  provide () {
     return {
-      CheckboxGroup: this,
+      CheckboxGroup: this
     };
-  },
+  }
 };
 </script>

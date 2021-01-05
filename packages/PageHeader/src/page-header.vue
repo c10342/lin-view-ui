@@ -42,27 +42,27 @@ export default {
   props: {
     back: {
       type: Boolean,
-      default: true,
+      default: true
     },
     backTip: {
-      type: String,
+      type: String
     },
     title: {
       type: String,
-      default: '',
+      default: ''
     },
     right: {
       type: Boolean,
-      default: false,
+      default: false
     },
     active: {
       type: Boolean,
-      default: false,
+      default: false
     },
     border: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>

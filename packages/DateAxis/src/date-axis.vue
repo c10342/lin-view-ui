@@ -101,16 +101,16 @@ export default {
   name: 'LinDateAxis',
   mixins: [documentClick, LocaleMixin, DateMixin],
   components: {
-    [DatePicker.name]: DatePicker,
+    [DatePicker.name]: DatePicker
   },
   model: {
     prop: 'value',
-    event: 'change',
+    event: 'change'
   },
   props: {
     value: {
-      type: [Date, String],
-    },
+      type: [Date, String]
+    }
     // disabledBeforeDate: Date,
     // disabledAfterDate: Date,
     // disabledRangeDate: Array,
@@ -120,7 +120,7 @@ export default {
     //   default: false,
     // },
   },
-  data() {
+  data () {
     return {
       isShowPopup: false,
       selectTime: new Date(),
@@ -128,10 +128,10 @@ export default {
       lineWidth: '0px',
       lineTranslateX: '0px',
       isRight: true,
-      left: '0px',
+      left: '0px'
     };
   },
-  created() {
+  created () {
     this.daysObj = {
       0: this.t('LinViewUI.DateAxis.sun'),
       1: this.t('LinViewUI.DateAxis.mon'),
@@ -139,19 +139,19 @@ export default {
       3: this.t('LinViewUI.DateAxis.wed'),
       4: this.t('LinViewUI.DateAxis.thu'),
       5: this.t('LinViewUI.DateAxis.fir'),
-      6: this.t('LinViewUI.DateAxis.sat'),
+      6: this.t('LinViewUI.DateAxis.sat')
     };
     this.init(this.currentDate);
   },
-  mounted() {
+  mounted () {
     this.throttleFn = throttle(this.setLine, 500);
     window.addEventListener('resize', this.throttleFn);
   },
-  beforeDestroy() {
+  beforeDestroy () {
     window.removeEventListener('resize', this.throttleFn);
   },
   methods: {
-    setPlacement() {
+    setPlacement () {
       this.$nextTick(() => {
         const { scrollContainer } = this.$refs;
         const { notOutsideContainer } = this.$refs;
@@ -166,11 +166,11 @@ export default {
         }
       });
     },
-    setToRight() {
+    setToRight () {
       this.isRight = true;
       this.left = '0px';
     },
-    setToLeft() {
+    setToLeft () {
       this.isRight = false;
       const { scrollContainer } = this.$refs;
       const { notOutsideContainer } = this.$refs;
@@ -178,7 +178,7 @@ export default {
         -scrollContainer.clientWidth + notOutsideContainer.clientWidth
       }px`;
     },
-    onDateSelect(date) {
+    onDateSelect (date) {
       const startTime = this.timeList[0];
       const endTime = this.timeList[this.timeList.length - 1];
       if (date < startTime || date > endTime) {
@@ -189,7 +189,7 @@ export default {
       this.hidePopup();
       this.$emit('select', date);
     },
-    prevWeek() {
+    prevWeek () {
       if (this.disabled) {
         return;
       }
@@ -199,7 +199,7 @@ export default {
       const selDate = currentDate;
       // 上一周的最后一天，即周六
       const sat = new Date(
-        currentDate.getTime() + 60 * 60 * 1000 * 24 * (6 - currentDate.getDay()),
+        currentDate.getTime() + 60 * 60 * 1000 * 24 * (6 - currentDate.getDay())
       );
       if (this.disabledBeforeDate) {
         const d = new Date(this.disabledBeforeDate);
@@ -225,7 +225,7 @@ export default {
       this.init(currentDate);
       this.$emit('prevWeek', currentDate);
     },
-    nextWeek() {
+    nextWeek () {
       if (this.disabled) {
         return;
       }
@@ -236,7 +236,7 @@ export default {
       const selDate = currentDate;
       // 上一周的第一天，即周日
       const sun = new Date(
-        currentDate.getTime() - 60 * 60 * 1000 * 24 * currentDate.getDay(),
+        currentDate.getTime() - 60 * 60 * 1000 * 24 * currentDate.getDay()
       );
       if (this.disabledAfterDate) {
         const d = new Date(this.disabledAfterDate);
@@ -262,7 +262,7 @@ export default {
       this.init(currentDate);
       this.$emit('nextWeek', currentDate);
     },
-    prevDay() {
+    prevDay () {
       if (this.disabled) {
         return;
       }
@@ -288,7 +288,7 @@ export default {
       }
       this.$emit('prevDay', currentDate);
     },
-    nextDay() {
+    nextDay () {
       if (this.disabled) {
         return;
       }
@@ -314,7 +314,7 @@ export default {
       }
       this.$emit('nextDay', currentDate);
     },
-    onItemClick(date) {
+    onItemClick (date) {
       if (this.isDisabledDate(date)) {
         return;
       }
@@ -325,15 +325,15 @@ export default {
       this.setLine();
       this.$emit('select', date);
     },
-    formatDate(date) {
+    formatDate (date) {
       const d = getYearMonthDay(date);
       return `${d.month}-${d.day}`;
     },
-    formatDay(date) {
+    formatDay (date) {
       const day = date.getDay();
       return this.daysObj[day];
     },
-    init(currentDate) {
+    init (currentDate) {
       const day = currentDate.getDay();
       const timeList = [];
       const d = new Date(currentDate);
@@ -345,10 +345,10 @@ export default {
       this.timeList = timeList;
       this.setLine();
     },
-    setLine() {
+    setLine () {
       this.$nextTick(() => {
         const dom = document.getElementById(
-          `dateAxis-${this.currentDate.getDay()}`,
+          `dateAxis-${this.currentDate.getDay()}`
         );
         if (dom) {
           this.lineWidth = `${dom.offsetWidth}px`;
@@ -359,32 +359,32 @@ export default {
         }
       });
     },
-    onMoreClick() {
+    onMoreClick () {
       if (this.isShowPopup) {
         this.hidePopup();
       } else {
         this.showPopup();
       }
     },
-    hidePopup() {
+    hidePopup () {
       this.isShowPopup = false;
       this.$emit('hide');
     },
-    showPopup() {
+    showPopup () {
       this.isShowPopup = true;
       this.$emit('show');
       this.setPlacement();
     },
-    onDocumentClick(event) {
+    onDocumentClick (event) {
       const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
         this.hidePopup();
       }
-    },
+    }
   },
   computed: {
     currentDate: {
-      get() {
+      get () {
         if (this.value == null) {
           return this.selectTime;
         }
@@ -394,7 +394,7 @@ export default {
         const now = new Date();
         return now;
       },
-      set(val) {
+      set (val) {
         if (this.isEqual(this.currentDate, val)) {
           return;
         }
@@ -402,8 +402,8 @@ export default {
           this.selectTime = val;
         }
         this.$emit('change', val);
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>

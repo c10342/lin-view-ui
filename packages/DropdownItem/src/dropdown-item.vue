@@ -20,37 +20,37 @@ export default {
   props: {
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     divided: {
       type: Boolean,
-      default: false,
+      default: false
     },
     command: null,
     icon: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
-    hideOnClick() {
+    hideOnClick () {
       return this.dropdown ? this.dropdown.hideOnClick : true;
-    },
+    }
   },
   inject: {
     dropdown: {
-      default: null,
-    },
+      default: null
+    }
   },
   methods: {
-    onItemClick() {
+    onItemClick () {
       if (this.dropdown) {
         if (this.hideOnClick) {
           this.dropdown.hideList();
         }
         this.dropdown.$emit('command', this.command);
       }
-    },
-  },
+    }
+  }
 };
 </script>

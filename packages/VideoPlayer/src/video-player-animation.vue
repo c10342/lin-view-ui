@@ -12,31 +12,31 @@ export default {
   name: 'LinVideoPlayerAnimation',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
-  data() {
+  data () {
     return {
-      showAnimation: false,
+      showAnimation: false
     };
   },
   computed: {
-    isPlaying() {
+    isPlaying () {
       if (this.videoPlayer) {
         return this.videoPlayer.isPlaying;
       }
       return false;
-    },
+    }
   },
   methods: {
-    animationend() {
+    animationend () {
       this.showAnimation = false;
-    },
+    }
   },
   watch: {
-    isPlaying() {
+    isPlaying () {
       this.showAnimation = true;
-    },
-  },
+    }
+  }
 };
 </script>

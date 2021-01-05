@@ -73,62 +73,62 @@ export default {
   name: 'LinLiveComment',
   mixins: [LocaleMixin],
   components: {
-    [Image.name]: Image,
+    [Image.name]: Image
   },
   props: {
     commentList: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     fixComment: {
       type: Object,
-      default: null,
+      default: null
     },
     value: {
       type: String,
-      default: '',
+      default: ''
     },
     btnText: {
-      type: String,
+      type: String
     },
     arrowComment: {
       type: Boolean,
-      default: false,
+      default: false
     },
     placeholder: {
-      type: String,
+      type: String
     },
     maxlength: {
       type: Number,
-      default: -1,
+      default: -1
     },
     throttle: {
       type: Boolean,
-      default: true,
+      default: true
     },
     title: {
-      type: String,
+      type: String
     },
     viewCount: {
       type: Number,
-      default: 0,
+      default: 0
     },
     defaultAvator: {
       type: String,
-      default: defaultAvator,
+      default: defaultAvator
     },
     isLoading: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  data() {
+  data () {
     return {
-      isScrollToBottom: true,
+      isScrollToBottom: true
     };
   },
   methods: {
-    onScroll(e) {
+    onScroll (e) {
       if (this.scrollTimer) {
         clearTimeout(this.scrollTimer);
       }
@@ -140,7 +140,7 @@ export default {
         this.handlerOnScroll(e);
       }
     },
-    handlerOnScroll(e) {
+    handlerOnScroll (e) {
       const { scrollTop, scrollHeight, offsetHeight } = e.target;
       if (scrollTop + offsetHeight + 40 < scrollHeight) {
         this.isScrollToBottom = false;
@@ -150,50 +150,50 @@ export default {
       }
       this.$emit('scroll', e);
     },
-    changeContent(str) {
+    changeContent (str) {
       if (!str) {
         return '';
       }
       return str.replace(/\n/g, '<br/>');
     },
-    toBottom() {
+    toBottom () {
       this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
       this.isScrollToBottom = true;
     },
-    publishComment() {
+    publishComment () {
       if (this.isLoading) {
         return;
       }
       this.$emit('sendBtnClick');
     },
-    onInput(e) {
+    onInput (e) {
       const { value } = e.target;
       this.$emit('input', value);
     },
-    gotoLogin() {
+    gotoLogin () {
       this.$emit('loginBtnClick');
-    },
+    }
   },
   watch: {
     commentList: {
       immediate: true,
-      handler(newVal) {
+      handler (newVal) {
         if (newVal.length > 0 && this.isScrollToBottom) {
           this.$nextTick(() => {
             this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
           });
         }
-      },
-    },
+      }
+    }
   },
   computed: {
-    commentPlaceholder() {
+    commentPlaceholder () {
       if (this.placeholder) {
         return this.placeholder;
       }
       return this.t('LinViewUI.LiveComment.placeholder');
     },
-    textareaAttr() {
+    textareaAttr () {
       const obj = {};
       if (this.maxlength !== -1) {
         obj.maxlength = this.maxlength;
@@ -202,12 +202,12 @@ export default {
         obj.placeholder = this.commentPlaceholder;
       }
       return obj;
-    },
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.scrollTimer) {
       clearTimeout(this.scrollTimer);
     }
-  },
+  }
 };
 </script>

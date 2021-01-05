@@ -87,7 +87,7 @@ export default {
   mixins: [LocaleMixin, DragMixin],
   components: {
     [Button.name]: Button,
-    [Input.name]: Input,
+    [Input.name]: Input
   },
   props: {
     title: String,
@@ -98,7 +98,7 @@ export default {
     customClass: String,
     showClose: {
       type: Boolean,
-      default: true,
+      default: true
     },
     beforeClose: Function,
     showCancelButton: Boolean,
@@ -109,24 +109,24 @@ export default {
     confirmButtonClass: String,
     closeOnClickModal: {
       type: Boolean,
-      default: true,
+      default: true
     },
     closeOnPressEscape: {
       type: Boolean,
-      default: true,
+      default: true
     },
     closeOnHashChange: {
       type: Boolean,
-      default: true,
+      default: true
     },
     showInput: {
       typs: Boolean,
-      default: false,
+      default: false
     },
     inputPlaceholder: String,
     inputType: {
       type: String,
-      default: 'text',
+      default: 'text'
     },
     inputValue: String,
     inputPattern: RegExp,
@@ -136,10 +136,10 @@ export default {
     confirmButtonLoading: Boolean,
     loadingSize: {
       type: String,
-      default: '11px',
-    },
+      default: '11px'
+    }
   },
-  data() {
+  data () {
     return {
       show: false,
       value: '',
@@ -148,31 +148,31 @@ export default {
       dialogStyle: {
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%,-50%)',
-      },
+        transform: 'translate(-50%,-50%)'
+      }
     };
   },
   computed: {
-    myCancelButtonText() {
+    myCancelButtonText () {
       if (this.cancelButtonText) {
         return this.cancelButtonText;
       }
       return this.t('LinViewUI.MessageBox.cancelButtonText');
     },
-    myConfirmButtonText() {
+    myConfirmButtonText () {
       if (this.confirmButtonText) {
         return this.confirmButtonText;
       }
       return this.t('LinViewUI.MessageBox.confirmButtonText');
     },
-    myInputErrorMessage() {
+    myInputErrorMessage () {
       if (this.inputErrorMessage) {
         return this.inputErrorMessage;
       }
       return this.t('LinViewUI.MessageBox.inputErrorMessage');
-    },
+    }
   },
-  mounted() {
+  mounted () {
     if (this.closeOnPressEscape) {
       window.addEventListener('keyup', this.onESCDown);
     }
@@ -187,13 +187,13 @@ export default {
     }
   },
   methods: {
-    emitClose(by) {
+    emitClose (by) {
       this.$emit('close', {
         by,
-        value: this.value,
+        value: this.value
       });
     },
-    handleClose(by) {
+    handleClose (by) {
       if (typeof this.beforeClose === 'function') {
         const done = () => {
           this.show = false;
@@ -205,15 +205,15 @@ export default {
         this.emitClose(by);
       }
     },
-    onMaskClick() {
+    onMaskClick () {
       if (this.closeOnClickModal) {
         this.handleClose('mask');
       }
     },
-    onCancelBtnClick() {
+    onCancelBtnClick () {
       this.handleClose('cancelButton');
     },
-    onConfirmBtnClick() {
+    onConfirmBtnClick () {
       if (this.showInput && (this.inputPattern || this.inputValidator)) {
         this.onInputChange(this.value);
         if (!this.showErrorMessage) {
@@ -223,18 +223,18 @@ export default {
         this.handleClose('confirmButton');
       }
     },
-    onIconClick() {
+    onIconClick () {
       this.handleClose('icon');
     },
-    onESCDown(event) {
+    onESCDown (event) {
       if (event.keyCode === 27) {
         this.handleClose('esc');
       }
     },
-    hashchange() {
+    hashchange () {
       this.handleClose('hash');
     },
-    onInputChange(data) {
+    onInputChange (data) {
       if (typeof this.inputValidator === 'function') {
         const result = this.inputValidator(data);
         if (typeof result === 'boolean') {
@@ -252,15 +252,15 @@ export default {
         const result = this.inputPattern.test(data);
         this.showErrorMessage = !result;
       }
-    },
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.closeOnPressEscape) {
       window.removeEventListener('keyup', this.onESCDown);
     }
     if (this.closeOnHashChange) {
       window.removeEventListener('hashchange', this.hashchange);
     }
-  },
+  }
 };
 </script>

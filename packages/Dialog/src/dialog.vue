@@ -42,31 +42,31 @@ export default {
   mixins: [LocaleMixin, DragMixin],
   props: {
     title: {
-      type: String,
+      type: String
     },
     width: {
       type: String,
-      default: '50%',
+      default: '50%'
     },
     top: {
       type: String,
-      default: '15vh',
+      default: '15vh'
     },
     visible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     beforeClose: {
-      type: Function,
+      type: Function
     },
     closeOnClickModa: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
 
   methods: {
-    handleClose() {
+    handleClose () {
       const done = () => {
         this.$emit('update:visible', false);
         this.$emit('close');
@@ -77,11 +77,11 @@ export default {
         done();
       }
     },
-    onWrapperClick() {
+    onWrapperClick () {
       if (this.closeOnClickModa) {
         this.handleClose();
       }
-    },
-  },
+    }
+  }
 };
 </script>

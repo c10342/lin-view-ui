@@ -12,26 +12,26 @@ import {
   isBrowserFullscreen,
   isBrowserFullscreenEnabled,
   enterBrowserFullScreen,
-  exitBrowserFullscreen,
+  exitBrowserFullscreen
 } from './utils.js';
 
 export default {
   name: 'LinVideoPlayerFullscreen',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
-    video() {
+    video () {
       if (this.videoPlayer) {
         return this.videoPlayer.video;
       }
       return null;
-    },
+    }
   },
   methods: {
-    onBrowserFullscreen() {
+    onBrowserFullscreen () {
       if (this.videoPlayer) {
         this.videoPlayer.isWebFullscreen = false;
       }
@@ -43,10 +43,10 @@ export default {
         }
       }
     },
-    onWebFullscreen() {
+    onWebFullscreen () {
       exitBrowserFullscreen();
       this.videoPlayer?.switchWebfullscreen();
-    },
-  },
+    }
+  }
 };
 </script>

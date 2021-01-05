@@ -1,37 +1,37 @@
 export default {
   name: 'LinTableBody',
   computed: {
-    dataSource() {
+    dataSource () {
       if (this.table) {
         return this.table.dataSource;
       }
       return [];
     },
-    columns() {
+    columns () {
       if (this.table) {
         return this.table.columns;
       }
       return [];
     },
-    valueKey() {
+    valueKey () {
       if (this.table) {
         return this.table.valueKey;
       }
       return '';
-    },
+    }
   },
   inject: {
     table: {
-      default: null,
-    },
+      default: null
+    }
   },
-  mounted() {
+  mounted () {
     if (this.table) {
       this.table.$on('select-all', this.selectAll);
     }
   },
   methods: {
-    trClassName(row, rowIndex) {
+    trClassName (row, rowIndex) {
       const classArr = ['lin-table-tr'];
       if (this.table) {
         const rowClassName = this.table.rowClassName;
@@ -46,10 +46,10 @@ export default {
       }
       return classArr;
     },
-    selectAll(data) {
+    selectAll (data) {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        'lin-table-checkbox',
+        'lin-table-checkbox'
       );
       for (let i = 0; i < checkboxs.length; i++) {
         const element = checkboxs[i];
@@ -60,57 +60,57 @@ export default {
         }
       }
     },
-    clearSelection() {
+    clearSelection () {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        'lin-table-checkbox',
+        'lin-table-checkbox'
       );
       for (let i = 0; i < checkboxs.length; i++) {
         const element = checkboxs[i];
         element.checked = false;
       }
     },
-    toggleAllSelection() {
+    toggleAllSelection () {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        'lin-table-checkbox',
+        'lin-table-checkbox'
       );
       for (let i = 0; i < checkboxs.length; i++) {
         const element = checkboxs[i];
         element.checked = !element.checked;
       }
     },
-    selectSelection(data) {
+    selectSelection (data) {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        'lin-table-checkbox',
+        'lin-table-checkbox'
       );
       const len = this.dataSource.length;
       for (let i = 0; i < len; i++) {
         const element = this.dataSource[i];
         const flag = data.find(
-          (item) => item[this.valueKey] === element[this.valueKey],
+          (item) => item[this.valueKey] === element[this.valueKey]
         );
         checkboxs[i].checked = flag;
       }
     },
-    rowClick(row, rowIndex) {
+    rowClick (row, rowIndex) {
       this.table?.emitrRowClick({ row, rowIndex });
     },
-    cellClick(row, prop, rowIndex, idx) {
+    cellClick (row, prop, rowIndex, idx) {
       this.table?.emitrCellClick({
-        row, prop, rowIndex, cellIndex: idx,
+        row, prop, rowIndex, cellIndex: idx
       });
-    },
+    }
   },
-  render(h) {
+  render (h) {
     const {
       dataSource,
       columns,
       trClassName,
       valueKey,
       rowClick,
-      cellClick,
+      cellClick
     } = this;
     return (
       <tbody class="lin-table-tbody" ref="linTableTbody">
@@ -133,7 +133,7 @@ export default {
                     {column.renderCell(h, {
                       row,
                       column,
-                      rowIndex,
+                      rowIndex
                     })}
                   </td>
               ))}
@@ -142,5 +142,5 @@ export default {
         })}
       </tbody>
     );
-  },
+  }
 };

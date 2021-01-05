@@ -44,35 +44,35 @@ export default {
   name: 'LinVideoPlayerProcess',
   mixins: [LocaleMixin],
   filters: {
-    secondToTime,
+    secondToTime
   },
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
-  data() {
+  data () {
     return {
       mousedown: false,
       mousedownWidth: 0,
       maskCurrentTime: 0,
       maskLeft: 0,
-      isEnterMask: false,
+      isEnterMask: false
     };
   },
-  mounted() {
+  mounted () {
     this.processBall = this.$refs.processBall;
     this.videoPlayerProcess = this.$refs.videoPlayerProcess;
     this.processTime = this.$refs.processTime;
   },
   computed: {
-    currentPlayedWidth() {
+    currentPlayedWidth () {
       if (this.mousedown) {
         return `${this.mousedownWidth}px`;
       }
       return this.playedWidth;
     },
-    playedWidth() {
+    playedWidth () {
       if (this.totalTime === 0) {
         return 0;
       }
@@ -80,7 +80,7 @@ export default {
       percent = percent > 1 ? 1 : percent;
       return `${percent * 100}%`;
     },
-    loadedWidth() {
+    loadedWidth () {
       if (this.totalTime === 0) {
         return 0;
       }
@@ -88,30 +88,30 @@ export default {
       percent = percent > 1 ? 1 : percent;
       return `${percent * 100}%`;
     },
-    currentTime() {
+    currentTime () {
       if (this.videoPlayer) {
         return this.videoPlayer.currentTime;
       }
       return 0;
     },
-    totalTime() {
+    totalTime () {
       if (this.videoPlayer) {
         return this.videoPlayer.totalTime;
       }
       return 0;
     },
-    preloadTime() {
+    preloadTime () {
       if (this.videoPlayer) {
         return this.videoPlayer.preloadTime;
       }
       return 0;
-    },
+    }
   },
   methods: {
-    onMaskMouseLeave() {
+    onMaskMouseLeave () {
       this.isEnterMask = false;
     },
-    onMaskMouseMove(e) {
+    onMaskMouseMove (e) {
       this.isEnterMask = true;
       const outLineX = this.videoPlayerProcess.getBoundingClientRect().x;
       const outLineWidth = this.videoPlayerProcess.getBoundingClientRect().width;
@@ -128,14 +128,14 @@ export default {
       }
       // console.log(this.totalTime,);
     },
-    onBallMouseDown() {
+    onBallMouseDown () {
       this.mousedownWidth = this.playedWidth;
       this.mousedown = true;
       window.addEventListener('mousemove', this.onMouseMove);
       window.addEventListener('mouseup', this.onMouseUp);
     },
     // 鼠标移动
-    onMouseMove(e) {
+    onMouseMove (e) {
       // 实现拖拽移动事件
       if (this.mousedown) {
         const outLineX = this.videoPlayerProcess.getBoundingClientRect().x;
@@ -149,7 +149,7 @@ export default {
         this.mousedownWidth = offsetX;
       }
     },
-    onMouseUp(e) {
+    onMouseUp (e) {
       this.onMouseMove(e);
       const clientWidth = this.videoPlayerProcess.clientWidth || 0;
       let percent = 0;
@@ -161,7 +161,7 @@ export default {
       window.removeEventListener('mouseup', this.onMouseUp);
       window.removeEventListener('mousemove', this.onMouseMove);
     },
-    onMaskClick(event) {
+    onMaskClick (event) {
       const offsetX = event.offsetX || 0;
       const clientWidth = event.currentTarget.clientWidth || 0;
       let percent = 0;
@@ -170,14 +170,14 @@ export default {
       }
       this.seekByPercent(percent);
     },
-    seekByPercent(percent) {
+    seekByPercent (percent) {
       percent = percent > 1 ? 1 : percent;
       const time = this.totalTime * percent;
       const offsetTime = time - this.currentTime;
       this.videoPlayer?.seek(time);
       this.setTip(offsetTime);
     },
-    setTip(offsetTime) {
+    setTip (offsetTime) {
       if (!this.videoPlayer) {
         return;
       }
@@ -187,16 +187,16 @@ export default {
         this.videoPlayer.setTip(`${this.t('LinViewUI.VideoPlayer.fastForward')} ${Math.round(offsetTime)} ${this.t('LinViewUI.VideoPlayer.second')}`);
       }
     },
-    destroyProcess() {
+    destroyProcess () {
       this.processBall = null;
       this.videoPlayerProcess = null;
       this.processTime = null;
-    },
+    }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     window.removeEventListener('mouseup', this.onMouseUp);
     window.removeEventListener('mousemove', this.onMouseMove);
     this.destroyProcess();
-  },
+  }
 };
 </script>

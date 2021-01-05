@@ -35,33 +35,33 @@ export default {
   mixins: [LocaleMixin],
   props: {
     placeholder: {
-      type: String,
+      type: String
     },
     rows: {
       type: Number,
-      default: 4,
+      default: 4
     },
     maxLen: {
       type: Number,
-      default: -1,
+      default: -1
     },
     isCut: {
       type: Boolean,
-      default: false,
+      default: false
     },
     value: {
       type: [String, Number],
-      default: '',
-    },
+      default: ''
+    }
   },
-  data() {
+  data () {
     return {
       isOver: false,
-      num: this.maxLen,
+      num: this.maxLen
     };
   },
   methods: {
-    handleInput(event) {
+    handleInput (event) {
       const { value } = event.target;
       if (this.maxLen === -1) {
         // 不限制长度
@@ -74,7 +74,7 @@ export default {
         this.setCurrentValue(value);
       }
     },
-    setCurrentValue(value) {
+    setCurrentValue (value) {
       const currentValue = value.toString();
       if (currentValue.length <= this.maxLen) {
         this.isOver = false;
@@ -88,30 +88,30 @@ export default {
         this.num = currentValue.length - this.maxLen;
         this.$emit('overText', currentValue);
       }
-    },
+    }
   },
   computed: {
-    maxlength() {
+    maxlength () {
       if (this.isCut) {
         return this.maxLen;
       }
       return -1;
     },
-    textareaProps() {
+    textareaProps () {
       const obj = {
         placeholder: this.placeholder
           ? this.placeholder
           : this.t('LinViewUI.LimitTextarea.placeholder'),
-        rows: this.rows,
+        rows: this.rows
       };
       if (this.maxlength !== -1) {
         obj.maxlength = this.maxlength;
       }
       return {
         ...this.$attrs,
-        ...obj,
+        ...obj
       };
-    },
-  },
+    }
+  }
 };
 </script>

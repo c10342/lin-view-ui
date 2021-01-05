@@ -11,7 +11,7 @@ import DateMixin from 'src/mixins/date.js';
 export default {
   name: 'LinDatePicker',
   mixins: [LocaleMixin, DateMixin],
-  render(h) {
+  render (h) {
     const {
       cellWidth,
       focus,
@@ -37,7 +37,7 @@ export default {
       showAlways,
       showInput,
       t,
-      top,
+      top
     } = this;
     return (
     <div v-click-outside class="lin-date-picker" ref="container">
@@ -53,7 +53,7 @@ export default {
               disabled={disabled}
               class={[
                 { 'lin-date-picker-disabled': disabled },
-                'lin-date-picker-input',
+                'lin-date-picker-input'
               ]}
             />
           </div>
@@ -66,7 +66,7 @@ export default {
               ref="popupContainer"
               class={[
                 { 'lin-date-picker-absolute': !showAlways },
-                'lin-date-picker-pannel',
+                'lin-date-picker-pannel'
               ]}
             >
               <div class="lin-date-picker-pannel-header">
@@ -92,7 +92,7 @@ export default {
                         <span
                           style={{
                             width: `${cellWidth}px`,
-                            height: `${labelHeight}px`,
+                            height: `${labelHeight}px`
                           }}
                           class="lin-date-picker-pannel-label-cell lin-date-picker-cell"
                           key={w}
@@ -112,29 +112,29 @@ export default {
                               key={j}
                               style={{
                                 width: `${cellWidth}px`,
-                                height: `${cellHeight}px`,
+                                height: `${cellHeight}px`
                               }}
                               onClick={() => selectDate(currentTime)}
                               class={[
                                 'lin-date-picker-pannel-cell lin-date-picker-cell',
                                 {
                                   'lin-date-picker-not-current-month': !isCurrentMonth(
-                                    currentTime,
-                                  ),
+                                    currentTime
+                                  )
                                 },
                                 {
                                   'lin-date-picker-current-val': isCurrentval(
-                                    currentTime,
-                                  ),
+                                    currentTime
+                                  )
                                 },
                                 {
                                   'lin-date-picker-disabled-date': isDisabledDate(
-                                    currentTime,
-                                  ),
+                                    currentTime
+                                  )
                                 },
                                 {
-                                  'lin-date-picker-radius': radius,
-                                },
+                                  'lin-date-picker-radius': radius
+                                }
                               ]}
                             >
                               {info || (
@@ -157,7 +157,7 @@ export default {
   },
   directives: {
     clickOutside: {
-      bind(el, bindings, vnode) {
+      bind (el, bindings, vnode) {
         const handler = (e) => {
           if (!el.contains(e.target) && !vnode.context.showAlways) {
             if (vnode.context.isVisible) {
@@ -168,57 +168,57 @@ export default {
         el.handler = handler;
         document.addEventListener('click', handler);
       },
-      unbind(el) {
+      unbind (el) {
         document.removeEventListener('click', el.handler);
-      },
-    },
+      }
+    }
   },
   props: {
     radius: {
       type: Boolean,
-      default: false,
+      default: false
     },
     cellWidth: {
       type: Number,
-      default: 32,
+      default: 32
     },
     cellHeight: {
       type: Number,
-      default: 32,
+      default: 32
     },
     labelHeight: {
       type: Number,
-      default: 32,
+      default: 32
     },
     value: {
       type: [Date, String, Number],
-      default: '',
+      default: ''
     },
     placeholder: {
-      type: String,
+      type: String
     },
     renderInfo: {
       type: Function,
-      default: null,
+      default: null
     },
     format: {
       type: String,
-      default: 'string',
+      default: 'string'
     },
     showFormat: {
       type: Function,
-      default: null,
+      default: null
     },
     showAlways: {
       type: Boolean,
-      default: false,
+      default: false
     },
     showInput: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
-  data() {
+  data () {
     const { year, month } = getYearMonthDay(this.handleValue());
     return {
       weekDays: [
@@ -228,15 +228,15 @@ export default {
         this.t('LinViewUI.DatePicker.wed'),
         this.t('LinViewUI.DatePicker.thu'),
         this.t('LinViewUI.DatePicker.fir'),
-        this.t('LinViewUI.DatePicker.sat'),
+        this.t('LinViewUI.DatePicker.sat')
       ],
       isVisible: false,
       time: { year, month },
-      top: 0,
+      top: 0
     };
   },
   computed: {
-    currentValue() {
+    currentValue () {
       if (!this.value) {
         return '';
       }
@@ -247,9 +247,9 @@ export default {
       }
       return '';
     },
-    visibeDays() {
+    visibeDays () {
       const { year, month } = getYearMonthDay(
-        getDate(this.time.year, this.time.month, 1),
+        getDate(this.time.year, this.time.month, 1)
       );
       //   本月1号的时间对象
       const currentFirstDay = getDate(year, month, 1);
@@ -264,7 +264,7 @@ export default {
       }
       return arr;
     },
-    formatDate() {
+    formatDate () {
       if (this.showFormat) {
         return this.showFormat(this.currentValue);
       }
@@ -273,10 +273,10 @@ export default {
       }
       const { year, month, day } = getYearMonthDay(this.currentValue);
       return `${year}-${month}-${day}`;
-    },
+    }
   },
   methods: {
-    setPlacement() {
+    setPlacement () {
       this.$nextTick(() => {
         const popupContainer = this.$refs.popupContainer;
         const container = this.$refs.container;
@@ -291,15 +291,15 @@ export default {
         }
       });
     },
-    setDownTop() {
+    setDownTop () {
       const boxContainer = this.$refs.boxContainer;
       this.top = `${boxContainer.clientHeight}px`;
     },
-    setUpTop() {
+    setUpTop () {
       const popupContainer = this.$refs.popupContainer;
       this.top = `${-popupContainer.clientHeight}px`;
     },
-    handleValue() {
+    handleValue () {
       if (!this.value) {
         return new Date();
       }
@@ -310,43 +310,43 @@ export default {
       }
       return new Date();
     },
-    prevYear() {
+    prevYear () {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setFullYear(d.getFullYear() - 1);
       this.setTime(d);
       this.$emit('prevYear', d);
     },
-    prevMonth() {
+    prevMonth () {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setMonth(d.getMonth() - 1);
       this.setTime(d);
       this.$emit('prevMonth', d);
     },
-    nextMonth() {
+    nextMonth () {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setMonth(d.getMonth() + 1);
       this.setTime(d);
       this.$emit('nextMonth', d);
     },
-    nextYear() {
+    nextYear () {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setFullYear(d.getFullYear() + 1);
       this.setTime(d);
       this.$emit('nextYear', d);
     },
-    isCurrentMonth(date) {
+    isCurrentMonth (date) {
       const { year, month } = getYearMonthDay(
-        getDate(this.time.year, this.time.month, 1),
+        getDate(this.time.year, this.time.month, 1)
       );
       const { year: y, month: m } = getYearMonthDay(date);
       return year === y && month === m;
     },
-    isCurrentval(date) {
+    isCurrentval (date) {
       const { year, month, day } = getYearMonthDay(this.currentValue);
       const { year: y, month: m, day: d } = getYearMonthDay(date);
       return year === y && month === m && day === d;
     },
-    selectDate(date) {
+    selectDate (date) {
       if (this.isDisabledDate(date)) {
         return;
       }
@@ -363,12 +363,12 @@ export default {
       this.$emit('input', d);
       dispatch.call(this, {
         eventName: 'validate',
-        componentName: 'LinFormItem',
+        componentName: 'LinFormItem'
       });
       this.$emit('select', d);
       this.blur();
     },
-    focus() {
+    focus () {
       if (this.disabled) {
         return;
       }
@@ -380,13 +380,13 @@ export default {
         this.$emit('blur');
       }
     },
-    blur() {
+    blur () {
       this.isVisible = false;
       this.$emit('blur');
     },
-    setTime(date) {
+    setTime (date) {
       const { year, month } = getYearMonthDay(date);
       this.time = { year, month };
-    },
-  },
+    }
+  }
 };

@@ -32,57 +32,57 @@ import Spinner from 'packages/Spinner/index.js';
 export default {
   name: 'LinButton',
   components: {
-    [Spinner.name]: Spinner,
+    [Spinner.name]: Spinner
   },
   props: {
     type: {
       type: String,
-      default: 'default',
+      default: 'default'
     },
     plain: {
       type: Boolean,
-      default: false,
+      default: false
     },
     round: {
       type: Boolean,
-      default: false,
+      default: false
     },
     circle: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     icon: {
       type: String,
-      default: '',
+      default: ''
     },
     size: {
       type: String,
-      default: 'default',
+      default: 'default'
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     loadingColor: {
       type: String,
-      default: '#fff',
+      default: '#fff'
     },
     loadingSize: {
       type: String,
-      default: '14px',
-    },
+      default: '14px'
+    }
   },
 
   methods: {
-    onButtonClick() {
+    onButtonClick () {
       if (!this.loading) {
         this.$emit('click');
       }
-    },
-  },
+    }
+  }
 };
 </script>

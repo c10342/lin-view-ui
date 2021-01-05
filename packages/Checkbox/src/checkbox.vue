@@ -28,18 +28,18 @@ export default {
   name: 'LinCheckbox',
   inject: {
     CheckboxGroup: {
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
-    isGroup() {
+    isGroup () {
       return !!this.CheckboxGroup;
     },
     model: {
-      get() {
+      get () {
         return this.isGroup ? this.CheckboxGroup.value : this.value;
       },
-      set(value) {
+      set (value) {
         // this.isGroup
         //   ? this.CheckboxGroup.$emit('input', value)
         //   : this.$emit('input', value);
@@ -50,41 +50,41 @@ export default {
         }
         dispatch.call(this, {
           eventName: 'validate',
-          componentName: 'LinFormItem',
+          componentName: 'LinFormItem'
         });
-      },
+      }
     },
-    isChecked() {
+    isChecked () {
       // 如果是group包裹，判断 label是否在model中
       // 如果没有group包裹，直接使用model
       return this.isGroup ? this.model.includes(this.label) : this.model;
     },
-    isDisabled() {
+    isDisabled () {
       if (this.isGroup) {
         if (this.CheckboxGroup.disabled) {
           return true;
         }
       }
       return this.disabled;
-    },
+    }
   },
   props: {
     value: {
       type: Boolean,
-      default: false,
+      default: false
     },
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>

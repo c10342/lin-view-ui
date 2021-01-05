@@ -27,23 +27,23 @@ export default {
   name: 'LinVideoPlayerDefinition',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
-    video() {
+    video () {
       if (this.videoPlayer) {
         return this.videoPlayer.video;
       }
       return null;
     },
-    videoList() {
+    videoList () {
       if (this.videoPlayer) {
         return this.videoPlayer.videoList;
       }
       return [];
     },
-    top() {
+    top () {
       if (!this.definitionList.length) {
         return 0;
       }
@@ -51,31 +51,31 @@ export default {
       return `${-t}px`;
     },
     currentDefinitionVideo: {
-      get() {
+      get () {
         if (this.videoPlayer) {
           return this.videoPlayer.currentDefinitionVideo;
         }
         return null;
       },
-      set(value) {
+      set (value) {
         if (this.videoPlayer) {
           this.videoPlayer.currentDefinitionVideo = value;
         }
-      },
+      }
     },
     definitionList: {
-      get() {
+      get () {
         if (this.videoPlayer) {
           return this.videoPlayer.definitionList;
         }
         return [];
       },
-      set(value) {
+      set (value) {
         if (this.videoPlayer) {
           this.videoPlayer.definitionList = value;
         }
-      },
-    },
+      }
+    }
   },
   // mounted() {
   //   if (this.videoList.length > 0) {
@@ -85,7 +85,7 @@ export default {
   //   }
   // },
   methods: {
-    setDefinition(data) {
+    setDefinition (data) {
       this.videoPlayer?.setDefinition(data);
       // const definitionList = cloneDeep(this.definitionList);
       // const index = definitionList.findIndex(
@@ -100,7 +100,7 @@ export default {
       //     this.videoPlayer.switchPlayerUrl(data);
       //   }
       // }
-    },
-  },
+    }
+  }
 };
 </script>

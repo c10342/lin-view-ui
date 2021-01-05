@@ -27,35 +27,35 @@ export default {
   name: 'LinInputNumber',
   props: {
     value: {
-      type: [Number, String],
+      type: [Number, String]
     },
     min: {
       type: Number,
-      default: NaN,
+      default: NaN
     },
     max: {
       type: Number,
-      default: NaN,
+      default: NaN
     },
     step: {
       type: Number,
-      default: 1,
+      default: 1
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     placeholder: {
       type: String,
-      default: '',
+      default: ''
     },
     stepStrictly: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
-    reduce() {
+    reduce () {
       if (this.disabledReduce) {
         return;
       }
@@ -63,7 +63,7 @@ export default {
       this.emitInputEvent(value);
       this.$emit('reduce', value);
     },
-    plus() {
+    plus () {
       if (this.disabledPlus) {
         return;
       }
@@ -71,7 +71,7 @@ export default {
       this.emitInputEvent(value);
       this.$emit('plus', value);
     },
-    onBlur(e) {
+    onBlur (e) {
       let value = e.target.value * 1;
       if (this.stepStrictly) {
         if (!Number.isNaN(this.min) && value < this.min) {
@@ -88,25 +88,25 @@ export default {
       }
       this.emitInputEvent(value);
     },
-    emitInputEvent(value) {
+    emitInputEvent (value) {
       this.$emit('input', value);
       dispatch.call(this, {
         eventName: 'validate',
-        componentName: 'LinFormItem',
+        componentName: 'LinFormItem'
       });
-    },
+    }
   },
   computed: {
-    disabledReduce() {
+    disabledReduce () {
       if (this.disabled) {
         return true;
       }
       if (Number.isNaN(this.min)) {
         return false;
       } if (
-        this.value === ''
-        || this.value === null
-        || this.value === undefined
+        this.value === '' ||
+        this.value === null ||
+        this.value === undefined
       ) {
         return false;
       } if (this.value <= this.min) {
@@ -114,23 +114,23 @@ export default {
       }
       return false;
     },
-    disabledPlus() {
+    disabledPlus () {
       if (this.disabled) {
         return true;
       }
       if (Number.isNaN(this.max)) {
         return false;
       } if (
-        this.value === ''
-        || this.value === null
-        || this.value === undefined
+        this.value === '' ||
+        this.value === null ||
+        this.value === undefined
       ) {
         return false;
       } if (this.value >= this.max) {
         return true;
       }
       return false;
-    },
-  },
+    }
+  }
 };
 </script>

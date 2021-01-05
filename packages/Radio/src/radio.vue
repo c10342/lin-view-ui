@@ -30,16 +30,16 @@ export default {
   // 需要提供一个计算属性 model
   inject: {
     RadioGroup: {
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
     model: {
-      get() {
+      get () {
         // this.RadioGroup.value
         return this.isGroup ? this.RadioGroup.value : this.value;
       },
-      set(value) {
+      set (value) {
         // 触发父组件给当前组件注册的input事件
         // this.$emit("input", value);
         // this.isGroup
@@ -52,15 +52,15 @@ export default {
         }
         dispatch.call(this, {
           eventName: 'validate',
-          componentName: 'LinFormItem',
+          componentName: 'LinFormItem'
         });
-      },
+      }
     },
-    isGroup() {
+    isGroup () {
       // 用于判断radio是否被radioGroup所包裹
       return !!this.RadioGroup;
     },
-    isDisable() {
+    isDisable () {
       if (this.isGroup) {
         if (this.RadioGroup.disabled) {
           return true;
@@ -68,22 +68,22 @@ export default {
       }
       return this.disabled;
       // return this.isGroup ? this.RadioGroup.disabled : this.disabled;
-    },
+    }
   },
   props: {
     label: {
       type: [String, Number, Boolean],
-      default: '',
+      default: ''
     },
     value: null,
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>

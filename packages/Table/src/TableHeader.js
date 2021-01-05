@@ -5,37 +5,37 @@ export default {
 
   inject: {
     table: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     selectData: {
-      set(val) {
+      set (val) {
         if (this.table) {
           this.table.selectData = val;
         }
       },
-      get() {
+      get () {
         if (this.table) {
           return this.table.selectData;
         }
         return [];
-      },
+      }
     },
-    dataSource() {
+    dataSource () {
       if (this.table) {
         return this.table.dataSource;
       }
       return [];
-    },
+    }
   },
   watch: {
-    selectData(val) {
+    selectData (val) {
       this.changeCheckboxStatus(val);
-    },
+    }
   },
   methods: {
-    renderTh(column) {
+    renderTh (column) {
       let th = null;
       switch (column.type) {
         case 'selection':
@@ -56,7 +56,7 @@ export default {
       }
       return th;
     },
-    onClick(e) {
+    onClick (e) {
       if (this.table) {
         const checked = e.target.checked;
         if (checked) {
@@ -68,7 +68,7 @@ export default {
         this.table.emitSelectAll();
       }
     },
-    switchCheckboxStatus(status) {
+    switchCheckboxStatus (status) {
       const linTableHeaderCheckbox = this.$refs.linTableHeaderCheckbox;
       switch (status) {
         case 1:
@@ -90,7 +90,7 @@ export default {
           break;
       }
     },
-    changeCheckboxStatus(data) {
+    changeCheckboxStatus (data) {
       if (data.length > 0) {
         if (data.length < this.dataSource.length) {
           this.switchCheckboxStatus(1);
@@ -100,9 +100,9 @@ export default {
       } else {
         this.switchCheckboxStatus(3);
       }
-    },
+    }
   },
-  render() {
+  render () {
     const { renderTh } = this;
     const { columns = [] } = this.table;
     return (
@@ -119,5 +119,5 @@ export default {
         </tr>
       </thead>
     );
-  },
+  }
 };

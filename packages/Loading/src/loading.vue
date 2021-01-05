@@ -20,20 +20,20 @@
 <script>
 export default {
   name: 'LinLoading',
-  data() {
+  data () {
     return {
       text: null,
       fullscreen: true,
       visible: false,
       background: null,
       iconColor: null,
-      textColor: null,
+      textColor: null
     };
   },
   methods: {
-    handleAfterLeave() {
+    handleAfterLeave () {
       this.$emit('after-leave');
-    },
-  },
+    }
+  }
 };
 </script>

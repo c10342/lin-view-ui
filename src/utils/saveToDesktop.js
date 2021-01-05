@@ -13,7 +13,7 @@ const saveToDesktop = (sName, sUrl) => {
     }
     const WshShell = new window.ActiveXObject('WScript.Shell');
     const oUrlLink = WshShell.CreateShortcut(
-      `${WshShell.SpecialFolders('Desktop')}\\${sName}.url`,
+      `${WshShell.SpecialFolders('Desktop')}\\${sName}.url`
     );
     oUrlLink.TargetPath = sUrl;
     oUrlLink.Save();

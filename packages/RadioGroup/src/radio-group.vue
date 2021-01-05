@@ -7,9 +7,9 @@
 <script>
 export default {
   name: 'LinRadioGroup',
-  provide() {
+  provide () {
     return {
-      RadioGroup: this,
+      RadioGroup: this
     };
   },
   props: {
@@ -19,8 +19,8 @@ export default {
     value: null,
     disabled: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>

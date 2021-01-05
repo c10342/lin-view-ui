@@ -5,7 +5,7 @@ import 'src/fonts/iconfont.css';
 const testComps = require.context(
   '../packages',
   true,
-  /^\.(\/\w+)\/index\.js$/,
+  /^\.(\/\w+)\/index\.js$/
 );
 
 const reg = /^\.\/(\w+)\/index\.js$/;
@@ -34,5 +34,5 @@ export default {
   locale: locale.use,
   i18n: locale.i18n,
   install,
-  ...componentObjs,
+  ...componentObjs
 };

@@ -10,38 +10,38 @@ export default {
     width: String,
     align: {
       type: String,
-      default: 'left',
+      default: 'left'
     },
-    type: String,
+    type: String
   },
   inject: {
     table: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
-    valueKey() {
+    valueKey () {
       if (this.table) {
         return this.table.valueKey;
       }
       return '';
-    },
+    }
   },
   watch: {
-    prop(val) {
+    prop (val) {
       this.column.prop = val;
     },
-    label(val) {
+    label (val) {
       this.column.label = val;
-    },
+    }
   },
-  beforeCreate() {
+  beforeCreate () {
     this.colums = {};
   },
-  created() {
+  created () {
     const column = {
       ...this.$props,
-      id: `col-${columnId++}`,
+      id: `col-${columnId++}`
     };
     column.renderCell = (h, rowData) => {
       // eslint-disable-next-line
@@ -68,15 +68,15 @@ export default {
     };
     this.column = column;
   },
-  mounted() {
+  mounted () {
     if (this.table) {
       this.table.columns.push(this.column);
     }
   },
-  destroyed() {
+  destroyed () {
     if (this.table) {
       const index = this.table.columns.findIndex(
-        (column) => column.id === this.column.id,
+        (column) => column.id === this.column.id
       );
       if (index > -1) {
         this.table.columns.splice(index, 1);
@@ -84,11 +84,11 @@ export default {
     }
   },
   methods: {
-    onClick(e, data) {
+    onClick (e, data) {
       e.stopPropagation();
       if (this.table) {
         const index = this.table.selectData.findIndex(
-          (item) => item[this.valueKey] === data.row[this.valueKey],
+          (item) => item[this.valueKey] === data.row[this.valueKey]
         );
         const checked = e.target.checked;
         if (checked) {
@@ -103,12 +103,12 @@ export default {
         this.table.emitSelect({
           row: data.row,
           checked,
-          rowIndex: data.rowIndex,
+          rowIndex: data.rowIndex
         });
       }
-    },
+    }
   },
-  render() {
+  render () {
     return null;
-  },
+  }
 };

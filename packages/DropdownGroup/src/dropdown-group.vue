@@ -9,7 +9,7 @@
 export default {
   name: 'LinDropdownGroup',
   props: {
-    label: String,
-  },
+    label: String
+  }
 };
 </script>

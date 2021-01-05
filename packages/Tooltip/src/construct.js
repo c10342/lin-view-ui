@@ -4,13 +4,13 @@ import Tooltip from './tooltip.vue';
 
 const TooltipConstruct = Vue.extend(Tooltip);
 
-TooltipConstruct.prototype.addTip = function addTip() {
+TooltipConstruct.prototype.addTip = function addTip () {
   this.vm = this.$mount();
 
   document.body.appendChild(this.vm.$el);
 };
 
-TooltipConstruct.prototype.removeTip = function removeTip() {
+TooltipConstruct.prototype.removeTip = function removeTip () {
   this.show = false;
   this.$once('after-leave', () => {
     if (this.vm.$el) {

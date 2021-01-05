@@ -22,40 +22,40 @@ export default {
   props: {
     type: {
       type: String,
-      default: 'primary',
+      default: 'primary'
     },
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     color: {
       type: String,
-      default: '',
+      default: ''
     },
     closable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     effect: {
       type: String,
-      default: 'light',
-    },
+      default: 'light'
+    }
   },
-  data() {
+  data () {
     return {
-      show: true,
+      show: true
     };
   },
   methods: {
-    onTagclick() {
+    onTagclick () {
       this.$emit('click');
     },
-    onCloseClick() {
+    onCloseClick () {
       this.show = false;
     },
-    afterLeave() {
+    afterLeave () {
       this.$emit('close');
-    },
-  },
+    }
+  }
 };
 </script>

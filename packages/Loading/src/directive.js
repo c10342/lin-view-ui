@@ -1,6 +1,6 @@
 import LoadingConstruct from './construct.js';
 
-function openLoading(el, binding) {
+function openLoading (el, binding) {
   if (!el) {
     return;
   }
@@ -14,7 +14,7 @@ function openLoading(el, binding) {
   const options = {
     fullscreen,
     target,
-    lock,
+    lock
   };
   const text = el.getAttribute('lin-loading-text');
   const background = el.getAttribute('lin-loading-background');
@@ -26,7 +26,7 @@ function openLoading(el, binding) {
   el.instance.open(options);
 }
 
-function closeLoading(el) {
+function closeLoading (el) {
   if (!el) {
     return;
   }
@@ -40,21 +40,21 @@ const loadingDirective = {};
 
 loadingDirective.install = (Vue) => {
   Vue.directive('loading', {
-    bind(el, binding) {
+    bind (el, binding) {
       if (binding.value) {
         openLoading(el, binding);
       }
     },
-    update(el, binding) {
+    update (el, binding) {
       if (binding.value) {
         openLoading(el, binding);
       } else {
         closeLoading(el);
       }
     },
-    unbind(el) {
+    unbind (el) {
       closeLoading(el);
-    },
+    }
   });
 };
 

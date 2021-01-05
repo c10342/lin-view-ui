@@ -23,37 +23,37 @@ export default {
   props: {
     len: {
       type: Number,
-      default: -1,
+      default: -1
     },
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     showText: {
-      type: String,
+      type: String
     },
     hiddenText: {
-      type: String,
+      type: String
     },
-    allowFold: Boolean,
+    allowFold: Boolean
   },
-  data() {
+  data () {
     return {
-      textLen: this.len,
+      textLen: this.len
     };
   },
   methods: {
-    showMore() {
+    showMore () {
       this.textLen = this.textLen === this.text.length ? this.len : this.text.length;
-    },
+    }
   },
   filters: {
-    filterText(value, textLen) {
+    filterText (value, textLen) {
       if (textLen !== -1 && textLen < value.length) {
         return `${value.substring(0, textLen)}...`;
       }
       return value;
-    },
-  },
+    }
+  }
 };
 </script>

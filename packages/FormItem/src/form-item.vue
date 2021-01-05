@@ -28,19 +28,19 @@ export default {
   props: {
     label: String,
     prop: String,
-    labelWidth: String,
+    labelWidth: String
   },
   inject: ['Form'],
-  data() {
+  data () {
     return {
-      errorMsg: '',
+      errorMsg: ''
     };
   },
-  mounted() {
+  mounted () {
     this.$on('validate', this.validate);
   },
   methods: {
-    validate() {
+    validate () {
       if (!this.prop) {
         return;
       }
@@ -54,7 +54,7 @@ export default {
           this.errorMsg = '';
           this.Form.$emit('validate', {
             result: true,
-            [this.prop]: value,
+            [this.prop]: value
           });
           return true;
         })
@@ -63,17 +63,17 @@ export default {
           this.Form.$emit('validate', {
             result: false,
             [this.prop]: value,
-            ...fields,
+            ...fields
           });
           return false;
         });
     },
-    clearValidate() {
+    clearValidate () {
       this.errorMsg = '';
-    },
+    }
   },
   computed: {
-    itemLabelWidth() {
+    itemLabelWidth () {
       if (this.label) {
         if (this.labelWidth) {
           return this.labelWidth;
@@ -81,7 +81,7 @@ export default {
         return this.Form.labelWidth;
       }
       return 0;
-    },
-  },
+    }
+  }
 };
 </script>

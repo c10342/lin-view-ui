@@ -2,7 +2,7 @@
  * 向下通知
  * @param {Object} options
  */
-function broadcast(options) {
+function broadcast (options) {
   const { eventName, params, componentName } = options;
 
   // 获取当前组件下的所有的孩子

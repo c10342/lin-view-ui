@@ -19,39 +19,39 @@ export default {
   props: {
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     value: {
-      type: [Object, String, Number],
+      type: [Object, String, Number]
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   inject: {
     group: {
-      default: '',
+      default: ''
     },
     option: {
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
-    itemDisabled() {
+    itemDisabled () {
       if (this.option && this.option.disabled) {
         return true;
       }
       return this.disabled;
     },
-    itemValue() {
+    itemValue () {
       const valueKey = this.group?.valueKey;
       if (valueKey && this.value) {
         return this.value[valueKey];
       }
       return this.value;
     },
-    groupValue() {
+    groupValue () {
       const valueKey = this.group?.valueKey;
       const value = this.group?.value;
       if (valueKey && value) {
@@ -59,26 +59,26 @@ export default {
       }
       return value;
     },
-    itemLabel() {
+    itemLabel () {
       return this.label ? this.label : this.value;
-    },
+    }
   },
   methods: {
-    onItemClick() {
+    onItemClick () {
       if (this.group && !this.itemDisabled) {
         this.group.emitInputEvent(this.value);
       }
-    },
+    }
   },
   watch: {
     groupValue: {
       immediate: true,
-      handler(newVal) {
+      handler (newVal) {
         if (this.itemValue === newVal && this.group) {
           this.group.groupLabel = this.itemLabel;
         }
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>

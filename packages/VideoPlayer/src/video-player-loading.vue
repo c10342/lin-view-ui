@@ -9,16 +9,16 @@ export default {
   name: 'LinVideoPlayerLoading',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
-    isLoading() {
+    isLoading () {
       if (this.videoPlayer) {
         return this.videoPlayer.isLoading;
       }
       return false;
-    },
-  },
+    }
+  }
 };
 </script>

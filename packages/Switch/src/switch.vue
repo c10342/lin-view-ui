@@ -19,38 +19,38 @@ export default {
   props: {
     value: {
       type: Boolean,
-      default: false,
+      default: false
     },
     activeColor: {
       type: String,
-      default: '',
+      default: ''
     },
     inactiveColor: {
       type: String,
-      default: '',
+      default: ''
     },
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
-    handleClick() {
+    handleClick () {
       if (!this.disabled) {
         this.$emit('input', !this.value);
         dispatch.call(this, {
           eventName: 'validate',
-          componentName: 'LinFormItem',
+          componentName: 'LinFormItem'
         });
       }
-    },
+    }
   },
   computed: {
-    color() {
+    color () {
       if (this.value) {
         if (this.activeColor) {
           return this.activeColor;
@@ -61,7 +61,7 @@ export default {
         return this.inactiveColor;
       }
       return '';
-    },
-  },
+    }
+  }
 };
 </script>

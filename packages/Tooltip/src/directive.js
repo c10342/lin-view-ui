@@ -6,7 +6,7 @@ let instance = null;
 
 TooltipDirective.install = (Vue) => {
   Vue.directive('tooltip', {
-    bind(el, binding) {
+    bind (el, binding) {
       el.mouseenter = (e) => {
         if (e.currentTarget !== el) {
           return;
@@ -24,7 +24,7 @@ TooltipDirective.install = (Vue) => {
           top: t,
           left: l,
           right: r,
-          auto,
+          auto
         } = binding.modifiers;
         let placement = 'bottom';
         if (b) {
@@ -98,14 +98,14 @@ TooltipDirective.install = (Vue) => {
       el.addEventListener('mouseleave', el.mouseleave);
     },
     // update(el, binding) {},
-    unbind(el) {
+    unbind (el) {
       if (instance) {
         instance.removeTip();
         instance = null;
       }
       el.removeEventListener('mouseenter', el.mouseenter);
       el.removeEventListener('mouseleave', el.mouseleave);
-    },
+    }
   });
 };
 

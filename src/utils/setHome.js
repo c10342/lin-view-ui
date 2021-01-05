@@ -15,18 +15,18 @@ const setHome = (url) => {
     if (window.netscape) {
       try {
         window.netscape.security.PrivilegeManager.enablePrivilege(
-          'UniversalXPConnect',
+          'UniversalXPConnect'
         );
       } catch (e) {
         throw new SyntaxError(
-          "抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车然后将[signed.applets.codebase_principal_support]设置为'true'",
+          "抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车然后将[signed.applets.codebase_principal_support]设置为'true'"
         );
       }
     } else {
       throw new SyntaxError(
         `抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【${
           url
-        }】设置为首页。`,
+        }】设置为首页。`
       );
     }
   }

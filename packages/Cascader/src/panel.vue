@@ -33,70 +33,70 @@ export default {
   props: {
     options: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     level: {
       type: Number,
-      default: 0,
-    },
+      default: 0
+    }
   },
   inject: ['cascader'],
   computed: {
-    valueKey() {
+    valueKey () {
       if (this.cascader) {
         return this.cascader.valueKey;
       }
       return 'id';
     },
-    label() {
+    label () {
       if (this.cascader) {
         return this.cascader.label;
       }
       return 'label';
     },
-    disabled() {
+    disabled () {
       if (this.cascader) {
         return this.cascader.disabled;
       }
       return 'disabled';
     },
-    leaf() {
+    leaf () {
       if (this.cascader) {
         return this.cascader.leaf;
       }
       return 'leaf';
     },
-    children() {
+    children () {
       if (this.cascader) {
         return this.cascader.children;
       }
       return 'children';
     },
-    valueArr() {
+    valueArr () {
       if (this.cascader) {
         return this.cascader.valueArr;
       }
       return [];
     },
-    lazy() {
+    lazy () {
       if (this.cascader) {
         return this.cascader.lazy;
       }
       return false;
     },
-    lazyLoad() {
+    lazyLoad () {
       if (this.cascader) {
         return this.cascader.lazyLoad;
       }
       return null;
-    },
+    }
   },
-  created() {
+  created () {
     this.$on('displayPuop', (data) => {
       if (data && data[this.level]) {
         const { valueKey } = this;
         const index = this.options.findIndex(
-          (item) => item[valueKey] === data[this.level][valueKey],
+          (item) => item[valueKey] === data[this.level][valueKey]
         );
         if (index > -1) {
           const currentData = this.options[index];
@@ -122,15 +122,15 @@ export default {
       }
     });
   },
-  data() {
+  data () {
     return {
       currentList: [],
       current: {},
-      loading: false,
+      loading: false
     };
   },
   methods: {
-    async onItemClick(data) {
+    async onItemClick (data) {
       if (data[this.disabled]) {
         return;
       }
@@ -144,7 +144,7 @@ export default {
           this.loading = true;
           const result = await this.lazyLoad({ level: this.level + 1, data });
           const index = this.options.findIndex(
-            (item) => item[valueKey] === data[valueKey],
+            (item) => item[valueKey] === data[valueKey]
           );
           // eslint-disable-next-line
           this.options[index][this.children] = result;
@@ -153,7 +153,7 @@ export default {
       }
       this.handleBehaver(data);
     },
-    handleBehaver(data) {
+    handleBehaver (data) {
       this.clearList(this.$children);
       this.currentList = [];
       if (data[this.children] && data[this.children].length !== 0) {
@@ -163,7 +163,7 @@ export default {
       }
       this.cascader?.setValue(data, this.level);
     },
-    clearList(children) {
+    clearList (children) {
       children.forEach((child) => {
         child.currentList = [];
         if (child.$children.length !== 0) {
@@ -171,16 +171,16 @@ export default {
         }
       });
     },
-    showIconRight(data) {
+    showIconRight (data) {
       if (this.lazy && this.lazyLoad) {
         return !data[this.leaf];
       }
       return data[this.children] && data[this.children].length !== 0;
     },
-    showLoading(data) {
+    showLoading (data) {
       const { valueKey } = this;
       return data[valueKey] === this.current[valueKey] && this.loading;
-    },
-  },
+    }
+  }
 };
 </script>
