@@ -1,19 +1,19 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
   // 识别webpack别名
   settings: {
     'import/resolver': {
       webpack: {
-        config: './build/webpack.base.js',
-      },
-    },
+        config: './build/webpack.base.js'
+      }
+    }
   },
   extends: [
     'plugin:vue/essential',
-    'airbnb-base',
+    'standard'
   ],
   parserOptions: {
     ecmaVersion: 12,
@@ -21,10 +21,10 @@ module.exports = {
     // ecmaFeatures: {
     //   jsx: true, // 启动JSX
     // },
-    parser: 'babel-eslint',
+    parser: 'babel-eslint'
   },
   plugins: [
-    'vue',
+    'vue'
   ],
   rules: {
     'import/extensions': ['error', 'always'],
@@ -35,5 +35,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'import/no-named-as-default-member': 'off',
-  },
+    semi: ['error', 'always'],
+    'node/no-callback-literal': 'off'
+  }
 };
