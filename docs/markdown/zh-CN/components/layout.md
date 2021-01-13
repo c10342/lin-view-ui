@@ -57,6 +57,32 @@
     </lin-col>
   </lin-row>
 </template>
+
+<style lang="scss">
+.demo-layout {
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+
+  .mb-10 {
+    margin-bottom: 10px;
+  }
+
+  .mb-30 {
+    margin-bottom: 30px;
+  }
+}
+</style>
 ```
 
 :::

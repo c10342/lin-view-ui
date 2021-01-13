@@ -153,7 +153,7 @@ export default {
         return <span>收起</span>;
       }
     },
-    renderLabel() {
+    renderLabel(h) {
       return <span>标签</span>;
     },
   },

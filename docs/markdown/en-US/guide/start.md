@@ -36,7 +36,7 @@ Full import can introduce all components into the project's entry file
 ```js
 import LinUi from "lin-view-ui"; // Import component library
 
-import "lin-view-ui/lib/index.css"; // Import style library
+import "lin-view-ui/lib/style.css"; // Import style library
 
 Vue.use(LinUi);
 ```

@@ -38,7 +38,7 @@
 ```js
 import LinUi from "lin-view-ui"; // 引入组件库
 
-import "lin-view-ui/lib/index.css"; // 引入样式库
+import "lin-view-ui/lib/style.css"; // 引入样式库
 
 Vue.use(LinUi);
 ```
