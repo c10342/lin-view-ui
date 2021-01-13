@@ -10,8 +10,7 @@
                     "ie": "9"
                 }
             }
-        ],
-        "@babel/preset-react"
+        ]
     ],
     "plugins": [
         [
@@ -24,6 +23,7 @@
                 "useESModules": false
             }
         ],
-        "@babel/plugin-proposal-class-properties"
+        "@babel/plugin-proposal-class-properties",
+        "@vue/babel-plugin-transform-vue-jsx"
     ]
 }
