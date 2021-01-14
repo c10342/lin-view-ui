@@ -32,7 +32,7 @@
   }
 }
 
-@keyframes BallEnterAnimation {
+@keyframes ball-enter-animation {
   0% {
     transform: translateY(-50%) scale(0);
   }
@@ -42,7 +42,7 @@
   }
 }
 
-@keyframes EnterActiveAnimation {
+@keyframes enter-active-animation {
   0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.4);

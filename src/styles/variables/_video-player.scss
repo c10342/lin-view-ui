@@ -69,9 +69,9 @@ $video-player-process-ball-width: 11px !default;
 $video-player-process-ball-height: 11px !default;
 $video-player-process-ball-background-color: rgb(183, 218, 255) !default;
 $video-player-process-ball-border-radius: 50% !default;
-$video-player-process-ball-enter-active-animation: ballenteranimation 0.3s
+$video-player-process-ball-enter-active-animation: ball-enter-animation 0.3s
   ease-out !default;
-$video-player-process-ball-leave-active-animation: ballenteranimation 0.3s
+$video-player-process-ball-leave-active-animation: ball-enter-animation 0.3s
   reverse ease-out !default;
 
 $video-player-loading-color: hsla(0, 0%, 100%, 0.7) !default;
@@ -118,7 +118,7 @@ $video-player-animation-height: 60px !default;
 $video-player-animation-border-radius: 50% !default;
 $video-player-animation-font-size: 40px !default;
 $video-player-animation-color: #fff !default;
-$video-player-animation-enter-active-animation: enteractiveanimation 0.3s
+$video-player-animation-enter-active-animation: enter-active-animation 0.3s
   ease-out !default;
 
 $video-player-definition-margin-right: 10px !default;
