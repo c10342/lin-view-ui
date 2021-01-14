@@ -103,20 +103,117 @@
       }
     }
   }
+  .demo-scroll-view {
+    .scroll-view-item {
+      line-height: 60px;
+      margin-bottom: 10px;
+      background-color: #e8f3fe;
+    }
+
+    .scroll-view-tip {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .demo-scroll-bar {
+    .scroll-bar {
+      height: 200px;
+      width: 300px;
+      border: 1px solid #cccccc;
+    }
+    .scroll-item {
+      height: 100px;
+      line-height: 100px;
+    }
+  }
+  .demo-image {
+    .demo-block {
+      > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+    .demo-image {
+      width: 200px;
+      height: 200px;
+    }
+    .error-cover {
+      height: 100%;
+      width: 100%;
+      background-color: #e8f3fe;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+    }
+
+    .demo-title {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+  .demo-progress {
+    .lin-progress {
+      margin-bottom: 10px;
+    }
+    .demo-in-tip {
+      color: #fff;
+      font-size: 12px;
+    }
+    .demo-out-tip {
+      color: #333;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+  }
+  .demo-tag {
+    .lin-tag {
+      margin-right: 10px;
+    }
+    .tag-row {
+      margin-bottom: 10px;
+    }
+  }
+  .demo-alert {
+    .lin-alert {
+      margin-bottom: 10px;
+    }
+  }
+  .demo-table{
+    .lin-table{
+      margin-bottom: 0;
+    }
+    .lin-table .warning-row {
+      background-color: oldlace;
+    }
+    
+    .lin-table .success-row {
+      background-color: #f0f9eb;
+    }
+    .button-group{
+      margin-top:20px;
+      .lin-button{
+          margin-right:20px;
+      }
+  }
+  }
 }
 
-.component-upload{
-  .demo-upload{
-    &:nth-of-type(4){
-      .demo-block{
+.component-upload {
+  .demo-upload {
+    &:nth-of-type(4) {
+      .demo-block {
         display: none;
       }
-      .demo-container{
+      .demo-container {
         padding: 0;
-        .description-wrapper{
+        .description-wrapper {
           padding: 0;
           border: none;
-          >pre{
+          > pre {
             margin: 0;
           }
         }
