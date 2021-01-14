@@ -36,7 +36,7 @@ export default {
       myPageIndex: 1
     };
   },
-  render () {
+  render (h) {
     const { background, layoutList } = this;
     return (
       <div
@@ -44,7 +44,7 @@ export default {
       >
         {layoutList.map((fnstr) => {
           const fn = this[`render${fnstr}`];
-          return fn ? fn() : null;
+          return fn ? fn(h) : null;
         })}
       </div>
     );
@@ -111,7 +111,7 @@ export default {
       this.currentPage = index * 1;
       e.target.value = index;
     },
-    rendertotal () {
+    rendertotal (h) {
       const { total, t } = this;
       return (
         <span class="lin-pagination-total">
@@ -121,7 +121,7 @@ export default {
         </span>
       );
     },
-    renderprev () {
+    renderprev (h) {
       const { disabledPrev, prevClick } = this;
       return (
         <span
@@ -134,7 +134,7 @@ export default {
         ></span>
       );
     },
-    renderpager () {
+    renderpager (h) {
       const { pageList, currentPage, onItemClick } = this;
       return (
         <ul class="lin-pagination-pager">
@@ -167,7 +167,7 @@ export default {
         </ul>
       );
     },
-    rendernext () {
+    rendernext (h) {
       const { disabledNext, nextClick } = this;
       return (
         <span
@@ -180,7 +180,7 @@ export default {
         ></span>
       );
     },
-    renderjumper () {
+    renderjumper (h) {
       const {
         totalPage,
         gotoPageByEnter,
