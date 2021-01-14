@@ -1,5 +1,7 @@
 # InputNumber 计数器
 
+[[toc]]
+
 ---
 
 ## 基础用法

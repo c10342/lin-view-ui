@@ -1,5 +1,7 @@
 # MetaInfo 三要素
 
+[[toc]]
+
 ---
 
 `meta-info` 是一个基于[vue 2.0](https://vuejs.org)的插件，它会让你更好的管理你的 app 里面的 meta 信息。你可以直接

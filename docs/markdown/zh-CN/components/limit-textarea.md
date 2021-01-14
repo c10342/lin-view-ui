@@ -1,5 +1,7 @@
 # LimitTextarea 限制输入域
 
+[[toc]]
+
 ---
 
 ## 基础用法

@@ -1,5 +1,7 @@
 # ScrollBar 滚动条
 
+[[toc]]
+
 ---
 
 `ScrollBar` 组件为 `ScrollView` 组件的优化版，目的是为了优化滚动条的样式，使滚动条在各个浏览器中表现出一致性。
