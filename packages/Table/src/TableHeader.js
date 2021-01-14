@@ -35,7 +35,7 @@ export default {
     }
   },
   methods: {
-    renderTh (column) {
+    renderTh (h, column) {
       let th = null;
       switch (column.type) {
         case 'selection':
@@ -102,7 +102,7 @@ export default {
       }
     }
   },
-  render () {
+  render (h) {
     const { renderTh } = this;
     const { columns = [] } = this.table;
     return (
@@ -113,7 +113,7 @@ export default {
                 class={['lin-table-th', `lin-table-align-${column.align}`]}
                 key={index}
               >
-                {renderTh(column)}
+                {renderTh(h, column)}
               </th>
           ))}
         </tr>
