@@ -3,3 +3,14 @@
 @import "./md.scss";
 
 @import "./component.scss";
+
+.container {
+  @media (max-width: 1000px) {
+    .table-of-contents {
+      display: none !important;
+    }
+    .lin-view-ui-doc {
+      padding-right: 48px !important;
+    }
+  }
+}
