@@ -4,10 +4,9 @@ import 'src/fonts/iconfont.css';
 
 export default {
   name: 'LinTabGroup',
-  render () {
+  render (h) {
     const {
       type,
-      // eslint-disable-next-line
       lineWidth,
       translateX,
       $slots,
@@ -15,10 +14,11 @@ export default {
       onNextClick,
       onPrevClick,
       containerTranslateX,
-      // eslint-disable-next-line
       containerWidth,
       renderTabLabel
     } = this;
+    const containerwidth = containerWidth;
+    const linewidth = lineWidth;
     return (
       <div
         class={[
@@ -37,19 +37,17 @@ export default {
           <div
             style={{
               transform: `translateX(${containerTranslateX}px)`,
-              // eslint-disable-next-line
               width: containerwidth
             }}
             class="lin-tab-group-item-wrapper"
             ref="tabheaderWrapper"
           >
-            {renderTabLabel()}
+            {renderTabLabel(h)}
 
             {type !== 'default' || (
               <div
                 class="lin-tab-group-active-line"
                 style={{
-                  // eslint-disable-next-line
                   width: linewidth,
                   transform: `translateX(${translateX})`
                 }}
@@ -112,7 +110,7 @@ export default {
     window.addEventListener('resize', this.onResize);
   },
   methods: {
-    renderTabLabel () {
+    renderTabLabel (h) {
       const { tabChildren, currentValue, onTabClick } = this;
       return (
         <div class="lin-tab-group-item-container" ref="tabheaderContainer">
