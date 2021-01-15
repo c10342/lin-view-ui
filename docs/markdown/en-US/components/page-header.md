@@ -1,38 +1,26 @@
-<script>
-export default {
-    methods:{
-       back(){
-           alert('back')
-       } ,
-       more(){
-           alert('more')
-       }
-    }
-}
-</script>
-
 # PageHeader
+
+[[toc]]
 
 ---
 
 ## Basic usage
 
-<div class='demo-block'>
-<lin-page-header title="Details page" @back="back"></lin-page-header>
-</div>
-
 :::demo
 
-```html
-<lin-page-header title="Details page" @back="back"></lin-page-header>
+```vue
+<template>
+  <lin-page-header title="Details page" @back="back"></lin-page-header>
+</template>
+
 <script>
-  export default {
-    methods: {
-      back() {
-        alert("back");
-      },
+export default {
+  methods: {
+    back() {
+      alert("back");
     },
-  };
+  },
+};
 </script>
 ```
 
@@ -42,27 +30,26 @@ export default {
 
 Set the `right` property to display the button on the right
 
-<div class='demo-block'>
-<lin-page-header title="List page" :back='false' right @more='more'></lin-page-header>
-</div>
-
 :::demo
 
-```html
-<lin-page-header
-  title="List page"
-  :back="false"
-  right
-  @more="more"
-></lin-page-header>
+```vue
+<template>
+  <lin-page-header
+    title="List page"
+    :back="false"
+    right
+    @more="more"
+  ></lin-page-header>
+</template>
+
 <script>
-  export default {
-    methods: {
-      more() {
-        alert("more");
-      },
+export default {
+  methods: {
+    more() {
+      alert("more");
     },
-  };
+  },
+};
 </script>
 ```
 
@@ -72,14 +59,12 @@ Set the `right` property to display the button on the right
 
 Set the `border` property to display the bottom border
 
-<div class='demo-block'>
-<lin-page-header title="Details page" border></lin-page-header>
-</div>
-
 :::demo
 
-```html
-<lin-page-header title="Details page" border></lin-page-header>
+```vue
+<template>
+  <lin-page-header title="Details page" border></lin-page-header>
+</template>
 ```
 
 :::
@@ -88,20 +73,18 @@ Set the `border` property to display the bottom border
 
 Set the `active` property to display the activation status
 
-<div class='demo-block'>
-<lin-page-header title="List page" :back='false' right active border></lin-page-header>
-</div>
-
 :::demo
 
-```html
-<lin-page-header
-  title="List page"
-  :back="false"
-  right
-  active
-  border
-></lin-page-header>
+```vue
+<template>
+  <lin-page-header
+    title="List page"
+    :back="false"
+    right
+    active
+    border
+  ></lin-page-header>
+</template>
 ```
 
 :::

@@ -1,21 +1,6 @@
-<style lang="scss" scoped>
-.one-line {
-  overflow: hidden; /*超出部分隐藏*/
-  text-overflow: ellipsis; /* 超出部分显示省略号 */
-  white-space: nowrap; /*规定段落中的文本不进行换行 */
-  width: 500px; /*需要配合宽度来使用*/
-  border: 1px solid red;
-}
-
-.tooltip-message {
-  box-sizing: border-box;
-  padding: 10px;
-  font-size: 18px;
-  cursor: pointer;
-}
-</style>
-
 # Tooltip
+
+[[toc]]
 
 ---
 
@@ -25,20 +10,15 @@ The tooltip component provides a `v-tooltip` instruction. Its effect is similar 
 
 Here, we provide four display methods in different directions. The binding value of `v-tooltip` is the prompt text, and the default display direction is below
 
-<div class='demo-block'>
-<lin-button class='mr-20' v-tooltip.top="'Above'">Above</lin-button>
-<lin-button class='mr-20' v-tooltip.bottom="'Below'">Below</lin-button>
-<lin-button class='mr-20' v-tooltip.left="'Left'">Left</lin-button>
-<lin-button  v-tooltip.right="'Right'">Right</lin-button>
-</div>
-
 :::demo
 
-```html
-<lin-button class="mr-20" v-tooltip.top="'Above'">Above</lin-button>
-<lin-button class="mr-20" v-tooltip.bottom="'Below'">Below</lin-button>
-<lin-button class="mr-20" v-tooltip.left="'Left'">Left</lin-button>
-<lin-button v-tooltip.right="'Right'">Right</lin-button>
+```vue
+<template>
+  <lin-button class="mr-20" v-tooltip.top="'Above'">Above</lin-button>
+  <lin-button class="mr-20" v-tooltip.bottom="'Below'">Below</lin-button>
+  <lin-button class="mr-20" v-tooltip.left="'Left'">Left</lin-button>
+  <lin-button v-tooltip.right="'Right'">Right</lin-button>
+</template>
 ```
 
 :::
@@ -47,43 +27,38 @@ Here, we provide four display methods in different directions. The binding value
 
 Add the `lin-tooltip-top` and `lin-tooltip-left` attributes to the element bound with the `v-tooltip` instruction to set the toolip offset
 
-<div class='demo-block'>
-<lin-button lin-tooltip-top='-10' lin-tooltip-left='10' class='mr-20' v-tooltip.top="'Above'">Above</lin-button>
-<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.bottom="'Below'">Below</lin-button>
-<lin-button lin-tooltip-top='10' lin-tooltip-left='10' class='mr-20' v-tooltip.left="'Left'">Left</lin-button>
-<lin-button lin-tooltip-top='10' lin-tooltip-left='-10'  v-tooltip.right="'Right'">Right</lin-button>
-</div>
-
 :::demo
 
-```html
-<lin-button
-  lin-tooltip-top="-10"
-  lin-tooltip-left="10"
-  class="mr-20"
-  v-tooltip.top="'Above'"
-  >Above</lin-button
->
-<lin-button
-  lin-tooltip-top="10"
-  lin-tooltip-left="10"
-  class="mr-20"
-  v-tooltip.bottom="'Below'"
-  >Below</lin-button
->
-<lin-button
-  lin-tooltip-top="10"
-  lin-tooltip-left="10"
-  class="mr-20"
-  v-tooltip.left="'Left'"
-  >Left</lin-button
->
-<lin-button
-  lin-tooltip-top="10"
-  lin-tooltip-left="-10"
-  v-tooltip.right="'Right'"
-  >Right</lin-button
->
+```vue
+<template>
+  <lin-button
+    lin-tooltip-top="-10"
+    lin-tooltip-left="10"
+    class="mr-20"
+    v-tooltip.top="'Above'"
+    >Above</lin-button
+  >
+  <lin-button
+    lin-tooltip-top="10"
+    lin-tooltip-left="10"
+    class="mr-20"
+    v-tooltip.bottom="'Below'"
+    >Below</lin-button
+  >
+  <lin-button
+    lin-tooltip-top="10"
+    lin-tooltip-left="10"
+    class="mr-20"
+    v-tooltip.left="'Left'"
+    >Left</lin-button
+  >
+  <lin-button
+    lin-tooltip-top="10"
+    lin-tooltip-left="-10"
+    v-tooltip.right="'Right'"
+    >Right</lin-button
+  >
+</template>
 ```
 
 :::
@@ -92,45 +67,40 @@ Add the `lin-tooltip-top` and `lin-tooltip-left` attributes to the element bound
 
 Add the `auto` modifier to the `v-tooltip` instruction. When the text exceeds the width of the container, the mouse hovers up to display the toolbar prompt text. When the text does not exceed the width of the container, the mouse will not display the toolbar prompt text
 
-<div class='demo-block'>
-<p class="one-line tooltip-message"
- v-tooltip.top.auto="'When the text exceeds the width of the container, the mouse hovers up to display the toolbar prompt text. When the text does not exceed the width of the container, the mouse will not display the toolbar prompt text'"
- >
-When the text exceeds the width of the container, the mouse hovers up to display the toolbar prompt text. When the text does not exceed the width of the container, the mouse will not display the toolbar prompt text
-</p>
-<p class="one-line tooltip-message" v-tooltip.top.auto="'Title Text'">Title Text</p>
-</div>
-
 :::demo
 
-```html
-<p
-  class="one-line tooltip-message"
-  v-tooltip.top.auto="'When the text exceeds the width of the container, the mouse hovers up to display the toolbar prompt text. When the text does not exceed the width of the container, the mouse will not display the toolbar prompt text'"
->
-  When the text exceeds the width of the container, the mouse hovers up to
-  display the toolbar prompt text. When the text does not exceed the width of
-  the container, the mouse will not display the toolbar prompt text
-</p>
-<p class="one-line tooltip-message" v-tooltip.top.auto="'Title Text'">
-  Title Text
-</p>
+```vue
+<template>
+  <p
+    class="one-line tooltip-message"
+    v-tooltip.top.auto="
+      'When the text exceeds the width of the container, the mouse hovers up to display the toolbar prompt text. When the text does not exceed the width of the container, the mouse will not display the toolbar prompt text'
+    "
+  >
+    When the text exceeds the width of the container, the mouse hovers up to
+    display the toolbar prompt text. When the text does not exceed the width of
+    the container, the mouse will not display the toolbar prompt text
+  </p>
+  <p class="one-line tooltip-message" v-tooltip.top.auto="'Title Text'">
+    Title Text
+  </p>
+</template>
 
 <style lang="scss" scoped>
-  .one-line {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 500px;
-    border: 1px solid red;
-  }
+.one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 500px;
+  border: 1px solid red;
+}
 
-  .tooltip-message {
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: 18px;
-    cursor: pointer;
-  }
+.tooltip-message {
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
 </style>
 ```
 

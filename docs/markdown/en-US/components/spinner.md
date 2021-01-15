@@ -1,25 +1,6 @@
-<style lang="scss" scoped>
-.spinner-group{
-    >div{
-        margin-right: 40px;
-    }
-}
-.spinner-block{
-    display:flex;
-    flex-direction:row;
-    >div{
-        margin-right: 40px;
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-        >p{
-            margin-bottom:10px;
-        }
-    }
-}
-</style>
-
 # Spinner
+
+[[toc]]
 
 ---
 
@@ -27,24 +8,18 @@
 
 Use the `type` attribute to define the theme
 
-<div class='demo-block'>
-<div class="spinner-group">
+:::demo
+
+```vue
+<template>
+  <div class="spinner-group">
     <lin-spinner type="primary"></lin-spinner>
     <lin-spinner type="success"></lin-spinner>
     <lin-spinner type="info"></lin-spinner>
     <lin-spinner type="warning"></lin-spinner>
     <lin-spinner type="danger"></lin-spinner>
-</div>
-</div>
-
-:::demo
-
-```html
-<lin-spinner type="primary"></lin-spinner>
-<lin-spinner type="success"></lin-spinner>
-<lin-spinner type="info"></lin-spinner>
-<lin-spinner type="warning"></lin-spinner>
-<lin-spinner type="danger"></lin-spinner>
+  </div>
+</template>
 ```
 
 :::
@@ -53,20 +28,16 @@ Use the `type` attribute to define the theme
 
 Different radians can be set for the `proportion` attribute. `1` stands for three quarters of a radian, `2` represents two quarters of a radian, `3` represents a quarter of a radian
 
-<div class='demo-block'>
-<div class="spinner-group">
-      <lin-spinner proportion='1'></lin-spinner>
-      <lin-spinner proportion='2'></lin-spinner>
-      <lin-spinner proportion='3'></lin-spinner>
-    </div>
-</div>
-
 :::demo
 
-```html
-<lin-spinner proportion="1"></lin-spinner>
-<lin-spinner proportion="2"></lin-spinner>
-<lin-spinner proportion="3"></lin-spinner>
+```vue
+<template>
+  <div class="spinner-group">
+    <lin-spinner proportion="1"></lin-spinner>
+    <lin-spinner proportion="2"></lin-spinner>
+    <lin-spinner proportion="3"></lin-spinner>
+  </div>
+</template>
 ```
 
 :::
@@ -75,32 +46,21 @@ Different radians can be set for the `proportion` attribute. `1` stands for thre
 
 The `text` property sets the loading copy, and the `vertical` property sets the alignment direction
 
-<div class='demo-block'>
-<div class='spinner-block'>
+:::demo
+
+```vue
+<template>
+  <div class="spinner-block">
     <div>
       <p>Horizontal alignment</p>
-      <lin-spinner text='loading' vertical='row'></lin-spinner>
+      <lin-spinner text="loading" vertical="row"></lin-spinner>
     </div>
     <div>
       <p>Vertical alignment</p>
-      <lin-spinner text='loading' vertical='col'></lin-spinner>
+      <lin-spinner text="loading" vertical="col"></lin-spinner>
     </div>
-</div>
-</div>
-
-:::demo
-
-```html
-<div class="spinner-block">
-  <div>
-    <p>horizontal alignment</p>
-    <lin-spinner text="loading" vertical="row"></lin-spinner>
   </div>
-  <div>
-    <p>Vertical alignment</p>
-    <lin-spinner text="loading" vertical="col"></lin-spinner>
-  </div>
-</div>
+</template>
 ```
 
 :::
@@ -109,56 +69,33 @@ The `text` property sets the loading copy, and the `vertical` property sets the 
 
 You can set the style of Spinner through the properties of `loadingColor`,`size`,`strokeWidth`,`lineStyle`
 
-<div class='demo-block'>
-<div class='spinner-block'>
-<div>
-<p>loadingColor</p>
-<lin-spinner loadingColor='red'></lin-spinner>
-</div>
-<div>
-<p>size</p>
-<lin-spinner size='30px'></lin-spinner>
-</div>
-<div>
-<p>strokeWidth</p>
-<lin-spinner strokeWidth='2px'></lin-spinner>
-</div>
-<div>
-<p>lineStyle</p>
-<lin-spinner lineStyle='dotted'></lin-spinner>
-</div>
-<div>
-<p>animationDuration</p>
-<lin-spinner animationDuration='300ms'></lin-spinner>
-</div>
-</div>
-</div>
-
 :::demo
 
-```html
-<div class="spinner-block">
-  <div>
-    <p>loadingColor</p>
-    <lin-spinner loadingColor="red"></lin-spinner>
+```vue
+<template>
+  <div class="spinner-block">
+    <div>
+      <p>loadingColor</p>
+      <lin-spinner loadingColor="red"></lin-spinner>
+    </div>
+    <div>
+      <p>size</p>
+      <lin-spinner size="30px"></lin-spinner>
+    </div>
+    <div>
+      <p>strokeWidth</p>
+      <lin-spinner strokeWidth="2px"></lin-spinner>
+    </div>
+    <div>
+      <p>lineStyle</p>
+      <lin-spinner lineStyle="dotted"></lin-spinner>
+    </div>
+    <div>
+      <p>animationDuration</p>
+      <lin-spinner animationDuration="300ms"></lin-spinner>
+    </div>
   </div>
-  <div>
-    <p>size</p>
-    <lin-spinner size="30px"></lin-spinner>
-  </div>
-  <div>
-    <p>strokeWidth</p>
-    <lin-spinner strokeWidth="2px"></lin-spinner>
-  </div>
-  <div>
-    <p>lineStyle</p>
-    <lin-spinner lineStyle="dotted"></lin-spinner>
-  </div>
-  <div>
-    <p>animationDuration</p>
-    <lin-spinner animationDuration="300ms"></lin-spinner>
-  </div>
-</div>
+</template>
 ```
 
 :::

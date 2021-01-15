@@ -1,3 +1,25 @@
+# Tab
+
+[[toc]]
+
+---
+
+## Basic usage
+
+Basic, concise tabs. The `Tab` component provides the tab function. The first tab is selected by default. You can also specify the currently selected tab through the value attribute.
+
+:::demo
+
+```vue
+<template>
+  <lin-tab-group v-model="activeName" @tab-click="handleClick">
+    <lin-tab-item label="User" name="first">User</lin-tab-item>
+    <lin-tab-item label="Config" name="second">Config</lin-tab-item>
+    <lin-tab-item label="Role" name="third">Role</lin-tab-item>
+    <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
+  </lin-tab-group>
+</template>
+
 <script>
 export default {
   data() {
@@ -7,61 +29,10 @@ export default {
   },
   methods: {
     handleClick(data) {
-        console.log(data);
+      console.log(data);
     },
   },
 };
-</script>
-
-# Tab
-
----
-
-## Basic usage
-
-Basic, concise tabs. The `Tab` component provides the tab function. The first tab is selected by default. You can also specify the currently selected tab through the value attribute.
-
-<div class='demo-block'>
-<lin-tab-group v-model="activeName" @tab-click="handleClick">
-        <lin-tab-item  label="User" name="first">User</lin-tab-item>
-        <lin-tab-item label="Config" name="second">Config</lin-tab-item>
-        <lin-tab-item label="Role" name="third">Role</lin-tab-item>
-        <lin-tab-item label="Task" name="fourth"
-          >Task</lin-tab-item
-        >
-      </lin-tab-group>
-</div>
-
-:::demo
-
-```html
-<lin-tab-group v-model="activeName" @tab-click="handleClick">
-  <lin-tab-item label="User" name="first">
-    User
-  </lin-tab-item>
-  <lin-tab-item label="Config" name="second">
-    Config
-  </lin-tab-item>
-  <lin-tab-item label="Role" name="third">
-    Role
-  </lin-tab-item>
-  <lin-tab-item label="Task" name="fourth">
-    Task
-  </lin-tab-item>
-</lin-tab-group>
-<script>
-  export default {
-    data() {
-      return {
-        activeName: "second",
-      };
-    },
-    methods: {
-      handleClick(data) {
-        console.log(data);
-      },
-    },
-  };
 </script>
 ```
 
@@ -71,24 +42,17 @@ Basic, concise tabs. The `Tab` component provides the tab function. The first ta
 
 Tabs styled as cards.Set `type` to `card` can get a card-styled tab.
 
-<div class='demo-block'>
-<lin-tab-group type="card">
-        <lin-tab-item label="User" name="first">User</lin-tab-item>
-        <lin-tab-item label="Config" name="second">Config</lin-tab-item>
-        <lin-tab-item label="Role" name="third">Role</lin-tab-item>
-        <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
-      </lin-tab-group>
-</div>
-
 :::demo
 
-```html
-<lin-tab-group type="card">
-  <lin-tab-item label="User" name="first">User</lin-tab-item>
-  <lin-tab-item label="Config" name="second">Config</lin-tab-item>
-  <lin-tab-item label="Role" name="third">Role</lin-tab-item>
-  <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
-</lin-tab-group>
+```vue
+<template>
+  <lin-tab-group type="card">
+    <lin-tab-item label="User" name="first">User</lin-tab-item>
+    <lin-tab-item label="Config" name="second">Config</lin-tab-item>
+    <lin-tab-item label="Role" name="third">Role</lin-tab-item>
+    <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
+  </lin-tab-group>
+</template>
 ```
 
 :::
@@ -97,24 +61,17 @@ Tabs styled as cards.Set `type` to `card` can get a card-styled tab.
 
 Border card tabs.Set `type` to `border-card`.
 
-<div class='demo-block'>
-<lin-tab-group type="border-card">
-        <lin-tab-item label="User" name="first">User</lin-tab-item>
-        <lin-tab-item label="Config" name="second">Config</lin-tab-item>
-        <lin-tab-item label="Role" name="third">Role</lin-tab-item>
-        <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
-      </lin-tab-group>
-</div>
-
 :::demo
 
-```html
-<lin-tab-group type="border-card">
-  <lin-tab-item label="User" name="first">User</lin-tab-item>
-  <lin-tab-item label="Config" name="second">Config</lin-tab-item>
-  <lin-tab-item label="Role" name="third">Role</lin-tab-item>
-  <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
-</lin-tab-group>
+```vue
+<template>
+  <lin-tab-group type="border-card">
+    <lin-tab-item label="User" name="first">User</lin-tab-item>
+    <lin-tab-item label="Config" name="second">Config</lin-tab-item>
+    <lin-tab-item label="Role" name="third">Role</lin-tab-item>
+    <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
+  </lin-tab-group>
+</template>
 ```
 
 :::
@@ -123,36 +80,23 @@ Border card tabs.Set `type` to `border-card`.
 
 You can use named slot to customize the tab label content.
 
-<div class='demo-block'>
-<lin-tab-group type="border-card">
-        <lin-tab-item label="Route" name="first">
-        <span slot="label">
-            <i class="lin-icon-date"></i>
-            <span>Route</span>
-          </span>
-        Route
-        </lin-tab-item>
-        <lin-tab-item label="Config" name="second">Config</lin-tab-item>
-        <lin-tab-item label="Role" name="third">Role</lin-tab-item>
-        <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
-      </lin-tab-group>
-</div>
-
 :::demo
 
-```html
-<lin-tab-group type="border-card">
-  <lin-tab-item label="Route" name="first">
-    <span slot="label">
-      <i class="lin-icon-date"></i>
-      <span>Route</span>
-    </span>
-    Route
-  </lin-tab-item>
-  <lin-tab-item label="Config" name="second">Config</lin-tab-item>
-  <lin-tab-item label="Role" name="third">Role</lin-tab-item>
-  <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
-</lin-tab-group>
+```vue
+<template>
+  <lin-tab-group type="border-card">
+    <lin-tab-item label="Route" name="first">
+      <span slot="label">
+        <i class="lin-icon-date"></i>
+        <span>Route</span>
+      </span>
+      Route
+    </lin-tab-item>
+    <lin-tab-item label="Config" name="second">Config</lin-tab-item>
+    <lin-tab-item label="Role" name="third">Role</lin-tab-item>
+    <lin-tab-item label="Task" name="fourth">Task</lin-tab-item>
+  </lin-tab-group>
+</template>
 ```
 
 :::

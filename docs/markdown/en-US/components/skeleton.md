@@ -1,5 +1,7 @@
 # Skeleton
 
+[[toc]]
+
 ---
 
 ## Introduction to skeleton screen
@@ -11,48 +13,29 @@ There are two common implementation schemes of skeleton screen, which are `ssr` 
 
 When the text is not loaded, the default bitmap for the text is displayed.
 
-<div class="demo-block">
-    <lin-row>
-      <lin-col :span="4">
-        <lin-skeleton></lin-skeleton>
-      </lin-col>
-      <lin-col :span="4" class="ml-10">
-        <lin-row>
-          <lin-col :span="12">
-            <lin-skeleton :proportion="0.2"></lin-skeleton>
-          </lin-col>
-          <lin-col :span="24" class="mt-10">
-            <lin-skeleton :proportion="0.1"></lin-skeleton>
-          </lin-col>
-          <lin-col :span="24" class="mt-10">
-            <lin-skeleton :proportion="0.1"></lin-skeleton>
-          </lin-col>
-        </lin-row>
-      </lin-col>
-    </lin-row>
-</div>
-
 ::: demo
 
-```html
-<lin-row>
-  <lin-col :span="4">
-    <lin-skeleton></lin-skeleton>
-  </lin-col>
-  <lin-col :span="4" class="ml-10">
-    <lin-row>
-      <lin-col :span="12">
-        <lin-skeleton :proportion="0.2"></lin-skeleton>
-      </lin-col>
-      <lin-col :span="24" class="mt-10">
-        <lin-skeleton :proportion="0.1"></lin-skeleton>
-      </lin-col>
-      <lin-col :span="24" class="mt-10">
-        <lin-skeleton :proportion="0.1"></lin-skeleton>
-      </lin-col>
-    </lin-row>
-  </lin-col>
-</lin-row>
+```vue
+<template>
+  <lin-row>
+    <lin-col :span="4">
+      <lin-skeleton></lin-skeleton>
+    </lin-col>
+    <lin-col :span="4" class="ml-10">
+      <lin-row>
+        <lin-col :span="12">
+          <lin-skeleton :proportion="0.2"></lin-skeleton>
+        </lin-col>
+        <lin-col :span="24" class="mt-10">
+          <lin-skeleton :proportion="0.1"></lin-skeleton>
+        </lin-col>
+        <lin-col :span="24" class="mt-10">
+          <lin-skeleton :proportion="0.1"></lin-skeleton>
+        </lin-col>
+      </lin-row>
+    </lin-col>
+  </lin-row>
+</template>
 ```
 
 :::

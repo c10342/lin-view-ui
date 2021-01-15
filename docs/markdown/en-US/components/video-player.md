@@ -1,3 +1,47 @@
+# VideoPlayer
+
+[[toc]]
+
+---
+
+`VideoPlayer` component player is based on `hls.js` And `flv.js` A packaged player can support `MP4`,`hls` and `flv` video formats. Inspired by [DPlayer](http://dplayer.js.org/zh/)
+
+## Play mp4
+
+Set `type` to `mp4`, and pass in `el` and `speedList`
+
+:::demo
+
+```vue
+<template>
+  <div id="mp4video" class="video-player-video"></div>
+  <div class="video-player-group">
+    <lin-button @click="initMp4">initMp4</lin-button>
+    <lin-button @click="play">play</lin-button>
+    <lin-button @click="pause">pause</lin-button>
+    <lin-button @click="seek">seek</lin-button>
+    <lin-button @click="toggle">toggle</lin-button>
+    <lin-button @click="notice">notice</lin-button>
+    <lin-button @click="speed">speed</lin-button>
+    <lin-button @click="volume">volume</lin-button>
+    <lin-button @click="fullScreenRequest('web')"
+      >web fullScreenRequest</lin-button
+    >
+    <lin-button @click="fullScreenCancel('web')"
+      >web fullScreenCancel</lin-button
+    >
+    <lin-button @click="fullScreenRequest('browser')"
+      >browser fullScreenRequest</lin-button
+    >
+    <lin-button @click="fullScreenCancel('browser')"
+      >browser fullScreenCancel</lin-button
+    >
+    <lin-button @click="getCurrentTime">getCurrentTime</lin-button>
+    <lin-button @click="getTotalTime">getTotalTime</lin-button>
+    <lin-button @click="destory">destory</lin-button>
+  </div>
+</template>
+
 <script>
 export default {
   data() {
@@ -20,74 +64,11 @@ export default {
   },
   mounted() {
     this.initMp4();
-    this.initHls();
-    this.initFlv();
-    this.initLive();
-    this.initOther()
   },
   methods: {
-    initLive() {
-      this.flvPlayer =new this.$VideoPlayer({
-        el: document.getElementById("livevideo"),
-        type: "flv",
-        speedList: this.speedList,
-        live:true,
-        videoList: [
-          {
-            label: "Standard definition",
-            url:
-              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
-          },
-          {
-            label: "high definition",
-            url:
-              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
-          },
-        ],
-      });
-    },
-    initOther(){
-       this.otherPlayer = new this.$VideoPlayer({
-        el: document.getElementById("othervideo"),
-        videoList: [
-          {
-            label: "Standard definition",
-            url:
-              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
-          },
-          {
-            label: "high definition",
-            url:
-              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
-          },
-        ],
-        customType(video,data){
-          video.src = data.currenVideo.url
-        }
-      });
-    },
-    initHls() {
-      new this.$VideoPlayer({
-        el: "#hlsvideo",
-        type: "hls",
-        speedList: this.speedList,
-        videoList: [
-          {
-            label: "Standard definition",
-            url:
-              "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
-          },
-          {
-            label: "high definition",
-            url:
-              "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
-          },
-        ],
-      });
-    },
     initMp4() {
-      if(this.mp4Player){
-        return
+      if (this.mp4Player) {
+        return;
       }
       this.mp4Player = new this.$VideoPlayer({
         el: document.getElementById("mp4video"),
@@ -103,25 +84,6 @@ export default {
             label: "high definition",
             url:
               "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
-          },
-        ],
-      });
-    },
-    initFlv() {
-      new this.$VideoPlayer({
-        el: document.getElementById("flvvideo"),
-        type: "flv",
-        speedList: this.speedList,
-        videoList: [
-          {
-            label: "Standard definition",
-            url:
-              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
-          },
-          {
-            label: "high definition",
-            url:
-              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
           },
         ],
       });
@@ -147,19 +109,13 @@ export default {
     volume() {
       this.mp4Player?.volume(0.5);
     },
-    switchQuality() {
-      this.mp4Player?.switchQuality(1);
+    getCurrentTime() {
+      alert(this.mp4Player.currentTime);
     },
-    getCurrentTime(){
-      alert(this.mp4Player.currentTime)
+    getTotalTime() {
+      alert(this.mp4Player.totalTime);
     },
-    getTotalTime(){
-      alert(this.mp4Player.totalTime)
-    },
-    other() {
-      console.log(this.mp4Player.currentTime);
-      console.log(this.mp4Player.totalTime);
-    },
+
     fullScreenRequest(type) {
       this.mp4Player.fullScreen.request(type);
       setTimeout(() => {
@@ -174,186 +130,7 @@ export default {
       this.mp4Player = null;
     },
   },
-    beforeDestroy(){
-    this.mp4Player?.destory();
-    this.hlsPlayer?.destory()
-    this.flvPlayer?.destory()
-    this.otherPlayer?.destory()
-
-    this.mp4Player = null
-    this.hlsPlayer = null
-    this.flvPlayer = null
-    this.otherPlayer = null
-  }
 };
-</script>
-
-<style lang="scss" scoped>
-.video-player-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  ::v-deep .lin-button {
-    margin-top: 10px;
-    margin-right: 10px;
-  }
-}
-
-.video-player-video {
-  width: 600px;
-  height: 300px;
-}
-</style>
-
-# VideoPlayer
-
----
-
-`VideoPlayer` component player is based on `hls.js` And `flv.js` A packaged player can support `MP4`,`hls` and `flv` video formats. Inspired by [DPlayer](http://dplayer.js.org/zh/)
-
-## Play mp4
-
-Set `type` to `mp4`, and pass in `el` and `speedList`
-
-<div class='demo-block'>
-<div id="mp4video" class="video-player-video"></div>
-    <div class="video-player-group">
-      <lin-button @click="initMp4">initMp4</lin-button>
-      <lin-button @click="play">play</lin-button>
-      <lin-button @click="pause">pause</lin-button>
-      <lin-button @click="seek">seek</lin-button>
-      <lin-button @click="toggle">toggle</lin-button>
-      <lin-button @click="notice">notice</lin-button>
-      <lin-button @click="speed">speed</lin-button>
-      <lin-button @click="volume">volume</lin-button>
-      <lin-button @click="fullScreenRequest('web')">web fullScreenRequest</lin-button>
-      <lin-button @click="fullScreenCancel('web')">web fullScreenCancel</lin-button>
-      <lin-button @click="fullScreenRequest('browser')">browser fullScreenRequest</lin-button>
-      <lin-button @click="fullScreenCancel('browser')">browser fullScreenCancel</lin-button>
-      <lin-button @click="getCurrentTime">getCurrentTime</lin-button>
-      <lin-button @click="getTotalTime">getTotalTime</lin-button>
-      <lin-button @click="destory">destory</lin-button>
-    </div>
-</div>
-
-:::demo
-
-```html
-<div id="mp4video" class="video-player-video"></div>
-<div class="video-player-group">
-  <lin-button @click="initMp4">initMp4</lin-button>
-  <lin-button @click="play">play</lin-button>
-  <lin-button @click="pause">pause</lin-button>
-  <lin-button @click="seek">seek</lin-button>
-  <lin-button @click="toggle">toggle</lin-button>
-  <lin-button @click="notice">notice</lin-button>
-  <lin-button @click="speed">speed</lin-button>
-  <lin-button @click="volume">volume</lin-button>
-  <lin-button @click="fullScreenRequest('web')"
-    >web fullScreenRequest</lin-button
-  >
-  <lin-button @click="fullScreenCancel('web')">web fullScreenCancel</lin-button>
-  <lin-button @click="fullScreenRequest('browser')"
-    >browser fullScreenRequest</lin-button
-  >
-  <lin-button @click="fullScreenCancel('browser')"
-    >browser fullScreenCancel</lin-button
-  >
-  <lin-button @click="getCurrentTime">getCurrentTime</lin-button>
-  <lin-button @click="getTotalTime">getTotalTime</lin-button>
-  <lin-button @click="destory">destory</lin-button>
-</div>
-
-<script>
-  export default {
-    data() {
-      return {
-        speedList: [
-          {
-            label: "normal",
-            value: 1,
-          },
-          {
-            label: "1.5 times",
-            value: 1.5,
-          },
-          {
-            label: "2 times",
-            value: 2,
-          },
-        ],
-      };
-    },
-    mounted() {
-      this.initMp4();
-    },
-    methods: {
-      initMp4() {
-        if (this.mp4Player) {
-          return;
-        }
-        this.mp4Player = new this.$VideoPlayer({
-          el: document.getElementById("mp4video"),
-          type: "mp4",
-          speedList: this.speedList,
-          videoList: [
-            {
-              label: "Standard definition",
-              url:
-                "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
-            },
-            {
-              label: "high definition",
-              url:
-                "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
-            },
-          ],
-        });
-      },
-      play() {
-        this.mp4Player?.play();
-      },
-      pause() {
-        this.mp4Player?.pause();
-      },
-      seek() {
-        this.mp4Player?.seek(30);
-      },
-      toggle() {
-        this.mp4Player?.toggle();
-      },
-      notice() {
-        this.mp4Player?.notice("hello", 5000);
-      },
-      speed() {
-        this.mp4Player?.speed(2);
-      },
-      volume() {
-        this.mp4Player?.volume(0.5);
-      },
-      getCurrentTime() {
-        alert(this.mp4Player.currentTime);
-      },
-      getTotalTime() {
-        alert(this.mp4Player.totalTime);
-      },
-
-      fullScreenRequest(type) {
-        this.mp4Player.fullScreen.request(type);
-        setTimeout(() => {
-          this.fullScreenCancel(type);
-        }, 3000);
-      },
-      fullScreenCancel(type) {
-        this.mp4Player.fullScreen.cancel(type);
-      },
-      destory() {
-        this.mp4Player?.destory();
-        this.mp4Player = null;
-      },
-    },
-  };
 </script>
 ```
 
@@ -363,60 +140,58 @@ Set `type` to `mp4`, and pass in `el` and `speedList`
 
 Set `type` to `hls`, and pass in `el` and `speedList`
 
-<div class='demo-block'>
-<div id="hlsvideo" class="video-player-video"></div>
-</div>
-
 :::demo
 
-```html
-<div id="hlsvideo" class="video-player-video"></div>
+```vue
+<template>
+  <div id="hlsvideo" class="video-player-video"></div>
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        speedList: [
+export default {
+  data() {
+    return {
+      speedList: [
+        {
+          label: "normal",
+          value: 1,
+        },
+        {
+          label: "1.5 times",
+          value: 1.5,
+        },
+        {
+          label: "2 times",
+          value: 2,
+        },
+      ],
+    };
+  },
+  mounted() {
+    this.initHls();
+  },
+  methods: {
+    initHls() {
+      new this.$VideoPlayer({
+        el: "#hlsvideo",
+        type: "hls",
+        speedList: this.speedList,
+        videoList: [
           {
-            label: "normal",
-            value: 1,
+            label: "Standard definition",
+            url:
+              "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
           },
           {
-            label: "1.5 times",
-            value: 1.5,
-          },
-          {
-            label: "2 times",
-            value: 2,
+            label: "high definition",
+            url:
+              "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
           },
         ],
-      };
+      });
     },
-    mounted() {
-      this.initHls();
-    },
-    methods: {
-      initHls() {
-        new this.$VideoPlayer({
-          el: "#hlsvideo",
-          type: "hls",
-          speedList: this.speedList,
-          videoList: [
-            {
-              label: "Standard definition",
-              url:
-                "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
-            },
-            {
-              label: "high definition",
-              url:
-                "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
-            },
-          ],
-        });
-      },
-    },
-  };
+  },
+};
 </script>
 ```
 
@@ -426,60 +201,58 @@ Set `type` to `hls`, and pass in `el` and `speedList`
 
 Set `type` to `flv`, and pass in `el` and `speedList`
 
-<div class='demo-block'>
-<div id="flvvideo" class="video-player-video"></div>
-</div>
-
 :::demo
 
-```html
-<div id="flvvideo" class="video-player-video"></div>
+```vue
+<template>
+  <div id="flvvideo" class="video-player-video"></div>
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        speedList: [
+export default {
+  data() {
+    return {
+      speedList: [
+        {
+          label: "normal",
+          value: 1,
+        },
+        {
+          label: "1.5 times",
+          value: 1.5,
+        },
+        {
+          label: "2 times",
+          value: 2,
+        },
+      ],
+    };
+  },
+  mounted() {
+    this.initFlv();
+  },
+  methods: {
+    initFlv() {
+      new this.$VideoPlayer({
+        el: document.getElementById("flvvideo"),
+        type: "flv",
+        speedList: this.speedList,
+        videoList: [
           {
-            label: "normal",
-            value: 1,
+            label: "Standard definition",
+            url:
+              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
           },
           {
-            label: "1.5 times",
-            value: 1.5,
-          },
-          {
-            label: "2 times",
-            value: 2,
+            label: "high definition",
+            url:
+              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
           },
         ],
-      };
+      });
     },
-    mounted() {
-      this.initFlv();
-    },
-    methods: {
-      initFlv() {
-        new this.$VideoPlayer({
-          el: document.getElementById("flvvideo"),
-          type: "flv",
-          speedList: this.speedList,
-          videoList: [
-            {
-              label: "Standard definition",
-              url:
-                "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
-            },
-            {
-              label: "high definition",
-              url:
-                "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
-            },
-          ],
-        });
-      },
-    },
-  };
+  },
+};
 </script>
 ```
 
@@ -489,43 +262,41 @@ Set `type` to `flv`, and pass in `el` and `speedList`
 
 Set `live` to `true`
 
-<div class='demo-block'>
-<div id="livevideo" class="video-player-video"></div>
-</div>
-
 :::demo
 
-```html
-<div id="livevideo" class="video-player-video"></div>
+```vue
+<template>
+  <div id="livevideo" class="video-player-video"></div>
+</template>
 
 <script>
-  export default {
-    mounted() {
-      this.initLive();
+export default {
+  mounted() {
+    this.initLive();
+  },
+  methods: {
+    initLive() {
+      this.flvPlayer = new this.$VideoPlayer({
+        el: document.getElementById("livevideo"),
+        type: "flv",
+        speedList: this.speedList,
+        live: true,
+        videoList: [
+          {
+            label: "Standard definition",
+            url:
+              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+          },
+          {
+            label: "high definition",
+            url:
+              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+          },
+        ],
+      });
     },
-    methods: {
-      initLive() {
-        this.flvPlayer = new this.$VideoPlayer({
-          el: document.getElementById("livevideo"),
-          type: "flv",
-          speedList: this.speedList,
-          live: true,
-          videoList: [
-            {
-              label: "Standard definition",
-              url:
-                "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
-            },
-            {
-              label: "high definition",
-              url:
-                "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
-            },
-          ],
-        });
-      },
-    },
-  };
+  },
+};
 </script>
 ```
 
@@ -535,43 +306,41 @@ Set `live` to `true`
 
 The `VideoPlayer` component can be used with any MSE library through the `customType` parameter
 
-<div class='demo-block'>
-<div id="othervideo" class="video-player-video"></div>
-</div>
-
 :::demo
 
-```html
-<div id="othervideo" class="video-player-video"></div>
+```vue
+<template>
+  <div id="othervideo" class="video-player-video"></div>
+</template>
 
 <script>
-  export default {
-    mounted() {
-      this.initOther();
-    },
-    methods: {
-      initOther() {
-        this.mp4Player = new this.$VideoPlayer({
-          el: document.getElementById("othervideo"),
-          videoList: [
-            {
-              label: "Standard definition",
-              url:
-                "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
-            },
-            {
-              label: "high definition",
-              url:
-                "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
-            },
-          ],
-          customType(video, data) {
-            video.src = data.currenVideo.url;
+export default {
+  mounted() {
+    this.initOther();
+  },
+  methods: {
+    initOther() {
+      this.mp4Player = new this.$VideoPlayer({
+        el: document.getElementById("othervideo"),
+        videoList: [
+          {
+            label: "Standard definition",
+            url:
+              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
           },
-        });
-      },
+          {
+            label: "high definition",
+            url:
+              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+          },
+        ],
+        customType(video, data) {
+          video.src = data.currenVideo.url;
+        },
+      });
     },
-  };
+  },
+};
 </script>
 ```
 

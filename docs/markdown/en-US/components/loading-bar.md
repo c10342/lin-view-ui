@@ -1,50 +1,6 @@
-<script>
-  export default {
-    methods: {
-      start () {
-        this.$loadingBar.start()
-      },
-      end () {
-        this.$loadingBar.end()
-      },
-      error () {
-        this.$loadingBar.error()
-      },
-      setSpeed () {
-        this.$loadingBar.config({
-          speed: 10
-        })
-        this.$loadingBar.start()
-      },
-      setSpinner () {
-        this.$loadingBar.config({
-          easing: 'ease'
-        })
-        this.$loadingBar.start()
-      },
-      setPercentNum () {
-        this.$loadingBar.config({
-          percentNum: 0.1
-        })
-        this.$loadingBar.start()
-      },
-      setShowSpinner () {
-        this.$loadingBar.config({
-          showSpinner: false
-        })
-        this.$loadingBar.start()
-      }
-    }
-  }
-</script>
-
-<style lang="scss" scoped>
-.lin-button + .lin-button{
-  margin-left:10px;
-}
-</style>
-
 # LoadingBar
+
+[[toc]]
 
 ---
 
@@ -55,33 +11,29 @@ Because of the reusability, the `LoadingBar` only creates one instance globally,
 
 The global loading progress bar is controlled by calling the three methods provided by \$loadingbar `start()`、`end()`、`error()`
 
-<div class="demo-block">
-   <lin-button @click="start">start</lin-button>
-   <lin-button @click="end">end</lin-button>
-   <lin-button @click="error">error</lin-button>
-</div>
-
 ::: demo
 
-```html
-<lin-button @click="start">start</lin-button>
-<lin-button @click="end">end</lin-button>
-<lin-button @click="error">error</lin-button>
+```vue
+<template>
+  <lin-button @click="start">start</lin-button>
+  <lin-button @click="end">end</lin-button>
+  <lin-button @click="error">error</lin-button>
+</template>
 
 <script>
-  export default {
-    methods: {
-      start() {
-        this.$loadingBar.start();
-      },
-      end() {
-        this.$loadingBar.end();
-      },
-      error() {
-        this.$loadingBar.error();
-      },
+export default {
+  methods: {
+    start() {
+      this.$loadingBar.start();
     },
-  };
+    end() {
+      this.$loadingBar.end();
+    },
+    error() {
+      this.$loadingBar.error();
+    },
+  },
+};
 </script>
 ```
 
@@ -91,50 +43,45 @@ The global loading progress bar is controlled by calling the three methods provi
 
 The global configuration of LoadingBar is provided as follows:
 
-<div class="demo-block">
-   <lin-button @click="setSpeed">Set speed</lin-button>
-   <lin-button @click="setSpinner">Set spinner</lin-button>
-   <lin-button @click="setPercentNum">Set percentNum</lin-button>
-   <lin-button @click="setShowSpinner">Set spinner</lin-button>
-</div>
-
 ::: demo
 
-```html
-<lin-button @click="setSpeed">Set speed</lin-button>
-<lin-button @click="setSpinner">Set spinner</lin-button>
-<lin-button @click="setPercentNum">Set percentNum</lin-button>
-<lin-button @click="setShowSpinner">Set spinner</lin-button>
+```vue
+<template>
+  <lin-button @click="setSpeed">Set speed</lin-button>
+  <lin-button @click="setSpinner">Set spinner</lin-button>
+  <lin-button @click="setPercentNum">Set percentNum</lin-button>
+  <lin-button @click="setShowSpinner">Set spinner</lin-button>
+</template>
 
 <script>
-  export default {
-    methods: {
-      setSpeed() {
-        this.$loadingBar.config({
-          speed: 10,
-        });
-        this.$loadingBar.start();
-      },
-      setSpinner() {
-        this.$loadingBar.config({
-          easing: "ease",
-        });
-        this.$loadingBar.start();
-      },
-      setPercentNum() {
-        this.$loadingBar.config({
-          percentNum: 0.1,
-        });
-        this.$loadingBar.start();
-      },
-      setShowSpinner() {
-        this.$loadingBar.config({
-          showSpinner: false,
-        });
-        this.$loadingBar.start();
-      },
+export default {
+  methods: {
+    setSpeed() {
+      this.$loadingBar.config({
+        speed: 10,
+      });
+      this.$loadingBar.start();
     },
-  };
+    setSpinner() {
+      this.$loadingBar.config({
+        easing: "ease",
+      });
+      this.$loadingBar.start();
+    },
+    setPercentNum() {
+      this.$loadingBar.config({
+        percentNum: 0.1,
+      });
+      this.$loadingBar.start();
+    },
+    setShowSpinner() {
+      this.$loadingBar.config({
+        showSpinner: false,
+      });
+      this.$loadingBar.start();
+    },
+  },
+};
 </script>
 ```
 

@@ -1,17 +1,6 @@
-<script>
-export default {
-  data() {
-    return { 
-      value1: false,
-      value2: false,
-      value3: true,
-      value4: false
-    };
-  }
-};
-</script>
-
 # Switch
+
+[[toc]]
 
 ---
 
@@ -19,23 +8,21 @@ export default {
 
 Bi directional data binding using `v-model`
 
-<div class='demo-block'>
-<lin-switch v-model="value1" />
-</div>
-
 :::demo
 
-```html
-<lin-switch v-model="value1" />
+```vue
+<template>
+  <lin-switch v-model="value1" />
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        value1: false,
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      value1: false,
+    };
+  },
+};
 </script>
 ```
 
@@ -45,23 +32,21 @@ Bi directional data binding using `v-model`
 
 Use the `activeColor` and `inactiveColor` properties to set the background color of the switch
 
-<div class='demo-block'>
-<lin-switch v-model="value2" active-color="green" inactive-color="red" />
-</div>
-
 :::demo
 
-```html
-<lin-switch v-model="value2" active-color="green" inactive-color="red" />
+```vue
+<template>
+  <lin-switch v-model="value2" active-color="green" inactive-color="red" />
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        value2: false,
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      value2: false,
+    };
+  },
+};
 </script>
 ```
 
@@ -71,23 +56,21 @@ Use the `activeColor` and `inactiveColor` properties to set the background color
 
 Adding the disabled attribute `disabled` Switch.
 
-<div class='demo-block'>
-<lin-switch v-model="value3" disabled/>
-</div>
-
 :::demo
 
-```html
-<lin-switch v-model="value3" disabled />
+```vue
+<template>
+  <lin-switch v-model="value3" disabled />
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        value3: false,
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      value3: false,
+    };
+  },
+};
 </script>
 ```
 
@@ -97,23 +80,21 @@ Adding the disabled attribute `disabled` Switch.
 
 Currently, only `name` can be bound to native properties
 
-<div class='demo-block'>
-<lin-switch v-model="value4" name='userName'/>
-</div>
-
 :::demo
 
-```html
-<lin-switch v-model="value4" name="userName" />
+```vue
+<template>
+  <lin-switch v-model="value4" name="userName" />
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        value4: false,
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      value4: false,
+    };
+  },
+};
 </script>
 ```
 

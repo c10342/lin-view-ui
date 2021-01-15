@@ -1,12 +1,35 @@
+# ScrollView
+
+[[toc]]
+
+---
+
+## Basic usage
+
+To use the Scrollview component, you need to set the `height`, `data` and `isEnd` properties, and `height` gives the container a fixed height. `data` the data displayed in the container. When the data changes, the height of the content will be recalculated. `isEnd` all data loaded
+
+:::demo
+
+```vue
+<template>
+  <lin-scroll-view
+    :is-end="isEnd1"
+    :data="list1"
+    :height="200"
+    @scrollToEnd="scrollToEnd1"
+  >
+    <div class="item" v-for="(item, index) in list1" :key="index">
+      {{ item }}
+    </div>
+  </lin-scroll-view>
+</template>
+
 <script>
 export default {
   data() {
     return {
       list1: [1, 2, 3, 4, 5],
       isEnd1: false,
-
-      list2: [1, 2, 3, 4, 5],
-      isEnd2: false
     };
   },
   methods: {
@@ -19,81 +42,8 @@ export default {
         return;
       }
     },
-    scrollToEnd2() {
-      const arr = this.list2.slice();
-      arr.push(...arr);
-      this.list2 = arr;
-      if (this.list2.length > 20) {
-        this.isEnd2 = true;
-        return;
-      }
-    }
-  }
+  },
 };
-</script>
-
-<style lang="scss" scoped>
-.item {
-  line-height: 60px;
-  margin-bottom: 10px;
-  background-color: #e8f3fe;
-}
-
-.tip {
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-</style>
-
-# ScrollView
-
----
-
-## Basic usage
-
-To use the Scrollview component, you need to set the `height`, `data` and `isEnd` properties, and `height` gives the container a fixed height. `data` the data displayed in the container. When the data changes, the height of the content will be recalculated. `isEnd` all data loaded
-
-<div class='demo-block'>
-<lin-scroll-view :is-end="isEnd1" :data="list1" :height="200" @scrollToEnd="scrollToEnd1">
-    <div class="item" v-for="(item,index) in list1" :key="index">{{item}}</div>
-</lin-scroll-view>
-</div>
-
-:::demo
-
-```html
-<lin-scroll-view
-  :is-end="isEnd1"
-  :data="list1"
-  :height="200"
-  @scrollToEnd="scrollToEnd1"
->
-  <div class="item" v-for="(item,index) in list1" :key="index">
-    {{item}}
-  </div>
-</lin-scroll-view>
-
-<script>
-  export default {
-    data() {
-      return {
-        list1: [1, 2, 3, 4, 5],
-        isEnd1: false,
-      };
-    },
-    methods: {
-      scrollToEnd1() {
-        const arr = this.list1.slice();
-        arr.push(...arr);
-        this.list1 = arr;
-        if (this.list1.length > 20) {
-          this.isEnd1 = true;
-          return;
-        }
-      },
-    },
-  };
 </script>
 ```
 
@@ -103,63 +53,48 @@ To use the Scrollview component, you need to set the `height`, `data` and `isEnd
 
 Use the `loading` and `no-more` named slots to customize the contents displayed by pull-up loading and the contents displayed after loading
 
-<div class='demo-block'>
-    <lin-scroll-view :is-end="isEnd2" :data="list2" :height="200" @scrollToEnd="scrollToEnd2">
-      <div 
-        class="item"
-        v-for="(item,index) in list2" 
-        :key="index">
-        {{item}}
-       </div>
-      <template v-slot:loading>
-        <p class="tip">Loading...</p>
-      </template>
-      <template v-slot:no-more>
-        <p class="tip">Loading completed</p>
-      </template>
-    </lin-scroll-view>
-</div>
-
 :::demo
 
-```html
-<lin-scroll-view
-  :is-end="isEnd2"
-  :data="list2"
-  :height="200"
-  @scrollToEnd="scrollToEnd2"
->
-  <div class="item" v-for="(item,index) in list2" :key="index">
-    {{item}}
-  </div>
-  <template v-slot:loading>
-    <p class="tip">Loading...</p>
-  </template>
-  <template v-slot:no-more>
-    <p class="tip">Loading completed</p>
-  </template>
-</lin-scroll-view>
+```vue
+<template>
+  <lin-scroll-view
+    :is-end="isEnd2"
+    :data="list2"
+    :height="200"
+    @scrollToEnd="scrollToEnd2"
+  >
+    <div class="item" v-for="(item, index) in list2" :key="index">
+      {{ item }}
+    </div>
+    <template v-slot:loading>
+      <p class="tip">Loading...</p>
+    </template>
+    <template v-slot:no-more>
+      <p class="tip">Loading completed</p>
+    </template>
+  </lin-scroll-view>
+</template>
 
 <script>
-  export default {
-    data() {
-      return {
-        list2: [1, 2, 3, 4, 5],
-        isEnd2: false,
-      };
+export default {
+  data() {
+    return {
+      list2: [1, 2, 3, 4, 5],
+      isEnd2: false,
+    };
+  },
+  methods: {
+    scrollToEnd2() {
+      const arr = this.list2.slice();
+      arr.push(...arr);
+      this.list2 = arr;
+      if (this.list2.length > 20) {
+        this.isEnd2 = true;
+        return;
+      }
     },
-    methods: {
-      scrollToEnd2() {
-        const arr = this.list2.slice();
-        arr.push(...arr);
-        this.list2 = arr;
-        if (this.list2.length > 20) {
-          this.isEnd2 = true;
-          return;
-        }
-      },
-    },
-  };
+  },
+};
 </script>
 ```
 

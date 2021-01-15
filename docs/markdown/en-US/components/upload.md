@@ -1,14 +1,6 @@
-<script>
-export default {
-  methods: {
-    mergeFileSuccess(e) {
-      alert(e)
-    },
-  },
-};
-</script>
-
 # Upload
+
+[[toc]]
 
 ---
 
@@ -16,31 +8,25 @@ export default {
 
 Use the `uploadUrl` property to specify the upload address
 
-<div class='demo-block'>
-<lin-upload
-      @uploadSuccess="mergeFileSuccess"
-      text="Normal upload"
-      uploadUrl="http://120.79.209.208:3000/uploadFile"
-    ></lin-upload>
-</div>
-
 :::demo
 
-```html
-<lin-upload
-  @uploadSuccess="mergeFileSuccess"
-  text="Normal upload"
-  uploadUrl="http://120.79.209.208:3000/uploadFile"
-/>
+```vue
+<template>
+  <lin-upload
+    @uploadSuccess="mergeFileSuccess"
+    text="Normal upload"
+    uploadUrl="http://120.79.209.208:3000/uploadFile"
+  ></lin-upload>
+</template>
 
 <script>
-  export default {
-    methods: {
-      mergeFileSuccess(e) {
-        alert(e);
-      },
+export default {
+  methods: {
+    mergeFileSuccess(e) {
+      alert(e);
     },
-  };
+  },
+};
 </script>
 ```
 
@@ -50,35 +36,27 @@ Use the `uploadUrl` property to specify the upload address
 
 Set the `isSlice` attribute to `true`, and specify the attribute `mergeUrl` to merge the slice address to upload the file slice
 
-<div class='demo-block'>
-<lin-upload
-      @mergeFileSuccess="mergeFileSuccess"
-      isSlice
-      text="Slice upload"
-      uploadUrl="http://120.79.209.208:3000/uploadFileBySlice"
-      mergeUrl="http://120.79.209.208:3000/mergeBySlice"
-    ></lin-upload>
-</div>
-
 :::demo
 
-```html
-<lin-upload
-  @mergeFileSuccess="mergeFileSuccess"
-  isSlice
-  text="Slice upload"
-  uploadUrl="http://120.79.209.208:3000/uploadFileBySlice"
-  mergeUrl="http://120.79.209.208:3000/mergeBySlice"
-></lin-upload>
+```vue
+<template>
+  <lin-upload
+    @mergeFileSuccess="mergeFileSuccess"
+    isSlice
+    text="Slice upload"
+    uploadUrl="http://120.79.209.208:3000/uploadFileBySlice"
+    mergeUrl="http://120.79.209.208:3000/mergeBySlice"
+  ></lin-upload>
+</template>
 
 <script>
-  export default {
-    methods: {
-      mergeFileSuccess(e) {
-        alert(e);
-      },
+export default {
+  methods: {
+    mergeFileSuccess(e) {
+      alert(e);
     },
-  };
+  },
+};
 </script>
 ```
 
@@ -88,35 +66,27 @@ Set the `isSlice` attribute to `true`, and specify the attribute `mergeUrl` to m
 
 Set the `breakpoint` property to `true`, and specify the attribute `mergeUrl` to merge the slice address to implement file breakpoint slicing
 
-<div class='demo-block'>
-<lin-upload
-      @mergeFileSuccess="mergeFileSuccess"
-      breakpoint
-      text="Breakpoint continuation"
-      uploadUrl="http://120.79.209.208:3000/uploadFileByBreakpoint"
-      mergeUrl="http://120.79.209.208:3000/mergeByBreakpoint"
-    ></lin-upload>
-</div>
-
 :::demo
 
-```html
-<lin-upload
-  @mergeFileSuccess="mergeFileSuccess"
-  breakpoint
-  text="Breakpoint continuation"
-  uploadUrl="http://120.79.209.208:3000/uploadFileByBreakpoint"
-  mergeUrl="http://120.79.209.208:3000/mergeByBreakpoint"
-></lin-upload>
+```vue
+<template>
+  <lin-upload
+    @mergeFileSuccess="mergeFileSuccess"
+    breakpoint
+    text="Breakpoint continuation"
+    uploadUrl="http://120.79.209.208:3000/uploadFileByBreakpoint"
+    mergeUrl="http://120.79.209.208:3000/mergeByBreakpoint"
+  ></lin-upload>
+</template>
 
 <script>
-  export default {
-    methods: {
-      mergeFileSuccess(e) {
-        alert(e);
-      },
+export default {
+  methods: {
+    mergeFileSuccess(e) {
+      alert(e);
     },
-  };
+  },
+};
 </script>
 ```
 

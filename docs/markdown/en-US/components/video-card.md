@@ -1,26 +1,6 @@
-<style lang="scss" scoped>
-.card-bottom {
-  height: 102px;
-  padding: 16px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  > p {
-    font-size: 12px;
-    font-weight: 400;
-    color: #666;
-    margin: 0;
-    &:nth-child(1) {
-      font-size: 14px;
-      font-weight: 400;
-      color: #333;
-    }
-  }
-}
-</style>
-
 # VideoCard
+
+[[toc]]
 
 ---
 
@@ -28,31 +8,20 @@
 
 Use the `imageUrl` attribute to define the cover of the card and customize the content at the bottom of the card.
 
-<div class='demo-block'>
-    <lin-video-card 
-    :imageUrl="require('../../../assets/img/video-card.png')">
-      <template>
-        <div class="card-bottom">
-          <p>one has attained a success and is well-contented</p>
-          <p>This is a card</p>
-          <p>lin-view-ui</p>
-        </div>
-      </template>
-    </lin-video-card>
-</div>
-
 ::: demo
 
-```html
-<lin-video-card :imageUrl="require('../../../assets/img/video-card.png')">
-  <template>
-    <div class="card-bottom">
-      <p>one has attained a success and is well-contented</p>
-      <p>This is a card</p>
-      <p>lin-view-ui</p>
-    </div>
-  </template>
-</lin-video-card>
+```vue
+<template>
+  <lin-video-card :imageUrl="require('../../../assets/img/video-card.png')">
+    <template>
+      <div class="card-bottom">
+        <p>one has attained a success and is well-contented</p>
+        <p>This is a card</p>
+        <p>lin-view-ui</p>
+      </div>
+    </template>
+  </lin-video-card>
+</template>
 ```
 
 :::
@@ -61,38 +30,24 @@ Use the `imageUrl` attribute to define the cover of the card and customize the c
 
 Use the `cardHeight` and `cardWidth` attributes to define the width and height of the card
 
-<div class='demo-block'>
-    <lin-video-card
-      cardHeight="270px"
-      cardWidth="300px"
-      :imageUrl="require('../../../assets/img/video-card.png')"
-    >
-      <template>
-        <div class="card-bottom">
-          <p>one has attained a success and is well-contented</p>
-          <p>This is a card</p>
-          <p>lin-vue-ui</p>
-        </div>
-      </template>
-    </lin-video-card>
-</div>
-
 :::demo
 
-```html
-<lin-video-card
-  cardHeight="270px"
-  cardWidth="300px"
-  :imageUrl="require('../../../assets/img/video-card.png')"
->
-  <template>
-    <div class="card-bottom">
-      <p>one has attained a success and is well-contented</p>
-      <p>This is a card</p>
-      <p>lin-vue-ui</p>
-    </div>
-  </template>
-</lin-video-card>
+```vue
+<template>
+  <lin-video-card
+    cardHeight="270px"
+    cardWidth="300px"
+    :imageUrl="require('../../../assets/img/video-card.png')"
+  >
+    <template>
+      <div class="card-bottom">
+        <p>one has attained a success and is well-contented</p>
+        <p>This is a card</p>
+        <p>lin-vue-ui</p>
+      </div>
+    </template>
+  </lin-video-card>
+</template>
 ```
 
 :::
@@ -101,35 +56,23 @@ Use the `cardHeight` and `cardWidth` attributes to define the width and height o
 
 Use the `imageHeight` attribute to define the height of the image
 
-<div class='demo-block'>
-    <lin-video-card 
-    imageHeight="150px" 
-    :imageUrl="require('../../../assets/img/video-card.png')">
-      <template>
-        <div class="card-bottom">
-          <p>one has attained a success and is well-contented</p>
-          <p>This is a card</p>
-          <p>lin-vue-ui</p>
-        </div>
-      </template>
-    </lin-video-card>
-</div>
-
 :::demo
 
-```html
-<lin-video-card
-  imageHeight="150px"
-  :imageUrl="require('../../../assets/img/video-card.png')"
->
-  <template>
-    <div class="card-bottom">
-      <p>one has attained a success and is well-contented</p>
-      <p>This is a card</p>
-      <p>lin-vue-ui</p>
-    </div>
-  </template>
-</lin-video-card>
+```vue
+<template>
+  <lin-video-card
+    imageHeight="150px"
+    :imageUrl="require('../../../assets/img/video-card.png')"
+  >
+    <template>
+      <div class="card-bottom">
+        <p>one has attained a success and is well-contented</p>
+        <p>This is a card</p>
+        <p>lin-vue-ui</p>
+      </div>
+    </template>
+  </lin-video-card>
+</template>
 ```
 
 :::
@@ -138,31 +81,20 @@ Use the `imageHeight` attribute to define the height of the image
 
 Use the `defaultImageUrl` property to define the default image. When the imageurl value is empty or the imageurl fails to load, the default image will be displayed.
 
-<div class='demo-block'>
-    <lin-video-card 
-    :defaultImageUrl="require('../../../assets/img/logo.png')">
-      <template>
-        <div class="card-bottom">
-          <p>one has attained a success and is well-contented</p>
-          <p>This is a card</p>
-          <p>lin-vue-ui</p>
-        </div>
-      </template>
-    </lin-video-card>
-</div>
-
 :::demo
 
-```html
-<lin-video-card :defaultImageUrl="require('../../../assets/img/logo.png')">
-  <template>
-    <div class="card-bottom">
-      <p>one has attained a success and is well-contented</p>
-      <p>This is a card</p>
-      <p>lin-vue-ui</p>
-    </div>
-  </template>
-</lin-video-card>
+```vue
+<template>
+  <lin-video-card :defaultImageUrl="require('../../../assets/img/logo.png')">
+    <template>
+      <div class="card-bottom">
+        <p>one has attained a success and is well-contented</p>
+        <p>This is a card</p>
+        <p>lin-vue-ui</p>
+      </div>
+    </template>
+  </lin-video-card>
+</template>
 ```
 
 :::
@@ -171,38 +103,24 @@ Use the `defaultImageUrl` property to define the default image. When the imageur
 
 Use the `coverTip` property to define the prompt at the bottom right corner of the cover
 
-<div class='demo-block'>
-    <lin-video-card
-      coverTip="Tips"
-      :imageUrl="require('../../../assets/img/video-card.png')"
-      :defaultImageUrl="require('../../../assets/img/logo.png')"
-    >
-      <template>
-        <div class="card-bottom">
-          <p>one has attained a success and is well-contented</p>
-          <p>This is a card</p>
-          <p>lin-vue-ui</p>
-        </div>
-      </template>
-    </lin-video-card>
-</div>
-
 :::demo
 
-```html
-<lin-video-card
-  coverTip="Tips"
-  :imageUrl="require('../../../assets/img/video-card.png')"
-  :defaultImageUrl="require('../../../assets/img/logo.png')"
->
-  <template>
-    <div class="card-bottom">
-      <p>one has attained a success and is well-contented</p>
-      <p>This is a card</p>
-      <p>lin-vue-ui</p>
-    </div>
-  </template>
-</lin-video-card>
+```vue
+<template>
+  <lin-video-card
+    coverTip="Tips"
+    :imageUrl="require('../../../assets/img/video-card.png')"
+    :defaultImageUrl="require('../../../assets/img/logo.png')"
+  >
+    <template>
+      <div class="card-bottom">
+        <p>one has attained a success and is well-contented</p>
+        <p>This is a card</p>
+        <p>lin-vue-ui</p>
+      </div>
+    </template>
+  </lin-video-card>
+</template>
 ```
 
 :::
@@ -211,30 +129,20 @@ Use the `coverTip` property to define the prompt at the bottom right corner of t
 
 Use the `errorTip` attribute to define the prompt displayed when the image fails to load. When imageurl and defaultimageurl are empty or both fail to load, the prompt will be displayed
 
-<div class='demo-block'>
-    <lin-video-card errorTip="Image loading failed">
-      <template>
-        <div class="card-bottom">
-          <p>one has attained a success and is well-contented</p>
-          <p>This is a card</p>
-          <p>lin-vue-ui</p>
-        </div>
-      </template>
-    </lin-video-card>
-</div>
-
 :::demo
 
-```html
-<lin-video-card errorTip="Image loading failed">
-  <template>
-    <div class="card-bottom">
-      <p>one has attained a success and is well-contented</p>
-      <p>This is a card</p>
-      <p>lin-vue-ui</p>
-    </div>
-  </template>
-</lin-video-card>
+```vue
+<template>
+  <lin-video-card errorTip="Image loading failed">
+    <template>
+      <div class="card-bottom">
+        <p>one has attained a success and is well-contented</p>
+        <p>This is a card</p>
+        <p>lin-vue-ui</p>
+      </div>
+    </template>
+  </lin-video-card>
+</template>
 ```
 
 :::
