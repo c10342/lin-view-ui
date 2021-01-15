@@ -69,12 +69,14 @@ The `disabled` attribute determines if the button is disabled.
 
 ```vue
 <template>
-  <lin-button :disabled="true" type="default">default</lin-button>
-  <lin-button :disabled="true" type="primary">primary</lin-button>
-  <lin-button :disabled="true" type="success">success</lin-button>
-  <lin-button :disabled="true" type="info">info</lin-button>
-  <lin-button :disabled="true" type="warning">warning</lin-button>
-  <lin-button :disabled="true" type="danger">danger</lin-button>
+  <div class="row">
+    <lin-button :disabled="true" type="default">default</lin-button>
+    <lin-button :disabled="true" type="primary">primary</lin-button>
+    <lin-button :disabled="true" type="success">success</lin-button>
+    <lin-button :disabled="true" type="info">info</lin-button>
+    <lin-button :disabled="true" type="warning">warning</lin-button>
+    <lin-button :disabled="true" type="danger">danger</lin-button>
+  </div>
 </template>
 ```
 
@@ -89,12 +91,14 @@ Use the `icon` attribute to add icon. You can find the icon list in lin-view-ui 
 
 ```vue
 <template>
-  <lin-button icon="lin-icon-date" type="default"></lin-button>
-  <lin-button icon="lin-icon-thumbsup" type="primary"></lin-button>
-  <lin-button icon="lin-icon-chat" type="success"></lin-button>
-  <lin-button icon="lin-icon-upload" type="info">download</lin-button>
-  <lin-button icon="lin-icon-search" type="warning">upload</lin-button>
-  <lin-button icon="lin-icon-delete" type="danger">search</lin-button>
+  <div class="row">
+    <lin-button icon="lin-icon-date" type="default"></lin-button>
+    <lin-button icon="lin-icon-thumbsup" type="primary"></lin-button>
+    <lin-button icon="lin-icon-chat" type="success"></lin-button>
+    <lin-button icon="lin-icon-upload" type="info">download</lin-button>
+    <lin-button icon="lin-icon-search" type="warning">upload</lin-button>
+    <lin-button icon="lin-icon-delete" type="danger">search</lin-button>
+  </div>
 </template>
 ```
 
@@ -109,9 +113,11 @@ Use attribute size to set additional sizes with `medium`, `small` or `size`.
 
 ```vue
 <template>
-  <lin-button size="default">default</lin-button>
-  <lin-button size="medium">medium</lin-button>
-  <lin-button size="small">small</lin-button>
+  <div class="row">
+    <lin-button size="default">default</lin-button>
+    <lin-button size="medium">medium</lin-button>
+    <lin-button size="small">small</lin-button>
+  </div>
 </template>
 ```
 

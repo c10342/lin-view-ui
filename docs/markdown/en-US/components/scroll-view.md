@@ -18,7 +18,7 @@ To use the Scrollview component, you need to set the `height`, `data` and `isEnd
     :height="200"
     @scrollToEnd="scrollToEnd1"
   >
-    <div class="item" v-for="(item, index) in list1" :key="index">
+    <div class="scroll-view-item" v-for="(item, index) in list1" :key="index">
       {{ item }}
     </div>
   </lin-scroll-view>
@@ -63,14 +63,14 @@ Use the `loading` and `no-more` named slots to customize the contents displayed 
     :height="200"
     @scrollToEnd="scrollToEnd2"
   >
-    <div class="item" v-for="(item, index) in list2" :key="index">
+    <div class="scroll-view-item" v-for="(item, index) in list2" :key="index">
       {{ item }}
     </div>
     <template v-slot:loading>
-      <p class="tip">Loading...</p>
+      <p class="scroll-view-tip">Loading...</p>
     </template>
     <template v-slot:no-more>
-      <p class="tip">Loading completed</p>
+      <p class="scroll-view-tip">Loading completed</p>
     </template>
   </lin-scroll-view>
 </template>

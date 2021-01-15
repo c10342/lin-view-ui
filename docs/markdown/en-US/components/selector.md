@@ -153,7 +153,7 @@ export default {
         return <span>close</span>;
       }
     },
-    renderLabel() {
+    renderLabel(h) {
       return <span>label</span>;
     },
   },

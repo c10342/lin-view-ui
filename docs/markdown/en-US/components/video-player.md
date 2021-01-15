@@ -130,6 +130,10 @@ export default {
       this.mp4Player = null;
     },
   },
+  beforeDestroy() {
+    this.mp4Player?.destory();
+    this.mp4Player = null;
+  },
 };
 </script>
 ```
@@ -190,6 +194,10 @@ export default {
         ],
       });
     },
+  },
+  beforeDestroy() {
+    this.hlsPlayer?.destory();
+    this.hlsPlayer = null;
   },
 };
 </script>
@@ -252,6 +260,10 @@ export default {
       });
     },
   },
+  beforeDestroy() {
+    this.flvPlayer?.destory();
+    this.flvPlayer = null;
+  },
 };
 </script>
 ```
@@ -296,6 +308,10 @@ export default {
       });
     },
   },
+  beforeDestroy() {
+    this.flvPlayer?.destory();
+    this.flvPlayer = null;
+  },
 };
 </script>
 ```
@@ -339,6 +355,10 @@ export default {
         },
       });
     },
+  },
+  beforeDestroy() {
+    this.mp4Player?.destory();
+    this.mp4Player = null;
   },
 };
 </script>

@@ -130,6 +130,10 @@ export default {
       this.mp4Player = null;
     },
   },
+  beforeDestroy() {
+    this.mp4Player?.destory();
+    this.mp4Player = null;
+  },
 };
 </script>
 ```
@@ -172,7 +176,7 @@ export default {
   },
   methods: {
     initHls() {
-      new this.$VideoPlayer({
+      this.hlsPlayer = new this.$VideoPlayer({
         el: "#hlsvideo",
         type: "hls",
         speedList: this.speedList,
@@ -190,6 +194,10 @@ export default {
         ],
       });
     },
+  },
+  beforeDestroy() {
+    this.hlsPlayer?.destory();
+    this.hlsPlayer = null;
   },
 };
 </script>
@@ -233,7 +241,7 @@ export default {
   },
   methods: {
     initFlv() {
-      new this.$VideoPlayer({
+      this.flvPlayer = new this.$VideoPlayer({
         el: document.getElementById("flvvideo"),
         type: "flv",
         speedList: this.speedList,
@@ -251,6 +259,10 @@ export default {
         ],
       });
     },
+  },
+  beforeDestroy() {
+    this.flvPlayer?.destory();
+    this.flvPlayer = null;
   },
 };
 </script>
@@ -296,6 +308,10 @@ export default {
       });
     },
   },
+  beforeDestroy() {
+    this.flvPlayer?.destory();
+    this.flvPlayer = null;
+  },
 };
 </script>
 ```
@@ -339,6 +355,10 @@ export default {
         },
       });
     },
+  },
+  beforeDestroy() {
+    this.mp4Player?.destory();
+    this.mp4Player = null;
   },
 };
 </script>
