@@ -59,18 +59,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog",
       "types": {
-        "build": {
-          "description": "主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交",
-          "title": "build"
-        },
-        "ci": {
-          "description": "主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交",
-          "title": "ci"
-        },
-        "docs": {
-          "description": "文档更新",
-          "title": "docs"
-        },
         "feat": {
           "description": "新增功能",
           "title": "feat"
@@ -78,6 +66,18 @@
         "fix": {
           "description": "bug 修复",
           "title": "fix"
+        },
+        "docs": {
+          "description": "文档更新",
+          "title": "docs"
+        },
+        "build": {
+          "description": "主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交",
+          "title": "build"
+        },
+        "ci": {
+          "description": "主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交",
+          "title": "ci"
         },
         "perf": {
           "description": "性能优化",
@@ -92,7 +92,7 @@
           "title": "style"
         },
         "test": {
-          "description": "文档更新",
+          "description": "测试",
           "title": "test"
         },
         "revert": {
