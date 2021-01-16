@@ -1,51 +1,56 @@
 import Vue from "vue";
 import Router from "vue-router";
-import navConf from "../nav.config.zh.json";
-import { getLang } from "../utils/lang";
-import hljs from 'highlight.js'
+import { getLang, langType } from "../utils/lang";
+import hljs from "highlight.js";
+
+import IndexPage from "../pages/index.vue";
+import ComponentPage from "../pages/components.vue";
 
 const lang = getLang();
 
 Vue.use(Router);
 
-let routes = [];
+const zhRoutes = [];
 
-Object.keys(navConf).forEach((header) => {
-  routes = routes.concat(navConf[header]);
+const zhComps = require.context("../markdown/zh-CN", true, /\.md$/);
+
+zhComps.keys().forEach(key => {
+  const component = zhComps(key).default;
+  const name = key.replace(/(.*\/)*([^.]+).*/gi, "$2");
+  zhRoutes.push({
+    component,
+    name,
+    path: `/${name}`
+  });
 });
 
-let addComponent = (router) => {
-  router.forEach((route) => {
-    if (route.items) {
-      addComponent(route.items);
-      routes = routes.concat(route.items);
-    } else {
-      if (route.type === "guide") {
-        route.component = () =>
-          import('../markdown/'+lang+'/guide/'+route.name+'.md');
-        return;
-      }
-      route.component = () =>
-        import('../markdown/'+lang+'/components/'+route.name+'.md');
-    }
+const enRoutes = [];
+
+const enComps = require.context("../markdown/en-US", true, /\.md$/);
+
+enComps.keys().forEach(key => {
+  const component = enComps(key).default;
+  const name = key.replace(/(.*\/)*([^.]+).*/gi, "$2");
+  enRoutes.push({
+    component,
+    name,
+    path: `/${name}`
   });
-};
-addComponent(routes);
+});
 
 const router = new Router({
-  mode:'history',
   routes: [
     {
       path: "/",
       name: "index",
-      component: () => import(`../pages/index.vue`),
+      component: IndexPage
     },
     {
       path: "/component",
       name: "component",
-      component: () => import(`../pages/components.vue`),
-      children: routes,
-    },
+      component: ComponentPage,
+      children: lang === langType.zh ? zhRoutes : enRoutes
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -53,15 +58,14 @@ const router = new Router({
     } else {
       return { x: 0, y: 0 };
     }
-  },
+  }
 });
 
-router.afterEach((route) => {
+router.afterEach(route => {
   Vue.nextTick(() => {
-    const blocks = document.querySelectorAll('pre code:not(.hljs)')
-    Array.prototype.forEach.call(blocks, hljs.highlightBlock)
-  })
-})
+    const blocks = document.querySelectorAll("pre code:not(.hljs)");
+    Array.prototype.forEach.call(blocks, hljs.highlightBlock);
+  });
+});
 
-
-export default router
+export default router;
