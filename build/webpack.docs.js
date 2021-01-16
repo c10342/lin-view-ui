@@ -90,6 +90,7 @@ const devConfig = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "../docs/public/index.html"),
       filename: "index.html",
+      favicon: path.resolve(__dirname,'../docs/public/favicon.ico')
     }),
   ],
 };
