@@ -188,7 +188,7 @@ export default {
 
 | Attribute   | Description                                   | Type    | Accepted Values | Default |
 | ----------- | --------------------------------------------- | ------- | --------------- | ------- |
-| trigger     | how to trigger                                | String  | click/hover     | hover   |
+| trigger     | how to trigger                                | String  | click,hover     | hover   |
 | hideOnClick | whether to hide menu after clicking menu-item | Boolean | —               | true    |
 
 ## Dropdown Events
@@ -223,7 +223,7 @@ export default {
 | --------- | --------------------------------------------------------- | -------------------- | --------------- | ------- |
 | disabled  | whether the item is disabled                              | Boolean              | —               | false   |
 | divided   | whether a divider is displayed                            | Boolean              | —               | false   |
-| command   | a command to be dispatched to Dropdown's command callback | string/number/object | —               | —       |
+| command   | a command to be dispatched to Dropdown's command callback | string,number,object | —               | —       |
 | icon      | icon class name                                           | String               | —               | —       |
 
 ## DropdownItem Slots

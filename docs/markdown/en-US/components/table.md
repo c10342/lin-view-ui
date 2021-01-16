@@ -466,7 +466,7 @@ export default {
 | ------------------ | ----------------------------------------------------------------------- | -------------- |
 | clearSelection     | used in multiple selection Table, clear user selection                  | —              |
 | toggleAllSelection | used in multiple selection Table, toggle the selected state of all rows | —              |
-| selectSelection    | Used to select multiple tables and select multiple rows in              | [{[valueKey]}] |
+| selectSelection    | Used to select multiple tables and select multiple rows in              | [{valueKey}] |
 
 ## TableColumn Attributes
 

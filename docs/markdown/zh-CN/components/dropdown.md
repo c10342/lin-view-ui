@@ -184,7 +184,7 @@ export default {
 
 | 参数        | 说明                       | 类型    | 可选值      | 默认值 |
 | ----------- | -------------------------- | ------- | ----------- | ------ |
-| trigger     | 触发下拉的行为             | String  | click/hover | hover  |
+| trigger     | 触发下拉的行为             | String  | click,hover | hover  |
 | hideOnClick | 是否在点击菜单项后隐藏菜单 | Boolean | —           | true   |
 
 ## Dropdown 事件
@@ -219,7 +219,7 @@ export default {
 | -------- | ---------- | -------------------- | ------ | ------ |
 | disabled | 禁用       | Boolean              | —      | false  |
 | divided  | 显示分割线 | Boolean              | —      | false  |
-| command  | 指令       | string/number/object | —      | —      |
+| command  | 指令       | string,number,object | —      | —      |
 | icon     | 图标类名   | String               | —      | —      |
 
 ## DropdownItem 插槽

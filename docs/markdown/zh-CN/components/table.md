@@ -466,7 +466,7 @@ export default {
 | ------------------ | ---------------------------------- | -------------- |
 | clearSelection     | 用于多选表格，清空用户的选择       | —              |
 | toggleAllSelection | 用于多选表格，切换所有行的选中状态 | —              |
-| selectSelection    | 用于多选表格，用来选择中多行       | [{[valueKey]}] |
+| selectSelection    | 用于多选表格，用来选择中多行       | [{valueKey}] |
 
 ## TableColumn 属性
 

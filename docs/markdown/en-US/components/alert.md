@@ -195,8 +195,8 @@ This is an example of both icon and auxiliary text.
 | description | Auxiliary text            | String  | —                           | —       |
 | icon        | Icon                      | String  | —                           | —       |
 | closable    | Can I close it            | Boolean | —                           | false   |
-| type        | theme                     | String  | success/warning/info/danger | success |
-| effect      | Select the theme provided | String  | light/dark                  | light   |
+| type        | theme                     | String  | success,warning,info,danger | success |
+| effect      | Select the theme provided | String  | light,dark                  | light   |
 | center      | Is the text centered      | Boolean | —                           | false   |
 
 ## Slots

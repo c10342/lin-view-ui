@@ -289,6 +289,13 @@
       cursor: pointer;
     }
   }
+  .demo-message{
+    .demo-block{
+      .lin-button{
+        margin-right: 10px;
+      }
+    }
+  }
   .demo-spinner {
     .spinner-group {
       > div {
@@ -321,7 +328,7 @@
 
 .component-upload {
   .demo-upload {
-    &:nth-of-type(4) {
+    &:nth-of-type(5) {
       .demo-block {
         display: none;
       }

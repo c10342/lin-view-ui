@@ -204,7 +204,7 @@ export default {
 | --------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------ | ------ |
 | width           | 选择器宽度                                                                                                            | String                             | —      | —      |
 | labelWidth      | 标签宽度                                                                                                              | String                             | —      | 40px   |
-| value / v-model | 绑定值                                                                                                                | Boolean / String / Number / Object | —      | —      |
+| value / v-model | 绑定值                                                                                                                | Boolean , String , Number , Object | —      | —      |
 | valueKey        | 作为 value 唯一标识的键名，绑定值为对象类型时必填                                                                     | String                             | —      | value  |
 | renderMore      | 自定义渲染更多标签内容，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是否展开或收起的状态值。可以使用 jsx | Function                           | —      | —      |
 | renderLabel     | 自定义渲染头部标签内容，使用 Vue 的 Render 函数，参数是 h，可以使用 jsx                                               | Function                           | —      | —      |
@@ -224,7 +224,7 @@ export default {
 | 参数     | 说明     | 类型            | 可选值 | 默认值 |
 | -------- | -------- | --------------- | ------ | ------ |
 | label    | 标签内容 | String          | —      | —      |
-| value    | 选项的值 | String / Number | —      | —      |
+| value    | 选项的值 | String , Number | —      | —      |
 | disabled | 是否禁用 | Boolean         | —      | false  |
 
 ## SelectorItem 插槽

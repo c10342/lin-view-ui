@@ -212,7 +212,7 @@ export default {
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | --------------- | ------- |
 | width           | width of SelectorGroup                                                                                                                                                                | String                             | —               | —       |
 | labelWidth      | width of label                                                                                                                                                                        | String                             | —               | 40px    |
-| value / v-model | binding value                                                                                                                                                                         | Boolean / String / Number / Object | —               | —       |
+| value / v-model | binding value                                                                                                                                                                         | Boolean , String , Number , Object | —               | —       |
 | valueKey        | unique identity key name for value, required when value is an object                                                                                                                  | String                             | —               | value   |
 | renderMore      | Custom render more label content, use Vue's render function. Pass in two parameters, the first is h, and the second is whether to expand or collapse the state value. You can use JSX | Function                           | —               | —       |
 | renderLabel     | Custom render header label content, use Vue's render function, parameter is h, you can use jsx                                                                                        | Function                           | —               | —       |
@@ -232,7 +232,7 @@ export default {
 | Attribute | Description             | Type            | Accepted Values | Default |
 | --------- | ----------------------- | --------------- | --------------- | ------- |
 | label     | content of label        | String          | —               | —       |
-| value     | The value of the option | String / Number | —               | —       |
+| value     | The value of the option | String , Number | —               | —       |
 | disabled  | Disable                 | Boolean         | —               | false   |
 
 ## SelectorItem Slots

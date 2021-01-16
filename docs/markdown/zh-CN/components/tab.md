@@ -106,7 +106,7 @@ export default {
 | 参数            | 说明                      | 类型   | 可选值           | 默认值 |
 | --------------- | ------------------------- | ------ | ---------------- | ------ |
 | value / v-model | 绑定值，选中选项卡的 name | String | —                | —      |
-| type            | 风格类型                  | String | card/border-card | —      |
+| type            | 风格类型                  | String | card,border-card | —      |
 
 ## TabGroup 事件
 

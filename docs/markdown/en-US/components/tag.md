@@ -71,11 +71,11 @@ Change the theme by setting the `effect` property. The default is `light`
 
 | Attribute | Description      | Type    | Accepted Values                     | Default |
 | --------- | ---------------- | ------- | ----------------------------------- | ------- |
-| type      | Type             | String  | primary/success/info/warning/danger | primary |
+| type      | Type             | String  | primary,success,info,warning,danger | primary |
 | text      | text             | String  | —                                   | —       |
 | color     | Background color | String  | —                                   | —       |
 | closable  | Can I close it   | Boolean | —                                   | false   |
-| effect    | theme            | String  | dark / light / plain                | light   |
+| effect    | theme            | String  | dark , light , plain                | light   |
 
 ## Events
 

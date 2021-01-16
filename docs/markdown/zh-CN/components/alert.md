@@ -187,8 +187,8 @@ Alert 组件提供了两个不同的主题：`light` 和 `dark` 。
 | description | 辅助性文字     | String  | —                           | —       |
 | icon        | 图标           | String  | —                           | —       |
 | closable    | 是否可关闭     | Boolean | —                           | false   |
-| type        | 主题           | String  | success/warning/info/danger | success |
-| effect      | 选择提供的主题 | String  | light/dark                  | light   |
+| type        | 主题           | String  | success,warning,info,danger | success |
+| effect      | 选择提供的主题 | String  | light,dark                  | light   |
 | center      | 文字是否居中   | Boolean | —                           | false   |
 
 ## 插槽

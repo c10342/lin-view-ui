@@ -88,7 +88,7 @@
 
 | 参数      | 说明           | 类型    | 可选值                                      | 默认值  |
 | --------- | -------------- | ------- | ------------------------------------------- | ------- |
-| type      | 类型           | String  | primary / success / warning / danger / info | default |
+| type      | 类型           | String  | primary , success , warning , danger , info | default |
 | underline | 是否下划线     | Boolean | —                                           | true    |
 | disabled  | 是否禁用状态   | Boolean | —                                           | false   |
 | href      | 原生 href 属性 | String  | —                                           | false   |

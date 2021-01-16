@@ -484,7 +484,7 @@ export default {
 
 | 参数            | 说明                                              | 类型                 | 可选值 | 默认值   |
 | --------------- | ------------------------------------------------- | -------------------- | ------ | -------- |
-| value / v-model | 绑定值                                            | Object/String/Number | —      | —        |
+| value / v-model | 绑定值                                            | Object,String,Number | —      | —        |
 | placeholder     | 占位符                                            | String               | —      | 请选择   |
 | valueKey        | 作为 value 唯一标识的键名，绑定值为对象类型时必填 | String               | —      | —        |
 | clearable       | 是否可以清空选项                                  | Boolean              | —      | false    |
@@ -520,7 +520,7 @@ export default {
 | 参数     | 说明                                      | 类型                 | 可选值 | 默认值 |
 | -------- | ----------------------------------------- | -------------------- | ------ | ------ |
 | label    | 选项的标签，若不设置则默认与 `value` 相同 | String               | —      | —      |
-| value    | 选项的值                                  | Object/String/Number | —      | —      |
+| value    | 选项的值                                  | Object,String,Number | —      | —      |
 | disabled | 是否禁用该选项                            | Boolean              | —      | false  |
 
 ## ChoiceItem 插槽

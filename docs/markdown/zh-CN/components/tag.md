@@ -71,11 +71,11 @@
 
 | 参数     | 说明       | 类型    | 可选值                              | 默认值  |
 | -------- | ---------- | ------- | ----------------------------------- | ------- |
-| type     | 类型       | String  | primary/success/info/warning/danger | primary |
+| type     | 类型       | String  | primary,success,info,warning,danger | primary |
 | text     | 文本       | String  | —                                   | —       |
 | color    | 背景色     | String  | —                                   | —       |
 | closable | 是否可关闭 | Boolean | —                                   | false   |
-| effect   | 主题       | String  | dark / light / plain                | light   |
+| effect   | 主题       | String  | dark , light , plain                | light   |
 
 ## 事件
 

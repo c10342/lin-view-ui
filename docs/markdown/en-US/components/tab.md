@@ -106,7 +106,7 @@ You can use named slot to customize the tab label content.
 | Attribute       | Description                             | Type   | Accepted Values  | Default |
 | --------------- | --------------------------------------- | ------ | ---------------- | ------- |
 | value / v-model | binding value, name of the selected tab | String | —                | —       |
-| type            | type of Tab                             | String | card/border-card | —       |
+| type            | type of Tab                             | String | card,border-card | —       |
 
 ## TabGroup Events
 

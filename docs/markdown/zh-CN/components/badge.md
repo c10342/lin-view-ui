@@ -88,7 +88,7 @@
 
 | 参数   | 说明                                                         | 类型           | 可选值                                          | 默认值  |
 | ------ | ------------------------------------------------------------ | -------------- | ----------------------------------------------- | ------- |
-| value  | 显示值                                                       | String，Number | —                                               | —       |
+| value  | 显示值                                                       | String,Number | —                                               | —       |
 | max    | 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型 | Number         | —                                               | —       |
 | is-dot | 小圆点                                                       | Boolean        | —                                               | false   |
-| type   | 类型                                                         | String         | primary ， success ， warning ， danger ， info | primary |
+| type   | 类型                                                         | String         | primary , success , warning , danger , info | primary |

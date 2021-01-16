@@ -484,7 +484,7 @@ export default {
 
 | Attribute       | Description                                                          | Type                 | Accepted Values | Default       |
 | --------------- | -------------------------------------------------------------------- | -------------------- | --------------- | ------------- |
-| value / v-model | binding value                                                        | Object/String/Number | —               | —             |
+| value / v-model | binding value                                                        | Object,String,Number | —               | —             |
 | placeholder     | placeholder                                                          | String               | —               | Please select |
 | valueKey        | unique identity key name for value, required when value is an object | String               | —               | —             |
 | clearable       | whether ChoiceGroup can be cleared                                   | Boolean              | —               | false         |
@@ -520,7 +520,7 @@ export default {
 | Attribute | Description                                     | Type                 | Accepted Values | Default |
 | --------- | ----------------------------------------------- | -------------------- | --------------- | ------- |
 | label     | label of ChoiceItem, same as `value` if omitted | String               | —               | —       |
-| value     | value of ChoiceItem                             | Object/String/Number | —               | —       |
+| value     | value of ChoiceItem                             | Object,String,Number | —               | —       |
 | disabled  | whether ChoiceItem is disabled                  | Boolean              | —               | false   |
 
 ## ChoiceItem Slots

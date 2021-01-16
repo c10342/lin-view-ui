@@ -92,8 +92,8 @@ export default {
 | ------------------ | ------------------------ | ---------------------- | ------ | ------ |
 | value / v-model    | 绑定值                   | Date                   | —      | —      |
 | disabled           | 是否禁用                 | Boolean                | —      | false  |
-| disabledBeforeDate | 禁用小于等于该日期的日期 | Date / String / Number | —      | —      |
-| disabledAfterDate  | 禁用大于等于该日期的日期 | Date / String / Number | —      | —      |
+| disabledBeforeDate | 禁用小于等于该日期的日期 | Date , String , Number | —      | —      |
+| disabledAfterDate  | 禁用大于等于该日期的日期 | Date , String , Number | —      | —      |
 | disabledRangeDate  | 禁用指定范围内的日期     | Array                  | —      | —      |
 | disabledDate       | 禁用指定日期             | Array                  | —      | —      |
 

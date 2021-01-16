@@ -91,8 +91,8 @@ export default {
 | ------------------ | ------------------------------------------------ | ---------------------- | --------------- | ------- |
 | value / v-model    | Binding value                                    | Date                   | —               | —       |
 | disabled           | Wheter to disable                                | Boolean                | —               | false   |
-| disabledBeforeDate | Disable dates less than or equal to that date    | Date / String / Number | —               | —       |
-| disabledAfterDate  | Disable dates greater than or equal to this date | Date / String / Number | —               | —       |
+| disabledBeforeDate | Disable dates less than or equal to that date    | Date , String , Number | —               | —       |
+| disabledAfterDate  | Disable dates greater than or equal to this date | Date , String , Number | —               | —       |
 | disabledRangeDate  | Disable dates in the specified range             | Array                  | —               | —       |
 | disabledDate       | Disable specified date                           | Array                  | —               | —       |
 

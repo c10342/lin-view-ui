@@ -88,7 +88,7 @@ Use a red dot to mark content that needs to be noticed.Use the attribute `is-dot
 
 | Attribute | Description                                                                      | Type           | Accepted Values                                 | Default |
 | --------- | -------------------------------------------------------------------------------- | -------------- | ----------------------------------------------- | ------- |
-| value     | display value                                                                    | String，Number | —                                               | —       |
+| value     | display value                                                                    | String,Number | —                                               | —       |
 | max       | maximum value, shows '{max}+' when exceeded. Only works if `value` is a `Number` | Number         | —                                               | —       |
 | is-dot    | if a little dot is displayed                                                     | Boolean        | —                                               | false   |
-| type      | button type                                                                      | String         | primary ， success ， warning ， danger ， info | primary |
+| type      | button type                                                                      | String         | primary , success , warning , danger , info | primary |
