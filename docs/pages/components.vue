@@ -46,7 +46,10 @@ export default {
   }
 
   .component-icon {
-    padding-right: 100px;
+    padding-right: $component-padding-right;
+  }
+  .component-logs {
+    padding-right: $component-padding-right;
   }
 }
 

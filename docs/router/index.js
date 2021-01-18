@@ -12,7 +12,7 @@ Vue.use(Router);
 
 const zhRoutes = [];
 
-const zhComps = require.context("../markdown/zh-CN", true, /\.md$/);
+const zhComps = require.context("../markdown/zh-CN", true, /\.(md|vue)$/);
 
 zhComps.keys().forEach(key => {
   const component = zhComps(key).default;
@@ -26,7 +26,7 @@ zhComps.keys().forEach(key => {
 
 const enRoutes = [];
 
-const enComps = require.context("../markdown/en-US", true, /\.md$/);
+const enComps = require.context("../markdown/en-US", true, /\.(md|vue)$/);
 
 enComps.keys().forEach(key => {
   const component = enComps(key).default;
@@ -39,6 +39,7 @@ enComps.keys().forEach(key => {
 });
 
 const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: "/",

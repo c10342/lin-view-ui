@@ -1,8 +1,12 @@
+@import './var.scss';
+
 @import "./base.scss";
 
 @import "./md.scss";
 
 @import "./component.scss";
+
+
 
 .container {
   @media (max-width: 1000px) {
@@ -10,7 +14,7 @@
       display: none !important;
     }
     .lin-view-ui-doc {
-      padding-right: 48px !important;
+      padding-right: $component-padding-right !important;
     }
   }
 }
