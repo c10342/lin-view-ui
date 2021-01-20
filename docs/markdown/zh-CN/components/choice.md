@@ -480,32 +480,93 @@ export default {
 
 :::
 
+## 本地搜索
+
+为`lin-select`添加`filterable`属性即可启用搜索功能。默认情况下，Select 会找出所有`label`属性包含输入值的选项。如果希望使用其他的搜索逻辑，可以通过传入一个`filter-method`来实现。`filter-method`为一个`Function`，它会在输入值发生变化时调用，参数为当前输入值。
+
+:::demo
+
+```vue
+<template>
+  <lin-choice-group filterable v-model="value1" placeholder="请选择">
+    <lin-choice-item
+      v-for="item in options1"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value"
+    >
+    </lin-choice-item>
+  </lin-choice-group>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      options1: [
+        {
+          value: "选项1",
+          label: "黄金糕",
+        },
+        {
+          value: "选项2",
+          label: "双皮奶",
+        },
+        {
+          value: "选项3",
+          label: "蚵仔煎",
+        },
+        {
+          value: "选项4",
+          label: "龙须面",
+        },
+        {
+          value: "选项5",
+          label: "北京烤鸭",
+        },
+      ],
+      value1: "",
+    };
+  },
+};
+</script>
+```
+
+:::
+
 ## ChoiceGroup 属性
 
-| 参数            | 说明                                              | 类型                 | 可选值 | 默认值   |
-| --------------- | ------------------------------------------------- | -------------------- | ------ | -------- |
-| value / v-model | 绑定值                                            | Object,String,Number | —      | —        |
-| placeholder     | 占位符                                            | String               | —      | 请选择   |
-| valueKey        | 作为 value 唯一标识的键名，绑定值为对象类型时必填 | String               | —      | —        |
-| clearable       | 是否可以清空选项                                  | Boolean              | —      | false    |
-| disabled        | 是否禁用                                          | Boolean              | —      | false    |
-| isThrottle      | 开启下拉加载时是否进行防抖                        | Boolean              | —      | true     |
-| scroll          | 是否开启下拉加载                                  | Boolean              | —      | false    |
-| time            | 防抖间隔时间                                      | Number               | —      | 500ms    |
-| loading         | 是否开启加载动画效果                              | Boolean              | —      | false    |
-| loadingTip      | 加载提示语                                        | String               | —      | —        |
-| emptyTip        | 数据为空时显示的提示语                            | String               | —      | 暂无数据 |
+| 参数              | 说明                                              | 类型                 | 可选值 | 默认值   |
+| ----------------- | ------------------------------------------------- | -------------------- | ------ | -------- |
+| value / v-model   | 绑定值                                            | Object,String,Number | —      | —        |
+| placeholder       | 占位符                                            | String               | —      | 请选择   |
+| valueKey          | 作为 value 唯一标识的键名，绑定值为对象类型时必填 | String               | —      | —        |
+| clearable         | 是否可以清空选项                                  | Boolean              | —      | false    |
+| disabled          | 是否禁用                                          | Boolean              | —      | false    |
+| isThrottle        | 开启下拉加载时是否进行防抖                        | Boolean              | —      | true     |
+| scroll            | 是否开启下拉加载                                  | Boolean              | —      | false    |
+| time              | 防抖间隔时间                                      | Number               | —      | 500ms    |
+| loading           | 是否开启加载动画效果                              | Boolean              | —      | false    |
+| loadingTip        | 加载提示语                                        | String               | —      | —        |
+| emptyTip          | 数据为空时显示的提示语                            | String               | —      | 暂无数据 |
+| finishLoading     | 是否完成加载，一般用于滚动加载                    | Boolean              | —      | false    |
+| defaultLabelName  | 默认显示内容，一般用于滚动加载回显数据            | String, Number       | —      | —        |
+| showSearchInput   | 是否显示远程搜索输入框                            | Boolean              | —      | false    |
+| searchPlaceholder | 远程搜索输入框占位符                              | String               | —      | 请输入   |
+| filterable        | 是否开启本地搜索                                  | Boolean              | —      | false    |
+| filterMethod      | 自定义本地搜索方法                                | Function             | —      | —        |
 
 ## ChoiceGroup 事件
 
-| 事件名称       | 说明                                     | 回调参数                      |
-| -------------- | ---------------------------------------- | ----------------------------- |
-| scrollToBottom | 滚动到底部时触发触发                     | (event: Event)                |
-| blur           | 当 input 失去焦点时触发                  | (event: Event)                |
-| focus          | 当 input 获得焦点时触发                  | (event: Event)                |
-| visible-change | 下拉框出现/隐藏时触发                    | 出现则为 true，隐藏则为 false |
-| clear          | 可清空的单选模式下用户点击清空按钮时触发 | —                             |
-| change         | 选中值发生变化时触发                     | 目前的选中值                  |
+| 事件名称       | 说明                                                   | 回调参数                      |
+| -------------- | ------------------------------------------------------ | ----------------------------- |
+| scrollToBottom | 滚动到底部时触发触发                                   | (event: Event)                |
+| blur           | 当 input 失去焦点时触发                                | (event: Event)                |
+| focus          | 当 input 获得焦点时触发                                | (event: Event)                |
+| visible-change | 下拉框出现/隐藏时触发                                  | 出现则为 true，隐藏则为 false |
+| clear          | 可清空的单选模式下用户点击清空按钮时触发               | —                             |
+| change         | 选中值发生变化时触发                                   | 目前的选中值                  |
+| search         | 开启远程搜索时，在输入框按下回车或者点击搜索图标时触发 | 输入的值                      |
 
 ## ChoiceGroup 插槽
 

@@ -480,32 +480,93 @@ export default {
 
 :::
 
+## Local search
+
+Adding `filterable` to `lin-select` enables filtering. By default, Select will find all the options whose `label` attribute contains the input value. If you prefer other filtering strategies, you can pass the `filter-method`. `filter-method` is a `Function` that gets called when the input value changes, and its parameter is the current input value.
+
+:::demo
+
+```vue
+<template>
+  <lin-choice-group filterable v-model="value1" placeholder="Select">
+    <lin-choice-item
+      v-for="item in options1"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value"
+    >
+    </lin-choice-item>
+  </lin-choice-group>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      options1: [
+        {
+          value: "Option1",
+          label: "Option1",
+        },
+        {
+          value: "Option2",
+          label: "Option2",
+        },
+        {
+          value: "Option3",
+          label: "Option3",
+        },
+        {
+          value: "Option4",
+          label: "Option4",
+        },
+        {
+          value: "Option5",
+          label: "Option5",
+        },
+      ],
+      value1: "",
+    };
+  },
+};
+</script>
+```
+
+:::
+
 ## ChoiceGroup Attributes
 
-| Attribute       | Description                                                          | Type                 | Accepted Values | Default       |
-| --------------- | -------------------------------------------------------------------- | -------------------- | --------------- | ------------- |
-| value / v-model | binding value                                                        | Object,String,Number | —               | —             |
-| placeholder     | placeholder                                                          | String               | —               | Please select |
-| valueKey        | unique identity key name for value, required when value is an object | String               | —               | —             |
-| clearable       | whether ChoiceGroup can be cleared                                   | Boolean              | —               | false         |
-| disabled        | whether ChoiceGroup is disabled                                      | Boolean              | —               | false         |
-| isThrottle      | Whether to perform anti shake when starting pull-down loading        | Boolean              | —               | true          |
-| scroll          | Whether to enable pull-down loading                                  | Boolean              | —               | false         |
-| time            | Buffeting interval                                                   | Number               | —               | 500ms         |
-| loading         | Whether to turn on loading animation                                 | Boolean              | —               | false         |
-| loadingTip      | Loading prompt                                                       | String               | —               | —             |
-| emptyTip        | Prompt when data is empty                                            | String               | —               | No data       |
+| Attribute         | Description                                                               | Type                 | Accepted Values | Default       |
+| ----------------- | ------------------------------------------------------------------------- | -------------------- | --------------- | ------------- |
+| value / v-model   | binding value                                                             | Object,String,Number | —               | —             |
+| placeholder       | placeholder                                                               | String               | —               | Please select |
+| valueKey          | unique identity key name for value, required when value is an object      | String               | —               | —             |
+| clearable         | whether ChoiceGroup can be cleared                                        | Boolean              | —               | false         |
+| disabled          | whether ChoiceGroup is disabled                                           | Boolean              | —               | false         |
+| isThrottle        | Whether to perform anti shake when starting pull-down loading             | Boolean              | —               | true          |
+| scroll            | Whether to enable pull-down loading                                       | Boolean              | —               | false         |
+| time              | Buffeting interval                                                        | Number               | —               | 500ms         |
+| loading           | Whether to turn on loading animation                                      | Boolean              | —               | false         |
+| loadingTip        | Loading prompt                                                            | String               | —               | —             |
+| emptyTip          | Prompt when data is empty                                                 | String               | —               | No data       |
+| finishLoading     | Whether to complete loading is generally used for rolling loading         | Boolean              | —               | false         |
+| defaultLabelName  | The default display content is generally used for scrolling the echo data | String, Number       | —               | —             |
+| showSearchInput   | Whether to show searchInput                                               | Boolean              | —               | false         |
+| searchPlaceholder | Remote search input box placeholder                                       | String               | —               | Please Enter  |
+| filterable        | Whether to open Remote search                                             | Boolean              | —               | false         |
+| filterMethod      | Custom local search method                                                | Function             | —               | —             |
 
 ## ChoiceGroup Events
 
-| Event Name     | Description                                                                       | Parameters                                   |
-| -------------- | --------------------------------------------------------------------------------- | -------------------------------------------- |
-| scrollToBottom | Triggered when scrolling to the bottom                                            | (event: Event)                               |
-| blur           | Triggered when input loses focus                                                  | (event: Event)                               |
-| focus          | Triggered when input gets focus                                                   | (event: Event)                               |
-| visible-change | Triggered when drop-down box appears / hidden                                     | True if it appears and false if it is hidden |
-| clear          | Triggered when the user clicks the clear button in radio mode that can be cleared | —                                            |
-| change         | triggers when the selected value changes                                          | current selected value                       |
+| Event Name     | Description                                                                                                           | Parameters                                   |
+| -------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| scrollToBottom | Triggered when scrolling to the bottom                                                                                | (event: Event)                               |
+| blur           | Triggered when input loses focus                                                                                      | (event: Event)                               |
+| focus          | Triggered when input gets focus                                                                                       | (event: Event)                               |
+| visible-change | Triggered when drop-down box appears / hidden                                                                         | True if it appears and false if it is hidden |
+| clear          | Triggered when the user clicks the clear button in radio mode that can be cleared                                     | —                                            |
+| change         | triggers when the selected value changes                                                                              | current selected value                       |
+| search         | When remote search is started, it will be triggered by pressing enter in the input box or by clicking the search icon | input value                                  |
 
 ## ChoiceGroup Slots
 
