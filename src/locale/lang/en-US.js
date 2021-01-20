@@ -13,7 +13,8 @@ export default {
     },
     Choice: {
       placeholder: 'Please select',
-      emptyTip: 'No data'
+      emptyTip: 'No data',
+      searchPlaceholder: 'Please Enter'
     },
     DatePicker: {
       year: 'Year',
