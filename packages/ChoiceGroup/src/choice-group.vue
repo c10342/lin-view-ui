@@ -10,14 +10,15 @@
       @mouseenter="onMouseEnter"
     >
       <input
+      @keyup="onInputChange"
         @click="onClick"
         @blur="onBlur"
         @focus="onFocus"
-        readonly
+        :readonly='!filterable'
         :placeholder="placeholder || t('LinViewUI.Choice.placeholder')"
         class="lin-choice-group-input"
         type="text"
-        :value="groupLabel"
+        :value="innerValue"
       />
       <i
         :class="[
@@ -44,14 +45,23 @@
         ]"
         v-show="isShow"
       >
+        <div class="lin-choice-search-wrapper" v-if="showSearchInput">
+          <lin-input
+            v-model="searchKey"
+            :placeholder="searchPlaceholder || t('LinViewUI.Choice.searchPlaceholder')"
+            @keyup.native.enter="onSearch"
+          >
+            <i class="lin-icon-search" @click.stop="onSearch"></i>
+          </lin-input>
+        </div>
         <div
           ref="scrollContainer"
           class="lin-choice-container"
-          @scroll="onScroll"
+          @scroll.stop="onScroll"
         >
           <div ref="scrollContent">
             <slot></slot>
-            <div class="lin-choice-group-empty" v-if="!$slots.default">
+            <div class="lin-choice-group-empty" v-if="!$slots.default || noData">
               <slot name="empty">
                 <p class="lin-choice-group-empty-tip">
                   {{ emptyTip || t("LinViewUI.Choice.emptyTip") }}
@@ -75,10 +85,16 @@
 
 <script>
 import LocaleMixin from 'src/mixins/locale.js';
+import documentClick from 'src/mixins/documentClick.js';
+import findChildren from 'src/utils/findChildren.js';
+import Input from 'packages/Input/index.js';
 
 export default {
   name: 'LinChoiceGroup',
-  mixins: [LocaleMixin],
+  mixins: [LocaleMixin, documentClick],
+  components: {
+    [Input.name]: Input
+  },
   props: {
     placeholder: {
       type: String
@@ -120,6 +136,29 @@ export default {
     },
     emptyTip: {
       type: String
+    },
+    finishLoading: {
+      type: Boolean,
+      default: false
+    },
+    defaultLabelName: {
+      type: [String, Number],
+      default: ''
+    },
+    showSearchInput: {
+      type: Boolean,
+      default: false
+    },
+    searchPlaceholder: {
+      type: String,
+      default: ''
+    },
+    filterable: {
+      type: Boolean,
+      default: false
+    },
+    filterMethod: {
+      type: Function
     }
   },
   data () {
@@ -128,7 +167,11 @@ export default {
       isShow: false,
       isHover: false,
       isDown: true,
-      top: 0
+      top: 0,
+      searchKey: '',
+      inputValue: '',
+      noData: false,
+      isSearch: false
     };
   },
   provide () {
@@ -138,7 +181,13 @@ export default {
   },
   computed: {
     showCloseIcon () {
-      return this.clearable && this.isHover && this.value;
+      return this.clearable && this.isHover && this.value && !this.disabled;
+    },
+    innerValue () {
+      if (this.isSearch) {
+        return this.inputValue;
+      }
+      return this.groupLabel || this.defaultLabelName;
     }
   },
   mounted () {
@@ -166,7 +215,8 @@ export default {
       this.$nextTick(() => {
         const { scrollContainer } = this.$refs;
         const { choiceGroup } = this.$refs;
-        const bottom = window.innerHeight - choiceGroup.getBoundingClientRect().bottom;
+        const bottom =
+          window.innerHeight - choiceGroup.getBoundingClientRect().bottom;
         const { top } = choiceGroup.getBoundingClientRect();
         if (bottom > scrollContainer.clientHeight) {
           this.setDownTop();
@@ -188,7 +238,7 @@ export default {
       this.top = `${-(scrollContainer.clientHeight + 10)}px`;
     },
     onScroll (event) {
-      if (!this.scroll || this.loading || this.lock) {
+      if (!this.scroll || this.loading || this.lock || this.finishLoading) {
         return;
       }
       if (this.isThrottle) {
@@ -217,9 +267,7 @@ export default {
       this.isHover = true;
     },
     onBlur (event) {
-      this.isShow = false;
       this.$emit('blur', event);
-      this.$emit('visible-change', false);
     },
     onFocus (event) {
       this.$emit('focus', event);
@@ -228,11 +276,11 @@ export default {
       if (this.disabled) {
         return;
       }
-      this.isShow = !this.isShow;
       if (this.isShow) {
-        this.setPlacement();
+        this.hideVisible();
+      } else {
+        this.showVisible();
       }
-      this.$emit('visible-change', this.isShow);
     },
     clearValue () {
       this.groupLabel = '';
@@ -242,6 +290,40 @@ export default {
     emitInputEvent (value) {
       this.$emit('input', value);
       this.$emit('change', value);
+      this.hideVisible();
+    },
+    hideVisible () {
+      if (this.isShow) {
+        this.isShow = false;
+        this.isSearch = false;
+        this.$emit('visible-change', false);
+      }
+    },
+    showVisible () {
+      if (!this.isShow) {
+        this.isShow = true;
+        this.setPlacement();
+        this.inputValue = '';
+        this.noData = false;
+        this.$emit('visible-change', true);
+      }
+    },
+    onDocumentClick (event) {
+      const { choiceGroup } = this.$refs;
+      if (!choiceGroup.contains(event.target)) {
+        this.hideVisible();
+      }
+    },
+    onSearch () {
+      this.$emit('search', this.searchKey);
+    },
+    onInputChange (event) {
+      this.isSearch = true;
+      this.inputValue = event.currentTarget.value;
+      this.$nextTick(() => {
+        const children = findChildren(this, 'LinChoiceItem');
+        this.noData = children.every(child => !child.isShow);
+      });
     }
   },
   beforeDestroy () {

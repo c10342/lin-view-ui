@@ -70,8 +70,13 @@
   position: absolute;
   top: $choice-container-wrapper-top;
   left: $choice-container-wrapper-left;
+  z-index: $choice-container-wrapper-z-index;
   width: $choice-container-wrapper-width;
+  padding: $choice-container-padding;
   background-color: $choice-container-wrapper-background-color;
+  border: $choice-container-border;
+  border-radius: $choice-container-border-radius;
+  box-shadow: $choice-container-box-shadow;
   transform: $choice-container-wrapper-transform;
 
   &::before {
@@ -106,13 +111,18 @@
 .lin-choice-container {
   box-sizing: border-box;
   max-height: $choice-container-max-height;
-  padding: $choice-container-padding;
+  // padding: $choice-container-padding;
   overflow-y: auto;
-  border: $choice-container-border;
-  border-radius: $choice-container-border-radius;
-  box-shadow: $choice-container-box-shadow;
+  // border: $choice-container-border;
+  // border-radius: $choice-container-border-radius;
+  // box-shadow: $choice-container-box-shadow;
 
   @include beautyScroll();
+}
+
+.lin-choice-search-wrapper {
+  padding: $choice-search-wrapper-padding;
+  margin-bottom: $choice-search-wrapper-margin-bottom;
 }
 
 .lin-choice-group-empty {
