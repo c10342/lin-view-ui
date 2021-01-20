@@ -1,5 +1,6 @@
 <template>
   <div
+  v-show="isShow"
     @click="onItemClick"
     :class="[
       { 'lin-choice-item-active': itemValue === groupValue },
@@ -37,6 +38,11 @@ export default {
       default: ''
     }
   },
+  data () {
+    return {
+      isShow: true
+    };
+  },
   computed: {
     itemDisabled () {
       if (this.option && this.option.disabled) {
@@ -61,12 +67,29 @@ export default {
     },
     itemLabel () {
       return this.label ? this.label : this.value;
+    },
+    inputValue () {
+      if (this.group) {
+        return this.group.inputValue;
+      }
+      return '';
     }
   },
   methods: {
     onItemClick () {
       if (this.group && !this.itemDisabled) {
         this.group.emitInputEvent(this.value);
+      }
+    },
+    matchLabel (value) {
+      if (value === '') {
+        this.isShow = true;
+        return;
+      }
+      if (this.group && typeof this.group.filterMethod === 'function') {
+        this.isShow = this.group.filterMethod(value, this.$props);
+      } else {
+        this.isShow = this.itemLabel.toString().includes(value);
       }
     }
   },
@@ -78,6 +101,12 @@ export default {
           this.group.groupLabel = this.itemLabel;
         }
       }
+    },
+    inputValue (newVal) {
+      if (typeof newVal === 'string') {
+        newVal = newVal.trim();
+      }
+      this.matchLabel(newVal);
     }
   }
 };
