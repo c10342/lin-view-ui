@@ -35,6 +35,7 @@ $choice-container-wrapper-left: 50% !default;
 $choice-container-wrapper-transform: translateX(-50%) !default;
 $choice-container-wrapper-width: 100% !default;
 $choice-container-wrapper-background-color: #fff !default;
+$choice-container-wrapper-z-index: 100 !default;
 $choice-container-wrapper-before-width: 12px !default;
 $choice-container-wrapper-before-height: 12px !default;
 $choice-container-wrapper-before-left: 50% !default;
@@ -93,3 +94,6 @@ $choice-option-label-padding: 0 20px !default;
 $choice-option-label-font-size: $font-size-base !default;
 $choice-option-label-color: #909399 !default;
 $choice-option-label-line-height: 30px !default;
+
+$choice-search-wrapper-padding: 0 5px !default;
+$choice-search-wrapper-margin-bottom: 5px !default;
