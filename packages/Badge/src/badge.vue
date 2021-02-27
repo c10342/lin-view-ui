@@ -14,17 +14,21 @@
 export default {
   name: 'LinBadge',
   props: {
+    // 显示的值
     value: {
       type: [String, Number],
       default: ''
     },
+    // 最大值，超过最大值会显示 '{max}+'
     max: {
       type: Number
     },
+    // 是否显示小圆点
     isDot: {
       type: Boolean,
       default: false
     },
+    // 类型
     type: {
       type: String,
       default: 'primary'
