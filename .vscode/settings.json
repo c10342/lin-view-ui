@@ -15,6 +15,10 @@
       {
         "language": "javascriptreact",
         "autoFix": true
+      },
+      {
+        "language": "tyypescript",
+        "autoFix": true
       }
     ],
     "eslint.autoFixOnSave": true,
