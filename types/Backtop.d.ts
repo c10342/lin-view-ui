@@ -1,7 +1,7 @@
 import { VNode } from "vue";
 import { LinViewUIComponent } from "./component";
 
-export declare class Backtop extends LinViewUIComponent {
+export declare class LinBacktop extends LinViewUIComponent {
   // 显示位置，距离页面右边距离
   right: number;
   // 显示位置，距离页面底部距离
