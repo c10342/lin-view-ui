@@ -35,42 +35,52 @@ export default {
     [Spinner.name]: Spinner
   },
   props: {
+    // 类型
     type: {
       type: String,
       default: 'default'
     },
+    // 是否为朴素按钮
     plain: {
       type: Boolean,
       default: false
     },
+    // 是否为圆角按钮
     round: {
       type: Boolean,
       default: false
     },
+    // 是否为圆形按钮
     circle: {
       type: Boolean,
       default: false
     },
+    // 是否禁用
     disabled: {
       type: Boolean,
       default: false
     },
+    // 按钮图标
     icon: {
       type: String,
       default: ''
     },
+    // 尺寸
     size: {
       type: String,
       default: 'default'
     },
+    // 是否加载中状态
     loading: {
       type: Boolean,
       default: false
     },
+    // 加载器颜色
     loadingColor: {
       type: String,
       default: '#fff'
     },
+    // 加载器大小
     loadingSize: {
       type: String,
       default: '14px'
