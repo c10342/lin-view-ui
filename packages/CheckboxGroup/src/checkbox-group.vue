@@ -8,9 +8,11 @@
 export default {
   name: 'LinCheckboxGroup',
   props: {
+    // 绑定值
     value: {
       type: Array
     },
+    // 是否禁用
     disabled: {
       type: Boolean,
       default: false
