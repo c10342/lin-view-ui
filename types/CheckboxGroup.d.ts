@@ -11,6 +11,7 @@ export declare class LinCheckboxGroup extends LinViewUIComponent {
   $emit(eventName: "input", data: Array<string | number>): this;
 
   $slots: {
+    // Checkbox组件列表
     "": VNode[];
     default: VNode[];
   };
