@@ -105,15 +105,17 @@ export default {
 | prevDay  | Previous day button content                                             |
 | nextDay  | Next day button content                                                 |
 | nextWeek | Next week button content                                                |
+| more | more button content                                                |
 
 ## Events
 
-| Event Name | Description                                      | Parameters    |
-| ---------- | ------------------------------------------------ | ------------- |
-| select     | Triggered when a date is selected                | Selected date |
-| prevWeek   | Click the button of last week to trigger         | current date  |
-| nextWeek   | Click the next week button to trigger            | current date  |
-| prevDay    | Click the previous day button to trigger         | current date  |
-| nextDay    | Click the next day button to trigger             | current date  |
-| hide       | Triggered when more date selectors are hidden    | —             |
-| show       | Triggered when more date selectors are displayed | —             |
+| Event Name | Description                                                                                                           | Parameters    |
+| ---------- | --------------------------------------------------------------------------------------------------------------------- | ------------- |
+| select     | It is triggered when the user clicks the date. Pay attention to the difference between the event and the change event | Selected date |
+| change     | Triggered when a date is selected                                                                                     | Selected date |
+| prevWeek   | Click the button of last week to trigger                                                                              | current date  |
+| nextWeek   | Click the next week button to trigger                                                                                 | current date  |
+| prevDay    | Click the previous day button to trigger                                                                              | current date  |
+| nextDay    | Click the next day button to trigger                                                                                  | current date  |
+| hide       | Triggered when more date selectors are hidden                                                                         | —             |
+| show       | Triggered when more date selectors are displayed                                                                      | —             |

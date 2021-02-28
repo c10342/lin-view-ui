@@ -129,11 +129,11 @@ export default {
 
 ## CollapseGroup Attributes
 
-| Attribute | Description                                                                       | Type            | Accepted Values | Default |
-| --------- | --------------------------------------------------------------------------------- | --------------- | --------------- | ------- |
-| value     | The name of the currently active panel can be bound Bi directionally with v-model | Array , String | —               | —       |
-| accordion | Whether to turn on accordion mode, and expand one panel at a time                 | Boolean         | —               | false   |
-| simple    | Do you want to turn on concise mode                                               | Boolean         | —               | false   |
+| Attribute | Description                                                                       | Type                  | Accepted Values | Default |
+| --------- | --------------------------------------------------------------------------------- | --------------------- | --------------- | ------- |
+| value     | The name of the currently active panel can be bound Bi directionally with v-model | Array , String,Number | —               | —       |
+| accordion | Whether to turn on accordion mode, and expand one panel at a time                 | Boolean               | —               | false   |
+| simple    | Do you want to turn on concise mode                                               | Boolean               | —               | false   |
 
 ## CollapseGroup Events
 
@@ -143,10 +143,10 @@ export default {
 
 ## CollapseItem Attributes
 
-| Attribute  | Description                                                                      | Type           | Accepted Values | Default |
-| ---------- | -------------------------------------------------------------------------------- | -------------- | --------------- | ------- |
-| name       | Name of the current panel, corresponding to the value of collapsegroup, required | Array ,String | —               | —       |
-| hide-arrow | Hide arrow                                                                       | Boolean        | —               | false   |
+| Attribute  | Description                                                                      | Type          | Accepted Values | Default |
+| ---------- | -------------------------------------------------------------------------------- | ------------- | --------------- | ------- |
+| name       | Name of the current panel, corresponding to the value of collapsegroup, required | Number ,String | —               | —       |
+| hide-arrow | Hide arrow                                                                       | Boolean       | —               | false   |
 
 ## CollapseItem Slots
 
