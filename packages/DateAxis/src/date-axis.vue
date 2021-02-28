@@ -97,6 +97,9 @@ import DateMixin from 'src/mixins/date.js';
 import getYearMonthDay from 'src/utils/getYearMonthDay.js';
 import { throttle } from 'lodash';
 
+const ONEDAY = 60 * 60 * 1000 * 24;
+const ONEWEEK = ONEDAY * 7;
+
 export default {
   name: 'LinDateAxis',
   mixins: [documentClick, LocaleMixin, DateMixin],
@@ -108,6 +111,7 @@ export default {
     event: 'change'
   },
   props: {
+    // 绑定值
     value: {
       type: [Date, String]
     }
@@ -122,12 +126,19 @@ export default {
   },
   data () {
     return {
+      // 显示日期选择器
       isShowPopup: false,
+      // 当外部没有传入value值的时候，使用内部的selectTime
       selectTime: new Date(),
+      // 时间轴列表
       timeList: [],
+      // 下划线宽度，就是有个三角符号凸起来的那个东西
       lineWidth: '0px',
+      // 下划线位移距离
       lineTranslateX: '0px',
+      // 日期选择器出现位置，左边或者右边
       isRight: true,
+      // 日期选择器距离左边距离
       left: '0px'
     };
   },
@@ -144,6 +155,7 @@ export default {
     this.init(this.currentDate);
   },
   mounted () {
+    // 动态设置下划线宽度
     this.throttleFn = throttle(this.setLine, 500);
     window.addEventListener('resize', this.throttleFn);
   },
@@ -151,6 +163,7 @@ export default {
     window.removeEventListener('resize', this.throttleFn);
   },
   methods: {
+    // 设置日期选择器位置，左边或者右边
     setPlacement () {
       this.$nextTick(() => {
         const { scrollContainer } = this.$refs;
@@ -158,18 +171,22 @@ export default {
         const right = window.innerWidth - notOutsideContainer.getBoundingClientRect().left;
         const { left } = notOutsideContainer.getBoundingClientRect();
         if (right > scrollContainer.clientWidth) {
+          // 先判断右边位置是否充足
           this.setToRight();
         } else if (left > scrollContainer.clientWidth) {
+          // 判断左边位置是否充足
           this.setToLeft();
         } else {
           this.setToRight();
         }
       });
     },
+    // 日期选择器设置为右边出现
     setToRight () {
       this.isRight = true;
       this.left = '0px';
     },
+    // 日期选择器设置为左边出现
     setToLeft () {
       this.isRight = false;
       const { scrollContainer } = this.$refs;
@@ -178,10 +195,12 @@ export default {
         -scrollContainer.clientWidth + notOutsideContainer.clientWidth
       }px`;
     },
+    // 日期选择器点击选择日期事件
     onDateSelect (date) {
       const startTime = this.timeList[0];
       const endTime = this.timeList[this.timeList.length - 1];
       if (date < startTime || date > endTime) {
+        // 选中的日期不在日期轴中，重新初始化日期轴
         this.init(date);
       } else {
         this.setLine();
@@ -189,19 +208,22 @@ export default {
       this.hidePopup();
       this.$emit('select', date);
     },
+    // 点击上一个星期按钮
     prevWeek () {
       if (this.disabled) {
         return;
       }
+      // 今天周四，点击上一周当前选中时间应该变成上一周周四
       let { currentDate } = this;
-      currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24 * 7;
+      currentDate = currentDate.getTime() - ONEWEEK;
       currentDate = new Date(currentDate);
       const selDate = currentDate;
       // 上一周的最后一天，即周六
       const sat = new Date(
-        currentDate.getTime() + 60 * 60 * 1000 * 24 * (6 - currentDate.getDay())
+        currentDate.getTime() + ONEDAY * (6 - currentDate.getDay())
       );
       if (this.disabledBeforeDate) {
+        // 看看周六，即最后一天是否小于等于disabledBeforeDate这个日期，是，则被禁用了，不能选
         const d = new Date(this.disabledBeforeDate);
         if (this.isEqAndLt(sat, d)) {
           return;
@@ -209,14 +231,15 @@ export default {
       }
       // 如果被禁用，先找后面的
       while (this.isDisabledDate(currentDate) && this.isLt(currentDate, sat)) {
-        currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24;
+        currentDate = currentDate.getTime() + ONEDAY;
         currentDate = new Date(currentDate);
       }
 
       if (this.isDisabledDate(currentDate)) {
-        currentDate = new Date(selDate.getTime() - 60 * 60 * 1000 * 24);
+        // 后面的找完了(就是后面的日期也被禁用了)，就开始往前面找
+        currentDate = new Date(selDate.getTime() - ONEDAY);
         while (this.isDisabledDate(currentDate)) {
-          currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24;
+          currentDate = currentDate.getTime() - ONEDAY;
           currentDate = new Date(currentDate);
         }
       }
@@ -225,18 +248,19 @@ export default {
       this.init(currentDate);
       this.$emit('prevWeek', currentDate);
     },
+    // 点击下一个星期
     nextWeek () {
       if (this.disabled) {
         return;
       }
       let { currentDate } = this;
-      currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24 * 7;
+      currentDate = currentDate.getTime() + ONEWEEK;
       currentDate = new Date(currentDate);
 
       const selDate = currentDate;
       // 上一周的第一天，即周日
       const sun = new Date(
-        currentDate.getTime() - 60 * 60 * 1000 * 24 * currentDate.getDay()
+        currentDate.getTime() - ONEDAY * currentDate.getDay()
       );
       if (this.disabledAfterDate) {
         const d = new Date(this.disabledAfterDate);
@@ -246,14 +270,14 @@ export default {
       }
       // 如果被禁用，先找前面的
       while (this.isDisabledDate(currentDate) && this.isGt(currentDate, sun)) {
-        currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24;
+        currentDate = currentDate.getTime() - ONEDAY;
         currentDate = new Date(currentDate);
       }
 
       if (this.isDisabledDate(currentDate)) {
-        currentDate = new Date(selDate.getTime() + 60 * 60 * 1000 * 24);
+        currentDate = new Date(selDate.getTime() + ONEDAY);
         while (this.isDisabledDate(currentDate)) {
-          currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24;
+          currentDate = currentDate.getTime() + ONEDAY;
           currentDate = new Date(currentDate);
         }
       }
@@ -262,38 +286,44 @@ export default {
       this.init(currentDate);
       this.$emit('nextWeek', currentDate);
     },
+    // 点击前一天
     prevDay () {
       if (this.disabled) {
         return;
       }
       let { currentDate } = this;
-      currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24;
+      currentDate = currentDate.getTime() - ONEDAY;
       currentDate = new Date(currentDate);
       if (this.disabledBeforeDate) {
+        // 前一天小于等于disabledBeforeDate说明前面的所有日期被禁用了
         const d = new Date(this.disabledBeforeDate);
         if (this.isEqAndLt(currentDate, d)) {
           return;
         }
       }
+      // 如果被禁用了，就近原则找一个没有被禁用的日期
+      // 往前面找
       while (this.isDisabledDate(currentDate)) {
-        currentDate = currentDate.getTime() - 60 * 60 * 1000 * 24;
+        currentDate = currentDate.getTime() - ONEDAY;
         currentDate = new Date(currentDate);
       }
       this.currentDate = currentDate;
       const startTime = this.timeList[0];
       if (currentDate < startTime.getTime()) {
+        // 找到的日期超出时间轴的日期列表,需要重新渲染日期轴
         this.init(currentDate);
       } else {
         this.setLine();
       }
       this.$emit('prevDay', currentDate);
     },
+    // 点击明天,后一天
     nextDay () {
       if (this.disabled) {
         return;
       }
       let { currentDate } = this;
-      currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24;
+      currentDate = currentDate.getTime() + ONEDAY;
       currentDate = new Date(currentDate);
       if (this.disabledAfterDate) {
         const d = new Date(this.disabledAfterDate);
@@ -301,8 +331,9 @@ export default {
           return;
         }
       }
+      // 往后面找
       while (this.isDisabledDate(currentDate)) {
-        currentDate = currentDate.getTime() + 60 * 60 * 1000 * 24;
+        currentDate = currentDate.getTime() + ONEDAY;
         currentDate = new Date(currentDate);
       }
       this.currentDate = currentDate;
@@ -314,6 +345,7 @@ export default {
       }
       this.$emit('nextDay', currentDate);
     },
+    // 点击日期轴项
     onItemClick (date) {
       if (this.isDisabledDate(date)) {
         return;
@@ -325,14 +357,17 @@ export default {
       this.setLine();
       this.$emit('select', date);
     },
+    // 格式化显示时间
     formatDate (date) {
       const d = getYearMonthDay(date);
       return `${d.month}-${d.day}`;
     },
+    // 格式化星期几
     formatDay (date) {
       const day = date.getDay();
       return this.daysObj[day];
     },
+    // 初始化日期轴
     init (currentDate) {
       const day = currentDate.getDay();
       const timeList = [];
@@ -345,6 +380,7 @@ export default {
       this.timeList = timeList;
       this.setLine();
     },
+    // 设置下划线位置,即有个三角形突出的那个东西
     setLine () {
       this.$nextTick(() => {
         const dom = document.getElementById(
@@ -359,6 +395,7 @@ export default {
         }
       });
     },
+    // 点击更多
     onMoreClick () {
       if (this.isShowPopup) {
         this.hidePopup();
@@ -366,15 +403,18 @@ export default {
         this.showPopup();
       }
     },
+    // 隐藏日期选择器
     hidePopup () {
       this.isShowPopup = false;
       this.$emit('hide');
     },
+    // 显示日期选择器
     showPopup () {
       this.isShowPopup = true;
       this.$emit('show');
       this.setPlacement();
     },
+    // 点击组件外部
     onDocumentClick (event) {
       const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
@@ -383,6 +423,7 @@ export default {
     }
   },
   computed: {
+    // 当前选中的时间
     currentDate: {
       get () {
         if (this.value == null) {
