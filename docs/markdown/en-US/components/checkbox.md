@@ -88,8 +88,8 @@ export default {
 
 | Attribute       | Description                                                                       | Type                    | Accepted Values | Default |
 | --------------- | --------------------------------------------------------------------------------- | ----------------------- | --------------- | ------- |
-| value / v-model | binding value                                                                     | String, Number, Boolean | —               | —       |
-| label           | The value of lin-checkbox can only be used in combination with lin-checkbox-group | String, Number, Boolean | —               | —       |
+| value / v-model | binding value                                                                     | Boolean | —               | —       |
+| label           | The value of lin-checkbox can only be used in combination with lin-checkbox-group | String, Number | —               | —       |
 | name            | Native attribute name                                                             | String                  | —               | —       |
 | disabled        | whether the Checkbox is disabled                                                  | Boolean                 | —               | false   |
 
@@ -103,5 +103,5 @@ export default {
 
 | Attribute       | Description                           | Type                    | Accepted Values | Default |
 | --------------- | ------------------------------------- | ----------------------- | --------------- | ------- |
-| value / v-model | binding value                         | String, Number, Boolean | —               | —       |
+| value / v-model | binding value                         | Array | —               | —       |
 | disabled        | whether the CheckboxGroup is disabled | Boolean                 | —               | false   |

@@ -88,8 +88,8 @@ export default {
 
 | 参数            | 说明                                                    | 类型                    | 可选值 | 默认值 |
 | --------------- | ------------------------------------------------------- | ----------------------- | ------ | ------ |
-| value / v-model | 绑定值                                                  | String, Number, Boolean | —      | —      |
-| label           | lin-checkbox 的 value，只能结合 lin-checkbox-group 使用 | String, Number, Boolean | —      | —      |
+| value / v-model | 绑定值                                                  | Boolean | —      | —      |
+| label           | lin-checkbox 的 value，只能结合 lin-checkbox-group 使用 | String, Number | —      | —      |
 | name            | 原生属性 name                                           | String                  | —      | —      |
 | disabled        | 是否禁用                                                | Boolean                 | —      | false  |
 
@@ -103,5 +103,5 @@ export default {
 
 | 参数            | 说明     | 类型                    | 可选值 | 默认值 |
 | --------------- | -------- | ----------------------- | ------ | ------ |
-| value / v-model | 绑定值   | String, Number, Boolean | —      | —      |
+| value / v-model | 绑定值   | Array | —      | —      |
 | disabled        | 是否禁用 | Boolean                 | —      | false  |
