@@ -174,45 +174,56 @@ export default {
     }
   },
   props: {
+    // 日期块是否为圆角
     radius: {
       type: Boolean,
       default: false
     },
+    // 日期块宽度
     cellWidth: {
       type: Number,
       default: 32
     },
+    // 日期块高度
     cellHeight: {
       type: Number,
       default: 32
     },
+    // 头部标签的高度
     labelHeight: {
       type: Number,
       default: 32
     },
+    // 绑定值
     value: {
       type: [Date, String, Number],
       default: ''
     },
+    // 输入框占位符
     placeholder: {
       type: String
     },
+    // 自定义渲染日期块，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是日期对象。可以使用 jsx
     renderInfo: {
       type: Function,
       default: null
     },
+    // 格式化 value/v-model 绑定值
     format: {
       type: String,
       default: 'string'
     },
+    // 自定义输入框的显示内容
     showFormat: {
       type: Function,
       default: null
     },
+    // 自定义输入框的显示内容
     showAlways: {
       type: Boolean,
       default: false
     },
+    // 是否显示输入框
     showInput: {
       type: Boolean,
       default: true
@@ -230,12 +241,16 @@ export default {
         this.t('LinViewUI.DatePicker.fir'),
         this.t('LinViewUI.DatePicker.sat')
       ],
+      // 是否显示选择器
       isVisible: false,
+      // 头部当前日期
       time: { year, month },
+      // 选择器距离顶部距离
       top: 0
     };
   },
   computed: {
+    // 当前选中日期
     currentValue () {
       if (!this.value) {
         return '';
@@ -247,6 +262,7 @@ export default {
       }
       return '';
     },
+    // 显示在选择器上面的日期
     visibeDays () {
       const { year, month } = getYearMonthDay(
         getDate(this.time.year, this.time.month, 1)
@@ -264,6 +280,7 @@ export default {
       }
       return arr;
     },
+    // 显示在输入框中的日期
     formatDate () {
       if (this.showFormat) {
         return this.showFormat(this.currentValue);
@@ -276,6 +293,7 @@ export default {
     }
   },
   methods: {
+    // 设置日期选择器位置
     setPlacement () {
       this.$nextTick(() => {
         const popupContainer = this.$refs.popupContainer;
@@ -291,14 +309,17 @@ export default {
         }
       });
     },
+    // 设置日期选择器向下显示
     setDownTop () {
       const boxContainer = this.$refs.boxContainer;
       this.top = `${boxContainer.clientHeight}px`;
     },
+    // 设置日期选择器向上显示
     setUpTop () {
       const popupContainer = this.$refs.popupContainer;
       this.top = `${-popupContainer.clientHeight}px`;
     },
+    // 将时间格式化为时间对象
     handleValue () {
       if (!this.value) {
         return new Date();
@@ -310,30 +331,35 @@ export default {
       }
       return new Date();
     },
+    // 点击上一年按钮
     prevYear () {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setFullYear(d.getFullYear() - 1);
       this.setTime(d);
       this.$emit('prevYear', d);
     },
+    // 点击上一个月按钮
     prevMonth () {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setMonth(d.getMonth() - 1);
       this.setTime(d);
       this.$emit('prevMonth', d);
     },
+    // 点击下一个月按钮
     nextMonth () {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setMonth(d.getMonth() + 1);
       this.setTime(d);
       this.$emit('nextMonth', d);
     },
+    // 点击下一年按钮
     nextYear () {
       const d = getDate(this.time.year, this.time.month, 1);
       d.setFullYear(d.getFullYear() + 1);
       this.setTime(d);
       this.$emit('nextYear', d);
     },
+    // 判断传入的时间是否为当前头部日期的月份
     isCurrentMonth (date) {
       const { year, month } = getYearMonthDay(
         getDate(this.time.year, this.time.month, 1)
@@ -341,11 +367,13 @@ export default {
       const { year: y, month: m } = getYearMonthDay(date);
       return year === y && month === m;
     },
+    // 判断传入的日期是否跟当前选中日期相等
     isCurrentval (date) {
       const { year, month, day } = getYearMonthDay(this.currentValue);
       const { year: y, month: m, day: d } = getYearMonthDay(date);
       return year === y && month === m && day === d;
     },
+    // 点击选项选择日期
     selectDate (date) {
       if (this.isDisabledDate(date)) {
         return;
@@ -368,6 +396,7 @@ export default {
       this.$emit('select', d);
       this.blur();
     },
+    // 点击input输入框
     focus () {
       if (this.disabled) {
         return;
@@ -380,10 +409,12 @@ export default {
         this.$emit('blur');
       }
     },
+    // 模拟失去焦点
     blur () {
       this.isVisible = false;
       this.$emit('blur');
     },
+    // 设置头部当前日期
     setTime (date) {
       const { year, month } = getYearMonthDay(date);
       this.time = { year, month };
