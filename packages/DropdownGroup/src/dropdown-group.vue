@@ -9,6 +9,7 @@
 export default {
   name: 'LinDropdownGroup',
   props: {
+    // 分组的组名
     label: String
   }
 };
