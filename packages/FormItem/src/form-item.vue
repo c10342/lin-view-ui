@@ -26,13 +26,17 @@ import Schema from 'async-validator';
 export default {
   name: 'LinFormItem',
   props: {
+    // 标签文本
     label: String,
+    // 表单域model字段
     prop: String,
+    // 表单域标签宽度
     labelWidth: String
   },
   inject: ['Form'],
   data () {
     return {
+      // 错误信息
       errorMsg: ''
     };
   },
