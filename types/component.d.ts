@@ -18,3 +18,8 @@ export interface LinViewUIDateMixin {
   // 禁用指定日期
   disabledDate: Array<DateMixinDateType>;
 }
+
+export interface LinViewUIDragMixin{
+  // 是否可进行拖拽
+  drag: boolean
+}
