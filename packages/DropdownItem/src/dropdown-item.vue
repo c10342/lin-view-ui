@@ -18,15 +18,19 @@
 export default {
   name: 'LinDropdownItem',
   props: {
+    // 是否禁用
     disabled: {
       type: Boolean,
       default: false
     },
+    // 是否显示分割线
     divided: {
       type: Boolean,
       default: false
     },
+    // 指令
     command: null,
+    // 图标类名
     icon: {
       type: String,
       default: ''
@@ -43,6 +47,7 @@ export default {
     }
   },
   methods: {
+    // 点击菜单项
     onItemClick () {
       if (this.dropdown) {
         if (this.hideOnClick) {
