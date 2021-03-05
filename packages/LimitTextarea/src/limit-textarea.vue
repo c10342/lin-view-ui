@@ -33,22 +33,31 @@ import LocaleMixin from 'src/mixins/locale.js';
 export default {
   name: 'LinLimitTextarea',
   mixins: [LocaleMixin],
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
+    // 输入框占位符
     placeholder: {
       type: String
     },
+    // 行高
     rows: {
       type: Number,
       default: 4
     },
+    // 最大长度
     maxLen: {
       type: Number,
       default: -1
     },
+    // 超出字符是否裁剪
     isCut: {
       type: Boolean,
       default: false
     },
+    // 绑定值
     value: {
       type: [String, Number],
       default: ''
@@ -56,7 +65,9 @@ export default {
   },
   data () {
     return {
+      // 是否溢出,即超出最大长度
       isOver: false,
+      // 可输入的字符数
       num: this.maxLen
     };
   },
@@ -65,11 +76,11 @@ export default {
       const { value } = event.target;
       if (this.maxLen === -1) {
         // 不限制长度
-        this.$emit('input', value);
+        // this.$emit('input', value);
         this.$emit('change', value);
       } else if (value.length <= this.maxLen || !this.isCut) {
         // 限制长度
-        this.$emit('input', value);
+        // this.$emit('input', value);
         this.$emit('change', value);
         this.setCurrentValue(value);
       }
@@ -77,10 +88,13 @@ export default {
     setCurrentValue (value) {
       const currentValue = value.toString();
       if (currentValue.length <= this.maxLen) {
+        // 没有超出长度
         this.isOver = false;
+        // 还可以输入多少字符数
         this.num = this.maxLen - currentValue.length;
       } else {
         if (this.isCut) {
+          // 超出了多少字符数
           this.num = currentValue.length - this.maxLen;
           return;
         }
@@ -97,6 +111,7 @@ export default {
       }
       return -1;
     },
+    // 文本属性
     textareaProps () {
       const obj = {
         placeholder: this.placeholder
