@@ -76,47 +76,59 @@ export default {
     [Image.name]: Image
   },
   props: {
+    // 评论列表
     commentList: {
       type: Array,
       default: () => []
     },
+    // 悬浮的评论，当 fixComment 不为空并且列表没有滚动到最底部时显示
     fixComment: {
       type: Object,
       default: null
     },
+    // 绑定值
     value: {
       type: String,
       default: ''
     },
+    // 按钮文本
     btnText: {
       type: String
     },
+    // 是否允许发表评论
     arrowComment: {
       type: Boolean,
       default: false
     },
+    // 输入框占位符
     placeholder: {
       type: String
     },
+    // 输入框最长长度
     maxlength: {
       type: Number,
       default: -1
     },
+    // 是否节流滚动事件
     throttle: {
       type: Boolean,
       default: true
     },
+    // 标题
     title: {
       type: String
     },
+    // 观看人数
     viewCount: {
       type: Number,
       default: 0
     },
+    // 默认头像
     defaultAvator: {
       type: String,
       default: defaultAvator
     },
+    // 是否正在加载，防止用户多次点击
     isLoading: {
       type: Boolean,
       default: false
@@ -124,6 +136,7 @@ export default {
   },
   data () {
     return {
+      // 是否滚动到底部，默认是在底部
       isScrollToBottom: true
     };
   },
@@ -143,6 +156,7 @@ export default {
     handlerOnScroll (e) {
       const { scrollTop, scrollHeight, offsetHeight } = e.target;
       if (scrollTop + offsetHeight + 40 < scrollHeight) {
+        // 还没滚动到底部
         this.isScrollToBottom = false;
       } else {
         this.isScrollToBottom = true;
@@ -150,26 +164,31 @@ export default {
       }
       this.$emit('scroll', e);
     },
+    // 处理评论内容
     changeContent (str) {
       if (!str) {
         return '';
       }
       return str.replace(/\n/g, '<br/>');
     },
+    // 跳转到底部
     toBottom () {
       this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
       this.isScrollToBottom = true;
     },
+    // 点击发表评论按钮
     publishComment () {
       if (this.isLoading) {
         return;
       }
       this.$emit('sendBtnClick');
     },
+    // 输入框输入事件
     onInput (e) {
       const { value } = e.target;
       this.$emit('input', value);
     },
+    // 点击登录按钮
     gotoLogin () {
       this.$emit('loginBtnClick');
     }
@@ -179,6 +198,7 @@ export default {
       immediate: true,
       handler (newVal) {
         if (newVal.length > 0 && this.isScrollToBottom) {
+          // 如果列表本来就是在底部，当有新的评论的时候需要滚动到底部
           this.$nextTick(() => {
             this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
           });
@@ -193,6 +213,7 @@ export default {
       }
       return this.t('LinViewUI.LiveComment.placeholder');
     },
+    // 文本输入框属性
     textareaAttr () {
       const obj = {};
       if (this.maxlength !== -1) {
