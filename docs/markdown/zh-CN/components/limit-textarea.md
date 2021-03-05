@@ -96,7 +96,7 @@ export default {
 | 参数            | 说明                     | 类型         | 可选值 | 默认值         |
 | --------------- | ------------------------ | ------------ | ------ | -------------- |
 | rows            | 列高                     | Number       | —      | 4              |
-| max-len         | Number                   | 最大长度限制 | —      | -1(不限制长度) |
+| max-len         |  最大长度限制                  | Number | —      | -1(不限制长度) |
 | is-cut          | 超出字符是否裁剪         | Boolean      | —      | false          |
 | placeholder     | 输入时需要显示的提示文案 | String       | —      | 请输入内容     |
 | value / v-model | 绑定值                   | String       | —      | —              |
