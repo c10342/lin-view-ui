@@ -22,11 +22,17 @@ export default {
   name: 'LinLoading',
   data () {
     return {
+      // 加载文案
       text: null,
+      // 是否全屏
       fullscreen: true,
+      // 控制是否显示
       visible: false,
+      // 背景
       background: null,
+      // loading颜色
       iconColor: null,
+      // 文本颜色
       textColor: null
     };
   },
