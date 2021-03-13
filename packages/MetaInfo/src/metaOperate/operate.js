@@ -11,19 +11,6 @@ export default function operate () {
      * @param {*} metaOpts
      */
     setMetaInfo (metaOpts) {
-      // for (const key in metaOpts) {
-      //   if (key === 'title') {
-      //     document.title = metaOpts.title;
-      //     continue;
-      //   }
-      //   if (metaOpts.hasOwnProperty(key)) {
-      //     metaOpts[key].forEach((opt) => {
-      //       const ndKey = document.createElement(key);
-      //       _setAttr(ndKey, opt);
-      //       _ndHead.appendChild(ndKey);
-      //     });
-      //   }
-      // }
       Object.keys(metaOpts || {}).forEach((key) => {
         if (key === 'title') {
           document.title = metaOpts.title;
