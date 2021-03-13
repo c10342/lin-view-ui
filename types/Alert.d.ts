@@ -1,8 +1,8 @@
 
 import { VNode } from "vue";
-import { LinViewUIComponent } from "./component";
+import { LinViewUIComponent,DefaultType } from "./component";
 
-export type AlertType = "success" | "warning" | "info" | "danger";
+export type AlertType = DefaultType;
 
 export type AlertEffect = "dark" | "light";
 
