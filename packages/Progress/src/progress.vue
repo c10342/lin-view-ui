@@ -21,34 +21,42 @@
 export default {
   name: 'LinProgress',
   props: {
+    // 百分比（必填）
     percent: {
       type: Number,
       default: 0
     },
+    // 进度条底层颜色
     innerColor: {
       type: String,
       default: ''
     },
+    // 进度条上层颜色
     outColor: {
       type: String,
       default: ''
     },
+    // 进度条的高度，单位 px
     height: {
       type: Number,
       default: 10
     },
+    // 是否需要圆角
     radius: {
       type: Boolean,
       default: true
     },
+    // 进度条外面的提示文字
     textOutside: {
       type: String,
       default: ''
     },
+    // 进度条类型
     type: {
       type: String,
       default: 'primary'
     },
+    // 进度条里面的提示文字
     textInside: {
       type: String,
       default: ''
@@ -64,7 +72,7 @@ export default {
       }
       return `${this.percent * 100}%`;
     },
-
+    // 内层进度条样式
     innerStyle () {
       const style = {
         width: this.width
@@ -79,6 +87,7 @@ export default {
 
       return style;
     },
+    // 外层进度条样式
     outStyle () {
       const style = {};
       if (this.outColor) {
@@ -93,12 +102,14 @@ export default {
 
       return style;
     },
+    // 是否显示外层文本
     isShowOutsideText () {
       if (this.textOutside || this.$slots.default) {
         return true;
       }
       return false;
     },
+    // 是否显示内层文本
     isShowInsideText () {
       if (this.textInside || this.$slots.text) {
         return true;
