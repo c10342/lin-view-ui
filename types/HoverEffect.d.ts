@@ -1,11 +1,8 @@
 import { VNode } from "vue";
-import { LinViewUIComponent } from "./component";
+import { LinViewUIComponent ,DefaultType} from "./component";
 
 export type HoverEffectType =
-  | "primary"
-  | "success"
-  | "warning"
-  | "danger"
+DefaultType
   | "info";
 
 export type HoverEffectTheme =
