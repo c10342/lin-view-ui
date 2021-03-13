@@ -6,6 +6,8 @@ export declare class LinViewUIComponent extends Vue {
 
 export type DateMixinDateType = Date | string | number;
 
+export type DefaultType = "primary" | "success" | "warning" | "danger";
+
 export interface LinViewUIDateMixin {
   // 是否禁用
   disabled: boolean;
