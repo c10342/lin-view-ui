@@ -1,12 +1,9 @@
 import { VNode } from "vue";
-import { LinViewUIComponent } from "./component";
+import { LinViewUIComponent ,DefaultType} from "./component";
 
 export type ButtonType =
+  DefaultType
   | "default"
-  | "primary"
-  | "success"
-  | "warning"
-  | "danger"
   | "info";
 
 export type ButtonSize = "default" | "medium" | "small";
