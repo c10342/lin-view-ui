@@ -36,15 +36,10 @@ export default {
   computed: {
     model: {
       get () {
-        // this.RadioGroup.value
         return this.isGroup ? this.RadioGroup.value : this.value;
       },
       set (value) {
         // 触发父组件给当前组件注册的input事件
-        // this.$emit("input", value);
-        // this.isGroup
-        //   ? this.RadioGroup.$emit('input', value)
-        //   : this.$emit('input', value);
         if (this.isGroup) {
           this.RadioGroup.$emit('input', value);
         } else {
@@ -67,19 +62,22 @@ export default {
         }
       }
       return this.disabled;
-      // return this.isGroup ? this.RadioGroup.disabled : this.disabled;
     }
   },
   props: {
+    // Radio 的 value
     label: {
       type: [String, Number, Boolean],
       default: ''
     },
+    // 绑定值
     value: null,
+    // 原生属性 name
     name: {
       type: String,
       default: ''
     },
+    // 是否禁用
     disabled: {
       type: Boolean,
       default: false
