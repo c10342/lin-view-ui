@@ -1,7 +1,7 @@
 import { VNode } from "vue";
-import { LinViewUIComponent } from "./component";
+import { LinViewUIComponent,DefaultType } from "./component";
 
-export type BadgeType = "primary" | "success" | "warning" | "danger" | "info";
+export type BadgeType = DefaultType | "info";
 
 export declare class LinBadge extends LinViewUIComponent {
   // 显示的值
