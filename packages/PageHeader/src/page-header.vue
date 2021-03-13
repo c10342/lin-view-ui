@@ -40,25 +40,31 @@ export default {
   name: 'LinPageHeader',
   mixins: [LocaleMixin],
   props: {
+    // 是否显示返回按钮
     back: {
       type: Boolean,
       default: true
     },
+    // 返回按钮文字
     backTip: {
       type: String
     },
+    // 标题
     title: {
       type: String,
       default: ''
     },
+    // 是否显示右侧按钮
     right: {
       type: Boolean,
       default: false
     },
+    // 是否显示激活状态
     active: {
       type: Boolean,
       default: false
     },
+    // 是否显示底部边框
     border: {
       type: Boolean,
       default: false
