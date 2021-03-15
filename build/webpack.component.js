@@ -10,6 +10,8 @@ const baseConfig = require("./webpack.build.base");
 
 const util = require('./util')
 
+const WritePlugin = require('./writePlugin.js')
+
 const getComponentEntries = (pathStr) => {
   let files = fs.readdirSync(path.join(__dirname, "../", pathStr));
   const componentEntries = files.reduce((ret, item) => {
@@ -40,6 +42,7 @@ const componentConfig = {
     new MiniCssExtractPlugin({
       filename: "[name]/style.css",
     }),
+    new WritePlugin('style.js')
   ],
 };
 
