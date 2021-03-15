@@ -28,7 +28,7 @@
     "docs:dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.docs.js",
     "docs:build": "cross-env NODE_ENV=production webpack --config ./build/webpack.docs.js",
     "index:build": "webpack --config ./build/webpack.all.js",
-    "component:build": "webpack --config ./build/webpack.component.js && node ./build/write.js",
+    "component:build": "webpack --config ./build/webpack.component.js",
     "assets:build": "webpack --config ./build/webpack.assets.js",
     "build": "rimraf lib && npm run index:build && npm run component:build && npm run assets:build",
     "docs:upload": "npm run docs:build && node ./build/qiniu.js",
