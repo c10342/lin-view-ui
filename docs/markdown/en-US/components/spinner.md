@@ -106,7 +106,7 @@ You can set the style of Spinner through the properties of `loadingColor`,`size`
 | ----------------- | ------------------------ | -------------- | ------------------------------------------------------------------- | ------- |
 | type              | Topic type               | String         | primary，success，info，warning， danger                            | primary |
 | vertical          | Copy alignment direction | String         | col，row                                                            | row     |
-| proportion        | radian                   | String         | 1,2,3                                                               | 1       |
+| proportion        | radian                   | String,Number         | 1,2,3                                                               | 1       |
 | loadingColor      | Display color            | String         | —                                                                   | —       |
 | strokeWidth       | Ring width               | String         | —                                                                   | —       |
 | size              | size                     | String         | —                                                                   | —       |
