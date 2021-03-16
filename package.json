@@ -37,7 +37,7 @@
     "lint": "eslint --ext .js,.vue packages src",
     "lint-fix": "eslint --fix --ext .js,.vue packages src",
     "lint:style": "stylelint **/*.{html,vue,css,sass,scss} --fix",
-    "test:unit": "vue-cli-service test:unit --watch",
+    "test:unit": "jest --watch",
     "test": "jest",
     "commit": "git cz"
   },
