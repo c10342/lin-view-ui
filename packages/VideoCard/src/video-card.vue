@@ -23,32 +23,40 @@ export default {
   name: 'LinVideoCard',
   mixins: [LocaleMixin],
   props: {
+    // 卡片相关数据
     data: {
       type: Object
     },
+    // 卡片高度
     cardHeight: {
       type: String,
       default: 'auto'
     },
+    // 卡片宽度
     cardWidth: {
       type: String,
       default: '262px'
     },
+    // 封面高度
     imageHeight: {
       type: String,
       default: '146px'
     },
+    // 封面右下角提示
     coverTip: {
       type: String,
       default: ''
     },
+    // 图片加载失败提示语
     errorTip: {
       type: String
     },
+    // 封面默认图片
     defaultImageUrl: {
       type: String,
       default: ''
     },
+    // 封面图片
     imageUrl: {
       type: String,
       default: ''
@@ -56,11 +64,14 @@ export default {
   },
   data () {
     return {
+      // 图片是否加载错误
       imageLoadError: false,
+      // 图片地址
       url: ''
     };
   },
   methods: {
+    // 图片加载错误回调
     loadError () {
       if (!this.defaultImageUrl || this.url === this.defaultImageUrl) {
         this.imageLoadError = true;
@@ -68,6 +79,7 @@ export default {
       }
       this.url = this.defaultImageUrl;
     },
+    // 点击卡片
     onCardClick () {
       this.$emit('click', this.data);
     }
