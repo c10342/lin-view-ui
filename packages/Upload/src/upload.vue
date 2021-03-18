@@ -22,18 +22,22 @@ export default {
     'lin-button': LinButton
   },
   props: {
+    // 文本
     text: {
       type: String,
       default: ''
     },
+    // 切片大小
     fileChunkSize: {
       type: Number,
       default: 10 * 1024 * 1024
     },
+    // 上传地址
     uploadUrl: {
       type: String,
       required: true
     },
+    // 请求合并切片地址
     mergeUrl: {
       type: String
     },
@@ -47,15 +51,19 @@ export default {
       type: Boolean,
       default: false
     },
+    // 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。
     beforeUpload: {
       type: Function
     },
+    // 对文件进行切片的处理方法
     splitFileChunk: {
       type: Function
     },
+    // 计算文件 hash 值的方法，需返回一个 Promise
     caculateFileHash: {
       type: Function
     },
+    // 请求合并切片的方法 ，需返回一个 Promise
     requestMergeFileFn: {
       type: Function
     }
@@ -63,20 +71,23 @@ export default {
   mounted () {
     // 文件
     this.selectedFile = null;
-    // 文件切片数据
+    // 文件切片数据（经过处理的）
     this.fileChunkListData = [];
     // 请求列表
     this.requestList = [];
     // 文件hash值
     this.fileHash = null;
+    // 文件切片数据（未经过处理的）
     this.fileChunkList = [];
   },
   methods: {
     onFileChange (e) {
       // 获取文件
       this.selectedFile = e.target.files[0];
+      // 清空值
       this.$refs.linUploadInput.value = '';
       if (typeof this.beforeUpload === 'function') {
+        // 存在beforeUpload函数
         const res = this.beforeUpload(this.selectedFile);
         if (res instanceof Promise) {
           res
@@ -91,11 +102,11 @@ export default {
         this.handleUpload();
       }
     },
+    // 点击按钮
     onBtnClick () {
       this.$refs.linUploadInput.click();
     },
     handleUpload () {
-      // 或者切片上传
       if (this.breakpoint) {
         // 开启断点续传
         this.uploadFileByBreakpoint();
@@ -109,21 +120,27 @@ export default {
 
     // 切片上传逻辑
     uploadFileBySlice () {
+      // 对文件进行切片
       this.createFileChunkList();
+      // 给切片出来的数据添加额外信息
       this.fileChunkListData = this.fileChunkList.map((file, index) => ({
-        // 切片
+        // 切片文件
         chunk: file,
+        // 切片hash，给个索引是为了，全部上传完之后，后台可以知道每个切片所在的位置
         hash: `${this.selectedFile.name}-${index}`
       }));
+      // 上传切片
       this.uploadChunksBySlice();
     },
 
     // 断点上传逻辑
     async uploadFileByBreakpoint () {
+      // 对文件进行切片
       this.createFileChunkList();
       try {
         // 计算出文件hash值
         if (typeof this.caculateFileHash === 'function') {
+          // 自定义计算文件hash值
           this.fileHash = await this.caculateFileHash(this.selectedFile);
         } else {
           this.fileHash = await caculateFileHash(this.selectedFile);
@@ -147,8 +164,11 @@ export default {
 
       // 存储每个切片相应的信息
       this.fileChunkListData = this.fileChunkList.map((file, index) => ({
+        // 切片文件
         chunk: file,
+        // 切片hash值
         hash: `${this.fileHash}-${index}`,
+        // 整个文件的hash值
         fileHash: this.fileHash
       }));
 
@@ -176,11 +196,15 @@ export default {
       if (!this.uploadUrl) {
         throw new TypeError('uploadUrl is not define');
       }
+      // 创建请求列表
       const requestList = this.fileChunkListData
         .map(({ chunk, hash, index }) => {
           const formData = new FormData();
+          // 切片文件
           formData.append('chunk', chunk);
+          // 切片hash值
           formData.append('hash', hash);
+          // 文件名（不是切片的文件名，而是整个大文件的文件名）
           formData.append('filename', this.selectedFile.name);
           return { formData, index };
         })
@@ -189,12 +213,13 @@ export default {
           data: formData
         }));
       try {
+        // 等待所有切片上传完毕
         const res = await Promise.all(requestList);
         this.$emit('uploadChunkSuccess', res);
       } catch (error) {
         this.$emit('uploadChunkFail', error);
       }
-
+      // 请求合并切片
       this.requestMergeFile();
     },
 
@@ -208,9 +233,13 @@ export default {
         .filter(({ hash }) => !uploadedChunkList.includes(hash))
         .map(({ chunk, hash, fileHash }) => {
           const formData = new FormData();
+          // 切片文件
           formData.append('chunk', chunk);
+          // 切片文件hash值
           formData.append('hash', hash);
+          // 文件名
           formData.append('filename', this.selectedFile.name);
+          // 文件hash
           formData.append('fileHash', fileHash);
           return { formData, hash, fileHash };
         })
@@ -236,6 +265,7 @@ export default {
         uploadedChunkList.length + requestPromiseList.length ===
         this.fileChunkListData.length
       ) {
+        // 已经上传的切片数量加上+请求上传的列表数量=总的切片数量
         // 请求合并切片
         this.requestMergeFile();
       }
@@ -270,13 +300,17 @@ export default {
         }
         let res;
         const parmas = {
+          // 文件名
           filename: this.selectedFile.name,
+          // 切片大小
           size: this.fileChunkSize
         };
         if (this.breakpoint) {
+          // 断点续传，需要带上文件的hash值
           parmas.fileHash = this.fileHash;
         }
         if (typeof this.requestMergeFileFn === 'function') {
+          // 自定义合并请求接口
           res = await this.requestMergeFileFn(parmas);
         } else {
           res = await request({
@@ -288,6 +322,7 @@ export default {
           });
         }
         this.$emit('mergeFileSuccess', res);
+        // 移除断点续传的文件hash
         window.localStorage.removeItem(this.fileHash);
       } catch (error) {
         this.$emit('mergeFileFail', error);
