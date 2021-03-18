@@ -13,6 +13,7 @@ export default {
     }
   },
   computed: {
+    // 控制loading是否显示
     isLoading () {
       if (this.videoPlayer) {
         return this.videoPlayer.isLoading;

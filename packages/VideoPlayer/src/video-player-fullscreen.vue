@@ -31,6 +31,7 @@ export default {
     }
   },
   methods: {
+    // 切换浏览器全屏状态
     onBrowserFullscreen () {
       if (this.videoPlayer) {
         this.videoPlayer.isWebFullscreen = false;
@@ -43,6 +44,7 @@ export default {
         }
       }
     },
+    // 切换网页全屏状态
     onWebFullscreen () {
       exitBrowserFullscreen();
       this.videoPlayer?.switchWebfullscreen();

@@ -60,29 +60,50 @@ export default {
   },
   data () {
     return {
+      // 当前进度时间
       currentTime: 0,
+      // 视频总时间
       totalTime: 0,
+      // 缓冲到第几秒
       preloadTime: 0,
+      // 是否处于播放状态
       isPlaying: false,
+      // 是否网页全屏
       isWebFullscreen: false,
+      // 播放数度
       speedList: [],
+      // 视频清晰度列表
       videoList: [],
+      // 视频截图，用于切换清晰度的时候，防止出现闪屏。先显示图片，再切换清晰度，这样图片就盖住了闪屏了
       imgSrc: '',
+      // 是否在加载数据，切换清晰度或者切换视频的时候用到，要给出loading提示
       isLoading: false,
+      // 左下角的提示
       tip: '',
+      // 左下角提示多久就消失
       tipTime: 2000,
+      // 默认播放的视频流类型
       type: 'hls',
+      // 是否自动播放
       autoplay: false,
+      // 当前视频清晰度对象
       currentDefinitionVideo: null,
+      // 清晰度列表
       definitionList: [],
+      // 是否为直播
       live: false,
+      // 鼠标是否进入容器
       isEnter: true,
+      // 自定义支持其他 MSE 可使用此参数
       customType: null
     };
   },
   mounted () {
+    // hls实例对象
     this.hls = null;
+    // flv实例对象
     this.flv = null;
+    // video元素
     this.video = this.$refs.videoPlayerVideo;
     this.initParams();
   },
@@ -90,36 +111,48 @@ export default {
     initParams () {
       if (this.videoList.length > 0) {
         const videoList = cloneDeep(this.videoList);
+        // 获取第一个清晰度视频
         this.currentDefinitionVideo = videoList[0];
+        // 剩下的清晰度
         this.definitionList = videoList.slice(1);
+        // 初始化播放器
         this.initPlayer(this.currentDefinitionVideo);
       }
     },
     initPlayer (data) {
+      // 显示loading
       this.isLoading = true;
       if (typeof this.customType === 'function') {
+        // 自定义MSE
         this.initCustomType(data);
       } else {
         const videoSrc = data.url;
         if (this.type === 'hls') {
+          // hls流
           this.initHls(videoSrc);
         } else if (this.type === 'flv') {
+          // flv流
           this.initFlv(videoSrc);
         } else if (this.type === 'mp4') {
+          // mp4
           this.video.src = videoSrc;
         }
       }
     },
+    // 切换视频播放地址
     switchPlayerUrl (data) {
       const videoSrc = data.url;
       const label = data.label;
       if (!videoSrc) {
         return;
       }
+      // 显示loading
       this.isLoading = true;
+      // 提示正在切换清晰度
       this.tip = `${this.t('LinViewUI.VideoPlayer.switch')} ${label} ${this.t(
         'LinViewUI.VideoPlayer.quality'
       )}`;
+      // 截图显示出来，防止闪屏
       this.getImage();
       if (typeof this.customType === 'function') {
         this.initCustomType(data);
@@ -139,12 +172,15 @@ export default {
         throw new ReferenceError('Hls is not defind');
       }
       if (Hls.isSupported()) {
+        // 判断是否支持hls
         if (!this.hls) {
           this.hls = new Hls(hlsParams);
         }
+        // 加载视频
         this.hls.loadSource(videoSrc);
         this.hls.attachMedia(this.video);
       } else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
+        // 判断是否支持直接播放m3u8文件
         this.video.src = videoSrc;
       }
     },
@@ -153,7 +189,10 @@ export default {
         throw new ReferenceError('flvjs is not defind');
       }
       if (flvjs.isSupported()) {
+        // 判断是否支持flv
+        // 关闭日志输出
         flvjs.LoggingControl.enableAll = false;
+        // 初始化flv实例
         this.flv = flvjs.createPlayer({
           type: 'flv',
           url: videoSrc,
@@ -165,6 +204,7 @@ export default {
       }
     },
     initCustomType (data) {
+      // 自定义EMS
       this.customType(
         this.video,
         cloneDeep({
@@ -176,16 +216,21 @@ export default {
         })
       );
     },
+    // video播放时间变化
     onTimeUpdate () {
       const currentTime = this.video?.currentTime || 0;
       this.currentTime = currentTime;
     },
+    // 加载数据源
     onLoadedmetadata () {
       const duration = this.video?.duration || 0;
       this.totalTime = duration;
     },
+    // 可以流畅播放
     onCanplaythrough () {
+      // 清空截图
       this.imgSrc = '';
+      // 隐藏loading
       this.isLoading = false;
       if (this.isPlaying) {
         this.play();
@@ -193,29 +238,36 @@ export default {
         this.pause();
       }
     },
+    // 正在等待
     onWaiting () {
       this.isLoading = true;
     },
+    // 缓冲事件
     onprogress () {
       if (this.video && this.video.buffered?.length !== 0) {
         const preloadTime = this.video?.buffered.end(0) || 0;
         this.preloadTime = preloadTime;
       }
     },
+    // 跳转到某个视频点
     seek (time) {
       if (this.video) {
         this.video.currentTime = time;
       }
     },
+    // 播放事件
     onPlay () {
       this.emitPlayingStatus(this.video?.paused);
     },
+    // 暂停事件
     onPause () {
       this.emitPlayingStatus(this.video?.paused);
     },
+    // 修改状态为是否正在播放
     emitPlayingStatus (status) {
       this.isPlaying = !status;
     },
+    // 切换播放状态
     switchPlayingStatus () {
       if (this.video && this.video.paused) {
         this.play();
@@ -229,6 +281,7 @@ export default {
     pause () {
       this.video?.pause();
     },
+    // 视频截图
     getImage () {
       if (this.video) {
         try {
@@ -243,12 +296,14 @@ export default {
         }
       }
     },
+    // 销毁hls
     destoryHls () {
       if (this.hls) {
         this.hls.destroy();
         this.hls = null;
       }
     },
+    // 销毁flv
     destoryFlv () {
       if (this.flv) {
         this.flv.pause();
@@ -258,14 +313,17 @@ export default {
         this.flv = null;
       }
     },
+    // 销毁播放器
     destoryPlayer () {
       this.destoryFlv();
       this.destoryHls();
       this.video = null;
     },
+    // 设置左下角提示
     setTip (tip) {
       this.tip = tip;
     },
+    // 设置播放速度
     setSpeed (rate) {
       if (this.video) {
         let playbackRate = rate;
@@ -273,12 +331,15 @@ export default {
         this.video.playbackRate = playbackRate;
       }
     },
+    // 设置音量
     setVolume (percentage) {
       if (this.video) {
+        // 音量只能是0-1
         let volume = percentage;
         volume = volume < 0 ? 0 : volume;
         volume = volume > 1 ? 1 : volume;
         this.video.volume = volume;
+        // 显示左下角提示
         this.setTip(
           `${this.t('LinViewUI.VideoPlayer.volume')}${Math.round(
             volume * 100
@@ -288,47 +349,68 @@ export default {
       }
       return -1;
     },
+    // 切换网页全屏
     switchWebfullscreen () {
       this.isWebFullscreen = !this.isWebFullscreen;
     },
+    // 设置网页全屏
     setWebFullScreen () {
+      // 需要先退出浏览器全屏
       exitBrowserFullscreen();
 
       this.isWebFullscreen = true;
     },
+    // 设置浏览器全屏
     setBrowserFullScreen () {
       if (this.isWebFullscreen) {
+        // 需要先退出网页全屏
         this.isWebFullscreen = false;
       }
+      // 进入浏览器全屏
       enterBrowserFullScreen(this.$refs?.videoPlayerContainer);
     },
+    // 退出网页全屏
     cancelWebFullScreen () {
+      // 首先需要退出浏览器全屏
       exitBrowserFullscreen();
 
       this.isWebFullscreen = false;
     },
+    // 退出浏览器全屏
     cancelBrowserFullScreen () {
       if (this.isWebFullscreen) {
+        // 退出网页全屏
         this.isWebFullscreen = false;
       }
       exitBrowserFullscreen();
     },
+    // 设置视频清晰度
     setDefinition (data) {
+      // 判断当前清晰度是否跟传入的清晰度相同
       if (!isEqual(this.currentDefinitionVideo, data)) {
         const definitionList = cloneDeep(this.definitionList);
+        // 找出对应的清晰度对象
         const index = definitionList.findIndex((item) => isEqual(item, data));
         if (index > -1) {
+          // 有的情况
+          // definitionList存放的是剩下的清晰度,不包含当前的清晰度
+          // 移除对应的清晰度
           definitionList.splice(index, 1);
+          // 把旧清晰度放进去
           definitionList.push(this.currentDefinitionVideo);
+          // 更新一下数据
           this.definitionList = definitionList;
           this.currentDefinitionVideo = data;
+          // 切换视频地址
           this.switchPlayerUrl(data);
         }
       }
     },
+    // 鼠标离开容器
     onMouseLeave () {
       this.isEnter = false;
     },
+    // 鼠标进入容器
     onMouseEnter () {
       this.isEnter = true;
     }

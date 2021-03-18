@@ -17,6 +17,7 @@ export default {
   },
   data () {
     return {
+      // 是否展示播放，暂停的动画
       showAnimation: false
     };
   },
@@ -29,12 +30,14 @@ export default {
     }
   },
   methods: {
+    // 动画结束
     animationend () {
       this.showAnimation = false;
     }
   },
   watch: {
     isPlaying () {
+      // 监听播放状态
       this.showAnimation = true;
     }
   }

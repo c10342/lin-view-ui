@@ -13,12 +13,14 @@ export default {
     }
   },
   computed: {
+    // 左下角提示
     tip () {
       if (this.videoPlayer) {
         return this.videoPlayer.tip;
       }
       return '';
     },
+    // 显示时长
     tipTime: {
       get () {
         if (this.videoPlayer) {
@@ -51,6 +53,7 @@ export default {
           if (this.videoPlayer) {
             this.videoPlayer.tip = '';
           }
+          // 当外部传入显示时长的时候，隐藏后需要重置显示时长
           this.tipTime = 2000;
           this.destroyTimeout();
         }, this.tipTime);
