@@ -475,7 +475,7 @@ export default {
 | prop      | field name                                                                                                                                                                         | String | —               | —       |
 | label     | column label                                                                                                                                                                       | String | —               | —       |
 | width     | column width                                                                                                                                                                       | String | —               | —       |
-| align     | alignment                                                                                                                                                                          | String | —               | left    |
+| align     | alignment                                                                                                                                                                          | String | left,right,center               | left    |
 | type      | The type of the corresponding column. If `selection` is set, multiple check boxes will be displayed; if `index` is set, the index of the row will be displayed (calculated from 1) | String | —               | —       |
 
 ## TableColumn Slot
