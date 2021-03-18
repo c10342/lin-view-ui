@@ -9,6 +9,7 @@ export default {
     }
   },
   computed: {
+    // 选中的数据
     selectData: {
       set (val) {
         if (this.table) {
@@ -22,6 +23,7 @@ export default {
         return [];
       }
     },
+    // 数据源
     dataSource () {
       if (this.table) {
         return this.table.dataSource;
@@ -31,10 +33,12 @@ export default {
   },
   watch: {
     selectData (val) {
+      // 修改checkbox选中状态
       this.changeCheckboxStatus(val);
     }
   },
   methods: {
+    // 渲染头部单元格，有三中类型，普通的，checkbox，index
     renderTh (h, column) {
       let th = null;
       switch (column.type) {
@@ -56,18 +60,23 @@ export default {
       }
       return th;
     },
+    // 点击checkbox
     onClick (e) {
       if (this.table) {
         const checked = e.target.checked;
         if (checked) {
+          // 全选
           this.selectData = cloneDeep(this.dataSource);
         } else {
+          // 反选
           this.selectData = [];
         }
+        // 触发全选事件和，选项变化事件
         this.table.emitSelectChange();
         this.table.emitSelectAll();
       }
     },
+    // 改变checkbox状态
     switchCheckboxStatus (status) {
       const linTableHeaderCheckbox = this.$refs.linTableHeaderCheckbox;
       switch (status) {
@@ -93,11 +102,14 @@ export default {
     changeCheckboxStatus (data) {
       if (data.length > 0) {
         if (data.length < this.dataSource.length) {
+          // 半选状态
           this.switchCheckboxStatus(1);
         } else if (data.length === this.dataSource.length) {
+          // 全选
           this.switchCheckboxStatus(2);
         }
       } else {
+        // 不选
         this.switchCheckboxStatus(3);
       }
     }
