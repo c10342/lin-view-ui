@@ -28,7 +28,7 @@ export default {
         );
       }
     },
-    // 文案对齐方向	
+    // 文案对齐方向
     vertical: {
       type: String,
       default: 'row',
@@ -38,13 +38,13 @@ export default {
     },
     // 弧度
     proportion: {
-      type: [String,Number],
+      type: [String, Number],
       default: '1',
       validator (value) {
-        return ['1', '2', '3',1,2,3].includes(value);
+        return ['1', '2', '3', 1, 2, 3].includes(value);
       }
     },
-    // 显示器颜色	
+    // 显示器颜色
     loadingColor: String,
     // 显示器大小
     size: String,
@@ -68,7 +68,7 @@ export default {
     },
     // css3 动画名称
     animationName: String,
-    // 运动时长	
+    // 运动时长
     animationDuration: String,
     // 运动方式
     timingFunction: {
@@ -89,7 +89,7 @@ export default {
         return false;
       }
     },
-    // 运动次数	
+    // 运动次数
     iterationCount: {
       type: [String, Number],
       validator (value) {
@@ -101,7 +101,7 @@ export default {
         return false;
       }
     },
-    // 加载文案	
+    // 加载文案
     text: String,
     // 加载文案字体大小
     textSize: String,
