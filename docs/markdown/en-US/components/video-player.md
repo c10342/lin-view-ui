@@ -373,8 +373,8 @@ export default {
 | el         | Player container element, required                                     | String                             | HTMLElement     | —       | — |
 | type       | Play type, required. Not required when the customtype parameter exists | String                             | mp4、hls、flv   | —       |
 | autoplay   | Automatic video playback                                               | Boolean                            | —               | false   |
-| speedList  | Video speed multiples list                                             | Ayyay<{label:string,value:string}> | —               | —       |
-| videoList  | Video list, required                                                   | Ayyay<{label:string,url:string}>   | —               | —       |
+| speedList  | Video speed multiples list                                             | Array<{label:string,value:string}> | —               | —       |
+| videoList  | Video list, required                                                   | Array<{label:string,url:string}>   | —               | —       |
 | live       | Open live broadcast                                                    | Boolean                            | —               | false   |
 | customType | Custom support is required. Other MSEs can use this parameter          | Function                           | —               | —       |
 
