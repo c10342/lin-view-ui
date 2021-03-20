@@ -3,6 +3,9 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const path = require("path");
 const baseConfig = {
+  performance: {
+    hints:false   
+  },
   stats: {
     modules: false,
     children: false,

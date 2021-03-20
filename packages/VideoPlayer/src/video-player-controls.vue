@@ -42,6 +42,7 @@ export default {
   name: 'LinVideoPlayerControls',
   mixins: [LocaleMixin],
   filters: {
+    // 格式化时间
     secondToTime
   },
   components: {
@@ -75,18 +76,21 @@ export default {
       }
       return 0;
     },
+    // 总时长
     totalTime () {
       if (this.videoPlayer) {
         return this.videoPlayer.totalTime;
       }
       return 0;
     },
+    // 是否是直播
     live () {
       if (this.videoPlayer) {
         return this.videoPlayer.live;
       }
       return 0;
     },
+    // 鼠标是否进入容器
     isEnter () {
       if (this.videoPlayer) {
         return this.videoPlayer.isEnter;
@@ -95,14 +99,15 @@ export default {
     }
   },
   methods: {
+    // 点击播放或者暂停按钮
     onPlayBtnClick () {
       if (this.videoPlayer) {
         this.videoPlayer.switchPlayingStatus();
       }
     }
-  },
-  beforeDestroy () {
-    this.videoPlayer.$off('playingStatus', this.onPlayingStatus);
   }
+  // beforeDestroy () {
+  //   this.videoPlayer.$off('playingStatus', this.onPlayingStatus);
+  // }
 };
 </script>

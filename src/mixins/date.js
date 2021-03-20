@@ -1,27 +1,33 @@
 export default {
   props: {
+    // 是否禁用
     disabled: {
       type: Boolean,
       default: false
     },
+    // 禁用小于等于该日期的日期
     disabledBeforeDate: {
       type: [Date, String, Number],
       default: ''
     },
+    // 禁用大于等于该日期的日期
     disabledAfterDate: {
       type: [Date, String, Number],
       default: ''
     },
+    // 禁用指定范围内的日期
     disabledRangeDate: {
       type: Array,
       default: () => []
     },
+    // 禁用指定日期
     disabledDate: {
       type: Array,
       default: () => []
     }
   },
   methods: {
+    // 判断传入的日期是否为禁用的日期
     isDisabledDate (date) {
       if (this.disabled) {
         return true;
@@ -64,6 +70,7 @@ export default {
       }
       return false;
     },
+    // 对比日期
     compareDate (date1, date2, type) {
       if (!(date1 instanceof Date)) {
         date1 = new Date(date1);
@@ -86,18 +93,23 @@ export default {
       };
       return obj[type];
     },
+    // 判断2个日期是否相等
     isEqual (date1, date2) {
       return this.compareDate(date1, date2, 'Equal');
     },
+    // 判断date1是否小于等于date2
     isEqAndLt (date1, date2) {
       return this.compareDate(date1, date2, 'EqAndLt');
     },
+    // 判断date1是否大于等于date2
     isEqAndGt (date1, date2) {
       return this.compareDate(date1, date2, 'EqAndGt');
     },
+    // 判断date1是否小于date2
     isLt (date1, date2) {
       return this.compareDate(date1, date2, 'Lt');
     },
+    // 判断date1是否大于date2
     isGt (date1, date2) {
       return this.compareDate(date1, date2, 'Gt');
     }

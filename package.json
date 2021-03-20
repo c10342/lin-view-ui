@@ -1,6 +1,6 @@
 {
   "name": "lin-view-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "vue components library",
   "author": "c10342",
   "private": false,
@@ -18,17 +18,21 @@
     "type": "git",
     "url": "https://github.com/c10342/lin-view-ui"
   },
+  "bugs": {
+    "url": "https://github.com/c10342/lin-view-ui/issues"
+  },
   "files": [
     "lib",
     "packages",
-    "utils",
-    "src"
+    "src",
+    "types"
   ],
+  "typings": "types/index.d.ts",
   "scripts": {
     "docs:dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.docs.js",
     "docs:build": "cross-env NODE_ENV=production webpack --config ./build/webpack.docs.js",
     "index:build": "webpack --config ./build/webpack.all.js",
-    "component:build": "webpack --config ./build/webpack.component.js && node ./build/write.js",
+    "component:build": "webpack --config ./build/webpack.component.js",
     "assets:build": "webpack --config ./build/webpack.assets.js",
     "build": "rimraf lib && npm run index:build && npm run component:build && npm run assets:build",
     "docs:upload": "npm run docs:build && node ./build/qiniu.js",
@@ -37,7 +41,7 @@
     "lint": "eslint --ext .js,.vue packages src",
     "lint-fix": "eslint --fix --ext .js,.vue packages src",
     "lint:style": "stylelint **/*.{html,vue,css,sass,scss} --fix",
-    "test:unit": "vue-cli-service test:unit --watch",
+    "test:unit": "jest --watch",
     "test": "jest",
     "commit": "git cz"
   },
@@ -166,6 +170,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.18.0",
     "stylelint-webpack-plugin": "^2.1.1",
+    "typescript": "^4.2.2",
     "url-loader": "^4.1.1",
     "vue": "^2.6.12",
     "vue-jest": "^3.0.7",

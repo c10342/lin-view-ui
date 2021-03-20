@@ -15,7 +15,7 @@ const indexConfig = {
     path: output,
     filename: "index.js",
     libraryTarget: "umd",
-    libraryExport: "commonjs2",
+    libraryExport: "default",
     library: "LinViewUi",
   },
   plugins: [

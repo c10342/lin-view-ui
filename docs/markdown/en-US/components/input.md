@@ -183,6 +183,8 @@ export default {
 | value / v-model | binding value                             | String  | —               | —       |
 | clearable       | whether to show clear button              | Boolean | —               | false   |
 | showPassword    | whether to show toggleable password input | Boolean | —               | false   |
+| maxlength       | maxlength of input                        | Number  | —               | -1      |
+| minlength       | minlength on input                        | Number  | —               | -1      |
 
 ## Events
 

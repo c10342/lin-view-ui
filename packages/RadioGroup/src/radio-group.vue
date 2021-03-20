@@ -16,7 +16,9 @@ export default {
     // lin-radio-group接收到了 value值
     // 将来还需要触发 当前组件的input事件
     // provide 与  inject  provider/consumer
+    // 绑定值
     value: null,
+    // 是否禁用
     disabled: {
       type: Boolean,
       default: false

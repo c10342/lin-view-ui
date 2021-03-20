@@ -35,30 +35,37 @@
 export default {
   name: 'LinAlert',
   props: {
+    // 标题
     title: {
       type: String,
       default: ''
     },
+    // 辅助性文字
     description: {
       type: String,
       default: ''
     },
+    // 图标
     icon: {
       type: String,
       default: ''
     },
+    // 是否可关闭
     closable: {
       type: Boolean,
       default: false
     },
+    // 类型
     type: {
       type: String,
       default: 'success'
     },
+    // 主题
     effect: {
       type: String,
       default: 'light'
     },
+    // 文字是否居中
     center: {
       type: Boolean,
       default: false
@@ -66,6 +73,7 @@ export default {
   },
   data () {
     return {
+      // 是否显示
       show: true
     };
   },

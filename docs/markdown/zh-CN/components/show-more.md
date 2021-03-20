@@ -51,3 +51,4 @@
 | text        | 文本               | String | —      | —              |
 | show-text   | 折叠时需要显示文案 | String | —      | 显示更多       |
 | hidden-text | 隐藏时需要显示文案 | String | —      | 隐藏           |
+| allowFold | 是否需要收起 | Boolean | —      | false           |

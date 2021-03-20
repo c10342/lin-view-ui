@@ -18,6 +18,7 @@
 export default {
   name: 'LinSpinner',
   props: {
+    // 主题类型
     type: {
       type: String,
       default: 'primary',
@@ -27,6 +28,7 @@ export default {
         );
       }
     },
+    // 文案对齐方向
     vertical: {
       type: String,
       default: 'row',
@@ -34,16 +36,21 @@ export default {
         return ['col', 'row'].includes(value);
       }
     },
+    // 弧度
     proportion: {
-      type: String,
+      type: [String, Number],
       default: '1',
       validator (value) {
-        return ['1', '2', '3'].includes(value);
+        return ['1', '2', '3', 1, 2, 3].includes(value);
       }
     },
+    // 显示器颜色
     loadingColor: String,
+    // 显示器大小
     size: String,
+    // 圆环宽度
     strokeWidth: String,
+    // 线条样式
     lineStyle: {
       type: String,
       validator (value) {
@@ -59,8 +66,11 @@ export default {
         ].includes(value);
       }
     },
+    // css3 动画名称
     animationName: String,
+    // 运动时长
     animationDuration: String,
+    // 运动方式
     timingFunction: {
       type: String,
       validator (value) {
@@ -79,6 +89,7 @@ export default {
         return false;
       }
     },
+    // 运动次数
     iterationCount: {
       type: [String, Number],
       validator (value) {
@@ -90,11 +101,15 @@ export default {
         return false;
       }
     },
+    // 加载文案
     text: String,
+    // 加载文案字体大小
     textSize: String,
+    // 加载文案字体颜色
     textColor: String
   },
   computed: {
+    // 加载器样式
     loadingStyle () {
       const obj = {};
       if (this.loadingColor) {
@@ -124,6 +139,7 @@ export default {
       }
       return obj;
     },
+    // 文本样式
     textStyle () {
       const obj = {};
       if (this.textSize) {

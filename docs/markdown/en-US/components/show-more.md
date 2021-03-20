@@ -51,3 +51,4 @@ If the text exceeds the display length, it can be folded. After unfolding, you c
 | text        | text                                        | String | —               | —               |
 | show-text   | The copy needs to be displayed when folding | String | —               | Show            |
 | hidden-text | You need to show the copy when hiding       | String | —               | Hide            |
+| allowFold | whether to put it away  | Boolean | —      | false           |

@@ -475,7 +475,7 @@ export default {
 | prop  | 对应列内容的字段名                                                                                      | String | —      | —      |
 | label | 显示的标题                                                                                              | String | —      | —      |
 | width | 对应列的宽度                                                                                            | String | —      | —      |
-| align | 对齐方式                                                                                                | String | —      | left   |
+| align | 对齐方式                                                                                                | String | left,right,center      | left   |
 | type  | 对应列的类型。如果设置了 `selection` 则显示多选框；如果设置了 `index` 则显示该行的索引（从 1 开始计算） | String | —      | —      |
 
 ## TableColumn 插槽

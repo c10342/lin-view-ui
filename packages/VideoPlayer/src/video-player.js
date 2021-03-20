@@ -16,45 +16,62 @@ import 'src/fonts/iconfont.css';
 const VideoPlayerConstructor = Vue.extend(VideoPlayer);
 
 class LinVideoPlayer {
+  // hls实例
   hls = null;
 
+  // flv实例
   flv = null;
 
+  // video标签
   video = null;
 
+  // 组件实例
   instance = null;
 
+  // 插入容器
   container = null;
 
+  // vue实例
   vm = null;
 
+  // 视频列表
   videoList = [];
 
+  // 倍数列表
   speedList = [];
 
+  // 视频类型
   type = null;
 
+  // 是否自动播放
   autoplay = false;
 
+  // el元素，字符串或者DOM类型
   el = null;
 
+  // 自定义ESM
   customType = null;
 
+  // 是否为直播
   live = false;
 
   constructor (options) {
     const {
       el, type, speedList = [], videoList = [], customType
     } = options;
+    // 检验参数
     handleEl(el);
     handleType(type, customType);
     handleSpeedList(speedList);
     handleVideoList(videoList);
 
+    // 初始化参数
     this.initParams(options);
+    // 初始化播放器
     this.initPlayer(options);
   }
 
+  // 初始化参数
   initParams (options) {
     const {
       el,
@@ -76,6 +93,7 @@ class LinVideoPlayer {
     }
   }
 
+  // 初始化播放器
   initPlayer () {
     this.instance = new VideoPlayerConstructor({
       data: {
@@ -87,20 +105,26 @@ class LinVideoPlayer {
         customType: this.customType
       }
     });
+    // 初始化挂在的容器
     if (typeof this.el === 'string') {
       this.container = document.querySelector(this.el);
     } else {
       this.container = this.el;
     }
 
+    // 渲染DOM
     this.vm = this.instance?.$mount();
 
+    // 获取hls实例
     this.hls = this.instance?.hls;
 
+    // 获取flv实例
     this.flv = this.instance?.flv;
 
+    // 获取video标签
     this.video = this.instance?.video;
 
+    // 将dom添加进入容器
     this.container?.appendChild(this.vm.$el);
   }
 
@@ -139,9 +163,11 @@ class LinVideoPlayer {
     handleVideoList(videoList);
     this.videoList = videoList;
     if ('autoplay' in options) {
+      // 设置自动播放
       this.autoplay = options.autoplay;
     }
     if (this.instance) {
+      // 重新赋值属性
       this.instance.videoList = videoList;
       this.instance.autoplay = this.autoplay;
       this.instance.initParams();
@@ -173,6 +199,7 @@ class LinVideoPlayer {
   volume (percent) {
     const volume = this.instance?.setVolume(percent);
     if (volume > -1 && this.instance) {
+      // 通知子组件音量变化
       broadcast.call(this.instance, {
         eventName: 'onvolumechange',
         params: volume,
@@ -202,18 +229,22 @@ class LinVideoPlayer {
     };
   }
 
+  // 当前播放事件
   get currentTime () {
     return this.video?.currentTime || 0;
   }
 
+  // 视频总时长
   get totalTime () {
     return this.video?.duration || 0;
   }
 
+  // 是否处于暂停状态
   get paused () {
     return this.video?.paused || true;
   }
 
+  // 重置
   resetParams () {
     this.hls = null;
 
@@ -242,6 +273,7 @@ class LinVideoPlayer {
     this.customType = null;
   }
 
+  // 销毁
   destory () {
     this.instance?.destoryPlayer();
 

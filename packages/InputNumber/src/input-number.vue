@@ -26,35 +26,43 @@ import dispatch from 'src/utils/dispatch.js';
 export default {
   name: 'LinInputNumber',
   props: {
+    // 绑定值
     value: {
       type: [Number, String]
     },
+    // 设置计数器允许的最小值
     min: {
       type: Number,
       default: NaN
     },
+    // 设置计数器允许的最大值
     max: {
       type: Number,
       default: NaN
     },
+    // 计数器步长
     step: {
       type: Number,
       default: 1
     },
+    // 是否禁用计数器
     disabled: {
       type: Boolean,
       default: false
     },
+    // 输入框占位符
     placeholder: {
       type: String,
       default: ''
     },
+    // 是否只能输入 step 的倍数
     stepStrictly: {
       type: Boolean,
       default: false
     }
   },
   methods: {
+    // 点击减号
     reduce () {
       if (this.disabledReduce) {
         return;
@@ -63,6 +71,7 @@ export default {
       this.emitInputEvent(value);
       this.$emit('reduce', value);
     },
+    // 点击加号
     plus () {
       if (this.disabledPlus) {
         return;
@@ -71,6 +80,7 @@ export default {
       this.emitInputEvent(value);
       this.$emit('plus', value);
     },
+    // 失去焦点，判断边界情况，以及stepStrictly为true的情况
     onBlur (e) {
       let value = e.target.value * 1;
       if (this.stepStrictly) {
@@ -97,10 +107,12 @@ export default {
     }
   },
   computed: {
+    // 是否禁用减号
     disabledReduce () {
       if (this.disabled) {
         return true;
       }
+      // 数字越界的情况下也要禁用
       if (Number.isNaN(this.min)) {
         return false;
       } if (
@@ -114,10 +126,12 @@ export default {
       }
       return false;
     },
+    // 是否禁用加号
     disabledPlus () {
       if (this.disabled) {
         return true;
       }
+      // 数字越界的情况下也要禁用
       if (Number.isNaN(this.max)) {
         return false;
       } if (

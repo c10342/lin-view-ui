@@ -26,10 +26,12 @@ import collapseTransition from 'src/js/collapseTransition.js';
 export default {
   name: 'LinCollapseItem',
   props: {
+    // 当前面板的 name，与 CollapseGroup 的 value 对应，必填项
     name: {
-      type: String,
+      type: [String, Number],
       require: true
     },
+    // 隐藏箭头
     hideArrow: {
       type: Boolean,
       default: false
@@ -43,22 +45,25 @@ export default {
       default: ''
     }
   },
-  data () {
-    return {
-      index: 0
-    };
-  },
+  // data () {
+  //   return {
+  //     index: 0
+  //   };
+  // },
   computed: {
+    // 是否开启简洁模式
     simple () {
       if (this.collapseGroup) {
         return this.collapseGroup.simple;
       }
       return false;
     },
+    // collapse-group的collapseValue值
     collapseValue () {
       if (this.collapseGroup) {
+        // 统一封装成数组使用
         const val = this.collapseGroup.collapseValue;
-        if (val && typeof val === 'string') {
+        if (val && (typeof val === 'string' || typeof val === 'number')) {
           return [val];
         } if (Array.isArray(val)) {
           return val;
@@ -66,12 +71,14 @@ export default {
       }
       return [];
     },
+    // 是否为手风琴模式
     accordion () {
       if (this.collapseGroup) {
         return this.collapseGroup.accordion;
       }
       return false;
     },
+    // 控制面板的显示
     show: {
       get () {
         if (this.collapseValue.includes(this.name)) {
@@ -83,6 +90,7 @@ export default {
         if (this.collapseGroup) {
           let data = cloneDeep(this.collapseValue);
           if (this.accordion) {
+            // 手风琴模式
             if (val === false) {
               data = [];
             } else {

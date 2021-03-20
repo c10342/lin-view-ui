@@ -4,13 +4,19 @@ import deepmerge from 'deepmerge';
 import Format from 'src/locale/format.js';
 
 const format = Format(Vue);
+// 默认语言
 let lang = defaultLang;
+// 标记是否合并
 let merged = false;
+
+// 处理i18n
 let i18nHandler = function i18nHandler (...reset) {
   const vuei18n = Object.getPrototypeOf(this || Vue).$t;
+  // 查看是否使用自定义的i18n，即用户传入了
   if (typeof vuei18n === 'function' && !!Vue.locale) {
     if (!merged) {
       merged = true;
+      // 合并语言包
       Vue.locale(
         Vue.config.lang,
         deepmerge(lang, Vue.locale(Vue.config.lang) || {}, { clone: true })
@@ -38,12 +44,10 @@ export const t = function t (path, options) {
 };
 
 export const use = function use (l) {
-  // lang = l || lang;
   lang = l || lang;
 };
 
 export const i18n = function i18n (fn) {
-  // i18nHandler = fn || i18nHandler;
   i18nHandler = fn || i18nHandler;
 };
 

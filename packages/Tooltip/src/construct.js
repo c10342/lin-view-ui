@@ -4,12 +4,14 @@ import Tooltip from './tooltip.vue';
 
 const TooltipConstruct = Vue.extend(Tooltip);
 
+// 添加
 TooltipConstruct.prototype.addTip = function addTip () {
   this.vm = this.$mount();
 
   document.body.appendChild(this.vm.$el);
 };
 
+// 移除
 TooltipConstruct.prototype.removeTip = function removeTip () {
   this.show = false;
   this.$once('after-leave', () => {

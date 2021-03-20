@@ -14,7 +14,7 @@ export default {
       options.target = document.body;
     }
     instance.open({ ...options });
-
+    // 如果有传入时间，就会自动消失
     if (options.time) {
       if (timer) {
         clearTimeout(timer);

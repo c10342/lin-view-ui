@@ -172,15 +172,17 @@ export default {
 
 ## 属性
 
-| 参数            | 说明                 | 类型    | 可选值 | 默认值 |
-| --------------- | -------------------- | ------- | ------ | ------ |
-| placeholder     | 输入框占位文本       | String  | —      | —      |
-| type            | 类型                 | String  | —      | text   |
-| name            | 原生属性 name        | String  | —      | —      |
-| disabled        | 是否禁用状态         | Boolean | —      | false  |
-| value / v-model | 绑定值               | String  | —      | —      |
-| clearable       | 是否可清空           | Boolean | —      | false  |
-| showPassword    | 是否显示切换密码图标 | Boolean | —      | false  |
+| 参数            | 说明                     | 类型    | 可选值 | 默认值 |
+| --------------- | ------------------------ | ------- | ------ | ------ |
+| placeholder     | 输入框占位文本           | String  | —      | —      |
+| type            | 类型                     | String  | —      | text   |
+| name            | 原生属性 name            | String  | —      | —      |
+| disabled        | 是否禁用状态             | Boolean | —      | false  |
+| value / v-model | 绑定值                   | String  | —      | —      |
+| clearable       | 是否可清空               | Boolean | —      | false  |
+| showPassword    | 是否显示切换密码图标     | Boolean | —      | false  |
+| maxlength       | 输入框限制输入的最大长度 | Number  | —      | -1     |
+| minlength       | 输入框限制输入的最小长度 | Number  | —      | -1     |
 
 ## 事件
 

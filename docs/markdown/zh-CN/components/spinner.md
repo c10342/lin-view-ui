@@ -106,7 +106,7 @@
 | ----------------- | ---------------- | -------------- | ------------------------------------------------------------------- | ------- |
 | type              | 主题类型         | String         | primary，success，info，warning， danger                            | primary |
 | vertical          | 文案对齐方向     | String         | col，row                                                            | row     |
-| proportion        | 弧度             | String         | 1,2,3                                                               | 1       |
+| proportion        | 弧度             | String,Number         | 1,2,3                                                               | 1       |
 | loadingColor      | 显示器颜色       | String         | —                                                                   | —       |
 | strokeWidth       | 圆环宽度         | String         | —                                                                   | —       |
 | size              | 显示器大小       | String         | —                                                                   | —       |

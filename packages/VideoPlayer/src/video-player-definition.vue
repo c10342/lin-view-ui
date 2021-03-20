@@ -43,6 +43,7 @@ export default {
       }
       return [];
     },
+    // 视频清晰度列表距离顶部距离
     top () {
       if (!this.definitionList.length) {
         return 0;
@@ -50,6 +51,7 @@ export default {
       const t = (20 + 10) * this.definitionList.length + 10;
       return `${-t}px`;
     },
+    // 当前清晰度视频
     currentDefinitionVideo: {
       get () {
         if (this.videoPlayer) {
@@ -63,6 +65,7 @@ export default {
         }
       }
     },
+    // 剩下的清晰度列表
     definitionList: {
       get () {
         if (this.videoPlayer) {
@@ -77,29 +80,10 @@ export default {
       }
     }
   },
-  // mounted() {
-  //   if (this.videoList.length > 0) {
-  //     const videoList = cloneDeep(this.videoList);
-  //     this.currentDefinitionVideo = videoList[0];
-  //     this.definitionList = videoList.slice(1);
-  //   }
-  // },
   methods: {
+    // 设置清晰度视频
     setDefinition (data) {
       this.videoPlayer?.setDefinition(data);
-      // const definitionList = cloneDeep(this.definitionList);
-      // const index = definitionList.findIndex(
-      //   (item) => item.label === data.label && item.url === data.url
-      // );
-      // if (index > -1) {
-      //   definitionList.splice(index, 1);
-      //   definitionList.push(this.currentDefinitionVideo);
-      //   this.definitionList = definitionList;
-      //   this.currentDefinitionVideo = data;
-      //   if (this.videoPlayer) {
-      //     this.videoPlayer.switchPlayerUrl(data);
-      //   }
-      // }
     }
   }
 };

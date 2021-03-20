@@ -11,6 +11,7 @@ export default {
     }
   },
   computed: {
+    // 视频截图
     imgSrc () {
       if (this.videoPlayer) {
         return this.videoPlayer.imgSrc;

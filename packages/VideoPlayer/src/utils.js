@@ -1,3 +1,4 @@
+// 判断是否为DOM元素
 export const isDOM = (dom) => {
   const fn = typeof HTMLElement === 'object'
     ? function isDOMFn (obj) {
@@ -15,6 +16,7 @@ export const isDOM = (dom) => {
   return fn(dom);
 };
 
+// 校验视频类型参数
 export const handleType = (type, customType) => {
   if (typeof customType !== 'function') {
     const typeList = ['mp4', 'hls', 'flv'];
@@ -26,6 +28,7 @@ export const handleType = (type, customType) => {
   }
 };
 
+// 校验el参数
 export const handleEl = (el) => {
   if (!el) {
     throw new TypeError('el 没有定义');
@@ -36,6 +39,7 @@ export const handleEl = (el) => {
   }
 };
 
+// 校验视频播放数度参数
 export const handleSpeedList = (list) => {
   if (!Array.isArray(list)) {
     throw new TypeError('speedList 只能是数组');
@@ -46,6 +50,7 @@ export const handleSpeedList = (list) => {
   }
 };
 
+// 校验视频播放列表参数
 export const handleVideoList = (list) => {
   if (!Array.isArray(list)) {
     throw new TypeError('videoList 只能是数组');
@@ -56,6 +61,7 @@ export const handleVideoList = (list) => {
   }
 };
 
+// 是否处于浏览器全屏
 export const isBrowserFullscreen = () => (
   document.fullscreenElement ||
     document.msFullscreenElement ||
@@ -64,6 +70,7 @@ export const isBrowserFullscreen = () => (
     false
 );
 
+// 是否允许浏览器全屏
 export const isBrowserFullscreenEnabled = () => (
   document.fullscreenEnabled ||
     document.mozFullScreenEnabled ||
@@ -78,6 +85,7 @@ export const enterBrowserFullScreen = (element) => {
     return;
   }
   if (isBrowserFullscreenEnabled() && !isBrowserFullscreen()) {
+    // 允许浏览器全屏，并且当前不是处于浏览器全屏的状态下
     if (element.requestFullscreen) {
       element.requestFullscreen();
     } else if (element.mozRequestFullScreen) {
@@ -92,6 +100,7 @@ export const enterBrowserFullScreen = (element) => {
 // 退出全屏
 export const exitBrowserFullscreen = () => {
   if (isBrowserFullscreenEnabled() && isBrowserFullscreen()) {
+    // 允许浏览器全屏，并且当前处于浏览器全屏状态下
     if (document.exitFullscreen) {
       document.exitFullscreen();
     } else if (document.mozCancelFullScreen) {

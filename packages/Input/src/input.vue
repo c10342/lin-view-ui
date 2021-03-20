@@ -48,47 +48,58 @@ export default {
     };
   },
   props: {
+    // 输入框占位符
     placeholder: {
       type: String,
       default: ''
     },
+    // 输入框类型
     type: {
       type: String,
       default: 'text'
     },
+    // 原生属性name
     name: {
       type: String,
       default: ''
     },
+    // 是否禁用文本框
     disabled: {
       type: Boolean,
       default: false
     },
+    // 绑定值
     value: {
       type: String,
       default: ''
     },
+    // 是否可清空
     clearable: {
       type: Boolean,
       default: false
     },
+    // 是否显示切换密码图标，即密文切换成明文，明文切换成密文
     showPassword: {
       type: Boolean,
       default: false
     },
+    // 最大长度
     maxlength: {
       type: Number,
       default: -1
     },
+    // 最小长度
     minlength: {
       type: Number,
       default: -1
     }
   },
   computed: {
+    // 是否显示清空图标或者切面密码图标
     showSuffix () {
       return this.clearable || this.showPassword;
     },
+    // input额外的属性
     inputAttr () {
       const obj = {};
       if (this.maxlength !== -1) {
@@ -107,14 +118,17 @@ export default {
     }
   },
   methods: {
+    // 键盘抬起事件
     handleInput (e) {
       this.emitInputEvent(e.target.value);
     },
+    // 清空内容
     clear () {
       // 把内容清空
       this.emitInputEvent('');
       this.$emit('clear');
     },
+    // 发射事件
     emitInputEvent (data) {
       this.$emit('input', data);
       dispatch.call(this, {
@@ -122,7 +136,7 @@ export default {
         componentName: 'LinFormItem'
       });
     },
-
+    // 切换密码图标的变化
     handlePassword () {
       this.passwordVisible = !this.passwordVisible;
     },

@@ -41,24 +41,30 @@ export default {
   name: 'LinDialog',
   mixins: [LocaleMixin, DragMixin],
   props: {
+    // 标题
     title: {
       type: String
     },
+    // 宽度
     width: {
       type: String,
       default: '50%'
     },
+    // 距离顶部距离，即margin-top的属性
     top: {
       type: String,
       default: '15vh'
     },
+    // 控制组件是否显示，支持.sync 修饰符
     visible: {
       type: Boolean,
       default: false
     },
+    // 关闭前的回调，会暂停 Dialog 的关闭
     beforeClose: {
       type: Function
     },
+    // 是否可以通过点击 modal 关闭 Dialog
     closeOnClickModa: {
       type: Boolean,
       default: true
@@ -66,6 +72,7 @@ export default {
   },
 
   methods: {
+    // 点击关闭按钮
     handleClose () {
       const done = () => {
         this.$emit('update:visible', false);
@@ -77,6 +84,7 @@ export default {
         done();
       }
     },
+    // 点击遮罩层
     onWrapperClick () {
       if (this.closeOnClickModa) {
         this.handleClose();

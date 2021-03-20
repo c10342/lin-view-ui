@@ -125,7 +125,7 @@ export default {
 
 | 参数      | 说明                                             | 类型            | 可选值 | 默认值 |
 | --------- | ------------------------------------------------ | --------------- | ------ | ------ |
-| value     | 当前激活的面板的 name，可以使用 v-model 双向绑定 | Array , String | —      | —      |
+| value     | 当前激活的面板的 name，可以使用 v-model 双向绑定 | Array , String,Number | —      | —      |
 | accordion | 是否开启手风琴模式，开启后每次至多展开一个面板   | Boolean         | —      | false  |
 | simple    | 是否开启简洁模式                                 | Boolean         | —      | false  |
 
@@ -139,7 +139,7 @@ export default {
 
 | 参数       | 说明                                                    | 类型           | 可选值 | 默认值 |
 | ---------- | ------------------------------------------------------- | -------------- | ------ | ------ |
-| name       | 当前面板的 name，与 CollapseGroup 的 value 对应，必填项 | Array ,String | —      | —      |
+| name       | 当前面板的 name，与 CollapseGroup 的 value 对应，必填项 | Number ,String | —      | —      |
 | hide-arrow | 隐藏箭头                                                | Boolean        | —      | false  |
 
 ## CollapseItem 插槽

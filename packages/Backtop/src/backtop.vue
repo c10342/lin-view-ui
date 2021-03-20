@@ -27,18 +27,22 @@ const easeInOutCubic = (value) => {
 export default {
   name: 'LinBacktop',
   props: {
+    // 显示位置，距离页面右边距离
     right: {
       type: Number,
       default: 40
     },
+    // 显示位置，距离页面底部距离
     bottom: {
       type: Number,
       default: 40
     },
+    // 滚动触发的对象
     target: {
       type: String,
       default: null
     },
+    // 滚动高度达到次参数才显示组件
     visibilityHeight: {
       type: Number,
       default: 200
@@ -46,6 +50,7 @@ export default {
   },
   data () {
     return {
+      // 控制组件是否显示
       visible: false
     };
   },
@@ -57,6 +62,7 @@ export default {
     this.container.addEventListener('scroll', this.throttledScrollHandler);
   },
   methods: {
+    // 初始化DOM
     init () {
       this.container = document;
       this.el = document.documentElement || document.body;
@@ -68,6 +74,7 @@ export default {
         this.container = this.el;
       }
     },
+    // 滚动函数
     onScroll () {
       const { scrollTop } = this.el;
       this.visible = scrollTop >= this.visibilityHeight;
@@ -76,6 +83,7 @@ export default {
       this.scrollToTop();
       this.$emit('click', e);
     },
+    // 返回到顶部
     scrollToTop () {
       const { el } = this;
       const beginTime = Date.now();

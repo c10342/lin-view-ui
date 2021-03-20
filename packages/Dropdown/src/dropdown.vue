@@ -33,10 +33,12 @@ export default {
   name: 'LinDropdown',
   mixins: [documentClick],
   props: {
+    // 触发下拉的行为
     trigger: {
       type: String,
       default: 'hover'
     },
+    // 是否在点击菜单项后隐藏菜单
     hideOnClick: {
       type: Boolean,
       default: true
@@ -44,8 +46,11 @@ export default {
   },
   data () {
     return {
+      // 是否显示下拉菜单
       isShow: false,
+      // 下拉菜单距离顶部距离
       top: 0,
+      // 向下显示或者向上显示
       isDown: true
     };
   },
@@ -58,21 +63,25 @@ export default {
     };
   },
   methods: {
+    // 鼠标进入容器
     onMouseEnter () {
       if (this.trigger === 'hover') {
         this.showList();
       }
     },
+    // 鼠标离开容器
     onMouseLeave () {
       if (this.trigger === 'hover') {
         this.hideList();
       }
     },
+    // 点击标签
     onLabelClick () {
       if (this.trigger === 'click') {
         this.toggleList();
       }
     },
+    // 显示下拉框
     showList () {
       if (!this.isShow) {
         this.isShow = true;
@@ -107,12 +116,14 @@ export default {
         }
       });
     },
+    // 隐藏下拉框
     hideList () {
       if (this.isShow) {
         this.isShow = false;
         this.$emit('visible-change', false);
       }
     },
+    // 下拉框显示或者隐藏切换
     toggleList () {
       if (this.isShow) {
         this.hideList();
@@ -120,6 +131,7 @@ export default {
         this.showList();
       }
     },
+    // 点击组件外部
     onDocumentClick (event) {
       const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {

@@ -77,21 +77,31 @@ export default {
   },
   data () {
     return {
+      // 存储LinTabItem组件孩子信息
       tabChildren: [],
+      // 当前选中的是哪一个tab
       currentIndex: -1,
+      // 下划线宽度
       lineWidth: '0px',
+      // 下划线水平位移
       translateX: '0px',
+      // 是否需要滚动
       isScroll: false,
+      // tab容器的水平位移
       containerTranslateX: 0,
+      // tab容器的宽度
       containerWidth: '0px',
+      // 每次移动的步伐
       step: 60
     };
   },
   props: {
+    // 绑定值，选中选项卡的 name
     value: {
       type: String,
       default: null
     },
+    // 风格类型
     type: {
       // card/border-card
       type: String,
@@ -104,12 +114,15 @@ export default {
     };
   },
   mounted () {
+    // 初始化tab
     this.initTabChildren();
+    // 初始化滚动行为
     this.initScroll();
     this.timer = null;
     window.addEventListener('resize', this.onResize);
   },
   methods: {
+    // 渲染tab标签
     renderTabLabel (h) {
       const { tabChildren, currentValue, onTabClick } = this;
       return (
@@ -131,6 +144,7 @@ export default {
         </div>
       );
     },
+    // 窗口大小发生变化事件
     onResize () {
       if (this.timer) {
         clearTimeout(this.timer);
@@ -141,7 +155,7 @@ export default {
       this.$nextTick(() => {
         const tabheader = this.$refs.tabheader;
         const tabheaderContainer = this.$refs.tabheaderContainer;
-
+        // 判断是否需要进行横向滚动
         this.containerTranslateX = 0;
         if (tabheader.clientWidth < tabheaderContainer.scrollWidth) {
           this.isScroll = true;
@@ -155,6 +169,7 @@ export default {
         }
       });
     },
+    // 点击tab
     onTabClick (data) {
       if (data.disabled) {
         return;
@@ -162,10 +177,13 @@ export default {
       this.currentValue = data.name;
       this.$emit('tab-click', data.name);
     },
+    // 初始化Tab
     initTabChildren () {
+      // 获取LinTabItem组件孩子
       const tabChildren = this.getTabs();
       const _tabChildren = tabChildren.map((child, index) => {
         if (!child.name) {
+          // 没有name字段则使用索引代替
           child.index = index;
         }
         return {
@@ -175,12 +193,16 @@ export default {
           disabled: child.disabled
         };
       });
+      // 存储所需要的组件信息
       this.tabChildren = _tabChildren;
+      // 初始化第一个为激活状态
       this.currentIndex = _tabChildren.length > 0 ? _tabChildren[0].name : 0;
     },
+    // 获取LinTabItem组件孩子
     getTabs () {
       return this.$children.filter((item) => item.$options.name === 'LinTabItem');
     },
+    // 初始化下划线相关数据
     initVar () {
       this.$nextTick(() => {
         if (this.currentValue !== -1) {
@@ -196,12 +218,14 @@ export default {
         }
       });
     },
+    // 点击左移
     onPrevClick () {
       this.containerTranslateX += this.step;
       if (this.containerTranslateX > 0) {
         this.containerTranslateX = 0;
       }
     },
+    // 点击右移
     onNextClick () {
       const tabheader = this.$refs.tabheader;
       const tabheaderContainer = this.$refs.tabheaderContainer;
@@ -213,6 +237,7 @@ export default {
     }
   },
   computed: {
+    // 当前值，就是在哪一个tab
     currentValue: {
       get () {
         if (this.value !== null) {

@@ -40,9 +40,6 @@ export default {
         return this.isGroup ? this.CheckboxGroup.value : this.value;
       },
       set (value) {
-        // this.isGroup
-        //   ? this.CheckboxGroup.$emit('input', value)
-        //   : this.$emit('input', value);
         if (this.isGroup) {
           this.CheckboxGroup.$emit('input', value);
         } else {
@@ -69,18 +66,22 @@ export default {
     }
   },
   props: {
+    // 绑定值
     value: {
       type: Boolean,
       default: false
     },
+    // 原生属性name
     name: {
       type: String,
       default: ''
     },
+    // lin-checkbox 的 value，只能结合 lin-checkbox-group 使用
     label: {
-      type: String,
+      type: [String, Number],
       default: ''
     },
+    // 是否禁用
     disabled: {
       type: Boolean,
       default: false

@@ -373,8 +373,8 @@ export default {
 | el         | 播放器容器元素，必填项                           | String                             | HTMLElement   | —      | — |
 | type       | 播放类型，必填项，当 customType 参数存在时非必填 | String                             | mp4、hls、flv | —      |
 | autoplay   | 视频自动播放                                     | Boolean                            | —             | false  |
-| speedList  | 视频速度倍数列表                                 | Ayyay<{label:string,value:string}> | —             | —      |
-| videoList  | 视频列表，必填项                                 | Ayyay<{label:string,url:string}>   | —             | —      |
+| speedList  | 视频速度倍数列表                                 | Array<{label:string,value:string}> | —             | —      |
+| videoList  | 视频列表，必填项                                 | Array<{label:string,url:string}>   | —             | —      |
 | live       | 是否开启直播                                     | Boolean                            | —             | false  |
 | customType | 需要自定义支持其他 MSE 可使用此参数              | Function                           | —             | —      |
 

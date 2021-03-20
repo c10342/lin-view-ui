@@ -13,10 +13,12 @@
 export default {
   name: 'LinChoiceOption',
   props: {
+    // 分组的组名
     label: {
       type: String,
       default: ''
     },
+    // 是否禁用该分组
     disabled: {
       type: Boolean,
       default: false

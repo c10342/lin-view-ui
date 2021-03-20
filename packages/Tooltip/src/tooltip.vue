@@ -11,13 +11,18 @@ export default {
   name: 'LinTooltip',
   data () {
     return {
+      // 样式
       style: {},
+      // 控制是否显示
       show: false,
+      // 显示位置
       placement: 'bottom',
+      // 文本
       text: ''
     };
   },
   methods: {
+    // vue过渡动画结束
     handleAfterLeave () {
       this.$emit('after-leave');
     }

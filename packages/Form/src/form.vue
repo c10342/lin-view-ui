@@ -8,14 +8,17 @@
 export default {
   name: 'LinForm',
   props: {
+    // 表单数据对象
     model: {
       type: Object,
       required: true
     },
+    // 标签宽度
     labelWidth: {
       type: String,
       default: '80px'
     },
+    // 表单校验规则
     rules: {
       type: Object,
       default: () => ({})
@@ -27,6 +30,7 @@ export default {
     };
   },
   methods: {
+    // 校验表单数据
     validate (cb) {
       const tasks = this.$children
         .filter((item) => item.prop)
@@ -39,6 +43,7 @@ export default {
         })
         .catch(() => cb(false));
     },
+    // 清空表单教研
     clearValidate () {
       const broad = (children) => {
         children.forEach((child) => {
