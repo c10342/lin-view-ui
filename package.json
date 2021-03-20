@@ -24,6 +24,7 @@
     "utils",
     "src"
   ],
+  "typings": "types/index.d.ts",
   "scripts": {
     "docs:dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.docs.js",
     "docs:build": "cross-env NODE_ENV=production webpack --config ./build/webpack.docs.js",
