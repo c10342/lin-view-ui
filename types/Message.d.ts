@@ -60,18 +60,18 @@ export declare class LinMessageManage {
 export interface LinMessageService {
   (options: LinMessageOptions): LinMessageManage;
   //   成功类型，type=success
-  success(options: Omit<LinMessageOptions, "type">): LinMessageManage;
+  success(options: Omit<LinMessageOptions, "type"> | string): LinMessageManage;
   //   消息类型，type=info
-  info(options: Omit<LinMessageOptions, "type">): LinMessageManage;
+  info(options: Omit<LinMessageOptions, "type"> | string): LinMessageManage;
   //   错误类型，type=warning
-  error(options: Omit<LinMessageOptions, "type">): LinMessageManage;
+  error(options: Omit<LinMessageOptions, "type"> | string): LinMessageManage;
   //   警告类型，type=warning
-  warning(options: Omit<LinMessageOptions, "type">): LinMessageManage;
+  warning(options: Omit<LinMessageOptions, "type"> | string): LinMessageManage;
   //   关闭所有message组件
   closeAll(): void;
 }
 
-export interface LinMessage{
+export interface LinMessage {
   install(vue: typeof Vue): void;
 }
 
