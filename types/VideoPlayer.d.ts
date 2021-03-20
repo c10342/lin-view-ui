@@ -31,7 +31,7 @@ export interface LinVideoPlayerOptions {
   ) => void;
 }
 
-export declare class VideoPlayer {
+export declare class LinVideoPlayerService {
   // 原生 video
   video: HTMLVideoElement;
   //   hls 实例对象
@@ -83,6 +83,6 @@ export interface LinVideoPlayer {
 
 declare module "vue/types/vue" {
   interface Vue {
-    $VideoPlayer: VideoPlayer;
+    $VideoPlayer: LinVideoPlayerService;
   }
 }
