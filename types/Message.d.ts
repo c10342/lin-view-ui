@@ -1,3 +1,4 @@
+import Vue from "vue";
 import { LinViewUIComponent } from "./component";
 
 export type MessageType = "success" | "warning" | "info" | "error";
@@ -56,7 +57,7 @@ export declare class LinMessageManage {
 }
 
 // Omit排除类型中的某个属性
-export interface LinMessage {
+export interface LinMessageService {
   (options: LinMessageOptions): LinMessageManage;
   //   成功类型，type=success
   success(options: Omit<LinMessageOptions, "type">): LinMessageManage;
@@ -68,4 +69,14 @@ export interface LinMessage {
   warning(options: Omit<LinMessageOptions, "type">): LinMessageManage;
   //   关闭所有message组件
   closeAll(): void;
+}
+
+export interface LinMessage{
+  install(vue: typeof Vue): void;
+}
+
+declare module "vue/types/vue" {
+  interface Vue {
+    $message: LinMessageService;
+  }
 }
