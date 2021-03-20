@@ -1,3 +1,4 @@
+import Vue from "vue";
 import { LinViewUIComponent,LinViewUIDragMixin } from "./component";
 
 export type MessageBoxType = "success" | "info" | "warning" | "error";
@@ -136,7 +137,7 @@ export interface LinMessageBoxOptions extends CommonProps {
   lockScroll: boolean;
 }
 
-export interface LinMessageBox {
+export interface LinMessageBoxService {
   (options: LinMessageBoxOptions): Promise<string>;
   // 弹框
   alert(
@@ -153,4 +154,15 @@ export interface LinMessageBox {
   prompt(
     options: Omit<LinMessageBoxOptions, "showInput" | "showCancelButton">
   ): Promise<string>;
+}
+
+
+export interface LinMessageBox{
+  install(vue: typeof Vue): void;
+}
+
+declare module "vue/types/vue" {
+  interface Vue {
+    $messageBox: LinMessageBoxService;
+  }
 }
