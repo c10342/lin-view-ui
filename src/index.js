@@ -34,5 +34,6 @@ export default {
   locale: locale.use,
   i18n: locale.i18n,
   install,
+  version: '1.1.0',
   ...componentObjs
 };
