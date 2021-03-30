@@ -1,9 +1,9 @@
-import { shallowMount } from "@vue/test-utils";
+// import { shallowMount } from '@vue/test-utils';
 
-import MetaInfo from "packages/MetaInfo";
+// import MetaInfo from 'packages/MetaInfo';
 
-describe("属性", () => {
-  it("type", () => {
+describe('属性', () => {
+  it('type', () => {
     // const wrapper = shallowMount(Form);
   });
 });

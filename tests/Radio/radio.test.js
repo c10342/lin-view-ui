@@ -1,9 +1,9 @@
-import { shallowMount } from "@vue/test-utils";
+// import { shallowMount } from '@vue/test-utils';
 
-import Radio from "packages/Radio";
+// import Radio from 'packages/Radio';
 
-describe("属性", () => {
-  it("type", () => {
+describe('属性', () => {
+  it('type', () => {
     // const wrapper = shallowMount(FoRadiorm);
   });
 });

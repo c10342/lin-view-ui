@@ -1,9 +1,9 @@
-import { shallowMount } from "@vue/test-utils";
+// import { shallowMount } from '@vue/test-utils';
 
-import ScrollView from "packages/ScrollView";
+// import ScrollView from 'packages/ScrollView';
 
-describe("属性", () => {
-  it("type", () => {
-    const wrapper = shallowMount(ScrollView);
+describe('属性', () => {
+  it('type', () => {
+    // const wrapper = shallowMount(ScrollView);
   });
 });

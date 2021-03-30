@@ -1,9 +1,9 @@
-import { shallowMount } from "@vue/test-utils";
+// import { shallowMount } from '@vue/test-utils';
 
-import LimitTextarea from "packages/LimitTextarea";
+// import LimitTextarea from 'packages/LimitTextarea';
 
-describe("属性", () => {
-  it("type", () => {
-    const wrapper = shallowMount(LimitTextarea);
+describe('属性', () => {
+  it('type', () => {
+    // const wrapper = shallowMount(LimitTextarea);
   });
 });

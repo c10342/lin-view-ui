@@ -1,11 +1,11 @@
-
-import Vue from "vue/dist/vue";
+/* eslint-disable-next-line */
+import Vue from 'vue/dist/vue';
 
 import LinViewUI from 'src/index.js';
 
-Vue.use(LinViewUI)
+Vue.use(LinViewUI);
 
-const createElm = function() {
+const createElm = function () {
   const elm = document.createElement('div');
 
   // elm.id = 'app' + ++id;
@@ -14,9 +14,8 @@ const createElm = function() {
   return elm;
 };
 
-export const createVue = function({template}){
-    return new Vue({
-      template
-    }).$mount(createElm())
-  }
-  
+export const createVue = function ({ template }) {
+  return new Vue({
+    template,
+  }).$mount(createElm());
+};

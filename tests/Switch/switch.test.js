@@ -1,9 +1,9 @@
-import { shallowMount } from "@vue/test-utils";
+// import { shallowMount } from '@vue/test-utils';
 
-import Switch from "packages/Switch";
+// import Switch from 'packages/Switch';
 
-describe("属性", () => {
-  it("type", () => {
-    const wrapper = shallowMount(Switch);
+describe('属性', () => {
+  it('type', () => {
+    // const wrapper = shallowMount(Switch);
   });
 });
