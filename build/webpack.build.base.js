@@ -1,17 +1,17 @@
-const { merge } = require("webpack-merge");
+const { merge } = require('webpack-merge');
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const baseConfig = require("./webpack.base");
+const baseConfig = require('./webpack.base');
 
 const buildConfig = {
-  mode: "production",
+  mode: 'production',
   externals: {
     vue: {
-      root: "Vue",
-      commonjs: "vue",
-      commonjs2: "vue",
-      amd: "vue",
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue',
     },
   },
   module: {
@@ -21,12 +21,12 @@ const buildConfig = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               importLoaders: 1,
             },
           },
-          "postcss-loader",
+          'postcss-loader',
         ],
       },
       {
@@ -34,22 +34,22 @@ const buildConfig = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               importLoaders: 2,
             },
           },
-          "postcss-loader",
-          "sass-loader",
+          'postcss-loader',
+          'sass-loader',
         ],
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
         use: {
-          loader: "url-loader",
+          loader: 'url-loader',
           options: {
-            name: "[name].[hash:8].[ext]",
-            outputPath: "assets/images/",
+            name: '[name].[hash:8].[ext]',
+            outputPath: 'assets/images/',
             limit: false,
           },
         },
@@ -57,10 +57,10 @@ const buildConfig = {
       {
         test: /\.(eot|ttf|woff|woff2|svg)$/,
         use: {
-          loader: "url-loader",
+          loader: 'url-loader',
           options: {
-            name: "[name].[hash:8].[ext]",
-            outputPath: "assets/fonts/",
+            name: '[name].[hash:8].[ext]',
+            outputPath: 'assets/fonts/',
             limit: false,
           },
         },

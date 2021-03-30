@@ -1,48 +1,48 @@
-const path = require("path");
+const path = require('path');
 
-const fs = require("fs");
+const fs = require('fs');
 
-const { merge } = require("webpack-merge");
+const { merge } = require('webpack-merge');
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const baseConfig = require("./webpack.build.base");
+const baseConfig = require('./webpack.build.base');
 
-const util = require('./util')
+const util = require('./util');
 
-const WritePlugin = require('./writePlugin.js')
+const WritePlugin = require('./writePlugin.js');
 
 const getComponentEntries = (pathStr) => {
-  let files = fs.readdirSync(path.join(__dirname, "../", pathStr));
+  const files = fs.readdirSync(path.join(__dirname, '../', pathStr));
   const componentEntries = files.reduce((ret, item) => {
     const itemPath = path.join(pathStr, item);
-    const [name] = item.split(".");
-    ret[name] = path.join(__dirname, "../", `${itemPath}`);
+    const [name] = item.split('.');
+    ret[name] = path.join(__dirname, '../', `${itemPath}`);
     return ret;
   }, {});
   return componentEntries;
 };
 
-const output = path.resolve(__dirname, "../lib");
-const entry = getComponentEntries("packages");
+const output = path.resolve(__dirname, '../lib');
+const entry = getComponentEntries('packages');
 
 const componentConfig = {
   entry,
   output: {
     path: output,
-    filename: "[name]/index.js",
-    libraryTarget: "umd",
-    libraryExport: "default",
-    library: "[name]",
+    filename: '[name]/index.js',
+    libraryTarget: 'umd',
+    libraryExport: 'default',
+    library: '[name]',
   },
   externals: {
-    ...util.getExternalsList()
+    ...util.getExternalsList(),
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name]/style.css",
+      filename: '[name]/style.css',
     }),
-    new WritePlugin('style.js')
+    new WritePlugin('style.js'),
   ],
 };
 
