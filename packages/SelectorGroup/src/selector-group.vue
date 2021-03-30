@@ -5,7 +5,7 @@ const oneHeight = 26;
 export default {
   name: 'LinSelectorGroup',
   mixins: [LocaleMixin],
-  render (h) {
+  render(h) {
     const {
       renderMore,
       width,
@@ -16,7 +16,7 @@ export default {
       label,
       status,
       renderLabel,
-      t
+      t,
     } = this;
 
     return (
@@ -26,40 +26,30 @@ export default {
         style={{ width: `${width}px` }}
       >
         <label>
-          {renderLabel
-            ? (
-                renderLabel(h)
-              )
-            : (
+          {renderLabel ? (
+            renderLabel(h)
+          ) : (
             <span class="lin-selector-label" style={{ width: labelWidth }}>
               {label}
             </span>
-              )}
+          )}
         </label>
-        <div
-          class="lin-selector-list"
-          ref="selectorList"
-          style={{ height }}
-        >
+        <div class="lin-selector-list" ref="selectorList" style={{ height }}>
           {$slots.default}
         </div>
-        {this.isShowBtn
-          ? (
+        {this.isShowBtn ? (
           <span class="lin-selector-more-text" ref="more" onClick={switchMore}>
-            {renderMore
-              ? (
-                  renderMore(h, status)
-                )
-              : (
+            {renderMore ? (
+              renderMore(h, status)
+            ) : (
               <span class="lin-selector-more-text-tip">
-              {status === 2
-                ? t('LinViewUI.Selector.hide')
-                : t('LinViewUI.Selector.show')}
-                </span>
-                )}
+                {status === 2
+                  ? t('LinViewUI.Selector.hide')
+                  : t('LinViewUI.Selector.show')}
+              </span>
+            )}
           </span>
-            )
-          : null}
+        ) : null}
       </div>
     );
   },
@@ -67,59 +57,59 @@ export default {
     // 选择器整体宽度
     width: {
       type: String,
-      default: ''
+      default: '',
     },
     // labelWidth
     labelWidth: {
       type: String,
-      default: '40px'
+      default: '40px',
     },
     // 绑定值
     value: {
-      type: [String, Object, Number, Boolean]
+      type: [String, Object, Number, Boolean],
     },
     // 作为 value 唯一标识的键名，绑定值为对象类型时必填
     valueKey: {
       type: String,
-      default: ''
+      default: '',
     },
     // 自定义渲染更多标签内容，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是否展开或收起的状态值。可以使用 jsx
     renderMore: {
       type: Function,
-      default: null
+      default: null,
     },
     // 自定义渲染头部标签内容，使用 Vue 的 Render 函数，参数是 h，可以使用 jsx
     renderLabel: {
       type: Function,
-      default: null
+      default: null,
     },
     // 头部标签内容
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  provide () {
+  provide() {
     return {
-      group: this
+      group: this,
     };
   },
-  data () {
+  data() {
     return {
       // 是否显示展开/隐藏按钮
       isShowBtn: false,
       // 容器高度
       height: 'auto',
       //   1-收起，2-展开
-      status: 1
+      status: 1,
     };
   },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
       // 初始化 收起/展开按钮
       this.init();
@@ -127,11 +117,11 @@ export default {
     });
   },
   methods: {
-    onResize () {
+    onResize() {
       this.resetStatus();
     },
     // 重置状态
-    resetStatus () {
+    resetStatus() {
       const style = this.$refs.selectorList.style;
       if (style.height === 'auto') {
         // 展开状态
@@ -144,7 +134,7 @@ export default {
         });
       }
     },
-    init () {
+    init() {
       // 选择器高度
       const clientHeight = this.$refs.selectorList.clientHeight;
 
@@ -160,7 +150,7 @@ export default {
       }
     },
     // 点击 收起/展开按钮，切换状态
-    switchMore () {
+    switchMore() {
       if (this.status === 1) {
         // 收起状态，此时点击需要展开它
         this.show();
@@ -171,17 +161,17 @@ export default {
       }
     },
     // 展开选择器
-    show () {
+    show() {
       // 高度设置为自适应
       this.height = 'auto';
       this.status = 2;
     },
     // 隐藏选择器
-    hide () {
+    hide() {
       // 高度设置为一行的高度
       this.height = `${oneHeight}px`;
       this.status = 1;
-    }
+    },
   },
   // computed: {
   //   // 最外层容器宽度
@@ -192,8 +182,8 @@ export default {
   //     return this.$refs.selector?.clientWidth || 0;
   //   }
   // },
-  beforeDestroy () {
+  beforeDestroy() {
     window.removeEventListener('resize', this.onResize);
-  }
+  },
 };
 </script>

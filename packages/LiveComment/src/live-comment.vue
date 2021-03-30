@@ -2,12 +2,12 @@
   <div class="lin-live-comment">
     <slot name="title">
       <p class="lin-live-comment-title">
-        {{ title || t("LinViewUI.LiveComment.title") }}
+        {{ title || t('LinViewUI.LiveComment.title') }}
       </p>
     </slot>
     <slot name="view-count">
       <p class="lin-live-comment-view-count">
-        {{ viewCount }}{{ t("LinViewUI.LiveComment.viewPeople") }}
+        {{ viewCount }}{{ t('LinViewUI.LiveComment.viewPeople') }}
       </p>
     </slot>
     <div class="lin-live-comment-content" ref="scroll" @scroll="onScroll">
@@ -35,7 +35,7 @@
       <span>{{ fixComment._username }}：</span>
       <span v-html="changeContent(fixComment._content)"></span>
       <span @click="toBottom">
-        <span>{{ t("LinViewUI.LiveComment.see") }}</span>
+        <span>{{ t('LinViewUI.LiveComment.see') }}</span>
         <i class="lin-icon-downarrow"></i>
       </span>
     </div>
@@ -43,11 +43,11 @@
       <div class="lin-live-comment-mask" v-if="!arrowComment">
         <slot name="mask">
           <span class="lin-live-comment-mask-default">
-            {{ t("LinViewUI.LiveComment.publishOpinion") }} /
+            {{ t('LinViewUI.LiveComment.publishOpinion') }} /
             <span class="lin-live-comment-login-btn" @click="gotoLogin">{{
-              t("LinViewUI.LiveComment.login")
+              t('LinViewUI.LiveComment.login')
             }}</span>
-            {{ t("LinViewUI.LiveComment.commentAfter") }}
+            {{ t('LinViewUI.LiveComment.commentAfter') }}
           </span>
         </slot>
       </div>
@@ -58,7 +58,7 @@
         class="lin-live-comment-textarea"
       ></textarea>
       <span class="lin-live-comment-send-btn" @click="publishComment">{{
-        btnText || t("LinViewUI.LiveComment.btnText")
+        btnText || t('LinViewUI.LiveComment.btnText')
       }}</span>
     </div>
   </div>
@@ -73,75 +73,75 @@ export default {
   name: 'LinLiveComment',
   mixins: [LocaleMixin],
   components: {
-    [Image.name]: Image
+    [Image.name]: Image,
   },
   props: {
     // 评论列表
     commentList: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     // 悬浮的评论，当 fixComment 不为空并且列表没有滚动到最底部时显示
     fixComment: {
       type: Object,
-      default: null
+      default: null,
     },
     // 绑定值
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     // 按钮文本
     btnText: {
-      type: String
+      type: String,
     },
     // 是否允许发表评论
     arrowComment: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 输入框占位符
     placeholder: {
-      type: String
+      type: String,
     },
     // 输入框最长长度
     maxlength: {
       type: Number,
-      default: -1
+      default: -1,
     },
     // 是否节流滚动事件
     throttle: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 标题
     title: {
-      type: String
+      type: String,
     },
     // 观看人数
     viewCount: {
       type: Number,
-      default: 0
+      default: 0,
     },
     // 默认头像
     defaultAvator: {
       type: String,
-      default: defaultAvator
+      default: defaultAvator,
     },
     // 是否正在加载，防止用户多次点击
     isLoading: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  data () {
+  data() {
     return {
       // 是否滚动到底部，默认是在底部
-      isScrollToBottom: true
+      isScrollToBottom: true,
     };
   },
   methods: {
-    onScroll (e) {
+    onScroll(e) {
       if (this.scrollTimer) {
         clearTimeout(this.scrollTimer);
       }
@@ -153,7 +153,7 @@ export default {
         this.handlerOnScroll(e);
       }
     },
-    handlerOnScroll (e) {
+    handlerOnScroll(e) {
       const { scrollTop, scrollHeight, offsetHeight } = e.target;
       if (scrollTop + offsetHeight + 40 < scrollHeight) {
         // 还没滚动到底部
@@ -165,56 +165,56 @@ export default {
       this.$emit('scroll', e);
     },
     // 处理评论内容
-    changeContent (str) {
+    changeContent(str) {
       if (!str) {
         return '';
       }
       return str.replace(/\n/g, '<br/>');
     },
     // 跳转到底部
-    toBottom () {
+    toBottom() {
       this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
       this.isScrollToBottom = true;
     },
     // 点击发表评论按钮
-    publishComment () {
+    publishComment() {
       if (this.isLoading) {
         return;
       }
       this.$emit('sendBtnClick');
     },
     // 输入框输入事件
-    onInput (e) {
+    onInput(e) {
       const { value } = e.target;
       this.$emit('input', value);
     },
     // 点击登录按钮
-    gotoLogin () {
+    gotoLogin() {
       this.$emit('loginBtnClick');
-    }
+    },
   },
   watch: {
     commentList: {
       immediate: true,
-      handler (newVal) {
+      handler(newVal) {
         if (newVal.length > 0 && this.isScrollToBottom) {
           // 如果列表本来就是在底部，当有新的评论的时候需要滚动到底部
           this.$nextTick(() => {
             this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
           });
         }
-      }
-    }
+      },
+    },
   },
   computed: {
-    commentPlaceholder () {
+    commentPlaceholder() {
       if (this.placeholder) {
         return this.placeholder;
       }
       return this.t('LinViewUI.LiveComment.placeholder');
     },
     // 文本输入框属性
-    textareaAttr () {
+    textareaAttr() {
       const obj = {};
       if (this.maxlength !== -1) {
         obj.maxlength = this.maxlength;
@@ -223,12 +223,12 @@ export default {
         obj.placeholder = this.commentPlaceholder;
       }
       return obj;
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.scrollTimer) {
       clearTimeout(this.scrollTimer);
     }
-  }
+  },
 };
 </script>

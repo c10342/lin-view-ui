@@ -41,66 +41,66 @@ import dispatch from 'src/utils/dispatch.js';
 
 export default {
   name: 'LinInput',
-  data () {
+  data() {
     return {
       // 用于控制是否显示密码框
-      passwordVisible: false
+      passwordVisible: false,
     };
   },
   props: {
     // 输入框占位符
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     // 输入框类型
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     // 原生属性name
     name: {
       type: String,
-      default: ''
+      default: '',
     },
     // 是否禁用文本框
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 绑定值
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     // 是否可清空
     clearable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 是否显示切换密码图标，即密文切换成明文，明文切换成密文
     showPassword: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 最大长度
     maxlength: {
       type: Number,
-      default: -1
+      default: -1,
     },
     // 最小长度
     minlength: {
       type: Number,
-      default: -1
-    }
+      default: -1,
+    },
   },
   computed: {
     // 是否显示清空图标或者切面密码图标
-    showSuffix () {
+    showSuffix() {
       return this.clearable || this.showPassword;
     },
     // input额外的属性
-    inputAttr () {
+    inputAttr() {
       const obj = {};
       if (this.maxlength !== -1) {
         obj.maxlength = this.maxlength;
@@ -113,39 +113,39 @@ export default {
       }
       return {
         ...obj,
-        ...this.$attrs
+        ...this.$attrs,
       };
-    }
+    },
   },
   methods: {
     // 键盘抬起事件
-    handleInput (e) {
+    handleInput(e) {
       this.emitInputEvent(e.target.value);
     },
     // 清空内容
-    clear () {
+    clear() {
       // 把内容清空
       this.emitInputEvent('');
       this.$emit('clear');
     },
     // 发射事件
-    emitInputEvent (data) {
+    emitInputEvent(data) {
       this.$emit('input', data);
       dispatch.call(this, {
         eventName: 'validate',
-        componentName: 'LinFormItem'
+        componentName: 'LinFormItem',
       });
     },
     // 切换密码图标的变化
-    handlePassword () {
+    handlePassword() {
       this.passwordVisible = !this.passwordVisible;
     },
-    onBlur (e) {
+    onBlur(e) {
       this.$emit('blur', e);
     },
-    onFocus (e) {
+    onFocus(e) {
       this.$emit('focus', e);
-    }
-  }
+    },
+  },
 };
 </script>

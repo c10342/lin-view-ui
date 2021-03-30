@@ -87,7 +87,7 @@ export default {
   mixins: [LocaleMixin, DragMixin],
   components: {
     [Button.name]: Button,
-    [Input.name]: Input
+    [Input.name]: Input,
   },
   props: {
     // MessageBox 标题
@@ -105,7 +105,7 @@ export default {
     // MessageBox 是否显示右上角关闭按钮
     showClose: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // MessageBox 关闭前的回调，会暂停实例的关闭
     beforeClose: Function,
@@ -124,29 +124,29 @@ export default {
     // 是否可通过点击遮罩关闭 MessageBox
     closeOnClickModal: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 是否可通过按下 ESC 键关闭 MessageBox
     closeOnPressEscape: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 是否在 hashchange 时关闭 MessageBox
     closeOnHashChange: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 是否显示输入框
     showInput: {
       typs: Boolean,
-      default: false
+      default: false,
     },
     // 输入框的占位符
     inputPlaceholder: String,
     // 输入框的类型
     inputType: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     // 输入框的初始文本
     inputValue: String,
@@ -163,10 +163,10 @@ export default {
     // loading指示器大小
     loadingSize: {
       type: String,
-      default: '11px'
-    }
+      default: '11px',
+    },
   },
-  data () {
+  data() {
     return {
       // 控制是否显示
       show: false,
@@ -179,31 +179,31 @@ export default {
       dialogStyle: {
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%,-50%)'
-      }
+        transform: 'translate(-50%,-50%)',
+      },
     };
   },
   computed: {
-    myCancelButtonText () {
+    myCancelButtonText() {
       if (this.cancelButtonText) {
         return this.cancelButtonText;
       }
       return this.t('LinViewUI.MessageBox.cancelButtonText');
     },
-    myConfirmButtonText () {
+    myConfirmButtonText() {
       if (this.confirmButtonText) {
         return this.confirmButtonText;
       }
       return this.t('LinViewUI.MessageBox.confirmButtonText');
     },
-    myInputErrorMessage () {
+    myInputErrorMessage() {
       if (this.inputErrorMessage) {
         return this.inputErrorMessage;
       }
       return this.t('LinViewUI.MessageBox.inputErrorMessage');
-    }
+    },
   },
-  mounted () {
+  mounted() {
     if (this.closeOnPressEscape) {
       // 监听esc事件
       window.addEventListener('keyup', this.onESCDown);
@@ -223,14 +223,14 @@ export default {
   },
   methods: {
     // 关闭组件，有不同的渠道去关闭
-    emitClose (by) {
+    emitClose(by) {
       this.$emit('close', {
         by,
-        value: this.value
+        value: this.value,
       });
     },
     // 处理关闭事件
-    handleClose (by) {
+    handleClose(by) {
       if (typeof this.beforeClose === 'function') {
         const done = () => {
           this.show = false;
@@ -243,17 +243,17 @@ export default {
         this.emitClose(by);
       }
     },
-    onMaskClick () {
+    onMaskClick() {
       if (this.closeOnClickModal) {
         // 点击遮罩层关闭
         this.handleClose('mask');
       }
     },
-    onCancelBtnClick () {
+    onCancelBtnClick() {
       // 点击取消按钮关闭
       this.handleClose('cancelButton');
     },
-    onConfirmBtnClick () {
+    onConfirmBtnClick() {
       if (this.showInput && (this.inputPattern || this.inputValidator)) {
         // 需要验证输入框值
         this.onInputChange(this.value);
@@ -266,22 +266,22 @@ export default {
         this.handleClose('confirmButton');
       }
     },
-    onIconClick () {
+    onIconClick() {
       // 点击关闭图标关闭
       this.handleClose('icon');
     },
-    onESCDown (event) {
+    onESCDown(event) {
       if (event.keyCode === 27) {
         // 按下esc键关闭
         this.handleClose('esc');
       }
     },
-    hashchange () {
+    hashchange() {
       // hash值改变关闭
       this.handleClose('hash');
     },
     // 校验输入框的值
-    onInputChange (data) {
+    onInputChange(data) {
       if (typeof this.inputValidator === 'function') {
         // 自定义校验方法
         const result = this.inputValidator(data);
@@ -302,15 +302,15 @@ export default {
         const result = this.inputPattern.test(data);
         this.showErrorMessage = !result;
       }
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.closeOnPressEscape) {
       window.removeEventListener('keyup', this.onESCDown);
     }
     if (this.closeOnHashChange) {
       window.removeEventListener('hashchange', this.hashchange);
     }
-  }
+  },
 };
 </script>

@@ -11,7 +11,7 @@ let removeTimer = null;
 const LLoadingBar = () => new LoadingBarConstructor();
 
 // 设置全局配置信息
-LoadingBarConstructor.prototype.config = function config (options) {
+LoadingBarConstructor.prototype.config = function config(options) {
   Object.keys(options).forEach((key) => {
     if (key === 'isError' || key === 'totalProgress') {
       return;
@@ -21,7 +21,7 @@ LoadingBarConstructor.prototype.config = function config (options) {
 };
 
 // 初始化加载进度条
-LoadingBarConstructor.prototype.init = function init () {
+LoadingBarConstructor.prototype.init = function init() {
   clearTimeout(timer);
   this.totalProgress = 0;
   this.isError = false;
@@ -31,7 +31,7 @@ LoadingBarConstructor.prototype.init = function init () {
 };
 
 // 显示加载进度条
-LoadingBarConstructor.prototype.start = function start () {
+LoadingBarConstructor.prototype.start = function start() {
   this.init();
 
   timer = setInterval(() => {
@@ -43,7 +43,7 @@ LoadingBarConstructor.prototype.start = function start () {
 };
 
 // 关闭加载进度条
-LoadingBarConstructor.prototype.end = function end () {
+LoadingBarConstructor.prototype.end = function end() {
   // timer || this.init();
   if (!timer) {
     this.init();
@@ -59,7 +59,7 @@ LoadingBarConstructor.prototype.end = function end () {
 };
 
 // 显示错误进度条
-LoadingBarConstructor.prototype.error = function error () {
+LoadingBarConstructor.prototype.error = function error() {
   this.end();
   this.totalProgress = 100;
   this.isError = true;

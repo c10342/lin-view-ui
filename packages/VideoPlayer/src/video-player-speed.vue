@@ -1,7 +1,7 @@
 <template>
   <div class="lin-video-player-speed" v-if="speedList.length !== 0">
     <span class="lin-video-player-speed-label">{{
-      currentSpeed ? currentSpeed.label : t("LinViewUI.VideoPlayer.speed")
+      currentSpeed ? currentSpeed.label : t('LinViewUI.VideoPlayer.speed')
     }}</span>
     <ul
       class="lin-video-player-speed-list"
@@ -29,33 +29,33 @@ export default {
   mixins: [LocaleMixin],
   inject: {
     videoPlayer: {
-      default: null
-    }
+      default: null,
+    },
   },
-  data () {
+  data() {
     return {
       currentSpeed: null,
-      list: []
+      list: [],
     };
   },
   computed: {
     // 倍数列表
-    speedList () {
+    speedList() {
       if (this.videoPlayer) {
         return this.videoPlayer.speedList;
       }
       return [];
     },
     // 容器top值
-    top () {
+    top() {
       if (!this.list.length) {
         return 0;
       }
       const t = (20 + 10) * this.list.length + 10;
       return `${-t}px`;
-    }
+    },
   },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
       if (this.speedList.length > 0) {
         const speedList = cloneDeep(this.speedList);
@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     // 切换倍数
-    switchSpeed (data) {
+    switchSpeed(data) {
       const list = cloneDeep(this.list);
       // 查找倍数
       const index = list.findIndex(
@@ -84,12 +84,12 @@ export default {
       this.setSpeed();
     },
     // 设置倍数
-    setSpeed () {
+    setSpeed() {
       if (this.videoPlayer) {
         const playbackRate = this.currentSpeed.value;
         this.videoPlayer.setSpeed(playbackRate);
       }
-    }
-  }
+    },
+  },
 };
 </script>

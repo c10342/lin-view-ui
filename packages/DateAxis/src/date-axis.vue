@@ -56,7 +56,7 @@
         <slot name="more">
           <div class="lin-date-axis-more-content">
             <i class="lin-icon-date"></i>
-            <span>{{ t("LinViewUI.DateAxis.more") }}</span>
+            <span>{{ t('LinViewUI.DateAxis.more') }}</span>
           </div>
         </slot>
       </div>
@@ -104,17 +104,17 @@ export default {
   name: 'LinDateAxis',
   mixins: [documentClick, LocaleMixin, DateMixin],
   components: {
-    [DatePicker.name]: DatePicker
+    [DatePicker.name]: DatePicker,
   },
   model: {
     prop: 'value',
-    event: 'change'
+    event: 'change',
   },
   props: {
     // 绑定值
     value: {
-      type: [Date, String]
-    }
+      type: [Date, String],
+    },
     // disabledBeforeDate: Date,
     // disabledAfterDate: Date,
     // disabledRangeDate: Array,
@@ -124,7 +124,7 @@ export default {
     //   default: false,
     // },
   },
-  data () {
+  data() {
     return {
       // 显示日期选择器
       isShowPopup: false,
@@ -139,10 +139,10 @@ export default {
       // 日期选择器出现位置，左边或者右边
       isRight: true,
       // 日期选择器距离左边距离
-      left: '0px'
+      left: '0px',
     };
   },
-  created () {
+  created() {
     this.daysObj = {
       0: this.t('LinViewUI.DateAxis.sun'),
       1: this.t('LinViewUI.DateAxis.mon'),
@@ -150,25 +150,26 @@ export default {
       3: this.t('LinViewUI.DateAxis.wed'),
       4: this.t('LinViewUI.DateAxis.thu'),
       5: this.t('LinViewUI.DateAxis.fir'),
-      6: this.t('LinViewUI.DateAxis.sat')
+      6: this.t('LinViewUI.DateAxis.sat'),
     };
     this.init(this.currentDate);
   },
-  mounted () {
+  mounted() {
     // 动态设置下划线宽度
     this.throttleFn = throttle(this.setLine, 500);
     window.addEventListener('resize', this.throttleFn);
   },
-  beforeDestroy () {
+  beforeDestroy() {
     window.removeEventListener('resize', this.throttleFn);
   },
   methods: {
     // 设置日期选择器位置，左边或者右边
-    setPlacement () {
+    setPlacement() {
       this.$nextTick(() => {
         const { scrollContainer } = this.$refs;
         const { notOutsideContainer } = this.$refs;
-        const right = window.innerWidth - notOutsideContainer.getBoundingClientRect().left;
+        const right =
+          window.innerWidth - notOutsideContainer.getBoundingClientRect().left;
         const { left } = notOutsideContainer.getBoundingClientRect();
         if (right > scrollContainer.clientWidth) {
           // 先判断右边位置是否充足
@@ -182,12 +183,12 @@ export default {
       });
     },
     // 日期选择器设置为右边出现
-    setToRight () {
+    setToRight() {
       this.isRight = true;
       this.left = '0px';
     },
     // 日期选择器设置为左边出现
-    setToLeft () {
+    setToLeft() {
       this.isRight = false;
       const { scrollContainer } = this.$refs;
       const { notOutsideContainer } = this.$refs;
@@ -196,7 +197,7 @@ export default {
       }px`;
     },
     // 日期选择器点击选择日期事件
-    onDateSelect (date) {
+    onDateSelect(date) {
       const startTime = this.timeList[0];
       const endTime = this.timeList[this.timeList.length - 1];
       if (date < startTime || date > endTime) {
@@ -209,7 +210,7 @@ export default {
       this.$emit('select', date);
     },
     // 点击上一个星期按钮
-    prevWeek () {
+    prevWeek() {
       if (this.disabled) {
         return;
       }
@@ -249,7 +250,7 @@ export default {
       this.$emit('prevWeek', currentDate);
     },
     // 点击下一个星期
-    nextWeek () {
+    nextWeek() {
       if (this.disabled) {
         return;
       }
@@ -287,7 +288,7 @@ export default {
       this.$emit('nextWeek', currentDate);
     },
     // 点击前一天
-    prevDay () {
+    prevDay() {
       if (this.disabled) {
         return;
       }
@@ -318,7 +319,7 @@ export default {
       this.$emit('prevDay', currentDate);
     },
     // 点击明天,后一天
-    nextDay () {
+    nextDay() {
       if (this.disabled) {
         return;
       }
@@ -346,7 +347,7 @@ export default {
       this.$emit('nextDay', currentDate);
     },
     // 点击日期轴项
-    onItemClick (date) {
+    onItemClick(date) {
       if (this.isDisabledDate(date)) {
         return;
       }
@@ -358,17 +359,17 @@ export default {
       this.$emit('select', date);
     },
     // 格式化显示时间
-    formatDate (date) {
+    formatDate(date) {
       const d = getYearMonthDay(date);
       return `${d.month}-${d.day}`;
     },
     // 格式化星期几
-    formatDay (date) {
+    formatDay(date) {
       const day = date.getDay();
       return this.daysObj[day];
     },
     // 初始化日期轴
-    init (currentDate) {
+    init(currentDate) {
       const day = currentDate.getDay();
       const timeList = [];
       const d = new Date(currentDate);
@@ -381,7 +382,7 @@ export default {
       this.setLine();
     },
     // 设置下划线位置,即有个三角形突出的那个东西
-    setLine () {
+    setLine() {
       this.$nextTick(() => {
         const dom = document.getElementById(
           `dateAxis-${this.currentDate.getDay()}`
@@ -396,7 +397,7 @@ export default {
       });
     },
     // 点击更多
-    onMoreClick () {
+    onMoreClick() {
       if (this.isShowPopup) {
         this.hidePopup();
       } else {
@@ -404,28 +405,28 @@ export default {
       }
     },
     // 隐藏日期选择器
-    hidePopup () {
+    hidePopup() {
       this.isShowPopup = false;
       this.$emit('hide');
     },
     // 显示日期选择器
-    showPopup () {
+    showPopup() {
       this.isShowPopup = true;
       this.$emit('show');
       this.setPlacement();
     },
     // 点击组件外部
-    onDocumentClick (event) {
+    onDocumentClick(event) {
       const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
         this.hidePopup();
       }
-    }
+    },
   },
   computed: {
     // 当前选中的时间
     currentDate: {
-      get () {
+      get() {
         if (this.value == null) {
           return this.selectTime;
         }
@@ -435,7 +436,7 @@ export default {
         const now = new Date();
         return now;
       },
-      set (val) {
+      set(val) {
         if (this.isEqual(this.currentDate, val)) {
           return;
         }
@@ -443,8 +444,8 @@ export default {
           this.selectTime = val;
         }
         this.$emit('change', val);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>

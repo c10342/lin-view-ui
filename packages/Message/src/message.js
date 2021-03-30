@@ -10,7 +10,7 @@ const MessageConstruct = Vue.extend(Message);
 const instanceList = [];
 
 // 当一个组件消失后，该组件后面的组件需要重新计算距离顶部的距离
-function updateTop (index) {
+function updateTop(index) {
   const length = instanceList.length - 1;
   for (let i = length; i > index; i--) {
     const instance = instanceList[i];
@@ -32,14 +32,14 @@ class LinMessage {
   // 自动关闭定时器
   timer = null;
 
-  constructor (options) {
+  constructor(options) {
     this.options = options || {};
     this.initProps(options);
     this.init();
   }
 
   // 初始化message组件参数
-  initProps () {
+  initProps() {
     const props = [
       'type',
       'showClose',
@@ -49,7 +49,7 @@ class LinMessage {
       'customClass',
       'center',
       'onClose',
-      'offset'
+      'offset',
     ];
     const propsData = {};
     props.forEach((prop) => {
@@ -61,14 +61,14 @@ class LinMessage {
   }
 
   // 初始化
-  init () {
+  init() {
     if (this.instance) {
       return;
     }
     this.instance = new MessageConstruct({
       propsData: {
-        ...this.propsData
-      }
+        ...this.propsData,
+      },
     });
     if (this.instance) {
       // 将实例存放到实例数组中
@@ -90,11 +90,11 @@ class LinMessage {
     }
   }
 
-  saveOffsetTop () {
+  saveOffsetTop() {
     // 查找是否存在于实例数组中
     const index = instanceList.findIndex(
       // eslint-disable-next-line
-      (instance) => instance._uid === this.instance._uid,
+      (instance) => instance._uid === this.instance._uid
     );
     if (index > 0) {
       // 存在
@@ -114,7 +114,7 @@ class LinMessage {
     }
   }
 
-  setTimer () {
+  setTimer() {
     const { duration } = this.options;
     // 等于0不会自动消失
     if (duration !== 0) {
@@ -125,18 +125,18 @@ class LinMessage {
   }
 
   // 隐藏message组件
-  close () {
+  close() {
     if (this.instance && this.instance.show) {
       this.instance.show = false;
     }
   }
 
   // 销毁message组件
-  destory () {
+  destory() {
     if (this.instance) {
       const index = instanceList.findIndex(
         // eslint-disable-next-line
-        (instance) => instance._uid === this.instance._uid,
+        (instance) => instance._uid === this.instance._uid
       );
       if (index > -1) {
         updateTop(index);
@@ -153,49 +153,49 @@ class LinMessage {
 }
 
 // 创建实例，options可传入字符串或者一个对象
-function createInstance (options) {
+function createInstance(options) {
   const toString = Object.prototype.toString;
   if (toString.call(options).includes('Object')) {
     return new LinMessage(options);
   }
   return new LinMessage({
-    message: options.toString()
+    message: options.toString(),
   });
 }
 
 // 创建不同类型type的message组件
-function createInstanceByType (options, type) {
+function createInstanceByType(options, type) {
   const toString = Object.prototype.toString;
   if (toString.call(options).includes('Object')) {
     return new LinMessage({
       ...options,
-      type
+      type,
     });
   }
   return new LinMessage({
     message: options.toString(),
-    type
+    type,
   });
 }
 
-createInstance.success = function success (options) {
+createInstance.success = function success(options) {
   return createInstanceByType(options, 'success');
 };
 
-createInstance.info = function info (options) {
+createInstance.info = function info(options) {
   return createInstanceByType(options, 'info');
 };
 
-createInstance.error = function error (options) {
+createInstance.error = function error(options) {
   return createInstanceByType(options, 'error');
 };
 
-createInstance.warning = function warning (options) {
+createInstance.warning = function warning(options) {
   return createInstanceByType(options, 'warning');
 };
 
 // 关闭所有message组件
-createInstance.closeAll = function closeAll () {
+createInstance.closeAll = function closeAll() {
   instanceList.forEach((instance) => {
     instance.onCloseClick();
   });

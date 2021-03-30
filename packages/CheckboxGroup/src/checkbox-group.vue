@@ -10,18 +10,18 @@ export default {
   props: {
     // 绑定值
     value: {
-      type: Array
+      type: Array,
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  provide () {
+  provide() {
     return {
-      CheckboxGroup: this
+      CheckboxGroup: this,
     };
-  }
+  },
 };
 </script>

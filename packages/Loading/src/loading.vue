@@ -3,15 +3,23 @@
     <div
       v-show="visible"
       class="lin-loading-mask"
-      :class="[{'lin-loading-is-fullscreen':fullscreen}]"
-      :style="{'backgroundColor':background || ''}"
+      :class="[{ 'lin-loading-is-fullscreen': fullscreen }]"
+      :style="{ backgroundColor: background || '' }"
     >
       <div class="lin-loading-content">
         <span
           class="lin-loading-icon"
-          :style="{'border-top-color':iconColor|| '','border-right-color':iconColor || ''}"
+          :style="{
+            'border-top-color': iconColor || '',
+            'border-right-color': iconColor || '',
+          }"
         ></span>
-        <span :style="{'color':textColor||''}" class="lin-loading-text" v-if="text">{{text}}</span>
+        <span
+          :style="{ color: textColor || '' }"
+          class="lin-loading-text"
+          v-if="text"
+          >{{ text }}</span
+        >
       </div>
     </div>
   </transition>
@@ -20,7 +28,7 @@
 <script>
 export default {
   name: 'LinLoading',
-  data () {
+  data() {
     return {
       // 加载文案
       text: null,
@@ -33,13 +41,13 @@ export default {
       // loading颜色
       iconColor: null,
       // 文本颜色
-      textColor: null
+      textColor: null,
     };
   },
   methods: {
-    handleAfterLeave () {
+    handleAfterLeave() {
       this.$emit('after-leave');
-    }
-  }
+    },
+  },
 };
 </script>

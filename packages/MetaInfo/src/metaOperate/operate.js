@@ -2,7 +2,7 @@ import _setAttr from './setAttribute.js';
 
 import _removeNode from './removeNode.js';
 
-export default function operate () {
+export default function operate() {
   const _ndHead = document.getElementsByTagName('head')[0];
 
   return {
@@ -10,7 +10,7 @@ export default function operate () {
      * 设置metaInfo信息
      * @param {*} metaOpts
      */
-    setMetaInfo (metaOpts) {
+    setMetaInfo(metaOpts) {
       Object.keys(metaOpts || {}).forEach((key) => {
         if (key === 'title') {
           document.title = metaOpts.title;
@@ -24,8 +24,8 @@ export default function operate () {
       });
     },
 
-    removeMetaInfo () {
+    removeMetaInfo() {
       _removeNode(_ndHead);
-    }
+    },
   };
 }

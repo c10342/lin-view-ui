@@ -1,10 +1,13 @@
 <template>
   <div
     class="lin-selecotr-item"
-    :class="{'lin-selecotr-active':active,'lin-selecotr-disabled':isDisabled}"
+    :class="{
+      'lin-selecotr-active': active,
+      'lin-selecotr-disabled': isDisabled,
+    }"
     @click="onClick"
   >
-    <slot>{{label}}</slot>
+    <slot>{{ label }}</slot>
   </div>
 </template>
 
@@ -15,26 +18,26 @@ export default {
     // 标签内容
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     // 选项的值
     value: {
-      default: ''
+      default: '',
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   inject: {
     group: {
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     // 是否是选择中状态
-    active () {
+    active() {
       if (this.group) {
         const { valueKey } = this.group;
         const { toString } = Object.prototype;
@@ -48,22 +51,22 @@ export default {
       return false;
     },
     // 是否禁用该选项
-    isDisabled () {
+    isDisabled() {
       if (this.group && this.group.disabled) {
         return true;
       }
       return this.disabled;
-    }
+    },
   },
   methods: {
     // 点击该项
-    onClick () {
+    onClick() {
       if (this.group && !this.isDisabled) {
         const value = JSON.parse(JSON.stringify(this.value));
         this.group.$emit('input', value);
         this.group.$emit('onChange', value);
       }
-    }
-  }
+    },
+  },
 };
 </script>

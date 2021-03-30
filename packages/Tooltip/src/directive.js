@@ -7,7 +7,7 @@ let instance = null;
 TooltipDirective.install = (Vue) => {
   // 只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。
   Vue.directive('tooltip', {
-    bind (el, binding) {
+    bind(el, binding) {
       // 鼠标进入
       el.mouseenter = (e) => {
         // 触发的元素要是当前绑定指令的元素
@@ -30,7 +30,7 @@ TooltipDirective.install = (Vue) => {
           top: t,
           left: l,
           right: r,
-          auto
+          auto,
         } = binding.modifiers;
         let placement = 'bottom';
         if (b) {
@@ -112,14 +112,14 @@ TooltipDirective.install = (Vue) => {
       el.addEventListener('mouseleave', el.mouseleave);
     },
     // 只调用一次，指令与元素解绑时调用。
-    unbind (el) {
+    unbind(el) {
       if (instance) {
         instance.removeTip();
         instance = null;
       }
       el.removeEventListener('mouseenter', el.mouseenter);
       el.removeEventListener('mouseleave', el.mouseleave);
-    }
+    },
   });
 };
 

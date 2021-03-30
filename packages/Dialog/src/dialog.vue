@@ -15,7 +15,7 @@
         <div class="lin-dialog-header">
           <slot name="title">
             <span class="lin-dialog-title">{{
-              title || t("LinViewUI.Dialog.title")
+              title || t('LinViewUI.Dialog.title')
             }}</span>
           </slot>
           <button class="lin-dialog-headerbtn" @click="handleClose">
@@ -43,37 +43,37 @@ export default {
   props: {
     // 标题
     title: {
-      type: String
+      type: String,
     },
     // 宽度
     width: {
       type: String,
-      default: '50%'
+      default: '50%',
     },
     // 距离顶部距离，即margin-top的属性
     top: {
       type: String,
-      default: '15vh'
+      default: '15vh',
     },
     // 控制组件是否显示，支持.sync 修饰符
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 关闭前的回调，会暂停 Dialog 的关闭
     beforeClose: {
-      type: Function
+      type: Function,
     },
     // 是否可以通过点击 modal 关闭 Dialog
     closeOnClickModa: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
 
   methods: {
     // 点击关闭按钮
-    handleClose () {
+    handleClose() {
       const done = () => {
         this.$emit('update:visible', false);
         this.$emit('close');
@@ -85,11 +85,11 @@ export default {
       }
     },
     // 点击遮罩层
-    onWrapperClick () {
+    onWrapperClick() {
       if (this.closeOnClickModa) {
         this.handleClose();
       }
-    }
-  }
+    },
+  },
 };
 </script>

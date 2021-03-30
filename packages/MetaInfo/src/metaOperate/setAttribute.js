@@ -4,7 +4,7 @@
 
 import { VUE_META_ATTRIBUTE } from '../common/constants.js';
 
-export default function _setAttr (el, opt) {
+export default function _setAttr(el, opt) {
   // 标记这是该组件添加到head中的DOM元素
   el.setAttribute(VUE_META_ATTRIBUTE, true);
 

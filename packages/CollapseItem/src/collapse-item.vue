@@ -29,21 +29,21 @@ export default {
     // 当前面板的 name，与 CollapseGroup 的 value 对应，必填项
     name: {
       type: [String, Number],
-      require: true
+      require: true,
     },
     // 隐藏箭头
     hideArrow: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   components: {
-    collapseTransition
+    collapseTransition,
   },
   inject: {
     collapseGroup: {
-      default: ''
-    }
+      default: '',
+    },
   },
   // data () {
   //   return {
@@ -52,27 +52,28 @@ export default {
   // },
   computed: {
     // 是否开启简洁模式
-    simple () {
+    simple() {
       if (this.collapseGroup) {
         return this.collapseGroup.simple;
       }
       return false;
     },
     // collapse-group的collapseValue值
-    collapseValue () {
+    collapseValue() {
       if (this.collapseGroup) {
         // 统一封装成数组使用
         const val = this.collapseGroup.collapseValue;
         if (val && (typeof val === 'string' || typeof val === 'number')) {
           return [val];
-        } if (Array.isArray(val)) {
+        }
+        if (Array.isArray(val)) {
           return val;
         }
       }
       return [];
     },
     // 是否为手风琴模式
-    accordion () {
+    accordion() {
       if (this.collapseGroup) {
         return this.collapseGroup.accordion;
       }
@@ -80,13 +81,13 @@ export default {
     },
     // 控制面板的显示
     show: {
-      get () {
+      get() {
         if (this.collapseValue.includes(this.name)) {
           return true;
         }
         return false;
       },
-      set (val) {
+      set(val) {
         if (this.collapseGroup) {
           let data = cloneDeep(this.collapseValue);
           if (this.accordion) {
@@ -106,13 +107,13 @@ export default {
           }
           this.collapseGroup.collapseValue = data;
         }
-      }
-    }
+      },
+    },
   },
   methods: {
-    onHeaderClick () {
+    onHeaderClick() {
       this.show = !this.show;
-    }
-  }
+    },
+  },
 };
 </script>

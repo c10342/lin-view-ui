@@ -2,9 +2,9 @@
   <div>
     <input
       @change="onFileChange"
-      style="display: none;"
       type="file"
       ref="linUploadInput"
+      class="lin-upload-input"
     />
     <lin-button @click="onBtnClick" type="primary">{{ text }}</lin-button>
   </div>
@@ -19,56 +19,56 @@ import request from 'src/js/request.js';
 export default {
   name: 'LinUpload',
   components: {
-    'lin-button': LinButton
+    'lin-button': LinButton,
   },
   props: {
     // 文本
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     // 切片大小
     fileChunkSize: {
       type: Number,
-      default: 10 * 1024 * 1024
+      default: 10 * 1024 * 1024,
     },
     // 上传地址
     uploadUrl: {
       type: String,
-      required: true
+      required: true,
     },
     // 请求合并切片地址
     mergeUrl: {
-      type: String
+      type: String,
     },
     // 是否切片上传
     isSlice: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 开启断点续传功能
     breakpoint: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。
     beforeUpload: {
-      type: Function
+      type: Function,
     },
     // 对文件进行切片的处理方法
     splitFileChunk: {
-      type: Function
+      type: Function,
     },
     // 计算文件 hash 值的方法，需返回一个 Promise
     caculateFileHash: {
-      type: Function
+      type: Function,
     },
     // 请求合并切片的方法 ，需返回一个 Promise
     requestMergeFileFn: {
-      type: Function
-    }
+      type: Function,
+    },
   },
-  mounted () {
+  mounted() {
     // 文件
     this.selectedFile = null;
     // 文件切片数据（经过处理的）
@@ -81,7 +81,7 @@ export default {
     this.fileChunkList = [];
   },
   methods: {
-    onFileChange (e) {
+    onFileChange(e) {
       // 获取文件
       this.selectedFile = e.target.files[0];
       // 清空值
@@ -103,10 +103,10 @@ export default {
       }
     },
     // 点击按钮
-    onBtnClick () {
+    onBtnClick() {
       this.$refs.linUploadInput.click();
     },
-    handleUpload () {
+    handleUpload() {
       if (this.breakpoint) {
         // 开启断点续传
         this.uploadFileByBreakpoint();
@@ -119,7 +119,7 @@ export default {
     },
 
     // 切片上传逻辑
-    uploadFileBySlice () {
+    uploadFileBySlice() {
       // 对文件进行切片
       this.createFileChunkList();
       // 给切片出来的数据添加额外信息
@@ -127,14 +127,14 @@ export default {
         // 切片文件
         chunk: file,
         // 切片hash，给个索引是为了，全部上传完之后，后台可以知道每个切片所在的位置
-        hash: `${this.selectedFile.name}-${index}`
+        hash: `${this.selectedFile.name}-${index}`,
       }));
       // 上传切片
       this.uploadChunksBySlice();
     },
 
     // 断点上传逻辑
-    async uploadFileByBreakpoint () {
+    async uploadFileByBreakpoint() {
       // 对文件进行切片
       this.createFileChunkList();
       try {
@@ -169,7 +169,7 @@ export default {
         // 切片hash值
         hash: `${this.fileHash}-${index}`,
         // 整个文件的hash值
-        fileHash: this.fileHash
+        fileHash: this.fileHash,
       }));
 
       // 上传切片
@@ -177,13 +177,13 @@ export default {
     },
 
     // 普通上传
-    async uploadFile () {
+    async uploadFile() {
       try {
         const formData = new FormData();
         formData.append('file', this.selectedFile);
         const res = await request({
           url: this.uploadUrl,
-          data: formData
+          data: formData,
         });
         this.$emit('uploadSuccess', res);
       } catch (error) {
@@ -192,7 +192,7 @@ export default {
     },
 
     // 切片上传切片
-    async uploadChunksBySlice () {
+    async uploadChunksBySlice() {
       if (!this.uploadUrl) {
         throw new TypeError('uploadUrl is not define');
       }
@@ -208,10 +208,12 @@ export default {
           formData.append('filename', this.selectedFile.name);
           return { formData, index };
         })
-        .map(({ formData }) => request({
-          url: this.uploadUrl,
-          data: formData
-        }));
+        .map(({ formData }) =>
+          request({
+            url: this.uploadUrl,
+            data: formData,
+          })
+        );
       try {
         // 等待所有切片上传完毕
         const res = await Promise.all(requestList);
@@ -224,7 +226,7 @@ export default {
     },
 
     // 断点续传上传切片
-    async uploadChunksByBreakpoint (uploadedChunkList) {
+    async uploadChunksByBreakpoint(uploadedChunkList) {
       if (!this.uploadUrl) {
         throw new TypeError('uploadUrl is not define');
       }
@@ -243,13 +245,15 @@ export default {
           formData.append('fileHash', fileHash);
           return { formData, hash, fileHash };
         })
-        .map(({ formData, hash, fileHash }) => request({
-          url: this.uploadUrl,
-          data: formData,
-          requestList: this.requestList,
-          hash,
-          fileHash
-        }));
+        .map(({ formData, hash, fileHash }) =>
+          request({
+            url: this.uploadUrl,
+            data: formData,
+            requestList: this.requestList,
+            hash,
+            fileHash,
+          })
+        );
 
       // 上传切片
       if (requestPromiseList.length > 0) {
@@ -272,7 +276,7 @@ export default {
     },
 
     // 创建chuank
-    createFileChunkList () {
+    createFileChunkList() {
       // 将文件进行切片
       try {
         if (typeof this.splitFileChunk === 'function') {
@@ -293,7 +297,7 @@ export default {
     },
 
     // 请求合并切片
-    async requestMergeFile () {
+    async requestMergeFile() {
       try {
         if (!this.mergeUrl) {
           throw new TypeError('mergeUrl is not define');
@@ -303,7 +307,7 @@ export default {
           // 文件名
           filename: this.selectedFile.name,
           // 切片大小
-          size: this.fileChunkSize
+          size: this.fileChunkSize,
         };
         if (this.breakpoint) {
           // 断点续传，需要带上文件的hash值
@@ -316,9 +320,9 @@ export default {
           res = await request({
             url: this.mergeUrl,
             headers: {
-              'content-type': 'application/json'
+              'content-type': 'application/json',
             },
-            data: JSON.stringify(parmas)
+            data: JSON.stringify(parmas),
           });
         }
         this.$emit('mergeFileSuccess', res);
@@ -327,7 +331,7 @@ export default {
       } catch (error) {
         this.$emit('mergeFileFail', error);
       }
-    }
-  }
+    },
+  },
 };
 </script>

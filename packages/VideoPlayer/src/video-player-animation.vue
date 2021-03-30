@@ -1,6 +1,10 @@
 <template>
   <transition name="lin-video-player-animation">
-    <div class="lin-video-player-animation" v-if="showAnimation" @animationend="animationend ">
+    <div
+      class="lin-video-player-animation"
+      v-if="showAnimation"
+      @animationend="animationend"
+    >
       <span class="lin-icon-play" v-if="isPlaying"></span>
       <span class="lin-icon-pause" v-else></span>
     </div>
@@ -12,34 +16,34 @@ export default {
   name: 'LinVideoPlayerAnimation',
   inject: {
     videoPlayer: {
-      default: null
-    }
+      default: null,
+    },
   },
-  data () {
+  data() {
     return {
       // 是否展示播放，暂停的动画
-      showAnimation: false
+      showAnimation: false,
     };
   },
   computed: {
-    isPlaying () {
+    isPlaying() {
       if (this.videoPlayer) {
         return this.videoPlayer.isPlaying;
       }
       return false;
-    }
+    },
   },
   methods: {
     // 动画结束
-    animationend () {
+    animationend() {
       this.showAnimation = false;
-    }
+    },
   },
   watch: {
-    isPlaying () {
+    isPlaying() {
       // 监听播放状态
       this.showAnimation = true;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -10,40 +10,40 @@ export default {
     // 页码按钮的数量，当总页数超过该值时会折叠
     pageCount: {
       default: 7,
-      type: Number
+      type: Number,
     },
     // 每页显示条目个数
     pageSize: {
       default: 10,
-      type: Number
+      type: Number,
     },
     // 总条目数
     total: {
       type: Number,
-      default: 0
+      default: 0,
     },
     // 当前页数，支持 .sync 修饰符
     pageIndex: {
-      type: Number
+      type: Number,
     },
     // 是否为分页按钮添加背景色是否为分页按钮添加背景色
     background: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 组件布局，子组件名用逗号分隔
     layout: {
       type: String,
-      default: 'prev, pager, next, jumper,total'
-    }
+      default: 'prev, pager, next, jumper,total',
+    },
   },
-  data () {
+  data() {
     return {
       // 当前页数,当用户没有传pageIndex时也能使用
-      myPageIndex: 1
+      myPageIndex: 1,
     };
   },
-  render (h) {
+  render(h) {
     const { background, layoutList } = this;
     return (
       <div
@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     // 点击每一项
-    onItemClick (data) {
+    onItemClick(data) {
       let index = 1;
       if (data.type === 'number') {
         index = data.index;
@@ -71,7 +71,7 @@ export default {
       this.$emit('currentChange', index);
     },
     // 点击上一页
-    prevClick () {
+    prevClick() {
       if (this.disabledPrev) {
         return;
       }
@@ -80,7 +80,7 @@ export default {
       this.$emit('prevClick', index);
     },
     // 点击下一页
-    nextClick () {
+    nextClick() {
       if (this.disabledNext) {
         return;
       }
@@ -89,7 +89,7 @@ export default {
       this.$emit('nextClick', index);
     },
     // jumper，用户敲下回车跳转到指定页码，用户敲下回车跳转到指定页码
-    gotoPageByEnter (e) {
+    gotoPageByEnter(e) {
       if (e.keyCode !== 13) {
         return;
       }
@@ -108,7 +108,7 @@ export default {
       e.target.value = index;
     },
     // jumper，输入框失去焦点
-    gotoPageByBlur (e) {
+    gotoPageByBlur(e) {
       const value = e.target.value;
       let index;
       if (!value) {
@@ -124,7 +124,7 @@ export default {
       e.target.value = index;
     },
     // total，渲染总页数
-    rendertotal (h) {
+    rendertotal(h) {
       const { total, t } = this;
       return (
         <span class="lin-pagination-total">
@@ -135,75 +135,71 @@ export default {
       );
     },
     // prev，渲染上一个
-    renderprev (h) {
+    renderprev(h) {
       const { disabledPrev, prevClick } = this;
       return (
         <span
           class={[
             'lin-pagination-item',
             'lin-icon-left',
-            { 'lin-pagination-disabled': disabledPrev }
+            { 'lin-pagination-disabled': disabledPrev },
           ]}
           onClick={prevClick}
         ></span>
       );
     },
     // pager，渲染条目
-    renderpager (h) {
+    renderpager(h) {
       const { pageList, currentPage, onItemClick } = this;
       return (
         <ul class="lin-pagination-pager">
           {pageList.map((item, index) => (
-              <li
-                class={[
-                  'lin-pagination-item',
-                  { 'lin-pagination-active': item.index === currentPage },
-                  {
-                    'lin-pagination-ellipsis':
-                      item.type === 'prev' || item.type === 'next'
-                  }
-                ]}
-                key={index}
-                onClick={() => onItemClick(item)}
-              >
-                {item.index}
-              {item.type === 'prev'
-                ? (
-                  <span class="lin-pagination-icon lin-icon-leftarrow"></span>
-                  )
-                : null}
-              {item.type === 'next'
-                ? (
-                  <span class="lin-pagination-icon lin-icon-rightarrow"></span>
-                  )
-                : null}
-              </li>
+            <li
+              class={[
+                'lin-pagination-item',
+                { 'lin-pagination-active': item.index === currentPage },
+                {
+                  'lin-pagination-ellipsis':
+                    item.type === 'prev' || item.type === 'next',
+                },
+              ]}
+              key={index}
+              onClick={() => onItemClick(item)}
+            >
+              {item.index}
+              {item.type === 'prev' ? (
+                <span class="lin-pagination-icon lin-icon-leftarrow"></span>
+              ) : null}
+              {item.type === 'next' ? (
+                <span class="lin-pagination-icon lin-icon-rightarrow"></span>
+              ) : null}
+            </li>
           ))}
         </ul>
       );
     },
     // next，渲染下一个
-    rendernext (h) {
+    rendernext(h) {
       const { disabledNext, nextClick } = this;
       return (
         <span
           class={[
             'lin-pagination-item',
             'lin-icon-right',
-            { 'lin-pagination-disabled': disabledNext }
+            { 'lin-pagination-disabled': disabledNext },
           ]}
           onClick={nextClick}
         ></span>
       );
     },
     // jumper,渲染跳转至输入框
-    renderjumper (h) {
+    renderjumper(h) {
       const {
         totalPage,
         gotoPageByEnter,
         gotoPageByBlur,
         currentPage,
-        t
+        t,
       } = this;
       return (
         <div class="lin-pagintaion-jumpe">
@@ -220,39 +216,39 @@ export default {
           <span>{t('LinViewUI.Pagination.page')}</span>
         </div>
       );
-    }
+    },
   },
   computed: {
     // 当前页码
     currentPage: {
-      get () {
+      get() {
         if (this.pageIndex) {
           return this.pageIndex;
         }
         return this.myPageIndex;
       },
-      set (val) {
+      set(val) {
         if (this.pageIndex) {
           this.$emit('update:pageIndex', val);
         } else {
           this.myPageIndex = val;
         }
-      }
+      },
     },
     // 是否禁用上一个
-    disabledPrev () {
+    disabledPrev() {
       return this.currentPage === 1 || this.total === 0;
     },
     // 是否禁用下一个
-    disabledNext () {
+    disabledNext() {
       return this.currentPage === this.totalPage || this.total === 0;
     },
     // 一共有多少页
-    totalPage () {
+    totalPage() {
       return Math.ceil(this.total / this.pageSize);
     },
     // 页码列表
-    pageList () {
+    pageList() {
       if (this.total === 0) {
         return [];
       }
@@ -302,10 +298,10 @@ export default {
       return arr;
     },
     // 组件排版
-    layoutList () {
+    layoutList() {
       let splitArr = this.layout.split(',') || [];
       splitArr = splitArr.map((item) => item.trim());
       return splitArr;
-    }
-  }
+    },
+  },
 };

@@ -1,20 +1,22 @@
 <template>
   <div class="lin-form-item">
     <label
-    v-if="label"
-    class="lin-form-item-label"
-    :style="{width: itemLabelWidth}">
-    {{label}}
+      v-if="label"
+      class="lin-form-item-label"
+      :style="{ width: itemLabelWidth }"
+    >
+      {{ label }}
     </label>
     <div class="lin-form-item-content">
       <slot></slot>
     </div>
     <transition name="lin-formItem-fade">
       <p
-      v-if="errorMsg"
-      class="lin-form-item-errormsg"
-      :style="{left:itemLabelWidth}">
-      {{errorMsg}}
+        v-if="errorMsg"
+        class="lin-form-item-errormsg"
+        :style="{ left: itemLabelWidth }"
+      >
+        {{ errorMsg }}
       </p>
     </transition>
   </div>
@@ -31,20 +33,20 @@ export default {
     // 表单域model字段
     prop: String,
     // 表单域标签宽度
-    labelWidth: String
+    labelWidth: String,
   },
   inject: ['Form'],
-  data () {
+  data() {
     return {
       // 错误信息
-      errorMsg: ''
+      errorMsg: '',
     };
   },
-  mounted () {
+  mounted() {
     this.$on('validate', this.validate);
   },
   methods: {
-    validate () {
+    validate() {
       if (!this.prop) {
         return;
       }
@@ -58,7 +60,7 @@ export default {
           this.errorMsg = '';
           this.Form.$emit('validate', {
             result: true,
-            [this.prop]: value
+            [this.prop]: value,
           });
           return true;
         })
@@ -67,17 +69,17 @@ export default {
           this.Form.$emit('validate', {
             result: false,
             [this.prop]: value,
-            ...fields
+            ...fields,
           });
           return false;
         });
     },
-    clearValidate () {
+    clearValidate() {
       this.errorMsg = '';
-    }
+    },
   },
   computed: {
-    itemLabelWidth () {
+    itemLabelWidth() {
       if (this.label) {
         if (this.labelWidth) {
           return this.labelWidth;
@@ -85,7 +87,7 @@ export default {
         return this.Form.labelWidth;
       }
       return 0;
-    }
-  }
+    },
+  },
 };
 </script>

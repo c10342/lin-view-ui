@@ -26,35 +26,35 @@ export default {
     // 类型
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
     },
     // 是否有下划线
     underline: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 原生href属性
     href: {
       type: String,
-      default: ''
+      default: '',
     },
     // 图标类名
     icon: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   methods: {
-    onClick (event) {
+    onClick(event) {
       if (!this.href || this.disabled) {
         event.preventDefault();
       }
-    }
-  }
+    },
+  },
 };
 </script>

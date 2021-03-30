@@ -1,6 +1,6 @@
 <template>
   <transition name="lin-video-player-fade">
-    <div class="lin-video-player-tip" v-if="tip">{{tip}}</div>
+    <div class="lin-video-player-tip" v-if="tip">{{ tip }}</div>
   </transition>
 </template>
 
@@ -9,12 +9,12 @@ export default {
   name: 'LinVideoPlayerTip',
   inject: {
     videoPlayer: {
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     // 左下角提示
-    tip () {
+    tip() {
       if (this.videoPlayer) {
         return this.videoPlayer.tip;
       }
@@ -22,31 +22,31 @@ export default {
     },
     // 显示时长
     tipTime: {
-      get () {
+      get() {
         if (this.videoPlayer) {
           return this.videoPlayer.tipTime;
         }
         return 2000;
       },
-      set (value) {
+      set(value) {
         if (this.videoPlayer) {
           this.videoPlayer.tipTime = value;
         }
-      }
-    }
+      },
+    },
   },
-  mounted () {
+  mounted() {
     this.timer = null;
   },
   methods: {
-    destroyTimeout () {
+    destroyTimeout() {
       if (this.timer) {
         clearTimeout(this.timer);
       }
-    }
+    },
   },
   watch: {
-    tip (value) {
+    tip(value) {
       if (value) {
         this.destroyTimeout();
         this.timer = setTimeout(() => {
@@ -58,10 +58,10 @@ export default {
           this.destroyTimeout();
         }, this.tipTime);
       }
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.destroyTimeout();
-  }
+  },
 };
 </script>

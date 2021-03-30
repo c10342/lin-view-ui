@@ -43,43 +43,43 @@ import Spinner from 'packages/Spinner/index.js';
 export default {
   name: 'LinScrollBar',
   components: {
-    [Spinner.name]: Spinner
+    [Spinner.name]: Spinner,
   },
   props: {
     // 是否一直显示自定义滚动条
     hover: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 高度
     height: {
       type: String,
-      default: '100%'
+      default: '100%',
     },
     // 宽度
     width: {
       type: String,
-      default: '100%'
+      default: '100%',
     },
     // 最大高度
     maxHeight: {
-      type: String
+      type: String,
     },
     // 最小高度
     minHeight: {
-      type: String
+      type: String,
     },
     // 是否正在加载，显示加载动画
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 加载文案
     loadingText: String,
     // 加载器大小
-    loadingSize: String
+    loadingSize: String,
   },
-  data () {
+  data() {
     return {
       // 自定义滚动条高度
       barHeight: 0,
@@ -88,10 +88,10 @@ export default {
       // 是否显示滚动条
       showBar: false,
       // 鼠标悬浮在容器中时候显示自定义滚动条
-      hoverBar: false
+      hoverBar: false,
     };
   },
-  mounted () {
+  mounted() {
     // 内容容器高度
     this.wrapperHeight = 0;
     // 内容高度
@@ -112,7 +112,7 @@ export default {
     this.initObserver();
   },
   methods: {
-    initObserver () {
+    initObserver() {
       // DOM元素大小（宽高）发生变化的时候
       this.observer = new ResizeObserver(() => {
         this.init();
@@ -120,17 +120,17 @@ export default {
 
       this.observer.observe(this.$refs.content);
     },
-    init () {
+    init() {
       this.initDom();
       this.initBar();
     },
     // 获取相关DOM元素高度
-    initDom () {
+    initDom() {
       this.wrapperHeight = this.$refs.wrapper.clientHeight;
       this.contentHeight = this.$refs.content.clientHeight;
     },
     // 初始化自定义滚动条
-    initBar () {
+    initBar() {
       const { wrapperHeight, contentHeight } = this;
       // const { contentHeight } = this;
       // 求 滚动条的高度
@@ -153,7 +153,7 @@ export default {
       }
     },
     // 监听容器的滚动事件
-    onWrapperScroll (event) {
+    onWrapperScroll(event) {
       const { contentHeight, wrapperHeight } = this;
       // const { wrapperHeight } = this;
       const { scrollTop } = event.target;
@@ -168,7 +168,7 @@ export default {
       }
     },
     // 鼠标按下事件
-    onMouseDown (event) {
+    onMouseDown(event) {
       // 标志位
       this.isMove = true;
       // 给body添加样式，不能让鼠标在移动的时候选中文字，否则会造成鼠标抬起事件丢失
@@ -180,7 +180,7 @@ export default {
       document.addEventListener('mouseup', this.onMouseup);
     },
     // 鼠标移动事件
-    onMousemove (event) {
+    onMousemove(event) {
       // 纵轴坐标
       const topY = event.clientY - this.startY;
       // 计算自定义滚动条应该距离顶部多少
@@ -190,7 +190,7 @@ export default {
       this.startY = event.clientY;
     },
     // 鼠标抬起事件
-    onMouseup () {
+    onMouseup() {
       // 标志位，此时应该不能再进行拖拽了
       this.isMove = false;
       if (this.isLeave) {
@@ -204,7 +204,7 @@ export default {
       document.removeEventListener('mousemove', this.onMousemove);
       document.removeEventListener('mouseup', this.onMouseup);
     },
-    updatePosition (barTop) {
+    updatePosition(barTop) {
       const { wrapperHeight, contentHeight } = this;
       // const { contentHeight } = this;
       const barHeight = this.$refs.bar.clientHeight;
@@ -222,30 +222,30 @@ export default {
       this.$refs.wrapper.scrollTop = contentTop;
     },
     // 鼠标进入事件
-    onMouseEnter () {
+    onMouseEnter() {
       this.hoverBar = true;
       this.isLeave = false;
     },
     // 鼠标离开事件
-    onMouseLeave () {
+    onMouseLeave() {
       this.isLeave = true;
       if (!this.isMove) {
         this.hoverBar = false;
       }
     },
     // 点击自定义滚动条
-    onBarWrapperClick (event) {
+    onBarWrapperClick(event) {
       // 获取点击位置
       const { clientY } = event;
       // 获取容器距离页面的距离
       const marginTop = this.$refs.wrapper.getBoundingClientRect().top;
       // 计算出鼠标点击的位置距离容器顶部的距离，this.barHeight / 2 是为了让滚动条移动后，鼠标位于滚动条中间
       this.updatePosition(clientY - marginTop - this.barHeight / 2);
-    }
+    },
   },
   computed: {
     // 根节点样式
-    style () {
+    style() {
       const style = {};
       if (this.height) {
         style.height = this.height;
@@ -257,15 +257,15 @@ export default {
         style['min-height'] = this.minHeight;
       }
       return style;
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.observer) {
       this.observer.disconnect();
       this.observer = null;
     }
     document.removeEventListener('mousemove', this.onMousemove);
     document.removeEventListener('mouseup', this.onMouseup);
-  }
+  },
 };
 </script>

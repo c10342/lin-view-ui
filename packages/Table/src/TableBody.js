@@ -2,40 +2,40 @@ export default {
   name: 'LinTableBody',
   computed: {
     // 数据源
-    dataSource () {
+    dataSource() {
       if (this.table) {
         return this.table.dataSource;
       }
       return [];
     },
     // 列数组
-    columns () {
+    columns() {
       if (this.table) {
         return this.table.columns;
       }
       return [];
     },
     // 每一行数据的唯一标识 key
-    valueKey () {
+    valueKey() {
       if (this.table) {
         return this.table.valueKey;
       }
       return '';
-    }
+    },
   },
   inject: {
     table: {
-      default: null
-    }
+      default: null,
+    },
   },
-  mounted () {
+  mounted() {
     if (this.table) {
       this.table.$on('select-all', this.selectAll);
     }
   },
   methods: {
     // 每一行的类名
-    trClassName (row, rowIndex) {
+    trClassName(row, rowIndex) {
       const classArr = ['lin-table-tr'];
       if (this.table) {
         // 传入了类名
@@ -52,7 +52,7 @@ export default {
       return classArr;
     },
     // 选择所有数据
-    selectAll (data) {
+    selectAll(data) {
       const linTableTbody = this.$refs.linTableTbody;
       // 获取所欲checkbox
       const checkboxs = linTableTbody.getElementsByClassName(
@@ -69,7 +69,7 @@ export default {
       }
     },
     // 清空选中状态
-    clearSelection () {
+    clearSelection() {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
         'lin-table-checkbox'
@@ -80,7 +80,7 @@ export default {
       }
     },
     // 切换选中状态
-    toggleAllSelection () {
+    toggleAllSelection() {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
         'lin-table-checkbox'
@@ -91,7 +91,7 @@ export default {
       }
     },
     // 选中具体某一行或者多行
-    selectSelection (data) {
+    selectSelection(data) {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
         'lin-table-checkbox'
@@ -107,24 +107,27 @@ export default {
       }
     },
     // 点击每一行
-    rowClick (row, rowIndex) {
+    rowClick(row, rowIndex) {
       this.table?.emitrRowClick({ row, rowIndex });
     },
     // 点击单元格
-    cellClick (row, prop, rowIndex, idx) {
+    cellClick(row, prop, rowIndex, idx) {
       this.table?.emitrCellClick({
-        row, prop, rowIndex, cellIndex: idx
+        row,
+        prop,
+        rowIndex,
+        cellIndex: idx,
       });
-    }
+    },
   },
-  render (h) {
+  render(h) {
     const {
       dataSource,
       columns,
       trClassName,
       valueKey,
       rowClick,
-      cellClick
+      cellClick,
     } = this;
     return (
       <tbody class="lin-table-tbody" ref="linTableTbody">
@@ -137,24 +140,24 @@ export default {
               onClick={() => rowClick(row, rowIndex)}
             >
               {columns.map((column, idx) => (
-                  <td
-                    onClick={() => {
-                      cellClick(row, column.prop, rowIndex, idx);
-                    }}
-                    class={['lin-table-td', `lin-table-align-${column.align}`]}
-                    key={`${rowKey}-${idx}`}
-                  >
-                    {column.renderCell(h, {
-                      row,
-                      column,
-                      rowIndex
-                    })}
-                  </td>
+                <td
+                  onClick={() => {
+                    cellClick(row, column.prop, rowIndex, idx);
+                  }}
+                  class={['lin-table-td', `lin-table-align-${column.align}`]}
+                  key={`${rowKey}-${idx}`}
+                >
+                  {column.renderCell(h, {
+                    row,
+                    column,
+                    rowIndex,
+                  })}
+                </td>
               ))}
             </tr>
           );
         })}
       </tbody>
     );
-  }
+  },
 };

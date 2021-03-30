@@ -20,7 +20,8 @@ import { throttle } from 'lodash';
 
 const cubic = (value) => value ** 3;
 const easeInOutCubic = (value) => {
-  const percent = (value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2);
+  const percent =
+    value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2;
   return percent;
 };
 
@@ -30,31 +31,31 @@ export default {
     // 显示位置，距离页面右边距离
     right: {
       type: Number,
-      default: 40
+      default: 40,
     },
     // 显示位置，距离页面底部距离
     bottom: {
       type: Number,
-      default: 40
+      default: 40,
     },
     // 滚动触发的对象
     target: {
       type: String,
-      default: null
+      default: null,
     },
     // 滚动高度达到次参数才显示组件
     visibilityHeight: {
       type: Number,
-      default: 200
-    }
+      default: 200,
+    },
   },
-  data () {
+  data() {
     return {
       // 控制组件是否显示
-      visible: false
+      visible: false,
     };
   },
-  mounted () {
+  mounted() {
     this.el = null;
     this.container = null;
     this.init();
@@ -63,7 +64,7 @@ export default {
   },
   methods: {
     // 初始化DOM
-    init () {
+    init() {
       this.container = document;
       this.el = document.documentElement || document.body;
       if (this.target) {
@@ -75,20 +76,21 @@ export default {
       }
     },
     // 滚动函数
-    onScroll () {
+    onScroll() {
       const { scrollTop } = this.el;
       this.visible = scrollTop >= this.visibilityHeight;
     },
-    onClick (e) {
+    onClick(e) {
       this.scrollToTop();
       this.$emit('click', e);
     },
     // 返回到顶部
-    scrollToTop () {
+    scrollToTop() {
       const { el } = this;
       const beginTime = Date.now();
       const beginValue = el.scrollTop;
-      const rAF = window.requestAnimationFrame || ((func) => setTimeout(func, 16));
+      const rAF =
+        window.requestAnimationFrame || ((func) => setTimeout(func, 16));
       const frameFunc = () => {
         const progress = (Date.now() - beginTime) / 500;
         if (progress < 1) {
@@ -101,12 +103,12 @@ export default {
         }
       };
       rAF(frameFunc);
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.container.removeEventListener('scroll', this.throttledScrollHandler);
     this.el = null;
     this.container = null;
-  }
+  },
 };
 </script>

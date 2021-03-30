@@ -12,27 +12,27 @@ import {
   isBrowserFullscreen,
   isBrowserFullscreenEnabled,
   enterBrowserFullScreen,
-  exitBrowserFullscreen
+  exitBrowserFullscreen,
 } from './utils.js';
 
 export default {
   name: 'LinVideoPlayerFullscreen',
   inject: {
     videoPlayer: {
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
-    video () {
+    video() {
       if (this.videoPlayer) {
         return this.videoPlayer.video;
       }
       return null;
-    }
+    },
   },
   methods: {
     // 切换浏览器全屏状态
-    onBrowserFullscreen () {
+    onBrowserFullscreen() {
       if (this.videoPlayer) {
         this.videoPlayer.isWebFullscreen = false;
       }
@@ -45,10 +45,10 @@ export default {
       }
     },
     // 切换网页全屏状态
-    onWebFullscreen () {
+    onWebFullscreen() {
       exitBrowserFullscreen();
       this.videoPlayer?.switchWebfullscreen();
-    }
-  }
+    },
+  },
 };
 </script>

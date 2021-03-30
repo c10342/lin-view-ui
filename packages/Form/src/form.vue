@@ -11,27 +11,27 @@ export default {
     // 表单数据对象
     model: {
       type: Object,
-      required: true
+      required: true,
     },
     // 标签宽度
     labelWidth: {
       type: String,
-      default: '80px'
+      default: '80px',
     },
     // 表单校验规则
     rules: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
-  provide () {
+  provide() {
     return {
-      Form: this
+      Form: this,
     };
   },
   methods: {
     // 校验表单数据
-    validate (cb) {
+    validate(cb) {
       const tasks = this.$children
         .filter((item) => item.prop)
         .map((item) => item.validate());
@@ -44,7 +44,7 @@ export default {
         .catch(() => cb(false));
     },
     // 清空表单教研
-    clearValidate () {
+    clearValidate() {
       const broad = (children) => {
         children.forEach((child) => {
           if (child.$options.name === 'LinFormItem' && child.clearValidate) {
@@ -57,7 +57,7 @@ export default {
       };
 
       broad(this.$children);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -57,82 +57,82 @@ export default {
   mixins: [documentClick, LocaleMixin],
   components: {
     [Input.name]: Input,
-    [Panel.name]: Panel
+    [Panel.name]: Panel,
   },
   props: {
     // 可选项数据源
     options: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     // 自定义数据显示方法
     showFormat: {
-      type: Function
+      type: Function,
     },
     // 选项中绑定的值
     value: {
       type: Array,
-      default: null
+      default: null,
     },
     // 是否支持清空
     clearable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 输入框文本占位符
     placeholder: {
-      type: String
+      type: String,
     },
     // 是否动态加载子节点，需与 lazyLoad 方法结合使用
     lazy: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 加载动态数据的方法，仅在 lazy 为 true 时有效
     lazyLoad: {
-      type: Function
+      type: Function,
     },
     // 选项分隔符
     separator: {
       type: String,
-      default: '/'
+      default: '/',
     },
     // 指定选项标签为选项对象的某个属性值
     label: {
       type: String,
-      default: 'label'
+      default: 'label',
     },
     // 指定选项的子选项为选项对象的某个属性值
     children: {
       type: String,
-      default: 'children'
+      default: 'children',
     },
     // 指定选项的最终叶子节点的标志位为选项对象的某个属性值
     leaf: {
       type: String,
-      default: 'leaf'
+      default: 'leaf',
     },
     // 指定选项的禁用为选项对象的某个属性值
     disabled: {
       type: String,
-      default: 'disabled'
+      default: 'disabled',
     },
     // 指定选项的唯一值为选项对象的某个属性值
     valueKey: {
       type: String,
-      default: 'id'
+      default: 'id',
     },
     // 暂无数据提示语
     emptyTip: {
-      type: String
-    }
+      type: String,
+    },
   },
-  provide () {
+  provide() {
     return {
-      cascader: this
+      cascader: this,
     };
   },
-  data () {
+  data() {
     return {
       // 当没有传入value时内部使用该值存储选中的值
       myValueArr: [],
@@ -145,10 +145,10 @@ export default {
       // 距离顶部距离
       top: 0,
       // 展开位置，当向下位置不足够时向上展开
-      isDown: false
+      isDown: false,
     };
   },
-  async created () {
+  async created() {
     // 动态加载节点
     if (this.lazy && this.lazyLoad) {
       this.optionsList = await this.lazyLoad({ level: 0 });
@@ -156,11 +156,12 @@ export default {
   },
   methods: {
     // 设置下拉框出现位置
-    setPlacement () {
+    setPlacement() {
       this.$nextTick(() => {
         const { popupContainer } = this.$refs;
         const container = this.$refs.notOutsideContainer;
-        const bottom = window.innerHeight - container.getBoundingClientRect().bottom;
+        const bottom =
+          window.innerHeight - container.getBoundingClientRect().bottom;
         const { top } = container.getBoundingClientRect();
         if (bottom > popupContainer.clientHeight) {
           this.setDownTop();
@@ -172,40 +173,40 @@ export default {
       });
     },
     // 向下展示下拉框
-    setDownTop () {
+    setDownTop() {
       this.isDown = true;
       const { boxContainer } = this.$refs;
       this.top = `${boxContainer.clientHeight + 10}px`;
     },
     // 向上展示下拉框
-    setUpTop () {
+    setUpTop() {
       this.isDown = false;
       const { popupContainer } = this.$refs;
       this.top = `${-popupContainer.clientHeight - 10}px`;
     },
     // 失去焦点
-    onBlur (event) {
+    onBlur(event) {
       this.$emit('blur', event);
     },
     // 获得焦点
-    onFocus (event) {
+    onFocus(event) {
       this.$emit('focus', event);
     },
     // 清空值
-    clearValue () {
+    clearValue() {
       this.valueArr = [];
       this.hidePuop();
     },
     // 监听鼠标进入输入框容器
-    onMouseEnter () {
+    onMouseEnter() {
       this.isHover = true;
     },
     // 监听鼠标离开输入框容器
-    onMouseLeave () {
+    onMouseLeave() {
       this.isHover = false;
     },
     // 设置选中的值
-    setValue (data, level) {
+    setValue(data, level) {
       let { valueArr } = this;
       valueArr = valueArr.slice(0, level);
       valueArr.push(data);
@@ -213,7 +214,7 @@ export default {
       this.$emit('change', { data, level });
     },
     // 点击输入框容器
-    onInputClick () {
+    onInputClick() {
       if (this.showPopup) {
         this.hidePuop();
       } else {
@@ -221,7 +222,7 @@ export default {
       }
     },
     // 显示下拉框
-    displayPuop () {
+    displayPuop() {
       this.showPopup = true;
       this.$children.forEach((child) => {
         if (child.$options.name === 'LinPanel') {
@@ -232,26 +233,26 @@ export default {
       this.$emit('visible-change', true);
     },
     // 隐藏下拉框
-    hidePuop () {
+    hidePuop() {
       this.showPopup = false;
       this.$emit('visible-change', false);
     },
     // 发射input事件，配合v-model指令使用
-    emitInputEvent (val) {
+    emitInputEvent(val) {
       this.$emit('input', val);
     },
     // 点击组件外部
-    onDocumentClick (event) {
+    onDocumentClick(event) {
       const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
         this.hidePuop();
       }
-    }
+    },
   },
   computed: {
     // 存储选中的值
     valueArr: {
-      get () {
+      get() {
         if (this.value !== null) {
           if (Array.isArray(this.value)) {
             return this.value;
@@ -262,16 +263,16 @@ export default {
 
         return this.myValueArr || [];
       },
-      set (val) {
+      set(val) {
         if (this.value !== null) {
           this.emitInputEvent(val);
         } else {
           this.myValueArr = val;
         }
-      }
+      },
     },
     // 显示在输入框中的文本
-    text () {
+    text() {
       if (this.showFormat) {
         return this.showFormat(this.valueArr);
       }
@@ -285,7 +286,7 @@ export default {
       return '';
     },
     // 是否线束清空图标
-    showClose () {
+    showClose() {
       return (
         this.clearable &&
         this.isHover &&
@@ -294,26 +295,26 @@ export default {
       );
     },
     // 输入框文本占位符
-    myPlaceholder () {
+    myPlaceholder() {
       if (this.placeholder) {
         return this.placeholder;
       }
       return this.t('LinViewUI.Cascader.placeholder');
     },
     // 暂无数据提示语
-    myEmptyTip () {
+    myEmptyTip() {
       if (this.emptyTip) {
         return this.emptyTip;
       }
       return this.t('LinViewUI.Cascader.emptyTip');
     },
     // 可选项数据源
-    myOptions () {
+    myOptions() {
       if (this.lazy && this.lazyLoad) {
         return this.optionsList;
       }
       return this.options;
-    }
-  }
+    },
+  },
 };
 </script>

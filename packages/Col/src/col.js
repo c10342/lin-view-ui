@@ -7,27 +7,27 @@ export default {
     // 自定义元素标签
     tag: {
       type: String,
-      default: 'div'
+      default: 'div',
     },
     // 栅格占据列数
     span: {
       type: Number,
-      default: 24
+      default: 24,
     },
     // 栅格左侧的间隔数
     offset: {
       type: Number,
-      default: 0
+      default: 0,
     },
     // 栅格向右移动格数
     pull: {
       type: Number,
-      default: 0
+      default: 0,
     },
     // 栅格向左移动格数
     push: {
       type: Number,
-      default: 0
+      default: 0,
     },
     // 响应式栅格数或者属性对象  <768px
     xs: [Number, Object],
@@ -36,25 +36,25 @@ export default {
     // ≥992 响应式栅格数或者栅格属性对象
     md: [Number, Object],
     // ≥1200 响应式栅格数或者栅格属性对象
-    lg: [Number, Object]
+    lg: [Number, Object],
   },
 
   inject: {
     row: {
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     // 栅格之间的间隔
-    gutter () {
+    gutter() {
       if (this.row) {
         return this.row.gutter;
       }
       return 0;
-    }
+    },
   },
 
-  render (h) {
+  render(h) {
     const style = {};
     const classList = [];
 
@@ -90,9 +90,9 @@ export default {
       this.tag,
       {
         class: ['lin-col', classList],
-        style
+        style,
       },
       this.$slots.default
     );
-  }
+  },
 };

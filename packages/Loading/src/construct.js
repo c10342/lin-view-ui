@@ -2,7 +2,7 @@ import Vue from 'vue';
 import getScroll from 'src/utils/getScroll.js';
 import Loading from './loading.vue';
 
-function handleOnScroll (target, targetDom, scrollDom) {
+function handleOnScroll(target, targetDom, scrollDom) {
   if (document.body === target) {
     targetDom.style.marginTop = `${getScroll().scrollTop}px`;
   } else {
@@ -10,7 +10,7 @@ function handleOnScroll (target, targetDom, scrollDom) {
   }
 }
 
-function addScrollListener (target, fn) {
+function addScrollListener(target, fn) {
   if (document.body === target) {
     window.addEventListener('scroll', fn);
   } else {
@@ -18,7 +18,7 @@ function addScrollListener (target, fn) {
   }
 }
 
-function delScrollListener (target, fn) {
+function delScrollListener(target, fn) {
   if (document.body === target) {
     window.removeEventListener('scroll', fn);
   } else {
@@ -30,9 +30,7 @@ function delScrollListener (target, fn) {
 const LoadingConstruct = Vue.extend(Loading);
 
 // 打开loading
-LoadingConstruct.prototype.open = function open (
-  options
-) {
+LoadingConstruct.prototype.open = function open(options) {
   // 必须要有目标对象，否则不能显示出来
   if (!options.target) {
     return;
@@ -83,7 +81,7 @@ LoadingConstruct.prototype.open = function open (
 };
 
 // 关闭loading
-LoadingConstruct.prototype.close = function close () {
+LoadingConstruct.prototype.close = function close() {
   if (!this.target || !this.visible) {
     return;
   }

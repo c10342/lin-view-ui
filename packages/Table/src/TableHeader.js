@@ -5,41 +5,41 @@ export default {
 
   inject: {
     table: {
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     // 选中的数据
     selectData: {
-      set (val) {
+      set(val) {
         if (this.table) {
           this.table.selectData = val;
         }
       },
-      get () {
+      get() {
         if (this.table) {
           return this.table.selectData;
         }
         return [];
-      }
+      },
     },
     // 数据源
-    dataSource () {
+    dataSource() {
       if (this.table) {
         return this.table.dataSource;
       }
       return [];
-    }
+    },
   },
   watch: {
-    selectData (val) {
+    selectData(val) {
       // 修改checkbox选中状态
       this.changeCheckboxStatus(val);
-    }
+    },
   },
   methods: {
     // 渲染头部单元格，有三中类型，普通的，checkbox，index
-    renderTh (h, column) {
+    renderTh(h, column) {
       let th = null;
       switch (column.type) {
         case 'selection':
@@ -61,7 +61,7 @@ export default {
       return th;
     },
     // 点击checkbox
-    onClick (e) {
+    onClick(e) {
       if (this.table) {
         const checked = e.target.checked;
         if (checked) {
@@ -77,7 +77,7 @@ export default {
       }
     },
     // 改变checkbox状态
-    switchCheckboxStatus (status) {
+    switchCheckboxStatus(status) {
       const linTableHeaderCheckbox = this.$refs.linTableHeaderCheckbox;
       switch (status) {
         case 1:
@@ -99,7 +99,7 @@ export default {
           break;
       }
     },
-    changeCheckboxStatus (data) {
+    changeCheckboxStatus(data) {
       if (data.length > 0) {
         if (data.length < this.dataSource.length) {
           // 半选状态
@@ -112,24 +112,24 @@ export default {
         // 不选
         this.switchCheckboxStatus(3);
       }
-    }
+    },
   },
-  render (h) {
+  render(h) {
     const { renderTh } = this;
     const { columns = [] } = this.table;
     return (
       <thead>
         <tr class="lin-table-tr">
           {columns.map((column, index) => (
-              <th
-                class={['lin-table-th', `lin-table-align-${column.align}`]}
-                key={index}
-              >
-                {renderTh(h, column)}
-              </th>
+            <th
+              class={['lin-table-th', `lin-table-align-${column.align}`]}
+              key={index}
+            >
+              {renderTh(h, column)}
+            </th>
           ))}
         </tr>
       </thead>
     );
-  }
+  },
 };

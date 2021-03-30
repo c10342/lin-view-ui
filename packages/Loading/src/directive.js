@@ -1,6 +1,6 @@
 import LoadingConstruct from './construct.js';
 
-function openLoading (el, binding) {
+function openLoading(el, binding) {
   if (!el) {
     return;
   }
@@ -15,7 +15,7 @@ function openLoading (el, binding) {
   const options = {
     fullscreen,
     target,
-    lock
+    lock,
   };
   // 获取目标对象上面的属性
   const text = el.getAttribute('lin-loading-text');
@@ -28,7 +28,7 @@ function openLoading (el, binding) {
   el.instance.open(options);
 }
 
-function closeLoading (el) {
+function closeLoading(el) {
   if (!el) {
     return;
   }
@@ -43,13 +43,13 @@ const loadingDirective = {};
 
 loadingDirective.install = (Vue) => {
   Vue.directive('loading', {
-    bind (el, binding) {
+    bind(el, binding) {
       // 第一次绑定的时候
       if (binding.value) {
         openLoading(el, binding);
       }
     },
-    update (el, binding) {
+    update(el, binding) {
       // 更新的时候
       if (binding.value) {
         openLoading(el, binding);
@@ -57,10 +57,10 @@ loadingDirective.install = (Vue) => {
         closeLoading(el);
       }
     },
-    unbind (el) {
+    unbind(el) {
       // 解绑的时候
       closeLoading(el);
-    }
+    },
   });
 };
 

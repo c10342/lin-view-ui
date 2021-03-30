@@ -4,7 +4,7 @@
 
 import { VUE_META_ATTRIBUTE } from '../common/constants.js';
 
-export default function _removeNode (parent) {
+export default function _removeNode(parent) {
   // 获取heade的DOM元素
   const children = parent.querySelectorAll(`[${VUE_META_ATTRIBUTE}]`);
 

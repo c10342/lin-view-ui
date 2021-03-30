@@ -1,17 +1,18 @@
 // 判断是否为DOM元素
 export const isDOM = (dom) => {
-  const fn = typeof HTMLElement === 'object'
-    ? function isDOMFn (obj) {
-        return obj instanceof HTMLElement;
-      }
-    : function isDOMFn (obj) {
-      return (
-        obj &&
+  const fn =
+    typeof HTMLElement === 'object'
+      ? function isDOMFn(obj) {
+          return obj instanceof HTMLElement;
+        }
+      : function isDOMFn(obj) {
+          return (
+            obj &&
             typeof obj === 'object' &&
             obj.nodeType === 1 &&
             typeof obj.nodeName === 'string'
-      );
-    };
+          );
+        };
 
   return fn(dom);
 };
@@ -43,10 +44,10 @@ export const handleEl = (el) => {
 export const handleSpeedList = (list) => {
   if (!Array.isArray(list)) {
     throw new TypeError('speedList 只能是数组');
-  } else if (
-    list.some((item) => !('label' in item) || !('value' in item))
-  ) {
-    throw new TypeError('speedList 类型不正确，每个数组项必须包含 label 和 value');
+  } else if (list.some((item) => !('label' in item) || !('value' in item))) {
+    throw new TypeError(
+      'speedList 类型不正确，每个数组项必须包含 label 和 value'
+    );
   }
 };
 
@@ -54,30 +55,28 @@ export const handleSpeedList = (list) => {
 export const handleVideoList = (list) => {
   if (!Array.isArray(list)) {
     throw new TypeError('videoList 只能是数组');
-  } else if (
-    list.some((item) => !('label' in item) || !('url' in item))
-  ) {
-    throw new TypeError('videoList 类型不正确，每个数组项必须包含 label 和 url');
+  } else if (list.some((item) => !('label' in item) || !('url' in item))) {
+    throw new TypeError(
+      'videoList 类型不正确，每个数组项必须包含 label 和 url'
+    );
   }
 };
 
 // 是否处于浏览器全屏
-export const isBrowserFullscreen = () => (
+export const isBrowserFullscreen = () =>
   document.fullscreenElement ||
-    document.msFullscreenElement ||
-    document.mozFullScreenElement ||
-    document.webkitFullscreenElement ||
-    false
-);
+  document.msFullscreenElement ||
+  document.mozFullScreenElement ||
+  document.webkitFullscreenElement ||
+  false;
 
 // 是否允许浏览器全屏
-export const isBrowserFullscreenEnabled = () => (
+export const isBrowserFullscreenEnabled = () =>
   document.fullscreenEnabled ||
-    document.mozFullScreenEnabled ||
-    document.webkitFullscreenEnabled ||
-    document.msFullscreenEnabled ||
-    false
-);
+  document.mozFullScreenEnabled ||
+  document.webkitFullscreenEnabled ||
+  document.msFullscreenEnabled ||
+  false;
 
 // 进入全屏
 export const enterBrowserFullScreen = (element) => {

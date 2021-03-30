@@ -4,7 +4,7 @@ import 'src/fonts/iconfont.css';
 
 export default {
   name: 'LinTabGroup',
-  render (h) {
+  render(h) {
     const {
       type,
       lineWidth,
@@ -15,7 +15,7 @@ export default {
       onPrevClick,
       containerTranslateX,
       containerWidth,
-      renderTabLabel
+      renderTabLabel,
     } = this;
     const containerwidth = containerWidth;
     const linewidth = lineWidth;
@@ -24,20 +24,20 @@ export default {
         class={[
           { 'lin-tab-group-card': type === 'card' },
           { 'lin-tab-group-border': type === 'border-card' },
-          'lin-tab-group'
+          'lin-tab-group',
         ]}
       >
         <div
           class={[
             'lin-tab-group-header',
-            { 'lin-tab-group-header-scroll': isScroll }
+            { 'lin-tab-group-header-scroll': isScroll },
           ]}
           ref="tabheader"
         >
           <div
             style={{
               transform: `translateX(${containerTranslateX}px)`,
-              width: containerwidth
+              width: containerwidth,
             }}
             class="lin-tab-group-item-wrapper"
             ref="tabheaderWrapper"
@@ -49,33 +49,29 @@ export default {
                 class="lin-tab-group-active-line"
                 style={{
                   width: linewidth,
-                  transform: `translateX(${translateX})`
+                  transform: `translateX(${translateX})`,
                 }}
               ></div>
             )}
           </div>
-          {isScroll
-            ? (
+          {isScroll ? (
             <span
               class="lin-tab-group-icon lin-icon-left"
               onClick={onPrevClick}
             ></span>
-              )
-            : null}
-          {isScroll
-            ? (
+          ) : null}
+          {isScroll ? (
             <span
               class="lin-tab-group-icon lin-icon-right"
               onClick={onNextClick}
             ></span>
-              )
-            : null}
+          ) : null}
         </div>
         <div class="lin-tab-group-content">{$slots.default}</div>
       </div>
     );
   },
-  data () {
+  data() {
     return {
       // 存储LinTabItem组件孩子信息
       tabChildren: [],
@@ -92,28 +88,28 @@ export default {
       // tab容器的宽度
       containerWidth: '0px',
       // 每次移动的步伐
-      step: 60
+      step: 60,
     };
   },
   props: {
     // 绑定值，选中选项卡的 name
     value: {
       type: String,
-      default: null
+      default: null,
     },
     // 风格类型
     type: {
       // card/border-card
       type: String,
-      default: 'default'
-    }
+      default: 'default',
+    },
   },
-  provide () {
+  provide() {
     return {
-      tabGroup: this
+      tabGroup: this,
     };
   },
-  mounted () {
+  mounted() {
     // 初始化tab
     this.initTabChildren();
     // 初始化滚动行为
@@ -123,35 +119,35 @@ export default {
   },
   methods: {
     // 渲染tab标签
-    renderTabLabel (h) {
+    renderTabLabel(h) {
       const { tabChildren, currentValue, onTabClick } = this;
       return (
         <div class="lin-tab-group-item-container" ref="tabheaderContainer">
           {tabChildren.map((item, index) => (
-              <div
-                class={[
-                  { 'lin-tab-group-active': currentValue === item.name },
-                  'lin-tab-group-header-item',
-                  { 'lin-tab-group-header-item-disabled': item.disabled }
-                ]}
-                id={`tab-${item.name}`}
-                key={index}
-                onClick={() => onTabClick(item)}
-              >
-                {item.labelSlot || item.label}
-              </div>
+            <div
+              class={[
+                { 'lin-tab-group-active': currentValue === item.name },
+                'lin-tab-group-header-item',
+                { 'lin-tab-group-header-item-disabled': item.disabled },
+              ]}
+              id={`tab-${item.name}`}
+              key={index}
+              onClick={() => onTabClick(item)}
+            >
+              {item.labelSlot || item.label}
+            </div>
           ))}
         </div>
       );
     },
     // 窗口大小发生变化事件
-    onResize () {
+    onResize() {
       if (this.timer) {
         clearTimeout(this.timer);
       }
       this.timer = setTimeout(this.initScroll, 500);
     },
-    initScroll () {
+    initScroll() {
       this.$nextTick(() => {
         const tabheader = this.$refs.tabheader;
         const tabheaderContainer = this.$refs.tabheaderContainer;
@@ -170,7 +166,7 @@ export default {
       });
     },
     // 点击tab
-    onTabClick (data) {
+    onTabClick(data) {
       if (data.disabled) {
         return;
       }
@@ -178,7 +174,7 @@ export default {
       this.$emit('tab-click', data.name);
     },
     // 初始化Tab
-    initTabChildren () {
+    initTabChildren() {
       // 获取LinTabItem组件孩子
       const tabChildren = this.getTabs();
       const _tabChildren = tabChildren.map((child, index) => {
@@ -190,7 +186,7 @@ export default {
           label: child.label,
           name: child.name || index,
           labelSlot: child.$slots.label || null,
-          disabled: child.disabled
+          disabled: child.disabled,
         };
       });
       // 存储所需要的组件信息
@@ -199,11 +195,13 @@ export default {
       this.currentIndex = _tabChildren.length > 0 ? _tabChildren[0].name : 0;
     },
     // 获取LinTabItem组件孩子
-    getTabs () {
-      return this.$children.filter((item) => item.$options.name === 'LinTabItem');
+    getTabs() {
+      return this.$children.filter(
+        (item) => item.$options.name === 'LinTabItem'
+      );
     },
     // 初始化下划线相关数据
-    initVar () {
+    initVar() {
       this.$nextTick(() => {
         if (this.currentValue !== -1) {
           const dom = document.getElementById(`tab-${this.currentValue}`);
@@ -219,27 +217,28 @@ export default {
       });
     },
     // 点击左移
-    onPrevClick () {
+    onPrevClick() {
       this.containerTranslateX += this.step;
       if (this.containerTranslateX > 0) {
         this.containerTranslateX = 0;
       }
     },
     // 点击右移
-    onNextClick () {
+    onNextClick() {
       const tabheader = this.$refs.tabheader;
       const tabheaderContainer = this.$refs.tabheaderContainer;
-      const offsetWidth = tabheader.clientWidth - tabheaderContainer.scrollWidth - 40;
+      const offsetWidth =
+        tabheader.clientWidth - tabheaderContainer.scrollWidth - 40;
       this.containerTranslateX -= this.step;
       if (this.containerTranslateX < offsetWidth) {
         this.containerTranslateX = offsetWidth;
       }
-    }
+    },
   },
   computed: {
     // 当前值，就是在哪一个tab
     currentValue: {
-      get () {
+      get() {
         if (this.value !== null) {
           return (
             this.value ||
@@ -248,28 +247,28 @@ export default {
         }
         return this.currentIndex;
       },
-      set (value) {
+      set(value) {
         if (this.value !== null) {
           this.$emit('input', value);
         } else {
           this.currentIndex = value;
         }
-      }
-    }
+      },
+    },
   },
   watch: {
     currentValue: {
       immediate: true,
-      handler () {
+      handler() {
         this.initVar();
-      }
-    }
+      },
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.timer) {
       clearTimeout(this.timer);
       this.timer = null;
     }
     window.removeEventListener('resize', this.onResize);
-  }
+  },
 };

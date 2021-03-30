@@ -38,10 +38,7 @@ import PlayerAnimation from './video-player-animation.vue';
 import PlayerImage from './video-player-image.vue';
 import PlayerLoading from './video-player-loading.vue';
 import PlayerTip from './video-player-tip.vue';
-import {
-  enterBrowserFullScreen,
-  exitBrowserFullscreen
-} from './utils.js';
+import { enterBrowserFullScreen, exitBrowserFullscreen } from './utils.js';
 
 export default {
   name: 'LinVideoPlayer',
@@ -51,14 +48,14 @@ export default {
     PlayerAnimation,
     PlayerImage,
     PlayerLoading,
-    PlayerTip
+    PlayerTip,
   },
-  provide () {
+  provide() {
     return {
-      videoPlayer: this
+      videoPlayer: this,
     };
   },
-  data () {
+  data() {
     return {
       // 当前进度时间
       currentTime: 0,
@@ -95,10 +92,10 @@ export default {
       // 鼠标是否进入容器
       isEnter: true,
       // 自定义支持其他 MSE 可使用此参数
-      customType: null
+      customType: null,
     };
   },
-  mounted () {
+  mounted() {
     // hls实例对象
     this.hls = null;
     // flv实例对象
@@ -108,7 +105,7 @@ export default {
     this.initParams();
   },
   methods: {
-    initParams () {
+    initParams() {
       if (this.videoList.length > 0) {
         const videoList = cloneDeep(this.videoList);
         // 获取第一个清晰度视频
@@ -119,7 +116,7 @@ export default {
         this.initPlayer(this.currentDefinitionVideo);
       }
     },
-    initPlayer (data) {
+    initPlayer(data) {
       // 显示loading
       this.isLoading = true;
       if (typeof this.customType === 'function') {
@@ -140,7 +137,7 @@ export default {
       }
     },
     // 切换视频播放地址
-    switchPlayerUrl (data) {
+    switchPlayerUrl(data) {
       const videoSrc = data.url;
       const label = data.label;
       if (!videoSrc) {
@@ -167,7 +164,7 @@ export default {
 
       this.seek(this.currentTime);
     },
-    initHls (videoSrc, hlsParams = {}) {
+    initHls(videoSrc, hlsParams = {}) {
       if (!Hls) {
         throw new ReferenceError('Hls is not defind');
       }
@@ -184,7 +181,7 @@ export default {
         this.video.src = videoSrc;
       }
     },
-    initFlv (videoSrc, flvParams = {}) {
+    initFlv(videoSrc, flvParams = {}) {
       if (!flvjs) {
         throw new ReferenceError('flvjs is not defind');
       }
@@ -197,13 +194,13 @@ export default {
           type: 'flv',
           url: videoSrc,
           isLive: this.live,
-          ...flvParams
+          ...flvParams,
         });
         this.flv.attachMediaElement(this.video);
         this.flv.load();
       }
     },
-    initCustomType (data) {
+    initCustomType(data) {
       // 自定义EMS
       this.customType(
         this.video,
@@ -212,22 +209,22 @@ export default {
           autoplay: this.autoplay,
           speedList: this.speedList,
           videoList: this.videoList,
-          live: this.live
+          live: this.live,
         })
       );
     },
     // video播放时间变化
-    onTimeUpdate () {
+    onTimeUpdate() {
       const currentTime = this.video?.currentTime || 0;
       this.currentTime = currentTime;
     },
     // 加载数据源
-    onLoadedmetadata () {
+    onLoadedmetadata() {
       const duration = this.video?.duration || 0;
       this.totalTime = duration;
     },
     // 可以流畅播放
-    onCanplaythrough () {
+    onCanplaythrough() {
       // 清空截图
       this.imgSrc = '';
       // 隐藏loading
@@ -239,50 +236,50 @@ export default {
       }
     },
     // 正在等待
-    onWaiting () {
+    onWaiting() {
       this.isLoading = true;
     },
     // 缓冲事件
-    onprogress () {
+    onprogress() {
       if (this.video && this.video.buffered?.length !== 0) {
         const preloadTime = this.video?.buffered.end(0) || 0;
         this.preloadTime = preloadTime;
       }
     },
     // 跳转到某个视频点
-    seek (time) {
+    seek(time) {
       if (this.video) {
         this.video.currentTime = time;
       }
     },
     // 播放事件
-    onPlay () {
+    onPlay() {
       this.emitPlayingStatus(this.video?.paused);
     },
     // 暂停事件
-    onPause () {
+    onPause() {
       this.emitPlayingStatus(this.video?.paused);
     },
     // 修改状态为是否正在播放
-    emitPlayingStatus (status) {
+    emitPlayingStatus(status) {
       this.isPlaying = !status;
     },
     // 切换播放状态
-    switchPlayingStatus () {
+    switchPlayingStatus() {
       if (this.video && this.video.paused) {
         this.play();
       } else if (this.video && !this.video.paused) {
         this.pause();
       }
     },
-    play () {
+    play() {
       this.video?.play();
     },
-    pause () {
+    pause() {
       this.video?.pause();
     },
     // 视频截图
-    getImage () {
+    getImage() {
       if (this.video) {
         try {
           const canvas = document.createElement('canvas');
@@ -297,14 +294,14 @@ export default {
       }
     },
     // 销毁hls
-    destoryHls () {
+    destoryHls() {
       if (this.hls) {
         this.hls.destroy();
         this.hls = null;
       }
     },
     // 销毁flv
-    destoryFlv () {
+    destoryFlv() {
       if (this.flv) {
         this.flv.pause();
         this.flv.unload();
@@ -314,17 +311,17 @@ export default {
       }
     },
     // 销毁播放器
-    destoryPlayer () {
+    destoryPlayer() {
       this.destoryFlv();
       this.destoryHls();
       this.video = null;
     },
     // 设置左下角提示
-    setTip (tip) {
+    setTip(tip) {
       this.tip = tip;
     },
     // 设置播放速度
-    setSpeed (rate) {
+    setSpeed(rate) {
       if (this.video) {
         let playbackRate = rate;
         playbackRate = playbackRate < 0 ? 0 : playbackRate;
@@ -332,7 +329,7 @@ export default {
       }
     },
     // 设置音量
-    setVolume (percentage) {
+    setVolume(percentage) {
       if (this.video) {
         // 音量只能是0-1
         let volume = percentage;
@@ -350,18 +347,18 @@ export default {
       return -1;
     },
     // 切换网页全屏
-    switchWebfullscreen () {
+    switchWebfullscreen() {
       this.isWebFullscreen = !this.isWebFullscreen;
     },
     // 设置网页全屏
-    setWebFullScreen () {
+    setWebFullScreen() {
       // 需要先退出浏览器全屏
       exitBrowserFullscreen();
 
       this.isWebFullscreen = true;
     },
     // 设置浏览器全屏
-    setBrowserFullScreen () {
+    setBrowserFullScreen() {
       if (this.isWebFullscreen) {
         // 需要先退出网页全屏
         this.isWebFullscreen = false;
@@ -370,14 +367,14 @@ export default {
       enterBrowserFullScreen(this.$refs?.videoPlayerContainer);
     },
     // 退出网页全屏
-    cancelWebFullScreen () {
+    cancelWebFullScreen() {
       // 首先需要退出浏览器全屏
       exitBrowserFullscreen();
 
       this.isWebFullscreen = false;
     },
     // 退出浏览器全屏
-    cancelBrowserFullScreen () {
+    cancelBrowserFullScreen() {
       if (this.isWebFullscreen) {
         // 退出网页全屏
         this.isWebFullscreen = false;
@@ -385,7 +382,7 @@ export default {
       exitBrowserFullscreen();
     },
     // 设置视频清晰度
-    setDefinition (data) {
+    setDefinition(data) {
       // 判断当前清晰度是否跟传入的清晰度相同
       if (!isEqual(this.currentDefinitionVideo, data)) {
         const definitionList = cloneDeep(this.definitionList);
@@ -407,16 +404,16 @@ export default {
       }
     },
     // 鼠标离开容器
-    onMouseLeave () {
+    onMouseLeave() {
       this.isEnter = false;
     },
     // 鼠标进入容器
-    onMouseEnter () {
+    onMouseEnter() {
       this.isEnter = true;
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.destoryPlayer();
-  }
+  },
 };
 </script>

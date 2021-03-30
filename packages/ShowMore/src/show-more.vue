@@ -1,16 +1,18 @@
 <template>
   <span class="lin-show-more">
-    <span>{{text | filterText(textLen)}}</span>
+    <span>{{ text | filterText(textLen) }}</span>
     <a
       class="lin-show-more-tip"
       @click="showMore"
       v-if="textLen !== -1 && textLen < text.length"
-    >{{showText||t('LinViewUI.ShowMore.showText')}}</a>
+      >{{ showText || t('LinViewUI.ShowMore.showText') }}</a
+    >
     <a
       class="lin-show-more-tip"
       @click="showMore"
       v-if="textLen !== -1 && textLen === text.length && allowFold"
-    >{{hiddenText||t('LinViewUI.ShowMore.hiddenText')}}</a>
+      >{{ hiddenText || t('LinViewUI.ShowMore.hiddenText') }}</a
+    >
   </span>
 </template>
 
@@ -24,42 +26,43 @@ export default {
     // 显示文本的长度
     len: {
       type: Number,
-      default: -1
+      default: -1,
     },
     // 文本
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     // 折叠时需要显示文案
     showText: {
-      type: String
+      type: String,
     },
     // 隐藏时需要显示文案
     hiddenText: {
-      type: String
+      type: String,
     },
     // 是否允许折叠
-    allowFold: Boolean
+    allowFold: Boolean,
   },
-  data () {
+  data() {
     return {
       // 记录文本长度
-      textLen: this.len
+      textLen: this.len,
     };
   },
   methods: {
-    showMore () {
-      this.textLen = this.textLen === this.text.length ? this.len : this.text.length;
-    }
+    showMore() {
+      this.textLen =
+        this.textLen === this.text.length ? this.len : this.text.length;
+    },
   },
   filters: {
-    filterText (value, textLen) {
+    filterText(value, textLen) {
       if (textLen !== -1 && textLen < value.length) {
         return `${value.substring(0, textLen)}...`;
       }
       return value;
-    }
-  }
+    },
+  },
 };
 </script>

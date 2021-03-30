@@ -5,7 +5,7 @@ let instance = null;
 let timer = null;
 
 export default {
-  open (options) {
+  open(options) {
     if (!instance) {
       instance = new LoadingConstruct();
     }
@@ -26,7 +26,7 @@ export default {
 
     return instance;
   },
-  close () {
+  close() {
     if (instance) {
       if (timer) {
         clearTimeout(timer);
@@ -34,5 +34,5 @@ export default {
       instance.close();
       instance = null;
     }
-  }
+  },
 };

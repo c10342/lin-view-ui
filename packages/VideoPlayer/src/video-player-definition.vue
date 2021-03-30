@@ -1,7 +1,7 @@
 <template>
   <div class="lin-video-player-definition">
     <span class="lin-video-player-definition-label">{{
-      currentDefinitionVideo ? currentDefinitionVideo.label : ""
+      currentDefinitionVideo ? currentDefinitionVideo.label : ''
     }}</span>
     <ul
       class="lin-video-player-definition-list"
@@ -27,24 +27,24 @@ export default {
   name: 'LinVideoPlayerDefinition',
   inject: {
     videoPlayer: {
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
-    video () {
+    video() {
       if (this.videoPlayer) {
         return this.videoPlayer.video;
       }
       return null;
     },
-    videoList () {
+    videoList() {
       if (this.videoPlayer) {
         return this.videoPlayer.videoList;
       }
       return [];
     },
     // 视频清晰度列表距离顶部距离
-    top () {
+    top() {
       if (!this.definitionList.length) {
         return 0;
       }
@@ -53,38 +53,38 @@ export default {
     },
     // 当前清晰度视频
     currentDefinitionVideo: {
-      get () {
+      get() {
         if (this.videoPlayer) {
           return this.videoPlayer.currentDefinitionVideo;
         }
         return null;
       },
-      set (value) {
+      set(value) {
         if (this.videoPlayer) {
           this.videoPlayer.currentDefinitionVideo = value;
         }
-      }
+      },
     },
     // 剩下的清晰度列表
     definitionList: {
-      get () {
+      get() {
         if (this.videoPlayer) {
           return this.videoPlayer.definitionList;
         }
         return [];
       },
-      set (value) {
+      set(value) {
         if (this.videoPlayer) {
           this.videoPlayer.definitionList = value;
         }
-      }
-    }
+      },
+    },
   },
   methods: {
     // 设置清晰度视频
-    setDefinition (data) {
+    setDefinition(data) {
       this.videoPlayer?.setDefinition(data);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -34,17 +34,17 @@ export default {
     // 可选项数据源
     options: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     // 面板所在的层级，就是第几个面板
     level: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   inject: ['cascader'],
   computed: {
-    valueKey () {
+    valueKey() {
       // 指定选项的唯一值为选项对象的某个属性值
       if (this.cascader) {
         return this.cascader.valueKey;
@@ -52,56 +52,56 @@ export default {
       return 'id';
     },
     // 指定选项标签为选项对象的某个属性值
-    label () {
+    label() {
       if (this.cascader) {
         return this.cascader.label;
       }
       return 'label';
     },
     // 指定选项的禁用为选项对象的某个属性值
-    disabled () {
+    disabled() {
       if (this.cascader) {
         return this.cascader.disabled;
       }
       return 'disabled';
     },
     // 指定选项的最终叶子节点的标志位为选项对象的某个属性值
-    leaf () {
+    leaf() {
       if (this.cascader) {
         return this.cascader.leaf;
       }
       return 'leaf';
     },
     // 指定选项的子选项为选项对象的某个属性值
-    children () {
+    children() {
       if (this.cascader) {
         return this.cascader.children;
       }
       return 'children';
     },
     // 存储选中的值
-    valueArr () {
+    valueArr() {
       if (this.cascader) {
         return this.cascader.valueArr;
       }
       return [];
     },
     // 是否动态加载子节点，需与 lazyLoad 方法结合使用
-    lazy () {
+    lazy() {
       if (this.cascader) {
         return this.cascader.lazy;
       }
       return false;
     },
     // 加载动态数据的方法，仅在 lazy 为 true 时有效
-    lazyLoad () {
+    lazyLoad() {
       if (this.cascader) {
         return this.cascader.lazyLoad;
       }
       return null;
-    }
+    },
   },
-  created () {
+  created() {
     // 监听displayPuop事件
     this.$on('displayPuop', (data) => {
       if (data && data[this.level]) {
@@ -140,19 +140,19 @@ export default {
       }
     });
   },
-  data () {
+  data() {
     return {
       // children节点列表
       currentList: [],
       // 当前选中数据源的对象
       current: {},
       // 是否显示加载器
-      loading: false
+      loading: false,
     };
   },
   methods: {
     // 点击下拉框选项
-    async onItemClick (data) {
+    async onItemClick(data) {
       if (data[this.disabled]) {
         return;
       }
@@ -182,7 +182,7 @@ export default {
       this.handleBehaver(data);
     },
     // 处理点击行为
-    handleBehaver (data) {
+    handleBehaver(data) {
       // 清空所有子组件的children列表，因为需要显示新的children列表
       this.clearList(this.$children);
       this.currentList = [];
@@ -197,7 +197,7 @@ export default {
       this.cascader?.setValue(data, this.level);
     },
     // 清空所有子组件的children列表,递归
-    clearList (children) {
+    clearList(children) {
       children.forEach((child) => {
         child.currentList = [];
         if (child.$children.length !== 0) {
@@ -206,7 +206,7 @@ export default {
       });
     },
     // 是否需要显示右侧箭头图标，最后一个子节点面板不需要显示有测箭头图标
-    showIconRight (data) {
+    showIconRight(data) {
       if (this.lazy && this.lazyLoad) {
         // 动态加载则通过标志位判断是否为最后一个子节点面板
         return !data[this.leaf];
@@ -214,10 +214,10 @@ export default {
       return data[this.children] && data[this.children].length !== 0;
     },
     // 动态加载子节点，请求的时候显示loading图标
-    showLoading (data) {
+    showLoading(data) {
       const { valueKey } = this;
       return data[valueKey] === this.current[valueKey] && this.loading;
-    }
-  }
+    },
+  },
 };
 </script>

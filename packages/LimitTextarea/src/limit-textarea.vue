@@ -10,19 +10,19 @@
     <span v-if="maxLen !== -1" class="lin-limit-textarea-text">
       {{
         isOver
-          ? t("LinViewUI.LimitTextarea.exceeded")
-          : t("LinViewUI.LimitTextarea.enterInput")
+          ? t('LinViewUI.LimitTextarea.exceeded')
+          : t('LinViewUI.LimitTextarea.enterInput')
       }}
       <span
         class="lin-limit-textarea-num"
         :class="{ 'lin-limit-textarea-num-over': isOver }"
         >{{ num }}</span
-      >{{ t("LinViewUI.LimitTextarea.word") }}
+      >{{ t('LinViewUI.LimitTextarea.word') }}
     </span>
     <span v-else class="lin-limit-textarea-text">
-      {{ t("LinViewUI.LimitTextarea.entered") }}
+      {{ t('LinViewUI.LimitTextarea.entered') }}
       <span class="lin-limit-textarea-num">{{ value.toString().length }}</span
-      >{{ t("LinViewUI.LimitTextarea.word") }}
+      >{{ t('LinViewUI.LimitTextarea.word') }}
     </span>
   </div>
 </template>
@@ -35,44 +35,44 @@ export default {
   mixins: [LocaleMixin],
   model: {
     prop: 'value',
-    event: 'change'
+    event: 'change',
   },
   props: {
     // 输入框占位符
     placeholder: {
-      type: String
+      type: String,
     },
     // 行高
     rows: {
       type: Number,
-      default: 4
+      default: 4,
     },
     // 最大长度
     maxLen: {
       type: Number,
-      default: -1
+      default: -1,
     },
     // 超出字符是否裁剪
     isCut: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 绑定值
     value: {
       type: [String, Number],
-      default: ''
-    }
+      default: '',
+    },
   },
-  data () {
+  data() {
     return {
       // 是否溢出,即超出最大长度
       isOver: false,
       // 可输入的字符数
-      num: this.maxLen
+      num: this.maxLen,
     };
   },
   methods: {
-    handleInput (event) {
+    handleInput(event) {
       const { value } = event.target;
       if (this.maxLen === -1) {
         // 不限制长度
@@ -85,7 +85,7 @@ export default {
         this.setCurrentValue(value);
       }
     },
-    setCurrentValue (value) {
+    setCurrentValue(value) {
       const currentValue = value.toString();
       if (currentValue.length <= this.maxLen) {
         // 没有超出长度
@@ -102,31 +102,31 @@ export default {
         this.num = currentValue.length - this.maxLen;
         this.$emit('overText', currentValue);
       }
-    }
+    },
   },
   computed: {
-    maxlength () {
+    maxlength() {
       if (this.isCut) {
         return this.maxLen;
       }
       return -1;
     },
     // 文本属性
-    textareaProps () {
+    textareaProps() {
       const obj = {
         placeholder: this.placeholder
           ? this.placeholder
           : this.t('LinViewUI.LimitTextarea.placeholder'),
-        rows: this.rows
+        rows: this.rows,
       };
       if (this.maxlength !== -1) {
         obj.maxlength = this.maxlength;
       }
       return {
         ...this.$attrs,
-        ...obj
+        ...obj,
       };
-    }
-  }
+    },
+  },
 };
 </script>

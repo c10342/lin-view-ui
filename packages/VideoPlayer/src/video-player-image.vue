@@ -7,17 +7,17 @@ export default {
   name: 'LinVideoPlayerImage',
   inject: {
     videoPlayer: {
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     // 视频截图
-    imgSrc () {
+    imgSrc() {
       if (this.videoPlayer) {
         return this.videoPlayer.imgSrc;
       }
       return '';
-    }
-  }
+    },
+  },
 };
 </script>

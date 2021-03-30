@@ -6,5 +6,5 @@ import './style.scss';
 
 export default {
   service,
-  directive
+  directive,
 };

@@ -1,16 +1,27 @@
 <template>
   <div class="lin-video-player-volume">
     <span class="lin-video-player-icon-item lin-video-player-icon-volume">
-      <i class="lin-icon-volume" v-if="processWidth!==0" @click="onVolumeClick"></i>
+      <i
+        class="lin-icon-volume"
+        v-if="processWidth !== 0"
+        @click="onVolumeClick"
+      ></i>
       <i class="lin-icon-mute" v-else @click="onMuteClick"></i>
     </span>
     <div class="lin-video-player-volume-mask" @click="onMaskClick">
-      <div class="lin-video-player-volume-process" ref="videoPlayerVolumeProcess">
-        <div class="lin-video-player-volume-process-line" :style="{'width':`${processWidth}px`}">
+      <div
+        class="lin-video-player-volume-process"
+        ref="videoPlayerVolumeProcess"
+      >
+        <div
+          class="lin-video-player-volume-process-line"
+          :style="{ width: `${processWidth}px` }"
+        >
           <span
-          @mousedown="onBallMouseDown"
-          @click.stop
-          class="lin-video-player-volume-process-ball"></span>
+            @mousedown="onBallMouseDown"
+            @click.stop
+            class="lin-video-player-volume-process-ball"
+          ></span>
         </div>
       </div>
     </div>
@@ -20,26 +31,26 @@
 <script>
 export default {
   name: 'LinVideoPlayerVolume',
-  data () {
+  data() {
     return {
       // 音量长度
-      processWidth: 0
+      processWidth: 0,
     };
   },
   inject: {
     videoPlayer: {
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
-    video () {
+    video() {
       if (this.videoPlayer) {
         return this.videoPlayer.video;
       }
       return null;
-    }
+    },
   },
-  mounted () {
+  mounted() {
     // 旧的音量
     this.oldVolume = 0;
     // 鼠标按下标志位
@@ -52,12 +63,12 @@ export default {
   },
   methods: {
     // 设置音量进度条长度
-    setProcessWidth (volume) {
+    setProcessWidth(volume) {
       const clientWidth = this.videoPlayerVolumeProcess.clientWidth || 0;
       this.processWidth = clientWidth * volume;
     },
     // 点击音量那个小喇叭
-    onVolumeClick () {
+    onVolumeClick() {
       // 记录旧的音量值长度，当再次点击静音那个图标时，回复原有的音量
       this.oldVolume = this.processWidth;
       // 静音的时候长度为0
@@ -65,12 +76,12 @@ export default {
       this.setVolume();
     },
     // 点击静音那个小喇叭
-    onMuteClick () {
+    onMuteClick() {
       this.processWidth = this.oldVolume;
       this.setVolume();
     },
     // 初始化音量长度
-    initProcessWidth () {
+    initProcessWidth() {
       this.$nextTick(() => {
         if (!this.video) {
           this.processWidth = 0;
@@ -85,7 +96,7 @@ export default {
       });
     },
     // 点击进度条
-    onMaskClick (event) {
+    onMaskClick(event) {
       const clientWidth = this.videoPlayerVolumeProcess.clientWidth || 0;
       // 点击位置
       let offsetX = event.offsetX || 0;
@@ -96,17 +107,18 @@ export default {
       this.setVolume();
     },
     // 在圆球哪里，鼠标按下
-    onBallMouseDown () {
+    onBallMouseDown() {
       // 鼠标按下标志位
       this.mousedown = true;
       window.addEventListener('mousemove', this.onMouseMove);
       window.addEventListener('mouseup', this.onMouseUp);
     },
     // 鼠标移动
-    onMouseMove (e) {
+    onMouseMove(e) {
       if (this.mousedown) {
         // 计算移动距离
-        const outLineX = this.videoPlayerVolumeProcess.getBoundingClientRect().x;
+        const outLineX = this.videoPlayerVolumeProcess.getBoundingClientRect()
+          .x;
         const outLineWidth = this.videoPlayerVolumeProcess.getBoundingClientRect()
           .width;
         let offsetX = e.pageX - outLineX;
@@ -120,7 +132,7 @@ export default {
       }
     },
     // 鼠标抬起
-    onMouseUp (e) {
+    onMouseUp(e) {
       this.onMouseMove(e);
       // 设置音量
       this.setVolume();
@@ -130,7 +142,7 @@ export default {
       window.removeEventListener('mousemove', this.onMouseMove);
     },
     // 设置音量
-    setVolume () {
+    setVolume() {
       const clientWidth = this.videoPlayerVolumeProcess.clientWidth || 0;
       let volume = 0;
       if (clientWidth) {
@@ -139,13 +151,13 @@ export default {
       }
       // 设置音量
       this.videoPlayer?.setVolume(volume);
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     window.removeEventListener('mouseup', this.onMouseUp);
     window.removeEventListener('mousemove', this.onMouseMove);
     this.videoPlayerVolumeProcess = null;
     this.$off('onvolumechange', this.setProcessWidth);
-  }
+  },
 };
 </script>

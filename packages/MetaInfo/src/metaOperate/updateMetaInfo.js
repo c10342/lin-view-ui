@@ -5,7 +5,7 @@
 
 import operate from './operate.js';
 
-export default function updateMetaInfo (opts) {
+export default function updateMetaInfo(opts) {
   operate().removeMetaInfo();
   operate().setMetaInfo(opts);
 }

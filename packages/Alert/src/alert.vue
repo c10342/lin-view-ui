@@ -38,52 +38,52 @@ export default {
     // 标题
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     // 辅助性文字
     description: {
       type: String,
-      default: ''
+      default: '',
     },
     // 图标
     icon: {
       type: String,
-      default: ''
+      default: '',
     },
     // 是否可关闭
     closable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 类型
     type: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     // 主题
     effect: {
       type: String,
-      default: 'light'
+      default: 'light',
     },
     // 文字是否居中
     center: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  data () {
+  data() {
     return {
       // 是否显示
-      show: true
+      show: true,
     };
   },
   methods: {
-    onCloseClick () {
+    onCloseClick() {
       this.show = false;
     },
-    afterLeave () {
+    afterLeave() {
       this.$emit('close');
-    }
-  }
+    },
+  },
 };
 </script>

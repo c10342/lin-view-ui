@@ -14,41 +14,41 @@ export default {
     // 对齐方式
     align: {
       type: String,
-      default: 'left'
+      default: 'left',
     },
     // 对应列的类型
-    type: String
+    type: String,
   },
   inject: {
     table: {
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
-    valueKey () {
+    valueKey() {
       if (this.table) {
         return this.table.valueKey;
       }
       return '';
-    }
+    },
   },
   watch: {
-    prop (val) {
+    prop(val) {
       this.column.prop = val;
     },
-    label (val) {
+    label(val) {
       this.column.label = val;
-    }
+    },
   },
-  beforeCreate () {
+  beforeCreate() {
     // 存储该列的信息对象
     this.colums = {};
   },
-  created () {
+  created() {
     // 把该组件的props属性都存储起来
     const column = {
       ...this.$props,
-      id: `col-${columnId++}`
+      id: `col-${columnId++}`,
     };
     // 默认提供一个渲染单元格的render函数
     column.renderCell = (h, rowData) => {
@@ -63,7 +63,8 @@ export default {
               type="checkbox"
             />
           );
-        } if (data.column.type === 'index') {
+        }
+        if (data.column.type === 'index') {
           // 序号单元格
           return data.rowIndex + 1;
         }
@@ -80,13 +81,13 @@ export default {
     };
     this.column = column;
   },
-  mounted () {
+  mounted() {
     if (this.table) {
-    // 把列信息方法父组件中，交给父组件渲染每一列，还组件不做渲染，只做数据收集
+      // 把列信息方法父组件中，交给父组件渲染每一列，还组件不做渲染，只做数据收集
       this.table.columns.push(this.column);
     }
   },
-  destroyed () {
+  destroyed() {
     if (this.table) {
       // 销毁的时候需要把对应的列移除掉
       const index = this.table.columns.findIndex(
@@ -99,7 +100,7 @@ export default {
   },
   methods: {
     // 点击checkbox
-    onClick (e, data) {
+    onClick(e, data) {
       e.stopPropagation();
       if (this.table) {
         // 判断是否已经被选中了
@@ -121,12 +122,12 @@ export default {
         this.table.emitSelect({
           row: data.row,
           checked,
-          rowIndex: data.rowIndex
+          rowIndex: data.rowIndex,
         });
       }
-    }
+    },
   },
-  render () {
+  render() {
     return null;
-  }
+  },
 };

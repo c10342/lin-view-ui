@@ -10,11 +10,11 @@
       @mouseenter="onMouseEnter"
     >
       <input
-      @keyup="onInputChange"
+        @keyup="onInputChange"
         @click="onClick"
         @blur="onBlur"
         @focus="onFocus"
-        :readonly='!filterable'
+        :readonly="!filterable"
         :placeholder="placeholder || t('LinViewUI.Choice.placeholder')"
         class="lin-choice-group-input"
         type="text"
@@ -48,7 +48,9 @@
         <div class="lin-choice-search-wrapper" v-if="showSearchInput">
           <lin-input
             v-model="searchKey"
-            :placeholder="searchPlaceholder || t('LinViewUI.Choice.searchPlaceholder')"
+            :placeholder="
+              searchPlaceholder || t('LinViewUI.Choice.searchPlaceholder')
+            "
             @keyup.native.enter="onSearch"
           >
             <i class="lin-icon-search" @click.stop="onSearch"></i>
@@ -61,10 +63,13 @@
         >
           <div ref="scrollContent">
             <slot></slot>
-            <div class="lin-choice-group-empty" v-if="!$slots.default || noData">
+            <div
+              class="lin-choice-group-empty"
+              v-if="!$slots.default || noData"
+            >
               <slot name="empty">
                 <p class="lin-choice-group-empty-tip">
-                  {{ emptyTip || t("LinViewUI.Choice.emptyTip") }}
+                  {{ emptyTip || t('LinViewUI.Choice.emptyTip') }}
                 </p>
               </slot>
             </div>
@@ -93,92 +98,92 @@ export default {
   name: 'LinChoiceGroup',
   mixins: [LocaleMixin, documentClick],
   components: {
-    [Input.name]: Input
+    [Input.name]: Input,
   },
   props: {
     // 输入框占位符
     placeholder: {
-      type: String
+      type: String,
     },
     // 绑定值
     value: {
-      type: [Object, String, Number]
+      type: [Object, String, Number],
     },
     //  作为 value 唯一标识的键名，绑定值为对象类型时必填
     valueKey: {
       type: String,
-      default: ''
+      default: '',
     },
     // 是否可清空
     clearable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 开启下拉加载时是否进行防抖
     isThrottle: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 是否开启下拉加载
     scroll: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 防抖间隔
     time: {
       type: Number,
-      default: 500
+      default: 500,
     },
     // 是否开启加载动画
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 加载提示语
     loadingTip: {
       type: String,
-      default: ''
+      default: '',
     },
     // 数据为空时提示语
     emptyTip: {
-      type: String
+      type: String,
     },
     // 是否完成加载，一般用于滚动加载
     finishLoading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 默认显示内容，一般用于滚动加载回显数据
     defaultLabelName: {
       type: [String, Number],
-      default: ''
+      default: '',
     },
     // 是否显示远程搜索输入框
     showSearchInput: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 远程搜索输入框占位符
     searchPlaceholder: {
       type: String,
-      default: ''
+      default: '',
     },
     // 是否开启本地搜索
     filterable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 自定义本地搜索方法
     filterMethod: {
-      type: Function
-    }
+      type: Function,
+    },
   },
-  data () {
+  data() {
     return {
       // 不是本地搜索时输入框显示内容
       groupLabel: '',
@@ -197,28 +202,28 @@ export default {
       // 是否暂无数据
       noData: false,
       // 是否正在进行本地搜索
-      isSearch: false
+      isSearch: false,
     };
   },
-  provide () {
+  provide() {
     return {
-      group: this
+      group: this,
     };
   },
   computed: {
     // 是否需要显示清空按钮
-    showCloseIcon () {
+    showCloseIcon() {
       return this.clearable && this.isHover && this.value && !this.disabled;
     },
     // input输入框的值
-    innerValue () {
+    innerValue() {
       if (this.isSearch) {
         return this.inputValue;
       }
       return this.groupLabel || this.defaultLabelName;
-    }
+    },
   },
-  mounted () {
+  mounted() {
     // 处理滚动行为定时器
     this.timer = null;
     // 是否正在请求，防止多次请求
@@ -229,7 +234,7 @@ export default {
     this.setPlacement();
   },
   watch: {
-    loading (newVal) {
+    loading(newVal) {
       if (newVal) {
         this.lock = true;
       } else {
@@ -240,11 +245,11 @@ export default {
           this.lock = false;
         }, 500);
       }
-    }
+    },
   },
   methods: {
     // 设置显示位置
-    setPlacement () {
+    setPlacement() {
       this.$nextTick(() => {
         const { scrollContainer } = this.$refs;
         const { choiceGroup } = this.$refs;
@@ -261,19 +266,19 @@ export default {
       });
     },
     // 向下显示
-    setDownTop () {
+    setDownTop() {
       this.isDown = true;
       const { choiceGroupInput } = this.$refs;
       this.top = `${choiceGroupInput.clientHeight + 8}px`;
     },
     // 向上显示
-    setUpTop () {
+    setUpTop() {
       this.isDown = false;
       const { scrollContainer } = this.$refs;
       this.top = `${-(scrollContainer.clientHeight + 20)}px`;
     },
     // 滚动行为
-    onScroll (event) {
+    onScroll(event) {
       // 没开启下拉滚动或者正在加载中，或者上锁了，或者已经完成全部加载
       if (!this.scroll || this.loading || this.lock || this.finishLoading) {
         return;
@@ -291,7 +296,7 @@ export default {
       }
     },
     // 处理滚动行为
-    handleScroll (event) {
+    handleScroll(event) {
       const { scrollTop } = event.target;
       const height = this.$refs.scrollContainer.clientHeight;
       const contentHeight = this.$refs.scrollContent.clientHeight;
@@ -301,23 +306,23 @@ export default {
       }
     },
     // 鼠标离开input输入框容器
-    onMouseLeave () {
+    onMouseLeave() {
       this.isHover = false;
     },
     // 鼠标进入input输入框容器
-    onMouseEnter () {
+    onMouseEnter() {
       this.isHover = true;
     },
     // input失去焦点
-    onBlur (event) {
+    onBlur(event) {
       this.$emit('blur', event);
     },
     // input获得焦点
-    onFocus (event) {
+    onFocus(event) {
       this.$emit('focus', event);
     },
     // 点击input输入框选项
-    onClick () {
+    onClick() {
       if (this.disabled) {
         return;
       }
@@ -328,19 +333,19 @@ export default {
       }
     },
     // 点击清空按钮，清空值
-    clearValue () {
+    clearValue() {
       this.groupLabel = '';
       this.emitInputEvent('');
       this.$emit('clear');
     },
     // 发射相关事件
-    emitInputEvent (value) {
+    emitInputEvent(value) {
       this.$emit('input', value);
       this.$emit('change', value);
       this.hideVisible();
     },
     // 隐藏下拉框
-    hideVisible () {
+    hideVisible() {
       if (this.isShow) {
         this.isShow = false;
         this.isSearch = false;
@@ -348,7 +353,7 @@ export default {
       }
     },
     // 显示下拉框
-    showVisible () {
+    showVisible() {
       if (!this.isShow) {
         this.isShow = true;
         this.setPlacement();
@@ -358,33 +363,33 @@ export default {
       }
     },
     // 点击组件外部
-    onDocumentClick (event) {
+    onDocumentClick(event) {
       const { choiceGroup } = this.$refs;
       if (!choiceGroup.contains(event.target)) {
         this.hideVisible();
       }
     },
     // 远程搜索
-    onSearch () {
+    onSearch() {
       this.$emit('search', this.searchKey);
     },
     // 键盘抬起事件，本地搜索
-    onInputChange (event) {
+    onInputChange(event) {
       this.isSearch = true;
       this.inputValue = event.currentTarget.value;
       this.$nextTick(() => {
         const children = findChildren(this, 'LinChoiceItem');
-        this.noData = children.every(child => !child.isShow);
+        this.noData = children.every((child) => !child.isShow);
       });
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.timer) {
       clearTimeout(this.timer);
     }
     if (this.lockTimer) {
       clearTimeout(this.lockTimer);
     }
-  }
+  },
 };
 </script>

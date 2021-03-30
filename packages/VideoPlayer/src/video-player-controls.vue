@@ -11,13 +11,12 @@
           <i class="lin-icon-pause" v-else></i>
         </span>
         <player-volume></player-volume>
-        <span
-          class="lin-video-player-time"
-          v-if="!live"
-        >{{currentTime|secondToTime}}/{{totalTime|secondToTime}}</span>
+        <span class="lin-video-player-time" v-if="!live"
+          >{{ currentTime | secondToTime }}/{{ totalTime | secondToTime }}</span
+        >
         <span class="lin-video-player-live-tip" v-if="live">
           <i></i>
-          {{t('LinViewUI.VideoPlayer.live')}}
+          {{ t('LinViewUI.VideoPlayer.live') }}
         </span>
         <div class="lin-video-player-controls-right">
           <player-definition></player-definition>
@@ -43,69 +42,69 @@ export default {
   mixins: [LocaleMixin],
   filters: {
     // 格式化时间
-    secondToTime
+    secondToTime,
   },
   components: {
     PlayerProcess,
     PlayerFullscreen,
     PlayerSpeed,
     PlayerVolume,
-    PlayerDefinition
+    PlayerDefinition,
   },
   inject: {
     videoPlayer: {
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
-    isPlaying () {
+    isPlaying() {
       if (this.videoPlayer) {
         return this.videoPlayer.isPlaying;
       }
       return false;
     },
-    video () {
+    video() {
       if (this.videoPlayer) {
         return this.videoPlayer.video;
       }
       return null;
     },
-    currentTime () {
+    currentTime() {
       if (this.videoPlayer) {
         return this.videoPlayer.currentTime;
       }
       return 0;
     },
     // 总时长
-    totalTime () {
+    totalTime() {
       if (this.videoPlayer) {
         return this.videoPlayer.totalTime;
       }
       return 0;
     },
     // 是否是直播
-    live () {
+    live() {
       if (this.videoPlayer) {
         return this.videoPlayer.live;
       }
       return 0;
     },
     // 鼠标是否进入容器
-    isEnter () {
+    isEnter() {
       if (this.videoPlayer) {
         return this.videoPlayer.isEnter;
       }
       return false;
-    }
+    },
   },
   methods: {
     // 点击播放或者暂停按钮
-    onPlayBtnClick () {
+    onPlayBtnClick() {
       if (this.videoPlayer) {
         this.videoPlayer.switchPlayingStatus();
       }
-    }
-  }
+    },
+  },
   // beforeDestroy () {
   //   this.videoPlayer.$off('playingStatus', this.onPlayingStatus);
   // }

@@ -10,17 +10,24 @@
         ref="processTime"
         v-show="isEnterMask"
         class="lin-video-player-process-time"
-        :style="{'left':maskLeft}"
-      >{{maskCurrentTime|secondToTime}}</span>
+        :style="{ left: maskLeft }"
+        >{{ maskCurrentTime | secondToTime }}</span
+      >
     </transition>
     <div class="lin-video-player-process" ref="videoPlayerProcess">
       <div
         class="lin-video-player-process-loaded"
-        :style="{'width':loadedWidth,'transition-duration':(mousedown?'0ms':'300ms')}"
+        :style="{
+          width: loadedWidth,
+          'transition-duration': mousedown ? '0ms' : '300ms',
+        }"
       ></div>
       <div
         class="lin-video-player-process-played"
-        :style="{'width':currentPlayedWidth,'transition-duration':(mousedown?'0ms':'300ms')}"
+        :style="{
+          width: currentPlayedWidth,
+          'transition-duration': mousedown ? '0ms' : '300ms',
+        }"
       >
         <transition name="lin-video-player-ball">
           <span
@@ -44,14 +51,14 @@ export default {
   name: 'LinVideoPlayerProcess',
   mixins: [LocaleMixin],
   filters: {
-    secondToTime
+    secondToTime,
   },
   inject: {
     videoPlayer: {
-      default: null
-    }
+      default: null,
+    },
   },
-  data () {
+  data() {
     return {
       // 鼠标是否按下
       mousedown: false,
@@ -62,10 +69,10 @@ export default {
       // 鼠标悬浮在进度条上面的提示距离左边的距离
       maskLeft: 0,
       // 鼠标是否进入进度条容器
-      isEnterMask: false
+      isEnterMask: false,
     };
   },
-  mounted () {
+  mounted() {
     // 进度条上面的小球
     this.processBall = this.$refs.processBall;
     // 进度条的内容容器
@@ -75,7 +82,7 @@ export default {
   },
   computed: {
     // 当前已经播放的进度，就是播放的进度对应多长
-    currentPlayedWidth () {
+    currentPlayedWidth() {
       if (this.mousedown) {
         // 鼠标在拖拽的情况
         return `${this.mousedownWidth}px`;
@@ -83,7 +90,7 @@ export default {
       return this.playedWidth;
     },
     // 已经播放了的长度
-    playedWidth () {
+    playedWidth() {
       if (this.totalTime === 0) {
         return 0;
       }
@@ -92,7 +99,7 @@ export default {
       return `${percent * 100}%`;
     },
     // 已经缓冲的进度（长度）
-    loadedWidth () {
+    loadedWidth() {
       if (this.totalTime === 0) {
         return 0;
       }
@@ -101,39 +108,40 @@ export default {
       return `${percent * 100}%`;
     },
     // 当前播放时间
-    currentTime () {
+    currentTime() {
       if (this.videoPlayer) {
         return this.videoPlayer.currentTime;
       }
       return 0;
     },
     // 视频总时长
-    totalTime () {
+    totalTime() {
       if (this.videoPlayer) {
         return this.videoPlayer.totalTime;
       }
       return 0;
     },
     // 已经缓冲的时长
-    preloadTime () {
+    preloadTime() {
       if (this.videoPlayer) {
         return this.videoPlayer.preloadTime;
       }
       return 0;
-    }
+    },
   },
   methods: {
-    onMaskMouseLeave () {
+    onMaskMouseLeave() {
       // 鼠标离开组件
       this.isEnterMask = false;
     },
-    onMaskMouseMove (e) {
+    onMaskMouseMove(e) {
       // 鼠标在组件内移动
       this.isEnterMask = true;
       // 进度条距离屏幕左边距离
       const outLineX = this.videoPlayerProcess.getBoundingClientRect().x;
       // 进度条长度
-      const outLineWidth = this.videoPlayerProcess.getBoundingClientRect().width;
+      const outLineWidth = this.videoPlayerProcess.getBoundingClientRect()
+        .width;
       const processTimeWidth = this.processTime.clientWidth;
       // 计算在进度条中移动了多少
       let offsetX = e.pageX - outLineX;
@@ -151,7 +159,7 @@ export default {
       }
     },
     // 鼠标按下那个圆球
-    onBallMouseDown () {
+    onBallMouseDown() {
       // 记录圆球所在的位置的初始值
       this.mousedownWidth = this.playedWidth;
       // 鼠标按下标志位
@@ -160,11 +168,12 @@ export default {
       window.addEventListener('mouseup', this.onMouseUp);
     },
     // 鼠标移动
-    onMouseMove (e) {
+    onMouseMove(e) {
       // 实现拖拽移动事件
       if (this.mousedown) {
         const outLineX = this.videoPlayerProcess.getBoundingClientRect().x;
-        const outLineWidth = this.videoPlayerProcess.getBoundingClientRect().width;
+        const outLineWidth = this.videoPlayerProcess.getBoundingClientRect()
+          .width;
         // 计算移动了多少
         let offsetX = e.pageX - outLineX;
         if (offsetX <= 0) {
@@ -176,7 +185,7 @@ export default {
       }
     },
     // 鼠标抬起
-    onMouseUp (e) {
+    onMouseUp(e) {
       this.onMouseMove(e);
       // 进度条总长度
       const clientWidth = this.videoPlayerProcess.clientWidth || 0;
@@ -193,7 +202,7 @@ export default {
       window.removeEventListener('mousemove', this.onMouseMove);
     },
     // 点击进度条
-    onMaskClick (event) {
+    onMaskClick(event) {
       // 点击的位置距离进度条左边位置的距离
       const offsetX = event.offsetX || 0;
       const clientWidth = event.currentTarget.clientWidth || 0;
@@ -206,7 +215,7 @@ export default {
       this.seekByPercent(percent);
     },
     // 根据百分比跳转时间点
-    seekByPercent (percent) {
+    seekByPercent(percent) {
       percent = percent > 1 ? 1 : percent;
       const time = this.totalTime * percent;
       // 计算前进或者后退了多少秒
@@ -216,26 +225,34 @@ export default {
       this.setTip(offsetTime);
     },
     // 设置左下角提示，提示前进或者后退了多少秒
-    setTip (offsetTime) {
+    setTip(offsetTime) {
       if (!this.videoPlayer) {
         return;
       }
       if (offsetTime < 0) {
-        this.videoPlayer.setTip(`${this.t('LinViewUI.VideoPlayer.goBack')} ${Math.round(-offsetTime)} ${this.t('LinViewUI.VideoPlayer.second')}`);
+        this.videoPlayer.setTip(
+          `${this.t('LinViewUI.VideoPlayer.goBack')} ${Math.round(
+            -offsetTime
+          )} ${this.t('LinViewUI.VideoPlayer.second')}`
+        );
       } else {
-        this.videoPlayer.setTip(`${this.t('LinViewUI.VideoPlayer.fastForward')} ${Math.round(offsetTime)} ${this.t('LinViewUI.VideoPlayer.second')}`);
+        this.videoPlayer.setTip(
+          `${this.t('LinViewUI.VideoPlayer.fastForward')} ${Math.round(
+            offsetTime
+          )} ${this.t('LinViewUI.VideoPlayer.second')}`
+        );
       }
     },
-    destroyProcess () {
+    destroyProcess() {
       this.processBall = null;
       this.videoPlayerProcess = null;
       this.processTime = null;
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     window.removeEventListener('mouseup', this.onMouseUp);
     window.removeEventListener('mousemove', this.onMouseMove);
     this.destroyProcess();
-  }
+  },
 };
 </script>

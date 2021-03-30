@@ -1,5 +1,9 @@
 <template>
-  <div class="lin-scroll-view" :style="{'height':`${height}px`}" @scroll="onScroll">
+  <div
+    class="lin-scroll-view"
+    :style="{ height: `${height}px` }"
+    @scroll="onScroll"
+  >
     <div ref="lScrollViewContent">
       <div class="lin-scroll-view-content">
         <slot />
@@ -7,11 +11,11 @@
       <slot name="loading" v-if="isShowLoading">
         <div class="lin-scroll-view-loading">
           <span class="lin-scroll-view-icon"></span>
-          <span class="lin-scroll-view-tip">{{loadingTip}}</span>
+          <span class="lin-scroll-view-tip">{{ loadingTip }}</span>
         </div>
       </slot>
       <slot name="no-more" v-if="isShowNoMoreTip">
-        <p class="lin-scroll-view-nomore-tip">{{noMoreTip}}</p>
+        <p class="lin-scroll-view-nomore-tip">{{ noMoreTip }}</p>
       </slot>
     </div>
   </div>
@@ -24,53 +28,53 @@ export default {
     // 容器高度
     height: {
       type: Number,
-      default: 700
+      default: 700,
     },
     // 是否需要节流
     isThrottle: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 滚动执行间隔时长，isThrottle 为 true 才有效
     time: {
       type: Number,
-      default: 500
+      default: 500,
     },
     // 数据是否全部加载完毕，即是否不在触发 scrollToEnd 事件
     isEnd: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 是否显示正在加载动画
     showLoading: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 是否需要派发 scroll 滚动事件
     emitScrollEvent: {
       type: Boolean,
-      default: true
+      default: true,
     },
     // 显示的视图数据，用于刷新内容的高度
     data: [Object, Array],
     // 正在加载的提示语
     loadingTip: {
       type: String,
-      default: ''
+      default: '',
     },
     // 数据加载完毕时候的提示语
     noMoreTip: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
-  data () {
+  data() {
     return {
       // 内容高度
-      contentHeight: 0
+      contentHeight: 0,
     };
   },
-  mounted () {
+  mounted() {
     this.timer = null;
     this.$nextTick(() => {
       // 初始化内容高度
@@ -81,7 +85,7 @@ export default {
   },
   methods: {
     // 监听滚动事件
-    onScroll (e) {
+    onScroll(e) {
       // 节流
       if (this.isThrottle) {
         if (this.timer) {
@@ -95,7 +99,7 @@ export default {
       }
     },
     // 处理滚动事件
-    handelScroll (e) {
+    handelScroll(e) {
       if (!this.isEnd) {
         // 数据还没全部加载完毕
         const { scrollTop } = e.target;
@@ -108,11 +112,11 @@ export default {
         // 派发滚动事件
         this.$emit('scroll', e);
       }
-    }
+    },
   },
   computed: {
     // 是否显示loading
-    isShowLoading () {
+    isShowLoading() {
       if (this.contentHeight <= this.height) {
         return false;
       }
@@ -122,7 +126,7 @@ export default {
       return false;
     },
     // 是否显示加载完毕提示语
-    isShowNoMoreTip () {
+    isShowNoMoreTip() {
       if (this.contentHeight <= this.height) {
         return false;
       }
@@ -130,22 +134,22 @@ export default {
         return true;
       }
       return false;
-    }
+    },
   },
   watch: {
     // 监听数据的变化，重新初始化内容的高度
-    data () {
+    data() {
       if (this.$refs.lScrollViewContent) {
         this.contentHeight = this.$refs.lScrollViewContent.clientHeight;
       } else {
         this.contentHeight = 0;
       }
-    }
+    },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.timer) {
       clearTimeout(this.timer);
     }
-  }
+  },
 };
 </script>

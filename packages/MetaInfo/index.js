@@ -3,9 +3,9 @@ import updateMetaInfo from './src/metaOperate/updateMetaInfo.js';
 
 const VueMetaInfo = {};
 
-VueMetaInfo.install = function install (Vue) {
+VueMetaInfo.install = function install(Vue) {
   Vue.mixin({
-    beforeCreate () {
+    beforeCreate() {
       const meta = this.$options[VUE_META_KEY_NAME];
       // 如果组件内设置了meta信息
       if (meta !== undefined) {
@@ -27,13 +27,13 @@ VueMetaInfo.install = function install (Vue) {
         }
       }
     },
-    beforeMount () {
+    beforeMount() {
       //   在组建挂在到dom之前更新meta信息
       if (this._hasMetaInfo) {
         updateMetaInfo(this.$metaInfo);
       }
     },
-    mounted () {
+    mounted() {
       // dom挂载之后，继续监听meta信息。如果发生变化，继续更新
       if (this._hasMetaInfo) {
         this.$watch('$metaInfo', () => {
@@ -41,18 +41,18 @@ VueMetaInfo.install = function install (Vue) {
         });
       }
     },
-    activated () {
+    activated() {
       if (this._hasMetaInfo) {
         // keep-alive组件激活时调用
         updateMetaInfo(this.$metaInfo);
       }
     },
-    deactivated () {
+    deactivated() {
       if (this._hasMetaInfo) {
         // keep-alive 组件停用时调用。
         updateMetaInfo(this.$metaInfo);
       }
-    }
+    },
   });
 };
 

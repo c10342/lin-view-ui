@@ -36,53 +36,53 @@ export default {
     // 触发下拉的行为
     trigger: {
       type: String,
-      default: 'hover'
+      default: 'hover',
     },
     // 是否在点击菜单项后隐藏菜单
     hideOnClick: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
-  data () {
+  data() {
     return {
       // 是否显示下拉菜单
       isShow: false,
       // 下拉菜单距离顶部距离
       top: 0,
       // 向下显示或者向上显示
-      isDown: true
+      isDown: true,
     };
   },
-  mounted () {
+  mounted() {
     this.setPlacement();
   },
-  provide () {
+  provide() {
     return {
-      dropdown: this
+      dropdown: this,
     };
   },
   methods: {
     // 鼠标进入容器
-    onMouseEnter () {
+    onMouseEnter() {
       if (this.trigger === 'hover') {
         this.showList();
       }
     },
     // 鼠标离开容器
-    onMouseLeave () {
+    onMouseLeave() {
       if (this.trigger === 'hover') {
         this.hideList();
       }
     },
     // 点击标签
-    onLabelClick () {
+    onLabelClick() {
       if (this.trigger === 'click') {
         this.toggleList();
       }
     },
     // 显示下拉框
-    showList () {
+    showList() {
       if (!this.isShow) {
         this.isShow = true;
         this.setPlacement();
@@ -90,21 +90,22 @@ export default {
       }
     },
 
-    setDownTop () {
+    setDownTop() {
       this.isDown = true;
       const { dropdownLabel } = this.$refs;
       this.top = `${dropdownLabel.clientHeight + 8}px`;
     },
-    setUpTop () {
+    setUpTop() {
       this.isDown = false;
       const { dropdownContainer } = this.$refs;
       this.top = `${-(dropdownContainer.clientHeight + 10)}px`;
     },
-    setPlacement () {
+    setPlacement() {
       this.$nextTick(() => {
         const { dropdownContainer } = this.$refs;
         const { notOutsideContainer } = this.$refs;
-        const bottom = window.innerHeight -
+        const bottom =
+          window.innerHeight -
           notOutsideContainer.getBoundingClientRect().bottom;
         const { top } = notOutsideContainer.getBoundingClientRect();
         if (bottom > dropdownContainer.clientHeight) {
@@ -117,14 +118,14 @@ export default {
       });
     },
     // 隐藏下拉框
-    hideList () {
+    hideList() {
       if (this.isShow) {
         this.isShow = false;
         this.$emit('visible-change', false);
       }
     },
     // 下拉框显示或者隐藏切换
-    toggleList () {
+    toggleList() {
       if (this.isShow) {
         this.hideList();
       } else {
@@ -132,12 +133,12 @@ export default {
       }
     },
     // 点击组件外部
-    onDocumentClick (event) {
+    onDocumentClick(event) {
       const { notOutsideContainer } = this.$refs;
       if (!notOutsideContainer.contains(event.target)) {
         this.hideList();
       }
-    }
-  }
+    },
+  },
 };
 </script>

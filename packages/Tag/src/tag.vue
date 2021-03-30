@@ -23,48 +23,48 @@ export default {
     // 类型
     type: {
       type: String,
-      default: 'primary'
+      default: 'primary',
     },
     // 文本
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     // 背景色
     color: {
       type: String,
-      default: ''
+      default: '',
     },
     // 是否可关闭
     closable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 主题
     effect: {
       type: String,
-      default: 'light'
-    }
+      default: 'light',
+    },
   },
-  data () {
+  data() {
     return {
       // 控制是否显示
-      show: true
+      show: true,
     };
   },
   methods: {
     // 点击标签
-    onTagclick () {
+    onTagclick() {
       this.$emit('click');
     },
     // 点击关闭按钮
-    onCloseClick () {
+    onCloseClick() {
       this.show = false;
     },
     // vue过度动画结束
-    afterLeave () {
+    afterLeave() {
       this.$emit('close');
-    }
-  }
+    },
+  },
 };
 </script>
