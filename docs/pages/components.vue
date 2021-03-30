@@ -9,23 +9,21 @@
 </template>
 
 <script>
-import mainHeader from "../components/header.vue";
-import sideNav from "../components/side-nav.vue";
+import sideNav from '../components/side-nav.vue';
 export default {
   components: {
-    mainHeader,
     sideNav,
   },
   computed: {
     componentClass() {
-      return `component-${this.$route.path.split("/").pop()}`;
+      return `component-${this.$route.path.split('/').pop()}`;
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import "../assets/styles/var.scss";
+@import '../assets/styles/var.scss';
 .container {
   padding-left: $padding;
   background-color: #fff;
@@ -54,7 +52,7 @@ export default {
 }
 
 .container:after {
-  content: "";
+  content: '';
   clear: both;
   display: block;
 }

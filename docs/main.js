@@ -1,12 +1,12 @@
-
 import Vue from 'vue';
 import zhLang from 'src/locale/lang/zh-CN.js';
 import enLang from 'src/locale/lang/en-US.js';
+/* eslint-disable-next-line */
 import LinVueUi from 'lin-view-ui';
 import locale from 'src/locale/index.js';
 import App from './App.vue';
-import router from './router';
-import { getLang, langType } from './utils/lang';
+import router from './router/index.js';
+import { getLang, langType } from './utils/lang.js';
 import './assets/styles/index.scss';
 import demoBlock from './components/demo-block.vue';
 

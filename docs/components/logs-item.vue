@@ -28,21 +28,20 @@
   </div>
 </template>
 
-
 <script>
-import {logsType} from '../config/index'
+import { logsType } from '../config/index.js';
 export default {
   props: {
     log: {
       type: Object,
-      default: () => [],
+      default: () => ({}),
     },
   },
-  data(){
-      return {
-          addComponent:logsType.ADDCOMPONENT
-      }
-  }
+  data() {
+    return {
+      addComponent: logsType.ADDCOMPONENT,
+    };
+  },
 };
 </script>
 

@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { getLang } from "../utils/lang";
-import langConfig from "../i18n/index";
+import { getLang } from '../utils/lang.js';
+import langConfig from '../i18n/index.js';
 const lang = getLang();
 export default {
   data() {
@@ -86,7 +86,7 @@ export default {
     }
   }
   .separate-panel:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: -80px;
