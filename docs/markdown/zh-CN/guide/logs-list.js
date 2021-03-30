@@ -2,6 +2,17 @@ import { logsType } from '../../../config/index.js';
 
 export default [
   {
+    version: '1.1.1',
+    time: '2021-03-20',
+    content: [
+      {
+        title: '新特性',
+        list: ['添加typescript类型声明文件，支持typescript'],
+        type: logsType.ADDCOMPONENT,
+      },
+    ],
+  },
+  {
     version: '1.1.0',
     time: '2021-01-16',
     content: [

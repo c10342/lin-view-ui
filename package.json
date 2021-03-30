@@ -1,6 +1,6 @@
 {
   "name": "lin-view-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "vue components library",
   "author": "c10342",
   "private": false,
@@ -18,11 +18,14 @@
     "type": "git",
     "url": "https://github.com/c10342/lin-view-ui"
   },
+  "bugs": {
+    "url": "https://github.com/c10342/lin-view-ui/issues"
+  },
   "files": [
     "lib",
     "packages",
-    "utils",
-    "src"
+    "src",
+    "types"
   ],
   "typings": "types/index.d.ts",
   "scripts": {
