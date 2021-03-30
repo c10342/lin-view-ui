@@ -70,55 +70,62 @@ export default {
 
 <style lang="scss">
 .side-nav {
-  display: inline-block;
+  z-index: 99;
   // margin: 32px 0;
   box-sizing: border-box;
+  display: inline-block;
   padding: 0;
   color: #3f536e;
   background-color: #fff;
-  z-index: 99;
+
   .group-container {
     margin-bottom: 32px;
   }
+
   .side-nav-title {
     padding: 0 24px 8px;
     padding-left: 0;
-    color: #8dabc4;
     font-size: 12px;
     font-weight: bold;
-    letter-spacing: 1px;
+    color: #8dabc4;
     text-transform: uppercase;
+    letter-spacing: 1px;
   }
+
   .side-nav-items {
     font-size: 14px;
     font-weight: normal;
     line-height: 1.8;
+
     a {
-      display: block;
       position: relative;
+      display: block;
       padding: 8px 24px;
       padding-left: 0;
-      color: #3f536e;
       font-weight: normal;
       line-height: 1.5;
+      color: #3f536e;
       cursor: pointer;
     }
+
     .side-nav-group {
-      display: block;
       position: relative;
+      display: block;
       padding: 6px 0 6px 24px;
       padding-left: 0;
-      color: #2c405a;
       font-weight: bold;
+      color: #2c405a;
     }
+
     .slid-nav-component {
-      display: block;
       position: relative;
+      display: block;
       padding: 6px 24px 6px 8px;
+      font-size: 14px;
       // padding-left: 0;
       color: #616367;
-      font-size: 14px;
     }
+
     .active {
       color: #3faaf5;
     }
