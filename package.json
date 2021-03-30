@@ -40,7 +40,8 @@
     "pub": "node ./build/publish.js",
     "lint": "eslint --ext .js,.vue ./",
     "lint-fix": "eslint --fix --ext .js,.vue ./",
-    "lint:style": "stylelint **/*.{html,vue,css,sass,scss} --fix",
+    "lint:style": "stylelint **/*.{html,vue,css,sass,scss}",
+    "lint:style-fix": "stylelint **/*.{html,vue,css,sass,scss} --fix",
     "test:unit": "jest --watch",
     "test": "jest",
     "commit": "git cz"
@@ -53,7 +54,7 @@
   },
   "lint-staged": {
     "*.{html,vue,css,sass,scss}": [
-      "npm run lint:style"
+      "npm run lint:style-fix"
     ],
     "*.{js,vue}": [
       "prettier --write",
