@@ -10,7 +10,7 @@ let lang = defaultLang;
 let merged = false;
 
 // 处理i18n
-let i18nHandler = function i18nHandler (...reset) {
+let i18nHandler = function i18nHandler(...reset) {
   const vuei18n = Object.getPrototypeOf(this || Vue).$t;
   // 查看是否使用自定义的i18n，即用户传入了
   if (typeof vuei18n === 'function' && !!Vue.locale) {
@@ -26,7 +26,7 @@ let i18nHandler = function i18nHandler (...reset) {
   }
 };
 
-export const t = function t (path, options) {
+export const t = function t(path, options) {
   let value = i18nHandler.apply(this, [path, options]);
   if (value !== null && value !== undefined) return value;
 
@@ -43,11 +43,11 @@ export const t = function t (path, options) {
   return '';
 };
 
-export const use = function use (l) {
+export const use = function use(l) {
   lang = l || lang;
 };
 
-export const i18n = function i18n (fn) {
+export const i18n = function i18n(fn) {
   i18nHandler = fn || i18nHandler;
 };
 

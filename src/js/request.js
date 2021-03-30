@@ -8,14 +8,14 @@
  * @param requestList  切片的上传请求列表  [xhr]
  * @returns {Promise<unknown>}
  */
-function request ({
+function request({
   url,
   method = 'post',
   data,
   headers = {},
   requestList,
   hash,
-  fileHash
+  fileHash,
 }) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -24,7 +24,7 @@ function request ({
       xhr.setRequestHeader(key, headers[key]);
     });
     xhr.send(data);
-    xhr.onload = function onload (e) {
+    xhr.onload = function onload(e) {
       // 将请求成功的xhr从列表中删除
       if (requestList) {
         const xhrIndex = requestList.findIndex((item) => item === xhr);
@@ -48,7 +48,7 @@ function request ({
     if (requestList) {
       requestList.push(xhr);
     }
-    xhr.onerror = function onerror (e) {
+    xhr.onerror = function onerror(e) {
       reject(e);
     };
   });

@@ -1,4 +1,4 @@
-export default function findParents (context, componentName) {
+export default function findParents(context, componentName) {
   const parents = [];
   const parent = context.$parent;
 

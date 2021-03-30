@@ -132,13 +132,13 @@ const components = [
   Tooltip,
   Upload,
   VideoCard,
-  VideoPlayer
+  VideoPlayer,
 ];
 
 const install = (Vue, opts = {}) => {
   locale.use(opts.locale);
   locale.i18n(opts.i18n);
-  components.forEach(comp => {
+  components.forEach((comp) => {
     Vue.use(comp);
   });
   // Object.keys(componentObjs).forEach((key) => {
@@ -212,5 +212,5 @@ export default {
   Tooltip,
   Upload,
   VideoCard,
-  VideoPlayer
+  VideoPlayer,
 };

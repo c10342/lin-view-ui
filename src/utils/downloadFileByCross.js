@@ -3,7 +3,7 @@
  * @param {*} data 文件的blob数据
  * @param {*} name 文件名
  */
-function saveAs (data, name) {
+function saveAs(data, name) {
   const urlObject = window.URL || window.webkitURL || window;
   const exportBlob = new Blob([data]);
   const saveLink = document.createElementNS(
@@ -20,7 +20,7 @@ function saveAs (data, name) {
  * @param {string} url 文件地址
  * @param {string} fileName 下载下来的文件名
  */
-function downloadFileByCross (url, fileName) {
+function downloadFileByCross(url, fileName) {
   url = url.replace(/\\/g, '/');
   const xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);

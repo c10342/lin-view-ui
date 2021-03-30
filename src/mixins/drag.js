@@ -3,30 +3,30 @@ const drag = {
     // 是否可进行拖拽
     drag: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  data () {
+  data() {
     return {
       // 拖拽的时候的样式，就是位置
       dialogStyle: {
         top: '0',
         left: '50%',
-        transform: 'translateX(-50%)'
-      }
+        transform: 'translateX(-50%)',
+      },
     };
   },
-  mounted () {
+  mounted() {
     // 开始点
     this.startY = 0;
     this.startX = 0;
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.removeListener();
   },
   methods: {
     // 鼠标按下，开始拖拽
-    onDragClick (event) {
+    onDragClick(event) {
       if (!this.drag) {
         return;
       }
@@ -38,7 +38,7 @@ const drag = {
       document.addEventListener('mousemove', this.onMousemove);
       document.addEventListener('mouseup', this.onMouseup);
     },
-    onMousemove (event) {
+    onMousemove(event) {
       // 结束点
       const endY = event.clientY;
       const endX = event.clientX;
@@ -61,8 +61,10 @@ const drag = {
       // 判断是否越界，超出视图范围
       dialogTop = dialogTop < 0 ? 0 : dialogTop;
       dialogLeft = dialogLeft < 0 ? 0 : dialogLeft;
-      dialogTop = dialogTop > windowHeight - height ? windowHeight - height : dialogTop;
-      dialogLeft = dialogLeft > windowWidth - width ? windowWidth - width : dialogLeft;
+      dialogTop =
+        dialogTop > windowHeight - height ? windowHeight - height : dialogTop;
+      dialogLeft =
+        dialogLeft > windowWidth - width ? windowWidth - width : dialogLeft;
       this.dialogStyle = {
         top: `${dialogTop}px`,
         left: `${dialogLeft}px`,
@@ -70,19 +72,19 @@ const drag = {
         marginTop: 0,
         marginBottom: 0,
         marginLeft: 0,
-        marginRight: 0
+        marginRight: 0,
       };
     },
     // 鼠标抬起
-    onMouseup () {
+    onMouseup() {
       document.body.classList.remove('user-select-none');
       this.removeListener();
     },
-    removeListener () {
+    removeListener() {
       document.removeEventListener('mousemove', this.onMousemove);
       document.removeEventListener('mouseup', this.onMouseup);
-    }
-  }
+    },
+  },
 };
 
 export default drag;
