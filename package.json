@@ -35,8 +35,8 @@
     "docs:upload": "npm run docs:build && node ./build/qiniu.js",
     "prepublishOnly": "npm run build",
     "pub": "node ./build/publish.js",
-    "lint": "eslint --ext .js,.vue packages src",
-    "lint-fix": "eslint --fix --ext .js,.vue packages src",
+    "lint": "eslint --ext .js,.vue ./",
+    "lint-fix": "eslint --fix --ext .js,.vue ./",
     "lint:style": "stylelint **/*.{html,vue,css,sass,scss} --fix",
     "test:unit": "jest --watch",
     "test": "jest",
@@ -52,7 +52,9 @@
     "*.{html,vue,css,sass,scss}": [
       "npm run lint:style"
     ],
-    "*.{js,ts,vue}": [
+    "*.{js,vue}": [
+      "prettier --write",
+      "git add",
       "npm run lint"
     ]
   },
@@ -132,10 +134,12 @@
     "css-loader": "^5.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.16.0",
+    "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-import-resolver-webpack": "^0.13.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-vue": "^7.4.0",
     "eslint-webpack-plugin": "^2.4.1",
@@ -155,6 +159,7 @@
     "node-sass": "^5.0.0",
     "ora": "^5.2.0",
     "postcss-loader": "^4.1.0",
+    "prettier": "^2.2.1",
     "qiniu": "^7.3.2",
     "rimraf": "^3.0.2",
     "sass-loader": "^10.1.0",
