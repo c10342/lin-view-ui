@@ -25,7 +25,7 @@
           </lin-dropdown-group>
         </lin-dropdown>
         <a
-          style="margin-left: 30px"
+          class="wechat-title"
           href="http://wxui.linjiafu.top"
           target="_blank"
           >{{ wechatTitle }}</a
@@ -106,6 +106,10 @@ export default {
     &:hover {
       color: #409eff;
     }
+  }
+
+  .wechat-title {
+    margin-left: 30px;
   }
 }
 </style>
