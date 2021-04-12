@@ -30,6 +30,7 @@
   "typings": "types/index.d.ts",
   "scripts": {
     "docs:dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.docs.js",
+    "examples:dev": "cross-env NODE_ENV=development target=examples webpack-dev-server --config ./build/webpack.docs.js",
     "docs:build": "cross-env NODE_ENV=production webpack --config ./build/webpack.docs.js",
     "index:build": "webpack --config ./build/webpack.all.js",
     "component:build": "webpack --config ./build/webpack.component.js",
