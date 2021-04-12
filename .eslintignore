@@ -1,5 +1,6 @@
 
 /docs-dist
+/examples
 /lib
 /types
 node_modules
