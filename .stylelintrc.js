@@ -8,6 +8,5 @@ module.exports = {
   rules: {
     'no-descending-specificity': null,
     'no-empty-source': null,
-    'declaration-block-trailing-semicolon': null,
   },
 };
