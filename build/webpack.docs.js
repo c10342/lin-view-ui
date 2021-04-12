@@ -11,9 +11,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const baseConfig = require('./webpack.base');
 
 const output = path.resolve(__dirname, '../docs-dist');
-const entry = path.resolve(__dirname, '../docs/main.js');
+let entry = path.resolve(__dirname, '../docs/main.js');
 
 const isDev = process.env.NODE_ENV === 'development';
+
+const target = process.env.target;
+
+if (target) {
+  entry = path.resolve(__dirname, `../${target}/main.js`);
+}
 
 const devConfig = {
   mode: isDev ? 'development' : 'production',
