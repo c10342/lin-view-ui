@@ -3,5 +3,6 @@
 /examples
 /lib
 /types
+/coverage
 node_modules
 .vscode
