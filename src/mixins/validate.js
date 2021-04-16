@@ -5,10 +5,10 @@ const validate = {
     this.$on('input', () => {
       dispatch.call(this, {
         eventName: 'validate',
-        componentName: 'LinFormItem',
+        componentName: 'LinFormItem'
       });
     });
-  },
+  }
 };
 
 export default validate;

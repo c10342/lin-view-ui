@@ -12,7 +12,7 @@ function getScrollLeftAndTop() {
       window.pageYOffset ||
       document.documentElement.scrollTop ||
       document.body.scrollTop ||
-      0,
+      0
   };
 }
 
@@ -24,7 +24,7 @@ function getScrollHeightAndWidth() {
     height:
       document.documentElement.scrollHeight || document.body.scrollHeight || 0,
     width:
-      document.documentElement.scrollWidth || document.body.scrollWidth || 0,
+      document.documentElement.scrollWidth || document.body.scrollWidth || 0
   };
 }
 
@@ -35,7 +35,7 @@ function getScroll() {
     scrollHeight: scrollHeightAndWidth.height,
     scrollWidth: scrollHeightAndWidth.width,
     scrollLeft: scrollLeftAndTop.left,
-    scrollTop: scrollLeftAndTop.top,
+    scrollTop: scrollLeftAndTop.top
   };
 }
 

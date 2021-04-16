@@ -59,7 +59,7 @@ const Transition = {
     el.style.overflow = el.dataset.oldOverflow;
     el.style.paddingTop = el.dataset.oldPaddingTop;
     el.style.paddingBottom = el.dataset.oldPaddingBottom;
-  },
+  }
 };
 
 export default {
@@ -67,8 +67,8 @@ export default {
   functional: true,
   render(h, context) {
     const data = {
-      on: Transition,
+      on: Transition
     };
     return h('transition', data, context.children);
-  },
+  }
 };

@@ -3,28 +3,28 @@ export default {
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 禁用小于等于该日期的日期
     disabledBeforeDate: {
       type: [Date, String, Number],
-      default: '',
+      default: ''
     },
     // 禁用大于等于该日期的日期
     disabledAfterDate: {
       type: [Date, String, Number],
-      default: '',
+      default: ''
     },
     // 禁用指定范围内的日期
     disabledRangeDate: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     // 禁用指定日期
     disabledDate: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   methods: {
     // 判断传入的日期是否为禁用的日期
@@ -91,7 +91,7 @@ export default {
         EqAndLt: newDate1 <= newDate2,
         EqAndGt: newDate1 >= newDate2,
         Lt: newDate1 < newDate2,
-        Gt: newDate1 > newDate2,
+        Gt: newDate1 > newDate2
       };
       return obj[type];
     },
@@ -114,6 +114,6 @@ export default {
     // 判断date1是否大于date2
     isGt(date1, date2) {
       return this.compareDate(date1, date2, 'Gt');
-    },
-  },
+    }
+  }
 };

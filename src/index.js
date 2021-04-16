@@ -132,7 +132,7 @@ const components = [
   Tooltip,
   Upload,
   VideoCard,
-  VideoPlayer,
+  VideoPlayer
 ];
 
 const install = (Vue, opts = {}) => {
@@ -212,5 +212,5 @@ export default {
   Tooltip,
   Upload,
   VideoCard,
-  VideoPlayer,
+  VideoPlayer
 };

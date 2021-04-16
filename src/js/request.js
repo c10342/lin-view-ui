@@ -15,7 +15,7 @@ function request({
   headers = {},
   requestList,
   hash,
-  fileHash,
+  fileHash
 }) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();

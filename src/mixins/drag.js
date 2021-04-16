@@ -3,8 +3,8 @@ const drag = {
     // 是否可进行拖拽
     drag: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
@@ -12,8 +12,8 @@ const drag = {
       dialogStyle: {
         top: '0',
         left: '50%',
-        transform: 'translateX(-50%)',
-      },
+        transform: 'translateX(-50%)'
+      }
     };
   },
   mounted() {
@@ -72,7 +72,7 @@ const drag = {
         marginTop: 0,
         marginBottom: 0,
         marginLeft: 0,
-        marginRight: 0,
+        marginRight: 0
       };
     },
     // 鼠标抬起
@@ -83,8 +83,8 @@ const drag = {
     removeListener() {
       document.removeEventListener('mousemove', this.onMousemove);
       document.removeEventListener('mouseup', this.onMouseup);
-    },
-  },
+    }
+  }
 };
 
 export default drag;

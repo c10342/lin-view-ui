@@ -26,14 +26,14 @@ self.onmessage = (event) => {
       if (count === fileChunkList.length) {
         self.postMessage({
           percentage: 100,
-          hash: spark.end(),
+          hash: spark.end()
         });
         // 关闭自己
         self.close();
       } else {
         percentage += 100 / fileChunkList.length;
         self.postMessage({
-          percentage,
+          percentage
         });
         // 递归计算下一个切片
         loadNext(count);

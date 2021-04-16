@@ -8,11 +8,11 @@ const documentClick = {
       if (typeof this.onDocumentClick === 'function') {
         this.onDocumentClick(event);
       }
-    },
+    }
   },
   beforeDestroy() {
     document.removeEventListener('click', this._onDocumentClick);
-  },
+  }
 };
 
 export default documentClick;
