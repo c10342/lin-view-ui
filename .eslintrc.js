@@ -3,15 +3,15 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
-    jest: true,
+    jest: true
   },
   // 识别webpack别名
   settings: {
     'import/resolver': {
       webpack: {
-        config: './build/webpack.base.js',
-      },
-    },
+        config: './build/webpack.base.js'
+      }
+    }
   },
   extends: ['plugin:vue/essential', 'standard', 'plugin:prettier/recommended'],
   parserOptions: {
@@ -20,7 +20,7 @@ module.exports = {
     // ecmaFeatures: {
     //   jsx: true, // 启动JSX
     // },
-    parser: 'babel-eslint',
+    parser: 'babel-eslint'
   },
   plugins: ['vue'],
   rules: {
@@ -33,6 +33,6 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'import/no-named-as-default-member': 'off',
     semi: ['error', 'always'],
-    'node/no-callback-literal': 'off',
-  },
+    'node/no-callback-literal': 'off'
+  }
 };
