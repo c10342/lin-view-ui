@@ -25,7 +25,7 @@ const lang = getLang();
 export default {
   data() {
     return {
-      height: document.documentElement.clientHeight,
+      height: document.documentElement.clientHeight
     };
   },
   computed: {
@@ -34,8 +34,8 @@ export default {
     },
     startToUse() {
       return langConfig[lang].index.startToUse;
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">

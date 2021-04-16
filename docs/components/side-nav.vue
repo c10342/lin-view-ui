@@ -62,9 +62,9 @@ const navConfig = langType.en === lang ? enNavConf : zhNavConf;
 export default {
   data() {
     return {
-      data: navConfig,
+      data: navConfig
     };
-  },
+  }
 };
 </script>
 

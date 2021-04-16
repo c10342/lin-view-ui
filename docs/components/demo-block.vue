@@ -6,7 +6,7 @@
     <div
       :style="{
         height: isExpand ? 'auto' : '0',
-        'border-bottom': isExpand ? '' : 'none',
+        'border-bottom': isExpand ? '' : 'none'
       }"
       class="demo-container"
     >
@@ -33,13 +33,13 @@ const lang = getLang();
 export default {
   data() {
     return {
-      isExpand: false,
+      isExpand: false
     };
   },
   methods: {
     toggle() {
       this.isExpand = !this.isExpand;
-    },
+    }
   },
   computed: {
     showText() {
@@ -50,14 +50,14 @@ export default {
     },
     blockClass() {
       return `demo-${this.$route.path.split('/').pop()}`;
-    },
+    }
   },
   mounted() {
     this.$nextTick(() => {
       const blocks = this.$el.querySelectorAll('pre code:not(.hljs)');
       Array.prototype.forEach.call(blocks, hljs.highlightBlock);
     });
-  },
+  }
 };
 </script>
 

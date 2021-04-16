@@ -42,7 +42,7 @@ const lang = getLang();
 export default {
   data() {
     return {
-      langType,
+      langType
     };
   },
   methods: {
@@ -54,7 +54,7 @@ export default {
         setLang(langType.en);
         window.location.reload();
       }
-    },
+    }
   },
   computed: {
     componentTitle() {
@@ -65,8 +65,8 @@ export default {
     },
     wechatTitle() {
       return langConfig[lang].header.wechatTitle;
-    },
-  },
+    }
+  }
 };
 </script>
 

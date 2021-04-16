@@ -34,14 +34,14 @@ export default {
   props: {
     log: {
       type: Object,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   data() {
     return {
-      addComponent: logsType.ADDCOMPONENT,
+      addComponent: logsType.ADDCOMPONENT
     };
-  },
+  }
 };
 </script>
 

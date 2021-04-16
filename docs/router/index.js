@@ -20,7 +20,7 @@ zhComps.keys().forEach((key) => {
   zhRoutes.push({
     component,
     name,
-    path: `/${name}`,
+    path: `/${name}`
   });
 });
 
@@ -34,7 +34,7 @@ enComps.keys().forEach((key) => {
   enRoutes.push({
     component,
     name,
-    path: `/${name}`,
+    path: `/${name}`
   });
 });
 
@@ -44,14 +44,14 @@ const router = new Router({
     {
       path: '/',
       name: 'index',
-      component: IndexPage,
+      component: IndexPage
     },
     {
       path: '/component',
       name: 'component',
       component: ComponentPage,
-      children: lang === langType.zh ? zhRoutes : enRoutes,
-    },
+      children: lang === langType.zh ? zhRoutes : enRoutes
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -59,7 +59,7 @@ const router = new Router({
     } else {
       return { x: 0, y: 0 };
     }
-  },
+  }
 });
 
 router.afterEach((route) => {

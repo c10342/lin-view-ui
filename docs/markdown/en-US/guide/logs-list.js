@@ -8,9 +8,9 @@ export default [
       {
         title: 'New features',
         list: ['Add typescript type declaration file, support typescript'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.1.0',
@@ -23,11 +23,11 @@ export default [
           'docs',
           'unit testing',
           'Add eslint and stylelint',
-          'Optimize component code',
+          'Optimize component code'
         ],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.26',
@@ -36,18 +36,18 @@ export default [
       {
         title: 'Add Component',
         list: ['Message', 'MessageBox'],
-        type: logsType.ADDCOMPONENT,
+        type: logsType.ADDCOMPONENT
       },
       {
         title: 'New features',
         list: [
           {
             subTitle: 'Dialog',
-            subList: ['add drap function'],
-          },
-        ],
-      },
-    ],
+            subList: ['add drap function']
+          }
+        ]
+      }
+    ]
   },
   {
     version: '1.0.25',
@@ -56,9 +56,9 @@ export default [
       {
         title: 'Add Component',
         list: ['DateAxis', 'ScrollBar'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.24',
@@ -67,7 +67,7 @@ export default [
       {
         title: 'Add Component',
         list: ['Spinner 旋转组件', 'Cascader 级联选择器组件'],
-        type: logsType.ADDCOMPONENT,
+        type: logsType.ADDCOMPONENT
       },
       {
         title: 'Bug fixes',
@@ -76,45 +76,45 @@ export default [
             subTitle: 'Input',
             subList: [
               'Fix cannot be input under ie',
-              'clears the built-in clear button under ie',
-            ],
+              'clears the built-in clear button under ie'
+            ]
           },
           {
             subTitle: 'LimitTextarea',
-            subList: ['Fix cannot be input under ie'],
+            subList: ['Fix cannot be input under ie']
           },
           {
             subTitle: 'LiveComment',
-            subList: ['Fix cannot be input under ie'],
+            subList: ['Fix cannot be input under ie']
           },
           {
             subTitle: 'VideoPlayer',
             subList: [
-              'Fix under ie because flv.js Syntax error of dependency report',
-            ],
+              'Fix under ie because flv.js Syntax error of dependency report'
+            ]
           },
           {
             subTitle: 'Tab',
             subList: [
-              'Fix cannot get the value of getboundingclientrect().X under ie',
-            ],
-          },
-        ],
+              'Fix cannot get the value of getboundingclientrect().X under ie'
+            ]
+          }
+        ]
       },
       {
         title: 'New features',
         list: [
           {
             subTitle: 'Input',
-            subList: ['Add clear event'],
+            subList: ['Add clear event']
           },
           {
             subTitle: 'Button',
-            subList: ['Add loading attribute'],
-          },
-        ],
-      },
-    ],
+            subList: ['Add loading attribute']
+          }
+        ]
+      }
+    ]
   },
   {
     version: '1.0.23',
@@ -123,9 +123,9 @@ export default [
       {
         title: 'Add Component',
         list: ['i18n', 'Link', 'Badge', 'Backtop'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.22',
@@ -134,9 +134,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Tab', 'Skeleton'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.21',
@@ -145,9 +145,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Dropdown、DropdownItem、DropdownGroup', 'PageHeader'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.20',
@@ -156,9 +156,9 @@ export default [
       {
         title: 'Add Component',
         list: ['ChoiceGroup、ChoiceItem、ChoiceOption'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.19',
@@ -167,9 +167,9 @@ export default [
       {
         title: 'Add Component',
         list: ['CollapseGroup、CollapseItem'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.18',
@@ -178,9 +178,9 @@ export default [
       {
         title: 'Add Component',
         list: ['VideoPlayer'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.17',
@@ -189,9 +189,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Pagination'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.16',
@@ -200,9 +200,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Table'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.15',
@@ -211,9 +211,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Magnifier', 'HoverEffect'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.14',
@@ -224,11 +224,11 @@ export default [
         list: [
           {
             subTitle: 'Form',
-            subList: ['Add form verification function'],
-          },
-        ],
-      },
-    ],
+            subList: ['Add form verification function']
+          }
+        ]
+      }
+    ]
   },
   {
     version: '1.0.13',
@@ -237,9 +237,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Upload'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.12',
@@ -248,9 +248,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Tag', 'Alert'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.11',
@@ -259,9 +259,9 @@ export default [
       {
         title: 'Add Component',
         list: ['LiveComment', 'InputNumber'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.10',
@@ -270,9 +270,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Icon', 'DatePicker'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.9',
@@ -281,9 +281,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Tooltip'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.8',
@@ -292,9 +292,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Selector'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.7',
@@ -303,9 +303,9 @@ export default [
       {
         title: 'Add Component',
         list: ['MetaInfo'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.6',
@@ -314,9 +314,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Progress', 'Loading'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.5',
@@ -325,9 +325,9 @@ export default [
       {
         title: 'Add Component',
         list: ['ScrollView', 'Image'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.4',
@@ -336,9 +336,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Layout'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.3',
@@ -347,9 +347,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Checkbox、CheckboxGroup', 'Form、FormItem'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.2',
@@ -358,9 +358,9 @@ export default [
       {
         title: 'Add Component',
         list: ['ShowMore'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.1',
@@ -369,9 +369,9 @@ export default [
       {
         title: 'Add Component',
         list: ['Switch', 'Radio、RadioGroup'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
   },
   {
     version: '1.0.0',
@@ -380,8 +380,8 @@ export default [
       {
         title: 'Add Component',
         list: ['Button', 'Dialog', 'VideoCard', 'Input'],
-        type: logsType.ADDCOMPONENT,
-      },
-    ],
-  },
+        type: logsType.ADDCOMPONENT
+      }
+    ]
+  }
 ];

@@ -10,12 +10,12 @@ import LogsItem from '../../../components/logs-item.vue';
 import logsList from './logs-list.js';
 export default {
   components: {
-    LogsItem,
+    LogsItem
   },
   data() {
     return {
-      logsList,
+      logsList
     };
-  },
+  }
 };
 </script>

@@ -1,6 +1,6 @@
 export const langType = {
   en: 'en-US',
-  zh: 'zh-CN',
+  zh: 'zh-CN'
 };
 export function getLang() {
   const lang = window.sessionStorage.getItem('lang') || langType.zh;

@@ -12,13 +12,13 @@
 import sideNav from '../components/side-nav.vue';
 export default {
   components: {
-    sideNav,
+    sideNav
   },
   computed: {
     componentClass() {
       return `component-${this.$route.path.split('/').pop()}`;
-    },
-  },
+    }
+  }
 };
 </script>
 

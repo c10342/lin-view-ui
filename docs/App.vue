@@ -9,7 +9,7 @@
 import mainHeader from './components/header.vue';
 export default {
   components: {
-    mainHeader,
-  },
+    mainHeader
+  }
 };
 </script>
