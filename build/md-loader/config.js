@@ -33,8 +33,8 @@ config.options
       // permalinkHref: function(link) {
       //   return "#" + getLink(link);
       // },
-      slugify: getLink,
-    },
+      slugify: getLink
+    }
   ])
   .end()
   .plugin('toc')
@@ -44,8 +44,8 @@ config.options
       // containerHeaderHtml: `<div class="toc-container-header">Catalog</div>`,
       transformLink(link) {
         return `#${getLink(link)}`;
-      },
-    },
+      }
+    }
   ])
   .end()
   .plugin('containers')

@@ -32,7 +32,7 @@ function genInlineComponentText(template, script) {
   const finalOptions = {
     source: `<div>${template}</div>`,
     filename: 'inline-component',
-    compiler,
+    compiler
   };
   const compiled = compileTemplate(finalOptions);
   // tips
@@ -74,5 +74,5 @@ module.exports = {
   stripScript,
   stripStyle,
   stripTemplate,
-  genInlineComponentText,
+  genInlineComponentText
 };

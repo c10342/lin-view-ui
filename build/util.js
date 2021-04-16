@@ -12,7 +12,7 @@ for (const key in packageJson.dependencies) {
     root: key,
     commonjs: key,
     commonjs2: key,
-    amd: key,
+    amd: key
   };
 }
 
@@ -27,7 +27,7 @@ exports.getExternalsList = () => {
       root: 'Vue',
       commonjs: 'vue',
       commonjs2: 'vue',
-      amd: 'vue',
+      amd: 'vue'
     },
     ...dependencies,
     'src/locale/index.js': 'lin-view-ui/lib/assets/locale/index.js',
@@ -35,7 +35,7 @@ exports.getExternalsList = () => {
     'src/locale/lang/en-US.js': 'lin-view-ui/lib/assets/locale/lang/en-US.js',
     'src/locale/format.js': 'lin-view-ui/lib/assets/locale/format.js',
     'src/fonts/iconfont.css': 'lin-view-ui/src/fonts/iconfont.css',
-    'flv.js/dist/flv.js': 'flv.js/dist/flv.js',
+    'flv.js/dist/flv.js': 'flv.js/dist/flv.js'
   };
 
   utilsList.forEach(function (file) {

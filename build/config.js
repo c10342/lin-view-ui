@@ -10,5 +10,5 @@ module.exports = {
   // npm登录信息
   userName: userInfo.userName,
   password: userInfo.password,
-  email: userInfo.email,
+  email: userInfo.email
 };

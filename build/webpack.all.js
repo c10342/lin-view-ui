@@ -16,13 +16,13 @@ const indexConfig = {
     filename: 'index.js',
     libraryTarget: 'umd',
     libraryExport: 'default',
-    library: 'LinViewUi',
+    library: 'LinViewUi'
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style.css',
-    }),
-  ],
+      filename: 'style.css'
+    })
+  ]
 };
 
 module.exports = merge(baseConfig, indexConfig);

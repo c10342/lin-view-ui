@@ -17,7 +17,7 @@ module.exports = (md) => {
         `;
       }
       return '</demo-block>';
-    },
+    }
   });
 
   md.use(mdContainer, 'tip');

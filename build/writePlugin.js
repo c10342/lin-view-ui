@@ -17,7 +17,7 @@ class WritePlugin {
             },
             size() {
               return content.length;
-            },
+            }
           };
         }
       }

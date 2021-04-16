@@ -22,7 +22,7 @@ const getAssetsEntries = (pathStr) => {
       const result = getAssetsEntries(`${pathStr}/${item}`);
       ret = {
         ...ret,
-        ...result,
+        ...result
       };
     }
     return ret;
@@ -34,7 +34,7 @@ const entry = {
   ...getAssetsEntries('js'),
   ...getAssetsEntries('locale'),
   ...getAssetsEntries('mixins'),
-  ...getAssetsEntries('utils'),
+  ...getAssetsEntries('utils')
 };
 
 const assetsConfig = {
@@ -47,11 +47,11 @@ const assetsConfig = {
     libraryExport: 'default',
     // libraryTarget: "commonjs2",
     // libraryExport: "default",
-    library: '[name]',
+    library: '[name]'
   },
   externals: {
-    ...util.getExternalsList(),
-  },
+    ...util.getExternalsList()
+  }
 };
 
 module.exports = merge(baseConfig, assetsConfig);

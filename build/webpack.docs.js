@@ -26,7 +26,7 @@ const devConfig = {
   entry,
   output: {
     path: output,
-    filename: isDev ? 'js/[name].js' : 'js/[name].[hash].js',
+    filename: isDev ? 'js/[name].js' : 'js/[name].[hash].js'
   },
   devtool: isDev ? 'cheap-module-eval-source-map' : false,
   devServer: {
@@ -34,7 +34,7 @@ const devConfig = {
     overlay: true, // 错误直接显示在浏览器中
     contentBase: output,
     hot: true,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -42,12 +42,12 @@ const devConfig = {
         test: /\.md$/,
         use: [
           {
-            loader: 'vue-loader',
+            loader: 'vue-loader'
           },
           {
-            loader: path.resolve(__dirname, './md-loader/index.js'),
-          },
-        ],
+            loader: path.resolve(__dirname, './md-loader/index.js')
+          }
+        ]
       },
       {
         test: /\.css$/,
@@ -56,11 +56,11 @@ const devConfig = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
-            },
+              importLoaders: 1
+            }
           },
-          'postcss-loader',
-        ],
+          'postcss-loader'
+        ]
       },
       {
         test: /\.scss$/,
@@ -69,12 +69,12 @@ const devConfig = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
-            },
+              importLoaders: 2
+            }
           },
           'postcss-loader',
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /\.(png|jpg|jpeg|gif|eot|ttf|svg|woff|woff2)$/,
@@ -84,19 +84,19 @@ const devConfig = {
             name: '[name].[hash].[ext]',
             outputPath: 'images/',
             limit: 10240,
-            esModule: false,
-          },
-        },
-      },
-    ],
+            esModule: false
+          }
+        }
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../docs/public/index.html'),
       filename: 'index.html',
-      favicon: path.resolve(__dirname, '../docs/public/favicon.ico'),
-    }),
-  ],
+      favicon: path.resolve(__dirname, '../docs/public/favicon.ico')
+    })
+  ]
 };
 
 if (!isDev) {
@@ -104,7 +104,7 @@ if (!isDev) {
   devConfig.plugins.push(
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
-      chunkFilename: 'css/[name].[contenthash].chunk.css',
+      chunkFilename: 'css/[name].[contenthash].chunk.css'
     })
   );
 }

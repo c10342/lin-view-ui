@@ -33,17 +33,17 @@ const componentConfig = {
     filename: '[name]/index.js',
     libraryTarget: 'umd',
     libraryExport: 'default',
-    library: '[name]',
+    library: '[name]'
   },
   externals: {
-    ...util.getExternalsList(),
+    ...util.getExternalsList()
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name]/style.css',
+      filename: '[name]/style.css'
     }),
-    new WritePlugin('style.js'),
-  ],
+    new WritePlugin('style.js')
+  ]
 };
 
 module.exports = merge(baseConfig, componentConfig);

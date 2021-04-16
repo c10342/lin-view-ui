@@ -1,7 +1,7 @@
 const {
   stripScript,
   stripTemplate,
-  genInlineComponentText,
+  genInlineComponentText
 } = require('./util');
 const md = require('./config');
 

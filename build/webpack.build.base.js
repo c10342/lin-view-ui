@@ -11,8 +11,8 @@ const buildConfig = {
       root: 'Vue',
       commonjs: 'vue',
       commonjs2: 'vue',
-      amd: 'vue',
-    },
+      amd: 'vue'
+    }
   },
   module: {
     rules: [
@@ -23,11 +23,11 @@ const buildConfig = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
-            },
+              importLoaders: 1
+            }
           },
-          'postcss-loader',
-        ],
+          'postcss-loader'
+        ]
       },
       {
         test: /\.scss$/,
@@ -36,12 +36,12 @@ const buildConfig = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
-            },
+              importLoaders: 2
+            }
           },
           'postcss-loader',
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
@@ -50,9 +50,9 @@ const buildConfig = {
           options: {
             name: '[name].[hash:8].[ext]',
             outputPath: 'assets/images/',
-            limit: false,
-          },
-        },
+            limit: false
+          }
+        }
       },
       {
         test: /\.(eot|ttf|woff|woff2|svg)$/,
@@ -61,12 +61,12 @@ const buildConfig = {
           options: {
             name: '[name].[hash:8].[ext]',
             outputPath: 'assets/fonts/',
-            limit: false,
-          },
-        },
-      },
-    ],
-  },
+            limit: false
+          }
+        }
+      }
+    ]
+  }
 };
 
 module.exports = merge(baseConfig, buildConfig);

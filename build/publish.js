@@ -42,8 +42,8 @@ const promptParams = [
     message: `选择将要升级的版本(当前版本 ${packageJsonVersion} )：`,
     type: 'list',
     default: 0,
-    choices: verOptList,
-  },
+    choices: verOptList
+  }
 ];
 
 if (isLogin !== 0 && userInfo) {
@@ -51,21 +51,21 @@ if (isLogin !== 0 && userInfo) {
     promptParams.push({
       name: 'userName',
       message: 'npm userName',
-      type: 'input',
+      type: 'input'
     });
   }
   if (!userInfo.password) {
     promptParams.push({
       name: 'password',
       message: 'npm password',
-      type: 'input',
+      type: 'input'
     });
   }
   if (!userInfo.email) {
     promptParams.push({
       name: 'email',
       message: 'npm email',
-      type: 'input',
+      type: 'input'
     });
   }
 }
@@ -136,7 +136,7 @@ function getVersionOptions(version) {
     const val = semver.inc(currentVersion, item);
     opts.push({
       name: val,
-      value: val,
+      value: val
     });
   });
 

@@ -10,7 +10,7 @@ qiniuconfig.zone = qiniu.zone.Zone_z2;
 
 const doUpload = (key, file) => {
   const options = {
-    scope: config.bucket + ':' + key,
+    scope: config.bucket + ':' + key
   };
   const formUploader = new qiniu.form_up.FormUploader(qiniuconfig);
   const putExtra = new qiniu.form_up.PutExtra();
