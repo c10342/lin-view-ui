@@ -10,8 +10,8 @@ describe('属性', () => {
   it('span', () => {
     const wrapper = createCol({
       propsData: {
-        span: 24,
-      },
+        span: 24
+      }
     });
     const div = wrapper.find('.lin-col.lin-col-24');
     expect(div.exists()).toBeTruthy();
@@ -19,8 +19,8 @@ describe('属性', () => {
   it('tag', () => {
     const wrapper = createCol({
       propsData: {
-        tag: 'span',
-      },
+        tag: 'span'
+      }
     });
     const span = wrapper.find('span.lin-col');
     expect(span.exists()).toBeTruthy();
@@ -30,8 +30,8 @@ describe('属性', () => {
     ['offset', 'pull', 'push'].forEach((key) => {
       const wrapper = createCol({
         propsData: {
-          [key]: value,
-        },
+          [key]: value
+        }
       });
       const div = wrapper.find(`.lin-col.lin-col-${key}-${value}`);
       expect(div.exists()).toBeTruthy();
@@ -42,8 +42,8 @@ describe('属性', () => {
     ['xs', 'sm', 'md', 'lg'].forEach((key) => {
       const wrapper = createCol({
         propsData: {
-          [key]: value,
-        },
+          [key]: value
+        }
       });
       const div = wrapper.find(`.lin-col.lin-col-${key}-${value}`);
       expect(div.exists()).toBeTruthy();
@@ -56,9 +56,9 @@ describe('属性', () => {
             span: value,
             offset: value,
             pull: value,
-            push: value,
-          },
-        },
+            push: value
+          }
+        }
       });
       const div = wrapper.find('.lin-col');
       expect(div.classes()).toContain(`lin-col-${key}-${value}`);
@@ -73,8 +73,8 @@ describe('插槽', () => {
   it('default', () => {
     const wrapper = createCol({
       slots: {
-        default: "<div id='default'>插槽</div>",
-      },
+        default: "<div id='default'>插槽</div>"
+      }
     });
     const div = wrapper.find('#default');
     expect(div.exists()).toBeTruthy();

@@ -13,9 +13,9 @@ const createImageWithUrl = (obj = {}) => {
   return shallowMount(Image, {
     propsData: {
       imgUrl: imageUrl,
-      ...propsData,
+      ...propsData
     },
-    ...restObj,
+    ...restObj
   });
 };
 
@@ -57,7 +57,7 @@ describe('属性', () => {
   it('referrerPolicy', () => {
     const referrerPolicy = '123';
     const wrapper = createImageWithUrl({
-      propsData: { referrerPolicy },
+      propsData: { referrerPolicy }
     });
     const image = wrapper.find('img');
     expect(image.attributes('referrer-policy')).toEqual(referrerPolicy);
@@ -66,7 +66,7 @@ describe('属性', () => {
   it('alt', () => {
     const alt = '图片';
     const wrapper = createImageWithUrl({
-      propsData: { alt },
+      propsData: { alt }
     });
     const image = wrapper.find('img');
     expect(image.attributes('alt')).toEqual(alt);
@@ -74,7 +74,7 @@ describe('属性', () => {
 
   it('preview', async () => {
     const wrapper = createImageWithUrl({
-      propsData: { preview: true },
+      propsData: { preview: true }
     });
     const image = wrapper.find('img');
     await image.trigger('click');
@@ -90,7 +90,7 @@ describe('属性', () => {
 
   it('clickMask', async () => {
     const wrapper = createImageWithUrl({
-      propsData: { clickMask: false, preview: true },
+      propsData: { clickMask: false, preview: true }
     });
     const image = wrapper.find('img');
     await image.trigger('click');
@@ -105,7 +105,7 @@ describe('属性', () => {
   it('errorMsg', () => {
     const errorMsg = '图片加载失败';
     const wrapper = createImage({
-      propsData: { errorMsg },
+      propsData: { errorMsg }
     });
     const errorMessage = wrapper.find('.lin-image-error');
     expect(errorMessage.exists()).toBeTruthy();
@@ -117,8 +117,8 @@ describe('插槽', () => {
   it('default', () => {
     const wrapper = createImage({
       slots: {
-        default: '<span class="test-span">图片加载失败</span>',
-      },
+        default: '<span class="test-span">图片加载失败</span>'
+      }
     });
     const errorMessage = wrapper.find('.test-span');
     expect(errorMessage.exists()).toBeTruthy();

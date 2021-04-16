@@ -24,8 +24,8 @@ describe('插槽', () => {
     const wrapper = creatForm({
       propsData: { model: {} },
       slots: {
-        default: html,
-      },
+        default: html
+      }
     });
     expect(wrapper.find('.lin-form').text()).toEqual('你好');
   });

@@ -10,8 +10,8 @@ describe('属性', () => {
   it('value', () => {
     const wrapper = createCheckbox({
       propsData: {
-        value: false,
-      },
+        value: false
+      }
     });
     const input = wrapper.find('input');
     const label = wrapper.find('label');
@@ -24,8 +24,8 @@ describe('属性', () => {
   it('name', () => {
     const wrapper = createCheckbox({
       propsData: {
-        name: 'sex',
-      },
+        name: 'sex'
+      }
     });
     const input = wrapper.find('input');
     expect(input.attributes('name')).toEqual('sex');
@@ -34,8 +34,8 @@ describe('属性', () => {
   it('label', () => {
     const wrapper = createCheckbox({
       propsData: {
-        label: '男',
-      },
+        label: '男'
+      }
     });
     const input = wrapper.find('input');
     const template = wrapper.find('.lin-checkbox-label');
@@ -46,8 +46,8 @@ describe('属性', () => {
   it('disabled', async () => {
     const wrapper = createCheckbox({
       propsData: {
-        disabled: true,
-      },
+        disabled: true
+      }
     });
     const input = wrapper.find('input');
     const label = wrapper.find('label');
@@ -62,8 +62,8 @@ describe('插槽', () => {
   it('default', () => {
     const wrapper = createCheckbox({
       slots: {
-        default: '女',
-      },
+        default: '女'
+      }
     });
     const template = wrapper.find('.lin-checkbox-label');
     expect(template.text()).toEqual('女');

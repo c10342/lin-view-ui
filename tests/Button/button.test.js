@@ -14,11 +14,11 @@ describe('属性', () => {
       'success',
       'warning',
       'danger',
-      'info',
+      'info'
     ];
     for (let i = 0; i < typeList.length; i++) {
       const wrapper = createButton({
-        propsData: { type: typeList[i] },
+        propsData: { type: typeList[i] }
       });
       const button = wrapper.find('button');
       expect(button.classes()).toContain(`lin-button-${typeList[i]}`);
@@ -61,7 +61,7 @@ describe('属性', () => {
     const typeList = ['default', 'medium', 'small'];
     for (let i = 0; i < typeList.length; i++) {
       const wrapper = createButton({
-        propsData: { size: typeList[i] },
+        propsData: { size: typeList[i] }
       });
       const button = wrapper.find('button');
       expect(button.classes()).toContain(`lin-button-size-${typeList[i]}`);
@@ -73,8 +73,8 @@ describe('插槽', () => {
   it('default', () => {
     const wrapper = createButton({
       slots: {
-        default: '按钮',
-      },
+        default: '按钮'
+      }
     });
     const button = wrapper.find('button');
     expect(button.text()).toEqual('按钮');

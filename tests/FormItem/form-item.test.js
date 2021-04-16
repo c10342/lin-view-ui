@@ -6,10 +6,10 @@ const createFormItem = (obj = {}) => {
   return shallowMount(FormItem, {
     provide: {
       Form: {
-        labelWidth: '20px',
-      },
+        labelWidth: '20px'
+      }
     },
-    ...obj,
+    ...obj
   });
 };
 
@@ -17,8 +17,8 @@ describe('属性', () => {
   it('label', () => {
     const wrapper = createFormItem({
       propsData: {
-        label: '你好',
-      },
+        label: '你好'
+      }
     });
 
     const label = wrapper.find('.lin-form-item-label');
@@ -28,8 +28,8 @@ describe('属性', () => {
   it('inject', () => {
     const wrapper = createFormItem({
       propsData: {
-        label: '你好',
-      },
+        label: '你好'
+      }
     });
 
     const label = wrapper.find('.lin-form-item-label');
@@ -41,8 +41,8 @@ describe('属性', () => {
 describe('插槽', () => {
   const wrapper = createFormItem({
     slots: {
-      default: '<span>你好</span>',
-    },
+      default: '<span>你好</span>'
+    }
   });
   const soltContent = wrapper.find('.lin-form-item-content');
   expect(soltContent.text()).toBe('你好');

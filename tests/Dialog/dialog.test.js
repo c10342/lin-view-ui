@@ -31,7 +31,7 @@ describe('属性', () => {
 
   it('visible', () => {
     const wrapper = createDialog({
-      propsData: { visible: true },
+      propsData: { visible: true }
     });
     expect(
       wrapper.findComponent({ name: 'lin-dialog' }).element
@@ -60,8 +60,8 @@ describe('插槽', () => {
     const defaultSolt = '<span>default</span>';
     const wrapper = createDialog({
       slots: {
-        default: defaultSolt,
-      },
+        default: defaultSolt
+      }
     });
     const defaultContainer = wrapper.find('.lin-dialog-body');
     expect(defaultContainer.get('span').exists()).toBeTruthy();
@@ -73,8 +73,8 @@ describe('插槽', () => {
     const titleSolt = '<span>title</span>';
     const wrapper = createDialog({
       slots: {
-        title: titleSolt,
-      },
+        title: titleSolt
+      }
     });
     const titleContainer = wrapper.find('.lin-dialog-header');
     expect(titleContainer.get('span').exists()).toBeTruthy();
@@ -86,8 +86,8 @@ describe('插槽', () => {
     const footerSolt = '<span>footer</span>';
     const wrapper = createDialog({
       slots: {
-        footer: footerSolt,
-      },
+        footer: footerSolt
+      }
     });
     const footerContainer = wrapper.find('.lin-dialog-footer');
     expect(footerContainer.get('span').exists()).toBeTruthy();

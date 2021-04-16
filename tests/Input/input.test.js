@@ -44,8 +44,8 @@ describe('属性', () => {
   it('clearable', async () => {
     const wrapper = createInput({
       propsData: {
-        clearable: true,
-      },
+        clearable: true
+      }
     });
     let closeBtn = wrapper.find('.lin-input-icon.lin-icon-close');
     expect(closeBtn.exists()).toBeFalsy();
@@ -84,8 +84,8 @@ describe('插槽', () => {
     const str = 'default-slot';
     const wrapper = createInput({
       slots: {
-        default: str,
-      },
+        default: str
+      }
     });
     const suffix = wrapper.find('.lin-input-suffix');
     expect(suffix.exists()).toBeTruthy();

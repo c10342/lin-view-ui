@@ -16,6 +16,6 @@ const createElm = function () {
 
 export const createVue = function ({ template }) {
   return new Vue({
-    template,
+    template
   }).$mount(createElm());
 };
