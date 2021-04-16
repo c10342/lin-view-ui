@@ -24,4 +24,5 @@ module.exports = {
     // 匹配测试用例的文件
     '<rootDir>/tests/**/*.test.js',
   ],
+  collectCoverageFrom: ['<rootDir>/packages/**/src/*.{js,vue}'],
 };
