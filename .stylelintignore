@@ -2,3 +2,4 @@ lib
 docs-dist
 node_modules
 src/fonts/iconfont.css
+coverage
