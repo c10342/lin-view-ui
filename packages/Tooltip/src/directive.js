@@ -30,7 +30,7 @@ TooltipDirective.install = (Vue) => {
           top: t,
           left: l,
           right: r,
-          auto,
+          auto
         } = binding.modifiers;
         let placement = 'bottom';
         if (b) {
@@ -119,7 +119,7 @@ TooltipDirective.install = (Vue) => {
       }
       el.removeEventListener('mouseenter', el.mouseenter);
       el.removeEventListener('mouseleave', el.mouseleave);
-    },
+    }
   });
 };
 

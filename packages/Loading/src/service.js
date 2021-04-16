@@ -34,5 +34,5 @@ export default {
       instance.close();
       instance = null;
     }
-  },
+  }
 };

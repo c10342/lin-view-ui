@@ -18,14 +18,14 @@ export default {
       // 显示位置
       placement: 'bottom',
       // 文本
-      text: '',
+      text: ''
     };
   },
   methods: {
     // vue过渡动画结束
     handleAfterLeave() {
       this.$emit('after-leave');
-    },
+    }
   },
   computed: {
     classes() {
@@ -33,9 +33,9 @@ export default {
         'lin-tooltip-bottom': this.placement === 'top',
         'lin-tooltip-top': this.placement === 'bottom',
         'lin-tooltip-left': this.placement === 'right',
-        'lin-tooltip-right': this.placement === 'left',
+        'lin-tooltip-right': this.placement === 'left'
       };
-    },
-  },
+    }
+  }
 };
 </script>

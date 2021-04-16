@@ -33,38 +33,38 @@ export default {
   props: {
     // 绑定值
     value: {
-      type: [Number, String],
+      type: [Number, String]
     },
     // 设置计数器允许的最小值
     min: {
       type: Number,
-      default: NaN,
+      default: NaN
     },
     // 设置计数器允许的最大值
     max: {
       type: Number,
-      default: NaN,
+      default: NaN
     },
     // 计数器步长
     step: {
       type: Number,
-      default: 1,
+      default: 1
     },
     // 是否禁用计数器
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 输入框占位符
     placeholder: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否只能输入 step 的倍数
     stepStrictly: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
     // 点击减号
@@ -107,9 +107,9 @@ export default {
       this.$emit('input', value);
       dispatch.call(this, {
         eventName: 'validate',
-        componentName: 'LinFormItem',
+        componentName: 'LinFormItem'
       });
-    },
+    }
   },
   computed: {
     // 是否禁用减号
@@ -153,7 +153,7 @@ export default {
         return true;
       }
       return false;
-    },
-  },
+    }
+  }
 };
 </script>

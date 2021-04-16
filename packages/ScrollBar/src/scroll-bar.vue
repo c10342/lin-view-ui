@@ -43,41 +43,41 @@ import Spinner from 'packages/Spinner/index.js';
 export default {
   name: 'LinScrollBar',
   components: {
-    [Spinner.name]: Spinner,
+    [Spinner.name]: Spinner
   },
   props: {
     // 是否一直显示自定义滚动条
     hover: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 高度
     height: {
       type: String,
-      default: '100%',
+      default: '100%'
     },
     // 宽度
     width: {
       type: String,
-      default: '100%',
+      default: '100%'
     },
     // 最大高度
     maxHeight: {
-      type: String,
+      type: String
     },
     // 最小高度
     minHeight: {
-      type: String,
+      type: String
     },
     // 是否正在加载，显示加载动画
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 加载文案
     loadingText: String,
     // 加载器大小
-    loadingSize: String,
+    loadingSize: String
   },
   data() {
     return {
@@ -88,7 +88,7 @@ export default {
       // 是否显示滚动条
       showBar: false,
       // 鼠标悬浮在容器中时候显示自定义滚动条
-      hoverBar: false,
+      hoverBar: false
     };
   },
   mounted() {
@@ -241,7 +241,7 @@ export default {
       const marginTop = this.$refs.wrapper.getBoundingClientRect().top;
       // 计算出鼠标点击的位置距离容器顶部的距离，this.barHeight / 2 是为了让滚动条移动后，鼠标位于滚动条中间
       this.updatePosition(clientY - marginTop - this.barHeight / 2);
-    },
+    }
   },
   computed: {
     // 根节点样式
@@ -257,7 +257,7 @@ export default {
         style['min-height'] = this.minHeight;
       }
       return style;
-    },
+    }
   },
   beforeDestroy() {
     if (this.observer) {
@@ -266,6 +266,6 @@ export default {
     }
     document.removeEventListener('mousemove', this.onMousemove);
     document.removeEventListener('mouseup', this.onMouseup);
-  },
+  }
 };
 </script>

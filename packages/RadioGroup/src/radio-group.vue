@@ -9,7 +9,7 @@ export default {
   name: 'LinRadioGroup',
   provide() {
     return {
-      RadioGroup: this,
+      RadioGroup: this
     };
   },
   props: {
@@ -21,8 +21,8 @@ export default {
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>

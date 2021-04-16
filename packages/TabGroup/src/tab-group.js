@@ -15,7 +15,7 @@ export default {
       onPrevClick,
       containerTranslateX,
       containerWidth,
-      renderTabLabel,
+      renderTabLabel
     } = this;
     const containerwidth = containerWidth;
     const linewidth = lineWidth;
@@ -24,20 +24,20 @@ export default {
         class={[
           { 'lin-tab-group-card': type === 'card' },
           { 'lin-tab-group-border': type === 'border-card' },
-          'lin-tab-group',
+          'lin-tab-group'
         ]}
       >
         <div
           class={[
             'lin-tab-group-header',
-            { 'lin-tab-group-header-scroll': isScroll },
+            { 'lin-tab-group-header-scroll': isScroll }
           ]}
           ref="tabheader"
         >
           <div
             style={{
               transform: `translateX(${containerTranslateX}px)`,
-              width: containerwidth,
+              width: containerwidth
             }}
             class="lin-tab-group-item-wrapper"
             ref="tabheaderWrapper"
@@ -49,7 +49,7 @@ export default {
                 class="lin-tab-group-active-line"
                 style={{
                   width: linewidth,
-                  transform: `translateX(${translateX})`,
+                  transform: `translateX(${translateX})`
                 }}
               ></div>
             )}
@@ -88,25 +88,25 @@ export default {
       // tab容器的宽度
       containerWidth: '0px',
       // 每次移动的步伐
-      step: 60,
+      step: 60
     };
   },
   props: {
     // 绑定值，选中选项卡的 name
     value: {
       type: String,
-      default: null,
+      default: null
     },
     // 风格类型
     type: {
       // card/border-card
       type: String,
-      default: 'default',
-    },
+      default: 'default'
+    }
   },
   provide() {
     return {
-      tabGroup: this,
+      tabGroup: this
     };
   },
   mounted() {
@@ -128,7 +128,7 @@ export default {
               class={[
                 { 'lin-tab-group-active': currentValue === item.name },
                 'lin-tab-group-header-item',
-                { 'lin-tab-group-header-item-disabled': item.disabled },
+                { 'lin-tab-group-header-item-disabled': item.disabled }
               ]}
               id={`tab-${item.name}`}
               key={index}
@@ -186,7 +186,7 @@ export default {
           label: child.label,
           name: child.name || index,
           labelSlot: child.$slots.label || null,
-          disabled: child.disabled,
+          disabled: child.disabled
         };
       });
       // 存储所需要的组件信息
@@ -233,7 +233,7 @@ export default {
       if (this.containerTranslateX < offsetWidth) {
         this.containerTranslateX = offsetWidth;
       }
-    },
+    }
   },
   computed: {
     // 当前值，就是在哪一个tab
@@ -253,16 +253,16 @@ export default {
         } else {
           this.currentIndex = value;
         }
-      },
-    },
+      }
+    }
   },
   watch: {
     currentValue: {
       immediate: true,
       handler() {
         this.initVar();
-      },
-    },
+      }
+    }
   },
   beforeDestroy() {
     if (this.timer) {
@@ -270,5 +270,5 @@ export default {
       this.timer = null;
     }
     window.removeEventListener('resize', this.onResize);
-  },
+  }
 };

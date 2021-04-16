@@ -19,14 +19,14 @@
         class="lin-video-player-process-loaded"
         :style="{
           width: loadedWidth,
-          'transition-duration': mousedown ? '0ms' : '300ms',
+          'transition-duration': mousedown ? '0ms' : '300ms'
         }"
       ></div>
       <div
         class="lin-video-player-process-played"
         :style="{
           width: currentPlayedWidth,
-          'transition-duration': mousedown ? '0ms' : '300ms',
+          'transition-duration': mousedown ? '0ms' : '300ms'
         }"
       >
         <transition name="lin-video-player-ball">
@@ -51,12 +51,12 @@ export default {
   name: 'LinVideoPlayerProcess',
   mixins: [LocaleMixin],
   filters: {
-    secondToTime,
+    secondToTime
   },
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
@@ -69,7 +69,7 @@ export default {
       // 鼠标悬浮在进度条上面的提示距离左边的距离
       maskLeft: 0,
       // 鼠标是否进入进度条容器
-      isEnterMask: false,
+      isEnterMask: false
     };
   },
   mounted() {
@@ -127,7 +127,7 @@ export default {
         return this.videoPlayer.preloadTime;
       }
       return 0;
-    },
+    }
   },
   methods: {
     onMaskMouseLeave() {
@@ -247,12 +247,12 @@ export default {
       this.processBall = null;
       this.videoPlayerProcess = null;
       this.processTime = null;
-    },
+    }
   },
   beforeDestroy() {
     window.removeEventListener('mouseup', this.onMouseUp);
     window.removeEventListener('mousemove', this.onMouseMove);
     this.destroyProcess();
-  },
+  }
 };
 </script>

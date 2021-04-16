@@ -5,7 +5,7 @@
     :class="[
       { 'lin-choice-item-active': itemValue === groupValue },
       { 'lin-choice-item-disabled': itemDisabled },
-      'lin-choice-item',
+      'lin-choice-item'
     ]"
   >
     <slot>
@@ -21,30 +21,30 @@ export default {
     // 选项的标签，若不设置则默认与 value 相同
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     // 选项的值
     value: {
-      type: [Object, String, Number],
+      type: [Object, String, Number]
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   inject: {
     group: {
-      default: '',
+      default: ''
     },
     option: {
-      default: '',
-    },
+      default: ''
+    }
   },
   data() {
     return {
       // 本地搜索时控制该选项是否显示
-      isShow: true,
+      isShow: true
     };
   },
   computed: {
@@ -82,7 +82,7 @@ export default {
         return this.group.inputValue;
       }
       return '';
-    },
+    }
   },
   methods: {
     // 点击选项
@@ -105,7 +105,7 @@ export default {
         // 组件内部过滤方法
         this.isShow = this.itemLabel.toString().includes(value);
       }
-    },
+    }
   },
   watch: {
     // 监听choice-group的value值变化
@@ -116,7 +116,7 @@ export default {
         if (this.itemValue === newVal && this.group) {
           this.group.groupLabel = this.itemLabel;
         }
-      },
+      }
     },
     // 监听choice-group的input值变化，进行本地搜索
     inputValue(newVal) {
@@ -124,7 +124,7 @@ export default {
         newVal = newVal.trim();
       }
       this.matchLabel(newVal);
-    },
-  },
+    }
+  }
 };
 </script>

@@ -15,7 +15,7 @@
         :class="[
           'lin-dropdown-container',
           { 'lin-dropdown-container-down': isDown },
-          { 'lin-dropdown-container-up': !isDown },
+          { 'lin-dropdown-container-up': !isDown }
         ]"
         :style="{ top }"
         ref="dropdownContainer"
@@ -36,13 +36,13 @@ export default {
     // 触发下拉的行为
     trigger: {
       type: String,
-      default: 'hover',
+      default: 'hover'
     },
     // 是否在点击菜单项后隐藏菜单
     hideOnClick: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   data() {
     return {
@@ -51,7 +51,7 @@ export default {
       // 下拉菜单距离顶部距离
       top: 0,
       // 向下显示或者向上显示
-      isDown: true,
+      isDown: true
     };
   },
   mounted() {
@@ -59,7 +59,7 @@ export default {
   },
   provide() {
     return {
-      dropdown: this,
+      dropdown: this
     };
   },
   methods: {
@@ -138,7 +138,7 @@ export default {
       if (!notOutsideContainer.contains(event.target)) {
         this.hideList();
       }
-    },
-  },
+    }
+  }
 };
 </script>

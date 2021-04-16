@@ -3,7 +3,7 @@
     class="lin-selecotr-item"
     :class="{
       'lin-selecotr-active': active,
-      'lin-selecotr-disabled': isDisabled,
+      'lin-selecotr-disabled': isDisabled
     }"
     @click="onClick"
   >
@@ -18,22 +18,22 @@ export default {
     // 标签内容
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     // 选项的值
     value: {
-      default: '',
+      default: ''
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   inject: {
     group: {
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
     // 是否是选择中状态
@@ -56,7 +56,7 @@ export default {
         return true;
       }
       return this.disabled;
-    },
+    }
   },
   methods: {
     // 点击该项
@@ -66,7 +66,7 @@ export default {
         this.group.$emit('input', value);
         this.group.$emit('onChange', value);
       }
-    },
-  },
+    }
+  }
 };
 </script>

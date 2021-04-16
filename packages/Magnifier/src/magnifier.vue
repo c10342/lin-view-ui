@@ -47,31 +47,31 @@ export default {
     // 小图片路径地址
     smallPic: {
       type: String,
-      require: true,
+      require: true
     },
     // 大图片路径地址
     bigPic: {
       type: String,
-      require: true,
+      require: true
     },
     // 小图片样式（必须设置宽高，否则宽高为 0）
     smallStyle: {
       type: Object,
       default: () => ({
         width: 0,
-        height: 0,
-      }),
+        height: 0
+      })
     },
     // 大图片样式（必须设置宽高，否则宽高为 0）
     bigStyle: {
       type: Object,
       default: () => ({
         width: 0,
-        height: 0,
-      }),
+        height: 0
+      })
     },
     // 鼠标移动的遮罩层背景色
-    maskColor: String,
+    maskColor: String
   },
   data() {
     return {
@@ -82,7 +82,7 @@ export default {
       // 鼠标移动的样式,就是鼠标遮罩层需要跟随鼠标移动
       moveStyle: { left: 0, top: 0 },
       // 大图片样式
-      bigImgStyle: { left: 0, top: 0 },
+      bigImgStyle: { left: 0, top: 0 }
     };
   },
   computed: {
@@ -90,9 +90,9 @@ export default {
       return {
         ...this.bigStyle,
         // 让大图片距离左边小图片的边距
-        left: `${parseFloat(this.smallStyle.width) + 10}px`,
+        left: `${parseFloat(this.smallStyle.width) + 10}px`
       };
-    },
+    }
   },
   mounted() {
     // 初始化DOM
@@ -142,15 +142,15 @@ export default {
 
       this.moveStyle = {
         left: `${x}px`,
-        top: `${y}px`,
+        top: `${y}px`
       };
       this.bigImgStyle = {
         left: `${(-x * bigBox.offsetWidth) / smallBox.offsetWidth}px`,
-        top: `${(-y * bigBox.offsetHeight) / smallBox.offsetHeight}px`,
+        top: `${(-y * bigBox.offsetHeight) / smallBox.offsetHeight}px`
       };
 
       this.$emit('move', event);
-    },
-  },
+    }
+  }
 };
 </script>

@@ -25,7 +25,7 @@
               v-if="!iconClass"
               :class="[
                 type ? `lin-icon-${type} lin-message-box-${type}` : '',
-                'lin-message-box-type',
+                'lin-message-box-type'
               ]"
             ></span>
             <span v-else :class="[iconClass, 'lin-message-box-type']"></span>
@@ -87,7 +87,7 @@ export default {
   mixins: [LocaleMixin, DragMixin],
   components: {
     [Button.name]: Button,
-    [Input.name]: Input,
+    [Input.name]: Input
   },
   props: {
     // MessageBox 标题
@@ -105,7 +105,7 @@ export default {
     // MessageBox 是否显示右上角关闭按钮
     showClose: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // MessageBox 关闭前的回调，会暂停实例的关闭
     beforeClose: Function,
@@ -124,29 +124,29 @@ export default {
     // 是否可通过点击遮罩关闭 MessageBox
     closeOnClickModal: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // 是否可通过按下 ESC 键关闭 MessageBox
     closeOnPressEscape: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // 是否在 hashchange 时关闭 MessageBox
     closeOnHashChange: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // 是否显示输入框
     showInput: {
       typs: Boolean,
-      default: false,
+      default: false
     },
     // 输入框的占位符
     inputPlaceholder: String,
     // 输入框的类型
     inputType: {
       type: String,
-      default: 'text',
+      default: 'text'
     },
     // 输入框的初始文本
     inputValue: String,
@@ -163,8 +163,8 @@ export default {
     // loading指示器大小
     loadingSize: {
       type: String,
-      default: '11px',
-    },
+      default: '11px'
+    }
   },
   data() {
     return {
@@ -179,8 +179,8 @@ export default {
       dialogStyle: {
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%,-50%)',
-      },
+        transform: 'translate(-50%,-50%)'
+      }
     };
   },
   computed: {
@@ -201,7 +201,7 @@ export default {
         return this.inputErrorMessage;
       }
       return this.t('LinViewUI.MessageBox.inputErrorMessage');
-    },
+    }
   },
   mounted() {
     if (this.closeOnPressEscape) {
@@ -226,7 +226,7 @@ export default {
     emitClose(by) {
       this.$emit('close', {
         by,
-        value: this.value,
+        value: this.value
       });
     },
     // 处理关闭事件
@@ -302,7 +302,7 @@ export default {
         const result = this.inputPattern.test(data);
         this.showErrorMessage = !result;
       }
-    },
+    }
   },
   beforeDestroy() {
     if (this.closeOnPressEscape) {
@@ -311,6 +311,6 @@ export default {
     if (this.closeOnHashChange) {
       window.removeEventListener('hashchange', this.hashchange);
     }
-  },
+  }
 };
 </script>

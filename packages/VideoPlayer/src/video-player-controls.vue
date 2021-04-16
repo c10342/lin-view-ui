@@ -42,19 +42,19 @@ export default {
   mixins: [LocaleMixin],
   filters: {
     // 格式化时间
-    secondToTime,
+    secondToTime
   },
   components: {
     PlayerProcess,
     PlayerFullscreen,
     PlayerSpeed,
     PlayerVolume,
-    PlayerDefinition,
+    PlayerDefinition
   },
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     isPlaying() {
@@ -95,7 +95,7 @@ export default {
         return this.videoPlayer.isEnter;
       }
       return false;
-    },
+    }
   },
   methods: {
     // 点击播放或者暂停按钮
@@ -103,8 +103,8 @@ export default {
       if (this.videoPlayer) {
         this.videoPlayer.switchPlayingStatus();
       }
-    },
-  },
+    }
+  }
   // beforeDestroy () {
   //   this.videoPlayer.$off('playingStatus', this.onPlayingStatus);
   // }

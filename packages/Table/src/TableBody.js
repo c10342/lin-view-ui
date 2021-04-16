@@ -21,12 +21,12 @@ export default {
         return this.table.valueKey;
       }
       return '';
-    },
+    }
   },
   inject: {
     table: {
-      default: null,
-    },
+      default: null
+    }
   },
   mounted() {
     if (this.table) {
@@ -116,9 +116,9 @@ export default {
         row,
         prop,
         rowIndex,
-        cellIndex: idx,
+        cellIndex: idx
       });
-    },
+    }
   },
   render(h) {
     const {
@@ -127,7 +127,7 @@ export default {
       trClassName,
       valueKey,
       rowClick,
-      cellClick,
+      cellClick
     } = this;
     return (
       <tbody class="lin-table-tbody" ref="linTableTbody">
@@ -150,7 +150,7 @@ export default {
                   {column.renderCell(h, {
                     row,
                     column,
-                    rowIndex,
+                    rowIndex
                   })}
                 </td>
               ))}
@@ -159,5 +159,5 @@ export default {
         })}
       </tbody>
     );
-  },
+  }
 };

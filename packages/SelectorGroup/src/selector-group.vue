@@ -16,7 +16,7 @@ export default {
       label,
       status,
       renderLabel,
-      t,
+      t
     } = this;
 
     return (
@@ -57,46 +57,46 @@ export default {
     // 选择器整体宽度
     width: {
       type: String,
-      default: '',
+      default: ''
     },
     // labelWidth
     labelWidth: {
       type: String,
-      default: '40px',
+      default: '40px'
     },
     // 绑定值
     value: {
-      type: [String, Object, Number, Boolean],
+      type: [String, Object, Number, Boolean]
     },
     // 作为 value 唯一标识的键名，绑定值为对象类型时必填
     valueKey: {
       type: String,
-      default: '',
+      default: ''
     },
     // 自定义渲染更多标签内容，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是否展开或收起的状态值。可以使用 jsx
     renderMore: {
       type: Function,
-      default: null,
+      default: null
     },
     // 自定义渲染头部标签内容，使用 Vue 的 Render 函数，参数是 h，可以使用 jsx
     renderLabel: {
       type: Function,
-      default: null,
+      default: null
     },
     // 头部标签内容
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   provide() {
     return {
-      group: this,
+      group: this
     };
   },
   data() {
@@ -106,7 +106,7 @@ export default {
       // 容器高度
       height: 'auto',
       //   1-收起，2-展开
-      status: 1,
+      status: 1
     };
   },
   mounted() {
@@ -171,7 +171,7 @@ export default {
       // 高度设置为一行的高度
       this.height = `${oneHeight}px`;
       this.status = 1;
-    },
+    }
   },
   // computed: {
   //   // 最外层容器宽度
@@ -184,6 +184,6 @@ export default {
   // },
   beforeDestroy() {
     window.removeEventListener('resize', this.onResize);
-  },
+  }
 };
 </script>

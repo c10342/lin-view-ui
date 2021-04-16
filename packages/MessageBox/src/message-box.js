@@ -79,7 +79,7 @@ function createInstance(options) {
 createInstance.alert = function alert(options) {
   const common = {
     closeOnClickModal: false,
-    closeOnPressEscape: false,
+    closeOnPressEscape: false
   };
   return new Promise(
     (resolve, reject) =>
@@ -87,14 +87,14 @@ createInstance.alert = function alert(options) {
         ...options,
         ...common,
         resolve,
-        reject,
+        reject
       })
   );
 };
 
 createInstance.confirm = function confirm(options) {
   const common = {
-    showCancelButton: true,
+    showCancelButton: true
   };
   return new Promise(
     (resolve, reject) =>
@@ -102,7 +102,7 @@ createInstance.confirm = function confirm(options) {
         ...options,
         ...common,
         resolve,
-        reject,
+        reject
       })
   );
 };
@@ -110,7 +110,7 @@ createInstance.confirm = function confirm(options) {
 createInstance.prompt = function prompt(options) {
   const common = {
     showInput: true,
-    showCancelButton: true,
+    showCancelButton: true
   };
   return new Promise(
     (resolve, reject) =>
@@ -118,7 +118,7 @@ createInstance.prompt = function prompt(options) {
         ...options,
         ...common,
         resolve,
-        reject,
+        reject
       })
   );
 };

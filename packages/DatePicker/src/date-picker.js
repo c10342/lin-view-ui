@@ -37,7 +37,7 @@ export default {
       showAlways,
       showInput,
       t,
-      top,
+      top
     } = this;
     return (
       <div v-click-outside class="lin-date-picker" ref="container">
@@ -53,7 +53,7 @@ export default {
               disabled={disabled}
               class={[
                 { 'lin-date-picker-disabled': disabled },
-                'lin-date-picker-input',
+                'lin-date-picker-input'
               ]}
             />
           </div>
@@ -66,7 +66,7 @@ export default {
               ref="popupContainer"
               class={[
                 { 'lin-date-picker-absolute': !showAlways },
-                'lin-date-picker-pannel',
+                'lin-date-picker-pannel'
               ]}
             >
               <div class="lin-date-picker-pannel-header">
@@ -92,7 +92,7 @@ export default {
                       <span
                         style={{
                           width: `${cellWidth}px`,
-                          height: `${labelHeight}px`,
+                          height: `${labelHeight}px`
                         }}
                         class="lin-date-picker-pannel-label-cell lin-date-picker-cell"
                         key={w}
@@ -112,7 +112,7 @@ export default {
                             key={j}
                             style={{
                               width: `${cellWidth}px`,
-                              height: `${cellHeight}px`,
+                              height: `${cellHeight}px`
                             }}
                             onClick={() => selectDate(currentTime)}
                             class={[
@@ -120,21 +120,21 @@ export default {
                               {
                                 'lin-date-picker-not-current-month': !isCurrentMonth(
                                   currentTime
-                                ),
+                                )
                               },
                               {
                                 'lin-date-picker-current-val': isCurrentval(
                                   currentTime
-                                ),
+                                )
                               },
                               {
                                 'lin-date-picker-disabled-date': isDisabledDate(
                                   currentTime
-                                ),
+                                )
                               },
                               {
-                                'lin-date-picker-radius': radius,
-                              },
+                                'lin-date-picker-radius': radius
+                              }
                             ]}
                           >
                             {info || (
@@ -170,64 +170,64 @@ export default {
       },
       unbind(el) {
         document.removeEventListener('click', el.handler);
-      },
-    },
+      }
+    }
   },
   props: {
     // 日期块是否为圆角
     radius: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 日期块宽度
     cellWidth: {
       type: Number,
-      default: 32,
+      default: 32
     },
     // 日期块高度
     cellHeight: {
       type: Number,
-      default: 32,
+      default: 32
     },
     // 头部标签的高度
     labelHeight: {
       type: Number,
-      default: 32,
+      default: 32
     },
     // 绑定值
     value: {
       type: [Date, String, Number],
-      default: '',
+      default: ''
     },
     // 输入框占位符
     placeholder: {
-      type: String,
+      type: String
     },
     // 自定义渲染日期块，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是日期对象。可以使用 jsx
     renderInfo: {
       type: Function,
-      default: null,
+      default: null
     },
     // 格式化 value/v-model 绑定值
     format: {
       type: String,
-      default: 'string',
+      default: 'string'
     },
     // 自定义输入框的显示内容
     showFormat: {
       type: Function,
-      default: null,
+      default: null
     },
     // 自定义输入框的显示内容
     showAlways: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 是否显示输入框
     showInput: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   data() {
     const { year, month } = getYearMonthDay(this.handleValue());
@@ -239,14 +239,14 @@ export default {
         this.t('LinViewUI.DatePicker.wed'),
         this.t('LinViewUI.DatePicker.thu'),
         this.t('LinViewUI.DatePicker.fir'),
-        this.t('LinViewUI.DatePicker.sat'),
+        this.t('LinViewUI.DatePicker.sat')
       ],
       // 是否显示选择器
       isVisible: false,
       // 头部当前日期
       time: { year, month },
       // 选择器距离顶部距离
-      top: 0,
+      top: 0
     };
   },
   computed: {
@@ -291,7 +291,7 @@ export default {
       }
       const { year, month, day } = getYearMonthDay(this.currentValue);
       return `${year}-${month}-${day}`;
-    },
+    }
   },
   methods: {
     // 设置日期选择器位置
@@ -394,7 +394,7 @@ export default {
       this.$emit('input', d);
       dispatch.call(this, {
         eventName: 'validate',
-        componentName: 'LinFormItem',
+        componentName: 'LinFormItem'
       });
       this.$emit('select', d);
       this.blur();
@@ -421,6 +421,6 @@ export default {
     setTime(date) {
       const { year, month } = getYearMonthDay(date);
       this.time = { year, month };
-    },
-  },
+    }
+  }
 };

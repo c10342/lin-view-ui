@@ -34,13 +34,13 @@ export default {
   data() {
     return {
       // 音量长度
-      processWidth: 0,
+      processWidth: 0
     };
   },
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     video() {
@@ -48,7 +48,7 @@ export default {
         return this.videoPlayer.video;
       }
       return null;
-    },
+    }
   },
   mounted() {
     // 旧的音量
@@ -151,13 +151,13 @@ export default {
       }
       // 设置音量
       this.videoPlayer?.setVolume(volume);
-    },
+    }
   },
   beforeDestroy() {
     window.removeEventListener('mouseup', this.onMouseUp);
     window.removeEventListener('mousemove', this.onMouseMove);
     this.videoPlayerVolumeProcess = null;
     this.$off('onvolumechange', this.setProcessWidth);
-  },
+  }
 };
 </script>

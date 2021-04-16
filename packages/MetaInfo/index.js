@@ -52,7 +52,7 @@ VueMetaInfo.install = function install(Vue) {
         // keep-alive 组件停用时调用。
         updateMetaInfo(this.$metaInfo);
       }
-    },
+    }
   });
 };
 

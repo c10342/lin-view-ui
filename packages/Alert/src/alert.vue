@@ -5,7 +5,7 @@
         'lin-alert',
         `lin-alert-${type}`,
         `lin-alert-${effect}`,
-        { 'lin-alert-center': center },
+        { 'lin-alert-center': center }
       ]"
       v-if="show"
     >
@@ -38,43 +38,43 @@ export default {
     // 标题
     title: {
       type: String,
-      default: '',
+      default: ''
     },
     // 辅助性文字
     description: {
       type: String,
-      default: '',
+      default: ''
     },
     // 图标
     icon: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否可关闭
     closable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 类型
     type: {
       type: String,
-      default: 'success',
+      default: 'success'
     },
     // 主题
     effect: {
       type: String,
-      default: 'light',
+      default: 'light'
     },
     // 文字是否居中
     center: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
       // 是否显示
-      show: true,
+      show: true
     };
   },
   methods: {
@@ -83,7 +83,7 @@ export default {
     },
     afterLeave() {
       this.$emit('close');
-    },
-  },
+    }
+  }
 };
 </script>

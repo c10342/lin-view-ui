@@ -11,7 +11,7 @@
           class="lin-loading-icon"
           :style="{
             'border-top-color': iconColor || '',
-            'border-right-color': iconColor || '',
+            'border-right-color': iconColor || ''
           }"
         ></span>
         <span
@@ -41,13 +41,13 @@ export default {
       // loading颜色
       iconColor: null,
       // 文本颜色
-      textColor: null,
+      textColor: null
     };
   },
   methods: {
     handleAfterLeave() {
       this.$emit('after-leave');
-    },
-  },
+    }
+  }
 };
 </script>

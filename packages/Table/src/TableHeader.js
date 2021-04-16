@@ -5,8 +5,8 @@ export default {
 
   inject: {
     table: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     // 选中的数据
@@ -21,7 +21,7 @@ export default {
           return this.table.selectData;
         }
         return [];
-      },
+      }
     },
     // 数据源
     dataSource() {
@@ -29,13 +29,13 @@ export default {
         return this.table.dataSource;
       }
       return [];
-    },
+    }
   },
   watch: {
     selectData(val) {
       // 修改checkbox选中状态
       this.changeCheckboxStatus(val);
-    },
+    }
   },
   methods: {
     // 渲染头部单元格，有三中类型，普通的，checkbox，index
@@ -112,7 +112,7 @@ export default {
         // 不选
         this.switchCheckboxStatus(3);
       }
-    },
+    }
   },
   render(h) {
     const { renderTh } = this;
@@ -131,5 +131,5 @@ export default {
         </tr>
       </thead>
     );
-  },
+  }
 };

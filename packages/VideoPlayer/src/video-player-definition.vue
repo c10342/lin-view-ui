@@ -27,8 +27,8 @@ export default {
   name: 'LinVideoPlayerDefinition',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     video() {
@@ -63,7 +63,7 @@ export default {
         if (this.videoPlayer) {
           this.videoPlayer.currentDefinitionVideo = value;
         }
-      },
+      }
     },
     // 剩下的清晰度列表
     definitionList: {
@@ -77,14 +77,14 @@ export default {
         if (this.videoPlayer) {
           this.videoPlayer.definitionList = value;
         }
-      },
-    },
+      }
+    }
   },
   methods: {
     // 设置清晰度视频
     setDefinition(data) {
       this.videoPlayer?.setDefinition(data);
-    },
-  },
+    }
+  }
 };
 </script>

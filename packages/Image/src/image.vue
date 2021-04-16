@@ -39,37 +39,37 @@ export default {
     // 确定图片如何适应容器框，同原生 object-fit
     fit: {
       type: String,
-      default: '',
+      default: ''
     },
     // 原生 referrerPolicy
     referrerPolicy: {
       type: String,
-      default: '',
+      default: ''
     },
     // 原生 alt
     alt: {
       type: String,
-      default: '',
+      default: ''
     },
     // 开启图片预览
     preview: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 图片预览显示动画，即 transition 组件 name 属性
     transitionName: {
       type: String,
-      default: 'lin-image-animation',
+      default: 'lin-image-animation'
     },
     // 点击遮罩层是否可以关闭图片预览
     clickMask: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // 图片加载失败提示语
     errorMsg: {
-      type: String,
-    },
+      type: String
+    }
   },
   data() {
     return {
@@ -78,7 +78,7 @@ export default {
       // 是否加载图片错误
       isError: false,
       // 显示预览图片
-      showPreview: false,
+      showPreview: false
     };
   },
   methods: {
@@ -101,14 +101,14 @@ export default {
         this.$emit('error', {
           url: this.imgUrl[this.index],
           index: this.index,
-          e,
+          e
         });
         if (this.index === this.imgUrl.length - 1) {
           // 所有图片加载失败
           this.isError = true;
           this.$emit('AllError', {
             urls: this.imgUrl.slice(),
-            e,
+            e
           });
           return;
         }
@@ -116,7 +116,7 @@ export default {
       } else {
         this.$emit('error', {
           url: this.imgUrl,
-          e,
+          e
         });
       }
     },
@@ -126,12 +126,12 @@ export default {
         this.$emit('success', {
           url: this.imgUrl[this.index],
           index: this.index,
-          e,
+          e
         });
       } else {
         this.$emit('success', {
           url: this.imgUrl,
-          e,
+          e
         });
       }
     },
@@ -146,7 +146,7 @@ export default {
     },
     setError(flag) {
       this.isError = flag;
-    },
+    }
   },
   computed: {
     url() {
@@ -170,7 +170,7 @@ export default {
         return false;
       }
       return !this.isError;
-    },
-  },
+    }
+  }
 };
 </script>

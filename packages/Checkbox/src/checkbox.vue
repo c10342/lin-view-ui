@@ -3,7 +3,7 @@
     class="lin-checkbox"
     :class="{
       'lin-checkbox-is-checked': isChecked,
-      'lin-checkbox-is-disabled': isDisabled,
+      'lin-checkbox-is-disabled': isDisabled
     }"
   >
     <span class="lin-checkbox-input">
@@ -31,8 +31,8 @@ export default {
   name: 'LinCheckbox',
   inject: {
     CheckboxGroup: {
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
     isGroup() {
@@ -50,9 +50,9 @@ export default {
         }
         dispatch.call(this, {
           eventName: 'validate',
-          componentName: 'LinFormItem',
+          componentName: 'LinFormItem'
         });
-      },
+      }
     },
     isChecked() {
       // 如果是group包裹，判断 label是否在model中
@@ -66,29 +66,29 @@ export default {
         }
       }
       return this.disabled;
-    },
+    }
   },
   props: {
     // 绑定值
     value: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 原生属性name
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     // lin-checkbox 的 value，只能结合 lin-checkbox-group 使用
     label: {
       type: [String, Number],
-      default: '',
+      default: ''
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>

@@ -9,8 +9,8 @@ export default {
   name: 'LinVideoPlayerLoading',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     // 控制loading是否显示
@@ -19,7 +19,7 @@ export default {
         return this.videoPlayer.isLoading;
       }
       return false;
-    },
-  },
+    }
+  }
 };
 </script>

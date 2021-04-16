@@ -23,33 +23,33 @@ export default {
     // 类型
     type: {
       type: String,
-      default: 'primary',
+      default: 'primary'
     },
     // 文本
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     // 背景色
     color: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否可关闭
     closable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 主题
     effect: {
       type: String,
-      default: 'light',
-    },
+      default: 'light'
+    }
   },
   data() {
     return {
       // 控制是否显示
-      show: true,
+      show: true
     };
   },
   methods: {
@@ -64,7 +64,7 @@ export default {
     // vue过度动画结束
     afterLeave() {
       this.$emit('close');
-    },
-  },
+    }
+  }
 };
 </script>

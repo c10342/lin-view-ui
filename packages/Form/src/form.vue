@@ -11,22 +11,22 @@ export default {
     // 表单数据对象
     model: {
       type: Object,
-      required: true,
+      required: true
     },
     // 标签宽度
     labelWidth: {
       type: String,
-      default: '80px',
+      default: '80px'
     },
     // 表单校验规则
     rules: {
       type: Object,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   provide() {
     return {
-      Form: this,
+      Form: this
     };
   },
   methods: {
@@ -57,7 +57,7 @@ export default {
       };
 
       broad(this.$children);
-    },
-  },
+    }
+  }
 };
 </script>

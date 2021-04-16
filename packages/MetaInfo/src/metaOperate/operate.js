@@ -26,6 +26,6 @@ export default function operate() {
 
     removeMetaInfo() {
       _removeNode(_ndHead);
-    },
+    }
   };
 }

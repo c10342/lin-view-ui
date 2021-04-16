@@ -25,38 +25,38 @@ export default {
   name: 'LinTable',
   components: {
     LinTableHeader,
-    LinTableBody,
+    LinTableBody
   },
   props: {
     // 数据源
     dataSource: {
       type: Array,
       default: () => [],
-      require: true,
+      require: true
     },
     // 边框表格
     border: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 斑马纹
     stripe: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 每一行的类名
     rowClassName: {
-      type: [Function, String],
+      type: [Function, String]
     },
     // 每一行数据的唯一标识key
     valueKey: {
       type: String,
-      require: true,
-    },
+      require: true
+    }
   },
   provide() {
     return {
-      table: this,
+      table: this
     };
   },
   data() {
@@ -64,7 +64,7 @@ export default {
       // 存储每一列的孩子信息
       columns: [],
       // 通过checkbox选中的数据
-      selectData: [],
+      selectData: []
     };
   },
   methods: {
@@ -116,7 +116,7 @@ export default {
       this.$refs.linTableBodyComp.selectSelection(this.selectData);
       // 改变checkbox选中状态
       this.$refs.linTableHeaderComp.changeCheckboxStatus(this.selectData);
-    },
-  },
+    }
+  }
 };
 </script>

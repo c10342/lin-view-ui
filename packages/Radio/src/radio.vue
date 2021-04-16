@@ -3,7 +3,7 @@
     class="lin-radio"
     :class="{
       'lin-radio-is-checked': label === model,
-      'lin-radio-is-disabled': isDisable,
+      'lin-radio-is-disabled': isDisable
     }"
   >
     <span class="lin-radio-input">
@@ -33,8 +33,8 @@ export default {
   // 需要提供一个计算属性 model
   inject: {
     RadioGroup: {
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
     model: {
@@ -50,9 +50,9 @@ export default {
         }
         dispatch.call(this, {
           eventName: 'validate',
-          componentName: 'LinFormItem',
+          componentName: 'LinFormItem'
         });
-      },
+      }
     },
     isGroup() {
       // 用于判断radio是否被radioGroup所包裹
@@ -65,26 +65,26 @@ export default {
         }
       }
       return this.disabled;
-    },
+    }
   },
   props: {
     // Radio 的 value
     label: {
       type: [String, Number, Boolean],
-      default: '',
+      default: ''
     },
     // 绑定值
     value: null,
     // 原生属性 name
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>

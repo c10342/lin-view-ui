@@ -3,7 +3,7 @@
     class="lin-switch"
     :class="{
       'lin-switch-is-checked': value,
-      'lin-switch-is-disabled': disabled,
+      'lin-switch-is-disabled': disabled
     }"
     @click="handleClick"
   >
@@ -32,28 +32,28 @@ export default {
     // 绑定值
     value: {
       type: Boolean,
-      default: false,
+      default: false
     },
     //  打开时的背景色
     activeColor: {
       type: String,
-      default: '',
+      default: ''
     },
     // 关闭时的背景色
     inactiveColor: {
       type: String,
-      default: '',
+      default: ''
     },
     // 原生属性 name
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
     handleClick() {
@@ -61,10 +61,10 @@ export default {
         this.$emit('input', !this.value);
         dispatch.call(this, {
           eventName: 'validate',
-          componentName: 'LinFormItem',
+          componentName: 'LinFormItem'
         });
       }
-    },
+    }
   },
   computed: {
     color() {
@@ -78,7 +78,7 @@ export default {
         return this.inactiveColor;
       }
       return '';
-    },
-  },
+    }
+  }
 };
 </script>

@@ -19,54 +19,54 @@ import request from 'src/js/request.js';
 export default {
   name: 'LinUpload',
   components: {
-    'lin-button': LinButton,
+    'lin-button': LinButton
   },
   props: {
     // 文本
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     // 切片大小
     fileChunkSize: {
       type: Number,
-      default: 10 * 1024 * 1024,
+      default: 10 * 1024 * 1024
     },
     // 上传地址
     uploadUrl: {
       type: String,
-      required: true,
+      required: true
     },
     // 请求合并切片地址
     mergeUrl: {
-      type: String,
+      type: String
     },
     // 是否切片上传
     isSlice: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 开启断点续传功能
     breakpoint: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。
     beforeUpload: {
-      type: Function,
+      type: Function
     },
     // 对文件进行切片的处理方法
     splitFileChunk: {
-      type: Function,
+      type: Function
     },
     // 计算文件 hash 值的方法，需返回一个 Promise
     caculateFileHash: {
-      type: Function,
+      type: Function
     },
     // 请求合并切片的方法 ，需返回一个 Promise
     requestMergeFileFn: {
-      type: Function,
-    },
+      type: Function
+    }
   },
   mounted() {
     // 文件
@@ -127,7 +127,7 @@ export default {
         // 切片文件
         chunk: file,
         // 切片hash，给个索引是为了，全部上传完之后，后台可以知道每个切片所在的位置
-        hash: `${this.selectedFile.name}-${index}`,
+        hash: `${this.selectedFile.name}-${index}`
       }));
       // 上传切片
       this.uploadChunksBySlice();
@@ -169,7 +169,7 @@ export default {
         // 切片hash值
         hash: `${this.fileHash}-${index}`,
         // 整个文件的hash值
-        fileHash: this.fileHash,
+        fileHash: this.fileHash
       }));
 
       // 上传切片
@@ -183,7 +183,7 @@ export default {
         formData.append('file', this.selectedFile);
         const res = await request({
           url: this.uploadUrl,
-          data: formData,
+          data: formData
         });
         this.$emit('uploadSuccess', res);
       } catch (error) {
@@ -211,7 +211,7 @@ export default {
         .map(({ formData }) =>
           request({
             url: this.uploadUrl,
-            data: formData,
+            data: formData
           })
         );
       try {
@@ -251,7 +251,7 @@ export default {
             data: formData,
             requestList: this.requestList,
             hash,
-            fileHash,
+            fileHash
           })
         );
 
@@ -307,7 +307,7 @@ export default {
           // 文件名
           filename: this.selectedFile.name,
           // 切片大小
-          size: this.fileChunkSize,
+          size: this.fileChunkSize
         };
         if (this.breakpoint) {
           // 断点续传，需要带上文件的hash值
@@ -320,9 +320,9 @@ export default {
           res = await request({
             url: this.mergeUrl,
             headers: {
-              'content-type': 'application/json',
+              'content-type': 'application/json'
             },
-            data: JSON.stringify(parmas),
+            data: JSON.stringify(parmas)
           });
         }
         this.$emit('mergeFileSuccess', res);
@@ -331,7 +331,7 @@ export default {
       } catch (error) {
         this.$emit('mergeFileFail', error);
       }
-    },
-  },
+    }
+  }
 };
 </script>

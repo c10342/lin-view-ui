@@ -16,18 +16,18 @@ export default {
     // 分组的组名
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否禁用该分组
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   provide() {
     return {
-      option: this,
+      option: this
     };
-  },
+  }
 };
 </script>

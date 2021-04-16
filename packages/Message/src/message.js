@@ -49,7 +49,7 @@ class LinMessage {
       'customClass',
       'center',
       'onClose',
-      'offset',
+      'offset'
     ];
     const propsData = {};
     props.forEach((prop) => {
@@ -67,8 +67,8 @@ class LinMessage {
     }
     this.instance = new MessageConstruct({
       propsData: {
-        ...this.propsData,
-      },
+        ...this.propsData
+      }
     });
     if (this.instance) {
       // 将实例存放到实例数组中
@@ -159,7 +159,7 @@ function createInstance(options) {
     return new LinMessage(options);
   }
   return new LinMessage({
-    message: options.toString(),
+    message: options.toString()
   });
 }
 
@@ -169,12 +169,12 @@ function createInstanceByType(options, type) {
   if (toString.call(options).includes('Object')) {
     return new LinMessage({
       ...options,
-      type,
+      type
     });
   }
   return new LinMessage({
     message: options.toString(),
-    type,
+    type
   });
 }
 

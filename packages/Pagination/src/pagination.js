@@ -10,37 +10,37 @@ export default {
     // 页码按钮的数量，当总页数超过该值时会折叠
     pageCount: {
       default: 7,
-      type: Number,
+      type: Number
     },
     // 每页显示条目个数
     pageSize: {
       default: 10,
-      type: Number,
+      type: Number
     },
     // 总条目数
     total: {
       type: Number,
-      default: 0,
+      default: 0
     },
     // 当前页数，支持 .sync 修饰符
     pageIndex: {
-      type: Number,
+      type: Number
     },
     // 是否为分页按钮添加背景色是否为分页按钮添加背景色
     background: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 组件布局，子组件名用逗号分隔
     layout: {
       type: String,
-      default: 'prev, pager, next, jumper,total',
-    },
+      default: 'prev, pager, next, jumper,total'
+    }
   },
   data() {
     return {
       // 当前页数,当用户没有传pageIndex时也能使用
-      myPageIndex: 1,
+      myPageIndex: 1
     };
   },
   render(h) {
@@ -142,7 +142,7 @@ export default {
           class={[
             'lin-pagination-item',
             'lin-icon-left',
-            { 'lin-pagination-disabled': disabledPrev },
+            { 'lin-pagination-disabled': disabledPrev }
           ]}
           onClick={prevClick}
         ></span>
@@ -160,8 +160,8 @@ export default {
                 { 'lin-pagination-active': item.index === currentPage },
                 {
                   'lin-pagination-ellipsis':
-                    item.type === 'prev' || item.type === 'next',
-                },
+                    item.type === 'prev' || item.type === 'next'
+                }
               ]}
               key={index}
               onClick={() => onItemClick(item)}
@@ -186,7 +186,7 @@ export default {
           class={[
             'lin-pagination-item',
             'lin-icon-right',
-            { 'lin-pagination-disabled': disabledNext },
+            { 'lin-pagination-disabled': disabledNext }
           ]}
           onClick={nextClick}
         ></span>
@@ -199,7 +199,7 @@ export default {
         gotoPageByEnter,
         gotoPageByBlur,
         currentPage,
-        t,
+        t
       } = this;
       return (
         <div class="lin-pagintaion-jumpe">
@@ -216,7 +216,7 @@ export default {
           <span>{t('LinViewUI.Pagination.page')}</span>
         </div>
       );
-    },
+    }
   },
   computed: {
     // 当前页码
@@ -233,7 +233,7 @@ export default {
         } else {
           this.myPageIndex = val;
         }
-      },
+      }
     },
     // 是否禁用上一个
     disabledPrev() {
@@ -302,6 +302,6 @@ export default {
       let splitArr = this.layout.split(',') || [];
       splitArr = splitArr.map((item) => item.trim());
       return splitArr;
-    },
-  },
+    }
+  }
 };

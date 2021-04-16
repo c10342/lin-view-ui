@@ -35,40 +35,40 @@ export default {
   mixins: [LocaleMixin],
   model: {
     prop: 'value',
-    event: 'change',
+    event: 'change'
   },
   props: {
     // 输入框占位符
     placeholder: {
-      type: String,
+      type: String
     },
     // 行高
     rows: {
       type: Number,
-      default: 4,
+      default: 4
     },
     // 最大长度
     maxLen: {
       type: Number,
-      default: -1,
+      default: -1
     },
     // 超出字符是否裁剪
     isCut: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 绑定值
     value: {
       type: [String, Number],
-      default: '',
-    },
+      default: ''
+    }
   },
   data() {
     return {
       // 是否溢出,即超出最大长度
       isOver: false,
       // 可输入的字符数
-      num: this.maxLen,
+      num: this.maxLen
     };
   },
   methods: {
@@ -102,7 +102,7 @@ export default {
         this.num = currentValue.length - this.maxLen;
         this.$emit('overText', currentValue);
       }
-    },
+    }
   },
   computed: {
     maxlength() {
@@ -117,16 +117,16 @@ export default {
         placeholder: this.placeholder
           ? this.placeholder
           : this.t('LinViewUI.LimitTextarea.placeholder'),
-        rows: this.rows,
+        rows: this.rows
       };
       if (this.maxlength !== -1) {
         obj.maxlength = this.maxlength;
       }
       return {
         ...this.$attrs,
-        ...obj,
+        ...obj
       };
-    },
-  },
+    }
+  }
 };
 </script>

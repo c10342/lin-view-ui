@@ -43,32 +43,32 @@ export default {
   props: {
     // 标题
     title: {
-      type: String,
+      type: String
     },
     // 宽度
     width: {
       type: String,
-      default: '50%',
+      default: '50%'
     },
     // 距离顶部距离，即margin-top的属性
     top: {
       type: String,
-      default: '15vh',
+      default: '15vh'
     },
     // 控制组件是否显示，支持.sync 修饰符
     visible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 关闭前的回调，会暂停 Dialog 的关闭
     beforeClose: {
-      type: Function,
+      type: Function
     },
     // 是否可以通过点击 modal 关闭 Dialog
     closeOnClickModa: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
 
   methods: {
@@ -89,7 +89,7 @@ export default {
       if (this.closeOnClickModa) {
         this.handleClose();
       }
-    },
-  },
+    }
+  }
 };
 </script>

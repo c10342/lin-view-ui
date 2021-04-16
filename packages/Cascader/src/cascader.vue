@@ -26,7 +26,7 @@
           'lin-cascader-popup',
           { 'lin-cascader-popup-up': !isDown },
           ,
-          { 'lin-cascader-popup-down': isDown },
+          { 'lin-cascader-popup-down': isDown }
         ]"
         v-show="showPopup"
         :style="{ top }"
@@ -57,79 +57,79 @@ export default {
   mixins: [documentClick, LocaleMixin],
   components: {
     [Input.name]: Input,
-    [Panel.name]: Panel,
+    [Panel.name]: Panel
   },
   props: {
     // 可选项数据源
     options: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     // 自定义数据显示方法
     showFormat: {
-      type: Function,
+      type: Function
     },
     // 选项中绑定的值
     value: {
       type: Array,
-      default: null,
+      default: null
     },
     // 是否支持清空
     clearable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 输入框文本占位符
     placeholder: {
-      type: String,
+      type: String
     },
     // 是否动态加载子节点，需与 lazyLoad 方法结合使用
     lazy: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 加载动态数据的方法，仅在 lazy 为 true 时有效
     lazyLoad: {
-      type: Function,
+      type: Function
     },
     // 选项分隔符
     separator: {
       type: String,
-      default: '/',
+      default: '/'
     },
     // 指定选项标签为选项对象的某个属性值
     label: {
       type: String,
-      default: 'label',
+      default: 'label'
     },
     // 指定选项的子选项为选项对象的某个属性值
     children: {
       type: String,
-      default: 'children',
+      default: 'children'
     },
     // 指定选项的最终叶子节点的标志位为选项对象的某个属性值
     leaf: {
       type: String,
-      default: 'leaf',
+      default: 'leaf'
     },
     // 指定选项的禁用为选项对象的某个属性值
     disabled: {
       type: String,
-      default: 'disabled',
+      default: 'disabled'
     },
     // 指定选项的唯一值为选项对象的某个属性值
     valueKey: {
       type: String,
-      default: 'id',
+      default: 'id'
     },
     // 暂无数据提示语
     emptyTip: {
-      type: String,
-    },
+      type: String
+    }
   },
   provide() {
     return {
-      cascader: this,
+      cascader: this
     };
   },
   data() {
@@ -145,7 +145,7 @@ export default {
       // 距离顶部距离
       top: 0,
       // 展开位置，当向下位置不足够时向上展开
-      isDown: false,
+      isDown: false
     };
   },
   async created() {
@@ -247,7 +247,7 @@ export default {
       if (!notOutsideContainer.contains(event.target)) {
         this.hidePuop();
       }
-    },
+    }
   },
   computed: {
     // 存储选中的值
@@ -269,7 +269,7 @@ export default {
         } else {
           this.myValueArr = val;
         }
-      },
+      }
     },
     // 显示在输入框中的文本
     text() {
@@ -314,7 +314,7 @@ export default {
         return this.optionsList;
       }
       return this.options;
-    },
-  },
+    }
+  }
 };
 </script>

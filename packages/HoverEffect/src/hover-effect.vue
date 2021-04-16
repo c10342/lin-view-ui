@@ -4,7 +4,7 @@
     :class="[
       'lin-hover-effect',
       `lin-hover-effect-theme-${theme}`,
-      `lin-hover-effect-type-${type}`,
+      `lin-hover-effect-type-${type}`
     ]"
   >
     <slot>{{ text }}</slot>
@@ -18,22 +18,22 @@ export default {
     // 效果类型
     type: {
       type: String,
-      default: 'primary',
+      default: 'primary'
     },
     // 效果主题
     theme: {
       type: String,
-      default: 'neon',
+      default: 'neon'
     },
     // 文本
     text: {
-      type: String,
-    },
+      type: String
+    }
   },
   methods: {
     onClick() {
       this.$emit('click');
-    },
-  },
+    }
+  }
 };
 </script>

@@ -16,13 +16,13 @@ export default {
   name: 'LinVideoPlayerAnimation',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
       // 是否展示播放，暂停的动画
-      showAnimation: false,
+      showAnimation: false
     };
   },
   computed: {
@@ -31,19 +31,19 @@ export default {
         return this.videoPlayer.isPlaying;
       }
       return false;
-    },
+    }
   },
   methods: {
     // 动画结束
     animationend() {
       this.showAnimation = false;
-    },
+    }
   },
   watch: {
     isPlaying() {
       // 监听播放状态
       this.showAnimation = true;
-    },
-  },
+    }
+  }
 };
 </script>

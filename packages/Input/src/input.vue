@@ -44,55 +44,55 @@ export default {
   data() {
     return {
       // 用于控制是否显示密码框
-      passwordVisible: false,
+      passwordVisible: false
     };
   },
   props: {
     // 输入框占位符
     placeholder: {
       type: String,
-      default: '',
+      default: ''
     },
     // 输入框类型
     type: {
       type: String,
-      default: 'text',
+      default: 'text'
     },
     // 原生属性name
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否禁用文本框
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 绑定值
     value: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否可清空
     clearable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 是否显示切换密码图标，即密文切换成明文，明文切换成密文
     showPassword: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 最大长度
     maxlength: {
       type: Number,
-      default: -1,
+      default: -1
     },
     // 最小长度
     minlength: {
       type: Number,
-      default: -1,
-    },
+      default: -1
+    }
   },
   computed: {
     // 是否显示清空图标或者切面密码图标
@@ -113,9 +113,9 @@ export default {
       }
       return {
         ...obj,
-        ...this.$attrs,
+        ...this.$attrs
       };
-    },
+    }
   },
   methods: {
     // 键盘抬起事件
@@ -133,7 +133,7 @@ export default {
       this.$emit('input', data);
       dispatch.call(this, {
         eventName: 'validate',
-        componentName: 'LinFormItem',
+        componentName: 'LinFormItem'
       });
     },
     // 切换密码图标的变化
@@ -145,7 +145,7 @@ export default {
     },
     onFocus(e) {
       this.$emit('focus', e);
-    },
-  },
+    }
+  }
 };
 </script>

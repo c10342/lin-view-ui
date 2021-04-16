@@ -9,8 +9,8 @@ export default {
   name: 'LinVideoPlayerTip',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     // 左下角提示
@@ -32,8 +32,8 @@ export default {
         if (this.videoPlayer) {
           this.videoPlayer.tipTime = value;
         }
-      },
-    },
+      }
+    }
   },
   mounted() {
     this.timer = null;
@@ -43,7 +43,7 @@ export default {
       if (this.timer) {
         clearTimeout(this.timer);
       }
-    },
+    }
   },
   watch: {
     tip(value) {
@@ -58,10 +58,10 @@ export default {
           this.destroyTimeout();
         }, this.tipTime);
       }
-    },
+    }
   },
   beforeDestroy() {
     this.destroyTimeout();
-  },
+  }
 };
 </script>

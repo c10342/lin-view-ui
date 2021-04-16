@@ -19,7 +19,7 @@
           :class="[
             'lin-date-axis-item',
             { 'lin-date-axis-active': isEqual(currentDate, date) },
-            { 'lin-date-axis-disabled': isDisabledDate(date) },
+            { 'lin-date-axis-disabled': isDisabledDate(date) }
           ]"
           @click="onItemClick(date)"
         >
@@ -47,7 +47,7 @@
         class="lin-date-axis-line"
         :style="{
           width: lineWidth,
-          transform: `translateX(${lineTranslateX})`,
+          transform: `translateX(${lineTranslateX})`
         }"
       ></div>
     </div>
@@ -65,7 +65,7 @@
           :class="[
             'lin-date-axis-popup',
             { 'lin-date-axis-popup-left': !isRight },
-            { 'lin-date-axis-popup-right': isRight },
+            { 'lin-date-axis-popup-right': isRight }
           ]"
           v-show="isShowPopup"
           ref="scrollContainer"
@@ -104,17 +104,17 @@ export default {
   name: 'LinDateAxis',
   mixins: [documentClick, LocaleMixin, DateMixin],
   components: {
-    [DatePicker.name]: DatePicker,
+    [DatePicker.name]: DatePicker
   },
   model: {
     prop: 'value',
-    event: 'change',
+    event: 'change'
   },
   props: {
     // 绑定值
     value: {
-      type: [Date, String],
-    },
+      type: [Date, String]
+    }
     // disabledBeforeDate: Date,
     // disabledAfterDate: Date,
     // disabledRangeDate: Array,
@@ -139,7 +139,7 @@ export default {
       // 日期选择器出现位置，左边或者右边
       isRight: true,
       // 日期选择器距离左边距离
-      left: '0px',
+      left: '0px'
     };
   },
   created() {
@@ -150,7 +150,7 @@ export default {
       3: this.t('LinViewUI.DateAxis.wed'),
       4: this.t('LinViewUI.DateAxis.thu'),
       5: this.t('LinViewUI.DateAxis.fir'),
-      6: this.t('LinViewUI.DateAxis.sat'),
+      6: this.t('LinViewUI.DateAxis.sat')
     };
     this.init(this.currentDate);
   },
@@ -421,7 +421,7 @@ export default {
       if (!notOutsideContainer.contains(event.target)) {
         this.hidePopup();
       }
-    },
+    }
   },
   computed: {
     // 当前选中的时间
@@ -444,8 +444,8 @@ export default {
           this.selectTime = val;
         }
         this.$emit('change', val);
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>

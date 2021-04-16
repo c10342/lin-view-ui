@@ -29,13 +29,13 @@ export default {
   mixins: [LocaleMixin],
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
       currentSpeed: null,
-      list: [],
+      list: []
     };
   },
   computed: {
@@ -53,7 +53,7 @@ export default {
       }
       const t = (20 + 10) * this.list.length + 10;
       return `${-t}px`;
-    },
+    }
   },
   mounted() {
     this.$nextTick(() => {
@@ -89,7 +89,7 @@ export default {
         const playbackRate = this.currentSpeed.value;
         this.videoPlayer.setSpeed(playbackRate);
       }
-    },
-  },
+    }
+  }
 };
 </script>

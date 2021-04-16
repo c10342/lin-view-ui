@@ -27,43 +27,43 @@ export default {
     // 百分比（必填）
     percent: {
       type: Number,
-      default: 0,
+      default: 0
     },
     // 进度条底层颜色
     innerColor: {
       type: String,
-      default: '',
+      default: ''
     },
     // 进度条上层颜色
     outColor: {
       type: String,
-      default: '',
+      default: ''
     },
     // 进度条的高度，单位 px
     height: {
       type: Number,
-      default: 10,
+      default: 10
     },
     // 是否需要圆角
     radius: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // 进度条外面的提示文字
     textOutside: {
       type: String,
-      default: '',
+      default: ''
     },
     // 进度条类型
     type: {
       type: String,
-      default: 'primary',
+      default: 'primary'
     },
     // 进度条里面的提示文字
     textInside: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
   computed: {
     width() {
@@ -78,7 +78,7 @@ export default {
     // 内层进度条样式
     innerStyle() {
       const style = {
-        width: this.width,
+        width: this.width
       };
       if (this.innerColor) {
         style.backgroundColor = this.innerColor;
@@ -119,7 +119,7 @@ export default {
       }
 
       return false;
-    },
-  },
+    }
+  }
 };
 </script>

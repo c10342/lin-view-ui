@@ -5,7 +5,7 @@
         'lin-message',
         `lin-message-${type}`,
         { 'lin-message-center': center },
-        customClass ? customClass : '',
+        customClass ? customClass : ''
       ]"
       v-show="show"
       :style="{ top: `${offsetTop}px` }"
@@ -13,7 +13,7 @@
       <i
         :class="[
           'lin-message-icon',
-          iconClass ? iconClass : `lin-icon-${type}`,
+          iconClass ? iconClass : `lin-icon-${type}`
         ]"
       ></i>
       <p class="lin-message-content" v-if="!dangerouslyUseHTMLString">
@@ -40,29 +40,29 @@ export default {
     // 类型主题
     type: {
       type: String,
-      default: 'info',
+      default: 'info'
     },
     // 是否显示关闭按钮
     showClose: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 消息文字
     message: {
-      type: String,
+      type: String
     },
     // 自定义图标的类名，会覆盖 type
     iconClass: {
-      type: String,
+      type: String
     },
     // 是否将 message 属性作为 HTML 片段处理
     dangerouslyUseHTMLString: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 自定义类名
     customClass: {
-      type: String,
+      type: String
     },
     // duration: {
     //   type: Number,
@@ -71,24 +71,24 @@ export default {
     // 文字是否居中
     center: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 关闭时的回调函数
     onClose: {
-      type: Function,
+      type: Function
     },
     // Message 距离窗口顶部的偏移量
     offset: {
       type: Number,
-      default: 20,
-    },
+      default: 20
+    }
   },
   data() {
     return {
       // 控制是否显示
       show: false,
       // 距离窗口顶部偏移量
-      top: 0,
+      top: 0
     };
   },
   methods: {
@@ -105,13 +105,13 @@ export default {
       if (this.onClose) {
         this.onClose();
       }
-    },
+    }
   },
   computed: {
     // 距离顶部距离
     offsetTop() {
       return this.top + this.offset;
-    },
-  },
+    }
+  }
 };
 </script>

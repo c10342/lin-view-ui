@@ -26,35 +26,35 @@ export default {
     // 显示文本的长度
     len: {
       type: Number,
-      default: -1,
+      default: -1
     },
     // 文本
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     // 折叠时需要显示文案
     showText: {
-      type: String,
+      type: String
     },
     // 隐藏时需要显示文案
     hiddenText: {
-      type: String,
+      type: String
     },
     // 是否允许折叠
-    allowFold: Boolean,
+    allowFold: Boolean
   },
   data() {
     return {
       // 记录文本长度
-      textLen: this.len,
+      textLen: this.len
     };
   },
   methods: {
     showMore() {
       this.textLen =
         this.textLen === this.text.length ? this.len : this.text.length;
-    },
+    }
   },
   filters: {
     filterText(value, textLen) {
@@ -62,7 +62,7 @@ export default {
         return `${value.substring(0, textLen)}...`;
       }
       return value;
-    },
-  },
+    }
+  }
 };
 </script>

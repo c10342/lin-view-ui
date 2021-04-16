@@ -21,22 +21,22 @@ export default {
     // 显示的值
     value: {
       type: [String, Number],
-      default: '',
+      default: ''
     },
     // 最大值，超过最大值会显示 '{max}+'
     max: {
-      type: Number,
+      type: Number
     },
     // 是否显示小圆点
     isDot: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 类型
     type: {
       type: String,
-      default: 'primary',
-    },
+      default: 'primary'
+    }
   },
   computed: {
     text() {
@@ -50,7 +50,7 @@ export default {
         return this.value;
       }
       return '';
-    },
-  },
+    }
+  }
 };
 </script>

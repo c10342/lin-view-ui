@@ -14,15 +14,15 @@ export default {
     // 对齐方式
     align: {
       type: String,
-      default: 'left',
+      default: 'left'
     },
     // 对应列的类型
-    type: String,
+    type: String
   },
   inject: {
     table: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     valueKey() {
@@ -30,7 +30,7 @@ export default {
         return this.table.valueKey;
       }
       return '';
-    },
+    }
   },
   watch: {
     prop(val) {
@@ -38,7 +38,7 @@ export default {
     },
     label(val) {
       this.column.label = val;
-    },
+    }
   },
   beforeCreate() {
     // 存储该列的信息对象
@@ -48,7 +48,7 @@ export default {
     // 把该组件的props属性都存储起来
     const column = {
       ...this.$props,
-      id: `col-${columnId++}`,
+      id: `col-${columnId++}`
     };
     // 默认提供一个渲染单元格的render函数
     column.renderCell = (h, rowData) => {
@@ -122,12 +122,12 @@ export default {
         this.table.emitSelect({
           row: data.row,
           checked,
-          rowIndex: data.rowIndex,
+          rowIndex: data.rowIndex
         });
       }
-    },
+    }
   },
   render() {
     return null;
-  },
+  }
 };

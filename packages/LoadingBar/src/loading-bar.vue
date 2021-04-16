@@ -33,8 +33,8 @@ export default {
       // 每次前进的百分比
       percentNum: 0,
       // 加载速度
-      speed: 5,
+      speed: 5
     };
-  },
+  }
 };
 </script>

@@ -48,11 +48,11 @@ export default {
     PlayerAnimation,
     PlayerImage,
     PlayerLoading,
-    PlayerTip,
+    PlayerTip
   },
   provide() {
     return {
-      videoPlayer: this,
+      videoPlayer: this
     };
   },
   data() {
@@ -92,7 +92,7 @@ export default {
       // 鼠标是否进入容器
       isEnter: true,
       // 自定义支持其他 MSE 可使用此参数
-      customType: null,
+      customType: null
     };
   },
   mounted() {
@@ -194,7 +194,7 @@ export default {
           type: 'flv',
           url: videoSrc,
           isLive: this.live,
-          ...flvParams,
+          ...flvParams
         });
         this.flv.attachMediaElement(this.video);
         this.flv.load();
@@ -209,7 +209,7 @@ export default {
           autoplay: this.autoplay,
           speedList: this.speedList,
           videoList: this.videoList,
-          live: this.live,
+          live: this.live
         })
       );
     },
@@ -410,10 +410,10 @@ export default {
     // 鼠标进入容器
     onMouseEnter() {
       this.isEnter = true;
-    },
+    }
   },
   beforeDestroy() {
     this.destoryPlayer();
-  },
+  }
 };
 </script>

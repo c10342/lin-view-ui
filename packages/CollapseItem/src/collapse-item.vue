@@ -5,7 +5,7 @@
         :class="[
           { 'lin-collapse-arrow-down': show },
           'lin-icon-right',
-          'lin-collapse-arrow',
+          'lin-collapse-arrow'
         ]"
         v-if="!hideArrow"
       ></i>
@@ -29,21 +29,21 @@ export default {
     // 当前面板的 name，与 CollapseGroup 的 value 对应，必填项
     name: {
       type: [String, Number],
-      require: true,
+      require: true
     },
     // 隐藏箭头
     hideArrow: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   components: {
-    collapseTransition,
+    collapseTransition
   },
   inject: {
     collapseGroup: {
-      default: '',
-    },
+      default: ''
+    }
   },
   // data () {
   //   return {
@@ -107,13 +107,13 @@ export default {
           }
           this.collapseGroup.collapseValue = data;
         }
-      },
-    },
+      }
+    }
   },
   methods: {
     onHeaderClick() {
       this.show = !this.show;
-    },
-  },
+    }
+  }
 };
 </script>

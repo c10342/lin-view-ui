@@ -9,7 +9,7 @@
       { 'lin-button-circle': circle },
       { 'lin-button-disabled': disabled },
       { 'lin-button-loading': loading },
-      `lin-button-size-${size}`,
+      `lin-button-size-${size}`
     ]"
     :disabled="disabled"
   >
@@ -32,59 +32,59 @@ import Spinner from 'packages/Spinner/index.js';
 export default {
   name: 'LinButton',
   components: {
-    [Spinner.name]: Spinner,
+    [Spinner.name]: Spinner
   },
   props: {
     // 类型
     type: {
       type: String,
-      default: 'default',
+      default: 'default'
     },
     // 是否为朴素按钮
     plain: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 是否为圆角按钮
     round: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 是否为圆形按钮
     circle: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 按钮图标
     icon: {
       type: String,
-      default: '',
+      default: ''
     },
     // 尺寸
     size: {
       type: String,
-      default: 'default',
+      default: 'default'
     },
     // 是否加载中状态
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 加载器颜色
     loadingColor: {
       type: String,
-      default: '#fff',
+      default: '#fff'
     },
     // 加载器大小
     loadingSize: {
       type: String,
-      default: '14px',
-    },
+      default: '14px'
+    }
   },
 
   methods: {
@@ -92,7 +92,7 @@ export default {
       if (!this.loading) {
         this.$emit('click');
       }
-    },
-  },
+    }
+  }
 };
 </script>

@@ -5,7 +5,7 @@
       :class="[
         'lin-spinner-loading',
         `lin-spinner-type-${type}`,
-        `lin-spinner-proportion-${proportion}`,
+        `lin-spinner-proportion-${proportion}`
       ]"
     ></div>
     <div class="lin-spinner-text" v-if="text" :style="textStyle">
@@ -26,7 +26,7 @@ export default {
         return ['primary', 'success', 'info', 'warning', 'danger'].includes(
           value
         );
-      },
+      }
     },
     // 文案对齐方向
     vertical: {
@@ -34,7 +34,7 @@ export default {
       default: 'row',
       validator(value) {
         return ['col', 'row'].includes(value);
-      },
+      }
     },
     // 弧度
     proportion: {
@@ -42,7 +42,7 @@ export default {
       default: '1',
       validator(value) {
         return ['1', '2', '3', 1, 2, 3].includes(value);
-      },
+      }
     },
     // 显示器颜色
     loadingColor: String,
@@ -62,9 +62,9 @@ export default {
           'groove',
           'ridge',
           'inset',
-          'outset',
+          'outset'
         ].includes(value);
-      },
+      }
     },
     // css3 动画名称
     animationName: String,
@@ -79,7 +79,7 @@ export default {
           'ease',
           'ease-in',
           'ease-out',
-          'ease-in-out',
+          'ease-in-out'
         ].includes(value);
         if (result) {
           return true;
@@ -88,7 +88,7 @@ export default {
           return true;
         }
         return false;
-      },
+      }
     },
     // 运动次数
     iterationCount: {
@@ -101,14 +101,14 @@ export default {
           return true;
         }
         return false;
-      },
+      }
     },
     // 加载文案
     text: String,
     // 加载文案字体大小
     textSize: String,
     // 加载文案字体颜色
-    textColor: String,
+    textColor: String
   },
   computed: {
     // 加载器样式
@@ -151,7 +151,7 @@ export default {
         obj.color = this.textColor;
       }
       return obj;
-    },
-  },
+    }
+  }
 };
 </script>

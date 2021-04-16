@@ -11,27 +11,27 @@ export default {
     // 选项卡标题
     label: {
       type: String,
-      default: '',
+      default: ''
     },
     // 与选项卡绑定值 value 对应的标识符，表示选项卡别名
     name: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   inject: {
     tabGroup: {
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      index: 0,
+      index: 0
     };
   },
   computed: {
@@ -46,7 +46,7 @@ export default {
       }
 
       return 0;
-    },
-  },
+    }
+  }
 };
 </script>

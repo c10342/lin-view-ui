@@ -6,7 +6,7 @@ import {
   handleType,
   handleEl,
   handleSpeedList,
-  handleVideoList,
+  handleVideoList
 } from './utils.js';
 
 import './style.scss';
@@ -78,7 +78,7 @@ class LinVideoPlayer {
       speedList = [],
       videoList = [],
       live = false,
-      customType,
+      customType
     } = options;
     this.videoList = videoList;
     this.speedList = speedList;
@@ -100,8 +100,8 @@ class LinVideoPlayer {
         videoList: this.videoList,
         type: this.type,
         live: this.live,
-        customType: this.customType,
-      },
+        customType: this.customType
+      }
     });
     // 初始化挂在的容器
     if (typeof this.el === 'string') {
@@ -201,7 +201,7 @@ class LinVideoPlayer {
       broadcast.call(this.instance, {
         eventName: 'onvolumechange',
         params: volume,
-        componentName: 'LinVideoPlayerVolume',
+        componentName: 'LinVideoPlayerVolume'
       });
     }
   }
@@ -223,7 +223,7 @@ class LinVideoPlayer {
         } else if (type === 'browser') {
           self.instance?.cancelBrowserFullScreen();
         }
-      },
+      }
     };
   }
 

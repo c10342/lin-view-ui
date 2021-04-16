@@ -6,7 +6,7 @@
           :class="[
             'lin-panel-item',
             { 'lin-panel-active': current[valueKey] === item[valueKey] },
-            { 'lin-panel-disabled': item[disabled] },
+            { 'lin-panel-disabled': item[disabled] }
           ]"
           v-for="(item, index) in options"
           :key="index"
@@ -34,13 +34,13 @@ export default {
     // 可选项数据源
     options: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     // 面板所在的层级，就是第几个面板
     level: {
       type: Number,
-      default: 0,
-    },
+      default: 0
+    }
   },
   inject: ['cascader'],
   computed: {
@@ -99,7 +99,7 @@ export default {
         return this.cascader.lazyLoad;
       }
       return null;
-    },
+    }
   },
   created() {
     // 监听displayPuop事件
@@ -147,7 +147,7 @@ export default {
       // 当前选中数据源的对象
       current: {},
       // 是否显示加载器
-      loading: false,
+      loading: false
     };
   },
   methods: {
@@ -217,7 +217,7 @@ export default {
     showLoading(data) {
       const { valueKey } = this;
       return data[valueKey] === this.current[valueKey] && this.loading;
-    },
-  },
+    }
+  }
 };
 </script>

@@ -15,7 +15,7 @@ function openLoading(el, binding) {
   const options = {
     fullscreen,
     target,
-    lock,
+    lock
   };
   // 获取目标对象上面的属性
   const text = el.getAttribute('lin-loading-text');
@@ -60,7 +60,7 @@ loadingDirective.install = (Vue) => {
     unbind(el) {
       // 解绑的时候
       closeLoading(el);
-    },
+    }
   });
 };
 

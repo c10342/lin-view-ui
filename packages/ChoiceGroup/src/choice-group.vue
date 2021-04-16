@@ -4,7 +4,7 @@
       ref="choiceGroupInput"
       :class="[
         { 'lin-choice-group-disabled': disabled },
-        'lin-choice-group-input-container',
+        'lin-choice-group-input-container'
       ]"
       @mouseleave="onMouseLeave"
       @mouseenter="onMouseEnter"
@@ -25,7 +25,7 @@
           { 'lin-choice-group-icon-up': isShow },
           'lin-icon-down',
           'lin-choice-group-down-icon',
-          'lin-choice-group-icon',
+          'lin-choice-group-icon'
         ]"
         v-if="!showCloseIcon"
       ></i>
@@ -41,7 +41,7 @@
         :class="[
           'lin-choice-container-wrapper',
           { 'lin-choice-container-wrapper-up': !isDown },
-          { 'lin-choice-container-wrapper-down': isDown },
+          { 'lin-choice-container-wrapper-down': isDown }
         ]"
         v-show="isShow"
       >
@@ -98,90 +98,90 @@ export default {
   name: 'LinChoiceGroup',
   mixins: [LocaleMixin, documentClick],
   components: {
-    [Input.name]: Input,
+    [Input.name]: Input
   },
   props: {
     // 输入框占位符
     placeholder: {
-      type: String,
+      type: String
     },
     // 绑定值
     value: {
-      type: [Object, String, Number],
+      type: [Object, String, Number]
     },
     //  作为 value 唯一标识的键名，绑定值为对象类型时必填
     valueKey: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否可清空
     clearable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 是否禁用
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 开启下拉加载时是否进行防抖
     isThrottle: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // 是否开启下拉加载
     scroll: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 防抖间隔
     time: {
       type: Number,
-      default: 500,
+      default: 500
     },
     // 是否开启加载动画
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 加载提示语
     loadingTip: {
       type: String,
-      default: '',
+      default: ''
     },
     // 数据为空时提示语
     emptyTip: {
-      type: String,
+      type: String
     },
     // 是否完成加载，一般用于滚动加载
     finishLoading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 默认显示内容，一般用于滚动加载回显数据
     defaultLabelName: {
       type: [String, Number],
-      default: '',
+      default: ''
     },
     // 是否显示远程搜索输入框
     showSearchInput: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 远程搜索输入框占位符
     searchPlaceholder: {
       type: String,
-      default: '',
+      default: ''
     },
     // 是否开启本地搜索
     filterable: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 自定义本地搜索方法
     filterMethod: {
-      type: Function,
-    },
+      type: Function
+    }
   },
   data() {
     return {
@@ -202,12 +202,12 @@ export default {
       // 是否暂无数据
       noData: false,
       // 是否正在进行本地搜索
-      isSearch: false,
+      isSearch: false
     };
   },
   provide() {
     return {
-      group: this,
+      group: this
     };
   },
   computed: {
@@ -221,7 +221,7 @@ export default {
         return this.inputValue;
       }
       return this.groupLabel || this.defaultLabelName;
-    },
+    }
   },
   mounted() {
     // 处理滚动行为定时器
@@ -245,7 +245,7 @@ export default {
           this.lock = false;
         }, 500);
       }
-    },
+    }
   },
   methods: {
     // 设置显示位置
@@ -381,7 +381,7 @@ export default {
         const children = findChildren(this, 'LinChoiceItem');
         this.noData = children.every((child) => !child.isShow);
       });
-    },
+    }
   },
   beforeDestroy() {
     if (this.timer) {
@@ -390,6 +390,6 @@ export default {
     if (this.lockTimer) {
       clearTimeout(this.lockTimer);
     }
-  },
+  }
 };
 </script>

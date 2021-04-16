@@ -12,15 +12,15 @@ import {
   isBrowserFullscreen,
   isBrowserFullscreenEnabled,
   enterBrowserFullScreen,
-  exitBrowserFullscreen,
+  exitBrowserFullscreen
 } from './utils.js';
 
 export default {
   name: 'LinVideoPlayerFullscreen',
   inject: {
     videoPlayer: {
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     video() {
@@ -28,7 +28,7 @@ export default {
         return this.videoPlayer.video;
       }
       return null;
-    },
+    }
   },
   methods: {
     // 切换浏览器全屏状态
@@ -48,7 +48,7 @@ export default {
     onWebFullscreen() {
       exitBrowserFullscreen();
       this.videoPlayer?.switchWebfullscreen();
-    },
-  },
+    }
+  }
 };
 </script>

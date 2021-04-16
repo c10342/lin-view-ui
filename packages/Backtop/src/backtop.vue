@@ -31,28 +31,28 @@ export default {
     // 显示位置，距离页面右边距离
     right: {
       type: Number,
-      default: 40,
+      default: 40
     },
     // 显示位置，距离页面底部距离
     bottom: {
       type: Number,
-      default: 40,
+      default: 40
     },
     // 滚动触发的对象
     target: {
       type: String,
-      default: null,
+      default: null
     },
     // 滚动高度达到次参数才显示组件
     visibilityHeight: {
       type: Number,
-      default: 200,
-    },
+      default: 200
+    }
   },
   data() {
     return {
       // 控制组件是否显示
-      visible: false,
+      visible: false
     };
   },
   mounted() {
@@ -103,12 +103,12 @@ export default {
         }
       };
       rAF(frameFunc);
-    },
+    }
   },
   beforeDestroy() {
     this.container.removeEventListener('scroll', this.throttledScrollHandler);
     this.el = null;
     this.container = null;
-  },
+  }
 };
 </script>

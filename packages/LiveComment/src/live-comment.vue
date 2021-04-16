@@ -73,71 +73,71 @@ export default {
   name: 'LinLiveComment',
   mixins: [LocaleMixin],
   components: {
-    [Image.name]: Image,
+    [Image.name]: Image
   },
   props: {
     // 评论列表
     commentList: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     // 悬浮的评论，当 fixComment 不为空并且列表没有滚动到最底部时显示
     fixComment: {
       type: Object,
-      default: null,
+      default: null
     },
     // 绑定值
     value: {
       type: String,
-      default: '',
+      default: ''
     },
     // 按钮文本
     btnText: {
-      type: String,
+      type: String
     },
     // 是否允许发表评论
     arrowComment: {
       type: Boolean,
-      default: false,
+      default: false
     },
     // 输入框占位符
     placeholder: {
-      type: String,
+      type: String
     },
     // 输入框最长长度
     maxlength: {
       type: Number,
-      default: -1,
+      default: -1
     },
     // 是否节流滚动事件
     throttle: {
       type: Boolean,
-      default: true,
+      default: true
     },
     // 标题
     title: {
-      type: String,
+      type: String
     },
     // 观看人数
     viewCount: {
       type: Number,
-      default: 0,
+      default: 0
     },
     // 默认头像
     defaultAvator: {
       type: String,
-      default: defaultAvator,
+      default: defaultAvator
     },
     // 是否正在加载，防止用户多次点击
     isLoading: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
       // 是否滚动到底部，默认是在底部
-      isScrollToBottom: true,
+      isScrollToBottom: true
     };
   },
   methods: {
@@ -191,7 +191,7 @@ export default {
     // 点击登录按钮
     gotoLogin() {
       this.$emit('loginBtnClick');
-    },
+    }
   },
   watch: {
     commentList: {
@@ -203,8 +203,8 @@ export default {
             this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
           });
         }
-      },
-    },
+      }
+    }
   },
   computed: {
     commentPlaceholder() {
@@ -223,12 +223,12 @@ export default {
         obj.placeholder = this.commentPlaceholder;
       }
       return obj;
-    },
+    }
   },
   beforeDestroy() {
     if (this.scrollTimer) {
       clearTimeout(this.scrollTimer);
     }
-  },
+  }
 };
 </script>

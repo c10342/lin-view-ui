@@ -33,13 +33,13 @@ export default {
     // 表单域model字段
     prop: String,
     // 表单域标签宽度
-    labelWidth: String,
+    labelWidth: String
   },
   inject: ['Form'],
   data() {
     return {
       // 错误信息
-      errorMsg: '',
+      errorMsg: ''
     };
   },
   mounted() {
@@ -60,7 +60,7 @@ export default {
           this.errorMsg = '';
           this.Form.$emit('validate', {
             result: true,
-            [this.prop]: value,
+            [this.prop]: value
           });
           return true;
         })
@@ -69,14 +69,14 @@ export default {
           this.Form.$emit('validate', {
             result: false,
             [this.prop]: value,
-            ...fields,
+            ...fields
           });
           return false;
         });
     },
     clearValidate() {
       this.errorMsg = '';
-    },
+    }
   },
   computed: {
     itemLabelWidth() {
@@ -87,7 +87,7 @@ export default {
         return this.Form.labelWidth;
       }
       return 0;
-    },
-  },
+    }
+  }
 };
 </script>
