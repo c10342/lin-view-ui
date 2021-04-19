@@ -38,7 +38,8 @@ export default {
     // 类型
     type: {
       type: String,
-      default: 'default'
+      default: 'default',
+      options: ['default', 'primary', 'success', 'warning', 'danger', 'info']
     },
     // 是否为朴素按钮
     plain: {
@@ -68,7 +69,8 @@ export default {
     // 尺寸
     size: {
       type: String,
-      default: 'default'
+      default: 'default',
+      options: ['default', 'medium', 'small']
     },
     // 是否加载中状态
     loading: {
