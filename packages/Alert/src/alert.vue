@@ -58,12 +58,14 @@ export default {
     // 类型
     type: {
       type: String,
-      default: 'success'
+      default: 'success',
+      options: ['success', 'warning', 'info', 'danger']
     },
     // 主题
     effect: {
       type: String,
-      default: 'light'
+      default: 'light',
+      options: ['light', 'dark']
     },
     // 文字是否居中
     center: {
