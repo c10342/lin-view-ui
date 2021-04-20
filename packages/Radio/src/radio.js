@@ -1,5 +1,5 @@
 import Radio from './radio.vue';
 
-import './style.scss';
+import 'packages/radio/src/style.scss';
 
 export default Radio;

@@ -1,5 +1,5 @@
 import ChoiceOption from './choice-option.vue';
 
-import './style.scss';
+import 'packages/choice-option/src/style.scss';
 
 export default ChoiceOption;

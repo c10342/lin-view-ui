@@ -1,6 +1,6 @@
 import CollapseGroup from './collapse-group.vue';
 
-import './style.scss';
+import 'packages/collapse-group/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 

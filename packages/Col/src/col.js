@@ -1,4 +1,4 @@
-import './style.scss';
+import 'packages/col/src/style.scss';
 
 export default {
   name: 'LinCol',

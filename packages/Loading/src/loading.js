@@ -2,7 +2,7 @@ import service from './service.js';
 
 import directive from './directive.js';
 
-import './style.scss';
+import 'packages/loading/src/style.scss';
 
 export default {
   service,

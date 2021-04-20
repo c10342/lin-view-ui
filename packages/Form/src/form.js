@@ -1,5 +1,5 @@
 import Form from './form.vue';
 
-import './style.scss';
+import 'packages/form/src/style.scss';
 
 export default Form;

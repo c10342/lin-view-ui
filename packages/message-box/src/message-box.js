@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import MessageBox from './message-box.vue';
 
-import './style.scss';
+import 'packages/message-box/src/style.scss';
 
 const MessageBoxConstruct = Vue.extend(MessageBox);
 

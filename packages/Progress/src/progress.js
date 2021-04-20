@@ -1,5 +1,5 @@
 import Progress from './progress.vue';
 
-import './style.scss';
+import 'packages/progress/src/style.scss';
 
 export default Progress;

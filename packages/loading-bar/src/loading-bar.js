@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import LoadingBar from './loading-bar.vue';
-import './style.scss';
+import 'packages/loading-bar/src/style.scss';
 
 const LoadingBarConstructor = Vue.extend(LoadingBar);
 

@@ -1,5 +1,5 @@
 import DateAxis from './date-axis.vue';
 
-import './style.scss';
+import 'packages/date-axis/src/style.scss';
 
 export default DateAxis;

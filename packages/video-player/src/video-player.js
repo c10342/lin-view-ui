@@ -9,7 +9,7 @@ import {
   handleVideoList
 } from './utils.js';
 
-import './style.scss';
+import 'packages/video-player/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 

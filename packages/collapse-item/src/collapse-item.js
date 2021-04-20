@@ -1,5 +1,5 @@
 import CollpaseItem from './collapse-item.vue';
 
-import './style.scss';
+import 'packages/collapse-item/src/style.scss';
 
 export default CollpaseItem;

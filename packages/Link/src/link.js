@@ -1,6 +1,6 @@
 import Link from './link.vue';
 
-import './style.scss';
+import 'packages/link/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 

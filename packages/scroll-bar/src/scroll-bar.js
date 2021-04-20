@@ -1,5 +1,5 @@
 import ScrollBar from './scroll-bar.vue';
 
-import './style.scss';
+import 'packages/scroll-bar/src/style.scss';
 
 export default ScrollBar;

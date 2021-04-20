@@ -1,4 +1,4 @@
-import './style.scss';
+import 'packages/date-picker/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 

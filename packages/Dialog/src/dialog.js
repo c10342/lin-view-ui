@@ -1,6 +1,6 @@
 import Dialog from './dialog.vue';
 
-import './style.scss';
+import 'packages/dialog/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 

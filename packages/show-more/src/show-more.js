@@ -1,5 +1,5 @@
 import ShowMore from './show-more.vue';
 
-import './style.scss';
+import 'packages/show-more/src/style.scss';
 
 export default ShowMore;
