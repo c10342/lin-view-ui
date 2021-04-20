@@ -6,8 +6,6 @@ const baseConfig = require('./webpack.build.base');
 
 const util = require('./util');
 
-const WritePlugin = require('./writePlugin.js');
-
 const entry = util.getComponentEntries();
 
 const componentConfig = {
@@ -25,8 +23,7 @@ const componentConfig = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name]/style.css'
-    }),
-    new WritePlugin('style.js')
+    })
   ]
 };
 
