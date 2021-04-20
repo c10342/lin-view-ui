@@ -26,6 +26,9 @@ function getComponentExternals() {
   const compnentEntry = getComponentEntries();
   Object.keys(compnentEntry).forEach((name) => {
     obj[`packages/${name}/index.js`] = `lin-view-ui/lib/${name}/index.js`;
+    obj[
+      `packages/${name}/src/style.scss`
+    ] = `lin-view-ui/lib/${name}/style.css`;
   });
   return obj;
 }
