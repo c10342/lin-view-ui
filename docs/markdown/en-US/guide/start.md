@@ -43,12 +43,12 @@ Vue.use(LinUi);
 
 ### Load on demand
 
-With the help of [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) We can only introduce the required components to reduce the project volume.
+With the help of [babel-plugin-component](https://github.com/ElementUI/babel-plugin-component) We can only introduce the required components to reduce the project volume.
 
-First,install babel-plugin-import
+First,install babel-plugin-component
 
 ```bash
-npm install babel-plugin-import -D
+npm install babel-plugin-component -D
 ```
 
 Then, modify .babelrc to read:
@@ -56,14 +56,11 @@ Then, modify .babelrc to read:
 ```js
 plugins: [
     [
-      "import",
+      "component",
       {
-        libraryName: "lin-view-ui",
-        camel2DashComponentName: false, // Is it necessary to change hump to short line
-        camel2UnderlineComponentName: false, // Do I need to underline humps
-        style: true,
-      },
-    ],
+        "libraryName": "lin-view-ui"
+      }
+    ]
   ],
 ```
 

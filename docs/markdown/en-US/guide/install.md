@@ -22,13 +22,4 @@ Get the latest version from [unpkg.com/lin-view-ui](https://unpkg.com/browse/lin
 <script src="https://unpkg.com/browse/lin-view-ui/lib/index.js"></script>
 ```
 
-### On demand introduction
-
-```javascript
-<!-- import Button CSS -->
-<link rel="stylesheet" href="https://unpkg.com/browse/lin-view-ui/lib/Button/style.css">
-<!-- import Button JavaScript -->
-<script src="https://unpkg.com/browse/lin-view-ui/lib/Button/index.js"></script>
-```
-
 We recommend our users to lock lin-view-ui's version when using CDN. Please refer to [unpkg.com](https://unpkg.com/) for more information.
