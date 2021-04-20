@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import LinButton from 'packages/Button/index.js';
+import LinButton from 'packages/button/index.js';
 import splitFileChunk from 'src/utils/splitFileChunk.js';
 import caculateFileHash from 'src/utils/caculateFileHash.js';
 import request from 'src/js/request.js';

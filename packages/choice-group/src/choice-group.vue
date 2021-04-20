@@ -92,7 +92,7 @@
 import LocaleMixin from 'src/mixins/locale.js';
 import documentClick from 'src/mixins/documentClick.js';
 import findChildren from 'src/utils/findChildren.js';
-import Input from 'packages/Input/index.js';
+import Input from 'packages/input/index.js';
 
 export default {
   name: 'LinChoiceGroup',

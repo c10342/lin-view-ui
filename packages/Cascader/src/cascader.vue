@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import Input from 'packages/Input/index.js';
+import Input from 'packages/input/index.js';
 import documentClick from 'src/mixins/documentClick.js';
 import LocaleMixin from 'src/mixins/locale.js';
 import Panel from './panel.vue';

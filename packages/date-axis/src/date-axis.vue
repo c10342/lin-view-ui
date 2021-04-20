@@ -90,7 +90,7 @@
 </template>
 
 <script>
-import DatePicker from 'packages/DatePicker/index.js';
+import DatePicker from 'packages/date-picker/index.js';
 import documentClick from 'src/mixins/documentClick.js';
 import LocaleMixin from 'src/mixins/locale.js';
 import DateMixin from 'src/mixins/date.js';

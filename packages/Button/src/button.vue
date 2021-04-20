@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import Spinner from 'packages/Spinner/index.js';
+import Spinner from 'packages/spinner/index.js';
 
 export default {
   name: 'LinButton',

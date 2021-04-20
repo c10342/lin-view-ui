@@ -38,7 +38,7 @@
 
 <script>
 import ResizeObserver from 'resize-observer-polyfill';
-import Spinner from 'packages/Spinner/index.js';
+import Spinner from 'packages/spinner/index.js';
 
 export default {
   name: 'LinScrollBar',

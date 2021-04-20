@@ -77,8 +77,8 @@
 </template>
 
 <script>
-import Button from 'packages/Button/index.js';
-import Input from 'packages/Input/index.js';
+import Button from 'packages/button/index.js';
+import Input from 'packages/input/index.js';
 import LocaleMixin from 'src/mixins/locale.js';
 import DragMixin from 'src/mixins/drag.js';
 

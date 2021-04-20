@@ -66,7 +66,7 @@
 
 <script>
 import LocaleMixin from 'src/mixins/locale.js';
-import Image from 'packages/Image/index.js';
+import Image from 'packages/image/index.js';
 import defaultAvator from 'src/images/default_avatar.png';
 
 export default {
