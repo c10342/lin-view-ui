@@ -21,7 +21,16 @@ const mixinsList = fs.readdirSync(resolve('mixins'));
 const jsList = fs.readdirSync(resolve('js'));
 const imageList = fs.readdirSync(resolve('images'));
 
-exports.getExternalsList = () => {
+function getComponentExternals() {
+  const obj = {};
+  const compnentEntry = getComponentEntries();
+  Object.keys(compnentEntry).forEach((name) => {
+    obj[`packages/${name}/index.js`] = `lin-view-ui/lib/${name}/index.js`;
+  });
+  return obj;
+}
+
+const getExternalsList = () => {
   const externals = {
     vue: {
       root: 'Vue',
@@ -35,7 +44,8 @@ exports.getExternalsList = () => {
     'src/locale/lang/en-US.js': 'lin-view-ui/lib/assets/locale/lang/en-US.js',
     'src/locale/format.js': 'lin-view-ui/lib/assets/locale/format.js',
     'src/fonts/iconfont.css': 'lin-view-ui/src/fonts/iconfont.css',
-    'flv.js/dist/flv.js': 'flv.js/dist/flv.js'
+    'flv.js/dist/flv.js': 'flv.js/dist/flv.js',
+    ...getComponentExternals()
   };
 
   utilsList.forEach(function (file) {
@@ -55,4 +65,38 @@ exports.getExternalsList = () => {
     externals[`src/images/${file}`] = `lin-view-ui/src/images/${file}`;
   });
   return externals;
+};
+
+const getAssetsEntries = (pathStr) => {
+  const files = fs.readdirSync(resolve(pathStr));
+  const assetsEntries = files.reduce((ret, item) => {
+    const itemPath = path.join(pathStr, item);
+    const myPath = resolve(`${itemPath}`);
+    const stat = fs.lstatSync(myPath);
+    if (stat.isFile()) {
+      ret[`${pathStr}/${item}`] = myPath;
+    }
+    return ret;
+  }, {});
+  return assetsEntries;
+};
+
+const getComponentEntries = () => {
+  const files = fs.readdirSync(path.join(__dirname, '../packages'));
+  const componentEntries = files.reduce((ret, item) => {
+    const itemPath = path.join('../packages', item);
+    const [name] = item.split('.');
+    ret[name] = path.join(__dirname, `${itemPath}`);
+    return ret;
+  }, {});
+  return componentEntries;
+};
+
+const output = path.resolve(__dirname, '../lib');
+
+module.exports = {
+  getExternalsList,
+  getAssetsEntries,
+  getComponentEntries,
+  output
 };
