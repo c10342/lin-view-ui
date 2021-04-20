@@ -1,7 +1,3 @@
-const path = require('path');
-
-const fs = require('fs');
-
 const { merge } = require('webpack-merge');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -12,26 +8,14 @@ const util = require('./util');
 
 const WritePlugin = require('./writePlugin.js');
 
-const getComponentEntries = (pathStr) => {
-  const files = fs.readdirSync(path.join(__dirname, '../', pathStr));
-  const componentEntries = files.reduce((ret, item) => {
-    const itemPath = path.join(pathStr, item);
-    const [name] = item.split('.');
-    ret[name] = path.join(__dirname, '../', `${itemPath}`);
-    return ret;
-  }, {});
-  return componentEntries;
-};
-
-const output = path.resolve(__dirname, '../lib');
-const entry = getComponentEntries('packages');
+const entry = util.getComponentEntries();
 
 const componentConfig = {
   entry,
   output: {
-    path: output,
+    path: util.output,
     filename: '[name]/index.js',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs2',
     libraryExport: 'default',
     library: '[name]'
   },

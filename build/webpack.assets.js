@@ -1,34 +1,30 @@
-const path = require('path');
-
-const fs = require('fs');
-
 const { merge } = require('webpack-merge');
-
-const resolve = (dir) => path.resolve(__dirname, '../src', dir);
 
 const baseConfig = require('./webpack.base');
 
 const util = require('./util');
 
-const getAssetsEntries = (pathStr) => {
-  const files = fs.readdirSync(resolve(pathStr));
-  const assetsEntries = files.reduce((ret, item) => {
-    const itemPath = path.join(pathStr, item);
-    const myPath = resolve(`${itemPath}`);
-    const stat = fs.lstatSync(myPath);
-    if (stat.isFile()) {
-      ret[`${pathStr}/${item}`] = myPath;
-    } else {
-      const result = getAssetsEntries(`${pathStr}/${item}`);
-      ret = {
-        ...ret,
-        ...result
-      };
-    }
-    return ret;
-  }, {});
-  return assetsEntries;
-};
+// const getAssetsEntries = (pathStr) => {
+//   const files = fs.readdirSync(resolve(pathStr));
+//   const assetsEntries = files.reduce((ret, item) => {
+//     const itemPath = path.join(pathStr, item);
+//     const myPath = resolve(`${itemPath}`);
+//     const stat = fs.lstatSync(myPath);
+//     if (stat.isFile()) {
+//       ret[`${pathStr}/${item}`] = myPath;
+//     } else {
+//       const result = getAssetsEntries(`${pathStr}/${item}`);
+//       ret = {
+//         ...ret,
+//         ...result
+//       };
+//     }
+//     return ret;
+//   }, {});
+//   return assetsEntries;
+// };
+
+const getAssetsEntries = util.getAssetsEntries;
 
 const entry = {
   ...getAssetsEntries('js'),
@@ -41,12 +37,10 @@ const assetsConfig = {
   mode: 'production',
   entry: entry,
   output: {
-    path: path.resolve(__dirname, '../lib'),
+    path: util.output,
     filename: `assets/[name]`,
-    libraryTarget: 'umd',
     libraryExport: 'default',
-    // libraryTarget: "commonjs2",
-    // libraryExport: "default",
+    libraryTarget: 'commonjs2',
     library: '[name]'
   },
   externals: {

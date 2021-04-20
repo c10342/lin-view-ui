@@ -6,13 +6,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const baseConfig = require('./webpack.build.base');
 
-const output = path.resolve(__dirname, '../lib');
+const util = require('./util.js');
+
 const entry = path.resolve(__dirname, '../src/index.js');
 
 const indexConfig = {
   entry,
   output: {
-    path: output,
+    path: util.output,
     filename: 'index.js',
     libraryTarget: 'umd',
     libraryExport: 'default',
