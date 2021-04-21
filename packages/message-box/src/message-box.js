@@ -2,6 +2,8 @@ import Vue from 'vue';
 import MessageBox from './message-box.vue';
 
 import 'packages/message-box/src/style.scss';
+import 'packages/button/src/style.scss';
+import 'packages/input/src/style.scss';
 
 const MessageBoxConstruct = Vue.extend(MessageBox);
 
