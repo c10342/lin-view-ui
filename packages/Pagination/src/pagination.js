@@ -1,4 +1,4 @@
-import './style.scss';
+import 'packages/pagination/src/style.scss';
 import LocaleMixin from 'src/mixins/locale.js';
 
 import 'src/fonts/iconfont.css';

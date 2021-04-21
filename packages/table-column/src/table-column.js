@@ -1,4 +1,4 @@
-import './style.scss';
+import 'packages/table-column/src/style.scss';
 
 let columnId = 0;
 

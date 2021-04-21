@@ -1,5 +1,5 @@
 import Table from './table.vue';
 
-import './style.scss';
+import 'packages/table/src/style.scss';
 
 export default Table;

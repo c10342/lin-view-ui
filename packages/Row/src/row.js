@@ -1,4 +1,4 @@
-import './style.scss';
+import 'packages/row/src/style.scss';
 
 export default {
   name: 'LinRow',

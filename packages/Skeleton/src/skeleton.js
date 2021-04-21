@@ -1,5 +1,5 @@
 import Skeleton from './skeleton.vue';
 
-import './style.scss';
+import 'packages/skeleton/src/style.scss';
 
 export default Skeleton;

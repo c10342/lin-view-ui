@@ -1,6 +1,6 @@
 import Input from './input.vue';
 
-import './style.scss';
+import 'packages/input/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 

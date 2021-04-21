@@ -1,6 +1,6 @@
 import Dropdown from './dropdown.vue';
 
-import './style.scss';
+import 'packages/dropdown/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 

@@ -1,6 +1,6 @@
 import SelectorGroup from './selector-group.vue';
 
-import './style.scss';
+import 'packages/selector-group/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 

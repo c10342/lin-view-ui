@@ -1,5 +1,5 @@
 import Image from './image.vue';
 
-import './style.scss';
+import 'packages/image/src/style.scss';
 
 export default Image;

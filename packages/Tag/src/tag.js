@@ -1,6 +1,6 @@
 import Tag from './tag.vue';
 
-import './style.scss';
+import 'packages/tag/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 

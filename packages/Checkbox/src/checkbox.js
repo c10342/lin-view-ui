@@ -1,5 +1,5 @@
 import Checkbox from './checkbox.vue';
 
-import './style.scss';
+import 'packages/checkbox/src/style.scss';
 
 export default Checkbox;

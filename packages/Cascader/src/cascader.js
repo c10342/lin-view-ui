@@ -1,5 +1,5 @@
 import Cascader from './cascader.vue';
 
-import './style.scss';
+import 'packages/cascader/src/style.scss';
 
 export default Cascader;

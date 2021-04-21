@@ -1,5 +1,5 @@
 import TabItem from './tab-item.vue';
 
-import './style.scss';
+import 'packages/tab-item/src/style.scss';
 
 export default TabItem;

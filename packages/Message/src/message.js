@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 import Message from './message.vue';
 
-import './style.scss';
+import 'packages/message/src/style.scss';
 
 const MessageConstruct = Vue.extend(Message);
 

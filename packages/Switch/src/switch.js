@@ -1,5 +1,5 @@
 import Switch from './switch.vue';
 
-import './style.scss';
+import 'packages/switch/src/style.scss';
 
 export default Switch;

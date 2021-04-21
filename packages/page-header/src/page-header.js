@@ -1,6 +1,6 @@
 import PageHeader from './page-header.vue';
 
-import './style.scss';
+import 'packages/page-header/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 
