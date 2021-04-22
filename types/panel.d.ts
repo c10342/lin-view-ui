@@ -1,6 +1,6 @@
 import { LinViewUIComponent } from "./component";
 
-import { CascaderOption } from "./Cascader";
+import { CascaderOption } from "./cascader";
 
 export declare class LinPanel extends LinViewUIComponent {
   // 可选项数据源

@@ -1,6 +1,6 @@
 import { VNode } from "vue";
 import { LinViewUIComponent } from "./component";
-import {ChoiceItemProps,ChoiceItemValue} from './ChoiceItem'
+import {ChoiceItemProps,ChoiceItemValue} from './choice-item'
 
 
 
