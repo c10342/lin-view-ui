@@ -1,0 +1,72 @@
+@import "src/styles/variables/input.scss";
+
+.lin-input {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  font-size: $input-font-size;
+
+  .lin-input-inner {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    height: $input-inner-height;
+    padding: $input-inner-padding;
+    font-size: inherit;
+    line-height: $input-inner-line-height;
+    color: $input-inner-color;
+    background-color: $input-inner-background-color;
+    background-image: none;
+    border: $input-inner-border;
+    border-radius: $input-inner-border-radius;
+    outline: none;
+    transition: $input-inner-transition;
+    -webkit-appearance: none;
+
+    &::-ms-clear,
+    &::-ms-reveal {
+      display: none;
+    }
+
+    &:focus {
+      border-color: $input-inner-focus-border-color;
+      outline: none;
+    }
+
+    &.lin-input-is-disabled {
+      color: $input-inner-disabled-color;
+      cursor: not-allowed;
+      background-color: $input-inner-disabled-background-color;
+      border-color: $input-inner-disabled-border-color;
+    }
+  }
+}
+
+.lin-input-suffix-content {
+  .lin-input-inner {
+    padding-right: $input-suffix-inner-padding-right;
+  }
+}
+
+.lin-input-suffix {
+  position: absolute;
+  top: $input-suffix-top;
+  right: $input-suffix-right;
+  z-index: $input-suffix-z-index;
+  height: 100%;
+  line-height: $input-suffix-line-height;
+  color: $input-suffix-color;
+  text-align: $input-suffix-text-align;
+  transition: $input-suffix-transition;
+
+  .lin-input-icon {
+    font-size: $input-suffix-icon-font-size;
+    color: $input-suffix-icon-color;
+    cursor: pointer;
+    transition: $input-suffix-icon-transition;
+  }
+
+  .lin-icon-view-active {
+    color: $input-suffix-icon-active-color;
+  }
+}

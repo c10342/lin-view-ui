@@ -1,0 +1,96 @@
+@import "src/styles/variables/checkbox.scss";
+
+.lin-checkbox {
+  position: relative;
+  display: inline-block;
+  margin-right: $checkbox-margin-right;
+  font-size: $checkbox-font-size;
+  font-weight: $checkbox-font-weight;
+  color: $checkbox-color;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  .lin-checkbox-input {
+    position: relative;
+    display: inline-block;
+    line-height: $checkbox-input-line-height;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    outline: none;
+
+    .lin-checkbox-inner {
+      position: relative;
+      z-index: $checkbox-inner-z-index;
+      box-sizing: border-box;
+      display: inline-block;
+      width: $checkbox-inner-width;
+      height: $checkbox-inner-height;
+      background-color: $checkbox-inner-background-color;
+      border: $checkbox-inner-border;
+      border-radius: $checkbox-inner-border-radius;
+      transition: $checkbox-inner-transition;
+
+      &::after {
+        position: absolute;
+        top: $checkbox-inner-after-top;
+        left: $checkbox-inner-after-left;
+        box-sizing: content-box;
+        width: $checkbox-inner-after-width;
+        height: $checkbox-inner-after-height;
+        content: "";
+        border: $checkbox-inner-after-border;
+        border-top: $checkbox-inner-after-border-top;
+        border-left: $checkbox-inner-after-border-left;
+        transition: $checkbox-inner-after-transition;
+        transform: $checkbox-inner-after-transform;
+        transform-origin: $checkbox-inner-after-transform-origin;
+      }
+    }
+
+    .lin-checkbox-original {
+      position: absolute;
+      left: 10px;
+      z-index: -1;
+      width: 0;
+      height: 0;
+      margin: 0;
+      outline: none;
+      opacity: 0;
+    }
+  }
+
+  .lin-checkbox-label {
+    display: inline-block;
+    padding-left: $checkbox-label-padding-left;
+    font-size: $checkbox-label-font-size;
+    line-height: $checkbox-label-line-height;
+  }
+}
+
+.lin-checkbox.lin-checkbox-is-checked {
+  .lin-checkbox-input {
+    .lin-checkbox-inner {
+      background-color: $checkbox-checked-background-color;
+      border-color: $checkbox-checked-border-color;
+
+      &::after {
+        transform: $checkbox-checked-transform;
+      }
+    }
+  }
+
+  .lin-checkbox-label {
+    color: $checkbox-checked-color;
+  }
+}
+
+.lin-checkbox-is-disabled {
+  color: $checkbox-disabled-color;
+  cursor: not-allowed;
+
+  .lin-checkbox-input {
+    cursor: not-allowed;
+  }
+}

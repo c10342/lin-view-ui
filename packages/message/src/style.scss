@@ -1,0 +1,95 @@
+@import "src/styles/variables/message.scss";
+
+$message-theme-color: (
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "error": $danger,
+);
+
+.lin-message {
+  position: fixed;
+  top: $message-top;
+  left: $message-left;
+  z-index: $message-z-index;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  min-width: $message-min-width;
+  padding: $message-padding;
+  overflow: hidden;
+  background-color: $message-background-color;
+  border-color: $message-border-color;
+  border-style: $message-border-style;
+  border-width: $message-border-width;
+  border-radius: $message-border-radius;
+  transition: $message-transition;
+  transform: $message-transform;
+}
+
+.lin-message-center {
+  justify-content: center;
+}
+
+.lin-message-content {
+  padding: $message-content-padding;
+  margin: $message-content-margin;
+}
+
+.lin-message-icon {
+  margin-right: $message-icon-margin-right;
+  font-size: $message-icon-font-size;
+}
+
+.lin-message-close-icon {
+  position: absolute;
+  top: $message-close-icon-top;
+  right: $message-close-icon-right;
+  font-size: $message-close-icon-font-size;
+  color: $message-close-icon-color;
+  cursor: pointer;
+  transform: $message-close-icon-transform;
+}
+
+// @each $key, $val in $message-theme-color {
+//   .lin-message-#{$key} {
+//     background-color: lighten($val, 40%);
+//     border-color: lighten($val, 40%);
+//     color: $val;
+//   }
+// }
+
+.lin-message-success {
+  color: $success;
+  background-color: lighten($success, 45%);
+  border-color: lighten($success, 45%);
+}
+
+.lin-message-info {
+  color: $info;
+  background-color: lighten($info, 35%);
+  border-color: lighten($info, 35%);
+}
+
+.lin-message-error {
+  color: $danger;
+  background-color: lighten($danger, 28%);
+  border-color: lighten($danger, 28%);
+}
+
+.lin-message-warning {
+  color: $warning;
+  background-color: lighten($warning, 40%);
+  border-color: lighten($warning, 40%);
+}
+
+.message-enter-active,
+.message-leave-active {
+  transition: $message-active-transition;
+}
+
+.message-enter,
+.message-leave-to {
+  opacity: $message-enter-opacity;
+  transform: $message-enter-transform;
+}
