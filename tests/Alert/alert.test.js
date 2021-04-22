@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Alert from 'packages/Alert/index.js';
+import Alert from 'packages/alert/index.js';
 
 const createAlert = (options = {}) => {
   return shallowMount(Alert, options);

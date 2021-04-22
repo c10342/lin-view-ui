@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Dialog from 'packages/Dialog/index.js';
+import Dialog from 'packages/dialog/index.js';
 
 const createDialog = (obj = {}) => {
   return shallowMount(Dialog, obj);

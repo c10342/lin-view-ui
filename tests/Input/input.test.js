@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Input from 'packages/Input/index.js';
+import Input from 'packages/input/index.js';
 
 const createInput = (obj = {}) => {
   return shallowMount(Input, obj);

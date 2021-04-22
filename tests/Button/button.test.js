@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Button from 'packages/Button/index.js';
+import Button from 'packages/button/index.js';
 
 const createButton = (obj = {}) => {
   return shallowMount(Button, obj);

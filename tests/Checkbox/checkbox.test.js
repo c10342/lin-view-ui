@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Checkbox from 'packages/Checkbox/index.js';
+import Checkbox from 'packages/checkbox/index.js';
 
 const createCheckbox = (obj = {}) => {
   return shallowMount(Checkbox, obj);

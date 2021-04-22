@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Image from 'packages/Image/index.js';
+import Image from 'packages/image/index.js';
 
 const imageUrl = 'http://ui.linjiafu.top/img/video-card.4dc5325c.png';
 

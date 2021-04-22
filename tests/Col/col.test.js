@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Col from 'packages/Col/index.js';
+import Col from 'packages/col/index.js';
 
 const createCol = (obj = {}) => {
   return shallowMount(Col, obj);

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Form from 'packages/Form/index.js';
+import Form from 'packages/form/index.js';
 
 const creatForm = (obj = {}) => {
   return shallowMount(Form, obj);
