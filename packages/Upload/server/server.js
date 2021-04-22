@@ -13,25 +13,27 @@ const server = http.createServer();
 const UPLOAD_DIR = path.resolve(__dirname, './files');
 
 // 解析post请求体
-const resolvePost = (req) => new Promise((resolve, reject) => {
-  let chunk = '';
-  req.on('data', (data) => {
-    chunk += data;
+const resolvePost = (req) =>
+  new Promise((resolve, reject) => {
+    let chunk = '';
+    req.on('data', (data) => {
+      chunk += data;
+    });
+    req.on('end', () => {
+      resolve(JSON.parse(chunk));
+    });
   });
-  req.on('end', () => {
-    resolve(JSON.parse(chunk));
-  });
-});
 
-const pipeStream = (pathStr, writeStream) => new Promise((resolve) => {
-  const readStream = fse.createReadStream(pathStr);
-  readStream.on('end', () => {
-    // 删除文件
-    fse.unlinkSync(pathStr);
-    resolve();
+const pipeStream = (pathStr, writeStream) =>
+  new Promise((resolve) => {
+    const readStream = fse.createReadStream(pathStr);
+    readStream.on('end', () => {
+      // 删除文件
+      fse.unlinkSync(pathStr);
+      resolve();
+    });
+    readStream.pipe(writeStream);
   });
-  readStream.pipe(writeStream);
-});
 
 // 断点续传合并切片
 const mergeFileChunkBreakpoint = async (filename, fileHash, size) => {
@@ -45,14 +47,16 @@ const mergeFileChunkBreakpoint = async (filename, fileHash, size) => {
     return aa[aa.length - 1] - bb[bb.length - 1];
   });
   await Promise.all(
-    chunkPaths.map((chunkpath, index) => pipeStream(
-      path.resolve(chunkDir, chunkpath),
-      // 指定位置创建可写流
-      fse.createWriteStream(path.resolve(UPLOAD_DIR, filename), {
-        start: index * size,
-        end: (index + 1) * size,
-      }),
-    )),
+    chunkPaths.map((chunkpath, index) =>
+      pipeStream(
+        path.resolve(chunkDir, chunkpath),
+        // 指定位置创建可写流
+        fse.createWriteStream(path.resolve(UPLOAD_DIR, filename), {
+          start: index * size,
+          end: (index + 1) * size
+        })
+      )
+    )
   );
   // 删除文件夹
   fse.rmdirSync(chunkDir);
@@ -69,14 +73,16 @@ const mergeFileChunkBySlice = async (filePath, filename, size) => {
     return aa[aa.length - 1] - bb[bb.length - 1];
   });
   await Promise.all(
-    chunkPaths.map((chunkpath, index) => pipeStream(
-      path.resolve(chunkDir, chunkpath),
-      // 指定位置创建可写流
-      fse.createWriteStream(filePath, {
-        start: index * size,
-        end: (index + 1) * size,
-      }),
-    )),
+    chunkPaths.map((chunkpath, index) =>
+      pipeStream(
+        path.resolve(chunkDir, chunkpath),
+        // 指定位置创建可写流
+        fse.createWriteStream(filePath, {
+          start: index * size,
+          end: (index + 1) * size
+        })
+      )
+    )
   );
   // 删除文件夹
   fse.rmdirSync(chunkDir);
@@ -93,7 +99,7 @@ server.on('request', async (req, res) => {
   // 上传切片
   if (req.url === '/uploadFileByBreakpoint') {
     const multipart = new multiparty.Form({
-      uploadDir: path.join(__dirname, './chunks'),
+      uploadDir: path.join(__dirname, './chunks')
     });
 
     multipart.parse(req, async (err, fields, files) => {
@@ -123,7 +129,7 @@ server.on('request', async (req, res) => {
   }
   if (req.url === '/uploadFileBySlice') {
     const multipart = new multiparty.Form({
-      uploadDir: path.join(__dirname, './chunks'),
+      uploadDir: path.join(__dirname, './chunks')
     });
 
     multipart.parse(req, async (err, fields, files) => {
@@ -151,7 +157,7 @@ server.on('request', async (req, res) => {
 
   if (req.url === '/uploadFile') {
     const multipart = new multiparty.Form({
-      uploadDir: path.join(__dirname, './chunks'),
+      uploadDir: path.join(__dirname, './chunks')
     });
 
     multipart.parse(req, async (err, fields, files) => {
@@ -171,8 +177,8 @@ server.on('request', async (req, res) => {
     res.end(
       JSON.stringify({
         code: 200,
-        message: 'file merage success',
-      }),
+        message: 'file merage success'
+      })
     );
   }
 
@@ -184,8 +190,8 @@ server.on('request', async (req, res) => {
     res.end(
       JSON.stringify({
         code: 200,
-        message: 'file merage success',
-      }),
+        message: 'file merage success'
+      })
     );
   }
 });
