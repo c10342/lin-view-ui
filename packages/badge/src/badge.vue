@@ -35,7 +35,8 @@ export default {
     // 类型
     type: {
       type: String,
-      default: 'primary'
+      default: 'primary',
+      options: ['primary', 'success', 'warning', 'danger', 'info']
     }
   },
   computed: {
