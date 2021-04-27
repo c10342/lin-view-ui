@@ -17,8 +17,11 @@
   <a href="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/style.css?compression=gzip&label=gzip%20size:%20CSS">
     <img src="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/style.css?compression=gzip&label=gzip%20size:%20CSS">
   </a>
-    <a href="LICENSE">
+  <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+  </a>
+  <a href='https://coveralls.io/github/c10342/lin-view-ui?branch=master'>
+    <img src='https://coveralls.io/repos/github/c10342/lin-view-ui/badge.svg?branch=master' alt='Coverage Status' />
   </a>
 </p>
 
