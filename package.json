@@ -44,11 +44,10 @@
     "lint-fix": "eslint --fix --ext .js,.vue ./",
     "lint:style": "stylelint **/*.{html,vue,css,sass,scss}",
     "lint:style-fix": "stylelint **/*.{html,vue,css,sass,scss} --fix",
-    "test": "jest",
+    "test": "jest --coverage && codecov",
     "test-coverage": "jest --coverage",
     "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --verbose",
     "test-watch": "jest --watch",
-    "codecov": "jest --coverage && codecov",
     "commit": "git cz"
   },
   "husky": {
