@@ -1,7 +1,9 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    node: true,
+    jest: true
   },
   // 识别webpack别名
   settings: {
@@ -11,10 +13,7 @@ module.exports = {
       }
     }
   },
-  extends: [
-    'plugin:vue/essential',
-    'standard'
-  ],
+  extends: ['plugin:vue/essential', 'standard', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: 'module',
@@ -23,9 +22,7 @@ module.exports = {
     // },
     parser: 'babel-eslint'
   },
-  plugins: [
-    'vue'
-  ],
+  plugins: ['vue'],
   rules: {
     'import/extensions': ['error', 'always'],
     'prefer-destructuring': 'off',

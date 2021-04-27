@@ -1,10 +1,10 @@
-import Vue from "vue";
-import Router from "vue-router";
-import { getLang, langType } from "../utils/lang";
-import hljs from "highlight.js";
+import Vue from 'vue';
+import Router from 'vue-router';
+import { getLang, langType } from '../utils/lang.js';
+import hljs from 'highlight.js';
 
-import IndexPage from "../pages/index.vue";
-import ComponentPage from "../pages/components.vue";
+import IndexPage from '../pages/index.vue';
+import ComponentPage from '../pages/components.vue';
 
 const lang = getLang();
 
@@ -12,11 +12,11 @@ Vue.use(Router);
 
 const zhRoutes = [];
 
-const zhComps = require.context("../markdown/zh-CN", true, /\.(md|vue)$/);
+const zhComps = require.context('../markdown/zh-CN', true, /\.(md|vue)$/);
 
-zhComps.keys().forEach(key => {
+zhComps.keys().forEach((key) => {
   const component = zhComps(key).default;
-  const name = key.replace(/(.*\/)*([^.]+).*/gi, "$2");
+  const name = key.replace(/(.*\/)*([^.]+).*/gi, '$2');
   zhRoutes.push({
     component,
     name,
@@ -26,11 +26,11 @@ zhComps.keys().forEach(key => {
 
 const enRoutes = [];
 
-const enComps = require.context("../markdown/en-US", true, /\.(md|vue)$/);
+const enComps = require.context('../markdown/en-US', true, /\.(md|vue)$/);
 
-enComps.keys().forEach(key => {
+enComps.keys().forEach((key) => {
   const component = enComps(key).default;
-  const name = key.replace(/(.*\/)*([^.]+).*/gi, "$2");
+  const name = key.replace(/(.*\/)*([^.]+).*/gi, '$2');
   enRoutes.push({
     component,
     name,
@@ -42,13 +42,13 @@ const router = new Router({
   mode: 'history',
   routes: [
     {
-      path: "/",
-      name: "index",
+      path: '/',
+      name: 'index',
       component: IndexPage
     },
     {
-      path: "/component",
-      name: "component",
+      path: '/component',
+      name: 'component',
       component: ComponentPage,
       children: lang === langType.zh ? zhRoutes : enRoutes
     }
@@ -62,9 +62,9 @@ const router = new Router({
   }
 });
 
-router.afterEach(route => {
+router.afterEach((route) => {
   Vue.nextTick(() => {
-    const blocks = document.querySelectorAll("pre code:not(.hljs)");
+    const blocks = document.querySelectorAll('pre code:not(.hljs)');
     Array.prototype.forEach.call(blocks, hljs.highlightBlock);
   });
 });

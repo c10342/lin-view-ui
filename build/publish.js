@@ -1,16 +1,18 @@
-const inquirer = require("inquirer");
+/* eslint  no-undef:"off" */
 
-const path = require("path");
+const inquirer = require('inquirer');
 
-const fs = require("fs");
+const path = require('path');
 
-const semver = require("semver");
+const fs = require('fs');
 
-const shelljs = require("shelljs");
+const semver = require('semver');
 
-const userInfo = require("./config.js");
+const shelljs = require('shelljs');
 
-const packageJsonPath = path.resolve(process.cwd(), "package.json");
+const userInfo = require('./config.js');
+
+const packageJsonPath = path.resolve(process.cwd(), 'package.json');
 
 const packageJson = require(packageJsonPath);
 
@@ -19,51 +21,51 @@ const packageJsonVersion = packageJson.version;
 const verOptList = getVersionOptions(packageJsonVersion);
 
 // 发布地址
-const originRegistry = "https://registry.npmjs.org/";
+const originRegistry = 'https://registry.npmjs.org/';
 
 // 检查npm是否存在
-if (!shelljs.which("npm")) {
-  shell.echo("Sorry, this script requires npm");
+if (!shelljs.which('npm')) {
+  shell.echo('Sorry, this script requires npm');
   shell.exit(1);
 }
 
 // npm who am i  检查是否已经登陆了
 // >nul 2>nul   屏蔽输出
-const isLogin = shelljs.exec("npm who am i >nul 2>nul").code === 0;
+const isLogin = shelljs.exec('npm who am i >nul 2>nul').code === 0;
 
 // npm config get registry
-const registry = shelljs.exec("npm config get registry").stdout;
+const registry = shelljs.exec('npm config get registry').stdout;
 
 const promptParams = [
   {
-    name: "version",
+    name: 'version',
     message: `选择将要升级的版本(当前版本 ${packageJsonVersion} )：`,
-    type: "list",
+    type: 'list',
     default: 0,
-    choices: verOptList,
-  },
+    choices: verOptList
+  }
 ];
 
 if (isLogin !== 0 && userInfo) {
   if (!userInfo.userName) {
     promptParams.push({
-      name: "userName",
-      message: "npm userName",
-      type: "input",
+      name: 'userName',
+      message: 'npm userName',
+      type: 'input'
     });
   }
   if (!userInfo.password) {
     promptParams.push({
-      name: "password",
-      message: "npm password",
-      type: "input",
+      name: 'password',
+      message: 'npm password',
+      type: 'input'
     });
   }
   if (!userInfo.email) {
     promptParams.push({
-      name: "email",
-      message: "npm email",
-      type: "input",
+      name: 'email',
+      message: 'npm email',
+      type: 'input'
     });
   }
 }
@@ -77,7 +79,7 @@ inquirer.prompt(promptParams).then(async (answer) => {
   }
   packageJson.version = answer.version;
   fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
-  let execStr = "npm publish";
+  let execStr = 'npm publish';
   if (originRegistry !== registry) {
     execStr += ` && npm config set registry ${registry}`;
   }
@@ -102,20 +104,20 @@ function npmLogin(userName, password, email) {
     if (registry !== originRegistry) {
       shelljs.exec(`npm config set registry ${originRegistry}`);
     }
-    const inputArray = [userName + "\n", password + "\n", email + "\n"];
-    const child = shelljs.exec("npm login", { async: true });
+    const inputArray = [userName + '\n', password + '\n', email + '\n'];
+    const child = shelljs.exec('npm login', { async: true });
 
-    child.stdout.on("data", () => {
+    child.stdout.on('data', () => {
       const cmd = inputArray.shift();
       if (cmd) {
-        shelljs.echo("input " + cmd);
+        shelljs.echo('input ' + cmd);
         child.stdin.write(cmd);
       } else {
         child.stdin.end();
         resolve();
       }
     });
-    child.stdout.on("error", reject);
+    child.stdout.on('error', reject);
   });
 }
 
@@ -124,17 +126,17 @@ function npmLogin(userName, password, email) {
  * @param {string} version
  */
 function getVersionOptions(version) {
-  version = version.split("+");
+  version = version.split('+');
 
   const currentVersion = version[0];
-  const levels = ["patch", "minor", "major"];
-  let opts = [];
+  const levels = ['patch', 'minor', 'major'];
+  const opts = [];
 
-  levels.forEach(function(item) {
+  levels.forEach(function (item) {
     const val = semver.inc(currentVersion, item);
     opts.push({
       name: val,
-      value: val,
+      value: val
     });
   });
 
@@ -149,14 +151,14 @@ const handleError = () => {
   process.exit(1);
 };
 
-process.on("uncaughtException", function(e) {
-  console.log("uncaughtException");
+process.on('uncaughtException', function (e) {
+  console.log('uncaughtException');
   console.log(e);
   handleError();
 });
 
-process.on("unhandledRejection", function(a, b) {
-  console.log("unhandledRejection");
+process.on('unhandledRejection', function (a, b) {
+  console.log('unhandledRejection');
   console.log(a, b);
   handleError();
 });

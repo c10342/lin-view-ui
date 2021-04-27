@@ -36,21 +36,24 @@ td,
 textarea,
 th,
 ul {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
+
 a {
   text-decoration: none;
 }
+
 code,
 kbd,
 pre,
 samp {
   font-family: Consolas, Menlo, Courier, monospace;
 }
+
 .grid-content {
-  border-radius: 4px;
   min-height: 36px;
+  border-radius: 4px;
 }
 
 .bg-purple-dark {
@@ -60,12 +63,15 @@ samp {
 .bg-purple {
   background: #d3dce6;
 }
+
 .bg-purple-light {
   background: #e5e9f2;
 }
+
 .mt-10 {
   margin-top: 10px !important;
 }
+
 .mr-10 {
   margin-right: 10px !important;
 }
@@ -77,6 +83,7 @@ samp {
 .mt-20 {
   margin-top: 20px !important;
 }
+
 .mr-20 {
   margin-right: 20px !important;
 }
@@ -89,9 +96,11 @@ samp {
   padding: 10px 0;
   background-color: #f9fafc;
 }
+
 .text-left {
   text-align: left;
 }
+
 .text-right {
   text-align: right;
 }
@@ -99,21 +108,27 @@ samp {
 .fs-12 {
   font-size: 12px;
 }
+
 .fs-14 {
   font-size: 14px;
 }
+
 .fs-16 {
   font-size: 16px;
 }
+
 .fs-18 {
   font-size: 18px;
 }
+
 .fs-20 {
   font-size: 20px;
 }
+
 .fs-22 {
   font-size: 22px;
 }
+
 .fs-24 {
   font-size: 24px;
 }
@@ -126,23 +141,26 @@ body {
 
 .beautyScroll {
   &::-webkit-scrollbar {
-    /*滚动条整体样式*/
+    /* 滚动条整体样式 */
     width: 8px;
-    /*高宽分别对应横竖滚动条的尺寸*/
+
+    /* 高宽分别对应横竖滚动条的尺寸 */
     height: 8px;
   }
 
   &::-webkit-scrollbar-thumb {
-    /*滚动条里面小方块*/
+    background: rgba(0, 0, 0, 0.2);
+
+    /* 滚动条里面小方块 */
     border-radius: 5px;
     -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    background: rgba(0, 0, 0, 0.2);
   }
 
   &::-webkit-scrollbar-track {
-    /*滚动条里面轨道*/
-    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    border-radius: 0;
     background: rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+
+    /* 滚动条里面轨道 */
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   }
 }

@@ -1,6 +1,7 @@
-const elTransition = '0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out';
+const elTransition =
+  '0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out';
 const Transition = {
-  'before-enter': function beforeEnter (el) {
+  'before-enter': function beforeEnter(el) {
     el.style.transition = elTransition;
     if (!el.dataset) el.dataset = {};
 
@@ -12,7 +13,7 @@ const Transition = {
     el.style.paddingBottom = 0;
   },
 
-  enter (el) {
+  enter(el) {
     el.dataset.oldOverflow = el.style.overflow;
     if (el.scrollHeight !== 0) {
       el.style.height = `${el.scrollHeight}px`;
@@ -27,13 +28,13 @@ const Transition = {
     el.style.overflow = 'hidden';
   },
 
-  'after-enter': function afterEnter (el) {
+  'after-enter': function afterEnter(el) {
     el.style.transition = '';
     el.style.height = '';
     el.style.overflow = el.dataset.oldOverflow;
   },
 
-  'before-leave': function beforeLeave (el) {
+  'before-leave': function beforeLeave(el) {
     if (!el.dataset) el.dataset = {};
     el.dataset.oldPaddingTop = el.style.paddingTop;
     el.dataset.oldPaddingBottom = el.style.paddingBottom;
@@ -43,7 +44,7 @@ const Transition = {
     el.style.overflow = 'hidden';
   },
 
-  leave (el) {
+  leave(el) {
     if (el.scrollHeight !== 0) {
       el.style.transition = elTransition;
       el.style.height = 0;
@@ -52,7 +53,7 @@ const Transition = {
     }
   },
 
-  'after-leave': function afterLeave (el) {
+  'after-leave': function afterLeave(el) {
     el.style.transition = '';
     el.style.height = '';
     el.style.overflow = el.dataset.oldOverflow;
@@ -64,7 +65,7 @@ const Transition = {
 export default {
   name: 'collapseTransition',
   functional: true,
-  render (h, context) {
+  render(h, context) {
     const data = {
       on: Transition
     };

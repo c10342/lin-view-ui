@@ -9,53 +9,55 @@
 </template>
 
 <script>
-import mainHeader from "../components/header.vue";
-import sideNav from "../components/side-nav.vue";
+import sideNav from '../components/side-nav.vue';
 export default {
   components: {
-    mainHeader,
-    sideNav,
+    sideNav
   },
   computed: {
     componentClass() {
-      return `component-${this.$route.path.split("/").pop()}`;
-    },
-  },
+      return `component-${this.$route.path.split('/').pop()}`;
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-@import "../assets/styles/var.scss";
+@import '../assets/styles/var.scss';
+
 .container {
   padding-left: $padding;
   background-color: #fff;
+
   .nav {
     float: left;
     width: 210px;
     height: calc(100vh - #{$header-height});
-    overflow-y: auto;
     padding: 32px 0;
+    overflow-y: auto;
   }
+
   .view {
+    box-sizing: border-box;
     float: left;
     width: calc(100% - 215px);
-    padding: 32px 250px 48px 48px;
-    box-sizing: border-box;
     height: calc(100vh - #{$header-height});
+    padding: 32px 250px 48px 48px;
     overflow-y: auto;
   }
 
   .component-icon {
     padding-right: $component-padding-right;
   }
+
   .component-logs {
     padding-right: $component-padding-right;
   }
 }
 
-.container:after {
-  content: "";
-  clear: both;
+.container::after {
   display: block;
+  clear: both;
+  content: '';
 }
 </style>

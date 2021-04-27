@@ -25,7 +25,7 @@
           </lin-dropdown-group>
         </lin-dropdown>
         <a
-          style="margin-left: 30px"
+          class="wechat-title"
           href="http://wxui.linjiafu.top"
           target="_blank"
           >{{ wechatTitle }}</a
@@ -36,13 +36,13 @@
 </template>
 
 <script>
-import { getLang, setLang, langType } from "../utils/lang";
-import langConfig from "../i18n/index";
+import { getLang, setLang, langType } from '../utils/lang.js';
+import langConfig from '../i18n/index.js';
 const lang = getLang();
 export default {
   data() {
     return {
-      langType,
+      langType
     };
   },
   methods: {
@@ -54,7 +54,7 @@ export default {
         setLang(langType.en);
         window.location.reload();
       }
-    },
+    }
   },
   computed: {
     componentTitle() {
@@ -65,42 +65,51 @@ export default {
     },
     wechatTitle() {
       return langConfig[lang].header.wechatTitle;
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-@import "../assets/styles/var.scss";
+@import '../assets/styles/var.scss';
+
 .page-header {
-  background-color: #fff;
-  opacity: 0.98;
   position: relative !important;
   top: 0;
   left: 0;
-  width: 100%;
-  height: $header-height;
-  transition: all 0.3s;
   z-index: 100;
   box-sizing: border-box;
+  width: 100%;
+  height: $header-height;
+  background-color: #fff;
   border-bottom: 1px solid #dcdfe6;
+  opacity: 0.98;
+  transition: all 0.3s;
+
   .header-container {
-    padding: 0 $padding;
     box-sizing: border-box;
-    width: 100%;
     display: flex;
     align-items: center;
-    height: 100%;
     justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 $padding;
   }
+
   .doc-dropdown {
     margin-left: 30px;
   }
+
   .doc-dropdown-link {
     color: #888;
+
     &:hover {
       color: #409eff;
     }
+  }
+
+  .wechat-title {
+    margin-left: 30px;
   }
 }
 </style>

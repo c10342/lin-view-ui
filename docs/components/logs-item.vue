@@ -28,20 +28,19 @@
   </div>
 </template>
 
-
 <script>
-import {logsType} from '../config/index'
+import { logsType } from '../config/index.js';
 export default {
   props: {
     log: {
       type: Object,
-      default: () => [],
-    },
+      default: () => ({})
+    }
   },
-  data(){
-      return {
-          addComponent:logsType.ADDCOMPONENT
-      }
+  data() {
+    return {
+      addComponent: logsType.ADDCOMPONENT
+    };
   }
 };
 </script>
@@ -50,44 +49,50 @@ export default {
 .logs-container {
   position: relative;
   padding-bottom: 15px;
+  margin-bottom: 30px;
   line-height: 1.8;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-bottom: 30px;
+
   .logs-header {
-    margin: 0;
-    padding: 15px 30px;
-    border-bottom: 1px solid #ddd;
-    font-size: 20px;
-    color: #333;
-    font-weight: 700;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 15px 30px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+
     .logs-version {
-      opacity: 1;
-      font-size: 20px;
       float: none;
       margin-left: 0;
+      font-size: 20px;
       color: #333;
+      opacity: 1;
     }
+
     .logs-time {
       font-size: 14px;
-      color: #5e6d82;
       line-height: 1.5em;
+      color: #5e6d82;
     }
   }
+
   .logs-content {
     padding: 0 30px;
+
     h4 {
       font-size: 18px;
       font-weight: 700;
     }
+
     h5 {
       font-size: 16px;
-      color: #333;
       font-weight: normal;
+      color: #333;
     }
   }
 }

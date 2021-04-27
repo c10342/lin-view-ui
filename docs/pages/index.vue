@@ -19,13 +19,13 @@
 </template>
 
 <script>
-import { getLang } from "../utils/lang";
-import langConfig from "../i18n/index";
+import { getLang } from '../utils/lang.js';
+import langConfig from '../i18n/index.js';
 const lang = getLang();
 export default {
   data() {
     return {
-      height: document.documentElement.clientHeight,
+      height: document.documentElement.clientHeight
     };
   },
   computed: {
@@ -34,64 +34,70 @@ export default {
     },
     startToUse() {
       return langConfig[lang].index.startToUse;
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">
 .pg-index {
   .index-container {
-    width: 960px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 100px 0;
     position: relative;
     z-index: 50;
+    width: 960px;
+    padding: 100px 0;
+    margin: 0 auto;
+    text-align: center;
+
     p {
       margin-top: 56px;
-      color: #8994c6;
       font-size: 32px;
+      color: #8994c6;
     }
   }
+
   .separate-panel {
     position: relative;
+
     .about {
       position: absolute;
-      width: 100%;
-      height: 200px;
       top: 20px;
       z-index: 9;
-      background: #fff;
+      width: 100%;
+      height: 200px;
       text-align: center;
+      background: #fff;
+
       a {
-        color: #fff;
-        background-image: linear-gradient(90deg, #00aeff 0%, #3369e7 100%);
-        box-shadow: 0 2px 6px 0 rgba(51, 105, 231, 0.4);
         display: inline-block;
         width: 190px;
         height: 56px;
         margin: 0 35px;
         font-size: 18px;
         line-height: 56px;
-        border-radius: 28px;
-        transition: all 0.3s;
+        color: #fff;
         cursor: pointer;
+        background-image: linear-gradient(90deg, #00aeff 0%, #3369e7 100%);
+        border-radius: 28px;
+        box-shadow: 0 2px 6px 0 rgba(51, 105, 231, 0.4);
+        transition: all 0.3s;
       }
+
       .btn-github {
         color: #316de9;
-        border: 1px solid #2f6ee9;
         background: #fff;
+        border: 1px solid #2f6ee9;
         box-shadow: none;
       }
     }
   }
-  .separate-panel:after {
-    content: "";
-    display: block;
+
+  .separate-panel::after {
     position: absolute;
     top: -80px;
+    display: block;
     width: 100%;
     height: 250px;
+    content: '';
     background: #fff;
     box-shadow: 0 -4px 30px 0 #dfe1e6;
     transform: skewY(-4deg);

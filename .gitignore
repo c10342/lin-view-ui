@@ -3,9 +3,9 @@ node_modules
 /dist
 /docs-dist
 /lib
-/utils
 /build/userInfo.js
 /debug.log
+/coverage
 
 # local env files
 .env.local

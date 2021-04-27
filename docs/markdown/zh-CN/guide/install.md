@@ -25,13 +25,4 @@ npm install lin-view-ui --save
 <script src="https://unpkg.com/browse/lin-view-ui/lib/index.js"></script>
 ```
 
-### 按需引入
-
-```javascript
-<!-- 引入Button组件样式 -->
-<link rel="stylesheet" href="https://unpkg.com/browse/lin-view-ui/lib/Button/style.css">
-<!-- 引入Button组件 -->
-<script src="https://unpkg.com/browse/lin-view-ui/lib/Button/index.js"></script>
-```
-
 我们建议使用 CDN 引入 lin-view-ui 的用户在链接地址上锁定版本，以免将来 lin-view-ui 升级时受到非兼容性更新的影响。锁定版本的方法请查看 [unpkg.com](https://unpkg.com/)。

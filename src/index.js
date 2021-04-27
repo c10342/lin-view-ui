@@ -2,78 +2,63 @@ import locale from './locale/index.js';
 
 import 'src/fonts/iconfont.css';
 
-// const testComps = require.context(
-//   '../packages',
-//   true,
-//   /^\.(\/\w+)\/index\.js$/
-// );
-
-// const reg = /^\.\/(\w+)\/index\.js$/;
-
-// const componentObjs = {};
-// testComps.keys().forEach((key) => {
-//   const componentEntity = testComps(key).default;
-//   const result = reg.exec(key)[1];
-//   componentObjs[result] = componentEntity;
-// });
-
-import Alert from 'packages/Alert/index.js';
-import Backtop from 'packages/Backtop/index.js';
-import Badge from 'packages/Badge/index.js';
-import Button from 'packages/Button/index.js';
-import Cascader from 'packages/Cascader/index.js';
-import Checkbox from 'packages/Checkbox/index.js';
-import CheckboxGroup from 'packages/CheckboxGroup/index.js';
-import ChoiceGroup from 'packages/ChoiceGroup/index.js';
-import ChoiceItem from 'packages/ChoiceItem/index.js';
-import ChoiceOption from 'packages/ChoiceOption/index.js';
-import Col from 'packages/Col/index.js';
-import CollapseGroup from 'packages/CollapseGroup/index.js';
-import CollapseItem from 'packages/CollapseItem/index.js';
-import DateAxis from 'packages/DateAxis/index.js';
-import DatePicker from 'packages/DatePicker/index.js';
-import Dialog from 'packages/Dialog/index.js';
-import Dropdown from 'packages/Dropdown/index.js';
-import DropdownGroup from 'packages/DropdownGroup/index.js';
-import DropdownItem from 'packages/DropdownItem/index.js';
-import Form from 'packages/Form/index.js';
-import FormItem from 'packages/FormItem/index.js';
-import HoverEffect from 'packages/HoverEffect/index.js';
-import Image from 'packages/Image/index.js';
-import Input from 'packages/Input/index.js';
-import InputNumber from 'packages/InputNumber/index.js';
-import LimitTextarea from 'packages/LimitTextarea/index.js';
-import Link from 'packages/Link/index.js';
-import LiveComment from 'packages/LiveComment/index.js';
-import Loading from 'packages/Loading/index.js';
-import LoadingBar from 'packages/LoadingBar/index.js';
-import Magnifier from 'packages/Magnifier/index.js';
-import Message from 'packages/Message/index.js';
-import MessageBox from 'packages/MessageBox/index.js';
-import MetaInfo from 'packages/MetaInfo/index.js';
-import PageHeader from 'packages/PageHeader/index.js';
-import Pagination from 'packages/Pagination/index.js';
-import Progress from 'packages/Progress/index.js';
-import Radio from 'packages/Radio/index.js';
-import RadioGroup from 'packages/RadioGroup/index.js';
-import Row from 'packages/Row/index.js';
-import ScrollBar from 'packages/ScrollBar/index.js';
-import ScrollView from 'packages/ScrollView/index.js';
-import SelectorGroup from 'packages/SelectorGroup/index.js';
-import SelectorItem from 'packages/SelectorItem/index.js';
-import ShowMore from 'packages/ShowMore/index.js';
-import Skeleton from 'packages/Skeleton/index.js';
-import Spinner from 'packages/Spinner/index.js';
-import Switch from 'packages/Switch/index.js';
-import TabGroup from 'packages/TabGroup/index.js';
-import TabItem from 'packages/TabItem/index.js';
-import Table from 'packages/Table/index.js';
-import TableColumn from 'packages/TableColumn/index.js';
-import Tag from 'packages/Tag/index.js';
-import Tooltip from 'packages/Tooltip/index.js';
-import Upload from 'packages/Upload/index.js';
-import VideoCard from 'packages/VideoCard/index.js';
-import VideoPlayer from 'packages/VideoPlayer/index.js';
+import Alert from 'packages/alert/index.js';
+import Backtop from 'packages/backtop/index.js';
+import Badge from 'packages/badge/index.js';
+import Button from 'packages/button/index.js';
+import Cascader from 'packages/cascader/index.js';
+import Checkbox from 'packages/checkbox/index.js';
+import CheckboxGroup from 'packages/checkbox-group/index.js';
+import ChoiceGroup from 'packages/choice-group/index.js';
+import ChoiceItem from 'packages/choice-item/index.js';
+import ChoiceOption from 'packages/choice-option/index.js';
+import Col from 'packages/col/index.js';
+import CollapseGroup from 'packages/collapse-group/index.js';
+import CollapseItem from 'packages/collapse-item/index.js';
+import DateAxis from 'packages/date-axis/index.js';
+import DatePicker from 'packages/date-picker/index.js';
+import Dialog from 'packages/dialog/index.js';
+import Dropdown from 'packages/dropdown/index.js';
+import DropdownGroup from 'packages/dropdown-group/index.js';
+import DropdownItem from 'packages/dropdown-item/index.js';
+import Form from 'packages/form/index.js';
+import FormItem from 'packages/form-item/index.js';
+import HoverEffect from 'packages/hover-effect/index.js';
+import Image from 'packages/image/index.js';
+import Input from 'packages/input/index.js';
+import InputNumber from 'packages/input-number/index.js';
+import LimitTextarea from 'packages/limit-textarea/index.js';
+import Link from 'packages/link/index.js';
+import LiveComment from 'packages/live-comment/index.js';
+import Loading from 'packages/loading/index.js';
+import LoadingBar from 'packages/loading-bar/index.js';
+import Magnifier from 'packages/magnifier/index.js';
+import Message from 'packages/message/index.js';
+import MessageBox from 'packages/message-box/index.js';
+import MetaInfo from 'packages/meta-info/index.js';
+import PageHeader from 'packages/page-header/index.js';
+import Pagination from 'packages/pagination/index.js';
+import Progress from 'packages/progress/index.js';
+import Radio from 'packages/radio/index.js';
+import RadioGroup from 'packages/radio-group/index.js';
+import Row from 'packages/row/index.js';
+import ScrollBar from 'packages/scroll-bar/index.js';
+import ScrollView from 'packages/scroll-view/index.js';
+import SelectorGroup from 'packages/selector-group/index.js';
+import SelectorItem from 'packages/selector-item/index.js';
+import ShowMore from 'packages/show-more/index.js';
+import Skeleton from 'packages/skeleton/index.js';
+import Spinner from 'packages/spinner/index.js';
+import Switch from 'packages/switch/index.js';
+import TabGroup from 'packages/tab-group/index.js';
+import TabItem from 'packages/tab-item/index.js';
+import Table from 'packages/table/index.js';
+import TableColumn from 'packages/table-column/index.js';
+import Tag from 'packages/tag/index.js';
+import Tooltip from 'packages/tooltip/index.js';
+import Upload from 'packages/upload/index.js';
+import VideoCard from 'packages/video-card/index.js';
+import VideoPlayer from 'packages/video-player/index.js';
 
 const components = [
   Alert,
@@ -138,7 +123,7 @@ const components = [
 const install = (Vue, opts = {}) => {
   locale.use(opts.locale);
   locale.i18n(opts.i18n);
-  components.forEach(comp => {
+  components.forEach((comp) => {
     Vue.use(comp);
   });
   // Object.keys(componentObjs).forEach((key) => {

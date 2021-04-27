@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     // 判断传入的日期是否为禁用的日期
-    isDisabledDate (date) {
+    isDisabledDate(date) {
       if (this.disabled) {
         return true;
       }
@@ -63,7 +63,9 @@ export default {
         }
       }
       if (Array.isArray(this.disabledDate) && this.disabledDate.length !== 0) {
-        const isdisable = this.disabledDate.some((item) => this.isEqual(item, date));
+        const isdisable = this.disabledDate.some((item) =>
+          this.isEqual(item, date)
+        );
         if (isdisable) {
           return true;
         }
@@ -71,7 +73,7 @@ export default {
       return false;
     },
     // 对比日期
-    compareDate (date1, date2, type) {
+    compareDate(date1, date2, type) {
       if (!(date1 instanceof Date)) {
         date1 = new Date(date1);
       }
@@ -94,23 +96,23 @@ export default {
       return obj[type];
     },
     // 判断2个日期是否相等
-    isEqual (date1, date2) {
+    isEqual(date1, date2) {
       return this.compareDate(date1, date2, 'Equal');
     },
     // 判断date1是否小于等于date2
-    isEqAndLt (date1, date2) {
+    isEqAndLt(date1, date2) {
       return this.compareDate(date1, date2, 'EqAndLt');
     },
     // 判断date1是否大于等于date2
-    isEqAndGt (date1, date2) {
+    isEqAndGt(date1, date2) {
       return this.compareDate(date1, date2, 'EqAndGt');
     },
     // 判断date1是否小于date2
-    isLt (date1, date2) {
+    isLt(date1, date2) {
       return this.compareDate(date1, date2, 'Lt');
     },
     // 判断date1是否大于date2
-    isGt (date1, date2) {
+    isGt(date1, date2) {
       return this.compareDate(date1, date2, 'Gt');
     }
   }

@@ -1,56 +1,50 @@
-const path = require("path");
+const { merge } = require('webpack-merge');
 
-const fs = require("fs");
+const baseConfig = require('./webpack.base');
 
-const { merge } = require("webpack-merge");
+const util = require('./util');
 
-const resolve = (dir) => path.resolve(__dirname, "../src", dir);
+// const getAssetsEntries = (pathStr) => {
+//   const files = fs.readdirSync(resolve(pathStr));
+//   const assetsEntries = files.reduce((ret, item) => {
+//     const itemPath = path.join(pathStr, item);
+//     const myPath = resolve(`${itemPath}`);
+//     const stat = fs.lstatSync(myPath);
+//     if (stat.isFile()) {
+//       ret[`${pathStr}/${item}`] = myPath;
+//     } else {
+//       const result = getAssetsEntries(`${pathStr}/${item}`);
+//       ret = {
+//         ...ret,
+//         ...result
+//       };
+//     }
+//     return ret;
+//   }, {});
+//   return assetsEntries;
+// };
 
-const baseConfig = require("./webpack.base");
-
-const util = require('./util')
-
-const getAssetsEntries = (pathStr) => {
-  let files = fs.readdirSync(resolve(pathStr));
-  const assetsEntries = files.reduce((ret, item) => {
-    const itemPath = path.join(pathStr, item);
-    const myPath = resolve(`${itemPath}`);
-    const stat = fs.lstatSync(myPath);
-    if (stat.isFile()) {
-      ret[`${pathStr}/${item}`] = myPath;
-    } else {
-      const result = getAssetsEntries(`${pathStr}/${item}`);
-      ret = {
-        ...ret,
-        ...result,
-      };
-    }
-    return ret;
-  }, {});
-  return assetsEntries;
-};
+const getAssetsEntries = util.getAssetsEntries;
 
 const entry = {
-  ...getAssetsEntries("js"),
-  ...getAssetsEntries("locale"),
-  ...getAssetsEntries("mixins"),
-  ...getAssetsEntries("utils"),
+  ...getAssetsEntries('js'),
+  ...getAssetsEntries('locale'),
+  ...getAssetsEntries('mixins'),
+  ...getAssetsEntries('utils')
 };
 
 const assetsConfig = {
-  mode: "production",
+  mode: 'production',
   entry: entry,
   output: {
-    path: path.resolve(__dirname, "../lib"),
+    path: util.output,
     filename: `assets/[name]`,
-    libraryTarget: "umd",
-    libraryExport: "default",
-    // libraryTarget: "commonjs2",
-    // libraryExport: "default",
-    library: "[name]",
+    libraryExport: 'default',
+    libraryTarget: 'commonjs2',
+    library: '[name]'
   },
   externals: {
-    ...util.getExternalsList(),
+    ...util.getExternalsList()
   }
 };
 

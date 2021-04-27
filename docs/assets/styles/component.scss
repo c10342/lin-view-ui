@@ -6,64 +6,74 @@
       }
     }
   }
+
   .demo-icon {
     .icon-list {
-      list-style: none;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       padding-left: 0;
       margin: 0;
+      list-style: none;
+
       > li {
         box-sizing: border-box;
-        padding: 5px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 1px solid #eee;
-        margin-right: -1px;
-        margin-bottom: -1px;
-
         width: 16.66%;
         height: 120px;
+        padding: 5px;
+        margin-right: -1px;
+        margin-bottom: -1px;
         font-size: 14px;
         color: #666;
         cursor: pointer;
+        border: 1px solid #eee;
+
         &:hover {
           color: #1989fa;
         }
+
         > i {
           font-size: 22px;
         }
+
         > span {
-          font-size: 12px;
           margin-top: 10px;
+          font-size: 12px;
         }
       }
     }
   }
+
   .demo-button {
     .row {
       .lin-button {
         margin-right: 10px;
       }
+
       & + .row {
         margin-top: 20px;
       }
     }
   }
+
   .demo-layout {
     .grid-content {
-      border-radius: 4px;
       min-height: 36px;
+      border-radius: 4px;
     }
+
     .bg-purple-dark {
       background: #99a9bf;
     }
+
     .bg-purple {
       background: #d3dce6;
     }
+
     .bg-purple-light {
       background: #e5e9f2;
     }
@@ -76,20 +86,24 @@
       margin-bottom: 30px;
     }
   }
+
   .demo-link {
     .link-group {
       margin-top: 10px;
+
       > a {
         margin-right: 10px;
       }
     }
   }
+
   .demo-badge {
     .badge-item {
       margin-top: 10px;
       margin-right: 40px;
     }
   }
+
   .demo-input {
     .lin-input {
       width: 250px;
@@ -98,35 +112,40 @@
     .input-group {
       display: flex;
       flex-direction: column;
+
       .lin-input + .lin-input {
         margin-top: 20px;
       }
     }
   }
+
   .demo-scroll-view {
     .scroll-view-item {
-      line-height: 60px;
       margin-bottom: 10px;
+      line-height: 60px;
       background-color: #e8f3fe;
     }
 
     .scroll-view-tip {
-      text-align: center;
       padding: 0;
       margin: 0;
+      text-align: center;
     }
   }
+
   .demo-scroll-bar {
     .scroll-bar {
-      height: 200px;
       width: 300px;
-      border: 1px solid #cccccc;
+      height: 200px;
+      border: 1px solid #ccc;
     }
+
     .scroll-item {
       height: 100px;
       line-height: 100px;
     }
   }
+
   .demo-image {
     .demo-block {
       > div {
@@ -135,57 +154,67 @@
         justify-content: space-around;
       }
     }
+
     .demo-image {
       width: 200px;
       height: 200px;
     }
+
     .error-cover {
-      height: 100%;
-      width: 100%;
-      background-color: #e8f3fe;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      width: 100%;
+      height: 100%;
       color: #ccc;
+      background-color: #e8f3fe;
     }
 
     .demo-title {
-      text-align: center;
       margin-bottom: 10px;
+      text-align: center;
     }
   }
+
   .demo-progress {
     .lin-progress {
       margin-bottom: 10px;
     }
+
     .demo-in-tip {
+      font-size: 12px;
       color: #fff;
-      font-size: 12px;
     }
+
     .demo-out-tip {
-      color: #333;
-      font-size: 12px;
       margin-left: 10px;
+      font-size: 12px;
+      color: #333;
     }
   }
+
   .demo-tag {
     .lin-tag {
       margin-right: 10px;
     }
+
     .tag-row {
       margin-bottom: 10px;
     }
   }
+
   .demo-alert {
     .lin-alert {
       margin-bottom: 10px;
     }
   }
+
   .demo-table {
     .lin-table {
       margin-bottom: 0;
     }
+
     .lin-table .warning-row {
       background-color: oldlace;
     }
@@ -193,13 +222,16 @@
     .lin-table .success-row {
       background-color: #f0f9eb;
     }
+
     .button-group {
       margin-top: 20px;
+
       .lin-button {
         margin-right: 20px;
       }
     }
   }
+
   .demo-dialog {
     .dialog-footer {
       .lin-button {
@@ -207,34 +239,40 @@
       }
     }
   }
+
   .demo-dropdown {
     .lin-dropdown-link {
-      cursor: pointer;
       color: #409eff;
+      cursor: pointer;
     }
+
     .lin-icon-arrow-down {
       font-size: 12px;
     }
+
     .demonstration {
       display: block;
-      color: #8492a6;
-      font-size: 14px;
       margin-bottom: 20px;
+      font-size: 14px;
+      color: #8492a6;
     }
   }
+
   .demo-video-card {
     .card-bottom {
-      height: 102px;
-      padding: 16px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 102px;
+      padding: 16px;
+
       > p {
+        margin: 0;
         font-size: 12px;
         font-weight: 400;
         color: #666;
-        margin: 0;
+
         &:nth-child(1) {
           font-size: 14px;
           font-weight: 400;
@@ -243,12 +281,14 @@
       }
     }
   }
+
   .demo-video-player {
     .video-player-group {
       display: flex;
       flex-direction: row;
-      align-items: center;
       flex-wrap: wrap;
+      align-items: center;
+
       .lin-button {
         margin-top: 10px;
         margin-right: 10px;
@@ -260,25 +300,29 @@
       height: 300px;
     }
   }
+
   .demo-loading-bar {
     .lin-button + .lin-button {
       margin-left: 10px;
     }
   }
+
   .demo-loading {
     .loading-box {
       height: 200px;
     }
+
     .ml-20 {
       margin-left: 20px;
     }
   }
+
   .demo-tooltip {
     .one-line {
-      overflow: hidden; /*超出部分隐藏*/
+      width: 500px; /* 需要配合宽度来使用 */
+      overflow: hidden; /* 超出部分隐藏 */
       text-overflow: ellipsis; /* 超出部分显示省略号 */
-      white-space: nowrap; /*规定段落中的文本不进行换行 */
-      width: 500px; /*需要配合宽度来使用*/
+      white-space: nowrap; /* 规定段落中的文本不进行换行 */
       border: 1px solid red;
     }
 
@@ -289,36 +333,43 @@
       cursor: pointer;
     }
   }
-  .demo-message{
-    .demo-block{
-      .lin-button{
+
+  .demo-message {
+    .demo-block {
+      .lin-button {
         margin-right: 10px;
       }
     }
   }
+
   .demo-spinner {
     .spinner-group {
       > div {
         margin-right: 40px;
       }
     }
+
     .spinner-block {
       display: flex;
       flex-direction: row;
+
       > div {
-        margin-right: 40px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-right: 40px;
+
         > p {
           margin-bottom: 10px;
         }
       }
     }
   }
+
   .demo-hover-effect {
     .hover-group {
       margin-top: 20px;
+
       button {
         margin-right: 10px;
       }
@@ -332,11 +383,14 @@
       .demo-block {
         display: none;
       }
+
       .demo-container {
         padding: 0;
+
         .description-wrapper {
           padding: 0;
           border: none;
+
           > pre {
             margin: 0;
           }
