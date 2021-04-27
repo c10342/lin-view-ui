@@ -1,6 +1,8 @@
 // eslint-disable-next-line
 import Vue from 'vue/dist/vue';
 import LinViewUI from 'src/index.js';
+Vue.config.productionTip = false;
+Vue.config.devtools = false;
 
 Vue.use(LinViewUI);
 
