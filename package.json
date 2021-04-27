@@ -141,6 +141,7 @@
     "commitizen": "^4.2.2",
     "copy-webpack-plugin": "^7.0.0",
     "core-js": "^3.8.1",
+    "coveralls": "^3.1.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
     "cz-conventional-changelog": "^3.3.0",
