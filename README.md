@@ -5,7 +5,7 @@
     <img src='https://coveralls.io/repos/github/c10342/lin-view-ui/badge.svg?branch=master' alt='Coverage Status' />
   </a>
   <a href="https://travis-ci.org/c10342/lin-view-ui">
-    <img src="https://travis-ci.com/c10342/lin-view-ui.svg?branch=master">
+    <img src="https://travis-ci.org/c10342/lin-view-ui.svg?branch=master">
   </a>
     <a href="https://www.npmjs.org/package/lin-view-ui">
     <img src="https://img.shields.io/npm/v/lin-view-ui.svg">
