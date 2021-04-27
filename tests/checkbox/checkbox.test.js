@@ -1,5 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 
+import { createVue } from '../utils.js';
+
 import Checkbox from 'packages/checkbox/index.js';
 
 const createCheckbox = (obj = {}) => {
@@ -67,5 +69,54 @@ describe('插槽', () => {
     });
     const template = wrapper.find('.lin-checkbox-label');
     expect(template.text()).toEqual('女');
+  });
+});
+
+describe('事件', () => {
+  const wrapper = createCheckbox();
+  wrapper.vm.model = false;
+  expect(wrapper.emitted().input).toBeTruthy();
+  expect(wrapper.emitted().input[0][0]).toBe(false);
+});
+
+describe('组合', () => {
+  it('value', async () => {
+    const vm = createVue({
+      template: `
+      <lin-checkbox-group v-model="value">
+        <lin-checkbox ref='a' label="抽烟"></lin-checkbox>
+        <lin-checkbox ref='b' label="喝酒"></lin-checkbox>
+        <lin-checkbox ref='c' label="探头"></lin-checkbox>
+      </lin-checkbox-group>
+      `,
+      data() {
+        return {
+          value: []
+        };
+      }
+    });
+    expect(vm.value.length).toBe(0);
+    vm.$refs.a.model = ['抽烟'];
+    await vm.$nextTick();
+    expect(vm.value).toContain('抽烟');
+  });
+  it('value', async () => {
+    const vm = createVue({
+      template: `
+      <lin-checkbox-group disabled v-model="value">
+        <lin-checkbox ref='a' label="抽烟"></lin-checkbox>
+      </lin-checkbox-group>
+      `,
+      data() {
+        return {
+          value: []
+        };
+      }
+    });
+    const checkbox = vm.$refs.a;
+    expect(checkbox.isDisabled).toBe(true);
+    expect(
+      checkbox.$el.classList.contains('lin-checkbox-is-disabled')
+    ).toBeTruthy();
   });
 });
