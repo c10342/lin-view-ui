@@ -54,10 +54,16 @@ describe('属性', () => {
     expect(closeBtn.exists()).toBeTruthy();
   });
 
-  it('showPassword', () => {
+  it('showPassword', async () => {
     const wrapper = createInput({ propsData: { showPassword: true } });
     const pwdBtn = wrapper.find('.lin-input-icon.lin-icon-password');
     expect(pwdBtn.exists()).toBeTruthy();
+
+    await pwdBtn.trigger('click');
+
+    const input = wrapper.find('.lin-input-inner');
+
+    expect(input.attributes('type')).toBe('text');
   });
 
   it('maxlength', async () => {
@@ -114,5 +120,19 @@ describe('事件', () => {
   it('focus', () => {
     input.trigger('focus');
     expect(wrapper.emitted().focus).toBeTruthy();
+  });
+  it('clear', async () => {
+    wrapper = createInput({
+      propsData: {
+        clearable: true,
+        value: '1'
+      }
+    });
+    const closeBtn = wrapper.find('.lin-input-icon.lin-icon-close');
+
+    await closeBtn.trigger('click');
+    expect(wrapper.emitted().clear).toBeTruthy();
+    expect(wrapper.emitted().input).toBeTruthy();
+    expect(wrapper.emitted().input[0][0]).toBe('');
   });
 });
