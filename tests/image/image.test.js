@@ -1,8 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
 
 import Image from 'packages/image/index.js';
+import { sleep } from '../utils.js';
 
 const imageUrl = 'http://ui.linjiafu.top/img/video-card.4dc5325c.png';
+const imageUrl2 = 'http://ui.linjiafu.top/img/video-card.4dc5325c2.png';
 
 const createImage = (obj = {}) => {
   return shallowMount(Image, obj);
@@ -13,6 +15,17 @@ const createImageWithUrl = (obj = {}) => {
   return shallowMount(Image, {
     propsData: {
       imgUrl: imageUrl,
+      ...propsData
+    },
+    ...restObj
+  });
+};
+
+const createImageWithArrUrl = (obj = {}) => {
+  const { propsData, ...restObj } = obj;
+  return shallowMount(Image, {
+    propsData: {
+      imgUrl: [imageUrl, imageUrl2],
       ...propsData
     },
     ...restObj
@@ -52,6 +65,10 @@ describe('属性', () => {
     const errorMessage = wrapper.find('.lin-image-error');
     expect(image.exists()).toBeFalsy();
     expect(errorMessage.exists()).toBeTruthy();
+  });
+  it('imgUrl为无效url数组', () => {
+    const wrapper = createImage({ propsData: { imgUrl: [''] } });
+    expect(wrapper.vm.isError).toBeTruthy();
   });
 
   it('referrerPolicy', () => {
@@ -100,6 +117,15 @@ describe('属性', () => {
     await imageMask.trigger('click');
     imageMask = wrapper.find('.lin-image-mask');
     expect(imageMask.exists()).toBeTruthy();
+
+    await wrapper.setProps({
+      clickMask: true
+    });
+    imageMask = wrapper.find('.lin-image-mask');
+    await imageMask.trigger('click');
+
+    imageMask = wrapper.find('.lin-image-mask');
+    expect(imageMask.exists()).toBeFalsy();
   });
 
   it('errorMsg', () => {
@@ -126,30 +152,36 @@ describe('插槽', () => {
   });
 });
 
-// describe("事件", () => {
-//   const LOAD_FAILURE_SRC = "LOAD_FAILURE_SRC";
-//   const LOAD_SUCCESS_SRC = "LOAD_SUCCESS_SRC";
-//   beforeAll(() => {
-//     //模拟图像.prototype.src调用onload或onerror
-//     //回调,具体取决于传递给它的src
-//     Object.defineProperty(global.Image.prototype, "src", {
-//       // Define属性setter
-//       set(src) {
-//         if (src === imageUrl) {
-//           // Call使用setTimeout模拟异步加载
-//           setTimeout(() => this.onerror(new Error("mocked error")));
-//         } else if (src === imageUrl) {
-//           setTimeout(() => this.onload());
-//         }
-//       },
-//     });
-//   });
-//   it("success", () => {
-//     const wrapper = createImageWithUrl();
-//     expect(wrapper.emitted().success).toBeTruthy();
-//   });
-//   it("error", () => {
-//     const wrapper = createImageWithUrl();
-//     expect(wrapper.emitted().error).toBeTruthy();
-//   });
-// });
+describe('事件', () => {
+  const loadEvent = document.createEvent('HTMLEvents');
+  loadEvent.initEvent('load', false, false);
+  const errorEvent = document.createEvent('HTMLEvents');
+  errorEvent.initEvent('error', false, false);
+  it('success', () => {
+    const wrapper = createImageWithUrl();
+    const image = wrapper.find('.lin-image-img');
+    image.element.dispatchEvent(loadEvent);
+    expect(wrapper.emitted().success).toBeTruthy();
+  });
+  it('Allsuccess', async () => {
+    const wrapper = createImageWithArrUrl();
+    const image = wrapper.find('.lin-image-img');
+    image.element.dispatchEvent(loadEvent);
+    expect(wrapper.emitted().success).toBeTruthy();
+  });
+  it('error', async () => {
+    const wrapper = createImageWithUrl();
+    const image = wrapper.find('.lin-image-img');
+    image.element.dispatchEvent(errorEvent);
+    expect(wrapper.emitted().error).toBeTruthy();
+  });
+  it('Allerror', async () => {
+    const wrapper = createImageWithArrUrl();
+    const image = wrapper.find('.lin-image-img');
+    image.element.dispatchEvent(errorEvent);
+    await sleep(500);
+    image.element.dispatchEvent(errorEvent);
+    expect(wrapper.emitted().error).toBeTruthy();
+    expect(wrapper.emitted().AllError).toBeTruthy();
+  });
+});
