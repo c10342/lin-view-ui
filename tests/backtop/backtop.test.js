@@ -109,7 +109,7 @@ describe('事件', () => {
 
     await div.trigger('click');
     // 等待requestAnimationFrame函数执行完毕
-    await sleep(500);
+    await sleep(1000);
 
     expect(wrapper.emitted().scroll).toBeTruthy();
     expect(wrapper.emitted().end).toBeTruthy();
