@@ -1,6 +1,7 @@
 language: node_js
-node_js:
-  - "stable"
+node_js: 10
+addons:
+  chrome: stable
 script:
   - npm run test
 after_success:
