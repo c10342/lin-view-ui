@@ -6,4 +6,5 @@ script:
   - npm run test
 after_success:
   - npm run build
+  - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
 
