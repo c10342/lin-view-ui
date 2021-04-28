@@ -5,7 +5,7 @@ let instance = null;
 let timer = null;
 
 export default {
-  open(options) {
+  open(options = {}) {
     if (!instance) {
       instance = new LoadingConstruct();
     }
