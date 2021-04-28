@@ -37,7 +37,11 @@ module.exports = {
     '<rootDir>/packages/form/src/form.vue',
     '<rootDir>/packages/form-item/src/form-item.vue',
     '<rootDir>/packages/image/src/image.vue',
-    '<rootDir>/packages/input/src/input.vue'
+    '<rootDir>/packages/input/src/input.vue',
+    '<rootDir>/packages/loading/src/construct.js',
+    '<rootDir>/packages/loading/src/directive.js',
+    '<rootDir>/packages/loading/src/loading.vue',
+    '<rootDir>/packages/loading/src/service.js'
   ],
   setupFiles: ['<rootDir>/tests/__mocks__/shim.js']
 };
