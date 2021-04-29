@@ -36,6 +36,7 @@ import Magnifier from 'packages/magnifier/index.js';
 import Message from 'packages/message/index.js';
 import MessageBox from 'packages/message-box/index.js';
 import MetaInfo from 'packages/meta-info/index.js';
+import MultiPlayer from 'packages/multi-player/index.js';
 import PageHeader from 'packages/page-header/index.js';
 import Pagination from 'packages/pagination/index.js';
 import Progress from 'packages/progress/index.js';
@@ -95,6 +96,7 @@ const components = [
   Message,
   MessageBox,
   MetaInfo,
+  MultiPlayer,
   PageHeader,
   Pagination,
   Progress,
