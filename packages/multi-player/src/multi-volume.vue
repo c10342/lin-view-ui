@@ -32,6 +32,7 @@
 export default {
   name: 'LinMultiVolume',
   props: {
+    // 音量
     volume: {
       type: Number,
       default: 1

@@ -47,10 +47,12 @@ export default {
     secondToTime
   },
   props: {
+    // 总时长
     totalTime: {
       type: Number,
       default: 0
     },
+    // 当前时间
     currentTime: {
       type: Number,
       default: 0
