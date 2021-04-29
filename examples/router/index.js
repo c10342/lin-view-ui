@@ -13,13 +13,20 @@ pages.keys().forEach((key) => {
   const routeItem = {
     path: `/${fileName}`,
     name: fileName,
-    component: pages(key).default,
+    component: pages(key).default
   };
   routes.push(routeItem);
 });
 
-console.log(routes);
+routes.push({
+  path: '/',
+  redirect: '/index'
+});
 
 const router = new VueRouter({ routes });
+
+export function getRoutes() {
+  return routes;
+}
 
 export default router;
