@@ -5,6 +5,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  user-select: none;
   background-color: $video-player-background-color;
 }
 
@@ -26,60 +27,6 @@
 }
 
 // video-player 结束 ----------------------------------
-
-// video-player-volume 开始 ---------------------------
-.lin-video-player-volume {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  &:hover {
-    .lin-video-player-volume-mask {
-      width: $video-player-volume-hover-width;
-      padding: $video-player-volume-hover-padding;
-    }
-  }
-}
-
-.lin-video-player-volume-mask {
-  position: relative;
-  width: 0;
-  padding: 0;
-  margin-left: $video-player-volume-margin-left;
-  overflow: hidden;
-  cursor: pointer;
-  transition: $video-player-volume-transition;
-}
-
-.lin-video-player-volume-process {
-  position: relative;
-  width: $video-player-volume-hover-width;
-  height: $video-player-volume-process-height;
-  margin: $video-player-volume-process-margin;
-  background-color: $video-player-volume-process-background-color;
-}
-
-.lin-video-player-volume-process-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background-color: $video-player-volume-process-line-background-color;
-}
-
-.lin-video-player-volume-process-ball {
-  position: absolute;
-  top: $video-player-volume-process-ball-top;
-  right: $video-player-volume-process-ball-right;
-  width: $video-player-volume-process-ball-width;
-  height: $video-player-volume-process-ball-height;
-  background-color: $video-player-volume-process-ball-background-color;
-  border-radius: $video-player-volume-process-ball-border-radius;
-  transform: $video-player-volume-process-ball-transform;
-}
-// video-player-volume 结束 ---------------------------
 
 // video-player-tip 开始 ------------------------------
 .lin-video-player-tip {
@@ -142,82 +89,6 @@
 }
 // video-player-speed  结束  --------------------------
 
-// video-player-process  开始  --------------------------
-.lin-video-player-process-mask {
-  position: relative;
-  width: 100%;
-  padding: $video-player-process-mask-padding;
-  cursor: pointer;
-}
-
-.lin-video-player-process-time {
-  position: absolute;
-  top: $video-player-process-time-top;
-  left: $video-player-process-time-left;
-  padding: $video-player-process-time-padding;
-  font-size: $video-player-process-time-font-size;
-  color: $video-player-process-time-color;
-  user-select: none;
-  background-color: $video-player-process-time-background-color;
-  border-radius: $video-player-process-time-border-radius;
-}
-
-.lin-video-player-process {
-  position: relative;
-  width: 100%;
-  height: $video-player-process-height;
-  cursor: pointer;
-  background-color: $video-player-process-background-color;
-}
-
-.lin-video-player-process-played {
-  position: absolute;
-  top: $video-player-process-played-top;
-  left: $video-player-process-played-left;
-  height: $video-player-process-height;
-  background-color: $video-player-process-played-background-color;
-  transition: $video-player-process-played-transition;
-}
-
-.lin-video-player-process-loaded {
-  position: absolute;
-  top: $video-player-process-loaded-top;
-  left: $video-player-process-loaded-left;
-  height: $video-player-process-height;
-  background-color: $video-player-process-loaded-background-color;
-  transition: $video-player-process-loaded-transition;
-}
-
-.lin-video-player-process-ball {
-  position: absolute;
-  top: $video-player-process-ball-top;
-  right: $video-player-process-ball-right;
-  width: $video-player-process-ball-width;
-  height: $video-player-process-ball-height;
-  background-color: $video-player-process-ball-background-color;
-  border-radius: $video-player-process-ball-border-radius;
-  transform: $video-player-process-ball-transform;
-}
-
-.lin-video-player-fade-enter-active,
-.lin-video-player-fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.lin-video-player-fade-enter,
-.lin-video-player-fade-leave-to {
-  opacity: 0;
-}
-
-.lin-video-player-ball-enter-active {
-  animation: $video-player-process-ball-enter-active-animation;
-}
-
-.lin-video-player-ball-leave-active {
-  animation: $video-player-process-ball-leave-active-animation;
-}
-// video-player-process  结束  --------------------------
-
 // video-player-loading  开始  --------------------------
 .lin-video-player-loading {
   position: absolute;
@@ -250,37 +121,6 @@
   height: 100%;
 }
 // video-player-image  结束  --------------------------
-
-// video-player-fullscreen  开始  --------------------------
-.lin-video-player-fullscreen {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-
-  span {
-    font-size: $video-player-fullscreen-font-size;
-    color: $video-player-fullscreen-color;
-    cursor: pointer;
-  }
-
-  &:hover {
-    .lin-video-player-hover-full {
-      display: block;
-    }
-  }
-}
-
-.lin-video-player-hover-full {
-  position: absolute;
-  top: $video-player-hover-full-top;
-  left: $video-player-hover-full-left;
-  display: none;
-  width: 100%;
-  margin-bottom: $video-player-hover-full-margin-bottom;
-}
-// video-player-fullscreen  结束  --------------------------
 
 // video-player-definition  开始  --------------------------
 .lin-video-player-definition {
@@ -370,14 +210,6 @@
   > i {
     font-size: $video-player-controls-icon-font-size;
     color: $video-player-controls-icon-color;
-  }
-}
-
-.lin-video-player-icon-volume {
-  margin-left: $video-player-controls-icon-volume-margin-left;
-
-  > i {
-    font-size: $video-player-controls-icon-volume-font-size;
   }
 }
 
