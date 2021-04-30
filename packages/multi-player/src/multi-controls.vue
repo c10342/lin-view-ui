@@ -7,7 +7,7 @@
       <div class="lin-video-player-controls-mask"></div>
       <div class="lin-video-player-controls-group">
         <div class="lin-video-player-process-box">
-          <lin-multi-process
+          <lin-player-process
             @seek="onSeek"
             :totalTime="totalTime"
             :currentTime="currentTime"
@@ -17,13 +17,13 @@
           <i v-if="!isPlaying" class="lin-icon-play" @click="onPlayClick"></i>
           <i v-else class="lin-icon-pause" @click="onPauseClick"></i>
         </span>
-        <lin-multi-volume :volume="volume" @setVolume="setVolume" />
+        <lin-player-volume :volume="volume" @setVolume="setVolume" />
         <span class="lin-video-player-time"
           >{{ currentTime | secondToTime }}/{{ totalTime | secondToTime }}</span
         >
       </div>
       <div class="lin-video-player-controls-right">
-        <lin-multi-fullscreen
+        <lin-player-fullscreen
           @browser-fullscreen="$emit('browser-fullscreen')"
           @web-fullscreen="$emit('web-fullscreen')"
         />
@@ -33,16 +33,16 @@
 </template>
 
 <script>
-import MultiVolume from './multi-volume.vue';
-import MultiFullscreen from './multi-fullscreen.vue';
-import MultiProcess from './multi-process.vue';
 import secondToTime from 'src/utils/secondToTime.js';
+import PlayerProcess from 'packages/player-process/index.js';
+import PlayerFullscreen from 'packages/player-fullscreen/index.js';
+import PlayerVolume from 'packages/player-volume/index.js';
 export default {
   name: 'LinMultiControls',
   components: {
-    [MultiVolume.name]: MultiVolume,
-    [MultiFullscreen.name]: MultiFullscreen,
-    [MultiProcess.name]: MultiProcess
+    [PlayerVolume.name]: PlayerVolume,
+    [PlayerFullscreen.name]: PlayerFullscreen,
+    [PlayerProcess.name]: PlayerProcess
   },
   filters: {
     // 格式化时间

@@ -351,40 +351,50 @@ export default {
         const result = this.getDirection(left, top);
         // 获取该屏幕的对应的画面
         const screen = this.getFrameByScreen(result);
-        if (screen === -1 || this.screen === -1) {
-          return;
+        if (screen === -1 || this.screen === -1 || result === -1) {
+          // 重置移动的画面信息
+          const or = this[`originalStyle${this.index}`];
+          const index = this.getFrameByScreen(this.index);
+          this.initStyle(`frameStyle${index}`, {
+            width: or.width,
+            height: or.height,
+            left: or.left,
+            top: or.top
+          });
+        } else {
+          // 获取屏幕的信息
+          const or1 = this[`originalStyle${result}`];
+          const or2 = this[`originalStyle${this.index}`];
+          // 交换2个画面的大小和位置信息
+          this.initStyle(`frameStyle${this.screen}`, {
+            width: or1.width,
+            height: or1.height,
+            left: or1.left,
+            top: or1.top
+          });
+          this.initStyle(`frameStyle${screen}`, {
+            width: or2.width,
+            height: or2.height,
+            left: or2.left,
+            top: or2.top
+          });
+          this.initStyle(`videoStyle${this.screen}`, {
+            width: or1.width,
+            height: or1.height,
+            left: or1.left,
+            top: or1.top
+          });
+          this.initStyle(`videoStyle${screen}`, {
+            width: or2.width,
+            height: or2.height,
+            left: or2.left,
+            top: or2.top
+          });
+          // 交换屏幕画面
+          this.exchangeScreen(this.index, result);
         }
-        // 获取屏幕的信息
-        const or1 = this[`originalStyle${result}`];
-        const or2 = this[`originalStyle${this.index}`];
-        // 交换2个画面的大小和位置信息
-        this.initStyle(`frameStyle${this.screen}`, {
-          width: or1.width,
-          height: or1.height,
-          left: or1.left,
-          top: or1.top
-        });
-        this.initStyle(`frameStyle${screen}`, {
-          width: or2.width,
-          height: or2.height,
-          left: or2.left,
-          top: or2.top
-        });
-        this.initStyle(`videoStyle${this.screen}`, {
-          width: or1.width,
-          height: or1.height,
-          left: or1.left,
-          top: or1.top
-        });
-        this.initStyle(`videoStyle${screen}`, {
-          width: or2.width,
-          height: or2.height,
-          left: or2.left,
-          top: or2.top
-        });
-        // 交换屏幕画面
-        this.exchangeScreen(this.index, result);
         this.screen = -1;
+        this.index = -1;
       } else {
         // 其余情况，当做点击事件
         this.toggle();
