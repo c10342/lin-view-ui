@@ -60,6 +60,9 @@ import Tooltip from 'packages/tooltip/index.js';
 import Upload from 'packages/upload/index.js';
 import VideoCard from 'packages/video-card/index.js';
 import VideoPlayer from 'packages/video-player/index.js';
+import PlayerProcess from 'packages/player-process/index.js';
+import PlayerFullscreen from 'packages/player-fullscreen/index.js';
+import PlayerVolume from 'packages/player-volume/index.js';
 
 const components = [
   Alert,
@@ -119,7 +122,10 @@ const components = [
   Tooltip,
   Upload,
   VideoCard,
-  VideoPlayer
+  VideoPlayer,
+  PlayerProcess,
+  PlayerFullscreen,
+  PlayerVolume
 ];
 
 const install = (Vue, opts = {}) => {
@@ -199,5 +205,6 @@ export default {
   Tooltip,
   Upload,
   VideoCard,
-  VideoPlayer
+  VideoPlayer,
+  PlayerProcess
 };
