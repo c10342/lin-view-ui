@@ -19,12 +19,28 @@
       @click="switchPlayingStatus"
       @canplaythrough="onCanplaythrough"
       @waiting="onWaiting"
+      @volumechange="onVolumechange"
     ></video>
     <player-image></player-image>
     <player-loading></player-loading>
     <player-tip></player-tip>
     <player-animation></player-animation>
-    <player-controls></player-controls>
+    <player-controls
+      :isPlaying="isPlaying"
+      :currentTime="currentTime"
+      :totalTime="totalTime"
+      :live="live"
+      :isEnter="isEnter"
+      :preloadTime="preloadTime"
+      :volume="volume"
+      @play="switchPlayingStatus"
+      @pause="switchPlayingStatus"
+      @seek="seek"
+      @setVolume="setVolume"
+      @offsetTime="onOffsetTime"
+      @browser-fullscreen="onBrowserFullscreen"
+      @web-fullscreen="onWebFullscreen"
+    ></player-controls>
   </div>
 </template>
 
@@ -33,12 +49,17 @@ import Hls from 'hls.js';
 import flvjs from 'flv.js/dist/flv.js';
 import { cloneDeep, isEqual } from 'lodash';
 import LocaleMixin from 'src/mixins/locale.js';
+import {
+  isBrowserFullscreen,
+  isBrowserFullscreenEnabled,
+  enterBrowserFullScreen,
+  exitBrowserFullscreen
+} from 'src/utils/fullscreen.js';
 import PlayerControls from './video-player-controls.vue';
 import PlayerAnimation from './video-player-animation.vue';
 import PlayerImage from './video-player-image.vue';
 import PlayerLoading from './video-player-loading.vue';
 import PlayerTip from './video-player-tip.vue';
-import { enterBrowserFullScreen, exitBrowserFullscreen } from './utils.js';
 
 export default {
   name: 'LinVideoPlayer',
@@ -92,7 +113,9 @@ export default {
       // 鼠标是否进入容器
       isEnter: true,
       // 自定义支持其他 MSE 可使用此参数
-      customType: null
+      customType: null,
+      // 音量
+      volume: 1
     };
   },
   mounted() {
@@ -221,7 +244,9 @@ export default {
     // 加载数据源
     onLoadedmetadata() {
       const duration = this.video?.duration || 0;
+      const volume = this.video?.volume || 0;
       this.totalTime = duration;
+      this.volume = volume;
     },
     // 可以流畅播放
     onCanplaythrough() {
@@ -244,6 +269,12 @@ export default {
       if (this.video && this.video.buffered?.length !== 0) {
         const preloadTime = this.video?.buffered.end(0) || 0;
         this.preloadTime = preloadTime;
+      }
+    },
+    // 音量发生变化
+    onVolumechange() {
+      if (this.video) {
+        this.volume = this.video.volume;
       }
     },
     // 跳转到某个视频点
@@ -319,6 +350,22 @@ export default {
     // 设置左下角提示
     setTip(tip) {
       this.tip = tip;
+    },
+    // 进度条发生变化，提示前进或者后退了多少秒
+    onOffsetTime(offsetTime) {
+      if (offsetTime < 0) {
+        this.setTip(
+          `${this.t('LinViewUI.VideoPlayer.goBack')} ${Math.round(
+            -offsetTime
+          )} ${this.t('LinViewUI.VideoPlayer.second')}`
+        );
+      } else {
+        this.setTip(
+          `${this.t('LinViewUI.VideoPlayer.fastForward')} ${Math.round(
+            offsetTime
+          )} ${this.t('LinViewUI.VideoPlayer.second')}`
+        );
+      }
     },
     // 设置播放速度
     setSpeed(rate) {
@@ -410,6 +457,24 @@ export default {
     // 鼠标进入容器
     onMouseEnter() {
       this.isEnter = true;
+    },
+    // 浏览器全屏
+    onBrowserFullscreen() {
+      if (this.isWebFullscreen) {
+        this.isWebFullscreen = false;
+      }
+      if (isBrowserFullscreenEnabled()) {
+        if (!isBrowserFullscreen()) {
+          enterBrowserFullScreen(this.$refs.videoPlayerContainer);
+        } else {
+          exitBrowserFullscreen();
+        }
+      }
+    },
+    // 网页全屏
+    onWebFullscreen() {
+      exitBrowserFullscreen();
+      this.switchWebfullscreen();
     }
   },
   beforeDestroy() {

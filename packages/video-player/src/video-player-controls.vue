@@ -1,16 +1,22 @@
 <template>
   <transition name="lin-video-player-fade">
-    <div class="lin-video-player-controls" v-if="isEnter || !isPlaying">
+    <div class="lin-video-player-controls" v-show="isEnter || !isPlaying">
       <div class="lin-video-player-controls-mask"></div>
       <div class="lin-video-player-controls-group">
         <div class="lin-video-player-process-box" v-if="!live">
-          <player-process></player-process>
+          <player-process
+            @seek="onSeek"
+            @offsetTime="onOffsetTime"
+            :totalTime="totalTime"
+            :currentTime="currentTime"
+            :preloadTime="preloadTime"
+          ></player-process>
         </div>
-        <span class="lin-video-player-icon-item" @click="onPlayBtnClick">
-          <i class="lin-icon-play" v-if="!isPlaying"></i>
-          <i class="lin-icon-pause" v-else></i>
+        <span class="lin-video-player-icon-item">
+          <i class="lin-icon-play" @click="onPlayClick" v-if="!isPlaying"></i>
+          <i class="lin-icon-pause" @click="onPauseClick" v-else></i>
         </span>
-        <player-volume></player-volume>
+        <player-volume :volume="volume" @setVolume="setVolume"></player-volume>
         <span class="lin-video-player-time" v-if="!live"
           >{{ currentTime | secondToTime }}/{{ totalTime | secondToTime }}</span
         >
@@ -21,7 +27,10 @@
         <div class="lin-video-player-controls-right">
           <player-definition></player-definition>
           <player-speed v-if="!live"></player-speed>
-          <player-fullscreen></player-fullscreen>
+          <player-fullscreen
+            @browser-fullscreen="onBrowserFullscreen"
+            @web-fullscreen="onWebFullscreen"
+          ></player-fullscreen>
         </div>
       </div>
     </div>
@@ -31,11 +40,12 @@
 <script>
 import secondToTime from 'src/utils/secondToTime.js';
 import LocaleMixin from 'src/mixins/locale.js';
-import PlayerProcess from './video-player-process.vue';
-import PlayerFullscreen from './video-player-fullscreen.vue';
 import PlayerSpeed from './video-player-speed.vue';
-import PlayerVolume from './video-player-volume.vue';
 import PlayerDefinition from './video-player-definition.vue';
+
+import PlayerProcess from 'packages/player-process/index.js';
+import PlayerVolume from 'packages/player-volume/index.js';
+import PlayerFullscreen from 'packages/player-fullscreen/index.js';
 
 export default {
   name: 'LinVideoPlayerControls',
@@ -56,57 +66,66 @@ export default {
       default: null
     }
   },
-  computed: {
-    isPlaying() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.isPlaying;
-      }
-      return false;
+  props: {
+    // 是否正在播放
+    isPlaying: {
+      type: Boolean,
+      default: false
     },
-    video() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.video;
-      }
-      return null;
+    // 当前时间
+    currentTime: {
+      type: Number,
+      default: 0
     },
-    currentTime() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.currentTime;
-      }
-      return 0;
+    // 总时间
+    totalTime: {
+      type: Number,
+      default: 0
     },
-    // 总时长
-    totalTime() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.totalTime;
-      }
-      return 0;
-    },
-    // 是否是直播
-    live() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.live;
-      }
-      return 0;
+    // 是否为直播
+    live: {
+      type: Boolean,
+      default: false
     },
     // 鼠标是否进入容器
-    isEnter() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.isEnter;
-      }
-      return false;
+    isEnter: {
+      type: Boolean,
+      default: true
+    },
+    // 已经缓冲的时长
+    preloadTime: {
+      type: Number,
+      default: 0
+    },
+    // 音量
+    volume: {
+      type: Number,
+      default: 1
     }
   },
   methods: {
     // 点击播放或者暂停按钮
-    onPlayBtnClick() {
-      if (this.videoPlayer) {
-        this.videoPlayer.switchPlayingStatus();
-      }
+    onPlayClick() {
+      this.$emit('play');
+    },
+    onPauseClick() {
+      this.$emit('pause');
+    },
+    onSeek(time) {
+      this.$emit('seek', time);
+    },
+    setVolume(volume) {
+      this.$emit('setVolume', volume);
+    },
+    onOffsetTime(offsetTime) {
+      this.$emit('offsetTime', offsetTime);
+    },
+    onBrowserFullscreen() {
+      this.$emit('browser-fullscreen');
+    },
+    onWebFullscreen() {
+      this.$emit('web-fullscreen');
     }
   }
-  // beforeDestroy () {
-  //   this.videoPlayer.$off('playingStatus', this.onPlayingStatus);
-  // }
 };
 </script>

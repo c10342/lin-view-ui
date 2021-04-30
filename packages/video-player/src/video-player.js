@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import broadcast from 'src/utils/broadcast.js';
 import VideoPlayer from './video-player.vue';
 
 import {
@@ -10,6 +9,12 @@ import {
 } from './utils.js';
 
 import 'packages/video-player/src/style.scss';
+
+import 'packages/player-fullscreen/src/style.scss';
+
+import 'packages/player-process/src/style.scss';
+
+import 'packages/player-volume/src/style.scss';
 
 import 'src/fonts/iconfont.css';
 
@@ -195,15 +200,7 @@ class LinVideoPlayer {
 
   // 设置视频音量
   volume(percent) {
-    const volume = this.instance?.setVolume(percent);
-    if (volume > -1 && this.instance) {
-      // 通知子组件音量变化
-      broadcast.call(this.instance, {
-        eventName: 'onvolumechange',
-        params: volume,
-        componentName: 'LinVideoPlayerVolume'
-      });
-    }
+    this.instance?.setVolume(percent);
   }
 
   // 全屏 web 和 browser，默认类型是 browser
