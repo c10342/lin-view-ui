@@ -5,22 +5,6 @@ $video-player-background-color: #000 !default;
 
 $video-player-video-object-fit: fill !default;
 
-$video-player-volume-margin-left: 5px !default;
-$video-player-volume-transition: all 400ms !default;
-$video-player-volume-hover-width: 60px !default;
-$video-player-volume-hover-padding: 5px 5px !default;
-$video-player-volume-process-height: 3px !default;
-$video-player-volume-process-background-color: hsla(0, 0%, 100%, 0.2) !default;
-$video-player-volume-process-margin: 3px 0 !default;
-$video-player-volume-process-ball-right: -4px !default;
-$video-player-volume-process-line-background-color: rgb(183, 218, 255) !default;
-$video-player-volume-process-ball-top: 50% !default;
-$video-player-volume-process-ball-transform: translateY(-50%) !default;
-$video-player-volume-process-ball-width: 8px !default;
-$video-player-volume-process-ball-height: 8px !default;
-$video-player-volume-process-ball-border-radius: 50% !default;
-$video-player-volume-process-ball-background-color: rgb(183, 218, 255) !default;
-
 $video-player-tip-left: 20px !default;
 $video-player-tip-bottom: 50px !default;
 $video-player-tip-border-radius: 4px !default;
@@ -44,45 +28,9 @@ $video-player-speed-list-padding: 5px 0 !default;
 $video-player-speed-list-background-color: rgba(0, 0, 0, 0.6) !default;
 $video-player-speed-label-hover-background-color: rgba(0, 0, 0, 0.2) !default;
 
-$video-player-process-height: 3px !default;
-$video-player-process-background-color: hsla(0, 0%, 100%, 0.2) !default;
-$video-player-process-mask-padding: 5px 0 !default;
-$video-player-process-time-border-radius: 4px !default;
-$video-player-process-time-background-color: rgba(0, 0, 0, 0.5) !default;
-$video-player-process-time-top: -20px !default;
-$video-player-process-time-left: 0 !default;
-$video-player-process-time-color: #fff !default;
-$video-player-process-time-font-size: 12px !default;
-$video-player-process-time-padding: 3px !default;
-$video-player-process-played-top: 0 !default;
-$video-player-process-played-left: 0 !default;
-$video-player-process-played-background-color: rgb(183, 218, 255) !default;
-$video-player-process-played-transition: all 300ms !default;
-$video-player-process-loaded-top: 0 !default;
-$video-player-process-loaded-left: 0 !default;
-$video-player-process-loaded-background-color: hsla(0, 0%, 100%, 0.4) !default;
-$video-player-process-loaded-transition: all 300ms !default;
-$video-player-process-ball-right: -5px !default;
-$video-player-process-ball-top: 50% !default;
-$video-player-process-ball-transform: translateY(-50%) !default;
-$video-player-process-ball-width: 11px !default;
-$video-player-process-ball-height: 11px !default;
-$video-player-process-ball-background-color: rgb(183, 218, 255) !default;
-$video-player-process-ball-border-radius: 50% !default;
-$video-player-process-ball-enter-active-animation: ball-enter-animation 0.3s
-  ease-out !default;
-$video-player-process-ball-leave-active-animation: ball-enter-animation 0.3s
-  reverse ease-out !default;
-
 $video-player-loading-color: hsla(0, 0%, 100%, 0.7) !default;
 $video-player-loading-font-size: 30px !default;
 $video-player-loading-animation: rotate-animation 2s linear infinite !default;
-
-$video-player-fullscreen-color: #fff !default;
-$video-player-fullscreen-font-size: 30px !default;
-$video-player-hover-full-left: 0 !default;
-$video-player-hover-full-top: -30px !default;
-$video-player-hover-full-margin-bottom: 10px !default;
 
 $video-player-controls-height: 40px !default;
 $video-player-controls-group-padding: 0 20px !default;
@@ -91,8 +39,6 @@ $video-player-controls-mask-background: url(data:image/png;base64,iVBORw0KGgoAAA
 $video-player-controls-mask-height: 98px !default;
 $video-player-controls-icon-color: #fff !default;
 $video-player-controls-icon-font-size: 30px !default;
-$video-player-controls-icon-volume-margin-left: 15px !default;
-$video-player-controls-icon-volume-font-size: 20px !default;
 $video-player-controls-time-margin-left: 15px !default;
 $video-player-controls-time-font-size: 12px !default;
 $video-player-controls-time-color: #fff !default;
