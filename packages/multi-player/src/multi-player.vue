@@ -112,20 +112,6 @@ export default {
     [NoScreen.name]: NoScreen,
     [MultiControls.name]: MultiControls
   },
-  props: {
-    videos: {
-      type: Array,
-      default: () => [
-        'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4',
-        'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4',
-        'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4'
-      ]
-    },
-    type: {
-      type: String,
-      default: 'mp4'
-    }
-  },
   data() {
     return {
       // 画面容器样式
@@ -190,7 +176,11 @@ export default {
       // 是否单个画面全屏
       isSingleFullscreen: false,
       // 那个画面全屏
-      singleFullscreenId: -1
+      singleFullscreenId: -1,
+      autoplay: false,
+      videoList: [],
+      type: 'mp4',
+      live: false
     };
   },
   mounted() {
@@ -494,11 +484,12 @@ export default {
     },
     // 初始化播放器
     initPlayer() {
-      for (let i = 0; i < this.videos.length; i++) {
-        const videoUrl = this.videos[i];
+      for (let i = 0; i < this.videoList.length; i++) {
+        const videoUrl = this.videoList[i];
         const player = new VideoPlayer({
           el: document.getElementById(`screen${i + 1}`),
           type: this.type,
+          autoplay: this.autoplay,
           videoList: [
             {
               label: '',
