@@ -6,7 +6,7 @@
     >
       <div class="lin-video-player-controls-mask"></div>
       <div class="lin-video-player-controls-group">
-        <div class="lin-video-player-process-box">
+        <div class="lin-video-player-process-box" v-if="!live">
           <lin-player-process
             @seek="onSeek"
             :totalTime="totalTime"
@@ -18,9 +18,13 @@
           <i v-else class="lin-icon-pause" @click="onPauseClick"></i>
         </span>
         <lin-player-volume :volume="volume" @setVolume="setVolume" />
-        <span class="lin-video-player-time"
+        <span class="lin-video-player-time" v-if="!live"
           >{{ currentTime | secondToTime }}/{{ totalTime | secondToTime }}</span
         >
+        <span class="lin-video-player-live-tip" v-if="live">
+          <i></i>
+          {{ t('LinViewUI.VideoPlayer.live') }}
+        </span>
       </div>
       <div class="lin-video-player-controls-right">
         <lin-player-fullscreen
@@ -37,8 +41,10 @@ import secondToTime from 'src/utils/secondToTime.js';
 import PlayerProcess from 'packages/player-process/index.js';
 import PlayerFullscreen from 'packages/player-fullscreen/index.js';
 import PlayerVolume from 'packages/player-volume/index.js';
+import LocaleMixin from 'src/mixins/locale.js';
 export default {
   name: 'LinMultiControls',
+  mixins: [LocaleMixin],
   components: {
     [PlayerVolume.name]: PlayerVolume,
     [PlayerFullscreen.name]: PlayerFullscreen,
@@ -73,6 +79,10 @@ export default {
     volume: {
       type: Number,
       default: 1
+    },
+    live: {
+      type: Boolean,
+      value: false
     }
   },
   methods: {

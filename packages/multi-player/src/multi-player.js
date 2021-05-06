@@ -18,8 +18,6 @@ import { handleEl } from 'packages/video-player/src/utils.js';
 
 const MultiPlayerConstructor = Vue.extend(MultiPlayer);
 
-// export default MultiPlayer;
-
 class LinMultiPlayer {
   // 组件实例
   instance = null;
@@ -60,7 +58,7 @@ class LinMultiPlayer {
   initParams(options) {
     const {
       el,
-      type,
+      type = 'mp4',
       autoplay = false,
       videoList = [],
       live = false
@@ -94,9 +92,10 @@ class LinMultiPlayer {
 
     // 获取video标签
     this.videos = this.instance?.playerList;
-
     // 将dom添加进入容器
     this.container?.appendChild(this.vm.$el);
+    // 要等元素插入到容器中才能初始化播放器，否则document.getElementById(xxx)会找不到元素
+    this.instance?.initPlayer();
   }
 
   // 事件监听
@@ -104,6 +103,94 @@ class LinMultiPlayer {
     if (this.videos && this.videos[0]) {
       this.videos[0].on(eventName, func);
     }
+  }
+
+  seek(time) {
+    this.instance?.seek(time);
+  }
+
+  play() {
+    this.instance?.play();
+  }
+
+  pause() {
+    this.instance?.pause();
+  }
+
+  toggle() {
+    this.instance?.toggle();
+  }
+
+  // 设置视频音量
+  setVolume(percent) {
+    this.instance?.setVolume(percent);
+  }
+
+  // 全屏 web 和 browser，默认类型是 browser
+  get fullScreen() {
+    const self = this;
+    return {
+      request(type) {
+        if (type === 'web') {
+          self.instance?.onWebFullscreen();
+        } else if (type === 'browser') {
+          self.instance?.onBrowserFullscreen();
+        }
+      },
+      cancel(type) {
+        if (type === 'web') {
+          self.instance?.onWebFullscreen();
+        } else if (type === 'browser') {
+          self.instance?.onBrowserFullscreen();
+        }
+      },
+      singleFullscreen(index) {
+        const screen = self.instance.getFrameByScreen(index);
+        self.instance.onSingleFullscreenClick(screen);
+      }
+    };
+  }
+
+  // 当前播放时间
+  get currentTime() {
+    return this.instance?.currentTime || 0;
+  }
+
+  // 视频总时长
+  get totalTime() {
+    return this.instance?.totalTime || 0;
+  }
+
+  // 是否处于暂停状态
+  get paused() {
+    return !this.instance?.isPlaying;
+  }
+
+  // 重置
+  resetParams() {
+    this.instance = null;
+
+    this.container = null;
+
+    this.vm = null;
+
+    this.videoList = [];
+
+    this.type = null;
+
+    this.autoplay = false;
+
+    this.el = null;
+
+    this.live = false;
+  }
+
+  destory() {
+    if (this.vm && this.vm.$el && this.container) {
+      this.container.removeChild(this.vm.$el);
+    }
+    this.vm?.$destroy();
+    this.resetParams();
   }
 }
 

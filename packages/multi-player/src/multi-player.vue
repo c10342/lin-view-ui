@@ -22,11 +22,11 @@
       </div>
       <div class="lin-multi-player-screen" :style="formatStyle(videoStyle1)">
         <div
-          v-show="videos[0]"
+          v-show="videoList[0]"
           class="lin-multi-player-container"
-          id="screen1"
+          :id="`${randomId}-1`"
         ></div>
-        <lin-no-screen v-show="!videos[0]" />
+        <lin-no-screen v-show="!videoList[0]" />
       </div>
     </div>
     <div v-show="isSingleFullscreen ? singleFullscreenId === 2 : true">
@@ -46,11 +46,11 @@
       </div>
       <div class="lin-multi-player-screen" :style="formatStyle(videoStyle2)">
         <div
-          v-show="videos[1]"
+          v-show="videoList[1]"
           class="lin-multi-player-container"
-          id="screen2"
+          :id="`${randomId}-2`"
         ></div>
-        <lin-no-screen v-show="!videos[1]" />
+        <lin-no-screen v-show="!videoList[1]" />
       </div>
     </div>
 
@@ -71,11 +71,11 @@
       </div>
       <div class="lin-multi-player-screen" :style="formatStyle(videoStyle3)">
         <div
-          v-show="videos[2]"
+          v-show="videoList[2]"
           class="lin-multi-player-container"
-          id="screen3"
+          :id="`${randomId}-3`"
         ></div>
-        <lin-no-screen v-show="!videos[2]" />
+        <lin-no-screen v-show="!videoList[2]" />
       </div>
     </div>
 
@@ -85,6 +85,7 @@
       :isPlaying="isPlaying"
       :volume="volume"
       :isEnter="isEnter"
+      :live="live"
       @play="onpPlayClick"
       @pause="onPauseClick"
       @seek="onSeek"
@@ -170,6 +171,7 @@ export default {
       totalTime: 0,
       // 音量
       volume: 1,
+      // 网页全屏
       isWebFullscreen: false,
       // 鼠标是否进入容器
       isEnter: true,
@@ -177,17 +179,28 @@ export default {
       isSingleFullscreen: false,
       // 那个画面全屏
       singleFullscreenId: -1,
+      // 自动播放
       autoplay: false,
+      // 播放列表
       videoList: [],
+      // 视频类型
       type: 'mp4',
+      // 是否为直播
       live: false
     };
+  },
+  computed: {
+    randomId() {
+      return `multi-screen-${Math.random().toString(16).slice(-9)}`;
+    }
   },
   mounted() {
     // 是否移动了
     this.isMove = false;
     // 实际的画面位置，屏幕！==画面,下标索引是屏幕，值是画面，屏幕是不变的，变得是画面
     this.sortArr = [1, 2, 3];
+    // 记录movedown点击时间
+    this.movedownTime = 0;
     // 每个屏幕的数据信息
     this.originalStyle1 = {
       top: 0,
@@ -227,10 +240,11 @@ export default {
     // 初始化每个屏幕，画面的信息
     this.initData();
     // 初始化播放器
-    this.initPlayer();
+    // this.initPlayer();
     this.initObserver();
   },
   methods: {
+    // 监听dom大小变化
     initObserver() {
       // DOM元素大小（宽高）发生变化的时候
       this.observer = new ResizeObserver(() => {
@@ -314,6 +328,8 @@ export default {
     },
     // 鼠标在屏幕按下
     onMainMousedown(key, event) {
+      // 记录鼠标点击下去的时间
+      this.movedownTime = Date.now();
       // 重置鼠标是否在移动的标志位
       this.isMove = false;
       // 根据屏幕位置，获取点击的是那个屏幕
@@ -332,7 +348,10 @@ export default {
     },
     // 鼠标在屏幕抬起
     onMouseup(event) {
-      if (this.isMove && !this.isSingleFullscreen) {
+      const endTime = Date.now();
+      // 计算鼠标点击下去到鼠标抬起的时间差，时间差小于500毫秒的可以认为是点击事件
+      const offsetTime = endTime - this.movedownTime;
+      if (this.isMove && !this.isSingleFullscreen && offsetTime > 500) {
         // 如果是拖拽的情况下抬起,并且当前不是但画面全屏。（但画面全屏没有拖拽）
         const { x, y } = event;
         const left = x - this.container.left;
@@ -383,21 +402,22 @@ export default {
           // 交换屏幕画面
           this.exchangeScreen(this.index, result);
         }
-        this.screen = -1;
-        this.index = -1;
       } else {
         // 其余情况，当做点击事件
         this.toggle();
       }
+      // 重置
+      this.screen = -1;
+      this.index = -1;
       // 重置鼠标是否移动的标志位
       this.isMove = false;
 
-      document.removeEventListener('mousemove', this.onMousemove);
-      document.removeEventListener('mouseup', this.onMouseup);
+      this.removeEventListener();
     },
+    // 鼠标移动
     onMousemove(event) {
       if (this.isSingleFullscreen) {
-        // 但画面全屏的情况下，没有拖拽行为
+        // 单画面全屏的情况下，没有拖拽行为
         return;
       }
       this.isMove = true;
@@ -484,12 +504,15 @@ export default {
     },
     // 初始化播放器
     initPlayer() {
-      for (let i = 0; i < this.videoList.length; i++) {
+      let len = this.videoList.length;
+      len = len > 3 ? 3 : len;
+      for (let i = 0; i < len; i++) {
         const videoUrl = this.videoList[i];
         const player = new VideoPlayer({
-          el: document.getElementById(`screen${i + 1}`),
+          el: document.getElementById(`${this.randomId}-${i + 1}`),
           type: this.type,
           autoplay: this.autoplay,
+          live: this.live,
           videoList: [
             {
               label: '',
@@ -538,7 +561,10 @@ export default {
     initListener() {
       const player = this.playerList[0];
       if (player) {
-        player.on('timeupdate', this.onTimeupdate);
+        if (!this.live) {
+          // 直播不需要监听时间变化
+          player.on('timeupdate', this.onTimeupdate);
+        }
         player.on('loadedmetadata', this.onLoadedmetadata);
         player.on('volumechange', this.onVolumechange);
         player.on('play', this.onPlay);
@@ -616,31 +642,44 @@ export default {
     },
     // 单画面全屏
     onSingleFullscreenClick(index) {
-      // 修改但画面标志位
-      this.isSingleFullscreen = true;
-      // 那个画面全屏
-      this.singleFullscreenId = index;
-      // 申请浏览器全屏
-      this.onBrowserFullscreen();
-      const style = {
-        width: '100%',
-        height: '100%',
-        left: 0,
-        top: 0
-      };
-      // 修改单个画面样式信息，单画面宽高需要百分百
-      this.initStyle(`frameStyle${index}`, style);
-      this.initStyle(`videoStyle${index}`, style);
+      // 多流最多只有3个画面，需要放置越界
+      if (index > 0 && index <= 3) {
+        // 修改但画面标志位
+        this.isSingleFullscreen = true;
+        // 那个画面全屏
+        this.singleFullscreenId = index;
+        // 申请浏览器全屏
+        this.onBrowserFullscreen();
+        const style = {
+          width: '100%',
+          height: '100%',
+          left: 0,
+          top: 0
+        };
+        // 修改单个画面样式信息，单画面宽高需要百分百
+        this.initStyle(`frameStyle${index}`, style);
+        this.initStyle(`videoStyle${index}`, style);
+      }
+    },
+    destoryPlayer() {
+      // 销毁相关副作用
+      if (this.observer) {
+        this.observer.disconnect();
+        this.observer = null;
+      }
+      // 销毁播放器
+      this.handelVideo((player) => {
+        player.destory();
+      });
+    },
+    removeEventListener() {
+      document.removeEventListener('mousemove', this.onMousemove);
+      document.removeEventListener('mouseup', this.onMouseup);
     }
   },
   beforeDestroy() {
-    // 销毁相关副作用
-    if (this.observer) {
-      this.observer.disconnect();
-      this.observer = null;
-    }
-    document.removeEventListener('mousemove', this.onMousemove);
-    document.removeEventListener('mouseup', this.onMouseup);
+    this.destoryPlayer();
+    this.removeEventListener();
   }
 };
 </script>
