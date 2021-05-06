@@ -375,6 +375,18 @@
       }
     }
   }
+
+  .demo-multi-player {
+    .player-container {
+      width: 600px;
+      height: 300px;
+    }
+
+    .lin-button {
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+  }
 }
 
 .component-upload {

@@ -223,6 +223,11 @@
           "desc": "VideoPlayer",
           "name": "video-player",
           "path": "/video-player"
+        },
+        {
+          "desc": "MultiPlayer",
+          "name": "multi-player",
+          "path": "/multi-player"
         }
       ]
     },

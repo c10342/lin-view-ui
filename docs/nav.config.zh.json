@@ -223,6 +223,11 @@
           "desc": "VideoPlayer 播放器",
           "name": "video-player",
           "path": "/video-player"
+        },
+        {
+          "desc": "MultiPlayer 多流播放器",
+          "name": "multi-player",
+          "path": "/multi-player"
         }
       ]
     },
