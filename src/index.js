@@ -206,5 +206,8 @@ export default {
   Upload,
   VideoCard,
   VideoPlayer,
-  PlayerProcess
+  PlayerProcess,
+  MultiPlayer,
+  PlayerFullscreen,
+  PlayerVolume
 };
