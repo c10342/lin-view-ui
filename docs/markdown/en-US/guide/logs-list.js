@@ -2,6 +2,17 @@ import { logsType } from '../../../config/index.js';
 
 export default [
   {
+    version: '1.2.0',
+    time: '2021-05-06',
+    content: [
+      {
+        title: 'Add Component',
+        list: ['MultiPlayer'],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
+  },
+  {
     version: '1.1.1',
     time: '2021-03-20',
     content: [
