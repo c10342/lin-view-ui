@@ -83,6 +83,10 @@
           "description": "文档更新",
           "title": "docs"
         },
+        "examples": {
+          "description": "开发测试",
+          "title": "examples"
+        },
         "build": {
           "description": "主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交",
           "title": "build"

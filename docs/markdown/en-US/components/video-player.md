@@ -48,18 +48,18 @@ export default {
     return {
       speedList: [
         {
-          label: "normal",
-          value: 1,
+          label: 'normal',
+          value: 1
         },
         {
-          label: "1.5 times",
-          value: 1.5,
+          label: '1.5 times',
+          value: 1.5
         },
         {
-          label: "2 times",
-          value: 2,
-        },
-      ],
+          label: '2 times',
+          value: 2
+        }
+      ]
     };
   },
   mounted() {
@@ -71,21 +71,21 @@ export default {
         return;
       }
       this.mp4Player = new this.$VideoPlayer({
-        el: document.getElementById("mp4video"),
-        type: "mp4",
+        el: document.getElementById('mp4video'),
+        type: 'mp4',
         speedList: this.speedList,
         videoList: [
           {
-            label: "Standard definition",
+            label: 'Standard definition',
             url:
-              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+              'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4'
           },
           {
-            label: "high definition",
+            label: 'high definition',
             url:
-              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
-          },
-        ],
+              'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4'
+          }
+        ]
       });
     },
     play() {
@@ -101,7 +101,7 @@ export default {
       this.mp4Player?.toggle();
     },
     notice() {
-      this.mp4Player?.notice("hello", 5000);
+      this.mp4Player?.notice('hello', 5000);
     },
     speed() {
       this.mp4Player?.speed(2);
@@ -128,12 +128,12 @@ export default {
     destory() {
       this.mp4Player?.destory();
       this.mp4Player = null;
-    },
+    }
   },
   beforeDestroy() {
     this.mp4Player?.destory();
     this.mp4Player = null;
-  },
+  }
 };
 </script>
 ```
@@ -157,18 +157,18 @@ export default {
     return {
       speedList: [
         {
-          label: "normal",
-          value: 1,
+          label: 'normal',
+          value: 1
         },
         {
-          label: "1.5 times",
-          value: 1.5,
+          label: '1.5 times',
+          value: 1.5
         },
         {
-          label: "2 times",
-          value: 2,
-        },
-      ],
+          label: '2 times',
+          value: 2
+        }
+      ]
     };
   },
   mounted() {
@@ -177,28 +177,28 @@ export default {
   methods: {
     initHls() {
       new this.$VideoPlayer({
-        el: "#hlsvideo",
-        type: "hls",
+        el: '#hlsvideo',
+        type: 'hls',
         speedList: this.speedList,
         videoList: [
           {
-            label: "Standard definition",
+            label: 'Standard definition',
             url:
-              "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
+              'https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8'
           },
           {
-            label: "high definition",
+            label: 'high definition',
             url:
-              "https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8",
-          },
-        ],
+              'https://api.dogecloud.com/player/get.m3u8?vcode=5ac682e6f8231991&userId=17&ext=.m3u8'
+          }
+        ]
       });
-    },
+    }
   },
   beforeDestroy() {
     this.hlsPlayer?.destory();
     this.hlsPlayer = null;
-  },
+  }
 };
 </script>
 ```
@@ -222,18 +222,18 @@ export default {
     return {
       speedList: [
         {
-          label: "normal",
-          value: 1,
+          label: 'normal',
+          value: 1
         },
         {
-          label: "1.5 times",
-          value: 1.5,
+          label: '1.5 times',
+          value: 1.5
         },
         {
-          label: "2 times",
-          value: 2,
-        },
-      ],
+          label: '2 times',
+          value: 2
+        }
+      ]
     };
   },
   mounted() {
@@ -242,28 +242,28 @@ export default {
   methods: {
     initFlv() {
       new this.$VideoPlayer({
-        el: document.getElementById("flvvideo"),
-        type: "flv",
+        el: document.getElementById('flvvideo'),
+        type: 'flv',
         speedList: this.speedList,
         videoList: [
           {
-            label: "Standard definition",
+            label: 'Standard definition',
             url:
-              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+              'https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv'
           },
           {
-            label: "high definition",
+            label: 'high definition',
             url:
-              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
-          },
-        ],
+              'https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv'
+          }
+        ]
       });
-    },
+    }
   },
   beforeDestroy() {
     this.flvPlayer?.destory();
     this.flvPlayer = null;
-  },
+  }
 };
 </script>
 ```
@@ -289,29 +289,29 @@ export default {
   methods: {
     initLive() {
       this.flvPlayer = new this.$VideoPlayer({
-        el: document.getElementById("livevideo"),
-        type: "flv",
+        el: document.getElementById('livevideo'),
+        type: 'flv',
         speedList: this.speedList,
         live: true,
         videoList: [
           {
-            label: "Standard definition",
+            label: 'Standard definition',
             url:
-              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
+              'https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv'
           },
           {
-            label: "high definition",
+            label: 'high definition',
             url:
-              "https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv",
-          },
-        ],
+              'https://api.dogecloud.com/player/get.flv?vcode=5ac682e6f8231991&userId=17&ext=.flv'
+          }
+        ]
       });
-    },
+    }
   },
   beforeDestroy() {
     this.flvPlayer?.destory();
     this.flvPlayer = null;
-  },
+  }
 };
 </script>
 ```
@@ -337,29 +337,29 @@ export default {
   methods: {
     initOther() {
       this.mp4Player = new this.$VideoPlayer({
-        el: document.getElementById("othervideo"),
+        el: document.getElementById('othervideo'),
         videoList: [
           {
-            label: "Standard definition",
+            label: 'Standard definition',
             url:
-              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
+              'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4'
           },
           {
-            label: "high definition",
+            label: 'high definition',
             url:
-              "https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4",
-          },
+              'https://api.dogecloud.com/player/get.mp4?vcode=5ac682e6f8231991&userId=17&ext=.mp4'
+          }
         ],
         customType(video, data) {
           video.src = data.currenVideo.url;
-        },
+        }
       });
-    },
+    }
   },
   beforeDestroy() {
     this.mp4Player?.destory();
     this.mp4Player = null;
-  },
+  }
 };
 </script>
 ```
@@ -370,7 +370,7 @@ export default {
 
 | Name       | Description                                                            | Type                               | Accepted Values | Default |
 | ---------- | ---------------------------------------------------------------------- | ---------------------------------- | --------------- | ------- |
-| el         | Player container element, required                                     | String                             | HTMLElement     | —       | — |
+| el         | Player container element, required                                     | String,HTMLElement                 | —               | —       |
 | type       | Play type, required. Not required when the customtype parameter exists | String                             | mp4、hls、flv   | —       |
 | autoplay   | Automatic video playback                                               | Boolean                            | —               | false   |
 | speedList  | Video speed multiples list                                             | Array<{label:string,value:string}> | —               | —       |
@@ -381,12 +381,12 @@ export default {
 ## API
 
 ```javascript
-import { VideoPlayer } from "lin-view-ui";
+import { VideoPlayer } from 'lin-view-ui';
 const player = new VideoPlayer({
-  el: document.getElementById("flvvideo"),
-  type: "flv",
+  el: document.getElementById('flvvideo'),
+  type: 'flv',
   speedList: [],
-  videoList: [],
+  videoList: []
 });
 ```
 
@@ -398,7 +398,7 @@ const player = new VideoPlayer({
 - `player.switchVideo(options)` : Switch to another video
 
 ```javascript
-player.switchVideo({ videoList: [{ label: "", url: "" }], autoplay: true });
+player.switchVideo({ videoList: [{ label: '', url: '' }], autoplay: true });
 ```
 
 - `player.notice(text: string, time: number)` : Display the notification. The unit of time is MS, and the default time is 2000 Ms
@@ -415,13 +415,13 @@ player.switchVideo({ videoList: [{ label: "", url: "" }], autoplay: true });
 - `player.fullScreen.request(type: string)` : Enter full screen
 
 ```javascript
-player.fullScreen.request("web");
-player.fullScreen.request("browser");
+player.fullScreen.request('web');
+player.fullScreen.request('browser');
 ```
 
 - `player.fullScreen.cancel(type: string)` : Exit full screen
 
 ```javascript
-player.fullScreen.cancel("web");
-player.fullScreen.cancel("browser");
+player.fullScreen.cancel('web');
+player.fullScreen.cancel('browser');
 ```

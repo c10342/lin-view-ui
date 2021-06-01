@@ -1,38 +1,38 @@
 <template>
   <div
-    class="lin-video-player-process-mask"
+    class="lin-player-process-mask"
     @click="onMaskClick"
     @mousemove="onMaskMouseMove"
     @mouseleave="onMaskMouseLeave"
   >
-    <transition name="lin-video-player-fade">
+    <transition name="lin-player-process-fade">
       <span
         ref="processTime"
         v-show="isEnterMask"
-        class="lin-video-player-process-time"
+        class="lin-player-process-time"
         :style="{ left: maskLeft }"
         >{{ maskCurrentTime | secondToTime }}</span
       >
     </transition>
-    <div class="lin-video-player-process" ref="videoPlayerProcess">
+    <div class="lin-player-process" ref="playerProcess">
       <div
-        class="lin-video-player-process-loaded"
+        class="lin-player-process-loaded"
         :style="{
           width: loadedWidth,
           'transition-duration': mousedown ? '0ms' : '300ms'
         }"
       ></div>
       <div
-        class="lin-video-player-process-played"
+        class="lin-player-process-played"
         :style="{
           width: currentPlayedWidth,
           'transition-duration': mousedown ? '0ms' : '300ms'
         }"
       >
-        <transition name="lin-video-player-ball">
+        <transition name="lin-player-process-ball">
           <span
             v-show="isEnterMask"
-            class="lin-video-player-process-ball"
+            class="lin-player-process-ball"
             ref="processBall"
             @mousedown="onBallMouseDown"
             @click.stop
@@ -48,14 +48,26 @@ import secondToTime from 'src/utils/secondToTime.js';
 import LocaleMixin from 'src/mixins/locale.js';
 
 export default {
-  name: 'LinVideoPlayerProcess',
+  name: 'LinPlayerProcess',
   mixins: [LocaleMixin],
   filters: {
     secondToTime
   },
-  inject: {
-    videoPlayer: {
-      default: null
+  props: {
+    // 总时长
+    totalTime: {
+      type: Number,
+      default: 0
+    },
+    // 当前时间
+    currentTime: {
+      type: Number,
+      default: 0
+    },
+    // 已经缓冲的时长
+    preloadTime: {
+      type: Number,
+      default: 0
     }
   },
   data() {
@@ -76,7 +88,7 @@ export default {
     // 进度条上面的小球
     this.processBall = this.$refs.processBall;
     // 进度条的内容容器
-    this.videoPlayerProcess = this.$refs.videoPlayerProcess;
+    this.playerProcess = this.$refs.playerProcess;
     // 进度条提示的容器
     this.processTime = this.$refs.processTime;
   },
@@ -106,27 +118,6 @@ export default {
       let percent = this.preloadTime / this.totalTime;
       percent = percent > 1 ? 1 : percent;
       return `${percent * 100}%`;
-    },
-    // 当前播放时间
-    currentTime() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.currentTime;
-      }
-      return 0;
-    },
-    // 视频总时长
-    totalTime() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.totalTime;
-      }
-      return 0;
-    },
-    // 已经缓冲的时长
-    preloadTime() {
-      if (this.videoPlayer) {
-        return this.videoPlayer.preloadTime;
-      }
-      return 0;
     }
   },
   methods: {
@@ -138,10 +129,9 @@ export default {
       // 鼠标在组件内移动
       this.isEnterMask = true;
       // 进度条距离屏幕左边距离
-      const outLineX = this.videoPlayerProcess.getBoundingClientRect().x;
+      const outLineX = this.playerProcess.getBoundingClientRect().x;
       // 进度条长度
-      const outLineWidth = this.videoPlayerProcess.getBoundingClientRect()
-        .width;
+      const outLineWidth = this.playerProcess.getBoundingClientRect().width;
       const processTimeWidth = this.processTime.clientWidth;
       // 计算在进度条中移动了多少
       let offsetX = e.pageX - outLineX;
@@ -171,9 +161,8 @@ export default {
     onMouseMove(e) {
       // 实现拖拽移动事件
       if (this.mousedown) {
-        const outLineX = this.videoPlayerProcess.getBoundingClientRect().x;
-        const outLineWidth = this.videoPlayerProcess.getBoundingClientRect()
-          .width;
+        const outLineX = this.playerProcess.getBoundingClientRect().x;
+        const outLineWidth = this.playerProcess.getBoundingClientRect().width;
         // 计算移动了多少
         let offsetX = e.pageX - outLineX;
         if (offsetX <= 0) {
@@ -188,7 +177,7 @@ export default {
     onMouseUp(e) {
       this.onMouseMove(e);
       // 进度条总长度
-      const clientWidth = this.videoPlayerProcess.clientWidth || 0;
+      const clientWidth = this.playerProcess.clientWidth || 0;
       let percent = 0;
       if (clientWidth) {
         // 计算出拖拽到哪里
@@ -220,32 +209,17 @@ export default {
       const time = this.totalTime * percent;
       // 计算前进或者后退了多少秒
       const offsetTime = time - this.currentTime;
-      this.videoPlayer?.seek(time);
+      this.$emit('seek', time);
       // 左下角显示提示
       this.setTip(offsetTime);
     },
-    // 设置左下角提示，提示前进或者后退了多少秒
+    // 前进或者后退了多少秒
     setTip(offsetTime) {
-      if (!this.videoPlayer) {
-        return;
-      }
-      if (offsetTime < 0) {
-        this.videoPlayer.setTip(
-          `${this.t('LinViewUI.VideoPlayer.goBack')} ${Math.round(
-            -offsetTime
-          )} ${this.t('LinViewUI.VideoPlayer.second')}`
-        );
-      } else {
-        this.videoPlayer.setTip(
-          `${this.t('LinViewUI.VideoPlayer.fastForward')} ${Math.round(
-            offsetTime
-          )} ${this.t('LinViewUI.VideoPlayer.second')}`
-        );
-      }
+      this.$emit('offsetTime', offsetTime);
     },
     destroyProcess() {
       this.processBall = null;
-      this.videoPlayerProcess = null;
+      this.playerProcess = null;
       this.processTime = null;
     }
   },

@@ -1,8 +1,8 @@
 import LoadingConstruct from './construct.js';
 
-function openLoading(el, binding) {
+export function openLoading(el, binding) {
   if (!el) {
-    return;
+    return false;
   }
   if (!el.instance) {
     el.instance = new LoadingConstruct();
@@ -26,17 +26,19 @@ function openLoading(el, binding) {
   options.textColor = textColor;
   // 打开loading
   el.instance.open(options);
+  return true;
 }
 
-function closeLoading(el) {
+export function closeLoading(el) {
   if (!el) {
-    return;
+    return false;
   }
   // 关闭loading
   if (el.instance) {
     el.instance.close();
     el.instance = null;
   }
+  return true;
 }
 
 const loadingDirective = {};

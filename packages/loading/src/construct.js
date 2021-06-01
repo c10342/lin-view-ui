@@ -30,9 +30,9 @@ function delScrollListener(target, fn) {
 const LoadingConstruct = Vue.extend(Loading);
 
 // 打开loading
-LoadingConstruct.prototype.open = function open(options) {
+LoadingConstruct.prototype.open = function open(options = {}) {
   // 必须要有目标对象，否则不能显示出来
-  if (!options.target) {
+  if (!options || !options.target) {
     return;
   }
 
