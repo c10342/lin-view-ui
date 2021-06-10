@@ -93,11 +93,11 @@ export default {
         // 还可以输入多少字符数
         this.num = this.maxLen - currentValue.length;
       } else {
-        if (this.isCut) {
-          // 超出了多少字符数
-          this.num = currentValue.length - this.maxLen;
-          return;
-        }
+        // if (this.isCut) {
+        //   // 超出了多少字符数
+        //   this.num = currentValue.length - this.maxLen;
+        //   return;
+        // }
         this.isOver = true;
         this.num = currentValue.length - this.maxLen;
         this.$emit('overText', currentValue);
