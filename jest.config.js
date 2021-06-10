@@ -41,7 +41,8 @@ module.exports = {
     '<rootDir>/packages/loading/src/construct.js',
     '<rootDir>/packages/loading/src/directive.js',
     '<rootDir>/packages/loading/src/loading.vue',
-    '<rootDir>/packages/loading/src/service.js'
+    '<rootDir>/packages/loading/src/service.js',
+    '<rootDir>/packages/limit-textarea/src/limit-textarea.vue'
   ],
   setupFiles: ['<rootDir>/tests/__mocks__/shim.js']
 };
