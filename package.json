@@ -1,214 +1,42 @@
 {
   "name": "lin-view-ui",
-  "version": "1.2.1",
-  "description": "vue components library",
-  "author": "c10342",
-  "private": false,
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "unpkg": "lib/index.js",
-  "license": "MIT",
-  "keywords": [
-    "vue",
-    "UI",
-    "Component"
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
   ],
-  "homepage": "https://github.com/c10342/lin-view-ui",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/c10342/lin-view-ui"
-  },
-  "bugs": {
-    "url": "https://github.com/c10342/lin-view-ui/issues"
-  },
-  "files": [
-    "lib",
-    "packages",
-    "src",
-    "types"
-  ],
-  "typings": "types/index.d.ts",
   "scripts": {
-    "docs:dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.docs.js",
-    "examples:dev": "cross-env NODE_ENV=development target=examples webpack-dev-server --config ./build/webpack.docs.js",
-    "docs:build": "cross-env NODE_ENV=production webpack --config ./build/webpack.docs.js",
-    "index:build": "webpack --config ./build/webpack.all.js",
-    "component:build": "webpack --config ./build/webpack.component.js",
-    "assets:build": "webpack --config ./build/webpack.assets.js",
-    "lang:build": "webpack --config ./build/webpack.lang.js",
-    "build": "rimraf lib && npm run index:build && npm run component:build && npm run assets:build && npm run lang:build",
-    "docs:upload": "npm run docs:build && node ./build/qiniu.js",
-    "prepublishOnly": "npm run build",
-    "pub": "node ./build/publish.js",
-    "lint": "eslint --ext .js,.vue ./",
-    "lint-fix": "eslint --fix --ext .js,.vue ./",
-    "lint:style": "stylelint **/*.{html,vue,css,sass,scss}",
-    "lint:style-fix": "stylelint **/*.{html,vue,css,sass,scss} --fix",
-    "test": "jest --coverage && codecov",
-    "test-coverage": "jest --coverage",
-    "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --verbose",
-    "test-watch": "jest --watch",
-    "commit": "git cz"
+    "build:utils": "node ./build/build.utils.js",
+    "build:locale": "node ./build/build.locale.js",
+    "build:mixins": "node ./build/build.mixins.js",
+    "build:component": "node ./build/build.component.js",
+    "bootstrap": "lerna bootstrap"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{html,vue,css,sass,scss}": [
-      "npm run lint:style-fix"
-    ],
-    "*.{js,vue}": [
-      "prettier --write",
-      "npm run lint-fix",
-      "git add",
-      "npm run lint"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog",
-      "types": {
-        "feat": {
-          "description": "新增功能",
-          "title": "feat"
-        },
-        "fix": {
-          "description": "bug 修复",
-          "title": "fix"
-        },
-        "docs": {
-          "description": "文档更新",
-          "title": "docs"
-        },
-        "examples": {
-          "description": "开发测试",
-          "title": "examples"
-        },
-        "build": {
-          "description": "主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交",
-          "title": "build"
-        },
-        "ci": {
-          "description": "主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交",
-          "title": "ci"
-        },
-        "perf": {
-          "description": "性能优化",
-          "title": "perf"
-        },
-        "refactor": {
-          "description": "重构代码(既没有新增功能，也没有修复 bug)",
-          "title": "refactor"
-        },
-        "style": {
-          "description": "不影响程序逻辑的代码修改(修改空白字符，补全缺失的分号等)",
-          "title": "style"
-        },
-        "test": {
-          "description": "测试",
-          "title": "test"
-        },
-        "revert": {
-          "description": "回滚某个更早之前的提交",
-          "title": "revert"
-        },
-        "chore": {
-          "description": "不属于以上类型的其他类型(日常事务)",
-          "title": "chore"
-        }
-      }
-    }
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-transform-runtime": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/runtime-corejs3": "^7.12.5",
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
     "@vue/babel-plugin-transform-vue-jsx": "^1.2.1",
-    "@vue/eslint-config-standard": "^6.0.0",
-    "@vue/test-utils": "^1.1.2",
-    "autoprefixer": "^9.7.4",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.3",
-    "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^3.0.0",
-    "codecov": "^3.8.1",
-    "commitizen": "^4.2.2",
-    "copy-webpack-plugin": "^7.0.0",
-    "core-js": "^3.8.1",
-    "coveralls": "^3.1.0",
-    "cross-env": "^7.0.3",
-    "css-loader": "^5.0.1",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.16.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-import-resolver-webpack": "^0.13.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-vue": "^7.4.0",
-    "eslint-webpack-plugin": "^2.4.1",
-    "file-loader": "^6.2.0",
-    "highlight.js": "^9.18.5",
-    "html-webpack-plugin": "^4.5.0",
-    "husky": "^4.3.6",
-    "jest": "^26.6.3",
-    "lint-staged": "^10.5.3",
-    "markdown-it": "^12.0.4",
-    "markdown-it-anchor": "^6.0.1",
-    "markdown-it-chain": "^1.3.0",
-    "markdown-it-container": "^3.0.0",
-    "markdown-it-table-of-contents": "^0.5.1",
-    "markdown-it-task-lists": "^2.1.1",
-    "mini-css-extract-plugin": "^1.3.3",
-    "node-sass": "^5.0.0",
-    "ora": "^5.2.0",
-    "postcss-loader": "^4.1.0",
-    "prettier": "^2.2.1",
-    "qiniu": "^7.3.2",
-    "rimraf": "^3.0.2",
-    "sass-loader": "^10.1.0",
-    "shelljs": "^0.8.4",
-    "style-loader": "^2.0.0",
-    "stylelint": "^13.8.0",
-    "stylelint-config-recess-order": "^2.3.0",
-    "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.18.0",
-    "stylelint-webpack-plugin": "^2.1.1",
-    "typescript": "^4.2.2",
-    "url-loader": "^4.1.1",
-    "vue": "^2.6.12",
-    "vue-jest": "^3.0.7",
-    "vue-loader": "^15.9.6",
-    "vue-router": "^3.4.9",
-    "vue-template-compiler": "^2.6.12",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
-    "webpack-merge": "^5.7.3"
-  },
-  "peerDependencies": {
-    "vue": "^2.6.12"
-  },
-  "dependencies": {
-    "async-validator": "^3.5.1",
-    "deepmerge": "^4.2.2",
-    "flv.js": "^1.5.0",
-    "hls.js": "^0.14.17",
-    "lodash": "^4.17.20",
-    "resize-observer-polyfill": "^1.5.1",
-    "spark-md5": "^3.0.1"
+    "core-js": "^3.14.0",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "lerna": "^4.0.0",
+    "node-sass": "^6.0.0",
+    "rollup": "^2.51.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-vue": "^5.1.9",
+    "sass": "^1.35.0",
+    "vue-template-compiler": "^2.6.14"
   }
 }

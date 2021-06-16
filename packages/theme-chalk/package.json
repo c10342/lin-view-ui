@@ -1,0 +1,14 @@
+{
+  "name": "@lin-view-ui/theme-chalk",
+  "version": "1.0.0",
+  "description": "theme-chalk",
+  "main": "index.scss",
+  "style": "index.scss",
+  "keywords": [
+    "lin-view-ui",
+    "theme-chalk"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "dependencies": {}
+}

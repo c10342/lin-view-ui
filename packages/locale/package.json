@@ -1,0 +1,19 @@
+{
+  "name": "@lin-view-ui/locale",
+  "version": "1.0.0",
+  "description": "locale",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "locale"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "vue": "^2.6.14"
+  }
+}
