@@ -14,6 +14,8 @@ const del = require("del");
 
 const root = path.resolve(__dirname, "../packages/theme-chalk");
 
+const fs = require('fs')
+
 const buildScss = (srcPath, distPath) => {
   return src(srcPath)
     .pipe(sass().on("error", sass.logError))
@@ -28,7 +30,11 @@ const buildScss = (srcPath, distPath) => {
     .pipe(dest(distPath));
 };
 
-function copyfont(distPath) {
+function copyfont(distPath,comp) {
+  const str = fs.readFileSync(path.resolve(root, `./src/${comp}.scss`))
+  if (!str.includes('./iconfont.css')) {
+    return Promise.resolve()
+  }
   return src(path.resolve(root, "./src/fonts") + "/**")
     .pipe(cssmin())
     .pipe(dest(distPath));

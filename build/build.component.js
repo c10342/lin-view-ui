@@ -42,11 +42,11 @@ const buildComponent = async (comp) => {
     path.resolve(root, `./theme-chalk/src/${comp}.scss`),
     path.resolve(root, `./${comp}/dist`)
   );
-  await copyfont(path.resolve(root, `./${comp}/dist/fonts`));
+  await copyfont(path.resolve(root, `./${comp}/dist/fonts`),comp);
   console.log(comp, "done");
 };
 
-buildComponent("alert");
+buildComponent("button");
 
 // const whiteList = ['locale','mixins','theme-chalk','utils']
 // const compList = fs.readdirSync(root).filter(fileName => !whiteList.includes(fileName))
