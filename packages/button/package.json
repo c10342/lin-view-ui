@@ -1,0 +1,19 @@
+{
+  "name": "@lin-view-ui/button",
+  "version": "1.0.0",
+  "description": "button",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "button"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/spinner": "^1.0.0",
+    "vue": "^2.6.14"
+  }
+}
