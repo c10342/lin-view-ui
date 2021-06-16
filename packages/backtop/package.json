@@ -1,0 +1,19 @@
+{
+  "name": "@lin-view-ui/backtop",
+  "version": "1.0.0",
+  "description": "backtop",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "backtop"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "vue": "^2.6.14"
+  }
+}
