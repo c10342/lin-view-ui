@@ -1,0 +1,19 @@
+{
+  "name": "@lin-view-ui/loading",
+  "version": "1.0.0",
+  "description": "loading",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "loading"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/utils": "^1.0.0",
+    "vue": "^2.6.14"
+  }
+}
