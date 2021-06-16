@@ -1,0 +1,123 @@
+@import "./variables/button.scss";
+@import "./mixin/button.scss";
+@import './spinner.scss';
+@import './iconfont.css';
+
+.lin-button {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: $button-margin;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  line-height: $button-line-height;
+  color: $button-color;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  // 禁止元素的文字被选中
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background: $button-background-color;
+  border: $button-border-width $button-border-style $button-border-color;
+  border-radius: $button-border-radius;
+  outline: none;
+  transition: $button-transition;
+  -webkit-appearance: none;
+
+  &:hover,
+  &:focus {
+    color: $button-default-active-color;
+    background-color: $button-default-active-background-color;
+    border-color: $button-default-active-border-color;
+  }
+}
+
+.lin-button-size-default {
+  padding: $button-default-padding-x $button-default-padding-y;
+
+  &.lin-button-circle {
+    padding: $button-default-circle-padding;
+  }
+}
+
+.lin-button-size-medium {
+  padding: $button-medium-padding-x $button-medium-padding-y;
+
+  &.lin-button-circle {
+    padding: $button-medium-circle-padding;
+  }
+}
+
+.lin-button-size-small {
+  padding: $button-small-padding-x $button-small-padding-y;
+
+  &.lin-button-circle {
+    padding: $button-small-circle-padding;
+  }
+}
+
+@each $key, $val in $theme-color {
+  .lin-button-#{$key} {
+    color: $button-theme-color-color;
+    background-color: $val;
+    border-color: $val;
+
+    &:hover,
+    &:focus {
+      color: $button-theme-color-color;
+      background: lighten($val, 10%);
+      border-color: lighten($val, 10%);
+    }
+
+    &.lin-button-loading {
+      color: $button-theme-color-color;
+      background-color: lighten($val, 10%);
+      border-color: lighten($val, 10%);
+    }
+  }
+}
+
+// 朴素的按钮
+.lin-button.lin-button-plain {
+  &:hover,
+  &:focus {
+    @include button-plain-default(
+      $button-default-plain-active-background,
+      $button-default-plain-active-border-color,
+      $button-default-plain-active-color
+    );
+  }
+}
+
+@each $key, $val in $theme-color {
+  .lin-button-#{$key}.lin-button-plain {
+    @include button-plain-normal($val);
+
+    &:hover,
+    &:focus {
+      @include button-plain-active($val);
+    }
+  }
+}
+
+.lin-button.lin-button-round {
+  border-radius: $button-round-border-radius;
+}
+
+// 原形按钮
+.lin-button.lin-button-circle {
+  border-radius: $button-circle-border-radius;
+}
+
+.lin-button [class*="lin-icon-"] + span {
+  margin-left: $button-icon-margin-left;
+}
+
+.lin-button-disabled {
+  cursor: not-allowed;
+}
+
+.lin-button-spinner {
+  margin-right: $button-spinner-margin-right;
+}
