@@ -1,0 +1,33 @@
+
+@import "./variables/player-fullscreen.scss";
+
+@import './iconfont.css';
+
+.lin-player-fullscreen {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  span {
+    font-size: $player-fullscreen-font-size;
+    color: $player-fullscreen-color;
+    cursor: pointer;
+  }
+
+  &:hover {
+    .lin-player-fullscreen-hover-full {
+      display: block;
+    }
+  }
+}
+
+.lin-player-fullscreen-hover-full {
+  position: absolute;
+  top: $player-fullscreen-hover-full-top;
+  left: $player-fullscreen-hover-full-left;
+  display: none;
+  width: 100%;
+  margin-bottom: $player-fullscreen-hover-full-margin-bottom;
+}

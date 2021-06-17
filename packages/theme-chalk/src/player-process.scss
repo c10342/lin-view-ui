@@ -1,0 +1,75 @@
+@import "./variables/player-process.scss";
+
+.lin-player-process-mask {
+  position: relative;
+  width: 100%;
+  padding: $player-process-mask-padding;
+  cursor: pointer;
+}
+
+.lin-player-process-time {
+  position: absolute;
+  top: $player-process-time-top;
+  left: $player-process-time-left;
+  padding: $player-process-time-padding;
+  font-size: $player-process-time-font-size;
+  color: $player-process-time-color;
+  user-select: none;
+  background-color: $player-process-time-background-color;
+  border-radius: $player-process-time-border-radius;
+}
+
+.lin-player-process {
+  position: relative;
+  width: 100%;
+  height: $player-process-height;
+  cursor: pointer;
+  background-color: $player-process-background-color;
+}
+
+.lin-player-process-played {
+  position: absolute;
+  top: $player-process-played-top;
+  left: $player-process-played-left;
+  height: $player-process-height;
+  background-color: $player-process-played-background-color;
+  transition: $player-process-played-transition;
+}
+
+.lin-player-process-loaded {
+  position: absolute;
+  top: $player-process-loaded-top;
+  left: $player-process-loaded-left;
+  height: $player-process-height;
+  background-color: $player-process-loaded-background-color;
+  transition: $player-process-loaded-transition;
+}
+
+.lin-player-process-ball {
+  position: absolute;
+  top: $player-process-ball-top;
+  right: $player-process-ball-right;
+  width: $player-process-ball-width;
+  height: $player-process-ball-height;
+  background-color: $player-process-ball-background-color;
+  border-radius: $player-process-ball-border-radius;
+  transform: $player-process-ball-transform;
+}
+
+.lin-player-process-fade-enter-active,
+.lin-player-process-fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.lin-player-process-fade-enter,
+.lin-player-process-fade-leave-to {
+  opacity: 0;
+}
+
+.lin-player-process-ball-enter-active {
+  animation: $player-process-ball-enter-active-animation;
+}
+
+.lin-player-process-ball-leave-active {
+  animation: $player-process-ball-leave-active-animation;
+}
