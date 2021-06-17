@@ -46,8 +46,10 @@ const buildComponent = async (comp) => {
   console.log(comp, "done");
 };
 
-buildComponent("button");
+// buildComponent("video-player");
 
-// const whiteList = ['locale','mixins','theme-chalk','utils']
-// const compList = fs.readdirSync(root).filter(fileName => !whiteList.includes(fileName))
+const whiteList = ['locale','mixins','theme-chalk','utils']
+const compList = fs.readdirSync(root).filter(fileName => !whiteList.includes(fileName))
 // console.log(compList);
+
+compList.forEach(comp=>buildComponent(comp))
