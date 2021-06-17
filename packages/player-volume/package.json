@@ -1,0 +1,18 @@
+{
+  "name": "@lin-view-ui/player-volume",
+  "version": "1.0.0",
+  "description": "player-volume",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "player-volume"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "vue": "^2.6.14"
+  }
+}
