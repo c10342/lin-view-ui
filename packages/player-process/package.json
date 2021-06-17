@@ -1,0 +1,20 @@
+{
+  "name": "@lin-view-ui/player-process",
+  "version": "1.0.0",
+  "description": "player-process",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "player-process"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/mixins": "^1.0.0",
+    "@lin-view-ui/utils": "^1.0.0",
+    "vue": "^2.6.14"
+  }
+}
