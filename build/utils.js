@@ -14,7 +14,7 @@ function getExternalsDep(name) {
   Object.keys(dependencies).forEach(key=>externals.push(key))
   Object.keys(peerDependencies).forEach(key=>externals.push(key))
 
-  return [...new Set(externals)];
+  return [...new Set(externals),'flv.js/dist/flv.js'];
 }
 
 module.exports = {
