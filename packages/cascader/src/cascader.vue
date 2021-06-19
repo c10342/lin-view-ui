@@ -48,12 +48,12 @@
 
 <script>
 import Input from '@lin-view-ui/input'
-import {DocumentClick,LocaleMixin} from '@lin-view-ui/mixins'
+import {DocumentClickMixins,LocaleMixin} from '@lin-view-ui/mixins'
 import Panel from './panel.vue';
 
 export default {
   name: 'LinCascader',
-  mixins: [DocumentClick, LocaleMixin],
+  mixins: [DocumentClickMixins, LocaleMixin],
   components: {
     [Input.name]: Input,
     [Panel.name]: Panel
