@@ -11,6 +11,7 @@ $choice-group-input-padding-left: 15px !default;
 $choice-group-input-padding-right: 25px !default;
 $choice-group-input-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 $choice-group-input-focus-border-color: $primary !default;
+$choice-group-input-width:100% !default;
 
 $choice-group-disabled-input-background-color: $disabled-background-color !default;
 $choice-group-disabled-input-border-color: $disabled-border-color !default;
@@ -31,14 +32,15 @@ $choice-group-close-icon-font-size: $font-size-base !default;
 $choice-group-close-icon-color: $font-color !default;
 
 $choice-container-wrapper-top: 46px !default;
-$choice-container-wrapper-left: 50% !default;
+$choice-container-wrapper-left: 0 !default;
 $choice-container-wrapper-transform: translateX(-50%) !default;
 $choice-container-wrapper-width: 100% !default;
+$choice-container-wrapper-min-width: 100% !default;
 $choice-container-wrapper-background-color: #fff !default;
 $choice-container-wrapper-z-index: 100 !default;
 $choice-container-wrapper-before-width: 12px !default;
 $choice-container-wrapper-before-height: 12px !default;
-$choice-container-wrapper-before-left: 50% !default;
+$choice-container-wrapper-before-left: 48px !default;
 $choice-container-wrapper-before-border: 1px solid $disabled-border-color !default;
 $choice-container-wrapper-before-background-color: #fff !default;
 $choice-container-wrapper-before-border-radius: 2px !default;
