@@ -1,5 +1,5 @@
 @import './common';
-@import '../animations/index.scss';
+@import '../animations/rotate-animation.scss';
 
 $choice-group-input-background-color: #fff !default;
 $choice-group-input-background-image: none !default;
@@ -11,6 +11,7 @@ $choice-group-input-padding-left: 15px !default;
 $choice-group-input-padding-right: 25px !default;
 $choice-group-input-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 $choice-group-input-focus-border-color: $primary !default;
+$choice-group-input-width:100% !default;
 
 $choice-group-disabled-input-background-color: $disabled-background-color !default;
 $choice-group-disabled-input-border-color: $disabled-border-color !default;
@@ -34,6 +35,7 @@ $choice-container-wrapper-top: 46px !default;
 $choice-container-wrapper-left: 50% !default;
 $choice-container-wrapper-transform: translateX(-50%) !default;
 $choice-container-wrapper-width: 100% !default;
+$choice-container-wrapper-min-width: 100% !default;
 $choice-container-wrapper-background-color: #fff !default;
 $choice-container-wrapper-z-index: 100 !default;
 $choice-container-wrapper-before-width: 12px !default;
