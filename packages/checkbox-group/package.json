@@ -1,0 +1,16 @@
+{
+  "name": "@lin-view-ui/checkbox-group",
+  "version": "1.0.0",
+  "description": "checkbox-group",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "checkbox-group"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
