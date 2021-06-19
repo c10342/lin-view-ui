@@ -4,15 +4,13 @@
 .lin-choice-item {
   position: relative;
   box-sizing: border-box;
-  height: $choice-item-height;
+  // height: $choice-item-height;
   padding: $choice-item-padding;
   font-size: $choice-item-font-size;
   line-height: $choice-item-height;
   color: $choice-item-color;
   cursor: pointer;
-  // white-space: nowrap;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
+
   @include one-line();
 
   &:not(.lin-choice-item-disabled):hover {
