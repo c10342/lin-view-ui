@@ -1,0 +1,34 @@
+{
+  "name": "lin-view-ui",
+  "version": "1.0.0",
+  "description": "lin-view-ui",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/alert": "^1.0.0",
+    "@lin-view-ui/backtop": "^1.0.0",
+    "@lin-view-ui/badge": "^1.0.0",
+    "@lin-view-ui/button": "^1.0.0",
+    "@lin-view-ui/cascader": "^1.0.0",
+    "@lin-view-ui/checkbox": "^1.0.0",
+    "@lin-view-ui/checkbox-group": "^1.0.0",
+    "@lin-view-ui/choice-group": "^1.0.0",
+    "@lin-view-ui/choice-item": "^1.0.0",
+    "@lin-view-ui/choice-option": "^1.0.0",
+    "@lin-view-ui/input": "^1.0.0",
+    "@lin-view-ui/loading": "^1.0.0",
+    "@lin-view-ui/player-fullscreen": "^1.0.0",
+    "@lin-view-ui/player-process": "^1.0.0",
+    "@lin-view-ui/player-volume": "^1.0.0",
+    "@lin-view-ui/spinner": "^1.0.0",
+    "@lin-view-ui/video-player": "^1.0.0",
+    "@lin-view-ui/locale": "^1.0.0"
+  }
+}
