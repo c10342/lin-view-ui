@@ -9,6 +9,7 @@
 .lin-choice-group-input {
   box-sizing: border-box;
   display: inline-block;
+  width: $choice-group-input-width;
   height: $choice-group-input-height;
   padding-right: $choice-group-input-padding-right;
   padding-left: $choice-group-input-padding-left;
@@ -71,13 +72,14 @@
   top: $choice-container-wrapper-top;
   left: $choice-container-wrapper-left;
   z-index: $choice-container-wrapper-z-index;
-  width: $choice-container-wrapper-width;
+  // width: $choice-container-wrapper-width;
+  min-width: $choice-container-wrapper-min-width;
   padding: $choice-container-padding;
   background-color: $choice-container-wrapper-background-color;
   border: $choice-container-border;
   border-radius: $choice-container-border-radius;
   box-shadow: $choice-container-box-shadow;
-  transform: $choice-container-wrapper-transform;
+  // transform: $choice-container-wrapper-transform;
 
   &::before {
     position: absolute;
