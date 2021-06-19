@@ -48,7 +48,7 @@ const buildComponent = async (comp) => {
 
 // buildComponent("video-player");
 
-const whiteList = ['locale','mixins','theme-chalk','utils']
+const whiteList = ['locale','mixins','theme-chalk','utils','lin-view-ui']
 const compList = fs.readdirSync(root).filter(fileName => !whiteList.includes(fileName))
 // console.log(compList);
 
