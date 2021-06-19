@@ -1,0 +1,16 @@
+{
+  "name": "@lin-view-ui/choice-option",
+  "version": "1.0.0",
+  "description": "choice-option",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "choice-option"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
