@@ -12,6 +12,7 @@
     "build:locale": "node ./build/build.locale.js",
     "build:mixins": "node ./build/build.mixins.js",
     "build:component": "node ./build/build.component.js",
+    "build:all": "node ./build/build.all.js",
     "build":"npm run build:utils && npm run build:locale && npm run build:mixins && npm run build:component",
     "bootstrap": "lerna bootstrap",
     "commit": "git cz"
