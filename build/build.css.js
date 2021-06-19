@@ -16,14 +16,17 @@ const root = path.resolve(__dirname, "../packages/theme-chalk");
 
 const fs = require('fs')
 
-const buildScss = (srcPath, distPath) => {
+
+const buildScss = (srcPath, distPath,options={
+  basename :'style'
+}) => {
   return src(srcPath)
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer({ cascade: false }))
     .pipe(cssmin())
     .pipe(
       rename((srcPath) => {
-        srcPath.basename = 'style'
+        srcPath.basename = options.basename
         srcPath.extname = ".css";
       })
     )

@@ -1,4 +1,10 @@
 const path = require("path");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
+const babel = require("rollup-plugin-babel");
+const commonjs = require("@rollup/plugin-commonjs");
+const vue = require("rollup-plugin-vue");
+const rollup = require("rollup");
+const del = require("del");
 
 const root = path.resolve(__dirname, "../packages");
 
@@ -17,6 +23,44 @@ function getExternalsDep(name) {
   return [...new Set(externals),'flv.js/dist/flv.js'];
 }
 
+function createInputConfig(options={}){
+  return {
+    input: options.input,
+    external: options.external,
+    plugins: [
+      nodeResolve(),
+      vue({}),
+      babel({
+        exclude: "node_modules/**", // 防止打包node_modules下的文件
+        runtimeHelpers: true, // 使plugin-transform-runtime生效
+      }),
+      commonjs(),
+    ],
+  }; 
+}
+
+function createEsOutput(distPath) {
+  return {
+    file:distPath,
+    format: "es",
+  };
+}
+
+async function rollupBuild(inputOptions,outputOptions){
+  const bundle = await rollup.rollup(inputOptions)
+  await bundle.write(outputOptions)
+}
+
+const clean = (cleanPath) => {
+  return del(cleanPath, {
+    force: true,
+  });
+};
+
 module.exports = {
-  getExternalsDep
+  getExternalsDep,
+  createInputConfig,
+  createEsOutput,
+  rollupBuild,
+  clean
 }
