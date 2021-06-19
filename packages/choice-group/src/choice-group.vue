@@ -89,13 +89,13 @@
 </template>
 
 <script>
-import {LocaleMixin,DocumentClickMixins} from '@lin-view-ui/mixins'
+import {LocaleMixin,DocumentClickMixin} from '@lin-view-ui/mixins'
 import {findChildren} from '@lin-view-ui/utils'
 import Input from '@lin-view-ui/input';
 
 export default {
   name: 'LinChoiceGroup',
-  mixins: [LocaleMixin, DocumentClickMixins],
+  mixins: [LocaleMixin, DocumentClickMixin],
   components: {
     [Input.name]: Input
   },
