@@ -1,0 +1,20 @@
+{
+  "name": "@lin-view-ui/cascader",
+  "version": "1.0.0",
+  "description": "cascader",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "cascader"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/mixins": "^1.0.0",
+    "@lin-view-ui/input": "^1.0.0",
+    "vue": "^2.6.14"
+  }
+}
