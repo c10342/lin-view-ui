@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@lin-view-ui/mixins": "^1.0.0",
-    "@lin-view-ui/input": "^1.0.0",
-    "vue": "^2.6.14"
+    "@lin-view-ui/input": "^1.0.0"
   }
 }
