@@ -1,0 +1,18 @@
+{
+  "name": "@lin-view-ui/badge",
+  "version": "1.0.0",
+  "description": "badge",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "badge"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "vue": "^2.6.14"
+  }
+}
