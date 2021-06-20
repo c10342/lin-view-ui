@@ -1,0 +1,18 @@
+{
+  "name": "@lin-view-ui/dropdown",
+  "version": "1.0.0",
+  "description": "dropdown",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "dropdown"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/mixins": "^1.0.0"
+  }
+}
