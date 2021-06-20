@@ -1,5 +1,4 @@
 import locale from "@lin-view-ui/locale";
-
 import Alert from "@lin-view-ui/alert";
 import Backtop from "@lin-view-ui/backtop";
 import Badge from "@lin-view-ui/badge";
