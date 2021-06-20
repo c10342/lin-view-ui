@@ -1,62 +1,52 @@
-const { nodeResolve } = require("@rollup/plugin-node-resolve");
-const babel = require("rollup-plugin-babel");
-const commonjs = require("@rollup/plugin-commonjs");
 const path = require("path");
-const { getExternalsDep } = require("./utils.js");
 const fs = require("fs");
+const {
+  getExternalsDep,
+  createEsOutput,
+  createInputConfig,
+  clean,
+  rollupBuild,
+} = require("./utils.js");
 const root = path.resolve(__dirname, "../packages/locale");
-const rollup = require("rollup");
-const { clean } = require("./build.css.js");
 
-const fileList = fs.readdirSync(path.resolve(root, "./src/lang"));
+const resolve = pathSrc => path.resolve(root, pathSrc);
 
-const buildIndex = () => {
-  const outputConfig = {
-    file: path.resolve(root, "./dist/index.js"),
-    format: "es",
-  };
-  const inputConfig = {
-    input: path.resolve(root, "index.js"),
-    external: getExternalsDep("locale"),
-    plugins: [
-      nodeResolve(),
-      babel({
-        exclude: "node_modules/**", // 防止打包node_modules下的文件
-        runtimeHelpers: true, // 使plugin-transform-runtime生效
-      }),
-      commonjs(),
-    ],
-  };
+const langList = fs.readdirSync(resolve( "./src/lang"));
 
-  return rollup.rollup(inputConfig).then((bundle) => {
-    console.log("index", "done");
-    return bundle.write(outputConfig);
+const buildIndex = async () => {
+  const inputConfig = createInputConfig({
+    input: resolve("index.js"),
+    external: [...getExternalsDep("locale"),'./src/lang/zh-CN.js'],
   });
+  const outputConfig = createEsOutput(resolve("./dist/index.js"), {
+    paths(id) {
+      if (id.includes(path.normalize('src/lang/zh-CN.js'))) {
+        return './lang/zh-CN.js'
+      }
+    }
+  });
+
+  await rollupBuild(inputConfig, outputConfig);
+  console.log("index", "done");
 };
 
-const buildLang = () => {
-  return fileList.map((filename) => {
-    const inputConfig = {input:path.resolve(root, `./src/lang/${filename}`)};
-    const outputConfig = {
-      file: path.resolve(root, `./dist/lang/${filename}`),
-      format: "es",
-    };
-    return rollup.rollup(inputConfig).then((bundle) => {
-      console.log(filename, "done");
-      return bundle.write(outputConfig);
-    });
+const buildLang = async (filename) => {
+  const inputConfig = createInputConfig({
+    input: resolve(`./src/lang/${filename}`),
   });
+  const outputConfig = createEsOutput(resolve(`./dist/lang/${filename}`));
+  await rollupBuild(inputConfig, outputConfig);
+  console.log(filename, "done");
+};
+
+const buildAllLang = () => {
+  langList.forEach((filename) => buildLang(filename));
 };
 
 const build = async () => {
-  await clean(path.resolve(root, "./dist"));
-  const task = [buildIndex(),...buildLang()];
-  try {
-    await Promise.all(task);
-    console.log("all done");
-  } catch (error) {
-    console.error(error);
-  }
+  await clean(resolve("./dist"));
+  buildAllLang();
+  buildIndex();
 };
 
 build();

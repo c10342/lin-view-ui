@@ -1,10 +1,18 @@
-
 const path = require("path");
 const fs = require("fs");
-const { getExternalsDep,createEsOutput,createInputConfig,rollupBuild,clean } = require("./utils.js");
-
+const {
+  getExternalsDep,
+  createEsOutput,
+  createInputConfig,
+  rollupBuild,
+  clean,
+} = require("./utils.js");
 
 const root = path.resolve(__dirname, "../packages/utils");
+
+const resolve = (pathSrc) => {
+  return path.resolve(root, pathSrc);
+};
 
 function createConfig(filename) {
   let input = filename;
@@ -12,28 +20,25 @@ function createConfig(filename) {
     input = `./src/${filename}`;
   }
   return createInputConfig({
-    input:path.resolve(root, input),
-    external:getExternalsDep("utils")
-  })
+    input: resolve(input),
+    external: getExternalsDep("utils"),
+  });
 }
 
-const buildOne = async  (filename)=>{
+const buildOne = async (filename) => {
   const inputOptions = createConfig(filename);
-  const outputOptions = createEsOutput(path.resolve(root, `./dist/${filename}`));
-  await rollupBuild(inputOptions,outputOptions)
-  console.log(filename,'done');
-}
+  const outputOptions = createEsOutput(resolve(`./dist/${filename}`));
+  await rollupBuild(inputOptions, outputOptions);
+  console.log(filename, "done");
+};
 
-const fileList = fs.readdirSync(path.resolve(root, "./src"));
+const fileList = fs.readdirSync(resolve("./src"));
 
 fileList.push("index.js");
 
-
-
 const build = async () => {
-  await clean(path.resolve(root, './dist'))
-  fileList.forEach(filename=>buildOne(filename))
+  await clean(resolve("./dist"));
+  fileList.forEach((filename) => buildOne(filename));
 };
 
-
-build()
+build();

@@ -39,10 +39,18 @@ function createInputConfig(options={}){
   }; 
 }
 
-function createEsOutput(distPath) {
+function createEsOutput(distPath,options={}) {
   return {
     file:distPath,
     format: "es",
+    ...options
+  };
+}
+function createUmdOutput(distPath,options={}) {
+  return {
+    file:distPath,
+    format: "umd",
+    ...options
   };
 }
 
@@ -57,10 +65,14 @@ const clean = (cleanPath) => {
   });
 };
 
+const whiteList = ["locale", "mixins", "theme-chalk", "utils", "lin-view-ui"];
+
 module.exports = {
   getExternalsDep,
   createInputConfig,
   createEsOutput,
   rollupBuild,
-  clean
+  clean,
+  whiteList,
+  createUmdOutput
 }
