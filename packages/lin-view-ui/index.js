@@ -16,6 +16,17 @@ import PlayerProcess from "@lin-view-ui/player-process";
 import PlayerVolume from "@lin-view-ui/player-volume";
 import Spinner from "@lin-view-ui/spinner";
 import VideoPlayer from "@lin-view-ui/video-player";
+import Col from '@lin-view-ui/col';
+import CollapseGroup from '@lin-view-ui/collapse-group';
+import CollapseItem from '@lin-view-ui/collapse-item';
+import DateAxis from '@lin-view-ui/date-axis';
+import DatePicker from '@lin-view-ui/date-picker';
+import Dialog from '@lin-view-ui/dialog';
+import Dropdown from '@lin-view-ui/dropdown';
+import DropdownGroup from '@lin-view-ui/dropdown-group';
+import DropdownItem from '@lin-view-ui/dropdown-item';
+import Form from '@lin-view-ui/form';
+import FormItem from '@lin-view-ui/form-item';
 
 const components = [
   Alert,
@@ -35,6 +46,17 @@ const components = [
   PlayerVolume,
   Spinner,
   VideoPlayer,
+  Col,
+  CollapseGroup,
+  CollapseItem,
+  DateAxis,
+  DatePicker,
+  Dialog,
+  Dropdown,
+  DropdownGroup,
+  DropdownItem,
+  Form,
+  FormItem
 ];
 
 const install = (Vue, opts = {}) => {
