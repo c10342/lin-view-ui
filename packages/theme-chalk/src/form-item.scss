@@ -1,0 +1,47 @@
+@import "./variables/form-item.scss";
+
+.lin-form-item {
+  position: relative;
+  margin-bottom: $form-item-margin-bottom;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
+  .lin-form-item-label {
+    box-sizing: border-box;
+    float: left;
+    padding: $form-item-label-padding;
+    font-size: $form-item-label-font-size;
+    line-height: $form-item-label-line-height;
+    color: $form-item-label-color;
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  .lin-form-item-content {
+    position: relative;
+    overflow: hidden;
+    font-size: $form-item-content-font-size;
+    // flex: 1;
+    // width: 0;
+    line-height: $form-item-content-line-height;
+  }
+
+  .lin-form-item-errormsg {
+    position: absolute;
+    bottom: $form-item-errormsg-bottom;
+    left: $form-item-errormsg-left;
+    padding: $form-item-errormsg-padding;
+    margin: $form-item-errormsg-margin;
+    font-size: $form-item-errormsg-font-size;
+    line-height: $form-item-errormsg-line-height;
+    color: $form-item-errormsg-color;
+  }
+}
+
+.lin-formItem-fade-enter-active {
+  animation: $form-item-animation-enter;
+}
+
+.lin-formItem-fade-leave-active {
+  animation: $form-item-animation-leave;
+}
