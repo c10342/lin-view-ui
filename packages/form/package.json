@@ -1,0 +1,16 @@
+{
+  "name": "@lin-view-ui/form",
+  "version": "1.0.0",
+  "description": "form",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "form"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
