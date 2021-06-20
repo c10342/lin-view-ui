@@ -1,0 +1,21 @@
+{
+  "name": "@lin-view-ui/date-axis",
+  "version": "1.0.0",
+  "description": "date-axis",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "date-axis"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/mixins": "^1.0.0",
+    "@lin-view-ui/utils": "^1.0.0",
+    "@lin-view-ui/date-picker":"^1.0.0",
+    "lodash": "^4.17.21"
+  }
+}
