@@ -43,13 +43,14 @@ const buildesIndex = async () => {
 const buildumdIndex = async () => {
   const inputConfig = createInputConfig({
     input: resolve("./index.js"),
-    external: ['vue']
+    external: ['vue'],
+    minify:true
   });
   const outputConfig = createUmdOutput(resolve("./lib/index.umd.js"), {
     name: 'LinViewUi',
     globals: {
       vue: 'Vue'
-    }
+    },
   });
   await rollupBuild(inputConfig, outputConfig);
   console.log("umd build success");

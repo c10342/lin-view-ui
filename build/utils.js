@@ -5,6 +5,7 @@ const commonjs = require("@rollup/plugin-commonjs");
 const vue = require("rollup-plugin-vue");
 const rollup = require("rollup");
 const del = require("del");
+const { terser } = require("rollup-plugin-terser");
 
 const root = path.resolve(__dirname, "../packages");
 
@@ -23,8 +24,8 @@ function getExternalsDep(name) {
   return [...new Set(externals),'flv.js/dist/flv.js'];
 }
 
-function createInputConfig(options={}){
-  return {
+function createInputConfig(options = {}) {
+  const config = {
     input: options.input,
     external: options.external,
     plugins: [
@@ -36,7 +37,11 @@ function createInputConfig(options={}){
       }),
       commonjs(),
     ],
-  }; 
+  };
+  if (options.minify) {
+    config.plugins.push(terser())
+  }
+  return config
 }
 
 function createEsOutput(distPath,options={}) {
