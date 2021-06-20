@@ -1,0 +1,16 @@
+{
+  "name": "@lin-view-ui/col",
+  "version": "1.0.0",
+  "description": "col",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "col"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
