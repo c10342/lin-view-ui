@@ -1,0 +1,13 @@
+@import "./variables/collapse.scss";
+
+@import './iconfont.css';
+
+.lin-collapse-group {
+  position: relative;
+  border: $collapse-border;
+}
+
+.lin-collapse-group-simple {
+  border-right: none;
+  border-left: none;
+}

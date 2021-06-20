@@ -1,0 +1,45 @@
+@import "./variables/dropdown.scss";
+
+.lin-dropdown-item {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: $dropdown-item-height;
+  padding: $dropdown-item-padding;
+  font-size: $dropdown-item-font-size;
+  line-height: $dropdown-item-height;
+  cursor: pointer;
+  user-select: none;
+
+  &:not(.lin-dropdown-item-disabled):hover {
+    color: $dropdown-item-hover-color;
+    background-color: $dropdown-item-hover-background-color;
+  }
+}
+
+.lin-dropdown-item-icon {
+  margin-right: $dropdown-item-icon-margin-right;
+}
+
+.lin-dropdown-item-disabled {
+  color: $dropdown-item-disabled-color;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.lin-dropdown-item-divided {
+  position: relative;
+  margin-top: $dropdown-item-divided-margin-top;
+
+  &::before {
+    position: absolute;
+    top: $dropdown-item-divided-before-top;
+    left: $dropdown-item-divided-before-left;
+    z-index: $dropdown-item-divided-before-z-index;
+    width: $dropdown-item-divided-before-width;
+    content: "";
+    border-top: $dropdown-item-divided-before-border-top;
+  }
+}
