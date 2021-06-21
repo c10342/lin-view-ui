@@ -1,0 +1,16 @@
+{
+  "name": "@lin-view-ui/hover-effect",
+  "version": "1.0.0",
+  "description": "hover-effect",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "hover-effect"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
