@@ -1,0 +1,61 @@
+@import "./variables/link.scss";
+@import './iconfont.css';
+
+.lin-link {
+  position: relative;
+  font-size: $link-font-size;
+  text-decoration: none;
+}
+
+.lin-link-default {
+  color: $link-default-color;
+
+  &::after {
+    background-color: $primary;
+  }
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+@each $key, $val in $theme-color {
+  .lin-link-#{$key} {
+    color: $val;
+
+    &::after {
+      background-color: $val;
+    }
+  }
+}
+
+.lin-link-disabled {
+  cursor: not-allowed;
+
+  @each $key, $val in $theme-color {
+    &.lin-link-#{$key} {
+      color: lighten($val, $link-disabled-color-lighten);
+    }
+  }
+
+  &.lin-link-default {
+    color: lighten($link-default-color, $link-disabled-color-lighten);
+  }
+}
+
+.lin-link-underline {
+  &:hover {
+    &::after {
+      position: absolute;
+      bottom: $link-underline-hover-after-bottom;
+      left: $link-underline-hover-after-left;
+      width: $link-underline-hover-after-width;
+      height: $link-underline-hover-after-height;
+      content: "";
+    }
+  }
+}
+
+.lin-link-icon {
+  margin-right: $link-icon-margin-right;
+}
