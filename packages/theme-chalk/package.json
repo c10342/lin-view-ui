@@ -8,6 +8,18 @@
     "lin-view-ui",
     "theme-chalk"
   ],
+  "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/theme-chalk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c10342/lin-view-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/c10342/lin-view-ui/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "author": "c10342",
   "license": "MIT",
   "dependencies": {}

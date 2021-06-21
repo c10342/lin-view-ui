@@ -1,13 +1,26 @@
 {
   "name": "lin-view-ui",
   "version": "1.0.0",
-  "description": "lin-view-ui",
+  "description": "vue components library",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "unpkg": "lib/index.umd.js",
   "style": "lib/theme-chalk/index.css",
   "keywords": [
-    "lin-view-ui"
+    "vue",
+    "UI",
+    "Component"
+  ],
+  "homepage": "https://github.com/c10342/lin-view-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c10342/lin-view-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/c10342/lin-view-ui/issues"
+  },
+  "files": [
+    "lib"
   ],
   "author": "c10342",
   "license": "MIT",
