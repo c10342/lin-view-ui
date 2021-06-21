@@ -1,0 +1,36 @@
+{
+  "name": "@lin-view-ui/multi-player",
+  "version": "1.0.0",
+  "description": "multi-player",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "multi-player"
+  ],
+  "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/multi-player",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c10342/lin-view-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/c10342/lin-view-ui/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/mixins": "^1.0.0",
+    "@lin-view-ui/player-fullscreen": "^1.0.0",
+    "@lin-view-ui/player-process": "^1.0.0",
+    "@lin-view-ui/player-volume": "^1.0.0",
+    "@lin-view-ui/video-player": "^1.0.0",
+    "@lin-view-ui/utils": "^1.0.0",
+    "resize-observer-polyfill": "^1.5.1"
+  }
+}
