@@ -1,0 +1,16 @@
+{
+  "name": "@lin-view-ui/message",
+  "version": "1.0.0",
+  "description": "message",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "message"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
