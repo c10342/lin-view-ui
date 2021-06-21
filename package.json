@@ -27,6 +27,7 @@
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-image": "^2.0.6",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@vue/babel-plugin-transform-vue-jsx": "^1.2.1",
     "commitizen": "^4.2.4",
