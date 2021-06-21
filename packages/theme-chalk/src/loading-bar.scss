@@ -1,0 +1,55 @@
+@import "./variables/loading-bar.scss";
+
+.lin-loading-bar-progress {
+  position: fixed;
+  top: $loading-bar-top;
+  left: $loading-bar-left;
+  z-index: $loading-bar-z-index;
+  width: $loading-bar-width;
+  height: $loading-bar-height;
+  //   transition: all 5s ease;
+  background: $loading-bar-background;
+  transition: $loading-bar-transition;
+  transform: $loading-bar-transform;
+}
+
+.lin-loading-bar-peg {
+  position: absolute;
+  right: $loading-bar-peg-right;
+  width: $loading-bar-peg-width;
+  height: $loading-bar-peg-height;
+  background-image: $loading-bar-peg-background-image;
+}
+
+.lin-loading-bar-spinner {
+  position: fixed;
+  top: $loading-bar-spinner-top;
+  right: $loading-bar-spinner-right;
+  z-index: $loading-bar-spinner-z-index;
+}
+
+.lin-loading-bar-icon {
+  box-sizing: border-box;
+  width: $loading-bar-icon-width;
+  height: $loading-bar-icon-height;
+  border: $loading-bar-icon-border;
+  border-top-color: $loading-bar-icon-border-top-color;
+  border-left-color: $loading-bar-icon-border-left-color;
+  border-radius: $loading-bar-icon-border-radius;
+  animation-name: $loading-bar-icon-animation-name;
+  animation-duration: $loading-bar-icon-animation-duration;
+  animation-iteration-count: $loading-bar-icon-animation-iteration-count;
+}
+
+.lin-loading-bar-error {
+  background: $loading-bar-error-background;
+
+  .lin-loading-bar-peg {
+    background-image: none;
+  }
+}
+
+.lin-loading-bar-icon-error {
+  border-top-color: $loading-bar-error-border-top-color;
+  border-left-color: $loading-bar-error-border-left-color;
+}
