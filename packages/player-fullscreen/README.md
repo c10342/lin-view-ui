@@ -3,7 +3,7 @@
 
 ## 在线文档
 
-[http://ui.linjiafu.top/player-fullscreen](http://ui.linjiafu.top/player-fullscreen)
+[http://ui.linjiafu.top/video-player](http://ui.linjiafu.top/video-player)
 
 
 ## 安装

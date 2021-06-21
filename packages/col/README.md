@@ -3,7 +3,7 @@
 
 ## 在线文档
 
-[http://ui.linjiafu.top/col](http://ui.linjiafu.top/col)
+[http://ui.linjiafu.top/layout](http://ui.linjiafu.top/layout)
 
 
 ## 安装

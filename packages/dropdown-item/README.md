@@ -3,7 +3,7 @@
 
 ## 在线文档
 
-[http://ui.linjiafu.top/dropdown-item](http://ui.linjiafu.top/dropdown-item)
+[http://ui.linjiafu.top/dropdown](http://ui.linjiafu.top/dropdown)
 
 
 ## 安装

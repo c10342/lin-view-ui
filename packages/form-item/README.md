@@ -3,7 +3,7 @@
 
 ## 在线文档
 
-[http://ui.linjiafu.top/form-item](http://ui.linjiafu.top/form-item)
+[http://ui.linjiafu.top/form](http://ui.linjiafu.top/form)
 
 
 ## 安装

@@ -3,7 +3,7 @@
 
 ## 在线文档
 
-[http://ui.linjiafu.top/collapse-group](http://ui.linjiafu.top/collapse-group)
+[http://ui.linjiafu.top/collapse](http://ui.linjiafu.top/collapse)
 
 
 ## 安装

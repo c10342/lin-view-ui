@@ -3,7 +3,7 @@
 
 ## 在线文档
 
-[http://ui.linjiafu.top/checkbox-group](http://ui.linjiafu.top/checkbox-group)
+[http://ui.linjiafu.top/checkbox](http://ui.linjiafu.top/checkbox)
 
 
 ## 安装
