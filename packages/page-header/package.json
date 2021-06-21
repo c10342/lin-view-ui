@@ -1,0 +1,30 @@
+{
+  "name": "@lin-view-ui/page-header",
+  "version": "1.0.0",
+  "description": "page-header",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "page-header"
+  ],
+  "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/page-header",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c10342/lin-view-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/c10342/lin-view-ui/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/mixins": "^1.0.0"
+  }
+}
