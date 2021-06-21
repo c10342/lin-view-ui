@@ -27,6 +27,10 @@ import DropdownGroup from '@lin-view-ui/dropdown-group';
 import DropdownItem from '@lin-view-ui/dropdown-item';
 import Form from '@lin-view-ui/form';
 import FormItem from '@lin-view-ui/form-item';
+import HoverEffect from '@lin-view-ui/hover-effect';
+import Image from '@lin-view-ui/image';
+import InputNumber from '@lin-view-ui/input-number';
+import LimitTextarea from '@lin-view-ui/limit-textarea';
 
 const components = [
   Alert,
@@ -56,7 +60,11 @@ const components = [
   DropdownGroup,
   DropdownItem,
   Form,
-  FormItem
+  FormItem,
+  HoverEffect,
+  Image,
+  InputNumber,
+  LimitTextarea
 ];
 
 const install = (Vue, opts = {}) => {
@@ -94,4 +102,19 @@ export default {
   PlayerVolume,
   Spinner,
   VideoPlayer,
+  Col,
+  CollapseGroup,
+  CollapseItem,
+  DateAxis,
+  DatePicker,
+  Dialog,
+  Dropdown,
+  DropdownGroup,
+  DropdownItem,
+  Form,
+  FormItem,
+  HoverEffect,
+  Image,
+  InputNumber,
+  LimitTextarea
 };
