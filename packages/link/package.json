@@ -1,0 +1,16 @@
+{
+  "name": "@lin-view-ui/link",
+  "version": "1.0.0",
+  "description": "link",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "link"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
