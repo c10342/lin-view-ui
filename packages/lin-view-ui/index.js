@@ -31,6 +31,10 @@ import HoverEffect from '@lin-view-ui/hover-effect';
 import Image from '@lin-view-ui/image';
 import InputNumber from '@lin-view-ui/input-number';
 import LimitTextarea from '@lin-view-ui/limit-textarea';
+import LoadingBar from '@lin-view-ui/loading-bar';
+import Magnifier from '@lin-view-ui/magnifier';
+import Message from '@lin-view-ui/message';
+import MessageBox from '@lin-view-ui/message-box';
 
 const components = [
   Alert,
@@ -64,7 +68,11 @@ const components = [
   HoverEffect,
   Image,
   InputNumber,
-  LimitTextarea
+  LimitTextarea,
+  LoadingBar,
+  Magnifier,
+  Message,
+  MessageBox
 ];
 
 const install = (Vue, opts = {}) => {
@@ -116,5 +124,9 @@ export default {
   HoverEffect,
   Image,
   InputNumber,
-  LimitTextarea
+  LimitTextarea,
+  LoadingBar,
+  Magnifier,
+  Message,
+  MessageBox
 };
