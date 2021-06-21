@@ -1,0 +1,28 @@
+{
+  "name": "@lin-view-ui/radio-group",
+  "version": "1.0.0",
+  "description": "radio-group",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "radio-group"
+  ],
+  "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/radio-group",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c10342/lin-view-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/c10342/lin-view-ui/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
