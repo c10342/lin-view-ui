@@ -1,0 +1,16 @@
+{
+  "name": "@lin-view-ui/loading-bar",
+  "version": "1.0.0",
+  "description": "loading-bar",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "loading-bar"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
