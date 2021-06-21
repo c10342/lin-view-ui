@@ -1,0 +1,19 @@
+{
+  "name": "@lin-view-ui/live-comment",
+  "version": "1.0.0",
+  "description": "live-comment",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "live-comment"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/mixins": "^1.0.0",
+    "@lin-view-ui/image": "^1.0.0"
+  }
+}
