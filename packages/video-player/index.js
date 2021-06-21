@@ -5,3 +5,5 @@ VideoPlayer.install = (Vue) => {
 };
 
 export default VideoPlayer;
+
+export * from './src/utils.js'
