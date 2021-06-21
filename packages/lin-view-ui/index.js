@@ -35,6 +35,15 @@ import LoadingBar from '@lin-view-ui/loading-bar';
 import Magnifier from '@lin-view-ui/magnifier';
 import Message from '@lin-view-ui/message';
 import MessageBox from '@lin-view-ui/message-box';
+import MetaInfo from '@lin-view-ui/meta-info';
+import MultiPlayer from '@lin-view-ui/multi-player';
+import PageHeader from '@lin-view-ui/page-header';
+import Pagination from '@lin-view-ui/pagination';
+import Progress from '@lin-view-ui/progress';
+import Radio from '@lin-view-ui/radio';
+import RadioGroup from '@lin-view-ui/radio-group';
+import Row from '@lin-view-ui/row';
+import ScrollBar from '@lin-view-ui/scroll-bar';
 
 const components = [
   Alert,
@@ -72,7 +81,16 @@ const components = [
   LoadingBar,
   Magnifier,
   Message,
-  MessageBox
+  MessageBox,
+  MetaInfo,
+  MultiPlayer,
+  PageHeader,
+  Pagination,
+  Progress,
+  Radio,
+  RadioGroup,
+  Row,
+  ScrollBar
 ];
 
 const install = (Vue, opts = {}) => {
@@ -128,5 +146,14 @@ export default {
   LoadingBar,
   Magnifier,
   Message,
-  MessageBox
+  MessageBox,
+  MetaInfo,
+  MultiPlayer,
+  PageHeader,
+  Pagination,
+  Progress,
+  Radio,
+  RadioGroup,
+  Row,
+  ScrollBar
 };
