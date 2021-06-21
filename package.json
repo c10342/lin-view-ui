@@ -15,7 +15,8 @@
     "build:all": "node ./build/build.all.js",
     "build": "npm run build:utils && npm run build:locale && npm run build:mixins && npm run build:component && npm run build:all",
     "bootstrap": "lerna bootstrap",
-    "commit": "git cz"
+    "commit": "git cz",
+    "add": "node ./scripts/componentTemplate.js"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "@rollup/plugin-image": "^2.0.6",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@vue/babel-plugin-transform-vue-jsx": "^1.2.1",
+    "chalk": "^4.1.1",
     "commitizen": "^4.2.4",
     "core-js": "^3.14.0",
     "cz-conventional-changelog": "^3.3.0",
@@ -39,6 +41,7 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
+    "handlebars": "^4.7.7",
     "lerna": "^4.0.0",
     "node-sass": "^6.0.0",
     "rollup": "^2.51.2",
