@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "table",
   "main": "dist/index.js",
+  "doc":"index.js",
   "keywords": [
     "lin-view-ui",
     "table"

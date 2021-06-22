@@ -4,6 +4,7 @@
   "description": "theme-chalk",
   "main": "src/index.scss",
   "style": "src/index.scss",
+  "doc":"src/index.scss",
   "keywords": [
     "lin-view-ui",
     "theme-chalk"

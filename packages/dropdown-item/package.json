@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "dropdown-item",
   "main": "dist/index.js",
+  "doc":"index.js",
   "keywords": [
     "lin-view-ui",
     "dropdown-item"

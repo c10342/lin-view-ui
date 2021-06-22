@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "vue components library",
     "main": "index.js",
+    "doc":"index.js",
     "keywords": [
       "vue",
       "UI",

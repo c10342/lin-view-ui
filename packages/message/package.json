@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "message",
   "main": "dist/index.js",
+  "doc":"index.js",
   "keywords": [
     "lin-view-ui",
     "message"

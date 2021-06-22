@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "multi-player",
   "main": "dist/index.js",
+  "doc":"index.js",
   "keywords": [
     "lin-view-ui",
     "multi-player"

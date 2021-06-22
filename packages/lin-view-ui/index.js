@@ -10,7 +10,7 @@ import ChoiceGroup from "@lin-view-ui/choice-group";
 import ChoiceItem from "@lin-view-ui/choice-item";
 import ChoiceOption from "@lin-view-ui/choice-option";
 import Input from "@lin-view-ui/input";
-import Loading from "@lin-view-ui/input";
+import Loading from "@lin-view-ui/loading";
 import PlayerFullscreen from "@lin-view-ui/player-fullscreen";
 import PlayerProcess from "@lin-view-ui/player-process";
 import PlayerVolume from "@lin-view-ui/player-volume";
