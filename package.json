@@ -42,7 +42,9 @@
     "commit": "git cz",
     "add": "node ./scripts/componentTemplate.js",
     "lint": "eslint --ext .js,.vue,.jsx ./",
-    "lint-fix": "eslint --fix --ext .js,.vue,.jsx ./"
+    "lint-fix": "eslint --fix --ext .js,.vue,.jsx ./",
+    "lint:style": "stylelint **/*.{html,vue,css,sass,scss}",
+    "lint:style-fix": "stylelint **/*.{html,vue,css,sass,scss} --fix"
   },
   "peerDependencies": {
     "vue": "^2.6.14"
@@ -113,6 +115,12 @@
     "sass": "^1.26.5",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recess-order": "^2.4.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.19.0",
     "url-loader": "^4.1.1",
     "vue": "^2.6.14",
     "vue-loader": "^15.9.7",
