@@ -1,0 +1,30 @@
+{
+  "name": "@lin-view-ui/show-more",
+  "version": "1.0.0",
+  "description": "show-more",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "show-more"
+  ],
+  "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/show-more",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c10342/lin-view-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/c10342/lin-view-ui/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {
+    "@lin-view-ui/mixins": "^1.0.0"
+  }
+}
