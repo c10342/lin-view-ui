@@ -36,6 +36,7 @@ const devConfig = {
     alias: {
       "@lin-view-ui": path.join(__dirname, "../packages"),
     },
+    mainFields:['doc','main']
   },
   entry,
   output: {
