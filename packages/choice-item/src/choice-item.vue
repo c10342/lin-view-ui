@@ -16,12 +16,12 @@
 
 <script>
 export default {
-  name: 'LinChoiceItem',
+  name: "LinChoiceItem",
   props: {
     // 选项的标签，若不设置则默认与 value 相同
     label: {
       type: String,
-      default: ''
+      default: ""
     },
     // 选项的值
     value: {
@@ -35,10 +35,10 @@ export default {
   },
   inject: {
     group: {
-      default: ''
+      default: ""
     },
     option: {
-      default: ''
+      default: ""
     }
   },
   data() {
@@ -81,7 +81,7 @@ export default {
       if (this.group) {
         return this.group.inputValue;
       }
-      return '';
+      return "";
     }
   },
   methods: {
@@ -94,12 +94,12 @@ export default {
     // 本地搜索，选出符合条件的
     matchLabel(value) {
       // 值被清空时，显示该组件
-      if (value === '') {
+      if (value === "") {
         this.isShow = true;
         return;
       }
       // 自定义过滤方法
-      if (this.group && typeof this.group.filterMethod === 'function') {
+      if (this.group && typeof this.group.filterMethod === "function") {
         this.isShow = this.group.filterMethod(value, this.$props);
       } else {
         // 组件内部过滤方法
@@ -120,7 +120,7 @@ export default {
     },
     // 监听choice-group的input值变化，进行本地搜索
     inputValue(newVal) {
-      if (typeof newVal === 'string') {
+      if (typeof newVal === "string") {
         newVal = newVal.trim();
       }
       this.matchLabel(newVal);

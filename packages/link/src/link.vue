@@ -21,12 +21,12 @@
 
 <script>
 export default {
-  name: 'LinLink',
+  name: "LinLink",
   props: {
     // 类型
     type: {
       type: String,
-      default: 'default'
+      default: "default"
     },
     // 是否有下划线
     underline: {
@@ -41,12 +41,12 @@ export default {
     // 原生href属性
     href: {
       type: String,
-      default: ''
+      default: ""
     },
     // 图标类名
     icon: {
       type: String,
-      default: ''
+      default: ""
     }
   },
   methods: {

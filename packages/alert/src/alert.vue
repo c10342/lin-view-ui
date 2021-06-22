@@ -33,22 +33,22 @@
 
 <script>
 export default {
-  name: 'LinAlert',
+  name: "LinAlert",
   props: {
     // 标题
     title: {
       type: String,
-      default: ''
+      default: ""
     },
     // 辅助性文字
     description: {
       type: String,
-      default: ''
+      default: ""
     },
     // 图标
     icon: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否可关闭
     closable: {
@@ -58,14 +58,14 @@ export default {
     // 类型
     type: {
       type: String,
-      default: 'success',
-      options: ['success', 'warning', 'info', 'danger']
+      default: "success",
+      options: ["success", "warning", "info", "danger"]
     },
     // 主题
     effect: {
       type: String,
-      default: 'light',
-      options: ['light', 'dark']
+      default: "light",
+      options: ["light", "dark"]
     },
     // 文字是否居中
     center: {
@@ -84,7 +84,7 @@ export default {
       this.show = false;
     },
     afterLeave() {
-      this.$emit('close');
+      this.$emit("close");
     }
   }
 };

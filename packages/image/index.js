@@ -1,5 +1,5 @@
-import Image from './src/image.vue';
+import Image from "./src/image.vue";
 
-Image.install = (Vue) => Vue.component(Image.name, Image);
+Image.install = Vue => Vue.component(Image.name, Image);
 
 export default Image;

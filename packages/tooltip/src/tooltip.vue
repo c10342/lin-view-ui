@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'LinTooltip',
+  name: "LinTooltip",
   data() {
     return {
       // 样式
@@ -16,24 +16,24 @@ export default {
       // 控制是否显示
       show: false,
       // 显示位置
-      placement: 'bottom',
+      placement: "bottom",
       // 文本
-      text: ''
+      text: ""
     };
   },
   methods: {
     // vue过渡动画结束
     handleAfterLeave() {
-      this.$emit('after-leave');
+      this.$emit("after-leave");
     }
   },
   computed: {
     classes() {
       return {
-        'lin-tooltip-bottom': this.placement === 'top',
-        'lin-tooltip-top': this.placement === 'bottom',
-        'lin-tooltip-left': this.placement === 'right',
-        'lin-tooltip-right': this.placement === 'left'
+        "lin-tooltip-bottom": this.placement === "top",
+        "lin-tooltip-top": this.placement === "bottom",
+        "lin-tooltip-left": this.placement === "right",
+        "lin-tooltip-right": this.placement === "left"
       };
     }
   }

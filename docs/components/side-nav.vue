@@ -54,9 +54,9 @@
 </template>
 
 <script>
-import zhNavConf from '../nav.config.zh.json';
-import enNavConf from '../nav.config.en.json';
-import { getLang, langType } from '../utils/lang.js';
+import zhNavConf from "../nav.config.zh.json";
+import enNavConf from "../nav.config.en.json";
+import { getLang, langType } from "../utils/lang.js";
 const lang = getLang();
 const navConfig = langType.en === lang ? enNavConf : zhNavConf;
 export default {

@@ -26,10 +26,10 @@
 </template>
 
 <script>
-import {dispatch} from '@lin-view-ui/utils';
+import { dispatch } from "@lin-view-ui/utils";
 
 export default {
-  name: 'LinInputNumber',
+  name: "LinInputNumber",
   props: {
     // 绑定值
     value: {
@@ -58,7 +58,7 @@ export default {
     // 输入框占位符
     placeholder: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否只能输入 step 的倍数
     stepStrictly: {
@@ -74,7 +74,7 @@ export default {
       }
       const value = this.value * 1 - this.step;
       this.emitInputEvent(value);
-      this.$emit('reduce', value);
+      this.$emit("reduce", value);
     },
     // 点击加号
     plus() {
@@ -83,7 +83,7 @@ export default {
       }
       const value = this.value * 1 + this.step;
       this.emitInputEvent(value);
-      this.$emit('plus', value);
+      this.$emit("plus", value);
     },
     // 失去焦点，判断边界情况，以及stepStrictly为true的情况
     onBlur(e) {
@@ -104,10 +104,10 @@ export default {
       this.emitInputEvent(value);
     },
     emitInputEvent(value) {
-      this.$emit('input', value);
+      this.$emit("input", value);
       dispatch.call(this, {
-        eventName: 'validate',
-        componentName: 'LinFormItem'
+        eventName: "validate",
+        componentName: "LinFormItem"
       });
     }
   },
@@ -122,7 +122,7 @@ export default {
         return false;
       }
       if (
-        this.value === '' ||
+        this.value === "" ||
         this.value === null ||
         this.value === undefined
       ) {
@@ -143,7 +143,7 @@ export default {
         return false;
       }
       if (
-        this.value === '' ||
+        this.value === "" ||
         this.value === null ||
         this.value === undefined
       ) {

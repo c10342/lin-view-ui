@@ -37,10 +37,10 @@
 </template>
 
 <script>
-import {dispatch} from '@lin-view-ui/utils';
+import { dispatch } from "@lin-view-ui/utils";
 
 export default {
-  name: 'LinInput',
+  name: "LinInput",
   data() {
     return {
       // 用于控制是否显示密码框
@@ -51,17 +51,17 @@ export default {
     // 输入框占位符
     placeholder: {
       type: String,
-      default: ''
+      default: ""
     },
     // 输入框类型
     type: {
       type: String,
-      default: 'text'
+      default: "text"
     },
     // 原生属性name
     name: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否禁用文本框
     disabled: {
@@ -71,7 +71,7 @@ export default {
     // 绑定值
     value: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否可清空
     clearable: {
@@ -125,15 +125,15 @@ export default {
     // 清空内容
     clear() {
       // 把内容清空
-      this.emitInputEvent('');
-      this.$emit('clear');
+      this.emitInputEvent("");
+      this.$emit("clear");
     },
     // 发射事件
     emitInputEvent(data) {
-      this.$emit('input', data);
+      this.$emit("input", data);
       dispatch.call(this, {
-        eventName: 'validate',
-        componentName: 'LinFormItem'
+        eventName: "validate",
+        componentName: "LinFormItem"
       });
     },
     // 切换密码图标的变化
@@ -141,10 +141,10 @@ export default {
       this.passwordVisible = !this.passwordVisible;
     },
     onBlur(e) {
-      this.$emit('blur', e);
+      this.$emit("blur", e);
     },
     onFocus(e) {
-      this.$emit('focus', e);
+      this.$emit("focus", e);
     }
   }
 };

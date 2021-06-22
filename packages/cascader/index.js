@@ -1,5 +1,5 @@
-import Cascader from './src/cascader.vue';
+import Cascader from "./src/cascader.vue";
 
-Cascader.install = (Vue) => Vue.component(Cascader.name, Cascader);
+Cascader.install = Vue => Vue.component(Cascader.name, Cascader);
 
 export default Cascader;

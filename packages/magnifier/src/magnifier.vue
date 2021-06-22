@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'LinMagnifier',
+  name: "LinMagnifier",
   props: {
     // 小图片路径地址
     smallPic: {
@@ -105,13 +105,13 @@ export default {
       // 鼠标进来
       this.showMoveMask = true;
       this.showBigImg = true;
-      this.$emit('show');
+      this.$emit("show");
     },
     onMouseout() {
       // 鼠标离开
       this.showMoveMask = false;
       this.showBigImg = false;
-      this.$emit('hide');
+      this.$emit("hide");
     },
     onMousemove(event) {
       const { smallBox } = this;
@@ -149,7 +149,7 @@ export default {
         top: `${(-y * bigBox.offsetHeight) / smallBox.offsetHeight}px`
       };
 
-      this.$emit('move', event);
+      this.$emit("move", event);
     }
   }
 };

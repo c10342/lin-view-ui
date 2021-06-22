@@ -14,7 +14,7 @@
           :alt="t('LinViewUI.VideoCard.imgAlt')"
         />
         <div v-else class="error-tip">
-          {{ errorTip || t('LinViewUI.VideoCard.errorTip') }}
+          {{ errorTip || t("LinViewUI.VideoCard.errorTip") }}
         </div>
         <span class="cover-tip" v-if="coverTip">{{ coverTip }}</span>
       </div>
@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import {LocaleMixin} from '@lin-view-ui/mixins';
+import { LocaleMixin } from "@lin-view-ui/mixins";
 
 export default {
-  name: 'LinVideoCard',
+  name: "LinVideoCard",
   mixins: [LocaleMixin],
   props: {
     // 卡片相关数据
@@ -37,22 +37,22 @@ export default {
     // 卡片高度
     cardHeight: {
       type: String,
-      default: 'auto'
+      default: "auto"
     },
     // 卡片宽度
     cardWidth: {
       type: String,
-      default: '262px'
+      default: "262px"
     },
     // 封面高度
     imageHeight: {
       type: String,
-      default: '146px'
+      default: "146px"
     },
     // 封面右下角提示
     coverTip: {
       type: String,
-      default: ''
+      default: ""
     },
     // 图片加载失败提示语
     errorTip: {
@@ -61,12 +61,12 @@ export default {
     // 封面默认图片
     defaultImageUrl: {
       type: String,
-      default: ''
+      default: ""
     },
     // 封面图片
     imageUrl: {
       type: String,
-      default: ''
+      default: ""
     }
   },
   data() {
@@ -74,7 +74,7 @@ export default {
       // 图片是否加载错误
       imageLoadError: false,
       // 图片地址
-      url: ''
+      url: ""
     };
   },
   methods: {
@@ -88,7 +88,7 @@ export default {
     },
     // 点击卡片
     onCardClick() {
-      this.$emit('click', this.data);
+      this.$emit("click", this.data);
     }
   },
   watch: {

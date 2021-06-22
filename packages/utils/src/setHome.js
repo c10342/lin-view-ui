@@ -2,20 +2,20 @@
  * 设为首页
  * @param {string} url 设置为首页的url
  */
-const setHome = (url) => {
+const setHome = url => {
   try {
-    if (typeof url !== 'string') {
-      throw new TypeError('url is not typeof string');
+    if (typeof url !== "string") {
+      throw new TypeError("url is not typeof string");
     }
-    const a = document.createElement('a');
-    a.style.behavior = 'url(#default#homepage)';
+    const a = document.createElement("a");
+    a.style.behavior = "url(#default#homepage)";
     a.setHomePage(url);
     a.click();
   } catch (error) {
     if (window.netscape) {
       try {
         window.netscape.security.PrivilegeManager.enablePrivilege(
-          'UniversalXPConnect'
+          "UniversalXPConnect"
         );
       } catch (e) {
         throw new SyntaxError(

@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import {dispatch} from '@lin-view-ui/utils';
+import { dispatch } from "@lin-view-ui/utils";
 
 export default {
-  name: 'LinCheckbox',
+  name: "LinCheckbox",
   inject: {
     CheckboxGroup: {
-      default: ''
+      default: ""
     }
   },
   computed: {
@@ -44,13 +44,13 @@ export default {
       },
       set(value) {
         if (this.isGroup) {
-          this.CheckboxGroup.$emit('input', value);
+          this.CheckboxGroup.$emit("input", value);
         } else {
-          this.$emit('input', value);
+          this.$emit("input", value);
         }
         dispatch.call(this, {
-          eventName: 'validate',
-          componentName: 'LinFormItem'
+          eventName: "validate",
+          componentName: "LinFormItem"
         });
       }
     },
@@ -77,12 +77,12 @@ export default {
     // 原生属性name
     name: {
       type: String,
-      default: ''
+      default: ""
     },
     // lin-checkbox 的 value，只能结合 lin-checkbox-group 使用
     label: {
       type: [String, Number],
-      default: ''
+      default: ""
     },
     // 是否禁用
     disabled: {

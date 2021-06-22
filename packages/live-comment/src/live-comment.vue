@@ -2,12 +2,12 @@
   <div class="lin-live-comment">
     <slot name="title">
       <p class="lin-live-comment-title">
-        {{ title || t('LinViewUI.LiveComment.title') }}
+        {{ title || t("LinViewUI.LiveComment.title") }}
       </p>
     </slot>
     <slot name="view-count">
       <p class="lin-live-comment-view-count">
-        {{ viewCount }}{{ t('LinViewUI.LiveComment.viewPeople') }}
+        {{ viewCount }}{{ t("LinViewUI.LiveComment.viewPeople") }}
       </p>
     </slot>
     <div class="lin-live-comment-content" ref="scroll" @scroll="onScroll">
@@ -35,7 +35,7 @@
       <span>{{ fixComment._username }}：</span>
       <span v-html="changeContent(fixComment._content)"></span>
       <span @click="toBottom">
-        <span>{{ t('LinViewUI.LiveComment.see') }}</span>
+        <span>{{ t("LinViewUI.LiveComment.see") }}</span>
         <i class="lin-icon-downarrow"></i>
       </span>
     </div>
@@ -43,11 +43,11 @@
       <div class="lin-live-comment-mask" v-if="!arrowComment">
         <slot name="mask">
           <span class="lin-live-comment-mask-default">
-            {{ t('LinViewUI.LiveComment.publishOpinion') }} /
+            {{ t("LinViewUI.LiveComment.publishOpinion") }} /
             <span class="lin-live-comment-login-btn" @click="gotoLogin">{{
-              t('LinViewUI.LiveComment.login')
+              t("LinViewUI.LiveComment.login")
             }}</span>
-            {{ t('LinViewUI.LiveComment.commentAfter') }}
+            {{ t("LinViewUI.LiveComment.commentAfter") }}
           </span>
         </slot>
       </div>
@@ -58,19 +58,19 @@
         class="lin-live-comment-textarea"
       ></textarea>
       <span class="lin-live-comment-send-btn" @click="publishComment">{{
-        btnText || t('LinViewUI.LiveComment.btnText')
+        btnText || t("LinViewUI.LiveComment.btnText")
       }}</span>
     </div>
   </div>
 </template>
 
 <script>
-import {LocaleMixin} from '@lin-view-ui/mixins';
-import Image from '@lin-view-ui/image';
-import defaultAvator from './images/default_avatar.png';
+import { LocaleMixin } from "@lin-view-ui/mixins";
+import Image from "@lin-view-ui/image";
+import defaultAvator from "./images/default_avatar.png";
 
 export default {
-  name: 'LinLiveComment',
+  name: "LinLiveComment",
   mixins: [LocaleMixin],
   components: {
     [Image.name]: Image
@@ -89,7 +89,7 @@ export default {
     // 绑定值
     value: {
       type: String,
-      default: ''
+      default: ""
     },
     // 按钮文本
     btnText: {
@@ -160,16 +160,16 @@ export default {
         this.isScrollToBottom = false;
       } else {
         this.isScrollToBottom = true;
-        this.$emit('toBottom');
+        this.$emit("toBottom");
       }
-      this.$emit('scroll', e);
+      this.$emit("scroll", e);
     },
     // 处理评论内容
     changeContent(str) {
       if (!str) {
-        return '';
+        return "";
       }
-      return str.replace(/\n/g, '<br/>');
+      return str.replace(/\n/g, "<br/>");
     },
     // 跳转到底部
     toBottom() {
@@ -181,16 +181,16 @@ export default {
       if (this.isLoading) {
         return;
       }
-      this.$emit('sendBtnClick');
+      this.$emit("sendBtnClick");
     },
     // 输入框输入事件
     onInput(e) {
       const { value } = e.target;
-      this.$emit('input', value);
+      this.$emit("input", value);
     },
     // 点击登录按钮
     gotoLogin() {
-      this.$emit('loginBtnClick');
+      this.$emit("loginBtnClick");
     }
   },
   watch: {
@@ -211,7 +211,7 @@ export default {
       if (this.placeholder) {
         return this.placeholder;
       }
-      return this.t('LinViewUI.LiveComment.placeholder');
+      return this.t("LinViewUI.LiveComment.placeholder");
     },
     // 文本输入框属性
     textareaAttr() {

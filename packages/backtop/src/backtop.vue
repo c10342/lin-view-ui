@@ -16,17 +16,17 @@
 </template>
 
 <script>
-import { throttle } from 'lodash';
+import { throttle } from "lodash";
 
-const cubic = (value) => value ** 3;
-const easeInOutCubic = (value) => {
+const cubic = value => value ** 3;
+const easeInOutCubic = value => {
   const percent =
     value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2;
   return percent;
 };
 
 export default {
-  name: 'LinBacktop',
+  name: "LinBacktop",
   props: {
     // 显示位置，距离页面右边距离
     right: {
@@ -60,7 +60,7 @@ export default {
     this.container = null;
     this.init();
     this.throttledScrollHandler = throttle(this.onScroll, 300);
-    this.container.addEventListener('scroll', this.throttledScrollHandler);
+    this.container.addEventListener("scroll", this.throttledScrollHandler);
   },
   methods: {
     // 初始化DOM
@@ -82,7 +82,7 @@ export default {
     },
     onClick(e) {
       this.scrollToTop();
-      this.$emit('click', e);
+      this.$emit("click", e);
     },
     // 返回到顶部
     scrollToTop() {
@@ -90,23 +90,23 @@ export default {
       const beginTime = Date.now();
       const beginValue = el.scrollTop;
       const rAF =
-        window.requestAnimationFrame || ((func) => setTimeout(func, 16));
+        window.requestAnimationFrame || (func => setTimeout(func, 16));
       const frameFunc = () => {
         const progress = (Date.now() - beginTime) / 500;
         if (progress < 1) {
           el.scrollTop = beginValue * (1 - easeInOutCubic(progress));
-          this.$emit('scroll', el.scrollTop);
+          this.$emit("scroll", el.scrollTop);
           rAF(frameFunc);
         } else {
           el.scrollTop = 0;
-          this.$emit('end');
+          this.$emit("end");
         }
       };
       rAF(frameFunc);
     }
   },
   beforeDestroy() {
-    this.container.removeEventListener('scroll', this.throttledScrollHandler);
+    this.container.removeEventListener("scroll", this.throttledScrollHandler);
     this.el = null;
     this.container = null;
   }

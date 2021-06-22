@@ -1,385 +1,385 @@
-import { logsType } from '../../../config/index.js';
+import { logsType } from "../../../config/index.js";
 
 export default [
   {
-    version: '1.1.1',
-    time: '2021-03-20',
+    version: "1.1.1",
+    time: "2021-03-20",
     content: [
       {
-        title: 'New features',
-        list: ['Add typescript type declaration file, support typescript'],
+        title: "New features",
+        list: ["Add typescript type declaration file, support typescript"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.1.0',
-    time: '2021-01-16',
+    version: "1.1.0",
+    time: "2021-01-16",
     content: [
       {
-        title: 'restructure',
+        title: "restructure",
         list: [
-          'Packaging tools',
-          'docs',
-          'unit testing',
-          'Add eslint and stylelint',
-          'Optimize component code'
+          "Packaging tools",
+          "docs",
+          "unit testing",
+          "Add eslint and stylelint",
+          "Optimize component code"
         ],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.26',
-    time: '2020-08-28',
+    version: "1.0.26",
+    time: "2020-08-28",
     content: [
       {
-        title: 'Add Component',
-        list: ['Message', 'MessageBox'],
+        title: "Add Component",
+        list: ["Message", "MessageBox"],
         type: logsType.ADDCOMPONENT
       },
       {
-        title: 'New features',
+        title: "New features",
         list: [
           {
-            subTitle: 'Dialog',
-            subList: ['add drap function']
+            subTitle: "Dialog",
+            subList: ["add drap function"]
           }
         ]
       }
     ]
   },
   {
-    version: '1.0.25',
-    time: '2020-08-22',
+    version: "1.0.25",
+    time: "2020-08-22",
     content: [
       {
-        title: 'Add Component',
-        list: ['DateAxis', 'ScrollBar'],
+        title: "Add Component",
+        list: ["DateAxis", "ScrollBar"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.24',
-    time: '2020-08-20',
+    version: "1.0.24",
+    time: "2020-08-20",
     content: [
       {
-        title: 'Add Component',
-        list: ['Spinner 旋转组件', 'Cascader 级联选择器组件'],
+        title: "Add Component",
+        list: ["Spinner 旋转组件", "Cascader 级联选择器组件"],
         type: logsType.ADDCOMPONENT
       },
       {
-        title: 'Bug fixes',
+        title: "Bug fixes",
         list: [
           {
-            subTitle: 'Input',
+            subTitle: "Input",
             subList: [
-              'Fix cannot be input under ie',
-              'clears the built-in clear button under ie'
+              "Fix cannot be input under ie",
+              "clears the built-in clear button under ie"
             ]
           },
           {
-            subTitle: 'LimitTextarea',
-            subList: ['Fix cannot be input under ie']
+            subTitle: "LimitTextarea",
+            subList: ["Fix cannot be input under ie"]
           },
           {
-            subTitle: 'LiveComment',
-            subList: ['Fix cannot be input under ie']
+            subTitle: "LiveComment",
+            subList: ["Fix cannot be input under ie"]
           },
           {
-            subTitle: 'VideoPlayer',
+            subTitle: "VideoPlayer",
             subList: [
-              'Fix under ie because flv.js Syntax error of dependency report'
+              "Fix under ie because flv.js Syntax error of dependency report"
             ]
           },
           {
-            subTitle: 'Tab',
+            subTitle: "Tab",
             subList: [
-              'Fix cannot get the value of getboundingclientrect().X under ie'
+              "Fix cannot get the value of getboundingclientrect().X under ie"
             ]
           }
         ]
       },
       {
-        title: 'New features',
+        title: "New features",
         list: [
           {
-            subTitle: 'Input',
-            subList: ['Add clear event']
+            subTitle: "Input",
+            subList: ["Add clear event"]
           },
           {
-            subTitle: 'Button',
-            subList: ['Add loading attribute']
+            subTitle: "Button",
+            subList: ["Add loading attribute"]
           }
         ]
       }
     ]
   },
   {
-    version: '1.0.23',
-    time: '2020-08-15',
+    version: "1.0.23",
+    time: "2020-08-15",
     content: [
       {
-        title: 'Add Component',
-        list: ['i18n', 'Link', 'Badge', 'Backtop'],
+        title: "Add Component",
+        list: ["i18n", "Link", "Badge", "Backtop"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.22',
-    time: '2020-08-14',
+    version: "1.0.22",
+    time: "2020-08-14",
     content: [
       {
-        title: 'Add Component',
-        list: ['Tab', 'Skeleton'],
+        title: "Add Component",
+        list: ["Tab", "Skeleton"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.21',
-    time: '2020-08-12',
+    version: "1.0.21",
+    time: "2020-08-12",
     content: [
       {
-        title: 'Add Component',
-        list: ['Dropdown、DropdownItem、DropdownGroup', 'PageHeader'],
+        title: "Add Component",
+        list: ["Dropdown、DropdownItem、DropdownGroup", "PageHeader"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.20',
-    time: '2020-08-10',
+    version: "1.0.20",
+    time: "2020-08-10",
     content: [
       {
-        title: 'Add Component',
-        list: ['ChoiceGroup、ChoiceItem、ChoiceOption'],
+        title: "Add Component",
+        list: ["ChoiceGroup、ChoiceItem、ChoiceOption"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.19',
-    time: '2020-08-09',
+    version: "1.0.19",
+    time: "2020-08-09",
     content: [
       {
-        title: 'Add Component',
-        list: ['CollapseGroup、CollapseItem'],
+        title: "Add Component",
+        list: ["CollapseGroup、CollapseItem"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.18',
-    time: '2020-08-07',
+    version: "1.0.18",
+    time: "2020-08-07",
     content: [
       {
-        title: 'Add Component',
-        list: ['VideoPlayer'],
+        title: "Add Component",
+        list: ["VideoPlayer"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.17',
-    time: '2020-08-06',
+    version: "1.0.17",
+    time: "2020-08-06",
     content: [
       {
-        title: 'Add Component',
-        list: ['Pagination'],
+        title: "Add Component",
+        list: ["Pagination"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.16',
-    time: '2020-08-03',
+    version: "1.0.16",
+    time: "2020-08-03",
     content: [
       {
-        title: 'Add Component',
-        list: ['Table'],
+        title: "Add Component",
+        list: ["Table"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.15',
-    time: '2020-08-01',
+    version: "1.0.15",
+    time: "2020-08-01",
     content: [
       {
-        title: 'Add Component',
-        list: ['Magnifier', 'HoverEffect'],
+        title: "Add Component",
+        list: ["Magnifier", "HoverEffect"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.14',
-    time: '2020-07-23',
+    version: "1.0.14",
+    time: "2020-07-23",
     content: [
       {
-        title: 'New features',
+        title: "New features",
         list: [
           {
-            subTitle: 'Form',
-            subList: ['Add form verification function']
+            subTitle: "Form",
+            subList: ["Add form verification function"]
           }
         ]
       }
     ]
   },
   {
-    version: '1.0.13',
-    time: '2020-07-18',
+    version: "1.0.13",
+    time: "2020-07-18",
     content: [
       {
-        title: 'Add Component',
-        list: ['Upload'],
+        title: "Add Component",
+        list: ["Upload"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.12',
-    time: '2020-07-15',
+    version: "1.0.12",
+    time: "2020-07-15",
     content: [
       {
-        title: 'Add Component',
-        list: ['Tag', 'Alert'],
+        title: "Add Component",
+        list: ["Tag", "Alert"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.11',
-    time: '2020-07-10',
+    version: "1.0.11",
+    time: "2020-07-10",
     content: [
       {
-        title: 'Add Component',
-        list: ['LiveComment', 'InputNumber'],
+        title: "Add Component",
+        list: ["LiveComment", "InputNumber"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.10',
-    time: '2020-06-30',
+    version: "1.0.10",
+    time: "2020-06-30",
     content: [
       {
-        title: 'Add Component',
-        list: ['Icon', 'DatePicker'],
+        title: "Add Component",
+        list: ["Icon", "DatePicker"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.9',
-    time: '2020-06-25',
+    version: "1.0.9",
+    time: "2020-06-25",
     content: [
       {
-        title: 'Add Component',
-        list: ['Tooltip'],
+        title: "Add Component",
+        list: ["Tooltip"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.8',
-    time: '2020-06-21',
+    version: "1.0.8",
+    time: "2020-06-21",
     content: [
       {
-        title: 'Add Component',
-        list: ['Selector'],
+        title: "Add Component",
+        list: ["Selector"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.7',
-    time: '2020-06-20',
+    version: "1.0.7",
+    time: "2020-06-20",
     content: [
       {
-        title: 'Add Component',
-        list: ['MetaInfo'],
+        title: "Add Component",
+        list: ["MetaInfo"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.6',
-    time: '2020-06-14',
+    version: "1.0.6",
+    time: "2020-06-14",
     content: [
       {
-        title: 'Add Component',
-        list: ['Progress', 'Loading'],
+        title: "Add Component",
+        list: ["Progress", "Loading"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.5',
-    time: '2020-06-12',
+    version: "1.0.5",
+    time: "2020-06-12",
     content: [
       {
-        title: 'Add Component',
-        list: ['ScrollView', 'Image'],
+        title: "Add Component",
+        list: ["ScrollView", "Image"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.4',
-    time: '2020-06-09',
+    version: "1.0.4",
+    time: "2020-06-09",
     content: [
       {
-        title: 'Add Component',
-        list: ['Layout'],
+        title: "Add Component",
+        list: ["Layout"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.3',
-    time: '2020-06-08',
+    version: "1.0.3",
+    time: "2020-06-08",
     content: [
       {
-        title: 'Add Component',
-        list: ['Checkbox、CheckboxGroup', 'Form、FormItem'],
+        title: "Add Component",
+        list: ["Checkbox、CheckboxGroup", "Form、FormItem"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.2',
-    time: '2020-06-02',
+    version: "1.0.2",
+    time: "2020-06-02",
     content: [
       {
-        title: 'Add Component',
-        list: ['ShowMore'],
+        title: "Add Component",
+        list: ["ShowMore"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.1',
-    time: '2020-05-20',
+    version: "1.0.1",
+    time: "2020-05-20",
     content: [
       {
-        title: 'Add Component',
-        list: ['Switch', 'Radio、RadioGroup'],
+        title: "Add Component",
+        list: ["Switch", "Radio、RadioGroup"],
         type: logsType.ADDCOMPONENT
       }
     ]
   },
   {
-    version: '1.0.0',
-    time: '2020-05-06',
+    version: "1.0.0",
+    time: "2020-05-06",
     content: [
       {
-        title: 'Add Component',
-        list: ['Button', 'Dialog', 'VideoCard', 'Input'],
+        title: "Add Component",
+        list: ["Button", "Dialog", "VideoCard", "Input"],
         type: logsType.ADDCOMPONENT
       }
     ]

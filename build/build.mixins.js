@@ -5,7 +5,7 @@ const {
   createInputConfig,
   createEsOutput,
   rollupBuild,
-  clean,
+  clean
 } = require("./utils.js");
 const root = path.resolve(__dirname, "../packages/mixins");
 
@@ -18,15 +18,15 @@ function createConfig(filename) {
   }
   return createInputConfig({
     input: resolve(input),
-    external: getExternalsDep("mixins"),
+    external: getExternalsDep("mixins")
   });
 }
 
-const buildOne = async (filename) => {
+const buildOne = async filename => {
   const inputConfig = createConfig(filename);
   const outputConfig = createEsOutput(resolve(`./dist/${filename}`));
   await rollupBuild(inputConfig, outputConfig);
-  console.log(filename,'done');
+  console.log(filename, "done");
 };
 
 const fileList = fs.readdirSync(path.resolve(root, "./src"));
@@ -35,7 +35,7 @@ fileList.push("index.js");
 
 const build = async () => {
   await clean(path.resolve(root, "./dist"));
-  fileList.forEach((filename) => buildOne(filename));
+  fileList.forEach(filename => buildOne(filename));
 };
 
 build();

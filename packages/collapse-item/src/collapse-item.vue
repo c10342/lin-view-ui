@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import { cloneDeep } from 'lodash';
-import {collapseTransition} from '@lin-view-ui/utils';
+import { cloneDeep } from "lodash";
+import { collapseTransition } from "@lin-view-ui/utils";
 
 export default {
-  name: 'LinCollapseItem',
+  name: "LinCollapseItem",
   props: {
     // 当前面板的 name，与 CollapseGroup 的 value 对应，必填项
     name: {
@@ -42,7 +42,7 @@ export default {
   },
   inject: {
     collapseGroup: {
-      default: ''
+      default: ""
     }
   },
   // data () {
@@ -63,7 +63,7 @@ export default {
       if (this.collapseGroup) {
         // 统一封装成数组使用
         const val = this.collapseGroup.collapseValue;
-        if (val && (typeof val === 'string' || typeof val === 'number')) {
+        if (val && (typeof val === "string" || typeof val === "number")) {
           return [val];
         }
         if (Array.isArray(val)) {
@@ -98,7 +98,7 @@ export default {
               data = [this.name];
             }
           } else if (val === false) {
-            const index = data.findIndex((item) => item === this.name);
+            const index = data.findIndex(item => item === this.name);
             if (index > -1) {
               data.splice(index, 1);
             }

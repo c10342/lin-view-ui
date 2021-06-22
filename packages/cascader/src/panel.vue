@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: 'LinPanel',
+  name: "LinPanel",
   props: {
     // 可选项数据源
     options: {
@@ -42,42 +42,42 @@ export default {
       default: 0
     }
   },
-  inject: ['cascader'],
+  inject: ["cascader"],
   computed: {
     valueKey() {
       // 指定选项的唯一值为选项对象的某个属性值
       if (this.cascader) {
         return this.cascader.valueKey;
       }
-      return 'id';
+      return "id";
     },
     // 指定选项标签为选项对象的某个属性值
     label() {
       if (this.cascader) {
         return this.cascader.label;
       }
-      return 'label';
+      return "label";
     },
     // 指定选项的禁用为选项对象的某个属性值
     disabled() {
       if (this.cascader) {
         return this.cascader.disabled;
       }
-      return 'disabled';
+      return "disabled";
     },
     // 指定选项的最终叶子节点的标志位为选项对象的某个属性值
     leaf() {
       if (this.cascader) {
         return this.cascader.leaf;
       }
-      return 'leaf';
+      return "leaf";
     },
     // 指定选项的子选项为选项对象的某个属性值
     children() {
       if (this.cascader) {
         return this.cascader.children;
       }
-      return 'children';
+      return "children";
     },
     // 存储选中的值
     valueArr() {
@@ -103,12 +103,12 @@ export default {
   },
   created() {
     // 监听displayPuop事件
-    this.$on('displayPuop', (data) => {
+    this.$on("displayPuop", data => {
       if (data && data[this.level]) {
         const { valueKey } = this;
         // 找出改层是否有选中的值
         const index = this.options.findIndex(
-          (item) => item[valueKey] === data[this.level][valueKey]
+          item => item[valueKey] === data[this.level][valueKey]
         );
         if (index > -1) {
           // 改层有选中的值
@@ -123,9 +123,9 @@ export default {
           this.current = currentData || {};
           this.$nextTick(() => {
             // 通知子组件
-            this.$children.forEach((child) => {
-              if (child.$options.name === 'LinPanel') {
-                child.$emit('displayPuop', this.valueArr);
+            this.$children.forEach(child => {
+              if (child.$options.name === "LinPanel") {
+                child.$emit("displayPuop", this.valueArr);
               }
             });
           });
@@ -171,7 +171,7 @@ export default {
           const result = await this.lazyLoad({ level: this.level + 1, data });
           // 找出是属于哪个对象的子节点
           const index = this.options.findIndex(
-            (item) => item[valueKey] === data[valueKey]
+            item => item[valueKey] === data[valueKey]
           );
           // 追加子节点
           // eslint-disable-next-line
@@ -198,7 +198,7 @@ export default {
     },
     // 清空所有子组件的children列表,递归
     clearList(children) {
-      children.forEach((child) => {
+      children.forEach(child => {
         child.currentList = [];
         if (child.$children.length !== 0) {
           this.clearList(child.$children);

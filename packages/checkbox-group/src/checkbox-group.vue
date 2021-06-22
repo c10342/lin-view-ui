@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'LinCheckboxGroup',
+  name: "LinCheckboxGroup",
   props: {
     // 绑定值
     value: {

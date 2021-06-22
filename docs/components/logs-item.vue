@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { logsType } from '../config/index.js';
+import { logsType } from "../config/index.js";
 export default {
   props: {
     log: {

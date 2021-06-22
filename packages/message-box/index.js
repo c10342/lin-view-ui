@@ -1,6 +1,6 @@
-import MessageBox from './src/message-box.js';
+import MessageBox from "./src/message-box.js";
 
-MessageBox.install = (Vue) => {
+MessageBox.install = Vue => {
   Vue.prototype.$MessageBox = MessageBox;
 };
 

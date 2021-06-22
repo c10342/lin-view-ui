@@ -1,6 +1,6 @@
-import MultiPlayer from './src/multi-player.js';
+import MultiPlayer from "./src/multi-player.js";
 
-MultiPlayer.install = (Vue) => {
+MultiPlayer.install = Vue => {
   Vue.prototype.$MultiPlayer = MultiPlayer;
 };
 

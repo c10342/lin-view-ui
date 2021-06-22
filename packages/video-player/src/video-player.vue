@@ -45,24 +45,24 @@
 </template>
 
 <script>
-import Hls from 'hls.js';
-import flvjs from 'flv.js/dist/flv.js';
-import { cloneDeep, isEqual } from 'lodash';
-import {LocaleMixin} from '@lin-view-ui/mixins';
+import Hls from "hls.js";
+import flvjs from "flv.js/dist/flv.js";
+import { cloneDeep, isEqual } from "lodash";
+import { LocaleMixin } from "@lin-view-ui/mixins";
 import {
   isBrowserFullscreen,
   isBrowserFullscreenEnabled,
   enterBrowserFullScreen,
   exitBrowserFullscreen
-} from '@lin-view-ui/utils';
-import PlayerControls from './video-player-controls.vue';
-import PlayerAnimation from './video-player-animation.vue';
-import PlayerImage from './video-player-image.vue';
-import PlayerLoading from './video-player-loading.vue';
-import PlayerTip from './video-player-tip.vue';
+} from "@lin-view-ui/utils";
+import PlayerControls from "./video-player-controls.vue";
+import PlayerAnimation from "./video-player-animation.vue";
+import PlayerImage from "./video-player-image.vue";
+import PlayerLoading from "./video-player-loading.vue";
+import PlayerTip from "./video-player-tip.vue";
 
 export default {
-  name: 'LinVideoPlayer',
+  name: "LinVideoPlayer",
   mixins: [LocaleMixin],
   components: {
     PlayerControls,
@@ -93,15 +93,15 @@ export default {
       // 视频清晰度列表
       videoList: [],
       // 视频截图，用于切换清晰度的时候，防止出现闪屏。先显示图片，再切换清晰度，这样图片就盖住了闪屏了
-      imgSrc: '',
+      imgSrc: "",
       // 是否在加载数据，切换清晰度或者切换视频的时候用到，要给出loading提示
       isLoading: false,
       // 左下角的提示
-      tip: '',
+      tip: "",
       // 左下角提示多久就消失
       tipTime: 2000,
       // 默认播放的视频流类型
-      type: 'hls',
+      type: "hls",
       // 是否自动播放
       autoplay: false,
       // 当前视频清晰度对象
@@ -142,18 +142,18 @@ export default {
     initPlayer(data) {
       // 显示loading
       this.isLoading = true;
-      if (typeof this.customType === 'function') {
+      if (typeof this.customType === "function") {
         // 自定义MSE
         this.initCustomType(data);
       } else {
         const videoSrc = data.url;
-        if (this.type === 'hls') {
+        if (this.type === "hls") {
           // hls流
           this.initHls(videoSrc);
-        } else if (this.type === 'flv') {
+        } else if (this.type === "flv") {
           // flv流
           this.initFlv(videoSrc);
-        } else if (this.type === 'mp4') {
+        } else if (this.type === "mp4") {
           // mp4
           this.video.src = videoSrc;
         }
@@ -169,19 +169,19 @@ export default {
       // 显示loading
       this.isLoading = true;
       // 提示正在切换清晰度
-      this.tip = `${this.t('LinViewUI.VideoPlayer.switch')} ${label} ${this.t(
-        'LinViewUI.VideoPlayer.quality'
+      this.tip = `${this.t("LinViewUI.VideoPlayer.switch")} ${label} ${this.t(
+        "LinViewUI.VideoPlayer.quality"
       )}`;
       // 截图显示出来，防止闪屏
       this.getImage();
-      if (typeof this.customType === 'function') {
+      if (typeof this.customType === "function") {
         this.initCustomType(data);
-      } else if (this.type === 'hls') {
+      } else if (this.type === "hls") {
         this.initHls(videoSrc);
-      } else if (this.type === 'flv') {
+      } else if (this.type === "flv") {
         this.destoryFlv();
         this.initFlv(videoSrc);
-      } else if (this.type === 'mp4') {
+      } else if (this.type === "mp4") {
         this.video.src = videoSrc;
       }
 
@@ -189,7 +189,7 @@ export default {
     },
     initHls(videoSrc, hlsParams = {}) {
       if (!Hls) {
-        throw new ReferenceError('Hls is not defind');
+        throw new ReferenceError("Hls is not defind");
       }
       if (Hls.isSupported()) {
         // 判断是否支持hls
@@ -199,14 +199,14 @@ export default {
         // 加载视频
         this.hls.loadSource(videoSrc);
         this.hls.attachMedia(this.video);
-      } else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
+      } else if (this.video.canPlayType("application/vnd.apple.mpegurl")) {
         // 判断是否支持直接播放m3u8文件
         this.video.src = videoSrc;
       }
     },
     initFlv(videoSrc, flvParams = {}) {
       if (!flvjs) {
-        throw new ReferenceError('flvjs is not defind');
+        throw new ReferenceError("flvjs is not defind");
       }
       if (flvjs.isSupported()) {
         // 判断是否支持flv
@@ -214,7 +214,7 @@ export default {
         flvjs.LoggingControl.enableAll = false;
         // 初始化flv实例
         this.flv = flvjs.createPlayer({
-          type: 'flv',
+          type: "flv",
           url: videoSrc,
           isLive: this.live,
           ...flvParams
@@ -251,7 +251,7 @@ export default {
     // 可以流畅播放
     onCanplaythrough() {
       // 清空截图
-      this.imgSrc = '';
+      this.imgSrc = "";
       // 隐藏loading
       this.isLoading = false;
       if (this.isPlaying) {
@@ -313,8 +313,8 @@ export default {
     getImage() {
       if (this.video) {
         try {
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
           canvas.width = this.video.clientWidth;
           canvas.height = this.video.clientHeight;
           ctx.drawImage(this.video, 0, 0, canvas.width, canvas.height);
@@ -355,15 +355,15 @@ export default {
     onOffsetTime(offsetTime) {
       if (offsetTime < 0) {
         this.setTip(
-          `${this.t('LinViewUI.VideoPlayer.goBack')} ${Math.round(
+          `${this.t("LinViewUI.VideoPlayer.goBack")} ${Math.round(
             -offsetTime
-          )} ${this.t('LinViewUI.VideoPlayer.second')}`
+          )} ${this.t("LinViewUI.VideoPlayer.second")}`
         );
       } else {
         this.setTip(
-          `${this.t('LinViewUI.VideoPlayer.fastForward')} ${Math.round(
+          `${this.t("LinViewUI.VideoPlayer.fastForward")} ${Math.round(
             offsetTime
-          )} ${this.t('LinViewUI.VideoPlayer.second')}`
+          )} ${this.t("LinViewUI.VideoPlayer.second")}`
         );
       }
     },
@@ -385,7 +385,7 @@ export default {
         this.video.volume = volume;
         // 显示左下角提示
         this.setTip(
-          `${this.t('LinViewUI.VideoPlayer.volume')}${Math.round(
+          `${this.t("LinViewUI.VideoPlayer.volume")}${Math.round(
             volume * 100
           )}%`
         );
@@ -434,7 +434,7 @@ export default {
       if (!isEqual(this.currentDefinitionVideo, data)) {
         const definitionList = cloneDeep(this.definitionList);
         // 找出对应的清晰度对象
-        const index = definitionList.findIndex((item) => isEqual(item, data));
+        const index = definitionList.findIndex(item => isEqual(item, data));
         if (index > -1) {
           // 有的情况
           // definitionList存放的是剩下的清晰度,不包含当前的清晰度

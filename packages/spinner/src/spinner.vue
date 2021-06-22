@@ -16,14 +16,14 @@
 
 <script>
 export default {
-  name: 'LinSpinner',
+  name: "LinSpinner",
   props: {
     // 主题类型
     type: {
       type: String,
-      default: 'primary',
+      default: "primary",
       validator(value) {
-        return ['primary', 'success', 'info', 'warning', 'danger'].includes(
+        return ["primary", "success", "info", "warning", "danger"].includes(
           value
         );
       }
@@ -31,17 +31,17 @@ export default {
     // 文案对齐方向
     vertical: {
       type: String,
-      default: 'row',
+      default: "row",
       validator(value) {
-        return ['col', 'row'].includes(value);
+        return ["col", "row"].includes(value);
       }
     },
     // 弧度
     proportion: {
       type: [String, Number],
-      default: '1',
+      default: "1",
       validator(value) {
-        return ['1', '2', '3', 1, 2, 3].includes(value);
+        return ["1", "2", "3", 1, 2, 3].includes(value);
       }
     },
     // 显示器颜色
@@ -55,14 +55,14 @@ export default {
       type: String,
       validator(value) {
         return [
-          'dotted',
-          'dashed',
-          'solid',
-          'double',
-          'groove',
-          'ridge',
-          'inset',
-          'outset'
+          "dotted",
+          "dashed",
+          "solid",
+          "double",
+          "groove",
+          "ridge",
+          "inset",
+          "outset"
         ].includes(value);
       }
     },
@@ -75,16 +75,16 @@ export default {
       type: String,
       validator(value) {
         const result = [
-          'linear',
-          'ease',
-          'ease-in',
-          'ease-out',
-          'ease-in-out'
+          "linear",
+          "ease",
+          "ease-in",
+          "ease-out",
+          "ease-in-out"
         ].includes(value);
         if (result) {
           return true;
         }
-        if (value.startsWith('cubic-bezie')) {
+        if (value.startsWith("cubic-bezie")) {
           return true;
         }
         return false;
@@ -94,10 +94,10 @@ export default {
     iterationCount: {
       type: [String, Number],
       validator(value) {
-        if (typeof value === 'number') {
+        if (typeof value === "number") {
           return true;
         }
-        if (value === 'infinite') {
+        if (value === "infinite") {
           return true;
         }
         return false;
@@ -115,29 +115,29 @@ export default {
     loadingStyle() {
       const obj = {};
       if (this.loadingColor) {
-        obj['border-color'] = this.loadingColor;
+        obj["border-color"] = this.loadingColor;
       }
       if (this.size) {
         obj.width = this.size;
         obj.height = this.size;
       }
       if (this.strokeWidth) {
-        obj['border-width'] = this.strokeWidth;
+        obj["border-width"] = this.strokeWidth;
       }
       if (this.lineStyle) {
-        obj['border-style'] = this.lineStyle;
+        obj["border-style"] = this.lineStyle;
       }
       if (this.animationName) {
-        obj['animation-name'] = this.animationName;
+        obj["animation-name"] = this.animationName;
       }
       if (this.animationDuration) {
-        obj['animation-duration'] = this.animationDuration;
+        obj["animation-duration"] = this.animationDuration;
       }
       if (this.timingFunction) {
-        obj['animation-timing-function'] = this.timingFunction;
+        obj["animation-timing-function"] = this.timingFunction;
       }
       if (this.iterationCount) {
-        obj['animation-iteration-count'] = this.iterationCount;
+        obj["animation-iteration-count"] = this.iterationCount;
       }
       return obj;
     },
@@ -145,7 +145,7 @@ export default {
     textStyle() {
       const obj = {};
       if (this.textSize) {
-        obj['font-size'] = this.textSize;
+        obj["font-size"] = this.textSize;
       }
       if (this.textColor) {
         obj.color = this.textColor;

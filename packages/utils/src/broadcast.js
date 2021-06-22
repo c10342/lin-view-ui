@@ -6,8 +6,8 @@ function broadcast(options) {
   const { eventName, params, componentName } = options;
 
   // 获取当前组件下的所有的孩子
-  const broad = (children) => {
-    children.forEach((child) => {
+  const broad = children => {
+    children.forEach(child => {
       if (componentName) {
         if (child.$options.name === componentName) {
           child.$emit(eventName, params);

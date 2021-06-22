@@ -1,4 +1,4 @@
-module.exports = (md) => {
+module.exports = md => {
   const defaultRender = md.renderer.rules.fence;
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
     const token = tokens[idx];
@@ -7,7 +7,7 @@ module.exports = (md) => {
       prevToken &&
       prevToken.nesting === 1 &&
       prevToken.info.trim().match(/^demo\s*(.*)$/);
-    if (token.info === 'vue' && isInDemoContainer) {
+    if (token.info === "vue" && isInDemoContainer) {
       return `<template slot="highlight"><pre v-pre><code class="html">${md.utils.escapeHtml(
         token.content
       )}</code></pre></template>`;

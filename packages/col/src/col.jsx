@@ -1,13 +1,11 @@
-
-
 export default {
-  name: 'LinCol',
+  name: "LinCol",
 
   props: {
     // 自定义元素标签
     tag: {
       type: String,
-      default: 'div'
+      default: "div"
     },
     // 栅格占据列数
     span: {
@@ -41,7 +39,7 @@ export default {
 
   inject: {
     row: {
-      default: ''
+      default: ""
     }
   },
   computed: {
@@ -63,22 +61,22 @@ export default {
       style.paddingRight = style.paddingLeft;
     }
 
-    ['offset', 'push', 'pull', 'span'].forEach((key) => {
+    ["offset", "push", "pull", "span"].forEach(key => {
       if (this[key]) {
-        if (key !== 'span') {
+        if (key !== "span") {
           classList.push(`lin-col-${key}-${this[key]}`);
         } else {
           classList.push(`lin-col-${this[key]}`);
         }
       }
     });
-    ['xs', 'sm', 'md', 'lg'].forEach((size) => {
-      if (typeof this[size] === 'number') {
+    ["xs", "sm", "md", "lg"].forEach(size => {
+      if (typeof this[size] === "number") {
         classList.push(`lin-col-${size}-${this[size]}`);
-      } else if (typeof this[size] === 'object') {
+      } else if (typeof this[size] === "object") {
         const props = this[size];
-        Object.keys(props).forEach((prop) => {
-          if (prop !== 'span') {
+        Object.keys(props).forEach(prop => {
+          if (prop !== "span") {
             classList.push(`lin-col-${size}-${prop}-${props[prop]}`);
           } else {
             classList.push(`lin-col-${size}-${props[prop]}`);
@@ -89,7 +87,7 @@ export default {
     return h(
       this.tag,
       {
-        class: ['lin-col', classList],
+        class: ["lin-col", classList],
         style
       },
       this.$slots.default

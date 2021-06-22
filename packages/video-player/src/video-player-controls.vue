@@ -22,7 +22,7 @@
         >
         <span class="lin-video-player-live-tip" v-if="live">
           <i></i>
-          {{ t('LinViewUI.VideoPlayer.live') }}
+          {{ t("LinViewUI.VideoPlayer.live") }}
         </span>
         <div class="lin-video-player-controls-right">
           <player-definition></player-definition>
@@ -38,17 +38,17 @@
 </template>
 
 <script>
-import {secondToTime} from '@lin-view-ui/utils'
-import {LocaleMixin} from '@lin-view-ui/mixins'
-import PlayerSpeed from './video-player-speed.vue';
-import PlayerDefinition from './video-player-definition.vue';
+import { secondToTime } from "@lin-view-ui/utils";
+import { LocaleMixin } from "@lin-view-ui/mixins";
+import PlayerSpeed from "./video-player-speed.vue";
+import PlayerDefinition from "./video-player-definition.vue";
 
-import PlayerProcess from '@lin-view-ui/player-process'
-import PlayerVolume from '@lin-view-ui/player-volume'
-import PlayerFullscreen from '@lin-view-ui/player-fullscreen'
+import PlayerProcess from "@lin-view-ui/player-process";
+import PlayerVolume from "@lin-view-ui/player-volume";
+import PlayerFullscreen from "@lin-view-ui/player-fullscreen";
 
 export default {
-  name: 'LinVideoPlayerControls',
+  name: "LinVideoPlayerControls",
   mixins: [LocaleMixin],
   filters: {
     // 格式化时间
@@ -106,25 +106,25 @@ export default {
   methods: {
     // 点击播放或者暂停按钮
     onPlayClick() {
-      this.$emit('play');
+      this.$emit("play");
     },
     onPauseClick() {
-      this.$emit('pause');
+      this.$emit("pause");
     },
     onSeek(time) {
-      this.$emit('seek', time);
+      this.$emit("seek", time);
     },
     setVolume(volume) {
-      this.$emit('setVolume', volume);
+      this.$emit("setVolume", volume);
     },
     onOffsetTime(offsetTime) {
-      this.$emit('offsetTime', offsetTime);
+      this.$emit("offsetTime", offsetTime);
     },
     onBrowserFullscreen() {
-      this.$emit('browser-fullscreen');
+      this.$emit("browser-fullscreen");
     },
     onWebFullscreen() {
-      this.$emit('web-fullscreen');
+      this.$emit("web-fullscreen");
     }
   }
 };

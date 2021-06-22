@@ -46,20 +46,20 @@ fs.mkdirSync(compomentSrcPath);
 
 function writePakcageTpl() {
   const parmas = {
-    name: componentName,
+    name: componentName
   };
   const tplStr = fs.readFileSync(
     path.resolve(__dirname, "./template/package.tpl"),
     "utf-8"
   );
-  const package = handlebars.compile(tplStr)(parmas);
-  fs.writeFileSync(path.resolve(compomentPath, "package.json"), package);
+  const packageStr = handlebars.compile(tplStr)(parmas);
+  fs.writeFileSync(path.resolve(compomentPath, "package.json"), packageStr);
 }
 
 function writeIndexTpl() {
   const parmas = {
     name: componentName,
-    importName: toHump(componentName),
+    importName: toHump(componentName)
   };
   const tplStr = fs.readFileSync(
     path.resolve(__dirname, "./template/index.tpl"),
@@ -71,7 +71,7 @@ function writeIndexTpl() {
 
 function writeVueTpl() {
   const parmas = {
-    compName: `Lin${toHump(componentName)}`,
+    compName: `Lin${toHump(componentName)}`
   };
   const tplStr = fs.readFileSync(
     path.resolve(__dirname, "./template/vue.tpl"),
@@ -102,7 +102,7 @@ function writeScssTpl() {
 function writeReadmeTpl() {
   const parmas = {
     name: componentName,
-    componentName: toHump(componentName),
+    componentName: toHump(componentName)
   };
   const tplStr = fs.readFileSync(
     path.resolve(__dirname, "./template/readme.tpl"),
@@ -117,7 +117,7 @@ function writeTpl() {
   writeIndexTpl();
   writeVueTpl();
   writeScssTpl();
-  writeReadmeTpl()
+  writeReadmeTpl();
   console.log(chalk.blueBright(`${componentName}模板创建成功`));
 }
 

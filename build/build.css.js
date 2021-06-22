@@ -20,7 +20,7 @@ const buildScss = (
   srcPath,
   distPath,
   options = {
-    basename: "style",
+    basename: "style"
   }
 ) => {
   return src(srcPath)
@@ -28,7 +28,7 @@ const buildScss = (
     .pipe(autoprefixer({ cascade: false }))
     .pipe(cssmin())
     .pipe(
-      rename((srcPath) => {
+      rename(srcPath => {
         srcPath.basename = options.basename;
         srcPath.extname = ".css";
       })
@@ -48,5 +48,5 @@ function copyfont(distPath, comp) {
 
 module.exports = {
   buildScss,
-  copyfont,
+  copyfont
 };

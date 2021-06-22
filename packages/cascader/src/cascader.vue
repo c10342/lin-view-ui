@@ -47,12 +47,12 @@
 </template>
 
 <script>
-import Input from '@lin-view-ui/input'
-import {DocumentClickMixin,LocaleMixin} from '@lin-view-ui/mixins'
-import Panel from './panel.vue';
+import Input from "@lin-view-ui/input";
+import { DocumentClickMixin, LocaleMixin } from "@lin-view-ui/mixins";
+import Panel from "./panel.vue";
 
 export default {
-  name: 'LinCascader',
+  name: "LinCascader",
   mixins: [DocumentClickMixin, LocaleMixin],
   components: {
     [Input.name]: Input,
@@ -94,32 +94,32 @@ export default {
     // 选项分隔符
     separator: {
       type: String,
-      default: '/'
+      default: "/"
     },
     // 指定选项标签为选项对象的某个属性值
     label: {
       type: String,
-      default: 'label'
+      default: "label"
     },
     // 指定选项的子选项为选项对象的某个属性值
     children: {
       type: String,
-      default: 'children'
+      default: "children"
     },
     // 指定选项的最终叶子节点的标志位为选项对象的某个属性值
     leaf: {
       type: String,
-      default: 'leaf'
+      default: "leaf"
     },
     // 指定选项的禁用为选项对象的某个属性值
     disabled: {
       type: String,
-      default: 'disabled'
+      default: "disabled"
     },
     // 指定选项的唯一值为选项对象的某个属性值
     valueKey: {
       type: String,
-      default: 'id'
+      default: "id"
     },
     // 暂无数据提示语
     emptyTip: {
@@ -185,11 +185,11 @@ export default {
     },
     // 失去焦点
     onBlur(event) {
-      this.$emit('blur', event);
+      this.$emit("blur", event);
     },
     // 获得焦点
     onFocus(event) {
-      this.$emit('focus', event);
+      this.$emit("focus", event);
     },
     // 清空值
     clearValue() {
@@ -210,7 +210,7 @@ export default {
       valueArr = valueArr.slice(0, level);
       valueArr.push(data);
       this.valueArr = valueArr;
-      this.$emit('change', { data, level });
+      this.$emit("change", { data, level });
     },
     // 点击输入框容器
     onInputClick() {
@@ -223,22 +223,22 @@ export default {
     // 显示下拉框
     displayPuop() {
       this.showPopup = true;
-      this.$children.forEach((child) => {
-        if (child.$options.name === 'LinPanel') {
-          child.$emit('displayPuop', this.valueArr);
+      this.$children.forEach(child => {
+        if (child.$options.name === "LinPanel") {
+          child.$emit("displayPuop", this.valueArr);
         }
       });
       this.setPlacement();
-      this.$emit('visible-change', true);
+      this.$emit("visible-change", true);
     },
     // 隐藏下拉框
     hidePuop() {
       this.showPopup = false;
-      this.$emit('visible-change', false);
+      this.$emit("visible-change", false);
     },
     // 发射input事件，配合v-model指令使用
     emitInputEvent(val) {
-      this.$emit('input', val);
+      this.$emit("input", val);
     },
     // 点击组件外部
     onDocumentClick(event) {
@@ -276,13 +276,13 @@ export default {
         return this.showFormat(this.valueArr);
       }
       if (this.valueArr && this.valueArr.length > 0) {
-        let str = '';
-        this.valueArr.forEach((item) => {
+        let str = "";
+        this.valueArr.forEach(item => {
           str += `${item[this.label]} ${this.separator} `;
         });
         return str.slice(0, -2);
       }
-      return '';
+      return "";
     },
     // 是否线束清空图标
     showClose() {
@@ -298,14 +298,14 @@ export default {
       if (this.placeholder) {
         return this.placeholder;
       }
-      return this.t('LinViewUI.Cascader.placeholder');
+      return this.t("LinViewUI.Cascader.placeholder");
     },
     // 暂无数据提示语
     myEmptyTip() {
       if (this.emptyTip) {
         return this.emptyTip;
       }
-      return this.t('LinViewUI.Cascader.emptyTip');
+      return this.t("LinViewUI.Cascader.emptyTip");
     },
     // 可选项数据源
     myOptions() {

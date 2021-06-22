@@ -69,7 +69,7 @@
             >
               <slot name="empty">
                 <p class="lin-choice-group-empty-tip">
-                  {{ emptyTip || t('LinViewUI.Choice.emptyTip') }}
+                  {{ emptyTip || t("LinViewUI.Choice.emptyTip") }}
                 </p>
               </slot>
             </div>
@@ -89,12 +89,12 @@
 </template>
 
 <script>
-import {LocaleMixin,DocumentClickMixin} from '@lin-view-ui/mixins'
-import {findChildren} from '@lin-view-ui/utils'
-import Input from '@lin-view-ui/input';
+import { LocaleMixin, DocumentClickMixin } from "@lin-view-ui/mixins";
+import { findChildren } from "@lin-view-ui/utils";
+import Input from "@lin-view-ui/input";
 
 export default {
-  name: 'LinChoiceGroup',
+  name: "LinChoiceGroup",
   mixins: [LocaleMixin, DocumentClickMixin],
   components: {
     [Input.name]: Input
@@ -111,7 +111,7 @@ export default {
     //  作为 value 唯一标识的键名，绑定值为对象类型时必填
     valueKey: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否可清空
     clearable: {
@@ -146,7 +146,7 @@ export default {
     // 加载提示语
     loadingTip: {
       type: String,
-      default: ''
+      default: ""
     },
     // 数据为空时提示语
     emptyTip: {
@@ -160,7 +160,7 @@ export default {
     // 默认显示内容，一般用于滚动加载回显数据
     defaultLabelName: {
       type: [String, Number],
-      default: ''
+      default: ""
     },
     // 是否显示远程搜索输入框
     showSearchInput: {
@@ -170,7 +170,7 @@ export default {
     // 远程搜索输入框占位符
     searchPlaceholder: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否开启本地搜索
     filterable: {
@@ -185,7 +185,7 @@ export default {
   data() {
     return {
       // 不是本地搜索时输入框显示内容
-      groupLabel: '',
+      groupLabel: "",
       // 是否显示下拉框
       isShow: false,
       // 鼠标是否悬停在输入框容器中
@@ -195,9 +195,9 @@ export default {
       // 下拉框距离顶部距离
       top: 0,
       // 远程搜索输入框value
-      searchKey: '',
+      searchKey: "",
       // 本地搜索时，输入框显示的值
-      inputValue: '',
+      inputValue: "",
       // 是否暂无数据
       noData: false,
       // 是否正在进行本地搜索
@@ -301,7 +301,7 @@ export default {
       const contentHeight = this.$refs.scrollContent.clientHeight;
       if (scrollTop + height >= contentHeight) {
         // 滚动到底部
-        this.$emit('scrollToBottom', event);
+        this.$emit("scrollToBottom", event);
       }
     },
     // 鼠标离开input输入框容器
@@ -314,11 +314,11 @@ export default {
     },
     // input失去焦点
     onBlur(event) {
-      this.$emit('blur', event);
+      this.$emit("blur", event);
     },
     // input获得焦点
     onFocus(event) {
-      this.$emit('focus', event);
+      this.$emit("focus", event);
     },
     // 点击input输入框选项
     onClick() {
@@ -333,14 +333,14 @@ export default {
     },
     // 点击清空按钮，清空值
     clearValue() {
-      this.groupLabel = '';
-      this.emitInputEvent('');
-      this.$emit('clear');
+      this.groupLabel = "";
+      this.emitInputEvent("");
+      this.$emit("clear");
     },
     // 发射相关事件
     emitInputEvent(value) {
-      this.$emit('input', value);
-      this.$emit('change', value);
+      this.$emit("input", value);
+      this.$emit("change", value);
       this.hideVisible();
     },
     // 隐藏下拉框
@@ -348,7 +348,7 @@ export default {
       if (this.isShow) {
         this.isShow = false;
         this.isSearch = false;
-        this.$emit('visible-change', false);
+        this.$emit("visible-change", false);
       }
     },
     // 显示下拉框
@@ -356,9 +356,9 @@ export default {
       if (!this.isShow) {
         this.isShow = true;
         this.setPlacement();
-        this.inputValue = '';
+        this.inputValue = "";
         this.noData = false;
-        this.$emit('visible-change', true);
+        this.$emit("visible-change", true);
       }
     },
     // 点击组件外部
@@ -370,15 +370,15 @@ export default {
     },
     // 远程搜索
     onSearch() {
-      this.$emit('search', this.searchKey);
+      this.$emit("search", this.searchKey);
     },
     // 键盘抬起事件，本地搜索
     onInputChange(event) {
       this.isSearch = true;
       this.inputValue = event.currentTarget.value;
       this.$nextTick(() => {
-        const children = findChildren(this, 'LinChoiceItem');
-        this.noData = children.every((child) => !child.isShow);
+        const children = findChildren(this, "LinChoiceItem");
+        this.noData = children.every(child => !child.isShow);
       });
     }
   },

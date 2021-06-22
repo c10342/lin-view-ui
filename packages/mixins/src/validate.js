@@ -1,12 +1,11 @@
-
-import {dispatch} from '@lin-view-ui/utils'
+import { dispatch } from "@lin-view-ui/utils";
 
 const validate = {
   created() {
-    this.$on('input', () => {
+    this.$on("input", () => {
       dispatch.call(this, {
-        eventName: 'validate',
-        componentName: 'LinFormItem'
+        eventName: "validate",
+        componentName: "LinFormItem"
       });
     });
   }

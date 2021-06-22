@@ -1,9 +1,8 @@
-
-import {LocaleMixin} from '@lin-view-ui/mixins';
+import { LocaleMixin } from "@lin-view-ui/mixins";
 
 const oneHeight = 26;
 export default {
-  name: 'LinSelectorGroup',
+  name: "LinSelectorGroup",
   mixins: [LocaleMixin],
   render(h) {
     const {
@@ -44,8 +43,8 @@ export default {
             ) : (
               <span class="lin-selector-more-text-tip">
                 {status === 2
-                  ? t('LinViewUI.Selector.hide')
-                  : t('LinViewUI.Selector.show')}
+                  ? t("LinViewUI.Selector.hide")
+                  : t("LinViewUI.Selector.show")}
               </span>
             )}
           </span>
@@ -57,12 +56,12 @@ export default {
     // 选择器整体宽度
     width: {
       type: String,
-      default: ''
+      default: ""
     },
     // labelWidth
     labelWidth: {
       type: String,
-      default: '40px'
+      default: "40px"
     },
     // 绑定值
     value: {
@@ -71,7 +70,7 @@ export default {
     // 作为 value 唯一标识的键名，绑定值为对象类型时必填
     valueKey: {
       type: String,
-      default: ''
+      default: ""
     },
     // 自定义渲染更多标签内容，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是否展开或收起的状态值。可以使用 jsx
     renderMore: {
@@ -86,7 +85,7 @@ export default {
     // 头部标签内容
     label: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否禁用
     disabled: {
@@ -104,7 +103,7 @@ export default {
       // 是否显示展开/隐藏按钮
       isShowBtn: false,
       // 容器高度
-      height: 'auto',
+      height: "auto",
       //   1-收起，2-展开
       status: 1
     };
@@ -113,7 +112,7 @@ export default {
     this.$nextTick(() => {
       // 初始化 收起/展开按钮
       this.init();
-      window.addEventListener('resize', this.onResize);
+      window.addEventListener("resize", this.onResize);
     });
   },
   methods: {
@@ -123,12 +122,12 @@ export default {
     // 重置状态
     resetStatus() {
       const style = this.$refs.selectorList.style;
-      if (style.height === 'auto') {
+      if (style.height === "auto") {
         // 展开状态
         this.init();
       } else {
         // 折叠状态
-        this.height = 'auto';
+        this.height = "auto";
         this.$nextTick(() => {
           this.init();
         });
@@ -154,16 +153,16 @@ export default {
       if (this.status === 1) {
         // 收起状态，此时点击需要展开它
         this.show();
-        this.$emit('show');
+        this.$emit("show");
       } else {
         this.hide();
-        this.$emit('hide');
+        this.$emit("hide");
       }
     },
     // 展开选择器
     show() {
       // 高度设置为自适应
-      this.height = 'auto';
+      this.height = "auto";
       this.status = 2;
     },
     // 隐藏选择器
@@ -183,6 +182,6 @@ export default {
   //   }
   // },
   beforeDestroy() {
-    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener("resize", this.onResize);
   }
 };

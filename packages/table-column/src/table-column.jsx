@@ -1,9 +1,7 @@
-
-
 let columnId = 0;
 
 export default {
-  name: 'LinTableColumn',
+  name: "LinTableColumn",
   props: {
     // 对应列内容的字段名
     prop: String,
@@ -14,7 +12,7 @@ export default {
     // 对齐方式
     align: {
       type: String,
-      default: 'left'
+      default: "left"
     },
     // 对应列的类型
     type: String
@@ -29,7 +27,7 @@ export default {
       if (this.table) {
         return this.table.valueKey;
       }
-      return '';
+      return "";
     }
   },
   watch: {
@@ -54,24 +52,24 @@ export default {
     column.renderCell = (h, rowData) => {
       // eslint-disable-next-line
       let render = (h, data) => {
-        if (data.column.type === 'selection') {
+        if (data.column.type === "selection") {
           // 多选单元格
           return (
             <input
               class="lin-table-checkbox"
-              onClick={(e) => this.onClick(e, data)}
+              onClick={e => this.onClick(e, data)}
               type="checkbox"
             />
           );
         }
-        if (data.column.type === 'index') {
+        if (data.column.type === "index") {
           // 序号单元格
           return data.rowIndex + 1;
         }
         // 普通单元格
         return data.row[column.prop];
       };
-      if (this.$scopedSlots.default && rowData.column.type !== 'selection') {
+      if (this.$scopedSlots.default && rowData.column.type !== "selection") {
         // 如果使用了插槽
         // eslint-disable-next-line
         render = (h, data) => this.$scopedSlots.default(data);
@@ -91,7 +89,7 @@ export default {
     if (this.table) {
       // 销毁的时候需要把对应的列移除掉
       const index = this.table.columns.findIndex(
-        (column) => column.id === this.column.id
+        column => column.id === this.column.id
       );
       if (index > -1) {
         this.table.columns.splice(index, 1);
@@ -105,7 +103,7 @@ export default {
       if (this.table) {
         // 判断是否已经被选中了
         const index = this.table.selectData.findIndex(
-          (item) => item[this.valueKey] === data.row[this.valueKey]
+          item => item[this.valueKey] === data.row[this.valueKey]
         );
         const checked = e.target.checked;
         if (checked) {

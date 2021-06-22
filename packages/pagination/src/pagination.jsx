@@ -1,9 +1,7 @@
-
-import {LocaleMixin} from '@lin-view-ui/mixins';
-
+import { LocaleMixin } from "@lin-view-ui/mixins";
 
 export default {
-  name: 'LinPagination',
+  name: "LinPagination",
   mixins: [LocaleMixin],
   props: {
     // 页码按钮的数量，当总页数超过该值时会折叠
@@ -33,7 +31,7 @@ export default {
     // 组件布局，子组件名用逗号分隔
     layout: {
       type: String,
-      default: 'prev, pager, next, jumper,total'
+      default: "prev, pager, next, jumper,total"
     }
   },
   data() {
@@ -46,9 +44,9 @@ export default {
     const { background, layoutList } = this;
     return (
       <div
-        class={['lin-pagination', { 'lin-pagination-background': background }]}
+        class={["lin-pagination", { "lin-pagination-background": background }]}
       >
-        {layoutList.map((fnstr) => {
+        {layoutList.map(fnstr => {
           const fn = this[`render${fnstr}`];
           return fn ? fn(h) : null;
         })}
@@ -59,15 +57,15 @@ export default {
     // 点击每一项
     onItemClick(data) {
       let index = 1;
-      if (data.type === 'number') {
+      if (data.type === "number") {
         index = data.index;
-      } else if (data.type === 'prev') {
+      } else if (data.type === "prev") {
         index = this.currentPage - 1;
-      } else if (data.type === 'next') {
+      } else if (data.type === "next") {
         index = this.currentPage + 1;
       }
       this.currentPage = index;
-      this.$emit('currentChange', index);
+      this.$emit("currentChange", index);
     },
     // 点击上一页
     prevClick() {
@@ -76,7 +74,7 @@ export default {
       }
       const index = this.currentPage - 1;
       this.currentPage = index;
-      this.$emit('prevClick', index);
+      this.$emit("prevClick", index);
     },
     // 点击下一页
     nextClick() {
@@ -85,7 +83,7 @@ export default {
       }
       const index = this.currentPage + 1;
       this.currentPage = index;
-      this.$emit('nextClick', index);
+      this.$emit("nextClick", index);
     },
     // jumper，用户敲下回车跳转到指定页码，用户敲下回车跳转到指定页码
     gotoPageByEnter(e) {
@@ -127,9 +125,9 @@ export default {
       const { total, t } = this;
       return (
         <span class="lin-pagination-total">
-          {t('LinViewUI.Pagination.total')}
+          {t("LinViewUI.Pagination.total")}
           {total}
-          {t('LinViewUI.Pagination.strip')}
+          {t("LinViewUI.Pagination.strip")}
         </span>
       );
     },
@@ -139,9 +137,9 @@ export default {
       return (
         <span
           class={[
-            'lin-pagination-item',
-            'lin-icon-left',
-            { 'lin-pagination-disabled': disabledPrev }
+            "lin-pagination-item",
+            "lin-icon-left",
+            { "lin-pagination-disabled": disabledPrev }
           ]}
           onClick={prevClick}
         ></span>
@@ -155,21 +153,21 @@ export default {
           {pageList.map((item, index) => (
             <li
               class={[
-                'lin-pagination-item',
-                { 'lin-pagination-active': item.index === currentPage },
+                "lin-pagination-item",
+                { "lin-pagination-active": item.index === currentPage },
                 {
-                  'lin-pagination-ellipsis':
-                    item.type === 'prev' || item.type === 'next'
+                  "lin-pagination-ellipsis":
+                    item.type === "prev" || item.type === "next"
                 }
               ]}
               key={index}
               onClick={() => onItemClick(item)}
             >
               {item.index}
-              {item.type === 'prev' ? (
+              {item.type === "prev" ? (
                 <span class="lin-pagination-icon lin-icon-leftarrow"></span>
               ) : null}
-              {item.type === 'next' ? (
+              {item.type === "next" ? (
                 <span class="lin-pagination-icon lin-icon-rightarrow"></span>
               ) : null}
             </li>
@@ -183,9 +181,9 @@ export default {
       return (
         <span
           class={[
-            'lin-pagination-item',
-            'lin-icon-right',
-            { 'lin-pagination-disabled': disabledNext }
+            "lin-pagination-item",
+            "lin-icon-right",
+            { "lin-pagination-disabled": disabledNext }
           ]}
           onClick={nextClick}
         ></span>
@@ -202,7 +200,7 @@ export default {
       } = this;
       return (
         <div class="lin-pagintaion-jumpe">
-          <span>{t('LinViewUI.Pagination.goto')}</span>
+          <span>{t("LinViewUI.Pagination.goto")}</span>
           <input
             min="1"
             max={totalPage}
@@ -212,7 +210,7 @@ export default {
             class="lin-pagintaion-input"
             type="number"
           />
-          <span>{t('LinViewUI.Pagination.page')}</span>
+          <span>{t("LinViewUI.Pagination.page")}</span>
         </div>
       );
     }
@@ -228,7 +226,7 @@ export default {
       },
       set(val) {
         if (this.pageIndex) {
-          this.$emit('update:pageIndex', val);
+          this.$emit("update:pageIndex", val);
         } else {
           this.myPageIndex = val;
         }
@@ -274,32 +272,32 @@ export default {
         }
       }
       while (left <= right) {
-        arr.push({ index: left, type: 'number' });
+        arr.push({ index: left, type: "number" });
         left++;
       }
       // ellipsis
       if (this.totalPage > this.pageCount) {
         // 开始准备省略号
-        arr[0] = { index: 1, type: 'number' };
+        arr[0] = { index: 1, type: "number" };
         if (this.currentPage > Math.ceil(this.pageCount / 2)) {
           // 左边需要打点的情况
-          arr[1] = { index: '...', type: 'prev' };
+          arr[1] = { index: "...", type: "prev" };
         }
         if (
           this.currentPage <
           this.totalPage - Math.floor(this.pageCount / 2)
         ) {
           // 右边需要打点的情况
-          arr[arr.length - 2] = { index: '...', type: 'next' };
+          arr[arr.length - 2] = { index: "...", type: "next" };
         }
-        arr[arr.length - 1] = { index: this.totalPage, type: 'number' };
+        arr[arr.length - 1] = { index: this.totalPage, type: "number" };
       }
       return arr;
     },
     // 组件排版
     layoutList() {
-      let splitArr = this.layout.split(',') || [];
-      splitArr = splitArr.map((item) => item.trim());
+      let splitArr = this.layout.split(",") || [];
+      splitArr = splitArr.map(item => item.trim());
       return splitArr;
     }
   }

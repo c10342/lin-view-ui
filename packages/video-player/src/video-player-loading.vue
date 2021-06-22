@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'LinVideoPlayerLoading',
+  name: "LinVideoPlayerLoading",
   inject: {
     videoPlayer: {
       default: null

@@ -1,7 +1,7 @@
 const elTransition =
-  '0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out';
+  "0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out";
 const Transition = {
-  'before-enter': function beforeEnter(el) {
+  "before-enter": function beforeEnter(el) {
     el.style.transition = elTransition;
     if (!el.dataset) el.dataset = {};
 
@@ -20,28 +20,28 @@ const Transition = {
       el.style.paddingTop = el.dataset.oldPaddingTop;
       el.style.paddingBottom = el.dataset.oldPaddingBottom;
     } else {
-      el.style.height = '';
+      el.style.height = "";
       el.style.paddingTop = el.dataset.oldPaddingTop;
       el.style.paddingBottom = el.dataset.oldPaddingBottom;
     }
 
-    el.style.overflow = 'hidden';
+    el.style.overflow = "hidden";
   },
 
-  'after-enter': function afterEnter(el) {
-    el.style.transition = '';
-    el.style.height = '';
+  "after-enter": function afterEnter(el) {
+    el.style.transition = "";
+    el.style.height = "";
     el.style.overflow = el.dataset.oldOverflow;
   },
 
-  'before-leave': function beforeLeave(el) {
+  "before-leave": function beforeLeave(el) {
     if (!el.dataset) el.dataset = {};
     el.dataset.oldPaddingTop = el.style.paddingTop;
     el.dataset.oldPaddingBottom = el.style.paddingBottom;
     el.dataset.oldOverflow = el.style.overflow;
 
     el.style.height = `${el.scrollHeight}px`;
-    el.style.overflow = 'hidden';
+    el.style.overflow = "hidden";
   },
 
   leave(el) {
@@ -53,9 +53,9 @@ const Transition = {
     }
   },
 
-  'after-leave': function afterLeave(el) {
-    el.style.transition = '';
-    el.style.height = '';
+  "after-leave": function afterLeave(el) {
+    el.style.transition = "";
+    el.style.height = "";
     el.style.overflow = el.dataset.oldOverflow;
     el.style.paddingTop = el.dataset.oldPaddingTop;
     el.style.paddingBottom = el.dataset.oldPaddingBottom;
@@ -63,12 +63,12 @@ const Transition = {
 };
 
 export default {
-  name: 'collapseTransition',
+  name: "collapseTransition",
   functional: true,
   render(h, context) {
     const data = {
       on: Transition
     };
-    return h('transition', data, context.children);
+    return h("transition", data, context.children);
   }
 };

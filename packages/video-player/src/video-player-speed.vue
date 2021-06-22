@@ -1,7 +1,7 @@
 <template>
   <div class="lin-video-player-speed" v-if="speedList.length !== 0">
     <span class="lin-video-player-speed-label">{{
-      currentSpeed ? currentSpeed.label : t('LinViewUI.VideoPlayer.speed')
+      currentSpeed ? currentSpeed.label : t("LinViewUI.VideoPlayer.speed")
     }}</span>
     <ul
       class="lin-video-player-speed-list"
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import {LocaleMixin} from '@lin-view-ui/mixins';
-import { cloneDeep } from 'lodash';
+import { LocaleMixin } from "@lin-view-ui/mixins";
+import { cloneDeep } from "lodash";
 
 export default {
-  name: 'LinVideoPlayerSpeed',
+  name: "LinVideoPlayerSpeed",
   mixins: [LocaleMixin],
   inject: {
     videoPlayer: {
@@ -74,7 +74,7 @@ export default {
       const list = cloneDeep(this.list);
       // 查找倍数
       const index = list.findIndex(
-        (item) => item.label === data.label && item.value === data.value
+        item => item.label === data.label && item.value === data.value
       );
       // 先删除后添加
       list.splice(index, 1);

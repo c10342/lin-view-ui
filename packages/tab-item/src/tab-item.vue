@@ -6,17 +6,17 @@
 
 <script>
 export default {
-  name: 'LinTabItem',
+  name: "LinTabItem",
   props: {
     // 选项卡标题
     label: {
       type: String,
-      default: ''
+      default: ""
     },
     // 与选项卡绑定值 value 对应的标识符，表示选项卡别名
     name: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否禁用
     disabled: {

@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import { getLang } from '../utils/lang.js';
-import langConfig from '../i18n/index.js';
-import hljs from 'highlight.js';
+import { getLang } from "../utils/lang.js";
+import langConfig from "../i18n/index.js";
+import hljs from "highlight.js";
 const lang = getLang();
 export default {
   data() {
@@ -49,12 +49,12 @@ export default {
       return langConfig[lang].demoBlock.hideText;
     },
     blockClass() {
-      return `demo-${this.$route.path.split('/').pop()}`;
+      return `demo-${this.$route.path.split("/").pop()}`;
     }
   },
   mounted() {
     this.$nextTick(() => {
-      const blocks = this.$el.querySelectorAll('pre code:not(.hljs)');
+      const blocks = this.$el.querySelectorAll("pre code:not(.hljs)");
       Array.prototype.forEach.call(blocks, hljs.highlightBlock);
     });
   }

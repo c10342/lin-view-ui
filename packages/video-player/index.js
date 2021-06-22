@@ -1,9 +1,9 @@
-import VideoPlayer from './src/video-player.js';
+import VideoPlayer from "./src/video-player.js";
 
-VideoPlayer.install = (Vue) => {
+VideoPlayer.install = Vue => {
   Vue.prototype.$VideoPlayer = VideoPlayer;
 };
 
 export default VideoPlayer;
 
-export * from './src/utils.js'
+export * from "./src/utils.js";

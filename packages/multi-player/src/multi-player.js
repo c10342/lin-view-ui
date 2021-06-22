@@ -1,8 +1,8 @@
-import Vue from 'vue';
+import Vue from "vue";
 
-import MultiPlayer from './multi-player.vue';
+import MultiPlayer from "./multi-player.vue";
 
-import { handleEl } from '@lin-view-ui/video-player';
+import { handleEl } from "@lin-view-ui/video-player";
 
 const MultiPlayerConstructor = Vue.extend(MultiPlayer);
 
@@ -46,7 +46,7 @@ class LinMultiPlayer {
   initParams(options) {
     const {
       el,
-      type = 'mp4',
+      type = "mp4",
       autoplay = false,
       videoList = [],
       live = false
@@ -69,7 +69,7 @@ class LinMultiPlayer {
       }
     });
     // 初始化挂在的容器
-    if (typeof this.el === 'string') {
+    if (typeof this.el === "string") {
       this.container = document.querySelector(this.el);
     } else {
       this.container = this.el;
@@ -119,16 +119,16 @@ class LinMultiPlayer {
     const self = this;
     return {
       request(type) {
-        if (type === 'web') {
+        if (type === "web") {
           self.instance?.onWebFullscreen();
-        } else if (type === 'browser') {
+        } else if (type === "browser") {
           self.instance?.onBrowserFullscreen();
         }
       },
       cancel(type) {
-        if (type === 'web') {
+        if (type === "web") {
           self.instance?.onWebFullscreen();
-        } else if (type === 'browser') {
+        } else if (type === "browser") {
           self.instance?.onBrowserFullscreen();
         }
       },

@@ -1,10 +1,10 @@
-import SparkMD5 from 'spark-md5';
+import SparkMD5 from "spark-md5";
 
 /**
  * 根据文件内容计算出hash值
  * @param {File} file
  */
-const caculateFileHash = (file) =>
+const caculateFileHash = file =>
   new Promise((resolve, reject) => {
     const blobSlice =
       File.prototype.slice ||

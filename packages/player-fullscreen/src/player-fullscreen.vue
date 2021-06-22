@@ -9,15 +9,15 @@
 
 <script>
 export default {
-  name: 'LinPlayerFullscreen',
+  name: "LinPlayerFullscreen",
   methods: {
     // 切换浏览器全屏状态
     onBrowserFullscreen() {
-      this.$emit('browser-fullscreen');
+      this.$emit("browser-fullscreen");
     },
     // 切换网页全屏状态
     onWebFullscreen() {
-      this.$emit('web-fullscreen');
+      this.$emit("web-fullscreen");
     }
   }
 };

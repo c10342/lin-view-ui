@@ -1,15 +1,15 @@
-import TooltipConstruct from './construct.js';
+import TooltipConstruct from "./construct.js";
 
 const TooltipDirective = {};
 
 let instance = null;
 
-TooltipDirective.install = (Vue) => {
+TooltipDirective.install = Vue => {
   // 只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。
-  Vue.directive('tooltip', {
+  Vue.directive("tooltip", {
     bind(el, binding) {
       // 鼠标进入
-      el.mouseenter = (e) => {
+      el.mouseenter = e => {
         // 触发的元素要是当前绑定指令的元素
         if (e.currentTarget !== el) {
           return;
@@ -32,15 +32,15 @@ TooltipDirective.install = (Vue) => {
           right: r,
           auto
         } = binding.modifiers;
-        let placement = 'bottom';
+        let placement = "bottom";
         if (b) {
-          placement = 'bottom';
+          placement = "bottom";
         } else if (t) {
-          placement = 'top';
+          placement = "top";
         } else if (l) {
-          placement = 'left';
+          placement = "left";
         } else if (r) {
-          placement = 'right';
+          placement = "right";
         }
 
         instance.placement = placement;
@@ -73,27 +73,27 @@ TooltipDirective.install = (Vue) => {
           let styleLeft;
           let styleTop;
           // 距离屏幕上边的偏移量
-          let top = el.getAttribute('lin-tooltip-top') * 1;
+          let top = el.getAttribute("lin-tooltip-top") * 1;
           // 距离屏幕左边的偏移量
-          let left = el.getAttribute('lin-tooltip-left') * 1;
-          if (typeof top !== 'number') {
+          let left = el.getAttribute("lin-tooltip-left") * 1;
+          if (typeof top !== "number") {
             top = 0;
           }
-          if (typeof left !== 'number') {
+          if (typeof left !== "number") {
             left = 0;
           }
 
           // 计算出组件出现的位置，固定定位的top，left值
-          if (placement === 'bottom') {
+          if (placement === "bottom") {
             styleLeft = `${boxLeft + (boxWidth / 2 - tipWidth / 2) - left}px`;
             styleTop = `${boxTop + boxHeight + 7 + top}px`;
-          } else if (placement === 'top') {
+          } else if (placement === "top") {
             styleLeft = `${boxLeft + (boxWidth / 2 - tipWidth / 2) - left}px`;
             styleTop = `${boxTop - tipHeight - 7 + top}px`;
-          } else if (placement === 'left') {
+          } else if (placement === "left") {
             styleLeft = `${boxLeft - tipWidth - 7 - left}px`;
             styleTop = `${boxTop + (boxHeight / 2 - tipHeight / 2) + top}px`;
-          } else if (placement === 'right') {
+          } else if (placement === "right") {
             styleLeft = `${boxLeft + boxWidth + 7 - left}px`;
             styleTop = `${boxTop + (boxHeight / 2 - tipHeight / 2) + top}px`;
           }
@@ -108,8 +108,8 @@ TooltipDirective.install = (Vue) => {
           instance = null;
         }
       };
-      el.addEventListener('mouseenter', el.mouseenter);
-      el.addEventListener('mouseleave', el.mouseleave);
+      el.addEventListener("mouseenter", el.mouseenter);
+      el.addEventListener("mouseleave", el.mouseleave);
     },
     // 只调用一次，指令与元素解绑时调用。
     unbind(el) {
@@ -117,8 +117,8 @@ TooltipDirective.install = (Vue) => {
         instance.removeTip();
         instance = null;
       }
-      el.removeEventListener('mouseenter', el.mouseenter);
-      el.removeEventListener('mouseleave', el.mouseleave);
+      el.removeEventListener("mouseenter", el.mouseenter);
+      el.removeEventListener("mouseleave", el.mouseleave);
     }
   });
 };

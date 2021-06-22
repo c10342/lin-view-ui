@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import {getScroll} from '@lin-view-ui/utils'
-import Loading from './loading.vue';
+import Vue from "vue";
+import { getScroll } from "@lin-view-ui/utils";
+import Loading from "./loading.vue";
 
 function handleOnScroll(target, targetDom, scrollDom) {
   if (document.body === target) {
@@ -12,17 +12,17 @@ function handleOnScroll(target, targetDom, scrollDom) {
 
 function addScrollListener(target, fn) {
   if (document.body === target) {
-    window.addEventListener('scroll', fn);
+    window.addEventListener("scroll", fn);
   } else {
-    target.addEventListener('scroll', fn);
+    target.addEventListener("scroll", fn);
   }
 }
 
 function delScrollListener(target, fn) {
   if (document.body === target) {
-    window.removeEventListener('scroll', fn);
+    window.removeEventListener("scroll", fn);
   } else {
-    target.removeEventListener('scroll', fn);
+    target.removeEventListener("scroll", fn);
   }
 }
 
@@ -37,21 +37,21 @@ LoadingConstruct.prototype.open = function open(options = {}) {
   }
 
   // 将传递进来的参数挂载到实例上面
-  Object.keys(options).forEach((key) => {
+  Object.keys(options).forEach(key => {
     this[key] = options[key];
   });
 
   if (
     !this.fullscreen &&
-    !this.target.classList.contains('lin-loading-position-relative')
+    !this.target.classList.contains("lin-loading-position-relative")
   ) {
     // 没有全屏的情况下，给目标对象添加一个相对定位，因为loading是绝对定位
-    this.target.classList.add('lin-loading-position-relative');
+    this.target.classList.add("lin-loading-position-relative");
   }
 
   // 隐藏滚动条
-  if (this.lock && !this.target.classList.contains('lin-loading-lock')) {
-    this.target.classList.add('lin-loading-lock');
+  if (this.lock && !this.target.classList.contains("lin-loading-lock")) {
+    this.target.classList.add("lin-loading-lock");
   }
 
   // 已经是现实状态就不需要走下面了
@@ -88,19 +88,19 @@ LoadingConstruct.prototype.close = function close() {
   this.visible = false;
 
   // 监听vue动画事件，动画完成后移除DOM，重置
-  this.$once('after-leave', () => {
+  this.$once("after-leave", () => {
     if (
       !this.fullscreen &&
-      this.target.classList.contains('lin-loading-position-relative')
+      this.target.classList.contains("lin-loading-position-relative")
     ) {
-      this.target.classList.remove('lin-loading-position-relative');
+      this.target.classList.remove("lin-loading-position-relative");
     }
 
-    if (this.lock && this.target.classList.contains('lin-loading-lock')) {
-      this.target.classList.remove('lin-loading-lock');
+    if (this.lock && this.target.classList.contains("lin-loading-lock")) {
+      this.target.classList.remove("lin-loading-lock");
     }
     if (!this.fullscreen) {
-      this.vm.$el.style.marginTop = '';
+      this.vm.$el.style.marginTop = "";
       if (!this.lock) {
         delScrollListener(this.target, this.onScroll);
       }

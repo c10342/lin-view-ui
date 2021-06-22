@@ -5,12 +5,12 @@ const {
   createEsOutput,
   createInputConfig,
   rollupBuild,
-  clean,
+  clean
 } = require("./utils.js");
 
 const root = path.resolve(__dirname, "../packages/utils");
 
-const resolve = (pathSrc) => {
+const resolve = pathSrc => {
   return path.resolve(root, pathSrc);
 };
 
@@ -21,11 +21,11 @@ function createConfig(filename) {
   }
   return createInputConfig({
     input: resolve(input),
-    external: getExternalsDep("utils"),
+    external: getExternalsDep("utils")
   });
 }
 
-const buildOne = async (filename) => {
+const buildOne = async filename => {
   const inputOptions = createConfig(filename);
   const outputOptions = createEsOutput(resolve(`./dist/${filename}`));
   await rollupBuild(inputOptions, outputOptions);
@@ -38,7 +38,7 @@ fileList.push("index.js");
 
 const build = async () => {
   await clean(resolve("./dist"));
-  fileList.forEach((filename) => buildOne(filename));
+  fileList.forEach(filename => buildOne(filename));
 };
 
 build();

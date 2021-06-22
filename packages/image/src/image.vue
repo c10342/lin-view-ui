@@ -12,7 +12,7 @@
     />
     <slot v-else>
       <div class="lin-image-error">
-        {{ errorMsg || t('LinViewUI.Image.errorMsg') }}
+        {{ errorMsg || t("LinViewUI.Image.errorMsg") }}
       </div>
     </slot>
     <transition :name="transitionName">
@@ -29,10 +29,10 @@
 
 <script>
 // import LocaleMixin from 'src/mixins/locale.js';
-import {LocaleMixin} from '@lin-view-ui/mixins'
+import { LocaleMixin } from "@lin-view-ui/mixins";
 
 export default {
-  name: 'LinImage',
+  name: "LinImage",
   mixins: [LocaleMixin],
   props: {
     // 图片地址
@@ -40,17 +40,17 @@ export default {
     // 确定图片如何适应容器框，同原生 object-fit
     fit: {
       type: String,
-      default: ''
+      default: ""
     },
     // 原生 referrerPolicy
     referrerPolicy: {
       type: String,
-      default: ''
+      default: ""
     },
     // 原生 alt
     alt: {
       type: String,
-      default: ''
+      default: ""
     },
     // 开启图片预览
     preview: {
@@ -60,7 +60,7 @@ export default {
     // 图片预览显示动画，即 transition 组件 name 属性
     transitionName: {
       type: String,
-      default: 'lin-image-animation'
+      default: "lin-image-animation"
     },
     // 点击遮罩层是否可以关闭图片预览
     clickMask: {
@@ -99,7 +99,7 @@ export default {
     onError(e) {
       if (Array.isArray(this.imgUrl)) {
         // 图片加载失败
-        this.$emit('error', {
+        this.$emit("error", {
           url: this.imgUrl[this.index],
           index: this.index,
           e
@@ -107,7 +107,7 @@ export default {
         if (this.index === this.imgUrl.length - 1) {
           // 所有图片加载失败
           this.isError = true;
-          this.$emit('AllError', {
+          this.$emit("AllError", {
             urls: this.imgUrl.slice(),
             e
           });
@@ -115,7 +115,7 @@ export default {
         }
         this.index += 1;
       } else {
-        this.$emit('error', {
+        this.$emit("error", {
           url: this.imgUrl,
           e
         });
@@ -124,13 +124,13 @@ export default {
     // 图片加载成功回调
     onLoad(e) {
       if (Array.isArray(this.imgUrl)) {
-        this.$emit('success', {
+        this.$emit("success", {
           url: this.imgUrl[this.index],
           index: this.index,
           e
         });
       } else {
-        this.$emit('success', {
+        this.$emit("success", {
           url: this.imgUrl,
           e
         });

@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'LinDropdownItem',
+  name: "LinDropdownItem",
   props: {
     // 是否禁用
     disabled: {
@@ -33,7 +33,7 @@ export default {
     // 图标类名
     icon: {
       type: String,
-      default: ''
+      default: ""
     }
   },
   computed: {
@@ -53,7 +53,7 @@ export default {
         if (this.hideOnClick) {
           this.dropdown.hideList();
         }
-        this.dropdown.$emit('command', this.command);
+        this.dropdown.$emit("command", this.command);
       }
     }
   }

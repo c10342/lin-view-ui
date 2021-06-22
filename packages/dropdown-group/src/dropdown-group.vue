@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'LinDropdownGroup',
+  name: "LinDropdownGroup",
   props: {
     // 分组的组名
     label: String

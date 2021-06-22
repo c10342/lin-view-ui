@@ -18,7 +18,7 @@ export default function format() {
    */
 
   function template(string, ...args) {
-    if (args.length === 1 && typeof args[0] === 'object') {
+    if (args.length === 1 && typeof args[0] === "object") {
       args = args[0];
     }
 
@@ -29,12 +29,12 @@ export default function format() {
     return string.replace(RE_NARGS, (match, prefix, i, index) => {
       // let result;
 
-      if (string[index - 1] === '{' && string[index + match.length] === '}') {
+      if (string[index - 1] === "{" && string[index + match.length] === "}") {
         return i;
       }
       const result = hasOwn(args, i) ? args[i] : null;
       if (result === null || result === undefined) {
-        return '';
+        return "";
       }
 
       return result;

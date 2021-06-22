@@ -6,8 +6,8 @@
   </section>
 </template>
 <script>
-import LogsItem from '../../../components/logs-item.vue';
-import logsList from './logs-list.js';
+import LogsItem from "../../../components/logs-item.vue";
+import logsList from "./logs-list.js";
 export default {
   components: {
     LogsItem

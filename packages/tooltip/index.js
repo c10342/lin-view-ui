@@ -1,3 +1,3 @@
-import Tooltip from './src/directive.js';
+import Tooltip from "./src/directive.js";
 
 export default Tooltip;

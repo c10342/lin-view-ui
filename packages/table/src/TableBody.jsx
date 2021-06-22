@@ -1,5 +1,5 @@
 export default {
-  name: 'LinTableBody',
+  name: "LinTableBody",
   computed: {
     // 数据源
     dataSource() {
@@ -20,7 +20,7 @@ export default {
       if (this.table) {
         return this.table.valueKey;
       }
-      return '';
+      return "";
     }
   },
   inject: {
@@ -30,22 +30,22 @@ export default {
   },
   mounted() {
     if (this.table) {
-      this.table.$on('select-all', this.selectAll);
+      this.table.$on("select-all", this.selectAll);
     }
   },
   methods: {
     // 每一行的类名
     trClassName(row, rowIndex) {
-      const classArr = ['lin-table-tr'];
+      const classArr = ["lin-table-tr"];
       if (this.table) {
         // 传入了类名
         const rowClassName = this.table.rowClassName;
-        if (typeof rowClassName === 'function') {
+        if (typeof rowClassName === "function") {
           const result = rowClassName({ row, rowIndex });
           if (result) {
             classArr.push(result);
           }
-        } else if (typeof rowClassName === 'string') {
+        } else if (typeof rowClassName === "string") {
           classArr.push(rowClassName);
         }
       }
@@ -56,7 +56,7 @@ export default {
       const linTableTbody = this.$refs.linTableTbody;
       // 获取所欲checkbox
       const checkboxs = linTableTbody.getElementsByClassName(
-        'lin-table-checkbox'
+        "lin-table-checkbox"
       );
       for (let i = 0; i < checkboxs.length; i++) {
         const element = checkboxs[i];
@@ -72,7 +72,7 @@ export default {
     clearSelection() {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        'lin-table-checkbox'
+        "lin-table-checkbox"
       );
       for (let i = 0; i < checkboxs.length; i++) {
         const element = checkboxs[i];
@@ -83,7 +83,7 @@ export default {
     toggleAllSelection() {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        'lin-table-checkbox'
+        "lin-table-checkbox"
       );
       for (let i = 0; i < checkboxs.length; i++) {
         const element = checkboxs[i];
@@ -94,14 +94,14 @@ export default {
     selectSelection(data) {
       const linTableTbody = this.$refs.linTableTbody;
       const checkboxs = linTableTbody.getElementsByClassName(
-        'lin-table-checkbox'
+        "lin-table-checkbox"
       );
       const len = this.dataSource.length;
       for (let i = 0; i < len; i++) {
         const element = this.dataSource[i];
         // 查找是否已经被选中了
         const flag = data.find(
-          (item) => item[this.valueKey] === element[this.valueKey]
+          item => item[this.valueKey] === element[this.valueKey]
         );
         checkboxs[i].checked = flag;
       }
@@ -144,7 +144,7 @@ export default {
                   onClick={() => {
                     cellClick(row, column.prop, rowIndex, idx);
                   }}
-                  class={['lin-table-td', `lin-table-align-${column.align}`]}
+                  class={["lin-table-td", `lin-table-align-${column.align}`]}
                   key={`${rowKey}-${idx}`}
                 >
                   {column.renderCell(h, {

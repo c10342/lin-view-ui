@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import { cloneDeep } from 'lodash';
+import { cloneDeep } from "lodash";
 
 export default {
-  name: 'LinCollapseGroup',
+  name: "LinCollapseGroup",
   props: {
     // 当前激活面板的name，accordion为true就是String或者Number,否则就是Array
     value: {
@@ -35,11 +35,11 @@ export default {
       },
       set(val) {
         if (this.canUseValue()) {
-          this.$emit('input', this.handleData(val));
+          this.$emit("input", this.handleData(val));
         } else {
           this.valueData = this.handleData(val);
         }
-        this.$emit('onChange', val);
+        this.$emit("onChange", val);
       }
     }
   },
@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       // 外部没有绑定value的时候需要使用内部的valueData，防止因为外部没有绑定value而不能使用
-      valueData: ''
+      valueData: ""
     };
   },
   methods: {
@@ -63,7 +63,7 @@ export default {
         if (data.length > 0) {
           da = data[0];
         } else {
-          da = '';
+          da = "";
         }
       } else {
         // 非手风琴，数组
@@ -75,9 +75,9 @@ export default {
     canUseValue() {
       const value = this.value;
       return (
-        typeof value === 'string' ||
+        typeof value === "string" ||
         Array.isArray(value) ||
-        typeof value === 'number'
+        typeof value === "number"
       );
     }
   }

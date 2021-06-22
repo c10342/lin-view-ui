@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import { getLang, setLang, langType } from '../utils/lang.js';
-import langConfig from '../i18n/index.js';
+import { getLang, setLang, langType } from "../utils/lang.js";
+import langConfig from "../i18n/index.js";
 const lang = getLang();
 export default {
   data() {
@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/styles/var.scss';
+@import "../assets/styles/var.scss";
 
 .page-header {
   position: relative !important;

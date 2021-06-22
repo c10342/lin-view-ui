@@ -13,16 +13,16 @@
 
 <script>
 export default {
-  name: 'LinSelectorItem',
+  name: "LinSelectorItem",
   props: {
     // 标签内容
     label: {
       type: String,
-      default: ''
+      default: ""
     },
     // 选项的值
     value: {
-      default: ''
+      default: ""
     },
     // 是否禁用
     disabled: {
@@ -32,7 +32,7 @@ export default {
   },
   inject: {
     group: {
-      default: ''
+      default: ""
     }
   },
   computed: {
@@ -41,7 +41,7 @@ export default {
       if (this.group) {
         const { valueKey } = this.group;
         const { toString } = Object.prototype;
-        if (toString.call(this.value) === '[object Object]' && valueKey) {
+        if (toString.call(this.value) === "[object Object]" && valueKey) {
           // 对象的情况
           return this.value[valueKey] === this.group.value[valueKey];
         }
@@ -63,8 +63,8 @@ export default {
     onClick() {
       if (this.group && !this.isDisabled) {
         const value = JSON.parse(JSON.stringify(this.value));
-        this.group.$emit('input', value);
-        this.group.$emit('onChange', value);
+        this.group.$emit("input", value);
+        this.group.$emit("onChange", value);
       }
     }
   }

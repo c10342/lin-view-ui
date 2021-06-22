@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'LinVideoPlayerImage',
+  name: "LinVideoPlayerImage",
   inject: {
     videoPlayer: {
       default: null
@@ -16,7 +16,7 @@ export default {
       if (this.videoPlayer) {
         return this.videoPlayer.imgSrc;
       }
-      return '';
+      return "";
     }
   }
 };

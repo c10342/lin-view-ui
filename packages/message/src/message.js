@@ -1,6 +1,6 @@
-import Vue from 'vue';
+import Vue from "vue";
 
-import Message from './message.vue';
+import Message from "./message.vue";
 
 const MessageConstruct = Vue.extend(Message);
 
@@ -39,18 +39,18 @@ class LinMessage {
   // 初始化message组件参数
   initProps() {
     const props = [
-      'type',
-      'showClose',
-      'message',
-      'iconClass',
-      'dangerouslyUseHTMLString',
-      'customClass',
-      'center',
-      'onClose',
-      'offset'
+      "type",
+      "showClose",
+      "message",
+      "iconClass",
+      "dangerouslyUseHTMLString",
+      "customClass",
+      "center",
+      "onClose",
+      "offset"
     ];
     const propsData = {};
-    props.forEach((prop) => {
+    props.forEach(prop => {
       if (prop in this.options) {
         propsData[prop] = this.options[prop];
       }
@@ -81,7 +81,7 @@ class LinMessage {
       // 设置定时器，用于定时关掉message组件
       this.setTimer();
       // 监听事件
-      this.instance.$once('closed', () => {
+      this.instance.$once("closed", () => {
         // 销毁组件
         this.destory();
       });
@@ -153,7 +153,7 @@ class LinMessage {
 // 创建实例，options可传入字符串或者一个对象
 function createInstance(options) {
   const toString = Object.prototype.toString;
-  if (toString.call(options).includes('Object')) {
+  if (toString.call(options).includes("Object")) {
     return new LinMessage(options);
   }
   return new LinMessage({
@@ -164,7 +164,7 @@ function createInstance(options) {
 // 创建不同类型type的message组件
 function createInstanceByType(options, type) {
   const toString = Object.prototype.toString;
-  if (toString.call(options).includes('Object')) {
+  if (toString.call(options).includes("Object")) {
     return new LinMessage({
       ...options,
       type
@@ -177,24 +177,24 @@ function createInstanceByType(options, type) {
 }
 
 createInstance.success = function success(options) {
-  return createInstanceByType(options, 'success');
+  return createInstanceByType(options, "success");
 };
 
 createInstance.info = function info(options) {
-  return createInstanceByType(options, 'info');
+  return createInstanceByType(options, "info");
 };
 
 createInstance.error = function error(options) {
-  return createInstanceByType(options, 'error');
+  return createInstanceByType(options, "error");
 };
 
 createInstance.warning = function warning(options) {
-  return createInstanceByType(options, 'warning');
+  return createInstanceByType(options, "warning");
 };
 
 // 关闭所有message组件
 createInstance.closeAll = function closeAll() {
-  instanceList.forEach((instance) => {
+  instanceList.forEach(instance => {
     instance.onCloseClick();
   });
 };

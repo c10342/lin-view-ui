@@ -15,7 +15,7 @@ export const isBrowserFullscreenEnabled = () =>
   false;
 
 // 进入全屏
-export const enterBrowserFullScreen = (element) => {
+export const enterBrowserFullScreen = element => {
   if (!element) {
     return;
   }

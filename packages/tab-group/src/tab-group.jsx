@@ -1,6 +1,5 @@
-
 export default {
-  name: 'LinTabGroup',
+  name: "LinTabGroup",
   render(h) {
     const {
       type,
@@ -19,15 +18,15 @@ export default {
     return (
       <div
         class={[
-          { 'lin-tab-group-card': type === 'card' },
-          { 'lin-tab-group-border': type === 'border-card' },
-          'lin-tab-group'
+          { "lin-tab-group-card": type === "card" },
+          { "lin-tab-group-border": type === "border-card" },
+          "lin-tab-group"
         ]}
       >
         <div
           class={[
-            'lin-tab-group-header',
-            { 'lin-tab-group-header-scroll': isScroll }
+            "lin-tab-group-header",
+            { "lin-tab-group-header-scroll": isScroll }
           ]}
           ref="tabheader"
         >
@@ -41,7 +40,7 @@ export default {
           >
             {renderTabLabel(h)}
 
-            {type !== 'default' || (
+            {type !== "default" || (
               <div
                 class="lin-tab-group-active-line"
                 style={{
@@ -75,15 +74,15 @@ export default {
       // 当前选中的是哪一个tab
       currentIndex: -1,
       // 下划线宽度
-      lineWidth: '0px',
+      lineWidth: "0px",
       // 下划线水平位移
-      translateX: '0px',
+      translateX: "0px",
       // 是否需要滚动
       isScroll: false,
       // tab容器的水平位移
       containerTranslateX: 0,
       // tab容器的宽度
-      containerWidth: '0px',
+      containerWidth: "0px",
       // 每次移动的步伐
       step: 60
     };
@@ -98,7 +97,7 @@ export default {
     type: {
       // card/border-card
       type: String,
-      default: 'default'
+      default: "default"
     }
   },
   provide() {
@@ -112,7 +111,7 @@ export default {
     // 初始化滚动行为
     this.initScroll();
     this.timer = null;
-    window.addEventListener('resize', this.onResize);
+    window.addEventListener("resize", this.onResize);
   },
   methods: {
     // 渲染tab标签
@@ -123,9 +122,9 @@ export default {
           {tabChildren.map((item, index) => (
             <div
               class={[
-                { 'lin-tab-group-active': currentValue === item.name },
-                'lin-tab-group-header-item',
-                { 'lin-tab-group-header-item-disabled': item.disabled }
+                { "lin-tab-group-active": currentValue === item.name },
+                "lin-tab-group-header-item",
+                { "lin-tab-group-header-item-disabled": item.disabled }
               ]}
               id={`tab-${item.name}`}
               key={index}
@@ -154,10 +153,10 @@ export default {
           this.isScroll = true;
           this.containerWidth = `${tabheaderContainer.scrollWidth}px`;
         } else {
-          this.containerWidth = '100%';
+          this.containerWidth = "100%";
           this.isScroll = false;
         }
-        if (this.type === 'default') {
+        if (this.type === "default") {
           this.initVar();
         }
       });
@@ -168,7 +167,7 @@ export default {
         return;
       }
       this.currentValue = data.name;
-      this.$emit('tab-click', data.name);
+      this.$emit("tab-click", data.name);
     },
     // 初始化Tab
     initTabChildren() {
@@ -193,9 +192,7 @@ export default {
     },
     // 获取LinTabItem组件孩子
     getTabs() {
-      return this.$children.filter(
-        (item) => item.$options.name === 'LinTabItem'
-      );
+      return this.$children.filter(item => item.$options.name === "LinTabItem");
     },
     // 初始化下划线相关数据
     initVar() {
@@ -246,7 +243,7 @@ export default {
       },
       set(value) {
         if (this.value !== null) {
-          this.$emit('input', value);
+          this.$emit("input", value);
         } else {
           this.currentIndex = value;
         }
@@ -266,6 +263,6 @@ export default {
       clearTimeout(this.timer);
       this.timer = null;
     }
-    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener("resize", this.onResize);
   }
 };

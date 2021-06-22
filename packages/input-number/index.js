@@ -1,5 +1,5 @@
-import InputNumber from './src/input-number.vue';
+import InputNumber from "./src/input-number.vue";
 
-InputNumber.install = (Vue) => Vue.component(InputNumber.name, InputNumber);
+InputNumber.install = Vue => Vue.component(InputNumber.name, InputNumber);
 
 export default InputNumber;

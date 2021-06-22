@@ -5,22 +5,22 @@
       class="lin-show-more-tip"
       @click="showMore"
       v-if="textLen !== -1 && textLen < text.length"
-      >{{ showText || t('LinViewUI.ShowMore.showText') }}</a
+      >{{ showText || t("LinViewUI.ShowMore.showText") }}</a
     >
     <a
       class="lin-show-more-tip"
       @click="showMore"
       v-if="textLen !== -1 && textLen === text.length && allowFold"
-      >{{ hiddenText || t('LinViewUI.ShowMore.hiddenText') }}</a
+      >{{ hiddenText || t("LinViewUI.ShowMore.hiddenText") }}</a
     >
   </span>
 </template>
 
 <script>
-import {LocaleMixin} from '@lin-view-ui/mixins';
+import { LocaleMixin } from "@lin-view-ui/mixins";
 
 export default {
-  name: 'LinShowMore',
+  name: "LinShowMore",
   mixins: [LocaleMixin],
   props: {
     // 显示文本的长度
@@ -31,7 +31,7 @@ export default {
     // 文本
     text: {
       type: String,
-      default: ''
+      default: ""
     },
     // 折叠时需要显示文案
     showText: {

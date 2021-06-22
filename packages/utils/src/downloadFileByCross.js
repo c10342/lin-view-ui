@@ -7,8 +7,8 @@ function saveAs(data, name) {
   const urlObject = window.URL || window.webkitURL || window;
   const exportBlob = new Blob([data]);
   const saveLink = document.createElementNS(
-    'http://www.w3.org/1999/xhtml',
-    'a'
+    "http://www.w3.org/1999/xhtml",
+    "a"
   );
   saveLink.href = urlObject.createObjectURL(exportBlob);
   saveLink.download = name;
@@ -21,10 +21,10 @@ function saveAs(data, name) {
  * @param {string} fileName 下载下来的文件名
  */
 function downloadFileByCross(url, fileName) {
-  url = url.replace(/\\/g, '/');
+  url = url.replace(/\\/g, "/");
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', url, true);
-  xhr.responseType = 'blob';
+  xhr.open("GET", url, true);
+  xhr.responseType = "blob";
   // xhr.setRequestHeader('Authorization', 'Basic a2VybWl0Omtlcm1pdA==');
   xhr.onload = () => {
     if (xhr.status === 200) {

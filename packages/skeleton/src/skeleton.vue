@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'LinSkeleton',
+  name: "LinSkeleton",
   props: {
     // 高、宽比
     proportion: {
@@ -17,12 +17,12 @@ export default {
     // 背景色
     bgColor: {
       type: String,
-      default: '#b4bccc'
+      default: "#b4bccc"
     },
     // 占位长度
     width: {
       type: String,
-      default: '100%'
+      default: "100%"
     },
     // 占位宽度
     height: {

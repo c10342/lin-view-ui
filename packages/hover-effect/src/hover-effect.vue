@@ -13,17 +13,17 @@
 
 <script>
 export default {
-  name: 'LinHoverEffect',
+  name: "LinHoverEffect",
   props: {
     // 效果类型
     type: {
       type: String,
-      default: 'primary'
+      default: "primary"
     },
     // 效果主题
     theme: {
       type: String,
-      default: 'neon'
+      default: "neon"
     },
     // 文本
     text: {
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     onClick() {
-      this.$emit('click');
+      this.$emit("click");
     }
   }
 };

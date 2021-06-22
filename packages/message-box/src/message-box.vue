@@ -77,12 +77,12 @@
 </template>
 
 <script>
-import Button from '@lin-view-ui/button'
-import Input from '@lin-view-ui/input'
-import {LocaleMixin,DragMixin} from '@lin-view-ui/mixins'
+import Button from "@lin-view-ui/button";
+import Input from "@lin-view-ui/input";
+import { LocaleMixin, DragMixin } from "@lin-view-ui/mixins";
 
 export default {
-  name: 'LinMessageBox',
+  name: "LinMessageBox",
   mixins: [LocaleMixin, DragMixin],
   components: {
     [Button.name]: Button,
@@ -145,7 +145,7 @@ export default {
     // 输入框的类型
     inputType: {
       type: String,
-      default: 'text'
+      default: "text"
     },
     // 输入框的初始文本
     inputValue: String,
@@ -162,7 +162,7 @@ export default {
     // loading指示器大小
     loadingSize: {
       type: String,
-      default: '11px'
+      default: "11px"
     }
   },
   data() {
@@ -170,15 +170,15 @@ export default {
       // 控制是否显示
       show: false,
       // 输入框的值
-      value: '',
+      value: "",
       // 错误信息
-      errorMessage: '',
+      errorMessage: "",
       showErrorMessage: false,
       // 样式，用于拖拽的
       dialogStyle: {
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%,-50%)'
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%,-50%)"
       }
     };
   },
@@ -187,29 +187,29 @@ export default {
       if (this.cancelButtonText) {
         return this.cancelButtonText;
       }
-      return this.t('LinViewUI.MessageBox.cancelButtonText');
+      return this.t("LinViewUI.MessageBox.cancelButtonText");
     },
     myConfirmButtonText() {
       if (this.confirmButtonText) {
         return this.confirmButtonText;
       }
-      return this.t('LinViewUI.MessageBox.confirmButtonText');
+      return this.t("LinViewUI.MessageBox.confirmButtonText");
     },
     myInputErrorMessage() {
       if (this.inputErrorMessage) {
         return this.inputErrorMessage;
       }
-      return this.t('LinViewUI.MessageBox.inputErrorMessage');
+      return this.t("LinViewUI.MessageBox.inputErrorMessage");
     }
   },
   mounted() {
     if (this.closeOnPressEscape) {
       // 监听esc事件
-      window.addEventListener('keyup', this.onESCDown);
+      window.addEventListener("keyup", this.onESCDown);
     }
     if (this.closeOnHashChange) {
       // 监听hash值变化
-      window.addEventListener('hashchange', this.hashchange);
+      window.addEventListener("hashchange", this.hashchange);
     }
     if (this.inputValue) {
       // 初始化输入框默认值
@@ -223,14 +223,14 @@ export default {
   methods: {
     // 关闭组件，有不同的渠道去关闭
     emitClose(by) {
-      this.$emit('close', {
+      this.$emit("close", {
         by,
         value: this.value
       });
     },
     // 处理关闭事件
     handleClose(by) {
-      if (typeof this.beforeClose === 'function') {
+      if (typeof this.beforeClose === "function") {
         const done = () => {
           this.show = false;
           this.emitClose(by);
@@ -245,12 +245,12 @@ export default {
     onMaskClick() {
       if (this.closeOnClickModal) {
         // 点击遮罩层关闭
-        this.handleClose('mask');
+        this.handleClose("mask");
       }
     },
     onCancelBtnClick() {
       // 点击取消按钮关闭
-      this.handleClose('cancelButton');
+      this.handleClose("cancelButton");
     },
     onConfirmBtnClick() {
       if (this.showInput && (this.inputPattern || this.inputValidator)) {
@@ -258,35 +258,35 @@ export default {
         this.onInputChange(this.value);
         if (!this.showErrorMessage) {
           // 校验成功则关闭
-          this.handleClose('confirmButton');
+          this.handleClose("confirmButton");
         }
       } else {
         // 点击确认按钮关闭
-        this.handleClose('confirmButton');
+        this.handleClose("confirmButton");
       }
     },
     onIconClick() {
       // 点击关闭图标关闭
-      this.handleClose('icon');
+      this.handleClose("icon");
     },
     onESCDown(event) {
       if (event.keyCode === 27) {
         // 按下esc键关闭
-        this.handleClose('esc');
+        this.handleClose("esc");
       }
     },
     hashchange() {
       // hash值改变关闭
-      this.handleClose('hash');
+      this.handleClose("hash");
     },
     // 校验输入框的值
     onInputChange(data) {
-      if (typeof this.inputValidator === 'function') {
+      if (typeof this.inputValidator === "function") {
         // 自定义校验方法
         const result = this.inputValidator(data);
-        if (typeof result === 'boolean') {
+        if (typeof result === "boolean") {
           this.showErrorMessage = !result;
-        } else if (typeof result === 'string') {
+        } else if (typeof result === "string") {
           if (result) {
             // 有返回结果,返回结果就是错误消息
             this.showErrorMessage = true;
@@ -305,10 +305,10 @@ export default {
   },
   beforeDestroy() {
     if (this.closeOnPressEscape) {
-      window.removeEventListener('keyup', this.onESCDown);
+      window.removeEventListener("keyup", this.onESCDown);
     }
     if (this.closeOnHashChange) {
-      window.removeEventListener('hashchange', this.hashchange);
+      window.removeEventListener("hashchange", this.hashchange);
     }
   }
 };

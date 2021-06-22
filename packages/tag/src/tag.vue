@@ -18,22 +18,22 @@
 
 <script>
 export default {
-  name: 'LinTag',
+  name: "LinTag",
   props: {
     // 类型
     type: {
       type: String,
-      default: 'primary'
+      default: "primary"
     },
     // 文本
     text: {
       type: String,
-      default: ''
+      default: ""
     },
     // 背景色
     color: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否可关闭
     closable: {
@@ -43,7 +43,7 @@ export default {
     // 主题
     effect: {
       type: String,
-      default: 'light'
+      default: "light"
     }
   },
   data() {
@@ -55,7 +55,7 @@ export default {
   methods: {
     // 点击标签
     onTagclick() {
-      this.$emit('click');
+      this.$emit("click");
     },
     // 点击关闭按钮
     onCloseClick() {
@@ -63,7 +63,7 @@ export default {
     },
     // vue过度动画结束
     afterLeave() {
-      this.$emit('close');
+      this.$emit("close");
     }
   }
 };

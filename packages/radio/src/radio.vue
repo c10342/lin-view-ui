@@ -26,14 +26,14 @@
 </template>
 
 <script>
-import {dispatch} from '@lin-view-ui/utils';
+import { dispatch } from "@lin-view-ui/utils";
 
 export default {
-  name: 'LinRadio',
+  name: "LinRadio",
   // 需要提供一个计算属性 model
   inject: {
     RadioGroup: {
-      default: ''
+      default: ""
     }
   },
   computed: {
@@ -44,13 +44,13 @@ export default {
       set(value) {
         // 触发父组件给当前组件注册的input事件
         if (this.isGroup) {
-          this.RadioGroup.$emit('input', value);
+          this.RadioGroup.$emit("input", value);
         } else {
-          this.$emit('input', value);
+          this.$emit("input", value);
         }
         dispatch.call(this, {
-          eventName: 'validate',
-          componentName: 'LinFormItem'
+          eventName: "validate",
+          componentName: "LinFormItem"
         });
       }
     },
@@ -71,14 +71,14 @@ export default {
     // Radio 的 value
     label: {
       type: [String, Number, Boolean],
-      default: ''
+      default: ""
     },
     // 绑定值
     value: null,
     // 原生属性 name
     name: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否禁用
     disabled: {

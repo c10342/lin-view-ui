@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: 'LinLoading',
+  name: "LinLoading",
   data() {
     return {
       // 加载文案
@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     handleAfterLeave() {
-      this.$emit('after-leave');
+      this.$emit("after-leave");
     }
   }
 };

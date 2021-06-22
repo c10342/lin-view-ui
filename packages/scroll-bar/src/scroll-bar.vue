@@ -37,11 +37,11 @@
 </template>
 
 <script>
-import ResizeObserver from 'resize-observer-polyfill';
-import Spinner from '@lin-view-ui/spinner';
+import ResizeObserver from "resize-observer-polyfill";
+import Spinner from "@lin-view-ui/spinner";
 
 export default {
-  name: 'LinScrollBar',
+  name: "LinScrollBar",
   components: {
     [Spinner.name]: Spinner
   },
@@ -54,12 +54,12 @@ export default {
     // 高度
     height: {
       type: String,
-      default: '100%'
+      default: "100%"
     },
     // 宽度
     width: {
       type: String,
-      default: '100%'
+      default: "100%"
     },
     // 最大高度
     maxHeight: {
@@ -161,10 +161,10 @@ export default {
       const percent = scrollTop / (contentHeight - wrapperHeight);
       const barTop = percent * (wrapperHeight - this.barHeight);
       this.barTop = barTop;
-      this.$emit('scroll', event);
+      this.$emit("scroll", event);
       if (scrollTop + wrapperHeight >= contentHeight) {
         // 滚动到底部
-        this.$emit('scrollToBottom', event);
+        this.$emit("scrollToBottom", event);
       }
     },
     // 鼠标按下事件
@@ -172,12 +172,12 @@ export default {
       // 标志位
       this.isMove = true;
       // 给body添加样式，不能让鼠标在移动的时候选中文字，否则会造成鼠标抬起事件丢失
-      document.getElementsByTagName('body')[0].classList.add('user-no-select');
+      document.getElementsByTagName("body")[0].classList.add("user-no-select");
       // 记录鼠标点击的初始位置
       this.startY = event.clientY;
       // 监听鼠标移动事件和抬起事件
-      document.addEventListener('mousemove', this.onMousemove);
-      document.addEventListener('mouseup', this.onMouseup);
+      document.addEventListener("mousemove", this.onMousemove);
+      document.addEventListener("mouseup", this.onMouseup);
     },
     // 鼠标移动事件
     onMousemove(event) {
@@ -198,11 +198,11 @@ export default {
       }
       // 取消鼠标按下时添加的样式
       document
-        .getElementsByTagName('body')[0]
-        .classList.remove('user-no-select');
+        .getElementsByTagName("body")[0]
+        .classList.remove("user-no-select");
       // 注销事件
-      document.removeEventListener('mousemove', this.onMousemove);
-      document.removeEventListener('mouseup', this.onMouseup);
+      document.removeEventListener("mousemove", this.onMousemove);
+      document.removeEventListener("mouseup", this.onMouseup);
     },
     updatePosition(barTop) {
       const { wrapperHeight, contentHeight } = this;
@@ -251,10 +251,10 @@ export default {
         style.height = this.height;
       }
       if (this.maxHeight) {
-        style['max-height'] = this.maxHeight;
+        style["max-height"] = this.maxHeight;
       }
       if (this.minHeight) {
-        style['min-height'] = this.minHeight;
+        style["min-height"] = this.minHeight;
       }
       return style;
     }
@@ -264,8 +264,8 @@ export default {
       this.observer.disconnect();
       this.observer = null;
     }
-    document.removeEventListener('mousemove', this.onMousemove);
-    document.removeEventListener('mouseup', this.onMouseup);
+    document.removeEventListener("mousemove", this.onMousemove);
+    document.removeEventListener("mouseup", this.onMouseup);
   }
 };
 </script>

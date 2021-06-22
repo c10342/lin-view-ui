@@ -16,12 +16,12 @@
 
 <script>
 export default {
-  name: 'LinBadge',
+  name: "LinBadge",
   props: {
     // 显示的值
     value: {
       type: [String, Number],
-      default: ''
+      default: ""
     },
     // 最大值，超过最大值会显示 '{max}+'
     max: {
@@ -35,22 +35,22 @@ export default {
     // 类型
     type: {
       type: String,
-      default: 'primary',
-      options: ['primary', 'success', 'warning', 'danger', 'info']
+      default: "primary",
+      options: ["primary", "success", "warning", "danger", "info"]
     }
   },
   computed: {
     text() {
-      if (typeof this.value === 'string') {
+      if (typeof this.value === "string") {
         return this.value;
       }
-      if (typeof this.value === 'number') {
+      if (typeof this.value === "number") {
         if (this.max && this.max < this.value) {
           return `${this.max}+`;
         }
         return this.value;
       }
-      return '';
+      return "";
     }
   }
 };

@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import { cloneDeep } from 'lodash';
-import LinTableHeader from './TableHeader.jsx';
-import LinTableBody from './TableBody.jsx';
+import { cloneDeep } from "lodash";
+import LinTableHeader from "./TableHeader.jsx";
+import LinTableBody from "./TableBody.jsx";
 
 export default {
-  name: 'LinTable',
+  name: "LinTable",
   components: {
     LinTableHeader,
     LinTableBody
@@ -71,24 +71,24 @@ export default {
     // 当选择项发生变化时会触发该事件
     emitSelectChange() {
       const data = cloneDeep(this.selectData);
-      this.$emit('selection-change', data);
+      this.$emit("selection-change", data);
     },
     // 当用户手动勾选全选 Checkbox 时触发的事件
     emitSelectAll() {
       const data = cloneDeep(this.selectData);
-      this.$emit('select-all', data);
+      this.$emit("select-all", data);
     },
     // 当用户手动勾选数据行的 Checkbox 时触发的事件
     emitSelect(data) {
-      this.$emit('select', cloneDeep(data));
+      this.$emit("select", cloneDeep(data));
     },
     // 当某一行被点击时会触发该事件
     emitrRowClick(data) {
-      this.$emit('row-click', cloneDeep(data));
+      this.$emit("row-click", cloneDeep(data));
     },
     // 当某个单元格被点击时会触发该事件
     emitrCellClick(data) {
-      this.$emit('cell-click', cloneDeep(data));
+      this.$emit("cell-click", cloneDeep(data));
     },
     // 用于多选表格，清空用户的选择
     clearSelection() {
@@ -99,9 +99,9 @@ export default {
     // 用于多选表格，切换所有行的选中状态
     toggleAllSelection() {
       this.$refs.linTableBodyComp.toggleAllSelection();
-      this.selectData = this.dataSource.filter((item) => {
+      this.selectData = this.dataSource.filter(item => {
         const flag = !!this.selectData.find(
-          (data) => data[this.valueKey] === item[this.valueKey]
+          data => data[this.valueKey] === item[this.valueKey]
         );
         return !flag;
       });

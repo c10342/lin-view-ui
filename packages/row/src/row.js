@@ -1,13 +1,11 @@
-
-
 export default {
-  name: 'LinRow',
+  name: "LinRow",
 
   props: {
     // 自定义标签元素
     tag: {
       type: String,
-      default: 'div'
+      default: "div"
     },
     // 栅格间隔
     gutter: {
@@ -17,17 +15,17 @@ export default {
     // 布局模式
     type: {
       type: String,
-      default: ''
+      default: ""
     },
     // flex 布局下的水平排列方式
     justify: {
       type: String,
-      default: ''
+      default: ""
     },
     // flex 布局下的垂直排列方式
     align: {
       type: String,
-      default: ''
+      default: ""
     }
   },
 
@@ -51,7 +49,7 @@ export default {
     return h(
       this.tag,
       {
-        class: ['lin-row', classList]
+        class: ["lin-row", classList]
       },
       this.$slots.default
     );

@@ -56,7 +56,7 @@
         <slot name="more">
           <div class="lin-date-axis-more-content">
             <i class="lin-icon-date"></i>
-            <span>{{ t('LinViewUI.DateAxis.more') }}</span>
+            <span>{{ t("LinViewUI.DateAxis.more") }}</span>
           </div>
         </slot>
       </div>
@@ -90,23 +90,27 @@
 </template>
 
 <script>
-import DatePicker from '@lin-view-ui/date-picker';
-import {DocumentClickMixin,LocaleMixin,DateMixin} from '@lin-view-ui/mixins'
-import {getYearMonthDay} from '@lin-view-ui/utils'
-import { throttle } from 'lodash';
+import DatePicker from "@lin-view-ui/date-picker";
+import {
+  DocumentClickMixin,
+  LocaleMixin,
+  DateMixin
+} from "@lin-view-ui/mixins";
+import { getYearMonthDay } from "@lin-view-ui/utils";
+import { throttle } from "lodash";
 
 const ONEDAY = 60 * 60 * 1000 * 24;
 const ONEWEEK = ONEDAY * 7;
 
 export default {
-  name: 'LinDateAxis',
+  name: "LinDateAxis",
   mixins: [DocumentClickMixin, LocaleMixin, DateMixin],
   components: {
     [DatePicker.name]: DatePicker
   },
   model: {
-    prop: 'value',
-    event: 'change'
+    prop: "value",
+    event: "change"
   },
   props: {
     // 绑定值
@@ -131,34 +135,34 @@ export default {
       // 时间轴列表
       timeList: [],
       // 下划线宽度，就是有个三角符号凸起来的那个东西
-      lineWidth: '0px',
+      lineWidth: "0px",
       // 下划线位移距离
-      lineTranslateX: '0px',
+      lineTranslateX: "0px",
       // 日期选择器出现位置，左边或者右边
       isRight: true,
       // 日期选择器距离左边距离
-      left: '0px'
+      left: "0px"
     };
   },
   created() {
     this.daysObj = {
-      0: this.t('LinViewUI.DateAxis.sun'),
-      1: this.t('LinViewUI.DateAxis.mon'),
-      2: this.t('LinViewUI.DateAxis.tue'),
-      3: this.t('LinViewUI.DateAxis.wed'),
-      4: this.t('LinViewUI.DateAxis.thu'),
-      5: this.t('LinViewUI.DateAxis.fir'),
-      6: this.t('LinViewUI.DateAxis.sat')
+      0: this.t("LinViewUI.DateAxis.sun"),
+      1: this.t("LinViewUI.DateAxis.mon"),
+      2: this.t("LinViewUI.DateAxis.tue"),
+      3: this.t("LinViewUI.DateAxis.wed"),
+      4: this.t("LinViewUI.DateAxis.thu"),
+      5: this.t("LinViewUI.DateAxis.fir"),
+      6: this.t("LinViewUI.DateAxis.sat")
     };
     this.init(this.currentDate);
   },
   mounted() {
     // 动态设置下划线宽度
     this.throttleFn = throttle(this.setLine, 500);
-    window.addEventListener('resize', this.throttleFn);
+    window.addEventListener("resize", this.throttleFn);
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.throttleFn);
+    window.removeEventListener("resize", this.throttleFn);
   },
   methods: {
     // 设置日期选择器位置，左边或者右边
@@ -183,16 +187,15 @@ export default {
     // 日期选择器设置为右边出现
     setToRight() {
       this.isRight = true;
-      this.left = '0px';
+      this.left = "0px";
     },
     // 日期选择器设置为左边出现
     setToLeft() {
       this.isRight = false;
       const { scrollContainer } = this.$refs;
       const { notOutsideContainer } = this.$refs;
-      this.left = `${
-        -scrollContainer.clientWidth + notOutsideContainer.clientWidth
-      }px`;
+      this.left = `${-scrollContainer.clientWidth +
+        notOutsideContainer.clientWidth}px`;
     },
     // 日期选择器点击选择日期事件
     onDateSelect(date) {
@@ -205,7 +208,7 @@ export default {
         this.setLine();
       }
       this.hidePopup();
-      this.$emit('select', date);
+      this.$emit("select", date);
     },
     // 点击上一个星期按钮
     prevWeek() {
@@ -245,7 +248,7 @@ export default {
 
       this.currentDate = currentDate;
       this.init(currentDate);
-      this.$emit('prevWeek', currentDate);
+      this.$emit("prevWeek", currentDate);
     },
     // 点击下一个星期
     nextWeek() {
@@ -283,7 +286,7 @@ export default {
 
       this.currentDate = currentDate;
       this.init(currentDate);
-      this.$emit('nextWeek', currentDate);
+      this.$emit("nextWeek", currentDate);
     },
     // 点击前一天
     prevDay() {
@@ -314,7 +317,7 @@ export default {
       } else {
         this.setLine();
       }
-      this.$emit('prevDay', currentDate);
+      this.$emit("prevDay", currentDate);
     },
     // 点击明天,后一天
     nextDay() {
@@ -342,7 +345,7 @@ export default {
       } else {
         this.setLine();
       }
-      this.$emit('nextDay', currentDate);
+      this.$emit("nextDay", currentDate);
     },
     // 点击日期轴项
     onItemClick(date) {
@@ -354,7 +357,7 @@ export default {
       }
       this.currentDate = date;
       this.setLine();
-      this.$emit('select', date);
+      this.$emit("select", date);
     },
     // 格式化显示时间
     formatDate(date) {
@@ -405,12 +408,12 @@ export default {
     // 隐藏日期选择器
     hidePopup() {
       this.isShowPopup = false;
-      this.$emit('hide');
+      this.$emit("hide");
     },
     // 显示日期选择器
     showPopup() {
       this.isShowPopup = true;
-      this.$emit('show');
+      this.$emit("show");
       this.setPlacement();
     },
     // 点击组件外部
@@ -441,7 +444,7 @@ export default {
         if (this.value == null) {
           this.selectTime = val;
         }
-        this.$emit('change', val);
+        this.$emit("change", val);
       }
     }
   }

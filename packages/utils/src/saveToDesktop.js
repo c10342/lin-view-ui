@@ -5,20 +5,20 @@
  */
 const saveToDesktop = (sName, sUrl) => {
   try {
-    if (typeof sName !== 'string') {
-      throw new TypeError('sName is not typeof string');
+    if (typeof sName !== "string") {
+      throw new TypeError("sName is not typeof string");
     }
-    if (typeof sUrl !== 'string') {
-      throw new TypeError('sUrl is not typeof string');
+    if (typeof sUrl !== "string") {
+      throw new TypeError("sUrl is not typeof string");
     }
-    const WshShell = new window.ActiveXObject('WScript.Shell');
+    const WshShell = new window.ActiveXObject("WScript.Shell");
     const oUrlLink = WshShell.CreateShortcut(
-      `${WshShell.SpecialFolders('Desktop')}\\${sName}.url`
+      `${WshShell.SpecialFolders("Desktop")}\\${sName}.url`
     );
     oUrlLink.TargetPath = sUrl;
     oUrlLink.Save();
   } catch (e) {
-    throw new SyntaxError('当前IE安全级别不允许操作！');
+    throw new SyntaxError("当前IE安全级别不允许操作！");
   }
 };
 

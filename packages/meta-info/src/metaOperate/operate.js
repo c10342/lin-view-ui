@@ -1,9 +1,9 @@
-import _setAttr from './setAttribute.js';
+import _setAttr from "./setAttribute.js";
 
-import _removeNode from './removeNode.js';
+import _removeNode from "./removeNode.js";
 
 export default function operate() {
-  const _ndHead = document.getElementsByTagName('head')[0];
+  const _ndHead = document.getElementsByTagName("head")[0];
 
   return {
     /**
@@ -11,12 +11,12 @@ export default function operate() {
      * @param {*} metaOpts
      */
     setMetaInfo(metaOpts) {
-      Object.keys(metaOpts || {}).forEach((key) => {
-        if (key === 'title') {
+      Object.keys(metaOpts || {}).forEach(key => {
+        if (key === "title") {
           document.title = metaOpts.title;
           return;
         }
-        metaOpts[key].forEach((opt) => {
+        metaOpts[key].forEach(opt => {
           const ndKey = document.createElement(key);
           _setAttr(ndKey, opt);
           _ndHead.appendChild(ndKey);

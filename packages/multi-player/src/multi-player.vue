@@ -97,18 +97,18 @@
 </template>
 
 <script>
-import ResizeObserver from 'resize-observer-polyfill';
-import VideoPlayer from '@lin-view-ui/video-player';
-import NoScreen from './no-screen.vue';
-import MultiControls from './multi-controls.vue';
+import ResizeObserver from "resize-observer-polyfill";
+import VideoPlayer from "@lin-view-ui/video-player";
+import NoScreen from "./no-screen.vue";
+import MultiControls from "./multi-controls.vue";
 import {
   isBrowserFullscreen,
   isBrowserFullscreenEnabled,
   enterBrowserFullScreen,
   exitBrowserFullscreen
-} from '@lin-view-ui/utils';
+} from "@lin-view-ui/utils";
 export default {
-  name: 'linMultiPlayer',
+  name: "linMultiPlayer",
   components: {
     [NoScreen.name]: NoScreen,
     [MultiControls.name]: MultiControls
@@ -184,14 +184,16 @@ export default {
       // 播放列表
       videoList: [],
       // 视频类型
-      type: 'mp4',
+      type: "mp4",
       // 是否为直播
       live: false
     };
   },
   computed: {
     randomId() {
-      return `multi-screen-${Math.random().toString(16).slice(-9)}`;
+      return `multi-screen-${Math.random()
+        .toString(16)
+        .slice(-9)}`;
     }
   },
   mounted() {
@@ -309,19 +311,19 @@ export default {
         frameStyle2,
         frameStyle3
       };
-      this.initStyle('originalStyle1', frameStyle1);
-      this.initStyle('originalStyle2', frameStyle2);
-      this.initStyle('originalStyle3', frameStyle3);
+      this.initStyle("originalStyle1", frameStyle1);
+      this.initStyle("originalStyle2", frameStyle2);
+      this.initStyle("originalStyle3", frameStyle3);
       // 根据屏幕获取画面，因为进入/退出全屏的时候，画面位置已经交换过了，需要根据屏幕获取对应的画面
       const or1 = this.getScreenByFrame(1);
       const or2 = this.getScreenByFrame(2);
       const or3 = this.getScreenByFrame(3);
-      this.initStyle('frameStyle1', obj1[`frameStyle${or1}`]);
-      this.initStyle('frameStyle2', obj1[`frameStyle${or2}`]);
-      this.initStyle('frameStyle3', obj1[`frameStyle${or3}`]);
-      this.initStyle('videoStyle1', obj1[`frameStyle${or1}`]);
-      this.initStyle('videoStyle2', obj1[`frameStyle${or2}`]);
-      this.initStyle('videoStyle3', obj1[`frameStyle${or3}`]);
+      this.initStyle("frameStyle1", obj1[`frameStyle${or1}`]);
+      this.initStyle("frameStyle2", obj1[`frameStyle${or2}`]);
+      this.initStyle("frameStyle3", obj1[`frameStyle${or3}`]);
+      this.initStyle("videoStyle1", obj1[`frameStyle${or1}`]);
+      this.initStyle("videoStyle2", obj1[`frameStyle${or2}`]);
+      this.initStyle("videoStyle3", obj1[`frameStyle${or3}`]);
     },
     initStyle(key, style) {
       this[key] = style;
@@ -343,8 +345,8 @@ export default {
         y: event.y
       };
       // 监听相关事件,准备拖拽行为
-      document.addEventListener('mousemove', this.onMousemove);
-      document.addEventListener('mouseup', this.onMouseup);
+      document.addEventListener("mousemove", this.onMousemove);
+      document.addEventListener("mouseup", this.onMouseup);
     },
     // 鼠标在屏幕抬起
     onMouseup(event) {
@@ -474,8 +476,8 @@ export default {
     // 给样式加个px
     formatStyle(styleObj) {
       const obj = {};
-      Object.keys(styleObj).forEach((key) => {
-        if (typeof styleObj[key] === 'number') {
+      Object.keys(styleObj).forEach(key => {
+        if (typeof styleObj[key] === "number") {
           obj[key] = `${styleObj[key]}px`;
         } else {
           obj[key] = styleObj[key];
@@ -490,7 +492,7 @@ export default {
     },
     // 根据画面获取对应屏幕，也就是获取画面所在的屏幕
     getScreenByFrame(index) {
-      const result = this.sortArr.findIndex((i) => i === index);
+      const result = this.sortArr.findIndex(i => i === index);
       return result + 1;
     },
     // 交换2个屏幕的画面
@@ -515,7 +517,7 @@ export default {
           live: this.live,
           videoList: [
             {
-              label: '',
+              label: "",
               url: videoUrl
             }
           ]
@@ -563,12 +565,12 @@ export default {
       if (player) {
         if (!this.live) {
           // 直播不需要监听时间变化
-          player.on('timeupdate', this.onTimeupdate);
+          player.on("timeupdate", this.onTimeupdate);
         }
-        player.on('loadedmetadata', this.onLoadedmetadata);
-        player.on('volumechange', this.onVolumechange);
-        player.on('play', this.onPlay);
-        player.on('pause', this.onPause);
+        player.on("loadedmetadata", this.onLoadedmetadata);
+        player.on("volumechange", this.onVolumechange);
+        player.on("play", this.onPlay);
+        player.on("pause", this.onPause);
       }
     },
     // 时间变化
@@ -595,31 +597,31 @@ export default {
     },
     // 切换视频状态
     toggle() {
-      this.handelVideo((player) => {
+      this.handelVideo(player => {
         player.toggle();
       });
     },
     // 播放
     play() {
-      this.handelVideo((player) => {
+      this.handelVideo(player => {
         player.play();
       });
     },
     // 暂停
     pause() {
-      this.handelVideo((player) => {
+      this.handelVideo(player => {
         player.pause();
       });
     },
     // 跳转时间
     seek(time) {
-      this.handelVideo((player) => {
+      this.handelVideo(player => {
         player.seek(time);
       });
     },
     // 设置音量
     setVolume(volume) {
-      this.handelVideo((player) => {
+      this.handelVideo(player => {
         player.volume(volume);
       });
     },
@@ -627,7 +629,7 @@ export default {
     handelVideo(callback) {
       for (let i = 0; i < this.playerList.length; i++) {
         const player = this.playerList[i];
-        if (player && typeof callback === 'function') {
+        if (player && typeof callback === "function") {
           callback(player);
         }
       }
@@ -651,8 +653,8 @@ export default {
         // 申请浏览器全屏
         this.onBrowserFullscreen();
         const style = {
-          width: '100%',
-          height: '100%',
+          width: "100%",
+          height: "100%",
           left: 0,
           top: 0
         };
@@ -668,13 +670,13 @@ export default {
         this.observer = null;
       }
       // 销毁播放器
-      this.handelVideo((player) => {
+      this.handelVideo(player => {
         player.destory();
       });
     },
     removeEventListener() {
-      document.removeEventListener('mousemove', this.onMousemove);
-      document.removeEventListener('mouseup', this.onMouseup);
+      document.removeEventListener("mousemove", this.onMousemove);
+      document.removeEventListener("mouseup", this.onMouseup);
     }
   },
   beforeDestroy() {

@@ -10,32 +10,32 @@
     <span v-if="maxLen !== -1" class="lin-limit-textarea-text">
       {{
         isOver
-          ? t('LinViewUI.LimitTextarea.exceeded')
-          : t('LinViewUI.LimitTextarea.enterInput')
+          ? t("LinViewUI.LimitTextarea.exceeded")
+          : t("LinViewUI.LimitTextarea.enterInput")
       }}
       <span
         class="lin-limit-textarea-num"
         :class="{ 'lin-limit-textarea-num-over': isOver }"
         >{{ num }}</span
-      >{{ t('LinViewUI.LimitTextarea.word') }}
+      >{{ t("LinViewUI.LimitTextarea.word") }}
     </span>
     <span v-else class="lin-limit-textarea-text">
-      {{ t('LinViewUI.LimitTextarea.entered') }}
+      {{ t("LinViewUI.LimitTextarea.entered") }}
       <span class="lin-limit-textarea-num">{{ value.toString().length }}</span
-      >{{ t('LinViewUI.LimitTextarea.word') }}
+      >{{ t("LinViewUI.LimitTextarea.word") }}
     </span>
   </div>
 </template>
 
 <script>
-import {LocaleMixin} from '@lin-view-ui/mixins';
+import { LocaleMixin } from "@lin-view-ui/mixins";
 
 export default {
-  name: 'LinLimitTextarea',
+  name: "LinLimitTextarea",
   mixins: [LocaleMixin],
   model: {
-    prop: 'value',
-    event: 'change'
+    prop: "value",
+    event: "change"
   },
   props: {
     // 输入框占位符
@@ -60,7 +60,7 @@ export default {
     // 绑定值
     value: {
       type: [String, Number],
-      default: ''
+      default: ""
     }
   },
   data() {
@@ -77,11 +77,11 @@ export default {
       if (this.maxLen === -1) {
         // 不限制长度
         // this.$emit('input', value);
-        this.$emit('change', value);
+        this.$emit("change", value);
       } else if (value.length <= this.maxLen || !this.isCut) {
         // 限制长度
         // this.$emit('input', value);
-        this.$emit('change', value);
+        this.$emit("change", value);
         this.setCurrentValue(value);
       }
     },
@@ -100,7 +100,7 @@ export default {
         // }
         this.isOver = true;
         this.num = currentValue.length - this.maxLen;
-        this.$emit('overText', currentValue);
+        this.$emit("overText", currentValue);
       }
     }
   },
@@ -116,7 +116,7 @@ export default {
       const obj = {
         placeholder: this.placeholder
           ? this.placeholder
-          : this.t('LinViewUI.LimitTextarea.placeholder'),
+          : this.t("LinViewUI.LimitTextarea.placeholder"),
         rows: this.rows
       };
       if (this.maxlength !== -1) {

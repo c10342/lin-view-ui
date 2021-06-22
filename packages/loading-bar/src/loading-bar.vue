@@ -19,11 +19,11 @@
 
 <script>
 export default {
-  name: 'LinLoadingBar',
+  name: "LinLoadingBar",
   data() {
     return {
       // 加载器（转圈圈的那个东西），运动形式
-      easing: 'linear',
+      easing: "linear",
       // 是否为错误类型
       isError: false,
       // 显示加载器

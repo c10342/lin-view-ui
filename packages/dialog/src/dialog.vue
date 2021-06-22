@@ -15,7 +15,7 @@
         <div class="lin-dialog-header">
           <slot name="title">
             <span class="lin-dialog-title">{{
-              title || t('LinViewUI.Dialog.title')
+              title || t("LinViewUI.Dialog.title")
             }}</span>
           </slot>
           <button class="lin-dialog-headerbtn" @click="handleClose">
@@ -34,10 +34,10 @@
   </transition>
 </template>
 <script>
-import {LocaleMixin,DragMixin} from '@lin-view-ui/mixins'
+import { LocaleMixin, DragMixin } from "@lin-view-ui/mixins";
 
 export default {
-  name: 'LinDialog',
+  name: "LinDialog",
   mixins: [LocaleMixin, DragMixin],
   props: {
     // 标题
@@ -47,12 +47,12 @@ export default {
     // 宽度
     width: {
       type: String,
-      default: '50%'
+      default: "50%"
     },
     // 距离顶部距离，即margin-top的属性
     top: {
       type: String,
-      default: '15vh'
+      default: "15vh"
     },
     // 控制组件是否显示，支持.sync 修饰符
     visible: {
@@ -74,8 +74,8 @@ export default {
     // 点击关闭按钮
     handleClose() {
       const done = () => {
-        this.$emit('update:visible', false);
-        this.$emit('close');
+        this.$emit("update:visible", false);
+        this.$emit("close");
       };
       if (this.beforeClose) {
         this.beforeClose(done);

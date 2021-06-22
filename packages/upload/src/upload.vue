@@ -11,19 +11,19 @@
 </template>
 
 <script>
-import {splitFileChunk,caculateFileHash,request} from '@lin-view-ui/utils'
-import LinButton from '@lin-view-ui/button'
+import { splitFileChunk, caculateFileHash, request } from "@lin-view-ui/utils";
+import LinButton from "@lin-view-ui/button";
 
 export default {
-  name: 'LinUpload',
+  name: "LinUpload",
   components: {
-    'lin-button': LinButton
+    "lin-button": LinButton
   },
   props: {
     // 文本
     text: {
       type: String,
-      default: ''
+      default: ""
     },
     // 切片大小
     fileChunkSize: {
@@ -83,8 +83,8 @@ export default {
       // 获取文件
       this.selectedFile = e.target.files[0];
       // 清空值
-      this.$refs.linUploadInput.value = '';
-      if (typeof this.beforeUpload === 'function') {
+      this.$refs.linUploadInput.value = "";
+      if (typeof this.beforeUpload === "function") {
         // 存在beforeUpload函数
         const res = this.beforeUpload(this.selectedFile);
         if (res instanceof Promise) {
@@ -137,15 +137,15 @@ export default {
       this.createFileChunkList();
       try {
         // 计算出文件hash值
-        if (typeof this.caculateFileHash === 'function') {
+        if (typeof this.caculateFileHash === "function") {
           // 自定义计算文件hash值
           this.fileHash = await this.caculateFileHash(this.selectedFile);
         } else {
           this.fileHash = await caculateFileHash(this.selectedFile);
         }
-        this.$emit('caculateFileHashSuccess', this.fileHash);
+        this.$emit("caculateFileHashSuccess", this.fileHash);
       } catch (error) {
-        this.$emit('caculateFileHashFail', error);
+        this.$emit("caculateFileHashFail", error);
       }
 
       // 读取localStorage中是否已经有上传过的切片
@@ -178,32 +178,32 @@ export default {
     async uploadFile() {
       try {
         const formData = new FormData();
-        formData.append('file', this.selectedFile);
+        formData.append("file", this.selectedFile);
         const res = await request({
           url: this.uploadUrl,
           data: formData
         });
-        this.$emit('uploadSuccess', res);
+        this.$emit("uploadSuccess", res);
       } catch (error) {
-        this.$emit('uploadFail', error);
+        this.$emit("uploadFail", error);
       }
     },
 
     // 切片上传切片
     async uploadChunksBySlice() {
       if (!this.uploadUrl) {
-        throw new TypeError('uploadUrl is not define');
+        throw new TypeError("uploadUrl is not define");
       }
       // 创建请求列表
       const requestList = this.fileChunkListData
         .map(({ chunk, hash, index }) => {
           const formData = new FormData();
           // 切片文件
-          formData.append('chunk', chunk);
+          formData.append("chunk", chunk);
           // 切片hash值
-          formData.append('hash', hash);
+          formData.append("hash", hash);
           // 文件名（不是切片的文件名，而是整个大文件的文件名）
-          formData.append('filename', this.selectedFile.name);
+          formData.append("filename", this.selectedFile.name);
           return { formData, index };
         })
         .map(({ formData }) =>
@@ -215,9 +215,9 @@ export default {
       try {
         // 等待所有切片上传完毕
         const res = await Promise.all(requestList);
-        this.$emit('uploadChunkSuccess', res);
+        this.$emit("uploadChunkSuccess", res);
       } catch (error) {
-        this.$emit('uploadChunkFail', error);
+        this.$emit("uploadChunkFail", error);
       }
       // 请求合并切片
       this.requestMergeFile();
@@ -226,7 +226,7 @@ export default {
     // 断点续传上传切片
     async uploadChunksByBreakpoint(uploadedChunkList) {
       if (!this.uploadUrl) {
-        throw new TypeError('uploadUrl is not define');
+        throw new TypeError("uploadUrl is not define");
       }
       // 过滤掉已经上传过得切片
       const requestPromiseList = this.fileChunkListData
@@ -234,13 +234,13 @@ export default {
         .map(({ chunk, hash, fileHash }) => {
           const formData = new FormData();
           // 切片文件
-          formData.append('chunk', chunk);
+          formData.append("chunk", chunk);
           // 切片文件hash值
-          formData.append('hash', hash);
+          formData.append("hash", hash);
           // 文件名
-          formData.append('filename', this.selectedFile.name);
+          formData.append("filename", this.selectedFile.name);
           // 文件hash
-          formData.append('fileHash', fileHash);
+          formData.append("fileHash", fileHash);
           return { formData, hash, fileHash };
         })
         .map(({ formData, hash, fileHash }) =>
@@ -257,9 +257,9 @@ export default {
       if (requestPromiseList.length > 0) {
         try {
           const res = await Promise.all(requestPromiseList);
-          this.$emit('uploadChunkSuccess', res);
+          this.$emit("uploadChunkSuccess", res);
         } catch (error) {
-          this.$emit('uploadChunkFail', error);
+          this.$emit("uploadChunkFail", error);
         }
       }
 
@@ -277,7 +277,7 @@ export default {
     createFileChunkList() {
       // 将文件进行切片
       try {
-        if (typeof this.splitFileChunk === 'function') {
+        if (typeof this.splitFileChunk === "function") {
           this.fileChunkList = this.splitFileChunk(
             this.selectedFile,
             this.fileChunkSize
@@ -288,9 +288,9 @@ export default {
             this.fileChunkSize
           );
         }
-        this.$emit('createChunkListSuccess', this.fileChunkList);
+        this.$emit("createChunkListSuccess", this.fileChunkList);
       } catch (error) {
-        this.$emit('createChunkListFail', error);
+        this.$emit("createChunkListFail", error);
       }
     },
 
@@ -298,7 +298,7 @@ export default {
     async requestMergeFile() {
       try {
         if (!this.mergeUrl) {
-          throw new TypeError('mergeUrl is not define');
+          throw new TypeError("mergeUrl is not define");
         }
         let res;
         const parmas = {
@@ -311,23 +311,23 @@ export default {
           // 断点续传，需要带上文件的hash值
           parmas.fileHash = this.fileHash;
         }
-        if (typeof this.requestMergeFileFn === 'function') {
+        if (typeof this.requestMergeFileFn === "function") {
           // 自定义合并请求接口
           res = await this.requestMergeFileFn(parmas);
         } else {
           res = await request({
             url: this.mergeUrl,
             headers: {
-              'content-type': 'application/json'
+              "content-type": "application/json"
             },
             data: JSON.stringify(parmas)
           });
         }
-        this.$emit('mergeFileSuccess', res);
+        this.$emit("mergeFileSuccess", res);
         // 移除断点续传的文件hash
         window.localStorage.removeItem(this.fileHash);
       } catch (error) {
-        this.$emit('mergeFileFail', error);
+        this.$emit("mergeFileFail", error);
       }
     }
   }

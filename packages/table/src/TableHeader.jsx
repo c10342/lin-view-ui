@@ -1,7 +1,7 @@
-import { cloneDeep } from 'lodash';
+import { cloneDeep } from "lodash";
 
 export default {
-  name: 'LinTableHeader',
+  name: "LinTableHeader",
 
   inject: {
     table: {
@@ -42,7 +42,7 @@ export default {
     renderTh(h, column) {
       let th = null;
       switch (column.type) {
-        case 'selection':
+        case "selection":
           th = (
             <input
               class="lin-table-checkbox"
@@ -52,7 +52,7 @@ export default {
             />
           );
           break;
-        case 'index':
+        case "index":
           th = column.label;
           break;
         default:
@@ -122,7 +122,7 @@ export default {
         <tr class="lin-table-tr">
           {columns.map((column, index) => (
             <th
-              class={['lin-table-th', `lin-table-align-${column.align}`]}
+              class={["lin-table-th", `lin-table-align-${column.align}`]}
               key={index}
             >
               {renderTh(h, column)}

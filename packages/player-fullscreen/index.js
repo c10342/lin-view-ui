@@ -1,6 +1,6 @@
-import PlayerFullscreen from './src/player-fullscreen.vue';
+import PlayerFullscreen from "./src/player-fullscreen.vue";
 
-PlayerFullscreen.install = (Vue) =>
+PlayerFullscreen.install = Vue =>
   Vue.component(PlayerFullscreen.name, PlayerFullscreen);
 
 export default PlayerFullscreen;

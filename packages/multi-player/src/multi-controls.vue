@@ -23,7 +23,7 @@
         >
         <span class="lin-video-player-live-tip" v-if="live">
           <i></i>
-          {{ t('LinViewUI.VideoPlayer.live') }}
+          {{ t("LinViewUI.VideoPlayer.live") }}
         </span>
       </div>
       <div class="lin-video-player-controls-right">
@@ -37,13 +37,13 @@
 </template>
 
 <script>
-import {secondToTime} from '@lin-view-ui/utils'
-import {LocaleMixin} from '@lin-view-ui/mixins'
-import PlayerProcess from '@lin-view-ui/player-process'
-import PlayerFullscreen from '@lin-view-ui/player-fullscreen'
-import PlayerVolume from '@lin-view-ui/player-volume'
+import { secondToTime } from "@lin-view-ui/utils";
+import { LocaleMixin } from "@lin-view-ui/mixins";
+import PlayerProcess from "@lin-view-ui/player-process";
+import PlayerFullscreen from "@lin-view-ui/player-fullscreen";
+import PlayerVolume from "@lin-view-ui/player-volume";
 export default {
-  name: 'LinMultiControls',
+  name: "LinMultiControls",
   mixins: [LocaleMixin],
   components: {
     [PlayerVolume.name]: PlayerVolume,
@@ -87,16 +87,16 @@ export default {
   },
   methods: {
     onPlayClick() {
-      this.$emit('play');
+      this.$emit("play");
     },
     onPauseClick() {
-      this.$emit('pause');
+      this.$emit("pause");
     },
     onSeek(data) {
-      this.$emit('seek', data);
+      this.$emit("seek", data);
     },
     setVolume(volume) {
-      this.$emit('setVolume', volume);
+      this.$emit("setVolume", volume);
     }
   }
 };

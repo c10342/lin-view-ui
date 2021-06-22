@@ -35,12 +35,12 @@
 
 <script>
 export default {
-  name: 'LinMessage',
+  name: "LinMessage",
   props: {
     // 类型主题
     type: {
       type: String,
-      default: 'info'
+      default: "info"
     },
     // 是否显示关闭按钮
     showClose: {
@@ -96,12 +96,12 @@ export default {
     onCloseClick() {
       if (this.show) {
         this.show = false;
-        this.$emit('close');
+        this.$emit("close");
       }
     },
     // vue动画结束后回调函数
     afterLeave() {
-      this.$emit('closed');
+      this.$emit("closed");
       if (this.onClose) {
         this.onClose();
       }

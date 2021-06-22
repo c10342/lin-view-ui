@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'LinScrollView',
+  name: "LinScrollView",
   props: {
     // 容器高度
     height: {
@@ -60,12 +60,12 @@ export default {
     // 正在加载的提示语
     loadingTip: {
       type: String,
-      default: ''
+      default: ""
     },
     // 数据加载完毕时候的提示语
     noMoreTip: {
       type: String,
-      default: ''
+      default: ""
     }
   },
   data() {
@@ -105,12 +105,12 @@ export default {
         const { scrollTop } = e.target;
         if (scrollTop + this.height >= this.contentHeight) {
           // 滚动到底部
-          this.$emit('scrollToEnd', e);
+          this.$emit("scrollToEnd", e);
         }
       }
       if (this.emitScrollEvent) {
         // 派发滚动事件
-        this.$emit('scroll', e);
+        this.$emit("scroll", e);
       }
     }
   },
@@ -130,7 +130,7 @@ export default {
       if (this.contentHeight <= this.height) {
         return false;
       }
-      if (this.isEnd && (this.noMoreTip || this.$slots['no-more'])) {
+      if (this.isEnd && (this.noMoreTip || this.$slots["no-more"])) {
         return true;
       }
       return false;

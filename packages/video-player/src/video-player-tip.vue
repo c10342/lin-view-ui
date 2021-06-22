@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'LinVideoPlayerTip',
+  name: "LinVideoPlayerTip",
   inject: {
     videoPlayer: {
       default: null
@@ -18,7 +18,7 @@ export default {
       if (this.videoPlayer) {
         return this.videoPlayer.tip;
       }
-      return '';
+      return "";
     },
     // 显示时长
     tipTime: {
@@ -51,7 +51,7 @@ export default {
         this.destroyTimeout();
         this.timer = setTimeout(() => {
           if (this.videoPlayer) {
-            this.videoPlayer.tip = '';
+            this.videoPlayer.tip = "";
           }
           // 当外部传入显示时长的时候，隐藏后需要重置显示时长
           this.tipTime = 2000;

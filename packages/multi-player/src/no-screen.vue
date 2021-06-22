@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'LinNoScreen'
+  name: "LinNoScreen"
 };
 </script>

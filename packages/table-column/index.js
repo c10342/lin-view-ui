@@ -1,5 +1,5 @@
-import TableColumn from './src/table-column.jsx';
+import TableColumn from "./src/table-column.jsx";
 
-TableColumn.install = (Vue) => Vue.component(TableColumn.name, TableColumn);
+TableColumn.install = Vue => Vue.component(TableColumn.name, TableColumn);
 
 export default TableColumn;

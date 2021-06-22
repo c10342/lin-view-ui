@@ -11,16 +11,16 @@ const fs = require("fs");
 const root = path.resolve(__dirname, "../packages");
 const { buildScss, copyfont } = require("./build.css.js");
 
-const resolve = (pathSrc) => path.resolve(root, pathSrc);
+const resolve = pathSrc => path.resolve(root, pathSrc);
 
 function createConfig(filename) {
   return createInputConfig({
     input: resolve(`./${filename}/index.js`),
-    external: getExternalsDep(filename),
+    external: getExternalsDep(filename)
   });
 }
 
-const buildComponent = async (comp) => {
+const buildComponent = async comp => {
   const inputConfig = createConfig(comp);
   const outputConfig = createEsOutput(resolve(`./${comp}/dist/index.js`));
   await clean(resolve(`./${comp}/dist`));
@@ -37,10 +37,10 @@ const buildComponent = async (comp) => {
 
 const compList = fs
   .readdirSync(root)
-  .filter((fileName) => !whiteList.includes(fileName));
+  .filter(fileName => !whiteList.includes(fileName));
 
 const build = () => {
-  compList.forEach((comp) => buildComponent(comp));
+  compList.forEach(comp => buildComponent(comp));
 };
 
 build();

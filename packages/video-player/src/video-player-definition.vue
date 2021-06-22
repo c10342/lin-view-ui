@@ -1,7 +1,7 @@
 <template>
   <div class="lin-video-player-definition">
     <span class="lin-video-player-definition-label">{{
-      currentDefinitionVideo ? currentDefinitionVideo.label : ''
+      currentDefinitionVideo ? currentDefinitionVideo.label : ""
     }}</span>
     <ul
       class="lin-video-player-definition-list"
@@ -21,9 +21,8 @@
 </template>
 
 <script>
-
 export default {
-  name: 'LinVideoPlayerDefinition',
+  name: "LinVideoPlayerDefinition",
   inject: {
     videoPlayer: {
       default: null

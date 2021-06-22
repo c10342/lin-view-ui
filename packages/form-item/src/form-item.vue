@@ -23,10 +23,10 @@
 </template>
 
 <script>
-import Schema from 'async-validator';
+import Schema from "async-validator";
 
 export default {
-  name: 'LinFormItem',
+  name: "LinFormItem",
   props: {
     // 标签文本
     label: String,
@@ -35,15 +35,15 @@ export default {
     // 表单域标签宽度
     labelWidth: String
   },
-  inject: ['Form'],
+  inject: ["Form"],
   data() {
     return {
       // 错误信息
-      errorMsg: ''
+      errorMsg: ""
     };
   },
   mounted() {
-    this.$on('validate', this.validate);
+    this.$on("validate", this.validate);
   },
   methods: {
     validate() {
@@ -57,8 +57,8 @@ export default {
       return schema
         .validate({ [this.prop]: value })
         .then(() => {
-          this.errorMsg = '';
-          this.Form.$emit('validate', {
+          this.errorMsg = "";
+          this.Form.$emit("validate", {
             result: true,
             [this.prop]: value
           });
@@ -66,7 +66,7 @@ export default {
         })
         .catch(({ fields }) => {
           this.errorMsg = fields[this.prop][0].message;
-          this.Form.$emit('validate', {
+          this.Form.$emit("validate", {
             result: false,
             [this.prop]: value,
             ...fields
@@ -75,7 +75,7 @@ export default {
         });
     },
     clearValidate() {
-      this.errorMsg = '';
+      this.errorMsg = "";
     }
   },
   computed: {

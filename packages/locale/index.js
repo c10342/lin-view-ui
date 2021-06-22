@@ -1,7 +1,7 @@
-import defaultLang from './src/lang/zh-CN.js';
-import Vue from 'vue';
-import deepmerge from 'deepmerge';
-import Format from './src/format.js';
+import defaultLang from "./src/lang/zh-CN.js";
+import Vue from "vue";
+import deepmerge from "deepmerge";
+import Format from "./src/format.js";
 
 const format = Format(Vue);
 // 默认语言
@@ -13,7 +13,7 @@ let merged = false;
 let i18nHandler = function i18nHandler(...reset) {
   const vuei18n = Object.getPrototypeOf(this || Vue).$t;
   // 查看是否使用自定义的i18n，即用户传入了
-  if (typeof vuei18n === 'function' && !!Vue.locale) {
+  if (typeof vuei18n === "function" && !!Vue.locale) {
     if (!merged) {
       merged = true;
       // 合并语言包
@@ -30,17 +30,17 @@ export const t = function t(path, options) {
   let value = i18nHandler.apply(this, [path, options]);
   if (value !== null && value !== undefined) return value;
 
-  const array = path.split('.');
+  const array = path.split(".");
   let current = lang;
 
   for (let i = 0, j = array.length; i < j; i++) {
     const property = array[i];
     value = current[property];
     if (i === j - 1) return format(value, options);
-    if (!value) return '';
+    if (!value) return "";
     current = value;
   }
-  return '';
+  return "";
 };
 
 export const use = function use(l) {

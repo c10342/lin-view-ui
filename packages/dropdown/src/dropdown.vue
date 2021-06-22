@@ -27,16 +27,16 @@
 </template>
 
 <script>
-import {DocumentClickMixin} from '@lin-view-ui/mixins';
+import { DocumentClickMixin } from "@lin-view-ui/mixins";
 
 export default {
-  name: 'LinDropdown',
+  name: "LinDropdown",
   mixins: [DocumentClickMixin],
   props: {
     // 触发下拉的行为
     trigger: {
       type: String,
-      default: 'hover'
+      default: "hover"
     },
     // 是否在点击菜单项后隐藏菜单
     hideOnClick: {
@@ -65,19 +65,19 @@ export default {
   methods: {
     // 鼠标进入容器
     onMouseEnter() {
-      if (this.trigger === 'hover') {
+      if (this.trigger === "hover") {
         this.showList();
       }
     },
     // 鼠标离开容器
     onMouseLeave() {
-      if (this.trigger === 'hover') {
+      if (this.trigger === "hover") {
         this.hideList();
       }
     },
     // 点击标签
     onLabelClick() {
-      if (this.trigger === 'click') {
+      if (this.trigger === "click") {
         this.toggleList();
       }
     },
@@ -86,7 +86,7 @@ export default {
       if (!this.isShow) {
         this.isShow = true;
         this.setPlacement();
-        this.$emit('visible-change', true);
+        this.$emit("visible-change", true);
       }
     },
 
@@ -121,7 +121,7 @@ export default {
     hideList() {
       if (this.isShow) {
         this.isShow = false;
-        this.$emit('visible-change', false);
+        this.$emit("visible-change", false);
       }
     },
     // 下拉框显示或者隐藏切换

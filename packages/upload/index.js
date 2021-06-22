@@ -1,5 +1,5 @@
-import Upload from './src/upload.vue';
+import Upload from "./src/upload.vue";
 
-Upload.install = (Vue) => Vue.component(Upload.name, Upload);
+Upload.install = Vue => Vue.component(Upload.name, Upload);
 
 export default Upload;

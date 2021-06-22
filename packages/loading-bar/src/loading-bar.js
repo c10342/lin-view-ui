@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import LoadingBar from './loading-bar.vue';
+import Vue from "vue";
+import LoadingBar from "./loading-bar.vue";
 
 const LoadingBarConstructor = Vue.extend(LoadingBar);
 
@@ -11,8 +11,8 @@ const LLoadingBar = () => new LoadingBarConstructor();
 
 // 设置全局配置信息
 LoadingBarConstructor.prototype.config = function config(options) {
-  Object.keys(options).forEach((key) => {
-    if (key === 'isError' || key === 'totalProgress') {
+  Object.keys(options).forEach(key => {
+    if (key === "isError" || key === "totalProgress") {
       return;
     }
     this[key] = options[key];

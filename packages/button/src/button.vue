@@ -27,10 +27,10 @@
 </template>
 
 <script>
-import Spinner from '@lin-view-ui/spinner'
+import Spinner from "@lin-view-ui/spinner";
 
 export default {
-  name: 'LinButton',
+  name: "LinButton",
   components: {
     [Spinner.name]: Spinner
   },
@@ -38,8 +38,8 @@ export default {
     // 类型
     type: {
       type: String,
-      default: 'default',
-      options: ['default', 'primary', 'success', 'warning', 'danger', 'info']
+      default: "default",
+      options: ["default", "primary", "success", "warning", "danger", "info"]
     },
     // 是否为朴素按钮
     plain: {
@@ -64,13 +64,13 @@ export default {
     // 按钮图标
     icon: {
       type: String,
-      default: ''
+      default: ""
     },
     // 尺寸
     size: {
       type: String,
-      default: 'default',
-      options: ['default', 'medium', 'small']
+      default: "default",
+      options: ["default", "medium", "small"]
     },
     // 是否加载中状态
     loading: {
@@ -80,19 +80,19 @@ export default {
     // 加载器颜色
     loadingColor: {
       type: String,
-      default: '#fff'
+      default: "#fff"
     },
     // 加载器大小
     loadingSize: {
       type: String,
-      default: '14px'
+      default: "14px"
     }
   },
 
   methods: {
     onButtonClick() {
       if (!this.loading) {
-        this.$emit('click');
+        this.$emit("click");
       }
     }
   }

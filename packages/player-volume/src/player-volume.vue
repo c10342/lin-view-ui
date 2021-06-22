@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: 'LinPlayerVolume',
+  name: "LinPlayerVolume",
   props: {
     // 音量
     volume: {
@@ -90,8 +90,8 @@ export default {
     onBallMouseDown() {
       // 鼠标按下标志位
       this.mousedown = true;
-      window.addEventListener('mousemove', this.onMouseMove);
-      window.addEventListener('mouseup', this.onMouseUp);
+      window.addEventListener("mousemove", this.onMouseMove);
+      window.addEventListener("mouseup", this.onMouseUp);
     },
     // 鼠标移动
     onMouseMove(e) {
@@ -118,8 +118,8 @@ export default {
       this.setVolume(this.processWidth);
       // 重置标志位
       this.mousedown = false;
-      window.removeEventListener('mouseup', this.onMouseUp);
-      window.removeEventListener('mousemove', this.onMouseMove);
+      window.removeEventListener("mouseup", this.onMouseUp);
+      window.removeEventListener("mousemove", this.onMouseMove);
     },
     // 设置音量
     setVolume(processWidth) {
@@ -130,7 +130,7 @@ export default {
         volume = processWidth / clientWidth;
       }
       // 设置音量
-      this.$emit('setVolume', volume);
+      this.$emit("setVolume", volume);
     }
   },
   watch: {
@@ -139,8 +139,8 @@ export default {
     }
   },
   beforeDestroy() {
-    window.removeEventListener('mouseup', this.onMouseUp);
-    window.removeEventListener('mousemove', this.onMouseMove);
+    window.removeEventListener("mouseup", this.onMouseUp);
+    window.removeEventListener("mousemove", this.onMouseMove);
     this.videoPlayerVolumeProcess = null;
   }
 };

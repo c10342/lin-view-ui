@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import MessageBox from './message-box.vue';
+import Vue from "vue";
+import MessageBox from "./message-box.vue";
 
 const MessageBoxConstruct = Vue.extend(MessageBox);
 
@@ -21,7 +21,7 @@ class LinMessageBox {
     this.instance = new MessageBoxConstruct();
     if (this.instance) {
       // 初始化组件的props参数
-      Object.keys(this.instance.$props || {}).forEach((key) => {
+      Object.keys(this.instance.$props || {}).forEach(key => {
         if (key in this.options) {
           this.instance[key] = this.options[key];
         }
@@ -32,8 +32,8 @@ class LinMessageBox {
       // 显示出来
       this.instance.show = true;
       // 监听事件
-      this.instance.$once('close', (data) => {
-        if (data.by === 'confirmButton') {
+      this.instance.$once("close", data => {
+        if (data.by === "confirmButton") {
           // 将promise置为成功状态
           this.options.resolve(data);
         } else {
@@ -49,11 +49,11 @@ class LinMessageBox {
   // 锁定滚动条
   handleLockScroll() {
     let lockScroll = true;
-    if ('lockScroll' in this.options) {
+    if ("lockScroll" in this.options) {
       lockScroll = this.options.lockScroll;
     }
     if (lockScroll) {
-      document.body.classList.add('lin-message-box-hiden');
+      document.body.classList.add("lin-message-box-hiden");
     }
   }
 
@@ -63,7 +63,7 @@ class LinMessageBox {
       document.body.removeChild(this.instance.$el);
       this.instance.$destroy();
     }
-    document.body.classList.remove('lin-message-box-hiden');
+    document.body.classList.remove("lin-message-box-hiden");
     this.instance = null;
   }
 }

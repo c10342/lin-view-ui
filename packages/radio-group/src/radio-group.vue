@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'LinRadioGroup',
+  name: "LinRadioGroup",
   provide() {
     return {
       RadioGroup: this

@@ -10,9 +10,9 @@ const drag = {
     return {
       // 拖拽的时候的样式，就是位置
       dialogStyle: {
-        top: '0',
-        left: '50%',
-        transform: 'translateX(-50%)'
+        top: "0",
+        left: "50%",
+        transform: "translateX(-50%)"
       }
     };
   },
@@ -31,12 +31,12 @@ const drag = {
         return;
       }
       // 防止选中文字，导致mouseup事件丢失
-      document.body.classList.add('user-select-none');
+      document.body.classList.add("user-select-none");
       // 开始点
       this.startY = event.clientY;
       this.startX = event.clientX;
-      document.addEventListener('mousemove', this.onMousemove);
-      document.addEventListener('mouseup', this.onMouseup);
+      document.addEventListener("mousemove", this.onMousemove);
+      document.addEventListener("mouseup", this.onMouseup);
     },
     onMousemove(event) {
       // 结束点
@@ -68,7 +68,7 @@ const drag = {
       this.dialogStyle = {
         top: `${dialogTop}px`,
         left: `${dialogLeft}px`,
-        transform: 'none',
+        transform: "none",
         marginTop: 0,
         marginBottom: 0,
         marginLeft: 0,
@@ -77,12 +77,12 @@ const drag = {
     },
     // 鼠标抬起
     onMouseup() {
-      document.body.classList.remove('user-select-none');
+      document.body.classList.remove("user-select-none");
       this.removeListener();
     },
     removeListener() {
-      document.removeEventListener('mousemove', this.onMousemove);
-      document.removeEventListener('mouseup', this.onMouseup);
+      document.removeEventListener("mousemove", this.onMousemove);
+      document.removeEventListener("mouseup", this.onMouseup);
     }
   }
 };

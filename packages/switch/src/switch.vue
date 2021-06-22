@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import {dispatch} from '@lin-view-ui/utils';
+import { dispatch } from "@lin-view-ui/utils";
 
 export default {
-  name: 'LinSwitch',
+  name: "LinSwitch",
   props: {
     // 绑定值
     value: {
@@ -37,17 +37,17 @@ export default {
     //  打开时的背景色
     activeColor: {
       type: String,
-      default: ''
+      default: ""
     },
     // 关闭时的背景色
     inactiveColor: {
       type: String,
-      default: ''
+      default: ""
     },
     // 原生属性 name
     name: {
       type: String,
-      default: ''
+      default: ""
     },
     // 是否禁用
     disabled: {
@@ -58,10 +58,10 @@ export default {
   methods: {
     handleClick() {
       if (!this.disabled) {
-        this.$emit('input', !this.value);
+        this.$emit("input", !this.value);
         dispatch.call(this, {
-          eventName: 'validate',
-          componentName: 'LinFormItem'
+          eventName: "validate",
+          componentName: "LinFormItem"
         });
       }
     }
@@ -72,12 +72,12 @@ export default {
         if (this.activeColor) {
           return this.activeColor;
         }
-        return '';
+        return "";
       }
       if (this.inactiveColor) {
         return this.inactiveColor;
       }
-      return '';
+      return "";
     }
   }
 };

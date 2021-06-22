@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'LinProgress',
+  name: "LinProgress",
   props: {
     // 百分比（必填）
     percent: {
@@ -32,12 +32,12 @@ export default {
     // 进度条底层颜色
     innerColor: {
       type: String,
-      default: ''
+      default: ""
     },
     // 进度条上层颜色
     outColor: {
       type: String,
-      default: ''
+      default: ""
     },
     // 进度条的高度，单位 px
     height: {
@@ -52,26 +52,26 @@ export default {
     // 进度条外面的提示文字
     textOutside: {
       type: String,
-      default: ''
+      default: ""
     },
     // 进度条类型
     type: {
       type: String,
-      default: 'primary'
+      default: "primary"
     },
     // 进度条里面的提示文字
     textInside: {
       type: String,
-      default: ''
+      default: ""
     }
   },
   computed: {
     width() {
       if (this.percent < 0) {
-        return '0%';
+        return "0%";
       }
       if (this.percent > 1) {
-        return '100%';
+        return "100%";
       }
       return `${this.percent * 100}%`;
     },

@@ -44,11 +44,11 @@
 </template>
 
 <script>
-import {secondToTime} from '@lin-view-ui/utils'
-import {LocaleMixin} from '@lin-view-ui/mixins'
+import { secondToTime } from "@lin-view-ui/utils";
+import { LocaleMixin } from "@lin-view-ui/mixins";
 
 export default {
-  name: 'LinPlayerProcess',
+  name: "LinPlayerProcess",
   mixins: [LocaleMixin],
   filters: {
     secondToTime
@@ -154,8 +154,8 @@ export default {
       this.mousedownWidth = this.playedWidth;
       // 鼠标按下标志位
       this.mousedown = true;
-      window.addEventListener('mousemove', this.onMouseMove);
-      window.addEventListener('mouseup', this.onMouseUp);
+      window.addEventListener("mousemove", this.onMouseMove);
+      window.addEventListener("mouseup", this.onMouseUp);
     },
     // 鼠标移动
     onMouseMove(e) {
@@ -187,8 +187,8 @@ export default {
       this.seekByPercent(percent);
       // 重置标志位
       this.mousedown = false;
-      window.removeEventListener('mouseup', this.onMouseUp);
-      window.removeEventListener('mousemove', this.onMouseMove);
+      window.removeEventListener("mouseup", this.onMouseUp);
+      window.removeEventListener("mousemove", this.onMouseMove);
     },
     // 点击进度条
     onMaskClick(event) {
@@ -209,13 +209,13 @@ export default {
       const time = this.totalTime * percent;
       // 计算前进或者后退了多少秒
       const offsetTime = time - this.currentTime;
-      this.$emit('seek', time);
+      this.$emit("seek", time);
       // 左下角显示提示
       this.setTip(offsetTime);
     },
     // 前进或者后退了多少秒
     setTip(offsetTime) {
-      this.$emit('offsetTime', offsetTime);
+      this.$emit("offsetTime", offsetTime);
     },
     destroyProcess() {
       this.processBall = null;
@@ -224,8 +224,8 @@ export default {
     }
   },
   beforeDestroy() {
-    window.removeEventListener('mouseup', this.onMouseUp);
-    window.removeEventListener('mousemove', this.onMouseMove);
+    window.removeEventListener("mouseup", this.onMouseUp);
+    window.removeEventListener("mousemove", this.onMouseMove);
     this.destroyProcess();
   }
 };

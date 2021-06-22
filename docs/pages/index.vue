@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { getLang } from '../utils/lang.js';
-import langConfig from '../i18n/index.js';
+import { getLang } from "../utils/lang.js";
+import langConfig from "../i18n/index.js";
 const lang = getLang();
 export default {
   data() {
@@ -97,7 +97,7 @@ export default {
     display: block;
     width: 100%;
     height: 250px;
-    content: '';
+    content: "";
     background: #fff;
     box-shadow: 0 -4px 30px 0 #dfe1e6;
     transform: skewY(-4deg);

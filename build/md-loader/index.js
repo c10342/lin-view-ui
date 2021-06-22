@@ -2,18 +2,18 @@ const {
   stripScript,
   stripTemplate,
   genInlineComponentText
-} = require('./util');
-const md = require('./config');
+} = require("./util.js");
+const md = require("./config.js");
 
-module.exports = function (source) {
+module.exports = function(source) {
   const content = md.render(source);
 
-  const startTag = '<!--lin-demo:';
+  const startTag = "<!--lin-demo:";
   const startTagLen = startTag.length;
-  const endTag = ':lin-demo-->';
+  const endTag = ":lin-demo-->";
   const endTagLen = endTag.length;
 
-  let componentsString = '';
+  let componentsString = "";
   let id = 0; // demo 的 id
   const output = []; // 输出的内容
   let start = 0; // 字符串开始位置
@@ -44,7 +44,7 @@ module.exports = function (source) {
   }
 
   // 仅允许在 demo 不存在时，才可以在 Markdown 中写 script 标签
-  let pageScript = '';
+  let pageScript = "";
   if (componentsString) {
     pageScript = `<script>
       export default {
@@ -54,8 +54,8 @@ module.exports = function (source) {
         }
       }
     </script>`;
-  } else if (content.indexOf('<script>') === 0) {
-    start = content.indexOf('</script>') + '</script>'.length;
+  } else if (content.indexOf("<script>") === 0) {
+    start = content.indexOf("</script>") + "</script>".length;
     pageScript = content.slice(0, start);
   }
 
@@ -63,7 +63,7 @@ module.exports = function (source) {
   return `
     <template>
       <section class="content lin-view-ui-doc">
-        ${output.join('')}
+        ${output.join("")}
       </section>
     </template>
     ${pageScript}

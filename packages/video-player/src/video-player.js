@@ -1,14 +1,12 @@
-import Vue from 'vue';
-import VideoPlayer from './video-player.vue';
+import Vue from "vue";
+import VideoPlayer from "./video-player.vue";
 
 import {
   handleType,
   handleEl,
   handleSpeedList,
   handleVideoList
-} from './utils.js';
-
-
+} from "./utils.js";
 
 const VideoPlayerConstructor = Vue.extend(VideoPlayer);
 
@@ -83,7 +81,7 @@ class LinVideoPlayer {
     this.type = type;
     this.el = el;
     this.live = live;
-    if (typeof customType === 'function') {
+    if (typeof customType === "function") {
       this.customType = customType;
     }
   }
@@ -101,7 +99,7 @@ class LinVideoPlayer {
       }
     });
     // 初始化挂在的容器
-    if (typeof this.el === 'string') {
+    if (typeof this.el === "string") {
       this.container = document.querySelector(this.el);
     } else {
       this.container = this.el;
@@ -157,7 +155,7 @@ class LinVideoPlayer {
     const { videoList = [] } = options;
     handleVideoList(videoList);
     this.videoList = videoList;
-    if ('autoplay' in options) {
+    if ("autoplay" in options) {
       // 设置自动播放
       this.autoplay = options.autoplay;
     }
@@ -200,16 +198,16 @@ class LinVideoPlayer {
     const self = this;
     return {
       request(type) {
-        if (type === 'web') {
+        if (type === "web") {
           self.instance?.setWebFullScreen();
-        } else if (type === 'browser') {
+        } else if (type === "browser") {
           self.instance?.setBrowserFullScreen();
         }
       },
       cancel(type) {
-        if (type === 'web') {
+        if (type === "web") {
           self.instance?.cancelWebFullScreen();
-        } else if (type === 'browser') {
+        } else if (type === "browser") {
           self.instance?.cancelBrowserFullScreen();
         }
       }
