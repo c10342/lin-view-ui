@@ -1,12 +1,12 @@
 @keyframes enter-active-animation {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.4);
-    }
-  
-    100% {
-      background-color: rgba(0, 0, 0, 0.5);
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.4);
-    }
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
   }
+
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
