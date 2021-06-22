@@ -1,0 +1,28 @@
+{
+  "name": "@lin-view-ui/tab-item",
+  "version": "1.0.0",
+  "description": "tab-item",
+  "main": "dist/index.js",
+  "keywords": [
+    "lin-view-ui",
+    "tab-item"
+  ],
+  "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/tab-item",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/c10342/lin-view-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/c10342/lin-view-ui/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "author": "c10342",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
+  "dependencies": {}
+}
