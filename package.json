@@ -40,7 +40,9 @@
     "build": "npm run build:utils && npm run build:locale && npm run build:mixins && npm run build:component && npm run build:all",
     "bootstrap": "lerna bootstrap",
     "commit": "git cz",
-    "add": "node ./scripts/componentTemplate.js"
+    "add": "node ./scripts/componentTemplate.js",
+    "lint": "eslint --ext .js,.vue,.jsx ./",
+    "lint-fix": "eslint --fix --ext .js,.vue,.jsx ./"
   },
   "peerDependencies": {
     "vue": "^2.6.14"
@@ -56,6 +58,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
+    "@babel/eslint-parser": "^7.14.7",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.5",
     "@commitlint/cli": "^12.1.4",
@@ -65,6 +68,7 @@
     "@rollup/plugin-image": "^2.0.6",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@vue/babel-plugin-transform-vue-jsx": "^1.2.1",
+    "@vue/eslint-config-standard": "^6.0.0",
     "autoprefixer": "^9.7.4",
     "babel-loader": "^8.2.2",
     "chalk": "^4.1.1",
@@ -75,6 +79,14 @@
     "css-loader": "^5.2.6",
     "cz-conventional-changelog": "^3.3.0",
     "del": "^6.0.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-vue": "^7.11.1",
     "file-loader": "^6.2.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",

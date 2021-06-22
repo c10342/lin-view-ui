@@ -6,14 +6,13 @@ module.exports = {
         useBuiltIns: "usage",
         corejs: 3,
         targets: {
-          ie: "10",
-        },
-      },
-    ],
+          ie: "10"
+        }
+      }
+    ]
   ],
   plugins: [
     "@babel/plugin-transform-runtime",
     "@vue/babel-plugin-transform-vue-jsx"
-  ],
+  ]
 };
-
