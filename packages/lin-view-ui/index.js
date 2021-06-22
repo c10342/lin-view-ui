@@ -44,6 +44,22 @@ import Radio from '@lin-view-ui/radio';
 import RadioGroup from '@lin-view-ui/radio-group';
 import Row from '@lin-view-ui/row';
 import ScrollBar from '@lin-view-ui/scroll-bar';
+import ScrollView from '@lin-view-ui/scroll-view';
+import SelectorGroup from '@lin-view-ui/selector-group';
+import SelectorItem from '@lin-view-ui/selector-item';
+import ShowMore from '@lin-view-ui/show-more';
+import Skeleton from '@lin-view-ui/skeleton';
+import Switch from '@lin-view-ui/switch';
+import TabGroup from '@lin-view-ui/tab-group';
+import TabItem from '@lin-view-ui/tab-item';
+import Table from '@lin-view-ui/table';
+import TableColumn from '@lin-view-ui/table-column';
+import Tag from '@lin-view-ui/tag';
+import Tooltip from '@lin-view-ui/tooltip';
+import Upload from '@lin-view-ui/upload';
+import VideoCard from '@lin-view-ui/video-card';
+import Link from '@lin-view-ui/link';
+import LiveComment from '@lin-view-ui/live-comment';
 
 const components = [
   Alert,
@@ -90,7 +106,23 @@ const components = [
   Radio,
   RadioGroup,
   Row,
-  ScrollBar
+  ScrollBar,
+  ScrollView,
+  SelectorGroup,
+  SelectorItem,
+  ShowMore,
+  Skeleton,
+  Switch,
+  TabGroup,
+  TabItem,
+  Table,
+  TableColumn,
+  Tag,
+  Tooltip,
+  Upload,
+  VideoCard,
+  Link,
+  LiveComment
 ];
 
 const install = (Vue, opts = {}) => {
@@ -155,5 +187,21 @@ export default {
   Radio,
   RadioGroup,
   Row,
-  ScrollBar
+  ScrollBar,
+  ScrollView,
+  SelectorGroup,
+  SelectorItem,
+  ShowMore,
+  Skeleton,
+  Switch,
+  TabGroup,
+  TabItem,
+  Table,
+  TableColumn,
+  Tag,
+  Tooltip,
+  Upload,
+  VideoCard,
+  Link,
+  LiveComment
 };
