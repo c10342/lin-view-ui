@@ -43,6 +43,9 @@ function createInputConfig(options = {}) {
   if (options.minify) {
     config.plugins.push(terser())
   }
+  if(options.plugins){
+    config.plugins.unshift(...options.plugins)
+  }
   return config
 }
 
