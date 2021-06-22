@@ -1,0 +1,86 @@
+@import "./variables/tag.scss";
+@import "./mixin/tag.scss";
+@import './iconfont.css';
+
+.lin-tag {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: $tag-height;
+  padding: $tag-padding;
+  font-size: $tag-font-size;
+  line-height: $tag-line-height;
+  white-space: nowrap;
+  border: $tag-border;
+  border-radius: $tag-border-radius;
+}
+
+.lin-tag-close {
+  box-sizing: border-box;
+  width: $tag-close-width;
+  height: $tag-close-height;
+  margin-left: $tag-close-margin-left;
+  font-size: $tag-close-font-size;
+  line-height: $tag-close-line-height;
+  text-align: center;
+  cursor: pointer;
+  border-radius: $tag-close-border-radius;
+
+  &:hover {
+    color: $tag-close-hover-color;
+  }
+}
+
+.lin-tag-light {
+  @each $key, $val in $theme-color {
+    &.lin-tag-#{$key} {
+      @include tag-type($val);
+
+      .lin-tag-close {
+        &:hover {
+          background-color: $val;
+        }
+      }
+    }
+  }
+}
+
+.lin-tag-dark {
+  @each $key, $val in $theme-color {
+    &.lin-tag-#{$key} {
+      @include tag-type($val);
+
+      .lin-tag-close {
+        &:hover {
+          background-color: rgba($val, 0.4);
+        }
+      }
+    }
+  }
+}
+
+.lin-tag-plain {
+  @each $key, $val in $theme-color {
+    &.lin-tag-#{$key} {
+      @include tag-type($val);
+
+      .lin-tag-close {
+        &:hover {
+          background-color: $val;
+        }
+      }
+    }
+  }
+}
+
+.lin-tag-fade-enter-active,
+.lin-tag-fade-leave-active {
+  transition: $tag-transition;
+}
+
+.lin-tag-fade-enter,
+.lin-tag-fade-leave-to {
+  opacity: $tag-opacity;
+}
