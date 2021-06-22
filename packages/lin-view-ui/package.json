@@ -4,7 +4,7 @@
   "description": "vue components library",
   "main": "lib/index.js",
   "module": "lib/index.js",
-  "unpkg": "lib/index.umd.js",
+  "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "keywords": [
     "vue",
