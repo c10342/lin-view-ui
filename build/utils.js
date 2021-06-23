@@ -75,7 +75,14 @@ const clean = cleanPath => {
   });
 };
 
-const whiteList = ["locale", "mixins", "theme-chalk", "utils", "lin-view-ui"];
+const whiteList = [
+  "locale",
+  "mixins",
+  "theme-chalk",
+  "utils",
+  "lin-view-ui",
+  "test-utils"
+];
 
 module.exports = {
   getExternalsDep,
