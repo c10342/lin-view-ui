@@ -3,7 +3,7 @@
 
 ## 在线文档
 
-[http://ui.linjiafu.top/data-axis](http://ui.linjiafu.top/data-axis)
+[http://ui.linjiafu.top/date-axis](http://ui.linjiafu.top/date-axis)
 
 
 ## 安装

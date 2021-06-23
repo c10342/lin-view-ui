@@ -1,14 +1,14 @@
 <template>
-  <div class="lin-data-axis">
+  <div class="lin-date-axis">
     <div class="lin-date-axis-wrapper" ref="dateAxisWrapper">
       <span class="lin-date-axis-left lin-date-axis-arrow" @click="prevWeek">
         <slot name="prevWeek">
-          <i class="lin-icon-leftarrow lin-data-axis-icon"></i>
+          <i class="lin-icon-leftarrow lin-date-axis-icon"></i>
         </slot>
       </span>
       <span class="lin-date-axis-left lin-date-axis-arrow" @click="prevDay">
         <slot name="prevDay">
-          <i class="lin-icon-left lin-data-axis-icon"></i>
+          <i class="lin-icon-left lin-date-axis-icon"></i>
         </slot>
       </span>
       <ul class="lin-date-axis-list">
@@ -35,12 +35,12 @@
       </ul>
       <span class="lin-date-axis-right lin-date-axis-arrow" @click="nextDay">
         <slot name="nextDay">
-          <i class="lin-icon-right lin-data-axis-icon"></i>
+          <i class="lin-icon-right lin-date-axis-icon"></i>
         </slot>
       </span>
       <span class="lin-date-axis-right lin-date-axis-arrow" @click="nextWeek">
         <slot name="nextWeek">
-          <i class="lin-icon-rightarrow lin-data-axis-icon"></i>
+          <i class="lin-icon-rightarrow lin-date-axis-icon"></i>
         </slot>
       </span>
       <div
