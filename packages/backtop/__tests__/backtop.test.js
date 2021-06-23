@@ -24,21 +24,26 @@ describe('Backtop', () => {
         </div>
       </div>
     `)
+    // 一开始是不显示
     expect(wrapper.find('.lin-backtop').exists()).toBe(false)
+    // 滚动然后显示
     wrapper.element.scrollTop = 2000
     await wrapper.trigger('scroll')
     expect(wrapper.find('.lin-backtop').exists()).toBe(true)
-
     expect(wrapper.find('.lin-backtop').attributes('style')).toBe('right: 100px; bottom: 200px;')
     expect(wrapper.find('.lin-backtop-triangle').exists()).toBe(true)
+    // 点击返回顶部
     wrapper.element.scrollTop = 0
     await wrapper.find('.lin-backtop').trigger('click')
     await wrapper.trigger('scroll')
+    // 等待动画执行完毕
     await sleep()
+    const backtopComp = wrapper.findComponent(Backtop)
     expect(wrapper.find('.lin-backtop').exists()).toBe(false)
-    console.log(wrapper.emitted());
-    expect(wrapper.emitted().click).toBeTruthy()
-    expect(wrapper.emitted().scroll).toBeTruthy()
-    expect(wrapper.emitted().end).toBeTruthy()
+    expect(backtopComp.emitted().click).toBeTruthy()
+    expect(backtopComp.emitted().scroll).toBeTruthy()
+    expect(backtopComp.emitted().end).toBeTruthy()
+    // 销毁
+    wrapper.destroy()
   })
 })
