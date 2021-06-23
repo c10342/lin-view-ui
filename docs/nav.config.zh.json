@@ -200,8 +200,8 @@
         },
         {
           "desc": "DateAxis 日期轴",
-          "name": "data-axis",
-          "path": "/data-axis"
+          "name": "date-axis",
+          "path": "/date-axis"
         }
       ]
     },
