@@ -2,7 +2,7 @@
 @import './date-picker.scss';
 @import './iconfont.css';
 
-.lin-data-axis {
+.lin-date-axis {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -28,7 +28,7 @@
   }
 }
 
-.lin-data-axis-icon {
+.lin-date-axis-icon {
   font-size: $date-axis-icon-font-size;
 }
 
