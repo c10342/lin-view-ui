@@ -1,1 +1,2 @@
 export { default as sleep } from "./src/sleep.js";
+export { default as transitionStub } from "./src/transitionStub.js";
