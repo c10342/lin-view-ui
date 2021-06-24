@@ -12,6 +12,8 @@ export default {
 
     if (!options.target) {
       options.target = document.body;
+    } else if (typeof options.target === "string") {
+      options.target = document.querySelector(options.target);
     }
     instance.open({ ...options });
     // 如果有传入时间，就会自动消失
