@@ -36,7 +36,7 @@ module.exports = {
     // '<rootDir>/packages/dialog/src/dialog.vue',
     // '<rootDir>/packages/form/src/form.vue',
     // '<rootDir>/packages/form-item/src/form-item.vue',
-    // '<rootDir>/packages/image/src/image.vue',
+    "<rootDir>/packages/image/src/image.vue",
     // '<rootDir>/packages/input/src/input.vue',
     "<rootDir>/packages/loading/src/*.{js,vue}"
     // '<rootDir>/packages/limit-textarea/src/limit-textarea.vue'
