@@ -97,77 +97,32 @@ export default {
     },
     // 图片加载错误回调
     onError(e) {
-      if (Array.isArray(this.imgUrl)) {
-        // 图片加载失败
-        this.$emit("error", {
-          url: this.imgUrl[this.index],
-          index: this.index,
-          e
-        });
-        if (this.index === this.imgUrl.length - 1) {
-          // 所有图片加载失败
-          this.isError = true;
-          this.$emit("AllError", {
-            urls: this.imgUrl.slice(),
-            e
-          });
-          return;
-        }
-        this.index += 1;
-      } else {
-        this.$emit("error", {
-          url: this.imgUrl,
-          e
-        });
+      this.$emit("error", e);
+      if (this.index === this.realImageUrl.length - 1) {
+        this.isError = true;
+        return;
       }
+      this.index += 1;
     },
     // 图片加载成功回调
     onLoad(e) {
-      if (Array.isArray(this.imgUrl)) {
-        this.$emit("success", {
-          url: this.imgUrl[this.index],
-          index: this.index,
-          e
-        });
-      } else {
-        this.$emit("success", {
-          url: this.imgUrl,
-          e
-        });
-      }
-    },
-    // 获取图片地址
-    getUrl() {
-      const url = this.imgUrl[this.index];
-      if (!url && this.imgUrl.length > this.index) {
-        this.index += 1;
-        return this.getUrl();
-      }
-      return url;
-    },
-    setError(flag) {
-      this.isError = flag;
+      this.$emit("success", e);
     }
   },
   computed: {
-    url() {
-      if (Array.isArray(this.imgUrl)) {
-        const imgUrl = this.getUrl();
-        if (!imgUrl) {
-          // 获取不到图片，说明发生了错误
-          // this.isError = true;
-          this.setError(true);
-        }
-        return imgUrl;
+    realImageUrl() {
+      let imageArr = this.imgUrl;
+      if (!Array.isArray(imageArr)) {
+        imageArr = [imageArr];
       }
-      return this.imgUrl;
+      return imageArr.filter(Boolean);
+    },
+    url() {
+      return this.realImageUrl[this.index];
     },
     // 是否显示图片
     isShowImg() {
-      if (!this.imgUrl) {
-        return false;
-      }
-      if (Array.isArray(this.imgUrl) && this.imgUrl.length === 0) {
+      if (this.realImageUrl.length === 0) {
         return false;
       }
       return !this.isError;
