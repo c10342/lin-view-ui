@@ -81,7 +81,8 @@ const whiteList = [
   "theme-chalk",
   "utils",
   "lin-view-ui",
-  "test-utils"
+  "test-utils",
+  "types"
 ];
 
 module.exports = {
