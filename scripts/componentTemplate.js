@@ -43,6 +43,9 @@ fs.mkdirSync(compomentPath);
 // // 创建src目录
 const compomentSrcPath = path.resolve(compomentPath, "src");
 fs.mkdirSync(compomentSrcPath);
+// 创建__tests__目录
+const testsSrcPath = path.resolve(compomentPath, "__tests__");
+fs.mkdirSync(testsSrcPath);
 
 function writePakcageTpl() {
   const parmas = {
@@ -52,8 +55,8 @@ function writePakcageTpl() {
     path.resolve(__dirname, "./template/package.tpl"),
     "utf-8"
   );
-  const packageStr = handlebars.compile(tplStr)(parmas);
-  fs.writeFileSync(path.resolve(compomentPath, "package.json"), packageStr);
+  const result = handlebars.compile(tplStr)(parmas);
+  fs.writeFileSync(path.resolve(compomentPath, "package.json"), result);
 }
 
 function writeIndexTpl() {
@@ -65,8 +68,8 @@ function writeIndexTpl() {
     path.resolve(__dirname, "./template/index.tpl"),
     "utf-8"
   );
-  const indexStr = handlebars.compile(tplStr)(parmas);
-  fs.writeFileSync(path.resolve(compomentPath, "index.js"), indexStr);
+  const result = handlebars.compile(tplStr)(parmas);
+  fs.writeFileSync(path.resolve(compomentPath, "index.js"), result);
 }
 
 function writeVueTpl() {
@@ -77,10 +80,10 @@ function writeVueTpl() {
     path.resolve(__dirname, "./template/vue.tpl"),
     "utf-8"
   );
-  const vueStr = handlebars.compile(tplStr)(parmas);
+  const result = handlebars.compile(tplStr)(parmas);
   fs.writeFileSync(
     path.resolve(compomentSrcPath, `${componentName}.vue`),
-    vueStr
+    result
   );
 }
 
@@ -108,8 +111,24 @@ function writeReadmeTpl() {
     path.resolve(__dirname, "./template/readme.tpl"),
     "utf-8"
   );
-  const readmeStr = handlebars.compile(tplStr)(parmas);
-  fs.writeFileSync(path.resolve(compomentPath, "README.md"), readmeStr);
+  const result = handlebars.compile(tplStr)(parmas);
+  fs.writeFileSync(path.resolve(compomentPath, "README.md"), result);
+}
+
+function writeTestTpl() {
+  const parmas = {
+    name: componentName,
+    componentName: toHump(componentName)
+  };
+  const tplStr = fs.readFileSync(
+    path.resolve(__dirname, "./template/test.tpl"),
+    "utf-8"
+  );
+  const result = handlebars.compile(tplStr)(parmas);
+  fs.writeFileSync(
+    path.resolve(testsSrcPath, `${componentName}.test.js`),
+    result
+  );
 }
 
 function writeTpl() {
@@ -118,6 +137,7 @@ function writeTpl() {
   writeVueTpl();
   writeScssTpl();
   writeReadmeTpl();
+  writeTestTpl();
   console.log(chalk.blueBright(`${componentName}模板创建成功`));
 }
 
