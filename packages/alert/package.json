@@ -25,5 +25,7 @@
   "peerDependencies": {
     "vue": "^2.6.14"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@lin-view-ui/types": "^1.0.0"
+  }
 }

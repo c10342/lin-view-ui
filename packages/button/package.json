@@ -26,6 +26,7 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
+    "@lin-view-ui/types": "^1.0.0",
     "@lin-view-ui/spinner": "^1.0.0"
   }
 }
