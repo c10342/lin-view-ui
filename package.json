@@ -15,6 +15,7 @@
     "UI",
     "Component"
   ],
+  "typings": "packages/types/index.d.ts",
   "homepage": "https://github.com/c10342/lin-view-ui",
   "repository": {
     "type": "git",
