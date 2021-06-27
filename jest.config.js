@@ -38,8 +38,9 @@ module.exports = {
     // '<rootDir>/packages/form-item/src/form-item.vue',
     "<rootDir>/packages/image/src/image.vue",
     // '<rootDir>/packages/input/src/input.vue',
-    "<rootDir>/packages/loading/src/*.{js,vue}"
+    "<rootDir>/packages/loading/src/*.{js,vue}",
     // '<rootDir>/packages/limit-textarea/src/limit-textarea.vue'
+    "<rootDir>/packages/upload/src/upload.vue"
   ]
   // setupFiles: ['<rootDir>/tests/__mocks__/shim.js']
 };
