@@ -1,3 +1,5 @@
+import { expect, describe, test } from "@jest/globals";
+
 import { mount } from "@vue/test-utils";
 
 import { IMAGE_SUCCESS, IMAGE_FAIL } from "@lin-view-ui/test-utils";
