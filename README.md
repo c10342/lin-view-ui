@@ -1,4 +1,4 @@
-<div align='center' ><h1 style='font-weight: 700'>lin-view-ui</h1></div>
+<div align='center' ><h1 style='font-weight: 700;'>lin-view-ui</h1></div>
 
 <p align="center">
   <a href='https://coveralls.io/github/c10342/lin-view-ui?branch=master'>
@@ -40,7 +40,7 @@
 - 使用 lerna + rollup 的工作流，支持 ES2015
 - 提供友好的 API，可灵活的使用组件
 - 支持单个组件安装使用，无需全量安装
-- 支持按需引入，减少项目打包体积
+- 全量安装支持按需引入，减少项目打包体积
 - JS 代码默认支持基于 ES modules 的 tree shaking
 - 偏向于业务组件
 - 提供完善的文档
@@ -67,8 +67,8 @@ import {
 } from 'lin-view-ui';
 import 'lin-view-ui/lib/theme-chalk/index.css'
 
-Vue.component(Input.name, Input);
-Vue.component(Button.name, Button);
+Vue.use(Input);
+Vue.use(Button);
 ```
 
 ## 单组件安装使用
