@@ -17,9 +17,9 @@ Get the latest version from [unpkg.com/lin-view-ui](https://unpkg.com/browse/lin
 
 ```javascript
 <!-- import CSS -->
-<link rel="stylesheet" href="https://unpkg.com/lin-view-ui/lib/style.css">
+<link rel="stylesheet" href="https://unpkg.com/lin-view-ui/lib/theme-chalk/index.css">
 <!-- import JavaScript -->
-<script src="https://unpkg.com/lin-view-ui/lib/index.js"></script>
+<script src="https://unpkg.com/lin-view-ui/lib/index.umd.js"></script>
 ```
 
 We recommend our users to lock lin-view-ui's version when using CDN. Please refer to [unpkg.com](https://unpkg.com/) for more information.

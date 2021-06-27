@@ -8,9 +8,11 @@ The `Lin view UI` is based on `Vue.js` The front-end UI component library of 2.0
 
 - UI components developed based on `Vue`
 - Support typescript
-- Use npm + webpack + Babel workflow to support es2015
+- Use lerna + rollup workflow to support es2015
 - Provide friendly API, flexible use of components
-- Support on-demand introduction, reduce project packaging volume
+- Support single component installation, no full installation
+- Full installation support on demand introduction to reduce package volume of project
+- JS code supports tree Shading Based on ES modules by default
 - Biased towards business components
 - Provide complete documentation
 - Comprehensive unit testing

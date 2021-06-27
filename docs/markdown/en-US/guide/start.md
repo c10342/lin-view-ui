@@ -34,11 +34,11 @@ In actual projects, the workflow of `webpack`, `rollup` or `gulp` is often used.
 Full import can introduce all components into the project's entry file
 
 ```js
-import LinUi from "lin-view-ui"; // Import component library
+import LinViewUi from "lin-view-ui"; // Import component library
 
-import "lin-view-ui/lib/style.css"; // Import style library
+import "lin-view-ui/lib/theme-chalk/index.css"; // Import style library
 
-Vue.use(LinUi);
+Vue.use(LinViewUi);
 ```
 
 ### Load on demand
@@ -58,7 +58,8 @@ plugins: [
     [
       "component",
       {
-        "libraryName": "lin-view-ui"
+        "libraryName": "lin-view-ui",
+        "styleLibraryName": "theme-chalk"
       }
     ]
   ],
@@ -87,6 +88,25 @@ new Vue({
 });
 ```
 
+### Single component installation and use
+Because our component library is biased towards business components. In practice, you may only need to use a few of these components. Therefore, we provide the function of installing and using each component separately.
+
+Take the `Button` component as an example:
+
+- install
+```
+npm install @lin-view-ui/button -S
+```
+- import
+
+```javascript
+import Vue from 'vue';
+import Button from '@lin-view-ui/button';
+import '@lin-view-ui/button/dist/style.css'
+
+Vue.use(Button);
+```
+
 ### Custom theme
 
-The style variables of each component are stored in the `lin-view-ui/src/styles` directory. Users can customize the style of components according to their actual needs
+The style variables of each component are stored in the `packages/theme-chalk` directory. Users can customize the style of components according to their actual needs

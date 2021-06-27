@@ -36,11 +36,11 @@
 可以在项目的入口文件中引入所有组件
 
 ```js
-import LinUi from "lin-view-ui"; // 引入组件库
+import LinViewUi from "lin-view-ui"; // 引入组件库
 
-import "lin-view-ui/lib/style.css"; // 引入样式库
+import "lin-view-ui/lib/theme-chalk/index.css"; // 引入样式库
 
-Vue.use(LinUi);
+Vue.use(LinViewUi);
 ```
 
 ### 按需加载
@@ -60,7 +60,8 @@ plugins: [
     [
       "component",
       {
-        "libraryName": "lin-view-ui"
+        "libraryName": "lin-view-ui",
+        "styleLibraryName": "theme-chalk"
       }
     ]
   ],
@@ -89,6 +90,25 @@ new Vue({
 });
 ```
 
+### 单组件安装使用
+由于我们的组件库是偏向业务组件的。在实际使用的时候，你可能只是需要使用其中的几个组件。所以我们为每个组件提供了单独安装使用的功能。
+
+下面以`Button`组件为例:
+
+- 安装
+```
+npm install @lin-view-ui/button -S
+```
+- 引入
+
+```javascript
+import Vue from 'vue';
+import Button from '@lin-view-ui/button';
+import '@lin-view-ui/button/dist/style.css'
+
+Vue.use(Button);
+```
+
 ### 自定义主题
 
-`lin-view-ui` 各个组件的样式变量都存放在 `lin-view-ui/src/styles` 目录中。用户可根据实际需要，自定义组件的样式
+`lin-view-ui` 各个组件的样式变量都存放在 `packages/theme-chalk` 目录中。用户可根据实际需要，自定义组件的样式
