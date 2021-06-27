@@ -70,7 +70,7 @@ export declare class LinVideoPlayerService {
   //   切换清晰度
   switchQuality(index: number): void;
   //   销毁播放器
-  destroy(): void;
+  destory(): void;
   //   设置视频速度
   speed(rate: number): void;
   //   设置视频音量
