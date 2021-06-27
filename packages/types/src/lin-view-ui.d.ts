@@ -59,6 +59,10 @@ import { LinTooltip } from "./tooltip";
 import { LinUpload } from "./upload";
 import { LinVideoCard } from "./video-card";
 import { LinVideoPlayerService } from "./video-player";
+import { LinMultiPlayerService } from "./multi-player";
+import { LinPlayerFullscreen } from "./player-fullscreen";
+import { LinPlayerProcess } from "./player-process";
+import { LinPlayerVolume } from "./player-volume";
 
 export interface InstallationOptions {
   locale: any;
@@ -83,6 +87,8 @@ export const MessageBox: LinMessageBoxService;
 export const Tooltip: PluginObject<LinTooltip>;
 
 export const VideoPlayer: LinVideoPlayerService;
+
+export const MultiPlayer: LinMultiPlayerService;
 
 export class Alert extends LinAlert {}
 
@@ -185,3 +191,9 @@ export class Tag extends LinTag {}
 export class Upload extends LinUpload {}
 
 export class VideoCard extends LinVideoCard {}
+
+export class PlayerFullscreen extends LinPlayerFullscreen {}
+
+export class PlayerProcess extends LinPlayerProcess {}
+
+export class PlayerVolume extends LinPlayerVolume {}
