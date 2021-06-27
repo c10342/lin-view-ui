@@ -1,3 +1,4 @@
+import { expect, describe, test } from "@jest/globals";
 import { mount } from "@vue/test-utils";
 import Loading from "../index.js";
 import Vue, { nextTick } from "vue";
