@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="lin-upload">
     <input
       @change="onFileChange"
       type="file"
