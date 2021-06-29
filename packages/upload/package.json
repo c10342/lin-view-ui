@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/upload",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "upload",
   "main": "dist/index.js",
   "doc": "index.js",
@@ -30,8 +30,8 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "@lin-view-ui/button": "^1.3.0",
-    "@lin-view-ui/types": "^1.3.0",
-    "@lin-view-ui/utils": "^1.3.0"
+    "@lin-view-ui/button": "^1.3.1",
+    "@lin-view-ui/types": "^1.3.1",
+    "@lin-view-ui/utils": "^1.3.1"
   }
 }
