@@ -32,5 +32,6 @@
   "dependencies": {
     "@lin-view-ui/types": "^1.3.1",
     "async-validator": "^3.5.1"
-  }
+  },
+  "gitHead": "4677eabbf8e0145e9c14a9e8d2eda1eed3ced2f6"
 }

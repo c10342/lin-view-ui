@@ -27,5 +27,6 @@
   "license": "MIT",
   "peerDependencies": {
     "vue": "^2.6.14"
-  }
+  },
+  "gitHead": "4677eabbf8e0145e9c14a9e8d2eda1eed3ced2f6"
 }
