@@ -8,6 +8,9 @@
     "types"
   ],
   "typings": "index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/c10342/lin-view-ui",
   "repository": {
     "type": "git",

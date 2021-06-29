@@ -9,6 +9,9 @@
     "lin-view-ui",
     "theme-chalk"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/theme-chalk",
   "repository": {
     "type": "git",

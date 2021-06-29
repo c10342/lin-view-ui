@@ -9,6 +9,9 @@
     "tab-group"
   ],
   "typings": "types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/tab-group",
   "repository": {
     "type": "git",

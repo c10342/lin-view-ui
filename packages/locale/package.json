@@ -8,6 +8,9 @@
     "lin-view-ui",
     "locale"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/locale",
   "repository": {
     "type": "git",
