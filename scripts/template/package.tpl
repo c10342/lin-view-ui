@@ -8,6 +8,7 @@
     "lin-view-ui",
     "{{name}}"
   ],
+  "typings": "types/index.d.ts",
   "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/{{name}}",
   "repository": {
     "type": "git",

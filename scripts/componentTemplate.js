@@ -38,14 +38,17 @@ if (fs.existsSync(compomentPath)) {
   return;
 }
 
-// // 创建组件根目录
+// 创建组件根目录
 fs.mkdirSync(compomentPath);
-// // 创建src目录
+// 创建src目录
 const compomentSrcPath = path.resolve(compomentPath, "src");
 fs.mkdirSync(compomentSrcPath);
 // 创建__tests__目录
 const testsSrcPath = path.resolve(compomentPath, "__tests__");
 fs.mkdirSync(testsSrcPath);
+// 创建types目录
+const typesSrcPath = path.resolve(compomentPath, "types");
+fs.mkdirSync(typesSrcPath);
 
 function writePakcageTpl() {
   const parmas = {
@@ -131,6 +134,18 @@ function writeTestTpl() {
   );
 }
 
+function writeTypeTpl() {
+  const parmas = {
+    componentName: toHump(componentName)
+  };
+  const tplStr = fs.readFileSync(
+    path.resolve(__dirname, "./template/types.tpl"),
+    "utf-8"
+  );
+  const result = handlebars.compile(tplStr)(parmas);
+  fs.writeFileSync(path.resolve(typesSrcPath, "index.d.ts"), result);
+}
+
 function writeTpl() {
   writePakcageTpl();
   writeIndexTpl();
@@ -138,6 +153,7 @@ function writeTpl() {
   writeScssTpl();
   writeReadmeTpl();
   writeTestTpl();
+  writeTypeTpl();
   console.log(chalk.blueBright(`${componentName}模板创建成功`));
 }
 
