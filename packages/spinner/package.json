@@ -8,6 +8,7 @@
     "lin-view-ui",
     "spinner"
   ],
+  "typings": "types/index.d.ts",
   "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/spinner",
   "repository": {
     "type": "git",
