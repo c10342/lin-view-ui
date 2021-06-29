@@ -120,7 +120,7 @@
     "markdown-it-table-of-contents": "^0.5.2",
     "markdown-it-task-lists": "^2.1.1",
     "mini-css-extract-plugin": "^1.6.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^4.1.0",
     "rollup": "^2.51.2",
     "rollup-plugin-babel": "^4.4.0",
