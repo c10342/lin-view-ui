@@ -8,6 +8,7 @@
     "lin-view-ui",
     "scroll-view"
   ],
+  "typings": "types/index.d.ts",
   "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/scroll-view",
   "repository": {
     "type": "git",
