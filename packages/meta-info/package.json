@@ -8,6 +8,7 @@
     "lin-view-ui",
     "meta-info"
   ],
+  "typings": "types/index.d.ts",
   "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/meta-info",
   "repository": {
     "type": "git",
@@ -25,5 +26,7 @@
   "peerDependencies": {
     "vue": "^2.6.14"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@lin-view-ui/types": "^1.0.0"
+  }
 }
