@@ -10,13 +10,13 @@ const {
 const path = require("path");
 const fs = require("fs");
 const alias = require("@rollup/plugin-alias");
-const packages = require("../package.json");
 const root = path.resolve(__dirname, "../packages/lin-view-ui");
 const { buildScss, copyfont } = require("./build.css.js");
 const resolveInput = pathSrc => path.resolve(root, pathSrc);
 const packagesRoot = path.resolve(__dirname, "../packages");
 const resolvePackage = pathSrc => path.resolve(packagesRoot, pathSrc);
-const resolveOutput = pathSrc => path.resolve(__dirname, "../", pathSrc);
+const resolveOutput = pathSrc =>
+  path.resolve(__dirname, "../packages/lin-view-ui", pathSrc);
 
 const formatImportPath = id => {
   if (id.match(/^@lin-view-ui/)) {
@@ -25,21 +25,10 @@ const formatImportPath = id => {
   }
 };
 
-const getIndexExternal = () => {
-  const dependencies = packages.dependencies || {};
-  const peerDependencies = packages.peerDependencies || {};
-  const externals = [];
-  Object.keys(dependencies).forEach(key => externals.push(key));
-  Object.keys(peerDependencies).forEach(key => externals.push(key));
-  return [...new Set(externals), "flv.js/dist/flv.js"];
-};
-
 const buildesIndex = async () => {
   const inputConfig = createInputConfig({
     input: resolveInput("./index.js"),
-    external: [
-      ...new Set([...getIndexExternal(), ...getExternalsDep("lin-view-ui")])
-    ],
+    external: getExternalsDep("lin-view-ui"),
     plugins: [
       alias({
         entries: [{ find: /^@lin-view-ui/, replacement: packagesRoot }]
