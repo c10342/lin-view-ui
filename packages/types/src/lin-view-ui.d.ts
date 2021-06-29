@@ -17,8 +17,8 @@ import { LinCollapseGroup } from "./collapse-group";
 import { LinCollapseItem } from "./collapse-item";
 import { LinDateAxis } from "./date-axis";
 import { LinDatePicker } from "./date-picker";
-import { LinDialog } from "./Dialog";
-import { LinDropdown } from "./Dropdown";
+import { LinDialog } from "./dialog";
+import { LinDropdown } from "./dropdown";
 import { LinDropdownGroup } from "./dropdown-group";
 import { LinDropdownItem } from "./dropdown-item";
 import { LinForm } from "./form";
@@ -63,6 +63,7 @@ import { LinMultiPlayerService } from "./multi-player";
 import { LinPlayerFullscreen } from "./player-fullscreen";
 import { LinPlayerProcess } from "./player-process";
 import { LinPlayerVolume } from "./player-volume";
+import { LinMetaInfo } from "./meta-info";
 
 export interface InstallationOptions {
   locale: any;
@@ -89,6 +90,8 @@ export const Tooltip: PluginObject<LinTooltip>;
 export const VideoPlayer: LinVideoPlayerService;
 
 export const MultiPlayer: LinMultiPlayerService;
+
+export const MetaInfo: LinMetaInfo;
 
 export class Alert extends LinAlert {}
 
