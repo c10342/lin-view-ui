@@ -1,9 +1,9 @@
 {
   "name": "@lin-view-ui/row",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "row",
   "main": "dist/index.js",
-  "doc":"index.js",
+  "doc": "index.js",
   "keywords": [
     "lin-view-ui",
     "row"
@@ -27,6 +27,6 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "@lin-view-ui/types": "^1.0.0"
+    "@lin-view-ui/types": "^1.3.0"
   }
 }

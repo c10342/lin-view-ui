@@ -1,9 +1,9 @@
 {
   "name": "@lin-view-ui/table",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "table",
   "main": "dist/index.js",
-  "doc":"index.js",
+  "doc": "index.js",
   "keywords": [
     "lin-view-ui",
     "table"
@@ -27,7 +27,7 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "@lin-view-ui/types": "^1.0.0",
+    "@lin-view-ui/types": "^1.3.0",
     "lodash": "^4.17.21"
   }
 }

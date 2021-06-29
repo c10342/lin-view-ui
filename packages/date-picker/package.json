@@ -1,9 +1,9 @@
 {
   "name": "@lin-view-ui/date-picker",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "date-picker",
   "main": "dist/index.js",
-  "doc":"index.js",
+  "doc": "index.js",
   "keywords": [
     "lin-view-ui",
     "date-picker"
@@ -27,8 +27,8 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "@lin-view-ui/types": "^1.0.0",
-    "@lin-view-ui/mixins": "^1.0.0",
-    "@lin-view-ui/utils": "^1.0.0"
+    "@lin-view-ui/mixins": "^1.3.0",
+    "@lin-view-ui/types": "^1.3.0",
+    "@lin-view-ui/utils": "^1.3.0"
   }
 }

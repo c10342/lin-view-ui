@@ -1,9 +1,9 @@
 {
   "name": "@lin-view-ui/button",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "button",
   "main": "dist/index.js",
-  "doc":"index.js",
+  "doc": "index.js",
   "keywords": [
     "lin-view-ui",
     "button"
@@ -27,7 +27,7 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "@lin-view-ui/types": "^1.0.0",
-    "@lin-view-ui/spinner": "^1.0.0"
+    "@lin-view-ui/spinner": "^1.3.0",
+    "@lin-view-ui/types": "^1.3.0"
   }
 }

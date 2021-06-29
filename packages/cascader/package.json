@@ -1,9 +1,9 @@
 {
   "name": "@lin-view-ui/cascader",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "cascader",
   "main": "dist/index.js",
-  "doc":"index.js",
+  "doc": "index.js",
   "keywords": [
     "lin-view-ui",
     "cascader"
@@ -27,8 +27,8 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "@lin-view-ui/types": "^1.0.0",
-    "@lin-view-ui/mixins": "^1.0.0",
-    "@lin-view-ui/input": "^1.0.0"
+    "@lin-view-ui/input": "^1.3.0",
+    "@lin-view-ui/mixins": "^1.3.0",
+    "@lin-view-ui/types": "^1.3.0"
   }
 }

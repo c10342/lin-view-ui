@@ -1,9 +1,9 @@
 {
   "name": "@lin-view-ui/locale",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "locale",
   "main": "dist/index.js",
-  "doc":"index.js",
+  "doc": "index.js",
   "keywords": [
     "lin-view-ui",
     "locale"
