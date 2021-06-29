@@ -1,14 +1,15 @@
 {
-    "name": "@lin-view-ui/main",
+    "name": "lin-view-ui",
     "version": "1.0.0",
     "description": "vue components library",
-    "main": "index.js",
+    "main": "lib/index.js",
     "doc":"index.js",
     "keywords": [
       "vue",
       "UI",
       "Component"
     ],
+    "typings": "types/index.d.ts",
     "homepage": "https://github.com/c10342/lin-view-ui",
     "repository": {
       "type": "git",
@@ -18,7 +19,8 @@
       "url": "https://github.com/c10342/lin-view-ui/issues"
     },
     "files": [
-      "lib"
+      "lib",
+      "types"
     ],
     "author": "c10342",
     "license": "MIT",
@@ -26,6 +28,7 @@
       "vue": "^2.6.14"
     },
     "dependencies": {
+      "@lin-view-ui/types": "^1.0.0",
       "@lin-view-ui/alert": "^1.0.0",
       "@lin-view-ui/backtop": "^1.0.0",
       "@lin-view-ui/badge": "^1.0.0",
@@ -87,6 +90,13 @@
       "@lin-view-ui/video-card": "^1.0.0",
       "@lin-view-ui/link": "^1.0.0",
       "@lin-view-ui/live-comment": "^1.0.0",
-      "@lin-view-ui/locale": "^1.0.0"
+      "@lin-view-ui/locale": "^1.0.0",
+      "async-validator": "^3.5.1",
+      "lodash": "^4.17.21",
+      "deepmerge": "^4.2.2",
+      "spark-md5": "^3.0.1",
+      "resize-observer-polyfill": "^1.5.1",
+      "flv.js": "^1.5.0",
+      "hls.js": "^1.0.7"
     }
   }
