@@ -26,14 +26,17 @@ const buildComponent = async comp => {
   await clean(resolve(`./${comp}/dist`));
   await rollupBuild(inputConfig, outputConfig);
   await buildScss(
-    resolve(`./theme-chalk/src/${comp}.scss`),
+    [
+      resolve(`./theme-chalk/src/${comp}.scss`),
+      resolve(`./theme-chalk/src/base.scss`)
+    ],
     resolve(`./${comp}/dist`)
   );
-  await copyfont(resolve(`./${comp}/dist/fonts`), comp);
+  await copyfont(resolve(`./${comp}/dist/fonts`));
   console.log(comp, "done");
 };
 
-// buildComponent("video-player");
+// buildComponent("button");
 
 const compList = fs
   .readdirSync(root)

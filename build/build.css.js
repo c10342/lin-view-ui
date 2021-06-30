@@ -8,11 +8,11 @@ const rename = require("gulp-rename");
 
 const autoprefixer = require("gulp-autoprefixer");
 
+const concat = require("gulp-concat");
+
 const path = require("path");
 
 const root = path.resolve(__dirname, "../packages/theme-chalk");
-
-const fs = require("fs");
 
 const resolve = pathSrc => path.resolve(root, pathSrc);
 
@@ -24,6 +24,7 @@ const buildScss = (
   }
 ) => {
   return src(srcPath)
+    .pipe(concat("style.scss"))
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer({ cascade: false }))
     .pipe(cssmin())
@@ -36,11 +37,7 @@ const buildScss = (
     .pipe(dest(distPath));
 };
 
-function copyfont(distPath, comp) {
-  const str = fs.readFileSync(resolve(`./src/${comp}.scss`));
-  if (!str.includes("./iconfont.css")) {
-    return Promise.resolve();
-  }
+function copyfont(distPath) {
   return src(resolve("./src/fonts") + "/**")
     .pipe(cssmin())
     .pipe(dest(distPath));

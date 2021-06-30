@@ -46,7 +46,14 @@ const buildesIndex = async () => {
       basename: "index"
     }
   );
-  await copyfont(resolveOutput(`./lib/theme-chalk/fonts`), "index");
+  await buildScss(
+    resolveInput(`../theme-chalk/src/base.scss`),
+    resolveOutput(`./lib/theme-chalk`),
+    {
+      basename: "base"
+    }
+  );
+  await copyfont(resolveOutput(`./lib/theme-chalk/fonts`));
   console.log("es build success");
 };
 const buildumdIndex = async () => {
