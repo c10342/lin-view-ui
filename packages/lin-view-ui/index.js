@@ -1,4 +1,4 @@
-import locale from "@lin-view-ui/locale";
+import i18nLocale from "@lin-view-ui/locale";
 import Alert from "@lin-view-ui/alert";
 import Backtop from "@lin-view-ui/backtop";
 import Badge from "@lin-view-ui/badge";
@@ -125,9 +125,13 @@ const components = [
   LiveComment
 ];
 
+const locale = i18nLocale.use;
+const i18n = i18nLocale.i18n;
+const version = "1.3.2";
+
 const install = (Vue, opts = {}) => {
-  locale.use(opts.locale);
-  locale.i18n(opts.i18n);
+  locale(opts.locale);
+  i18n(opts.i18n);
   components.forEach(comp => {
     Vue.use(comp);
   });
@@ -139,10 +143,78 @@ if (typeof window !== "undefined" && window.Vue) {
 }
 
 export default {
-  locale: locale.use,
-  i18n: locale.i18n,
+  locale,
+  i18n,
   install,
-  version: "1.1.1",
+  version,
+  Alert,
+  Backtop,
+  Badge,
+  Button,
+  Cascader,
+  Checkbox,
+  CheckboxGroup,
+  ChoiceGroup,
+  ChoiceItem,
+  ChoiceOption,
+  Input,
+  Loading,
+  PlayerFullscreen,
+  PlayerProcess,
+  PlayerVolume,
+  Spinner,
+  VideoPlayer,
+  Col,
+  CollapseGroup,
+  CollapseItem,
+  DateAxis,
+  DatePicker,
+  Dialog,
+  Dropdown,
+  DropdownGroup,
+  DropdownItem,
+  Form,
+  FormItem,
+  HoverEffect,
+  Image,
+  InputNumber,
+  LimitTextarea,
+  LoadingBar,
+  Magnifier,
+  Message,
+  MessageBox,
+  MetaInfo,
+  MultiPlayer,
+  PageHeader,
+  Pagination,
+  Progress,
+  Radio,
+  RadioGroup,
+  Row,
+  ScrollBar,
+  ScrollView,
+  SelectorGroup,
+  SelectorItem,
+  ShowMore,
+  Skeleton,
+  Switch,
+  TabGroup,
+  TabItem,
+  Table,
+  TableColumn,
+  Tag,
+  Tooltip,
+  Upload,
+  VideoCard,
+  Link,
+  LiveComment
+};
+
+export {
+  locale,
+  i18n,
+  install,
+  version,
   Alert,
   Backtop,
   Badge,
