@@ -20,9 +20,6 @@
   "bugs": {
     "url": "https://github.com/c10342/lin-view-ui/issues"
   },
-  "files": [
-    "/"
-  ],
   "author": "c10342",
   "license": "MIT",
   "peerDependencies": {
