@@ -2,6 +2,33 @@ import { logsType } from "../../../config/index.js";
 
 export default [
   {
+    version: "1.3.3",
+    time: "2021-06-30",
+    content: [
+      {
+        title: "New features",
+        list: [
+          "Adopt multi package architecture",
+          "Use rollup",
+          "tree shaking",
+          "Support single component installation and use"
+        ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
+  },
+  {
+    version: "1.2.0",
+    time: "2021-05-06",
+    content: [
+      {
+        title: "Add Component",
+        list: ["MultiPlayer"],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
+  },
+  {
     version: "1.1.1",
     time: "2021-03-20",
     content: [

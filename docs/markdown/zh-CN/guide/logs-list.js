@@ -2,7 +2,23 @@ import { logsType } from "../../../config/index.js";
 
 export default [
   {
-    version: "1.1.2",
+    version: "1.3.3",
+    time: "2021-06-30",
+    content: [
+      {
+        title: "新特性",
+        list: [
+          "采用多包架构",
+          "使用rollup打包组件",
+          "JS 代码默认支持基于 ES modules 的 tree shaking",
+          "支持单个组件安装使用"
+        ],
+        type: logsType.ADDCOMPONENT
+      }
+    ]
+  },
+  {
+    version: "1.2.0",
     time: "2021-05-06",
     content: [
       {
