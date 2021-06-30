@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/badge",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "badge",
   "main": "dist/index.js",
   "doc": "index.js",
@@ -30,6 +30,6 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "@lin-view-ui/types": "^1.3.2"
+    "@lin-view-ui/types": "^1.3.3"
   }
 }

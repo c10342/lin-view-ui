@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/image",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "image",
   "main": "dist/index.js",
   "doc": "index.js",
@@ -30,7 +30,7 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "@lin-view-ui/mixins": "^1.3.2",
-    "@lin-view-ui/types": "^1.3.2"
+    "@lin-view-ui/mixins": "^1.3.3",
+    "@lin-view-ui/types": "^1.3.3"
   }
 }
