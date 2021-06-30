@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/choice-option",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "choice-option",
   "main": "dist/index.js",
   "doc": "index.js",

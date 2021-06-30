@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/meta-info",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "meta-info",
   "main": "dist/index.js",
   "doc": "index.js",

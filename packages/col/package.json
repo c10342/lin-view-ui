@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/col",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "col",
   "main": "dist/index.js",
   "doc": "index.js",

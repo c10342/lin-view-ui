@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/row",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "row",
   "main": "dist/index.js",
   "doc": "index.js",

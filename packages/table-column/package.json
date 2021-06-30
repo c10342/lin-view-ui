@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/table-column",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "table-column",
   "main": "dist/index.js",
   "doc": "index.js",

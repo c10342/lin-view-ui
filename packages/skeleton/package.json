@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/skeleton",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "skeleton",
   "main": "dist/index.js",
   "doc": "index.js",

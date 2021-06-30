@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/date-axis",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "date-axis",
   "main": "dist/index.js",
   "doc": "index.js",
@@ -26,10 +26,10 @@
     "vue": "^2.6.14"
   },
   "dependencies": {
-    "@lin-view-ui/date-picker": "^1.3.3",
-    "@lin-view-ui/mixins": "^1.3.3",
+    "@lin-view-ui/date-picker": "^1.3.4",
+    "@lin-view-ui/mixins": "^1.3.4",
     "@lin-view-ui/types": "^1.3.3",
-    "@lin-view-ui/utils": "^1.3.3",
+    "@lin-view-ui/utils": "^1.3.4",
     "lodash": "^4.17.21"
   }
 }

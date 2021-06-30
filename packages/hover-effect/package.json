@@ -1,6 +1,6 @@
 {
   "name": "@lin-view-ui/hover-effect",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "hover-effect",
   "main": "dist/index.js",
   "doc": "index.js",
