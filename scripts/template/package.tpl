@@ -9,6 +9,9 @@
     "{{name}}"
   ],
   "typings": "types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/c10342/lin-view-ui/tree/master/packages/{{name}}",
   "repository": {
     "type": "git",
