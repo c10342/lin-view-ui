@@ -28,7 +28,7 @@ const formatImportPath = id => {
 const buildesIndex = async () => {
   const inputConfig = createInputConfig({
     input: resolveInput("./index.js"),
-    external: getExternalsDep("lin-view-ui"),
+    external: getExternalsDep("lin-view-ui", true),
     plugins: [
       alias({
         entries: [{ find: /^@lin-view-ui/, replacement: packagesRoot }]

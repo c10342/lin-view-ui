@@ -10,7 +10,7 @@ const image = require("@rollup/plugin-image");
 
 const root = path.resolve(__dirname, "../packages");
 
-function getExternalsDep(name) {
+function getExternalsDep(name, dev = false) {
   const dir = path.resolve(root, name);
   const pck = require(path.resolve(dir, "./package.json"));
 
@@ -21,6 +21,11 @@ function getExternalsDep(name) {
 
   Object.keys(dependencies).forEach(key => externals.push(key));
   Object.keys(peerDependencies).forEach(key => externals.push(key));
+
+  if (dev) {
+    const devDependencies = pck.devDependencies || {};
+    Object.keys(devDependencies).forEach(key => externals.push(key));
+  }
 
   return [...new Set(externals), "flv.js/dist/flv.js"];
 }
