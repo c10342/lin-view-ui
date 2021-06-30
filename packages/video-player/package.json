@@ -39,6 +39,5 @@
     "flv.js": "^1.5.0",
     "hls.js": "^1.0.7",
     "lodash": "^4.17.21"
-  },
-  "gitHead": "4677eabbf8e0145e9c14a9e8d2eda1eed3ced2f6"
+  }
 }
