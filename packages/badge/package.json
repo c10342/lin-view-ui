@@ -3,6 +3,7 @@
   "version": "1.3.4",
   "description": "badge",
   "main": "dist/index.js",
+  "style": "dist/style.css",
   "doc": "index.js",
   "keywords": [
     "lin-view-ui",
