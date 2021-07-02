@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "{{name}}",
   "main": "dist/index.js",
+  "style": "dist/style.css",
   "doc":"index.js",
   "keywords": [
     "lin-view-ui",
