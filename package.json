@@ -34,7 +34,7 @@
     "dev:docs": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.docs.js",
     "dev:examples": "cross-env NODE_ENV=development target=examples webpack-dev-server --config ./build/webpack.docs.js",
     "build:docs": "cross-env NODE_ENV=production webpack --config ./build/webpack.docs.js",
-    "upload:docs":"npm run build:docs && node ./scripts/qiniu.js",
+    "upload:docs": "npm run build:docs && node ./scripts/qiniu.js",
     "build:utils": "node ./build/build.utils.js",
     "build:locale": "node ./build/build.locale.js",
     "build:mixins": "node ./build/build.mixins.js",
