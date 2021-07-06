@@ -17,8 +17,8 @@
   <a href="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/index.js?compression=gzip&label=gzip%20size:%20JS">
     <img src="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/index.js?compression=gzip&label=gzip%20size:%20JS">
   </a>
-  <a href="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/style.css?compression=gzip&label=gzip%20size:%20CSS">
-    <img src="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/style.css?compression=gzip&label=gzip%20size:%20CSS">
+  <a href="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/theme-chalk/index.css?compression=gzip&label=gzip%20size:%20CSS">
+    <img src="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/theme-chalk/index.css?compression=gzip&label=gzip%20size:%20CSS">
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
