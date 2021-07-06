@@ -30,28 +30,28 @@ export default {
       options1: [
         {
           value: "选项1",
-          label: "黄金糕",
+          label: "黄金糕"
         },
         {
           value: "选项2",
-          label: "双皮奶",
+          label: "双皮奶"
         },
         {
           value: "选项3",
-          label: "蚵仔煎",
+          label: "蚵仔煎"
         },
         {
           value: "选项4",
-          label: "龙须面",
+          label: "龙须面"
         },
         {
           value: "选项5",
-          label: "北京烤鸭",
-        },
+          label: "北京烤鸭"
+        }
       ],
-      value1: "",
+      value1: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -85,29 +85,29 @@ export default {
       options2: [
         {
           value: "选项1",
-          label: "黄金糕",
+          label: "黄金糕"
         },
         {
           value: "选项2",
           label: "双皮奶",
-          disabled: true,
+          disabled: true
         },
         {
           value: "选项3",
-          label: "蚵仔煎",
+          label: "蚵仔煎"
         },
         {
           value: "选项4",
-          label: "龙须面",
+          label: "龙须面"
         },
         {
           value: "选项5",
-          label: "北京烤鸭",
-        },
+          label: "北京烤鸭"
+        }
       ],
-      value2: "",
+      value2: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -140,28 +140,28 @@ export default {
       options1: [
         {
           value: "选项1",
-          label: "黄金糕",
+          label: "黄金糕"
         },
         {
           value: "选项2",
-          label: "双皮奶",
+          label: "双皮奶"
         },
         {
           value: "选项3",
-          label: "蚵仔煎",
+          label: "蚵仔煎"
         },
         {
           value: "选项4",
-          label: "龙须面",
+          label: "龙须面"
         },
         {
           value: "选项5",
-          label: "北京烤鸭",
-        },
+          label: "北京烤鸭"
+        }
       ],
-      value3: "",
+      value3: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -194,28 +194,28 @@ export default {
       options1: [
         {
           value: "选项1",
-          label: "黄金糕",
+          label: "黄金糕"
         },
         {
           value: "选项2",
-          label: "双皮奶",
+          label: "双皮奶"
         },
         {
           value: "选项3",
-          label: "蚵仔煎",
+          label: "蚵仔煎"
         },
         {
           value: "选项4",
-          label: "龙须面",
+          label: "龙须面"
         },
         {
           value: "选项5",
-          label: "北京烤鸭",
-        },
+          label: "北京烤鸭"
+        }
       ],
-      value4: "",
+      value4: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -252,32 +252,32 @@ export default {
       cities: [
         {
           value: "Beijing",
-          label: "北京",
+          label: "北京"
         },
         {
           value: "Shanghai",
-          label: "上海",
+          label: "上海"
         },
         {
           value: "Nanjing",
-          label: "南京",
+          label: "南京"
         },
         {
           value: "Chengdu",
-          label: "成都",
+          label: "成都"
         },
         {
           value: "Shenzhen",
-          label: "深圳",
+          label: "深圳"
         },
         {
           value: "Guangzhou",
-          label: "广州",
-        },
+          label: "广州"
+        }
       ],
-      value5: "",
+      value5: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -319,39 +319,39 @@ export default {
           options: [
             {
               value: "Shanghai",
-              label: "上海",
+              label: "上海"
             },
             {
               value: "Beijing",
-              label: "北京",
-            },
-          ],
+              label: "北京"
+            }
+          ]
         },
         {
           label: "城市名",
           options: [
             {
               value: "Chengdu",
-              label: "成都",
+              label: "成都"
             },
             {
               value: "Shenzhen",
-              label: "深圳",
+              label: "深圳"
             },
             {
               value: "Guangzhou",
-              label: "广州",
+              label: "广州"
             },
             {
               value: "Dalian",
-              label: "大连",
-            },
-          ],
-        },
+              label: "大连"
+            }
+          ]
+        }
       ],
-      value6: "",
+      value6: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -390,40 +390,40 @@ export default {
       options4: [
         {
           value: "选项1",
-          label: "黄金糕",
+          label: "黄金糕"
         },
         {
           value: "选项2",
-          label: "双皮奶",
+          label: "双皮奶"
         },
         {
           value: "选项3",
-          label: "蚵仔煎",
+          label: "蚵仔煎"
         },
         {
           value: "选项4",
-          label: "龙须面",
+          label: "龙须面"
         },
         {
           value: "选项5",
-          label: "北京烤鸭",
+          label: "北京烤鸭"
         },
         {
           value: "选项56",
-          label: "北京烤鸭",
+          label: "北京烤鸭"
         },
         {
           value: "选项57",
-          label: "北京烤鸭",
+          label: "北京烤鸭"
         },
         {
           value: "选项58",
-          label: "北京烤鸭",
-        },
+          label: "北京烤鸭"
+        }
       ],
       value7: "",
 
-      loading: false,
+      loading: false
     };
   },
   mounted() {
@@ -441,39 +441,39 @@ export default {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "黄金糕",
+            label: "黄金糕"
           },
           {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "双皮奶",
+            label: "双皮奶"
           },
           {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "蚵仔煎",
+            label: "蚵仔煎"
           },
           {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "龙须面",
+            label: "龙须面"
           },
           {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "北京烤鸭",
-          },
+            label: "北京烤鸭"
+          }
         ];
         this.options4.push(...options);
         this.loading = false;
         this.count++;
       }, 3000);
-    },
-  },
+    }
+  }
 };
 </script>
 ```
@@ -506,28 +506,28 @@ export default {
       options1: [
         {
           value: "选项1",
-          label: "黄金糕",
+          label: "黄金糕"
         },
         {
           value: "选项2",
-          label: "双皮奶",
+          label: "双皮奶"
         },
         {
           value: "选项3",
-          label: "蚵仔煎",
+          label: "蚵仔煎"
         },
         {
           value: "选项4",
-          label: "龙须面",
+          label: "龙须面"
         },
         {
           value: "选项5",
-          label: "北京烤鸭",
-        },
+          label: "北京烤鸭"
+        }
       ],
-      value1: "",
+      value1: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -536,25 +536,25 @@ export default {
 
 ## ChoiceGroup 属性
 
-| 参数              | 说明                                              | 类型                 | 可选值 | 默认值   |
-| ----------------- | ------------------------------------------------- | -------------------- | ------ | -------- |
-| value / v-model   | 绑定值                                            | Object,String,Number | —      | —        |
-| placeholder       | 占位符                                            | String               | —      | 请选择   |
-| valueKey          | 作为 value 唯一标识的键名，绑定值为对象类型时必填 | String               | —      | —        |
-| clearable         | 是否可以清空选项                                  | Boolean              | —      | false    |
-| disabled          | 是否禁用                                          | Boolean              | —      | false    |
-| isThrottle        | 开启下拉加载时是否进行防抖                        | Boolean              | —      | true     |
-| scroll            | 是否开启下拉加载                                  | Boolean              | —      | false    |
-| time              | 防抖间隔时间                                      | Number               | —      | 500ms    |
-| loading           | 是否开启加载动画效果                              | Boolean              | —      | false    |
-| loadingTip        | 加载提示语                                        | String               | —      | —        |
-| emptyTip          | 数据为空时显示的提示语                            | String               | —      | 暂无数据 |
-| finishLoading     | 是否完成加载，一般用于滚动加载                    | Boolean              | —      | false    |
-| defaultLabelName  | 默认显示内容，一般用于滚动加载回显数据            | String, Number       | —      | —        |
-| showSearchInput   | 是否显示远程搜索输入框                            | Boolean              | —      | false    |
-| searchPlaceholder | 远程搜索输入框占位符                              | String               | —      | 请输入   |
-| filterable        | 是否开启本地搜索                                  | Boolean              | —      | false    |
-| filterMethod      | 自定义本地搜索方法                                | Function             | —      | —        |
+| 参数              | 说明                                                                                                                                  | 类型                 | 可选值 | 默认值   |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------ | -------- |
+| value / v-model   | 绑定值                                                                                                                                | Object,String,Number | —      | —        |
+| placeholder       | 占位符                                                                                                                                | String               | —      | 请选择   |
+| valueKey          | 作为 value 唯一标识的键名，绑定值为对象类型时使用                                                                                     | String               | —      | id       |
+| labelKey          | 作为显示的键名，绑定值为对象类型时使用                                                                                                | String               | —      | label    |
+| clearable         | 是否可以清空选项                                                                                                                      | Boolean              | —      | false    |
+| disabled          | 是否禁用                                                                                                                              | Boolean              | —      | false    |
+| isThrottle        | 开启下拉加载时是否进行防抖                                                                                                            | Boolean              | —      | true     |
+| scroll            | 是否开启下拉加载，当开启此功能时，强烈建议`value / v-model`使用对象类型，否则回显的时候一旦数据不在列表中，显示的名称可能不是你想要的 | Boolean              | —      | false    |
+| time              | 防抖间隔时间                                                                                                                          | Number               | —      | 500ms    |
+| loading           | 是否开启加载动画效果                                                                                                                  | Boolean              | —      | false    |
+| loadingTip        | 加载提示语                                                                                                                            | String               | —      | —        |
+| emptyTip          | 数据为空时显示的提示语                                                                                                                | String               | —      | 暂无数据 |
+| finishLoading     | 是否完成加载，一般用于滚动加载                                                                                                        | Boolean              | —      | false    |
+| showSearchInput   | 是否显示远程搜索输入框                                                                                                                | Boolean              | —      | false    |
+| searchPlaceholder | 远程搜索输入框占位符                                                                                                                  | String               | —      | 请输入   |
+| filterable        | 是否开启本地搜索                                                                                                                      | Boolean              | —      | false    |
+| filterMethod      | 自定义本地搜索方法                                                                                                                    | Function             | —      | —        |
 
 ## ChoiceGroup 事件
 
@@ -570,11 +570,12 @@ export default {
 
 ## ChoiceGroup 插槽
 
-| 插槽名称 | 说明                                           |
-| -------- | ---------------------------------------------- |
-| —        | ChoiceItem 组件列表 或者 ChoiceOption 组件列表 |
-| empty    | 数据为空时的内容                               |
-| loading  | 自定义加载动画                                 |
+| 插槽名称     | 说明                                           |
+| ------------ | ---------------------------------------------- |
+| —            | ChoiceItem 组件列表 或者 ChoiceOption 组件列表 |
+| empty        | 数据为空时的内容                               |
+| loading      | 自定义加载动画                                 |
+| search-input | 自定义远程搜索的输入框                         |
 
 ## ChoiceItem 属性
 

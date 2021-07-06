@@ -30,28 +30,28 @@ export default {
       options1: [
         {
           value: "Option1",
-          label: "Option1",
+          label: "Option1"
         },
         {
           value: "Option2",
-          label: "Option2",
+          label: "Option2"
         },
         {
           value: "Option3",
-          label: "Option3",
+          label: "Option3"
         },
         {
           value: "Option4",
-          label: "Option4",
+          label: "Option4"
         },
         {
           value: "Option5",
-          label: "Option5",
-        },
+          label: "Option5"
+        }
       ],
-      value1: "",
+      value1: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -85,29 +85,29 @@ export default {
       options2: [
         {
           value: "Option1",
-          label: "Option1",
+          label: "Option1"
         },
         {
           value: "Option2",
           label: "Option2",
-          disabled: true,
+          disabled: true
         },
         {
           value: "Option3",
-          label: "Option3",
+          label: "Option3"
         },
         {
           value: "Option4",
-          label: "Option4",
+          label: "Option4"
         },
         {
           value: "Option5",
-          label: "Option5",
-        },
+          label: "Option5"
+        }
       ],
-      value2: "",
+      value2: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -140,28 +140,28 @@ export default {
       options1: [
         {
           value: "Option1",
-          label: "Option1",
+          label: "Option1"
         },
         {
           value: "Option2",
-          label: "Option2",
+          label: "Option2"
         },
         {
           value: "Option3",
-          label: "Option3",
+          label: "Option3"
         },
         {
           value: "Option4",
-          label: "Option4",
+          label: "Option4"
         },
         {
           value: "Option5",
-          label: "Option5",
-        },
+          label: "Option5"
+        }
       ],
-      value3: "",
+      value3: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -194,28 +194,28 @@ export default {
       options1: [
         {
           value: "Option1",
-          label: "Option1",
+          label: "Option1"
         },
         {
           value: "Option2",
-          label: "Option2",
+          label: "Option2"
         },
         {
           value: "Option3",
-          label: "Option3",
+          label: "Option3"
         },
         {
           value: "Option4",
-          label: "Option4",
+          label: "Option4"
         },
         {
           value: "Option5",
-          label: "Option5",
-        },
+          label: "Option5"
+        }
       ],
-      value4: "",
+      value4: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -252,32 +252,32 @@ export default {
       cities: [
         {
           value: "Beijing",
-          label: "Beijing",
+          label: "Beijing"
         },
         {
           value: "Shanghai",
-          label: "Shanghai",
+          label: "Shanghai"
         },
         {
           value: "Nanjing",
-          label: "Nanjing",
+          label: "Nanjing"
         },
         {
           value: "Chengdu",
-          label: "Chengdu",
+          label: "Chengdu"
         },
         {
           value: "Shenzhen",
-          label: "Shenzhen",
+          label: "Shenzhen"
         },
         {
           value: "Guangzhou",
-          label: "Guangzhou",
-        },
+          label: "Guangzhou"
+        }
       ],
-      value5: "",
+      value5: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -319,39 +319,39 @@ export default {
           options: [
             {
               value: "Shanghai",
-              label: "Shanghai",
+              label: "Shanghai"
             },
             {
               value: "Beijing",
-              label: "Beijing",
-            },
-          ],
+              label: "Beijing"
+            }
+          ]
         },
         {
           label: "City name",
           options: [
             {
               value: "Chengdu",
-              label: "Chengdu",
+              label: "Chengdu"
             },
             {
               value: "Shenzhen",
-              label: "Shenzhen",
+              label: "Shenzhen"
             },
             {
               value: "Guangzhou",
-              label: "Guangzhou",
+              label: "Guangzhou"
             },
             {
               value: "Dalian",
-              label: "Dalian",
-            },
-          ],
-        },
+              label: "Dalian"
+            }
+          ]
+        }
       ],
-      value6: "",
+      value6: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -390,40 +390,40 @@ export default {
       options4: [
         {
           value: "Option1",
-          label: "Option1",
+          label: "Option1"
         },
         {
           value: "Option2",
-          label: "Option2",
+          label: "Option2"
         },
         {
           value: "Option3",
-          label: "Option3",
+          label: "Option3"
         },
         {
           value: "Option4",
-          label: "Option4",
+          label: "Option4"
         },
         {
           value: "Option5",
-          label: "Option5",
+          label: "Option5"
         },
         {
           value: "Option6",
-          label: "Option6",
+          label: "Option6"
         },
         {
           value: "Option7",
-          label: "Option7",
+          label: "Option7"
         },
         {
           value: "Option8",
-          label: "Option8",
-        },
+          label: "Option8"
+        }
       ],
       value7: "",
 
-      loading: false,
+      loading: false
     };
   },
   mounted() {
@@ -441,39 +441,39 @@ export default {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "Option1",
+            label: "Option1"
           },
           {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "Option2",
+            label: "Option2"
           },
           {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "Option3",
+            label: "Option3"
           },
           {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "Option4",
+            label: "Option4"
           },
           {
             value: Math.random()
               .toString(16)
               .slice(-9),
-            label: "Option5",
-          },
+            label: "Option5"
+          }
         ];
         this.options4.push(...options);
         this.loading = false;
         this.count++;
       }, 3000);
-    },
-  },
+    }
+  }
 };
 </script>
 ```
@@ -506,28 +506,28 @@ export default {
       options1: [
         {
           value: "Option1",
-          label: "Option1",
+          label: "Option1"
         },
         {
           value: "Option2",
-          label: "Option2",
+          label: "Option2"
         },
         {
           value: "Option3",
-          label: "Option3",
+          label: "Option3"
         },
         {
           value: "Option4",
-          label: "Option4",
+          label: "Option4"
         },
         {
           value: "Option5",
-          label: "Option5",
-        },
+          label: "Option5"
+        }
       ],
-      value1: "",
+      value1: ""
     };
-  },
+  }
 };
 </script>
 ```
@@ -536,25 +536,25 @@ export default {
 
 ## ChoiceGroup Attributes
 
-| Attribute         | Description                                                               | Type                 | Accepted Values | Default       |
-| ----------------- | ------------------------------------------------------------------------- | -------------------- | --------------- | ------------- |
-| value / v-model   | binding value                                                             | Object,String,Number | —               | —             |
-| placeholder       | placeholder                                                               | String               | —               | Please select |
-| valueKey          | unique identity key name for value, required when value is an object      | String               | —               | —             |
-| clearable         | whether ChoiceGroup can be cleared                                        | Boolean              | —               | false         |
-| disabled          | whether ChoiceGroup is disabled                                           | Boolean              | —               | false         |
-| isThrottle        | Whether to perform anti shake when starting pull-down loading             | Boolean              | —               | true          |
-| scroll            | Whether to enable pull-down loading                                       | Boolean              | —               | false         |
-| time              | Buffeting interval                                                        | Number               | —               | 500ms         |
-| loading           | Whether to turn on loading animation                                      | Boolean              | —               | false         |
-| loadingTip        | Loading prompt                                                            | String               | —               | —             |
-| emptyTip          | Prompt when data is empty                                                 | String               | —               | No data       |
-| finishLoading     | Whether to complete loading is generally used for rolling loading         | Boolean              | —               | false         |
-| defaultLabelName  | The default display content is generally used for scrolling the echo data | String, Number       | —               | —             |
-| showSearchInput   | Whether to show searchInput                                               | Boolean              | —               | false         |
-| searchPlaceholder | Remote search input box placeholder                                       | String               | —               | Please Enter  |
-| filterable        | Whether to open Remote search                                             | Boolean              | —               | false         |
-| filterMethod      | Custom local search method                                                | Function             | —               | —             |
+| Attribute         | Description                                                          | Type                 | Accepted Values | Default       |
+| ----------------- | -------------------------------------------------------------------- | -------------------- | --------------- | ------------- |
+| value / v-model   | binding value                                                        | Object,String,Number | —               | —             |
+| placeholder       | placeholder                                                          | String               | —               | Please select |
+| valueKey          | unique identity key name for value, required when value is an object | String               | —               | id            |
+| labelKey          | label name for value, required when value is an object               | String               | —               | label         |
+| clearable         | whether ChoiceGroup can be cleared                                   | Boolean              | —               | false         |
+| disabled          | whether ChoiceGroup is disabled                                      | Boolean              | —               | false         |
+| isThrottle        | Whether to perform anti shake when starting pull-down loading        | Boolean              | —               | true          |
+| scroll            | Whether to enable pull-down loading                                  | Boolean              | —               | false         |
+| time              | Buffeting interval                                                   | Number               | —               | 500ms         |
+| loading           | Whether to turn on loading animation                                 | Boolean              | —               | false         |
+| loadingTip        | Loading prompt                                                       | String               | —               | —             |
+| emptyTip          | Prompt when data is empty                                            | String               | —               | No data       |
+| finishLoading     | Whether to complete loading is generally used for rolling loading    | Boolean              | —               | false         |
+| showSearchInput   | Whether to show searchInput                                          | Boolean              | —               | false         |
+| searchPlaceholder | Remote search input box placeholder                                  | String               | —               | Please Enter  |
+| filterable        | Whether to open Remote search                                        | Boolean              | —               | false         |
+| filterMethod      | Custom local search method                                           | Function             | —               | —             |
 
 ## ChoiceGroup Events
 
@@ -570,11 +570,12 @@ export default {
 
 ## ChoiceGroup Slots
 
-| Name    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| —       | Choiceitem component list or choiceoption component list |
-| empty   | Content when data is empty                               |
-| loading | Custom loading animation                                 |
+| Name         | Description                                              |
+| ------------ | -------------------------------------------------------- |
+| —            | Choiceitem component list or choiceoption component list |
+| empty        | Content when data is empty                               |
+| loading      | Custom loading animation                                 |
+| search-input | Custom search input                                      |
 
 ## ChoiceItem Attributes
 
