@@ -1,3 +1,5 @@
+import { isFunction } from "@lin-view-ui/utils";
+
 const documentClick = {
   mounted() {
     document.addEventListener("click", this._onDocumentClick);
@@ -5,7 +7,7 @@ const documentClick = {
   methods: {
     _onDocumentClick(event) {
       // event.stopPropagation()
-      if (typeof this.onDocumentClick === "function") {
+      if (isFunction(this.onDocumentClick)) {
         this.onDocumentClick(event);
       }
     }

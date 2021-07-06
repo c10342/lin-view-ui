@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { isNumber, isString } from "@lin-view-ui/utils";
 export default {
   name: "LinBadge",
   props: {
@@ -41,10 +42,10 @@ export default {
   },
   computed: {
     text() {
-      if (typeof this.value === "string") {
+      if (isString(this.value)) {
         return this.value;
       }
-      if (typeof this.value === "number") {
+      if (isNumber(this.value)) {
         if (this.max && this.max < this.value) {
           return `${this.max}+`;
         }

@@ -1,3 +1,5 @@
+import { isArray } from "@lin-view-ui/utils";
+
 export default {
   props: {
     // 是否禁用
@@ -45,7 +47,7 @@ export default {
         }
       }
       if (
-        Array.isArray(this.disabledRangeDate) &&
+        isArray(this.disabledRangeDate) &&
         this.disabledRangeDate.length !== 0
       ) {
         if (this.disabledRangeDate.length === 1) {
@@ -62,7 +64,7 @@ export default {
           }
         }
       }
-      if (Array.isArray(this.disabledDate) && this.disabledDate.length !== 0) {
+      if (isArray(this.disabledDate) && this.disabledDate.length !== 0) {
         const isdisable = this.disabledDate.some(item =>
           this.isEqual(item, date)
         );

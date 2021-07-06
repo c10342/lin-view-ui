@@ -1,3 +1,4 @@
+import { isNull } from "@lin-view-ui/utils";
 export default {
   name: "LinTabGroup",
   render(h) {
@@ -233,7 +234,7 @@ export default {
     // 当前值，就是在哪一个tab
     currentValue: {
       get() {
-        if (this.value !== null) {
+        if (!isNull(this.value)) {
           return (
             this.value ||
             (this.tabChildren.length > 0 ? this.tabChildren[0].name : 0)
@@ -242,7 +243,7 @@ export default {
         return this.currentIndex;
       },
       set(value) {
-        if (this.value !== null) {
+        if (!isNull(this.value)) {
           this.$emit("input", value);
         } else {
           this.currentIndex = value;

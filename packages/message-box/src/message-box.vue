@@ -80,6 +80,7 @@
 import Button from "@lin-view-ui/button";
 import Input from "@lin-view-ui/input";
 import { LocaleMixin, DragMixin } from "@lin-view-ui/mixins";
+import { isFunction, isString, isBoolean } from "@lin-view-ui/utils";
 
 export default {
   name: "LinMessageBox",
@@ -230,7 +231,7 @@ export default {
     },
     // 处理关闭事件
     handleClose(by) {
-      if (typeof this.beforeClose === "function") {
+      if (isFunction(this.beforeClose)) {
         const done = () => {
           this.show = false;
           this.emitClose(by);
@@ -281,12 +282,12 @@ export default {
     },
     // 校验输入框的值
     onInputChange(data) {
-      if (typeof this.inputValidator === "function") {
+      if (isFunction(this.inputValidator)) {
         // 自定义校验方法
         const result = this.inputValidator(data);
-        if (typeof result === "boolean") {
+        if (isBoolean(result)) {
           this.showErrorMessage = !result;
-        } else if (typeof result === "string") {
+        } else if (isString(result)) {
           if (result) {
             // 有返回结果,返回结果就是错误消息
             this.showErrorMessage = true;

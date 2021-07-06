@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { isNumber } from "@lin-view-ui/utils";
 export default {
   name: "LinSpinner",
   props: {
@@ -94,7 +95,7 @@ export default {
     iterationCount: {
       type: [String, Number],
       validator(value) {
-        if (typeof value === "number") {
+        if (isNumber(value)) {
           return true;
         }
         if (value === "infinite") {

@@ -21,7 +21,12 @@
 
 <script>
 import { cloneDeep } from "lodash";
-import { collapseTransition } from "@lin-view-ui/utils";
+import {
+  collapseTransition,
+  isString,
+  isNumber,
+  isArray
+} from "@lin-view-ui/utils";
 
 export default {
   name: "LinCollapseItem",
@@ -63,10 +68,10 @@ export default {
       if (this.collapseGroup) {
         // 统一封装成数组使用
         const val = this.collapseGroup.collapseValue;
-        if (val && (typeof val === "string" || typeof val === "number")) {
+        if (val && (isString(val) || isNumber(val))) {
           return [val];
         }
-        if (Array.isArray(val)) {
+        if (isArray(val)) {
           return val;
         }
       }

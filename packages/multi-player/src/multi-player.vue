@@ -105,7 +105,9 @@ import {
   isBrowserFullscreen,
   isBrowserFullscreenEnabled,
   enterBrowserFullScreen,
-  exitBrowserFullscreen
+  exitBrowserFullscreen,
+  isNumber,
+  isFunction
 } from "@lin-view-ui/utils";
 export default {
   name: "linMultiPlayer",
@@ -477,7 +479,7 @@ export default {
     formatStyle(styleObj) {
       const obj = {};
       Object.keys(styleObj).forEach(key => {
-        if (typeof styleObj[key] === "number") {
+        if (isNumber(styleObj[key])) {
           obj[key] = `${styleObj[key]}px`;
         } else {
           obj[key] = styleObj[key];
@@ -629,7 +631,7 @@ export default {
     handelVideo(callback) {
       for (let i = 0; i < this.playerList.length; i++) {
         const player = this.playerList[i];
-        if (player && typeof callback === "function") {
+        if (player && isFunction(callback)) {
           callback(player);
         }
       }

@@ -1,4 +1,5 @@
 import { LocaleMixin } from "@lin-view-ui/mixins";
+import { isNumber } from "@lin-view-ui/utils";
 
 export default {
   name: "LinPagination",
@@ -57,7 +58,7 @@ export default {
     // 点击每一项
     onItemClick(data) {
       let index = 1;
-      if (data.type === "number") {
+      if (isNumber(data.type)) {
         index = data.index;
       } else if (data.type === "prev") {
         index = this.currentPage - 1;

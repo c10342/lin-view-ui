@@ -1,5 +1,12 @@
 import { LocaleMixin, DateMixin } from "@lin-view-ui/mixins";
-import { getDate, getYearMonthDay, dispatch } from "@lin-view-ui/utils";
+import {
+  getDate,
+  getYearMonthDay,
+  dispatch,
+  isNumber,
+  isDate,
+  isString
+} from "@lin-view-ui/utils";
 
 export default {
   name: "LinDatePicker",
@@ -248,7 +255,7 @@ export default {
       if (!this.value) {
         return "";
       }
-      if (typeof this.value === "string" || typeof this.value === "number") {
+      if (isString(this.value) || isNumber(this.value)) {
         return new Date(this.value);
       }
       if (this.value instanceof Date) {
@@ -319,10 +326,10 @@ export default {
       if (!this.value) {
         return new Date();
       }
-      if (typeof this.value === "string" || typeof this.value === "number") {
+      if (isString(this.value) || isNumber(this.value)) {
         return new Date(this.value);
       }
-      if (this.value instanceof Date) {
+      if (isDate(this.value)) {
         return this.value;
       }
       return new Date();
@@ -377,9 +384,9 @@ export default {
       const { year, month, day } = getYearMonthDay(date);
       this.time = { year, month };
       let d;
-      if (this.format === "string") {
+      if (isString(this.format)) {
         d = `${year}-${month}-${day}`;
-      } else if (this.format === "number") {
+      } else if (isNumber(this.format)) {
         d = new Date(date).getTime();
       } else {
         d = date;

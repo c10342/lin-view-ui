@@ -1,4 +1,5 @@
 import LoadingConstruct from "./construct.js";
+import { isString } from "@lin-view-ui/utils";
 
 let instance = null;
 
@@ -12,7 +13,7 @@ export default {
 
     if (!options.target) {
       options.target = document.body;
-    } else if (typeof options.target === "string") {
+    } else if (isString(options.target)) {
       options.target = document.querySelector(options.target);
     }
     instance.open({ ...options });

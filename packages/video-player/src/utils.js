@@ -1,25 +1,23 @@
+import { isObject, isString, isFunction, isArray } from "@lin-view-ui/utils";
+
 // 判断是否为DOM元素
 export const isDOM = dom => {
-  const fn =
-    typeof HTMLElement === "object"
-      ? function isDOMFn(obj) {
-          return obj instanceof HTMLElement;
-        }
-      : function isDOMFn(obj) {
-          return (
-            obj &&
-            typeof obj === "object" &&
-            obj.nodeType === 1 &&
-            typeof obj.nodeName === "string"
-          );
-        };
+  const fn = isObject(HTMLElement)
+    ? function isDOMFn(obj) {
+        return obj instanceof HTMLElement;
+      }
+    : function isDOMFn(obj) {
+        return (
+          obj && isObject(obj) && obj.nodeType === 1 && isString(obj.nodeName)
+        );
+      };
 
   return fn(dom);
 };
 
 // 校验视频类型参数
 export const handleType = (type, customType) => {
-  if (typeof customType !== "function") {
+  if (isFunction(customType)) {
     const typeList = ["mp4", "hls", "flv"];
     if (!type) {
       throw new ReferenceError("type 没有定义");
@@ -33,16 +31,16 @@ export const handleType = (type, customType) => {
 export const handleEl = el => {
   if (!el) {
     throw new TypeError("el 没有定义");
-  } else if (typeof el !== "string" && !isDOM(el)) {
+  } else if (!isString(el) && !isDOM(el)) {
     throw new TypeError("el 只能是 string 类型 或者是 HTMLElement 类型");
-  } else if (typeof el === "string" && !document.querySelector(el)) {
+  } else if (isString(el) && !document.querySelector(el)) {
     throw new ReferenceError("can not find DOM");
   }
 };
 
 // 校验视频播放数度参数
 export const handleSpeedList = list => {
-  if (!Array.isArray(list)) {
+  if (!isArray(list)) {
     throw new TypeError("speedList 只能是数组");
   } else if (list.some(item => !("label" in item) || !("value" in item))) {
     throw new TypeError(
@@ -53,7 +51,7 @@ export const handleSpeedList = list => {
 
 // 校验视频播放列表参数
 export const handleVideoList = list => {
-  if (!Array.isArray(list)) {
+  if (!isArray(list)) {
     throw new TypeError("videoList 只能是数组");
   } else if (list.some(item => !("label" in item) || !("url" in item))) {
     throw new TypeError(

@@ -1,3 +1,4 @@
+import { isNumber } from "@lin-view-ui/utils";
 import TooltipConstruct from "./construct.js";
 
 const TooltipDirective = {};
@@ -76,10 +77,10 @@ TooltipDirective.install = Vue => {
           let top = el.getAttribute("lin-tooltip-top") * 1;
           // 距离屏幕左边的偏移量
           let left = el.getAttribute("lin-tooltip-left") * 1;
-          if (typeof top !== "number") {
+          if (!isNumber(top)) {
             top = 0;
           }
-          if (typeof left !== "number") {
+          if (!isNumber(left)) {
             left = 0;
           }
 

@@ -11,7 +11,12 @@
 </template>
 
 <script>
-import { splitFileChunk, caculateFileHash, request } from "@lin-view-ui/utils";
+import {
+  splitFileChunk,
+  caculateFileHash,
+  request,
+  isFunction
+} from "@lin-view-ui/utils";
 import LinButton from "@lin-view-ui/button";
 
 export default {
@@ -84,7 +89,7 @@ export default {
       this.selectedFile = e.target.files[0];
       // 清空值
       this.$refs.linUploadInput.value = "";
-      if (typeof this.beforeUpload === "function") {
+      if (isFunction(this.beforeUpload)) {
         // 存在beforeUpload函数
         const res = this.beforeUpload(this.selectedFile);
         if (res instanceof Promise) {
@@ -137,7 +142,7 @@ export default {
       this.createFileChunkList();
       try {
         // 计算出文件hash值
-        if (typeof this.caculateFileHash === "function") {
+        if (isFunction(this.caculateFileHash)) {
           // 自定义计算文件hash值
           this.fileHash = await this.caculateFileHash(this.selectedFile);
         } else {
@@ -277,7 +282,7 @@ export default {
     createFileChunkList() {
       // 将文件进行切片
       try {
-        if (typeof this.splitFileChunk === "function") {
+        if (isFunction(this.splitFileChunk)) {
           this.fileChunkList = this.splitFileChunk(
             this.selectedFile,
             this.fileChunkSize
@@ -311,7 +316,7 @@ export default {
           // 断点续传，需要带上文件的hash值
           parmas.fileHash = this.fileHash;
         }
-        if (typeof this.requestMergeFileFn === "function") {
+        if (isFunction(this.requestMergeFileFn)) {
           // 自定义合并请求接口
           res = await this.requestMergeFileFn(parmas);
         } else {

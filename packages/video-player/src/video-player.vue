@@ -53,7 +53,8 @@ import {
   isBrowserFullscreen,
   isBrowserFullscreenEnabled,
   enterBrowserFullScreen,
-  exitBrowserFullscreen
+  exitBrowserFullscreen,
+  isFunction
 } from "@lin-view-ui/utils";
 import PlayerControls from "./video-player-controls.vue";
 import PlayerAnimation from "./video-player-animation.vue";
@@ -142,7 +143,7 @@ export default {
     initPlayer(data) {
       // 显示loading
       this.isLoading = true;
-      if (typeof this.customType === "function") {
+      if (isFunction(this.customType)) {
         // 自定义MSE
         this.initCustomType(data);
       } else {
@@ -174,7 +175,7 @@ export default {
       )}`;
       // 截图显示出来，防止闪屏
       this.getImage();
-      if (typeof this.customType === "function") {
+      if (isFunction(this.customType)) {
         this.initCustomType(data);
       } else if (this.type === "hls") {
         this.initHls(videoSrc);

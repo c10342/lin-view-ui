@@ -1,3 +1,5 @@
+import { isFunction, isString } from "@lin-view-ui/utils";
+
 export default {
   name: "LinTableBody",
   computed: {
@@ -40,12 +42,12 @@ export default {
       if (this.table) {
         // 传入了类名
         const rowClassName = this.table.rowClassName;
-        if (typeof rowClassName === "function") {
+        if (isFunction(rowClassName)) {
           const result = rowClassName({ row, rowIndex });
           if (result) {
             classArr.push(result);
           }
-        } else if (typeof rowClassName === "string") {
+        } else if (isString(rowClassName)) {
           classArr.push(rowClassName);
         }
       }

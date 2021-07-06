@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { isPlainObject } from "@lin-view-ui/utils";
 export default {
   name: "LinSelectorItem",
   props: {
@@ -40,8 +41,7 @@ export default {
     active() {
       if (this.group) {
         const { valueKey } = this.group;
-        const { toString } = Object.prototype;
-        if (toString.call(this.value) === "[object Object]" && valueKey) {
+        if (isPlainObject(this.value) && valueKey) {
           // 对象的情况
           return this.value[valueKey] === this.group.value[valueKey];
         }

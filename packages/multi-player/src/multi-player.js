@@ -4,6 +4,8 @@ import MultiPlayer from "./multi-player.vue";
 
 import { handleEl } from "@lin-view-ui/video-player";
 
+import { isString } from "@lin-view-ui/utils";
+
 const MultiPlayerConstructor = Vue.extend(MultiPlayer);
 
 class LinMultiPlayer {
@@ -69,7 +71,7 @@ class LinMultiPlayer {
       }
     });
     // 初始化挂在的容器
-    if (typeof this.el === "string") {
+    if (isString(this.el)) {
       this.container = document.querySelector(this.el);
     } else {
       this.container = this.el;

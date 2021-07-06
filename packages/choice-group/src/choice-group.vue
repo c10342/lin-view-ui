@@ -94,7 +94,7 @@
 import { LocaleMixin, DocumentClickMixin } from "@lin-view-ui/mixins";
 import {
   findChildren,
-  isObject,
+  isPlainObject,
   isUndef,
   isEmptyString
 } from "@lin-view-ui/utils";
@@ -236,7 +236,7 @@ export default {
         return groupLabel;
       }
       // 值是一个对象时，优先使用对象的label字段
-      if (isObject(value)) {
+      if (isPlainObject(value)) {
         return value[labelKey] ?? "";
       }
       return value ?? "";

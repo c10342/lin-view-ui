@@ -1,5 +1,6 @@
 import { VUE_META_KEY_NAME } from "./src/common/constants.js";
 import updateMetaInfo from "./src/metaOperate/updateMetaInfo.js";
+import { isUndefined, isFunction } from "@lin-view-ui/utils";
 
 const VueMetaInfo = {};
 
@@ -8,19 +9,17 @@ VueMetaInfo.install = function install(Vue) {
     beforeCreate() {
       const meta = this.$options[VUE_META_KEY_NAME];
       // 如果组件内设置了meta信息
-      if (meta !== undefined) {
-        const type = typeof meta;
-
+      if (!isUndefined(meta)) {
         // 区分是否存在meta信息
         this._hasMetaInfo = true;
 
         // 判断组件内是否存在computed对象
-        if (typeof this.$options.computed === "undefined") {
+        if (isUndefined(this.$options.computed)) {
           this.$options.computed = {};
         }
 
         // 为组件添加computed对象并返回meta信息
-        if (type === "function") {
+        if (isFunction(meta)) {
           this.$options.computed.$metaInfo = meta;
         } else {
           this.$options.computed.$metaInfo = () => meta;

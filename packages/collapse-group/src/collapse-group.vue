@@ -6,6 +6,7 @@
 
 <script>
 import { cloneDeep } from "lodash";
+import { isArray, isString, isNumber } from "@lin-view-ui/utils";
 
 export default {
   name: "LinCollapseGroup",
@@ -74,11 +75,7 @@ export default {
     // 是否使用外部传来value值
     canUseValue() {
       const value = this.value;
-      return (
-        typeof value === "string" ||
-        Array.isArray(value) ||
-        typeof value === "number"
-      );
+      return isString(value) || isArray(value) || isNumber(value);
     }
   }
 };

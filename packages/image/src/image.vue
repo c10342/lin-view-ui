@@ -28,7 +28,7 @@
 </template>
 
 <script>
-// import LocaleMixin from 'src/mixins/locale.js';
+import { isArray } from "@lin-view-ui/utils";
 import { LocaleMixin } from "@lin-view-ui/mixins";
 
 export default {
@@ -112,7 +112,7 @@ export default {
   computed: {
     realImageUrl() {
       let imageArr = this.imgUrl;
-      if (!Array.isArray(imageArr)) {
+      if (!isArray(imageArr)) {
         imageArr = [imageArr];
       }
       return imageArr.filter(Boolean);

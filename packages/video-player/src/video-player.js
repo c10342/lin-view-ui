@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VideoPlayer from "./video-player.vue";
+import { isFunction, isString } from "@lin-view-ui/utils";
 
 import {
   handleType,
@@ -81,7 +82,7 @@ class LinVideoPlayer {
     this.type = type;
     this.el = el;
     this.live = live;
-    if (typeof customType === "function") {
+    if (isFunction(customType)) {
       this.customType = customType;
     }
   }
@@ -99,7 +100,7 @@ class LinVideoPlayer {
       }
     });
     // 初始化挂在的容器
-    if (typeof this.el === "string") {
+    if (isString(this.el)) {
       this.container = document.querySelector(this.el);
     } else {
       this.container = this.el;

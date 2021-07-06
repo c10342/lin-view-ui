@@ -1,3 +1,5 @@
+import { isPlainObject, isUndef } from "@lin-view-ui/utils";
+
 function hasOwn(obj, key) {
   return hasOwnProperty.call(obj, key);
 }
@@ -18,7 +20,7 @@ export default function format() {
    */
 
   function template(string, ...args) {
-    if (args.length === 1 && typeof args[0] === "object") {
+    if (args.length === 1 && isPlainObject(args[0])) {
       args = args[0];
     }
 
@@ -33,7 +35,7 @@ export default function format() {
         return i;
       }
       const result = hasOwn(args, i) ? args[i] : null;
-      if (result === null || result === undefined) {
+      if (isUndef(result)) {
         return "";
       }
 

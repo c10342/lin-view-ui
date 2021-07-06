@@ -1,3 +1,5 @@
+import { isNumber, isPlainObject } from "@lin-view-ui/utils";
+
 export default {
   name: "LinCol",
 
@@ -71,9 +73,9 @@ export default {
       }
     });
     ["xs", "sm", "md", "lg"].forEach(size => {
-      if (typeof this[size] === "number") {
+      if (isNumber(this[size])) {
         classList.push(`lin-col-${size}-${this[size]}`);
-      } else if (typeof this[size] === "object") {
+      } else if (isPlainObject(this[size])) {
         const props = this[size];
         Object.keys(props).forEach(prop => {
           if (prop !== "span") {

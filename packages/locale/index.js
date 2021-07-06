@@ -2,6 +2,7 @@ import defaultLang from "./src/lang/zh-CN.js";
 import Vue from "vue";
 import deepmerge from "deepmerge";
 import Format from "./src/format.js";
+import { isFunction, isUndef } from "@lin-view-ui/utils";
 
 const format = Format(Vue);
 // 默认语言
@@ -13,7 +14,7 @@ let merged = false;
 let i18nHandler = function i18nHandler(...reset) {
   const vuei18n = Object.getPrototypeOf(this || Vue).$t;
   // 查看是否使用自定义的i18n，即用户传入了
-  if (typeof vuei18n === "function" && !!Vue.locale) {
+  if (isFunction(vuei18n) && !!Vue.locale) {
     if (!merged) {
       merged = true;
       // 合并语言包
@@ -28,7 +29,7 @@ let i18nHandler = function i18nHandler(...reset) {
 
 export const t = function t(path, options) {
   let value = i18nHandler.apply(this, [path, options]);
-  if (value !== null && value !== undefined) return value;
+  if (!isUndef(value)) return value;
 
   const array = path.split(".");
   let current = lang;

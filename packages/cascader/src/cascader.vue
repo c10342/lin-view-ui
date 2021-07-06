@@ -49,6 +49,7 @@
 <script>
 import Input from "@lin-view-ui/input";
 import { DocumentClickMixin, LocaleMixin } from "@lin-view-ui/mixins";
+import { isNull, isArray } from "@lin-view-ui/utils";
 import Panel from "./panel.vue";
 
 export default {
@@ -252,8 +253,8 @@ export default {
     // 存储选中的值
     valueArr: {
       get() {
-        if (this.value !== null) {
-          if (Array.isArray(this.value)) {
+        if (!isNull(this.value)) {
+          if (isArray(this.value)) {
             return this.value;
           }
           // this.emitInputEvent([]);
@@ -263,7 +264,7 @@ export default {
         return this.myValueArr || [];
       },
       set(val) {
-        if (this.value !== null) {
+        if (!isNull(this.value)) {
           this.emitInputEvent(val);
         } else {
           this.myValueArr = val;

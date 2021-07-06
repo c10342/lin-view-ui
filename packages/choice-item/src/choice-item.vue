@@ -16,7 +16,7 @@
 
 <script>
 import {
-  isObject,
+  isPlainObject,
   isUndef,
   isString,
   isEmptyString,
@@ -72,7 +72,7 @@ export default {
     itemValue() {
       const valueKey = this.valueKey;
       const value = this.value;
-      if (isObject(value)) {
+      if (isPlainObject(value)) {
         return value[valueKey] ?? "";
       }
       return value ?? "";
@@ -81,7 +81,7 @@ export default {
     groupValue() {
       const valueKey = this.valueKey;
       const value = this.group?.value;
-      if (isObject(value)) {
+      if (isPlainObject(value)) {
         return value[valueKey] ?? "";
       }
       return value ?? "";
@@ -94,7 +94,7 @@ export default {
       if (!isUndef(label)) {
         return label;
       }
-      if (isObject(value)) {
+      if (isPlainObject(value)) {
         return value[labelKey] ?? "";
       }
       return value ?? "";

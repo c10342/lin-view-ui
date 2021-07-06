@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { dispatch } from "@lin-view-ui/utils";
+import { dispatch, isEmptyString, isUndef } from "@lin-view-ui/utils";
 
 export default {
   name: "LinInputNumber",
@@ -121,11 +121,7 @@ export default {
       if (Number.isNaN(this.min)) {
         return false;
       }
-      if (
-        this.value === "" ||
-        this.value === null ||
-        this.value === undefined
-      ) {
+      if (isEmptyString(this.value) || isUndef(this.value)) {
         return false;
       }
       if (this.value <= this.min) {
@@ -142,11 +138,7 @@ export default {
       if (Number.isNaN(this.max)) {
         return false;
       }
-      if (
-        this.value === "" ||
-        this.value === null ||
-        this.value === undefined
-      ) {
+      if (isEmptyString(this.value) || isUndef(this.value)) {
         return false;
       }
       if (this.value >= this.max) {
