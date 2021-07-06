@@ -1,12 +1,16 @@
 <template>
   <div>
-    <lin-choice-group v-model="value1" placeholder="请选择">
+    <lin-choice-group v-model="value5" placeholder="请选择">
       <lin-choice-item
-        v-for="item in options1"
+        v-for="item in cities"
         :key="item.value"
         :label="item.label"
         :value="item.value"
       >
+        <span style="float: left;">{{ item.label }}</span>
+        <span style="float: right; font-size: 13px; color: #8492a6;">{{
+          item.value
+        }}</span>
       </lin-choice-item>
     </lin-choice-group>
   </div>
@@ -16,30 +20,40 @@
 export default {
   data() {
     return {
-      options1: [
+      cities: [
         {
-          value: "选项1",
-          label: "黄金糕"
+          value: "Beijing",
+          label: "北京"
         },
         {
-          value: "选项2",
-          label: "双皮奶"
+          value: "Shanghai",
+          label: "上海"
         },
         {
-          value: "选项3",
-          label: "蚵仔煎"
+          value: "Nanjing",
+          label: "南京"
         },
         {
-          value: "选项4",
-          label: "龙须面"
+          value: "Chengdu",
+          label: "成都"
         },
         {
-          value: "选项5",
-          label: "北京烤鸭"
+          value: "Shenzhen",
+          label: "深圳"
+        },
+        {
+          value: "Guangzhou",
+          label: "广州"
         }
       ],
-      value1: ""
+      value5: "Guangzhou"
     };
+  },
+  mounted() {
+    setTimeout(() => {
+      console.log(1);
+      this.value5 = "";
+    }, 3000);
   }
 };
 </script>

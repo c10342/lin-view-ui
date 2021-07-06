@@ -46,15 +46,17 @@
         v-show="isShow"
       >
         <div class="lin-choice-search-wrapper" v-if="showSearchInput">
-          <lin-input
-            v-model="searchKey"
-            :placeholder="
-              searchPlaceholder || t('LinViewUI.Choice.searchPlaceholder')
-            "
-            @keyup.native.enter="onSearch"
-          >
-            <i class="lin-icon-search" @click.stop="onSearch"></i>
-          </lin-input>
+          <slot name="search-input">
+            <lin-input
+              v-model="searchKey"
+              :placeholder="
+                searchPlaceholder || t('LinViewUI.Choice.searchPlaceholder')
+              "
+              @keyup.native.enter="onSearch"
+            >
+              <i class="lin-icon-search" @click.stop="onSearch"></i>
+            </lin-input>
+          </slot>
         </div>
         <div
           ref="scrollContainer"
@@ -90,7 +92,12 @@
 
 <script>
 import { LocaleMixin, DocumentClickMixin } from "@lin-view-ui/mixins";
-import { findChildren } from "@lin-view-ui/utils";
+import {
+  findChildren,
+  isObject,
+  isUndef,
+  isEmptyString
+} from "@lin-view-ui/utils";
 import Input from "@lin-view-ui/input";
 
 export default {
@@ -111,7 +118,11 @@ export default {
     //  作为 value 唯一标识的键名，绑定值为对象类型时必填
     valueKey: {
       type: String,
-      default: ""
+      default: "id"
+    },
+    labelKey: {
+      type: String,
+      default: "label"
     },
     // 是否可清空
     clearable: {
@@ -156,11 +167,6 @@ export default {
     finishLoading: {
       type: Boolean,
       default: false
-    },
-    // 默认显示内容，一般用于滚动加载回显数据
-    defaultLabelName: {
-      type: [String, Number],
-      default: ""
     },
     // 是否显示远程搜索输入框
     showSearchInput: {
@@ -219,7 +225,21 @@ export default {
       if (this.isSearch) {
         return this.inputValue;
       }
-      return this.groupLabel || this.defaultLabelName;
+      const value = this.value;
+      // 值为空显示也为空
+      if (isEmptyString(value)) {
+        return "";
+      }
+      const groupLabel = this.groupLabel;
+      const labelKey = this.labelKey;
+      if (!isUndef(groupLabel)) {
+        return groupLabel;
+      }
+      // 值是一个对象时，优先使用对象的label字段
+      if (isObject(value)) {
+        return value[labelKey] ?? "";
+      }
+      return value ?? "";
     }
   },
   mounted() {

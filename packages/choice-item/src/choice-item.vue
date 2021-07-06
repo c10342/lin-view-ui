@@ -15,6 +15,13 @@
 </template>
 
 <script>
+import {
+  isObject,
+  isUndef,
+  isString,
+  isEmptyString,
+  isFunction
+} from "@lin-view-ui/utils";
 export default {
   name: "LinChoiceItem",
   props: {
@@ -48,6 +55,12 @@ export default {
     };
   },
   computed: {
+    valueKey() {
+      return this.group?.valueKey ?? "";
+    },
+    labelKey() {
+      return this.group?.labelKey ?? "";
+    },
     // 是否禁用该选项，优先option中的，然后在自己的
     itemDisabled() {
       if (this.option && this.option.disabled) {
@@ -57,24 +70,34 @@ export default {
     },
     // 组件选择项的值
     itemValue() {
-      const valueKey = this.group?.valueKey;
-      if (valueKey && this.value) {
-        return this.value[valueKey];
+      const valueKey = this.valueKey;
+      const value = this.value;
+      if (isObject(value)) {
+        return value[valueKey] ?? "";
       }
-      return this.value;
+      return value ?? "";
     },
     // choice-group组件的value值
     groupValue() {
-      const valueKey = this.group?.valueKey;
+      const valueKey = this.valueKey;
       const value = this.group?.value;
-      if (valueKey && value) {
-        return value[valueKey];
+      if (isObject(value)) {
+        return value[valueKey] ?? "";
       }
-      return value;
+      return value ?? "";
     },
     // 显示的内容
     itemLabel() {
-      return this.label ? this.label : this.value;
+      const label = this.label;
+      const value = this.value;
+      const labelKey = this.labelKey;
+      if (!isUndef(label)) {
+        return label;
+      }
+      if (isObject(value)) {
+        return value[labelKey] ?? "";
+      }
+      return value ?? "";
     },
     // choice-group组件输入框的值
     inputValue() {
@@ -94,12 +117,12 @@ export default {
     // 本地搜索，选出符合条件的
     matchLabel(value) {
       // 值被清空时，显示该组件
-      if (value === "") {
+      if (isEmptyString(value)) {
         this.isShow = true;
         return;
       }
       // 自定义过滤方法
-      if (this.group && typeof this.group.filterMethod === "function") {
+      if (this.group && isFunction(this.group.filterMethod)) {
         this.isShow = this.group.filterMethod(value, this.$props);
       } else {
         // 组件内部过滤方法
@@ -120,7 +143,7 @@ export default {
     },
     // 监听choice-group的input值变化，进行本地搜索
     inputValue(newVal) {
-      if (typeof newVal === "string") {
+      if (isString(newVal)) {
         newVal = newVal.trim();
       }
       this.matchLabel(newVal);
