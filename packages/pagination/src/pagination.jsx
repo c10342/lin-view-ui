@@ -1,5 +1,6 @@
 import { LocaleMixin } from "@lin-view-ui/mixins";
 import { isNumber } from "@lin-view-ui/utils";
+import { layoutType } from "./enum.js";
 
 export default {
   name: "LinPagination",
@@ -60,9 +61,9 @@ export default {
       let index = 1;
       if (isNumber(data.type)) {
         index = data.index;
-      } else if (data.type === "prev") {
+      } else if (data.type === layoutType.prev) {
         index = this.currentPage - 1;
-      } else if (data.type === "next") {
+      } else if (data.type === layoutType.next) {
         index = this.currentPage + 1;
       }
       this.currentPage = index;
@@ -158,17 +159,18 @@ export default {
                 { "lin-pagination-active": item.index === currentPage },
                 {
                   "lin-pagination-ellipsis":
-                    item.type === "prev" || item.type === "next"
+                    item.type === layoutType.prev ||
+                    item.type === layoutType.next
                 }
               ]}
               key={index}
               onClick={() => onItemClick(item)}
             >
               {item.index}
-              {item.type === "prev" ? (
+              {item.type === layoutType.prev ? (
                 <span class="lin-pagination-icon lin-icon-leftarrow"></span>
               ) : null}
-              {item.type === "next" ? (
+              {item.type === layoutType.next ? (
                 <span class="lin-pagination-icon lin-icon-rightarrow"></span>
               ) : null}
             </li>
