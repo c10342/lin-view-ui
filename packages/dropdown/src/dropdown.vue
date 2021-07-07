@@ -28,6 +28,7 @@
 
 <script>
 import { DocumentClickMixin } from "@lin-view-ui/mixins";
+import { triggerType } from "./enum.js";
 
 export default {
   name: "LinDropdown",
@@ -65,19 +66,19 @@ export default {
   methods: {
     // 鼠标进入容器
     onMouseEnter() {
-      if (this.trigger === "hover") {
+      if (this.trigger === triggerType.hover) {
         this.showList();
       }
     },
     // 鼠标离开容器
     onMouseLeave() {
-      if (this.trigger === "hover") {
+      if (this.trigger === triggerType.hover) {
         this.hideList();
       }
     },
     // 点击标签
     onLabelClick() {
-      if (this.trigger === "click") {
+      if (this.trigger === triggerType.click) {
         this.toggleList();
       }
     },
