@@ -1,5 +1,6 @@
 import Vue from "vue";
 import LoadingBar from "./loading-bar.vue";
+import { externalKey } from "./enum.js";
 
 const LoadingBarConstructor = Vue.extend(LoadingBar);
 
@@ -12,7 +13,7 @@ const LLoadingBar = () => new LoadingBarConstructor();
 // 设置全局配置信息
 LoadingBarConstructor.prototype.config = function config(options) {
   Object.keys(options).forEach(key => {
-    if (key === "isError" || key === "totalProgress") {
+    if (key === externalKey.isError || key === externalKey.totalProgress) {
       return;
     }
     this[key] = options[key];
