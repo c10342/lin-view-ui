@@ -16,6 +16,7 @@
 
 <script>
 import { isNumber } from "@lin-view-ui/utils";
+import { INFINITE } from "./enum.js";
 export default {
   name: "LinSpinner",
   props: {
@@ -98,7 +99,7 @@ export default {
         if (isNumber(value)) {
           return true;
         }
-        if (value === "infinite") {
+        if (value === INFINITE) {
           return true;
         }
         return false;
