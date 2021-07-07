@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { componentName } from "./enum.js";
 export default {
   name: "LinForm",
   props: {
@@ -47,7 +48,10 @@ export default {
     clearValidate() {
       const broad = children => {
         children.forEach(child => {
-          if (child.$options.name === "LinFormItem" && child.clearValidate) {
+          if (
+            child.$options.name === componentName.formItem &&
+            child.clearValidate
+          ) {
             child.clearValidate();
           }
           if (child.$children) {
