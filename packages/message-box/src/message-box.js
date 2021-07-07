@@ -1,5 +1,6 @@
 import Vue from "vue";
 import MessageBox from "./message-box.vue";
+import { buttonType } from "./enum.js";
 
 const MessageBoxConstruct = Vue.extend(MessageBox);
 
@@ -33,7 +34,7 @@ class LinMessageBox {
       this.instance.show = true;
       // 监听事件
       this.instance.$once("close", data => {
-        if (data.by === "confirmButton") {
+        if (data.by === buttonType.confirm) {
           // 将promise置为成功状态
           this.options.resolve(data);
         } else {

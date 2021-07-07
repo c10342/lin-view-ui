@@ -81,6 +81,7 @@ import Button from "@lin-view-ui/button";
 import Input from "@lin-view-ui/input";
 import { LocaleMixin, DragMixin } from "@lin-view-ui/mixins";
 import { isFunction, isString, isBoolean } from "@lin-view-ui/utils";
+import { keyCode } from "./enum.js";
 
 export default {
   name: "LinMessageBox",
@@ -271,7 +272,7 @@ export default {
       this.handleClose("icon");
     },
     onESCDown(event) {
-      if (event.keyCode === 27) {
+      if (event.keyCode === keyCode.esc) {
         // 按下esc键关闭
         this.handleClose("esc");
       }
