@@ -1,4 +1,5 @@
 import { LocaleMixin } from "@lin-view-ui/mixins";
+import { statusType } from "./enum.js";
 
 const oneHeight = 26;
 export default {
@@ -42,7 +43,7 @@ export default {
               renderMore(h, status)
             ) : (
               <span class="lin-selector-more-text-tip">
-                {status === 2
+                {status === statusType.show
                   ? t("LinViewUI.Selector.hide")
                   : t("LinViewUI.Selector.show")}
               </span>
@@ -105,7 +106,7 @@ export default {
       // 容器高度
       height: "auto",
       //   1-收起，2-展开
-      status: 1
+      status: statusType.close
     };
   },
   mounted() {
@@ -150,7 +151,7 @@ export default {
     },
     // 点击 收起/展开按钮，切换状态
     switchMore() {
-      if (this.status === 1) {
+      if (this.status === statusType.close) {
         // 收起状态，此时点击需要展开它
         this.show();
         this.$emit("show");
@@ -163,13 +164,13 @@ export default {
     show() {
       // 高度设置为自适应
       this.height = "auto";
-      this.status = 2;
+      this.status = statusType.show;
     },
     // 隐藏选择器
     hide() {
       // 高度设置为一行的高度
       this.height = `${oneHeight}px`;
-      this.status = 1;
+      this.status = statusType.close;
     }
   },
   // computed: {
