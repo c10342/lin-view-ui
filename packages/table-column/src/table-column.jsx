@@ -1,3 +1,5 @@
+import { columnType } from "./enum.js";
+
 let columnId = 0;
 
 export default {
@@ -52,7 +54,7 @@ export default {
     column.renderCell = (h, rowData) => {
       // eslint-disable-next-line
       let render = (h, data) => {
-        if (data.column.type === "selection") {
+        if (data.column.type === columnType.selection) {
           // 多选单元格
           return (
             <input
@@ -62,14 +64,17 @@ export default {
             />
           );
         }
-        if (data.column.type === "index") {
+        if (data.column.type === columnType.index) {
           // 序号单元格
           return data.rowIndex + 1;
         }
         // 普通单元格
         return data.row[column.prop];
       };
-      if (this.$scopedSlots.default && rowData.column.type !== "selection") {
+      if (
+        this.$scopedSlots.default &&
+        rowData.column.type !== columnType.selection
+      ) {
         // 如果使用了插槽
         // eslint-disable-next-line
         render = (h, data) => this.$scopedSlots.default(data);
