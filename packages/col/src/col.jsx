@@ -1,4 +1,5 @@
 import { isNumber, isPlainObject } from "@lin-view-ui/utils";
+import { propsType } from "./enum.js";
 
 export default {
   name: "LinCol",
@@ -65,7 +66,7 @@ export default {
 
     ["offset", "push", "pull", "span"].forEach(key => {
       if (this[key]) {
-        if (key !== "span") {
+        if (key !== propsType.span) {
           classList.push(`lin-col-${key}-${this[key]}`);
         } else {
           classList.push(`lin-col-${this[key]}`);
@@ -78,7 +79,7 @@ export default {
       } else if (isPlainObject(this[size])) {
         const props = this[size];
         Object.keys(props).forEach(prop => {
-          if (prop !== "span") {
+          if (prop !== propsType.span) {
             classList.push(`lin-col-${size}-${prop}-${props[prop]}`);
           } else {
             classList.push(`lin-col-${size}-${props[prop]}`);
