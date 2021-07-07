@@ -6,6 +6,8 @@ import { handleEl } from "@lin-view-ui/video-player";
 
 import { isString } from "@lin-view-ui/utils";
 
+import { fullScreenType } from "./enum.js";
+
 const MultiPlayerConstructor = Vue.extend(MultiPlayer);
 
 class LinMultiPlayer {
@@ -121,16 +123,16 @@ class LinMultiPlayer {
     const self = this;
     return {
       request(type) {
-        if (type === "web") {
+        if (type === fullScreenType.web) {
           self.instance?.onWebFullscreen();
-        } else if (type === "browser") {
+        } else if (type === fullScreenType.browser) {
           self.instance?.onBrowserFullscreen();
         }
       },
       cancel(type) {
-        if (type === "web") {
+        if (type === fullScreenType.web) {
           self.instance?.onWebFullscreen();
-        } else if (type === "browser") {
+        } else if (type === fullScreenType.browser) {
           self.instance?.onBrowserFullscreen();
         }
       },
