@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VideoPlayer from "./video-player.vue";
 import { isFunction, isString } from "@lin-view-ui/utils";
+import { fullScreenType } from "./enum.js";
 
 import {
   handleType,
@@ -199,16 +200,16 @@ class LinVideoPlayer {
     const self = this;
     return {
       request(type) {
-        if (type === "web") {
+        if (type === fullScreenType.web) {
           self.instance?.setWebFullScreen();
-        } else if (type === "browser") {
+        } else if (type === fullScreenType.browser) {
           self.instance?.setBrowserFullScreen();
         }
       },
       cancel(type) {
-        if (type === "web") {
+        if (type === fullScreenType.web) {
           self.instance?.cancelWebFullScreen();
-        } else if (type === "browser") {
+        } else if (type === fullScreenType.browser) {
           self.instance?.cancelBrowserFullScreen();
         }
       }

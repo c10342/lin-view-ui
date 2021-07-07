@@ -61,6 +61,7 @@ import PlayerAnimation from "./video-player-animation.vue";
 import PlayerImage from "./video-player-image.vue";
 import PlayerLoading from "./video-player-loading.vue";
 import PlayerTip from "./video-player-tip.vue";
+import { videoType } from "./enum.js";
 
 export default {
   name: "LinVideoPlayer",
@@ -148,13 +149,13 @@ export default {
         this.initCustomType(data);
       } else {
         const videoSrc = data.url;
-        if (this.type === "hls") {
+        if (this.type === videoType.hls) {
           // hls流
           this.initHls(videoSrc);
-        } else if (this.type === "flv") {
+        } else if (this.type === videoType.flv) {
           // flv流
           this.initFlv(videoSrc);
-        } else if (this.type === "mp4") {
+        } else if (this.type === videoType.mp4) {
           // mp4
           this.video.src = videoSrc;
         }
@@ -177,12 +178,12 @@ export default {
       this.getImage();
       if (isFunction(this.customType)) {
         this.initCustomType(data);
-      } else if (this.type === "hls") {
+      } else if (this.type === videoType.hls) {
         this.initHls(videoSrc);
-      } else if (this.type === "flv") {
+      } else if (this.type === videoType.flv) {
         this.destoryFlv();
         this.initFlv(videoSrc);
-      } else if (this.type === "mp4") {
+      } else if (this.type === videoType.mp4) {
         this.video.src = videoSrc;
       }
 
