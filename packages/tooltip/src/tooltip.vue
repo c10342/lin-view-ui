@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { placementType } from "./enum.js";
 export default {
   name: "LinTooltip",
   data() {
@@ -30,10 +31,10 @@ export default {
   computed: {
     classes() {
       return {
-        "lin-tooltip-bottom": this.placement === "top",
-        "lin-tooltip-top": this.placement === "bottom",
-        "lin-tooltip-left": this.placement === "right",
-        "lin-tooltip-right": this.placement === "left"
+        "lin-tooltip-bottom": this.placement === placementType.top,
+        "lin-tooltip-top": this.placement === placementType.bottom,
+        "lin-tooltip-left": this.placement === placementType.right,
+        "lin-tooltip-right": this.placement === placementType.left
       };
     }
   }

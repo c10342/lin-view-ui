@@ -1,5 +1,6 @@
 import { isNumber } from "@lin-view-ui/utils";
 import TooltipConstruct from "./construct.js";
+import { placementType } from "./enum.js";
 
 const TooltipDirective = {};
 
@@ -85,16 +86,16 @@ TooltipDirective.install = Vue => {
           }
 
           // 计算出组件出现的位置，固定定位的top，left值
-          if (placement === "bottom") {
+          if (placement === placementType.bottom) {
             styleLeft = `${boxLeft + (boxWidth / 2 - tipWidth / 2) - left}px`;
             styleTop = `${boxTop + boxHeight + 7 + top}px`;
-          } else if (placement === "top") {
+          } else if (placement === placementType.top) {
             styleLeft = `${boxLeft + (boxWidth / 2 - tipWidth / 2) - left}px`;
             styleTop = `${boxTop - tipHeight - 7 + top}px`;
-          } else if (placement === "left") {
+          } else if (placement === placementType.left) {
             styleLeft = `${boxLeft - tipWidth - 7 - left}px`;
             styleTop = `${boxTop + (boxHeight / 2 - tipHeight / 2) + top}px`;
-          } else if (placement === "right") {
+          } else if (placement === placementType.right) {
             styleLeft = `${boxLeft + boxWidth + 7 - left}px`;
             styleTop = `${boxTop + (boxHeight / 2 - tipHeight / 2) + top}px`;
           }
