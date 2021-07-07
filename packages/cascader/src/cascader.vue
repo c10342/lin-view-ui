@@ -51,6 +51,7 @@ import Input from "@lin-view-ui/input";
 import { DocumentClickMixin, LocaleMixin } from "@lin-view-ui/mixins";
 import { isNull, isArray } from "@lin-view-ui/utils";
 import Panel from "./panel.vue";
+import { componentName } from "./enum.js";
 
 export default {
   name: "LinCascader",
@@ -225,7 +226,7 @@ export default {
     displayPuop() {
       this.showPopup = true;
       this.$children.forEach(child => {
-        if (child.$options.name === "LinPanel") {
+        if (child.$options.name === componentName.panel) {
           child.$emit("displayPuop", this.valueArr);
         }
       });

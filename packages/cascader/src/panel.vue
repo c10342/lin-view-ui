@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { componentName } from "./enum.js";
 export default {
   name: "LinPanel",
   props: {
@@ -124,7 +125,7 @@ export default {
           this.$nextTick(() => {
             // 通知子组件
             this.$children.forEach(child => {
-              if (child.$options.name === "LinPanel") {
+              if (child.$options.name === componentName.panel) {
                 child.$emit("displayPuop", this.valueArr);
               }
             });
