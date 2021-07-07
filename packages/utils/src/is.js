@@ -45,5 +45,5 @@ export function isArray(data) {
 }
 
 export function isObject(data) {
-  return typeof data === "object";
+  return data !== null && typeof data === "object";
 }
