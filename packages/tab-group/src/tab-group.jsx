@@ -1,4 +1,5 @@
 import { isNull } from "@lin-view-ui/utils";
+import { cardType, componentName } from "./enum.js";
 export default {
   name: "LinTabGroup",
   render(h) {
@@ -19,8 +20,8 @@ export default {
     return (
       <div
         class={[
-          { "lin-tab-group-card": type === "card" },
-          { "lin-tab-group-border": type === "border-card" },
+          { "lin-tab-group-card": type === cardType.card },
+          { "lin-tab-group-border": type === cardType.borderCard },
           "lin-tab-group"
         ]}
       >
@@ -41,7 +42,7 @@ export default {
           >
             {renderTabLabel(h)}
 
-            {type !== "default" || (
+            {type !== cardType.default || (
               <div
                 class="lin-tab-group-active-line"
                 style={{
@@ -98,7 +99,7 @@ export default {
     type: {
       // card/border-card
       type: String,
-      default: "default"
+      default: cardType.default
     }
   },
   provide() {
@@ -157,7 +158,7 @@ export default {
           this.containerWidth = "100%";
           this.isScroll = false;
         }
-        if (this.type === "default") {
+        if (this.type === cardType.default) {
           this.initVar();
         }
       });
@@ -193,7 +194,9 @@ export default {
     },
     // 获取LinTabItem组件孩子
     getTabs() {
-      return this.$children.filter(item => item.$options.name === "LinTabItem");
+      return this.$children.filter(
+        item => item.$options.name === componentName.tabItem
+      );
     },
     // 初始化下划线相关数据
     initVar() {
