@@ -1,6 +1,6 @@
 import { LocaleMixin } from "@lin-view-ui/mixins";
 import { isNumber } from "@lin-view-ui/utils";
-import { layoutType } from "./enum.js";
+import { layoutType, keyCode } from "./enum.js";
 
 export default {
   name: "LinPagination",
@@ -89,7 +89,7 @@ export default {
     },
     // jumper，用户敲下回车跳转到指定页码，用户敲下回车跳转到指定页码
     gotoPageByEnter(e) {
-      if (e.keyCode !== 13) {
+      if (e.keyCode !== keyCode.enter) {
         return;
       }
       const value = e.target.value;
