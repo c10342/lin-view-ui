@@ -1,5 +1,7 @@
 import Vue from "vue";
 
+import { isPlainObject } from "@lin-view-ui/utils";
+
 import Message from "./message.vue";
 
 const MessageConstruct = Vue.extend(Message);
@@ -92,7 +94,7 @@ class LinMessage {
     // 查找是否存在于实例数组中
     const index = instanceList.findIndex(
       // eslint-disable-next-line
-      (instance) => instance._uid === this.instance._uid
+      instance => instance._uid === this.instance._uid
     );
     if (index > 0) {
       // 存在
@@ -134,7 +136,7 @@ class LinMessage {
     if (this.instance) {
       const index = instanceList.findIndex(
         // eslint-disable-next-line
-        (instance) => instance._uid === this.instance._uid
+        instance => instance._uid === this.instance._uid
       );
       if (index > -1) {
         updateTop(index);
@@ -163,8 +165,7 @@ function createInstance(options) {
 
 // 创建不同类型type的message组件
 function createInstanceByType(options, type) {
-  const toString = Object.prototype.toString;
-  if (toString.call(options).includes("Object")) {
+  if (isPlainObject(options)) {
     return new LinMessage({
       ...options,
       type
