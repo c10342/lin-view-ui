@@ -1,6 +1,6 @@
 lib
 docs-dist
 node_modules
-packages/theme-chalk/src/iconfont.css
+src/theme-chalk/iconfont.css
 coverage
 /**/dist
