@@ -6,16 +6,12 @@
   "module": "lib/index.js",
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "keywords": [
     "vue",
     "UI",
     "Component"
   ],
-  "typings": "packages/types/index.d.ts",
+  "typings": "types/index.d.ts",
   "homepage": "https://github.com/c10342/lin-view-ui",
   "repository": {
     "type": "git",
@@ -26,7 +22,9 @@
   },
   "files": [
     "lib",
-    "packages"
+    "packages",
+    "types",
+    "src"
   ],
   "author": "c10342",
   "license": "MIT",
@@ -41,7 +39,6 @@
     "build:all": "node ./build/build.all.js",
     "build:css": "node ./build/build.css.js",
     "build": "rimraf lib && npm run build:component && npm run build:lang && npm run build:src && npm run build:css",
-    "bootstrap": "lerna bootstrap",
     "commit": "git cz",
     "add": "node ./scripts/componentTemplate.js",
     "lint": "eslint --ext .js,.vue,.jsx ./",
