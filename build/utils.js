@@ -5,7 +5,6 @@ const babel = require("rollup-plugin-babel");
 const commonjs = require("@rollup/plugin-commonjs");
 const vue = require("rollup-plugin-vue");
 const rollup = require("rollup");
-const del = require("del");
 const { terser } = require("rollup-plugin-terser");
 const image = require("@rollup/plugin-image");
 const pck = require("../package.json");
@@ -70,12 +69,6 @@ async function rollupBuild(inputOptions, outputOptions) {
   await bundle.write(outputOptions);
 }
 
-const clean = cleanPath => {
-  return del(cleanPath, {
-    force: true
-  });
-};
-
 const formatImportPath = id => {
   if (id.match(/^@packages/) || id.match(/^@src/)) {
     const depName = id.split("/")[1];
@@ -92,7 +85,6 @@ module.exports = {
   getExternalsDep,
   createInputConfig,
   rollupBuild,
-  clean,
   root,
   getDir,
   formatImportPath,
