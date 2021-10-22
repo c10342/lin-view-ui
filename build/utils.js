@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
 const babel = require("rollup-plugin-babel");
 const commonjs = require("@rollup/plugin-commonjs");
@@ -7,27 +8,35 @@ const rollup = require("rollup");
 const del = require("del");
 const { terser } = require("rollup-plugin-terser");
 const image = require("@rollup/plugin-image");
+const pck = require("../package.json");
 
-const root = path.resolve(__dirname, "../packages");
+const root = path.resolve(__dirname, "../");
+const packagesDir = path.resolve(root, "./packages");
+const srcDir = path.resolve(root, "./src");
 
-function getExternalsDep(name, dev = false) {
-  const dir = path.resolve(root, name);
-  const pck = require(path.resolve(dir, "./package.json"));
+function getDir(rootSrc) {
+  return fs
+    .readdirSync(rootSrc)
+    .filter(fileName =>
+      fs.statSync(path.resolve(rootSrc, fileName)).isDirectory()
+    );
+}
 
+function getExternalsDep() {
+  const packagesDirList = getDir(packagesDir);
+  const srcDirList = getDir(srcDir);
+  const externals = [];
+  packagesDirList.forEach(dep => {
+    externals.push(`@packages/${dep}`);
+  });
+  srcDirList.forEach(dep => {
+    externals.push(`@src/${dep}`);
+  });
   const dependencies = pck.dependencies || {};
   const peerDependencies = pck.peerDependencies || {};
-
-  const externals = [];
-
   Object.keys(dependencies).forEach(key => externals.push(key));
   Object.keys(peerDependencies).forEach(key => externals.push(key));
-
-  if (dev) {
-    const devDependencies = pck.devDependencies || {};
-    Object.keys(devDependencies).forEach(key => externals.push(key));
-  }
-
-  return [...new Set(externals), "flv.js/dist/flv.js"];
+  return [...new Set(externals)];
 }
 
 function createInputConfig(options = {}) {
@@ -54,21 +63,6 @@ function createInputConfig(options = {}) {
   return config;
 }
 
-function createEsOutput(distPath, options = {}) {
-  return {
-    file: distPath,
-    format: "es",
-    ...options
-  };
-}
-function createUmdOutput(distPath, options = {}) {
-  return {
-    file: distPath,
-    format: "umd",
-    ...options
-  };
-}
-
 async function rollupBuild(inputOptions, outputOptions) {
   const bundle = await rollup.rollup(inputOptions);
   await bundle.write(outputOptions);
@@ -80,22 +74,22 @@ const clean = cleanPath => {
   });
 };
 
-const whiteList = [
-  "locale",
-  "mixins",
-  "theme-chalk",
-  "utils",
-  "lin-view-ui",
-  "test-utils",
-  "types"
-];
+const formatImportPath = id => {
+  if (id.match(/^@packages/) || id.match(/^@src/)) {
+    const depName = id.split("/")[1];
+    return `./${depName}.js`;
+  }
+};
+
+const resolveRoot = pathSrc => path.resolve(root, pathSrc);
 
 module.exports = {
   getExternalsDep,
   createInputConfig,
-  createEsOutput,
   rollupBuild,
   clean,
-  whiteList,
-  createUmdOutput
+  root,
+  getDir,
+  formatImportPath,
+  resolveRoot
 };
