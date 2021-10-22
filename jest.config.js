@@ -17,7 +17,9 @@ module.exports = {
     //   '<rootDir>/tests/__mocks__/fileMock.js'
   },
   moduleNameMapper: {
-    "^@lin-view-ui/(.*)$": "<rootDir>/packages/$1/index.js"
+    "^@packages/(.*)$": "<rootDir>/packages/$1/index.js",
+    "^@src/(.*)$": "<rootDir>/src/$1/index.js",
+    "^@lang/(.*)$": "<rootDir>/src/locale/src/lang/$1"
   },
   rootDir: path.join(__dirname),
   testMatch: [
