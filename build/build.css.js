@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const { src, dest } = require("gulp");
 
 const sass = require("gulp-sass");
@@ -8,42 +10,44 @@ const rename = require("gulp-rename");
 
 const autoprefixer = require("gulp-autoprefixer");
 
-const concat = require("gulp-concat");
+const { resolveRoot } = require("./utils.js");
 
 const path = require("path");
 
-const root = path.resolve(__dirname, "../packages/theme-chalk");
+const styleRoot = resolveRoot("./src/theme-chalk");
 
-const resolve = pathSrc => path.resolve(root, pathSrc);
+const copyFont = async () => {
+  await src(resolveRoot("./src/theme-chalk/fonts") + "/**")
+    .pipe(cssmin())
+    .pipe(dest(resolveRoot("./lib/theme-chalk/fonts")));
+  console.log("fonts", "done");
+};
 
-const buildScss = (
-  srcPath,
-  distPath,
-  options = {
-    basename: "style"
-  }
-) => {
-  return src(srcPath)
-    .pipe(concat("style.scss"))
+const buildScss = async name => {
+  await src(resolveRoot(`./src/theme-chalk/${name}`))
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer({ cascade: false }))
     .pipe(cssmin())
     .pipe(
       rename(srcPath => {
-        srcPath.basename = options.basename;
+        const basename = name.split(".")[0];
+        srcPath.basename = basename;
         srcPath.extname = ".css";
       })
     )
-    .pipe(dest(distPath));
+    .pipe(dest(resolveRoot("./lib/theme-chalk")));
+  console.log(name, "done");
 };
 
-function copyfont(distPath) {
-  return src(resolve("./src/fonts") + "/**")
-    .pipe(cssmin())
-    .pipe(dest(distPath));
-}
+const build = () => {
+  const externalFile = ["iconfont.css"];
+  const styleList = fs
+    .readdirSync(styleRoot)
+    .filter(fileName => fs.statSync(path.resolve(styleRoot, fileName)).isFile())
+    .filter(fileName => !externalFile.includes(fileName));
 
-module.exports = {
-  buildScss,
-  copyfont
+  styleList.forEach(fileName => buildScss(fileName));
+  copyFont();
 };
+
+build();
