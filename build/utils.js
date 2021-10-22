@@ -36,7 +36,7 @@ function getExternalsDep() {
   const peerDependencies = pck.peerDependencies || {};
   Object.keys(dependencies).forEach(key => externals.push(key));
   Object.keys(peerDependencies).forEach(key => externals.push(key));
-  return [...new Set(externals)];
+  return [...new Set(externals), "@lang/zh-CN.js"];
 }
 
 function createInputConfig(options = {}) {
@@ -44,7 +44,9 @@ function createInputConfig(options = {}) {
     input: options.input,
     external: options.external,
     plugins: [
-      nodeResolve(),
+      nodeResolve({
+        // preferBuiltins: true
+      }),
       vue({}),
       babel({
         exclude: "node_modules/**", // 防止打包node_modules下的文件
@@ -78,6 +80,9 @@ const formatImportPath = id => {
   if (id.match(/^@packages/) || id.match(/^@src/)) {
     const depName = id.split("/")[1];
     return `./${depName}.js`;
+  } else if (id.match(/^@lang/)) {
+    const depName = id.split("/")[1];
+    return `./lang/${depName}`;
   }
 };
 

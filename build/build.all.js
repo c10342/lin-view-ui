@@ -8,7 +8,8 @@ const build = async () => {
       alias({
         entries: [
           { find: /^@packages/, replacement: resolveRoot("./packages") },
-          { find: /^@src/, replacement: resolveRoot("./src") }
+          { find: /^@src/, replacement: resolveRoot("./src") },
+          { find: /^@lang/, replacement: resolveRoot("./src/locale/src/lang") }
         ]
       })
     ],
@@ -16,7 +17,8 @@ const build = async () => {
   });
   const outputConfig = {
     file: resolveRoot(`./lib/index.js`),
-    format: "umd"
+    format: "umd",
+    name: "LinViewUi"
   };
 
   await rollupBuild(inputConfig, outputConfig);
