@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { isPlainObject } from "@lin-view-ui/utils";
+import { isPlainObject } from "@src/utils";
 export default {
   name: "LinSelectorItem",
   props: {

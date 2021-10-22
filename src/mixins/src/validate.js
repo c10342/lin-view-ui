@@ -1,4 +1,4 @@
-import { dispatch } from "@lin-view-ui/utils";
+import { dispatch } from "@src/utils";
 
 const validate = {
   created() {

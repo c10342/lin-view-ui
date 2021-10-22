@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { isNumber, isString } from "@lin-view-ui/utils";
+import { isNumber, isString } from "@src/utils";
 export default {
   name: "LinBadge",
   props: {

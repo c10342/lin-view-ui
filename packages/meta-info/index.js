@@ -1,6 +1,6 @@
 import { VUE_META_KEY_NAME } from "./src/common/constants.js";
 import updateMetaInfo from "./src/metaOperate/updateMetaInfo.js";
-import { isUndefined, isFunction } from "@lin-view-ui/utils";
+import { isUndefined, isFunction } from "@src/utils";
 
 const VueMetaInfo = {};
 

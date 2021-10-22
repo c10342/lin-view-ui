@@ -1,4 +1,4 @@
-import { isFunction } from "@lin-view-ui/utils";
+import { isFunction } from "@src/utils";
 
 const documentClick = {
   mounted() {

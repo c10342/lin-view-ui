@@ -1,4 +1,4 @@
-import { isObject, isString, isFunction, isArray } from "@lin-view-ui/utils";
+import { isObject, isString, isFunction, isArray } from "@src/utils";
 
 // 判断是否为DOM元素
 export const isDOM = dom => {

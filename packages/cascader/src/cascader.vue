@@ -47,9 +47,9 @@
 </template>
 
 <script>
-import Input from "@lin-view-ui/input";
-import { DocumentClickMixin, LocaleMixin } from "@lin-view-ui/mixins";
-import { isNull, isArray } from "@lin-view-ui/utils";
+import Input from "@packages/input";
+import { DocumentClickMixin, LocaleMixin } from "@src/mixins";
+import { isNull, isArray } from "@src/utils";
 import Panel from "./panel.vue";
 import { componentName } from "./enum.js";
 

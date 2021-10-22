@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { LocaleMixin } from "@lin-view-ui/mixins";
+import { LocaleMixin } from "@src/mixins";
 import { cloneDeep } from "lodash";
 
 export default {

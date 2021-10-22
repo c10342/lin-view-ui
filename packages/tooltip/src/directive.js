@@ -1,4 +1,4 @@
-import { isNumber } from "@lin-view-ui/utils";
+import { isNumber } from "@src/utils";
 import TooltipConstruct from "./construct.js";
 import { placementType } from "./enum.js";
 

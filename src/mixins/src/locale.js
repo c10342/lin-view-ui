@@ -1,4 +1,4 @@
-import { t } from "@lin-view-ui/locale";
+import { t } from "@src/locale";
 
 export default {
   methods: {

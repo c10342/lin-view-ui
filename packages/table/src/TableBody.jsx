@@ -1,4 +1,4 @@
-import { isFunction, isString } from "@lin-view-ui/utils";
+import { isFunction, isString } from "@src/utils";
 
 export default {
   name: "LinTableBody",

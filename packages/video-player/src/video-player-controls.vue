@@ -38,14 +38,14 @@
 </template>
 
 <script>
-import { secondToTime } from "@lin-view-ui/utils";
-import { LocaleMixin } from "@lin-view-ui/mixins";
+import { secondToTime } from "@src/utils";
+import { LocaleMixin } from "@src/mixins";
 import PlayerSpeed from "./video-player-speed.vue";
 import PlayerDefinition from "./video-player-definition.vue";
 
-import PlayerProcess from "@lin-view-ui/player-process";
-import PlayerVolume from "@lin-view-ui/player-volume";
-import PlayerFullscreen from "@lin-view-ui/player-fullscreen";
+import PlayerProcess from "@packages/player-process";
+import PlayerVolume from "@packages/player-volume";
+import PlayerFullscreen from "@packages/player-fullscreen";
 
 export default {
   name: "LinVideoPlayerControls",

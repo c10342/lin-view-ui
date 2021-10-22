@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VideoPlayer from "./video-player.vue";
-import { isFunction, isString } from "@lin-view-ui/utils";
+import { isFunction, isString } from "@src/utils";
 import { fullScreenType } from "./enum.js";
 
 import {

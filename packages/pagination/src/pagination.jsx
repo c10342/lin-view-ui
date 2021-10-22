@@ -1,5 +1,5 @@
-import { LocaleMixin } from "@lin-view-ui/mixins";
-import { isNumber } from "@lin-view-ui/utils";
+import { LocaleMixin } from "@src/mixins";
+import { isNumber } from "@src/utils";
 import { layoutType, keyCode } from "./enum.js";
 
 export default {

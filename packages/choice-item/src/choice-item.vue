@@ -21,7 +21,7 @@ import {
   isString,
   isEmptyString,
   isFunction
-} from "@lin-view-ui/utils";
+} from "@src/utils";
 export default {
   name: "LinChoiceItem",
   props: {

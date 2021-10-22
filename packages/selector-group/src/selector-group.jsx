@@ -1,4 +1,4 @@
-import { LocaleMixin } from "@lin-view-ui/mixins";
+import { LocaleMixin } from "@src/mixins";
 import { statusType } from "./enum.js";
 
 const oneHeight = 26;

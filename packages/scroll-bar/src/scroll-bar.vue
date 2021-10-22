@@ -38,7 +38,7 @@
 
 <script>
 import ResizeObserver from "resize-observer-polyfill";
-import Spinner from "@lin-view-ui/spinner";
+import Spinner from "@packages/spinner";
 
 export default {
   name: "LinScrollBar",

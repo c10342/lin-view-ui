@@ -16,8 +16,8 @@ import {
   caculateFileHash,
   request,
   isFunction
-} from "@lin-view-ui/utils";
-import LinButton from "@lin-view-ui/button";
+} from "@src/utils";
+import LinButton from "@packages/button";
 
 export default {
   name: "LinUpload",

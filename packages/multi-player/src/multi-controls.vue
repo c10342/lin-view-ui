@@ -37,11 +37,11 @@
 </template>
 
 <script>
-import { secondToTime } from "@lin-view-ui/utils";
-import { LocaleMixin } from "@lin-view-ui/mixins";
-import PlayerProcess from "@lin-view-ui/player-process";
-import PlayerFullscreen from "@lin-view-ui/player-fullscreen";
-import PlayerVolume from "@lin-view-ui/player-volume";
+import { secondToTime } from "@src/utils";
+import { LocaleMixin } from "@src/mixins";
+import PlayerProcess from "@packages/player-process";
+import PlayerFullscreen from "@packages/player-fullscreen";
+import PlayerVolume from "@packages/player-volume";
 export default {
   name: "LinMultiControls",
   mixins: [LocaleMixin],

@@ -90,13 +90,9 @@
 </template>
 
 <script>
-import DatePicker from "@lin-view-ui/date-picker";
-import {
-  DocumentClickMixin,
-  LocaleMixin,
-  DateMixin
-} from "@lin-view-ui/mixins";
-import { getYearMonthDay } from "@lin-view-ui/utils";
+import DatePicker from "@packages/date-picker";
+import { DocumentClickMixin, LocaleMixin, DateMixin } from "@src/mixins";
+import { getYearMonthDay } from "@src/utils";
 import { throttle } from "lodash";
 
 const ONEDAY = 60 * 60 * 1000 * 24;

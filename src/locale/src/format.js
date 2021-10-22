@@ -1,4 +1,4 @@
-import { isPlainObject, isUndef } from "@lin-view-ui/utils";
+import { isPlainObject, isUndef } from "@src/utils";
 
 function hasOwn(obj, key) {
   return hasOwnProperty.call(obj, key);

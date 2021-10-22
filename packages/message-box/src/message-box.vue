@@ -77,10 +77,10 @@
 </template>
 
 <script>
-import Button from "@lin-view-ui/button";
-import Input from "@lin-view-ui/input";
-import { LocaleMixin, DragMixin } from "@lin-view-ui/mixins";
-import { isFunction, isString, isBoolean } from "@lin-view-ui/utils";
+import Button from "@packages/button";
+import Input from "@packages/input";
+import { LocaleMixin, DragMixin } from "@src/mixins";
+import { isFunction, isString, isBoolean } from "@src/utils";
 import { keyCode } from "./enum.js";
 
 export default {

@@ -2,7 +2,7 @@ import defaultLang from "./src/lang/zh-CN.js";
 import Vue from "vue";
 import deepmerge from "deepmerge";
 import Format from "./src/format.js";
-import { isFunction, isUndef } from "@lin-view-ui/utils";
+import { isFunction, isUndef } from "@src/utils";
 
 const format = Format(Vue);
 // 默认语言

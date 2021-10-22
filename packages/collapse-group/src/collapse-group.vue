@@ -6,7 +6,7 @@
 
 <script>
 import { cloneDeep } from "lodash";
-import { isArray, isString, isNumber } from "@lin-view-ui/utils";
+import { isArray, isString, isNumber } from "@src/utils";
 
 export default {
   name: "LinCollapseGroup",

@@ -2,7 +2,7 @@ import { expect, describe, test } from "@jest/globals";
 import { mount } from "@vue/test-utils";
 import Loading from "../index.js";
 import Vue, { nextTick } from "vue";
-import { sleep } from "@lin-view-ui/test-utils";
+import { sleep } from "@src/test-utils";
 
 function destroyLoadingInstance(loadingInstance) {
   if (!loadingInstance) return;

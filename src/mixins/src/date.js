@@ -1,4 +1,4 @@
-import { isArray } from "@lin-view-ui/utils";
+import { isArray } from "@src/utils";
 
 export default {
   props: {

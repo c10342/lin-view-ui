@@ -21,12 +21,7 @@
 
 <script>
 import { cloneDeep } from "lodash";
-import {
-  collapseTransition,
-  isString,
-  isNumber,
-  isArray
-} from "@lin-view-ui/utils";
+import { collapseTransition, isString, isNumber, isArray } from "@src/utils";
 
 export default {
   name: "LinCollapseItem",

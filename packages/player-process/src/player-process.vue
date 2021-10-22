@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import { secondToTime } from "@lin-view-ui/utils";
-import { LocaleMixin } from "@lin-view-ui/mixins";
+import { secondToTime } from "@src/utils";
+import { LocaleMixin } from "@src/mixins";
 
 export default {
   name: "LinPlayerProcess",
