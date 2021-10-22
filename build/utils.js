@@ -35,7 +35,7 @@ function getExternalsDep() {
   const peerDependencies = pck.peerDependencies || {};
   Object.keys(dependencies).forEach(key => externals.push(key));
   Object.keys(peerDependencies).forEach(key => externals.push(key));
-  return [...new Set(externals), "@lang/zh-CN.js"];
+  return [...new Set(externals), "@lang/zh-CN.js", "flv.js/dist/flv.js"];
 }
 
 function createInputConfig(options = {}) {

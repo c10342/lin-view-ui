@@ -4,6 +4,7 @@ const alias = require("@rollup/plugin-alias");
 const build = async () => {
   const inputConfig = createInputConfig({
     input: resolveRoot(`./src/index.js`),
+    external: ["vue"],
     plugins: [
       alias({
         entries: [
@@ -18,7 +19,10 @@ const build = async () => {
   const outputConfig = {
     file: resolveRoot(`./lib/index.js`),
     format: "umd",
-    name: "LinViewUi"
+    name: "LinViewUi",
+    globals: {
+      vue: "Vue"
+    }
   };
 
   await rollupBuild(inputConfig, outputConfig);
