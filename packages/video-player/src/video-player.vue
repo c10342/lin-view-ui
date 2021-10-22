@@ -46,7 +46,7 @@
 
 <script>
 import Hls from "hls.js";
-import flvjs from "flv.js";
+import flvjs from "flv.js/dist/flv.js";
 import { cloneDeep, isEqual } from "lodash";
 import { LocaleMixin } from "@src/mixins";
 import {
