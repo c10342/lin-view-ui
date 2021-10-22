@@ -1,4 +1,4 @@
-import defaultLang from "./src/lang/zh-CN.js";
+import defaultLang from "@lang/zh-CN.js";
 import Vue from "vue";
 import deepmerge from "deepmerge";
 import Format from "./src/format.js";
