@@ -1,57 +1,57 @@
-@import "./variables/input-number.scss";
+@import "./var";
 
 .lin-input-number {
   position: relative;
   box-sizing: border-box;
   display: inline-block;
-  width: $input-number-width;
-  height: $input-number-height;
-  border-radius: $input-number-border-radius;
+  width: 180px;
+  height: 40px;
+  border-radius: 4px;
 }
 
 .lin-input-number-btn {
   position: absolute;
-  top: $input-number-btn-top;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: $input-number-btn-width;
-  font-size: $input-number-btn-font-size;
+  width: 40px;
+  font-size: $font-size-bigger;
   cursor: pointer;
   user-select: none;
-  background-color: $input-number-btn-background-color;
+  background-color: $disabled-background-color;
 }
 
 .lin-input-number-reduce {
-  top: $input-number-reduce-top;
-  bottom: $input-number-reduce-bottom;
-  left: $input-number-reduce-left;
-  border-right: $input-number-reduce-border-right;
-  border-radius: $input-number-reduce-border-radius;
+  top: 1px;
+  bottom: 1px;
+  left: 1px;
+  border-right: 1px solid $border-color;
+  border-radius: 4px 0 0 4px;
 }
 
 .lin-input-number-text {
   box-sizing: border-box;
-  width: $input-number-text-width;
-  height: $input-number-text-height;
-  padding: $input-number-text-padding;
+  width: 100%;
+  height: 100%;
+  padding: 0 50px;
   text-align: center;
-  border: $input-number-text-border;
-  border-radius: $input-number-text-border-radius;
+  border: 1px solid $border-color;
+  border-radius: 4px;
   outline: none;
   appearance: none;
 }
 
 .lin-input-number-text:focus {
-  border-color: $input-number-text-focus-border-color;
+  border-color: $primary;
 }
 
 .lin-input-number-plus {
-  top: $input-number-plus-top;
-  right: $input-number-plus-right;
-  bottom: $input-number-plus-bottom;
-  border-left: $input-number-plus-border-left;
-  border-radius: $input-number-plus-border-radius;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  border-left: 1px solid $border-color;
+  border-radius: 0 4px 4px 0;
 }
 
 .lin-input-number-btn-disabled {
@@ -60,15 +60,15 @@
 
 .lin-input-number-disabled {
   .lin-input-number-btn {
-    color: $input-number-btn-disabled-color;
+    color: $disabled-font-color;
     cursor: not-allowed;
-    border-color: $input-number-btn-disabled-border-color;
+    border-color: $disabled-border-color;
   }
 
   .lin-input-number-text {
-    color: $input-number-text-disabled-color;
+    color: $disabled-font-color;
     cursor: not-allowed;
-    background-color: $input-number-text-disabled-background-color;
-    border-color: $input-number-text-disabled-border-color;
+    background-color: $disabled-background-color;
+    border-color: $disabled-border-color;
   }
 }

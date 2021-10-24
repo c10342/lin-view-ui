@@ -1,4 +1,4 @@
-@import "./variables/dropdown.scss";
+@import './var';
 
 .lin-dropdown {
   position: relative;
@@ -6,51 +6,51 @@
 }
 
 .lin-dropdown-label {
-  color: $dropdown-label-color;
+  color: $primary;
   cursor: pointer;
 }
 
 .lin-dropdown-container {
   position: absolute;
-  top: $dropdown-container-top;
-  left: $dropdown-container-left;
-  z-index: $dropdown-container-z-index;
+  top: 30px;
+  left: 50%;
+  z-index: 101;
   box-sizing: border-box;
-  max-width: $dropdown-container-max-width;
-  padding: $dropdown-container-padding;
-  white-space: $dropdown-container-white-space;
-  background-color: $dropdown-container-background-color;
-  border: $dropdown-container-border;
-  border-radius: $dropdown-container-border-radius;
-  box-shadow: $dropdown-container-box-shadow;
-  transform: $dropdown-container-transform;
+  max-width: 300px;
+  padding: 5px 0;
+  white-space: nowrap;
+  background-color: #fff;
+  border: 1px solid $disabled-border-color;
+  border-radius: 5px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
 
   &::before {
     position: absolute;
-    left: $dropdown-container-before-left;
+    left: 50%;
     box-sizing: border-box;
-    width: $dropdown-container-before-width;
-    height: $dropdown-container-before-height;
+    width: 12px;
+    height: 12px;
     content: "";
-    background-color: $dropdown-container-before-background-color;
-    border: $dropdown-container-before-border;
+    background-color: #fff;
+    border: 1px solid $disabled-border-color;
     border-top-color: transparent;
     border-right-color: transparent;
-    border-radius: $dropdown-container-before-border-radius;
+    border-radius: 2px;
   }
 }
 
 .lin-dropdown-container-down {
   &::before {
-    top: $dropdown-container-down-top;
-    transform: $dropdown-container-down-transform;
+    top: -7px;
+    transform: translateX(-50%) rotate(135deg);
   }
 }
 
 .lin-dropdown-container-up {
   &::before {
-    bottom: $dropdown-container-up-bottom;
-    transform: $dropdown-container-up-transform;
+    bottom: -7px;
+    transform: translateX(-50%) rotate(-45deg);
   }
 }
 

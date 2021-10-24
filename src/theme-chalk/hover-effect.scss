@@ -1,28 +1,28 @@
-@import "./variables/hover-effect.scss";
+@import "./var";
 
 .lin-hover-effect {
   position: relative;
-  padding: $hover-effect-padding;
+  padding: 10px 20px;
   overflow: hidden;
-  font-weight: $hover-effect-font-weight;
+  font-weight: 300;
   border: 0;
   outline: none;
 }
 
 .lin-hover-effect-theme-neon {
   background-color: transparent;
-  transition: $hover-effect-neon-transition;
+  transition: all 300ms;
 
   @each $key, $val in $theme-color {
     &.lin-hover-effect-type-#{$key} {
       color: $val;
-      border: $hover-effect-neon-border-width solid $val;
+      border: 1px solid $val;
 
       &:hover {
         color: white;
         background-color: $val;
         border-color: $val;
-        box-shadow: $hover-effect-neon-box-shadow $val;
+        box-shadow: 10px 10px 99px 6px $val;
       }
     }
   }
@@ -39,7 +39,7 @@
     width: 0;
     height: 0;
     content: "";
-    border: $hover-effect-border-border-width solid transparent;
+    border: 2px solid transparent;
   }
 
   &::after {
@@ -59,11 +59,16 @@
   }
 
   &:hover::before {
-    transition: $hover-effect-border-before-transition;
+    transition:
+      width 0.3s ease-out,
+      height 0.3s ease-out 0.3s;
   }
 
   &:hover::after {
-    transition: $hover-effect-border-after-transition;
+    transition:
+      border-color 0s ease-out 0.6s,
+      width 0.3s ease-out 0.6s,
+      height 0.3s ease-out 1s;
   }
 
   @each $key, $val in $theme-color {
@@ -84,9 +89,9 @@
 }
 
 .lin-hover-effect-theme-fillet {
-  color: $hover-effect-fillet-color;
-  border-radius: $hover-effect-fillet-border-radius;
-  transition: $hover-effect-fillet-transition;
+  color: #fff;
+  border-radius: 10px;
+  transition: border-radius 1s;
 
   @each $key, $val in $theme-color {
     &.lin-hover-effect-type-#{$key} {
@@ -95,16 +100,16 @@
   }
 
   &:hover {
-    border-top-left-radius: $hover-effect-fillet-top-left-radius;
-    border-top-right-radius: $hover-effect-fillet-top-right-radius;
-    border-bottom-right-radius: $hover-effect-fillet-bottom-right-radius;
-    border-bottom-left-radius: $hover-effect-fillet-bottom-left-radius;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 10px;
   }
 }
 
 .lin-hover-effect-theme-frozen {
-  color: $hover-effect-frozen-color;
-  border-radius: $hover-effect-frozen-border-radius;
+  color: #fff;
+  border-radius: 50px;
 
   &::before {
     position: absolute;
@@ -116,18 +121,22 @@
     width: 100%;
     height: 100%;
     content: "";
-    background: $hover-effect-frozen-background;
+    background:
+      linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.4) 50%
+      );
     background-position: right bottom;
     background-size: 210% 100%;
-    border-radius: $hover-effect-frozen-border-radius;
-    transition: $hover-effect-frozen-transition;
+    border-radius: 50px;
+    transition: all 1s;
   }
 
   @each $key, $val in $theme-color {
     &.lin-hover-effect-type-#{$key} {
       background: linear-gradient(to right, $val, adjust-hue($val, 30deg));
-      //   background: linear-gradient(to right, $val, saturate($val, 40deg));
-      box-shadow: $hover-effect-frozen-box-shadow $val;
+      box-shadow: 0 4px 15px 0 $val;
     }
     &.lin-hover-effect-type-#{$key}:hover:before {
       background-position: left bottom;
@@ -137,12 +146,11 @@
 
 .lin-hover-effect-theme-shiny {
   background: transparent;
-  // text-transform: uppercase;
 
   @each $key, $val in $theme-color {
     &.lin-hover-effect-type-#{$key} {
       color: $val;
-      border: $hover-effect-shiny-border-width solid $val;
+      border: 2px solid $val;
 
       &::after {
         background: $val;
@@ -152,18 +160,18 @@
 
   &::after {
     position: absolute;
-    top: $hover-effect-shiny-top;
-    left: $hover-effect-shiny-left;
+    top: -36px;
+    left: -100px;
     display: block;
-    width: $hover-effect-shiny-width;
-    height: $hover-effect-shiny-height;
+    width: 50px;
+    height: 125px;
     content: "";
-    opacity: $hover-effect-shiny-opacity;
-    transform: $hover-effect-shiny-transform;
+    opacity: 20%;
+    transform: rotate(-45deg);
   }
 
   &:hover::after {
-    left: $hover-effect-shiny-hover-left;
-    transition: $hover-effect-shiny-transition;
+    left: 120%;
+    transition: all 1s cubic-bezier(0.3, 1, 0.2, 1);
   }
 }

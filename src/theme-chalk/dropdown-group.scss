@@ -1,12 +1,13 @@
-@import "./variables/dropdown.scss";
+@import './var';
 
 .lin-dropdown-group-label {
   box-sizing: border-box;
-  height: $dropdown-group-label-height;
-  padding: $dropdown-group-label-padding;
-  font-size: $dropdown-group-label-font-size;
-  line-height: $dropdown-group-label-height;
-  color: $dropdown-group-label-color;
+  height: 34px;
+  padding: 0 20px;
+  font-size: $font-size-base;
+  line-height: 34px;
+  // color: $font-color;
+  color: #909399;
   cursor: default;
-  border-bottom: $dropdown-group-label-border-bottom;
+  border-bottom: 1px solid $border-color;
 }

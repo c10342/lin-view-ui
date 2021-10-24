@@ -1,6 +1,17 @@
-@import "./variables/dialog.scss";
-// scoped会给当前组件的模板中的所有的元素都添加一个随机的属性
-// scoped会给当前组件中所有的样式 页添加一个对应的的属性选择器
+@import './var';
+
+@keyframes dialog-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .lin-dialog-wrapper {
   position: fixed;
   top: 0;
@@ -10,72 +21,63 @@
   z-index: 2001;
   margin: 0;
   overflow: auto;
-  background-color: $dialog-wrapper-background-color;
+  background-color: rgba(0, 0, 0, 0.5);
 
   .lin-dialog {
-    // position: relative;
-    // margin: $dialog-margin;
     position: absolute;
     box-sizing: border-box;
-    width: $dialog-width;
-    // top: 0;
-    // left: 50%;
-    // transform: translateX(-50%);
-    background: $dialog-background;
-    border-radius: $dialog-border-radius;
-    box-shadow: $dialog-box-shadow;
+    width: 30%;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 
     &-header {
-      padding: $dialog-header-padding;
+      padding: 20px 20px 10px;
 
       .lin-dialog-title {
-        font-size: $dialog-title-font-size;
-        line-height: $dialog-title-line-height;
-        color: $dialog-title-color;
+        font-size: $font-size-big;
+        line-height: 24px;
+        color: $font-color;
       }
 
       .lin-dialog-headerbtn {
         position: absolute;
-        top: $dialog-headerbtn-top;
-        right: $dialog-headerbtn-right;
-        padding: $dialog-headerbtn-padding;
-        font-size: $dialog-headerbtn-font-size;
+        top: 20px;
+        right: 20px;
+        padding: 0;
+        font-size: $font-size-normal;
         cursor: pointer;
-        background: $dialog-headerbtn-background;
-        border: $dialog-headerbtn-border;
-        outline: $dialog-headerbtn-outline;
+        background: transparent;
+        border: none;
+        outline: none;
 
         .lin-icon-close {
-          color: $dialog-close-color;
+          color: $font-color;
         }
       }
     }
 
     &-body {
-      padding: $dialog-body-padding;
-      font-size: $dialog-body-font-size;
-      color: $dialog-body-color;
-      word-break: $dialog-body-word-break;
+      padding: 30px 20px;
+      font-size: $font-size-small;
+      color: $font-color;
+      word-break: break-all;
     }
 
     &-footer {
       box-sizing: border-box;
-      padding: $dialog-footer-padding;
-      text-align: $dialog-footer-text-align;
-      // 深度选择器 scss ::v-deep  less /deep/  css >>>
-      // ::v-deep .lin-button:first-child {
-      //   margin-right: 20px;
-      // }
+      padding: 10px 20px 20px;
+      text-align: right;
     }
   }
 }
 
 .lin-dialog-fade-enter-active {
-  animation: $dialog-animation-enter;
+  animation: dialog-animation 0.3s;
 }
 
 .lin-dialog-fade-leave-active {
-  animation: $dialog-animation-leave;
+  animation: dialog-animation 0.3s reverse;
 }
 
 .user-select-none {

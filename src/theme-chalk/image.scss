@@ -1,4 +1,4 @@
-@import "./variables/image.scss";
+@import "./var";
 
 .lin-image {
   display: inline-block;
@@ -9,8 +9,8 @@
   display: block;
   width: 100%;
   height: 100%;
-  padding: $image-img-padding;
-  margin: $image-img-margin;
+  padding: 0;
+  margin: 0;
 }
 
 .lin-image-error {
@@ -20,9 +20,9 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: $image-error-font-size;
-  color: $image-error-color;
-  background: #f5f7fa;
+  font-size: $font-size-small;
+  color: $disabled-font-color;
+  background: $disabled-background-color;
 }
 
 .lin-image-mask {
@@ -31,42 +31,42 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: $image-mask-z-index;
+  z-index: 1000;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: $image-mask-background-color;
-  transition: $image-mask-transition;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
 }
 
 .lin-image-close {
   position: absolute;
-  top: $image-close-top;
-  right: $image-close-right;
-  width: $image-close-width;
-  height: $image-close-height;
-  border: $image-close-border-border;
-  border-radius: $image-close-border-radius;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #111;
+  border-radius: 50%;
 }
 
 .lin-image-line {
   position: absolute;
-  top: $image-line-top;
-  left: $image-line-left;
-  width: $image-line-width;
-  height: $image-line-height;
-  background-color: $image-line-background-color;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: #111;
 }
 
 .lin-image-line-left {
-  transform: $image-line-left-transform;
+  transform: rotate(45deg);
 }
 
 .lin-image-line-right {
-  transform: $image-line-right-transform;
+  transform: rotate(-45deg);
 }
 
 .lin-image-animation-enter,
