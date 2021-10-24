@@ -3,13 +3,11 @@ const handlebars = require("handlebars");
 const fs = require("fs");
 const path = require("path");
 
-const packageRoot = path.resolve(__dirname, "../packages");
+const root = path.resolve(__dirname, "../");
 
-const themeChalkSrc = path.resolve(packageRoot, "./theme-chalk/src");
+const packageRoot = path.resolve(root, "./packages");
 
-const argv = process.argv;
-
-const componentName = argv[2];
+const themeChalkSrc = path.resolve(root, "./src/theme-chalk/src");
 
 function toHump(name) {
   const reg = /-(\w)/g;
@@ -24,45 +22,7 @@ function toHump(name) {
   return name;
 }
 
-// 检查有没有输入组件名
-if (!componentName) {
-  console.log(chalk.blueBright("请输入组件名"));
-  return;
-}
-
-const compomentPath = path.resolve(packageRoot, componentName);
-
-// 检查输入的组件名是否已经存在了
-if (fs.existsSync(compomentPath)) {
-  console.log(chalk.blueBright(`${componentName}组件已经存在了`));
-  return;
-}
-
-// 创建组件根目录
-fs.mkdirSync(compomentPath);
-// 创建src目录
-const compomentSrcPath = path.resolve(compomentPath, "src");
-fs.mkdirSync(compomentSrcPath);
-// 创建__tests__目录
-const testsSrcPath = path.resolve(compomentPath, "__tests__");
-fs.mkdirSync(testsSrcPath);
-// 创建types目录
-const typesSrcPath = path.resolve(compomentPath, "types");
-fs.mkdirSync(typesSrcPath);
-
-function writePakcageTpl() {
-  const parmas = {
-    name: componentName
-  };
-  const tplStr = fs.readFileSync(
-    path.resolve(__dirname, "./template/package.tpl"),
-    "utf-8"
-  );
-  const result = handlebars.compile(tplStr)(parmas);
-  fs.writeFileSync(path.resolve(compomentPath, "package.json"), result);
-}
-
-function writeIndexTpl() {
+function writeIndexTpl(componentName, compomentPath) {
   const parmas = {
     name: componentName,
     importName: toHump(componentName)
@@ -75,7 +35,7 @@ function writeIndexTpl() {
   fs.writeFileSync(path.resolve(compomentPath, "index.js"), result);
 }
 
-function writeVueTpl() {
+function writeVueTpl(componentName, compomentSrcPath) {
   const parmas = {
     compName: `Lin${toHump(componentName)}`
   };
@@ -90,35 +50,7 @@ function writeVueTpl() {
   );
 }
 
-function writeScssTpl() {
-  const tplStr = fs.readFileSync(
-    path.resolve(__dirname, "./template/scss.tpl"),
-    "utf-8"
-  );
-  fs.writeFileSync(
-    path.resolve(themeChalkSrc, `${componentName}.scss`),
-    tplStr
-  );
-  fs.appendFileSync(
-    path.resolve(themeChalkSrc, `index.scss`),
-    `\n@import './${componentName}.scss';`
-  );
-}
-
-function writeReadmeTpl() {
-  const parmas = {
-    name: componentName,
-    componentName: toHump(componentName)
-  };
-  const tplStr = fs.readFileSync(
-    path.resolve(__dirname, "./template/readme.tpl"),
-    "utf-8"
-  );
-  const result = handlebars.compile(tplStr)(parmas);
-  fs.writeFileSync(path.resolve(compomentPath, "README.md"), result);
-}
-
-function writeTestTpl() {
+function writeTestTpl(componentName, testsSrcPath) {
   const parmas = {
     name: componentName,
     componentName: toHump(componentName)
@@ -134,27 +66,53 @@ function writeTestTpl() {
   );
 }
 
-function writeTypeTpl() {
-  const parmas = {
-    componentName: toHump(componentName)
-  };
+function writeScssTpl(componentName, themeChalkSrc) {
   const tplStr = fs.readFileSync(
-    path.resolve(__dirname, "./template/types.tpl"),
+    path.resolve(__dirname, "./template/scss.tpl"),
     "utf-8"
   );
-  const result = handlebars.compile(tplStr)(parmas);
-  fs.writeFileSync(path.resolve(typesSrcPath, "index.d.ts"), result);
+  fs.writeFileSync(
+    path.resolve(themeChalkSrc, `${componentName}.scss`),
+    tplStr
+  );
+  fs.appendFileSync(
+    path.resolve(themeChalkSrc, `index.scss`),
+    `\n@import './${componentName}.scss';`
+  );
 }
 
-function writeTpl() {
-  writePakcageTpl();
-  writeIndexTpl();
-  writeVueTpl();
-  writeScssTpl();
-  writeReadmeTpl();
-  writeTestTpl();
-  writeTypeTpl();
+const writeTpl = () => {
+  const argv = process.argv;
+
+  const componentName = argv[2];
+  // 检查有没有输入组件名
+  if (!componentName) {
+    console.log(chalk.blueBright("请输入组件名"));
+    return;
+  }
+  // 组件存放路径
+  const compomentPath = path.resolve(packageRoot, componentName);
+
+  // 检查输入的组件名是否已经存在了
+  if (fs.existsSync(compomentPath)) {
+    console.log(chalk.blueBright(`${componentName}组件已经存在了`));
+    return;
+  }
+
+  // 创建组件根目录
+  fs.mkdirSync(compomentPath);
+  // 创建src目录
+  const compomentSrcPath = path.resolve(compomentPath, "src");
+  fs.mkdirSync(compomentSrcPath);
+  // 创建__tests__目录
+  const testsSrcPath = path.resolve(compomentPath, "__tests__");
+  fs.mkdirSync(testsSrcPath);
+
+  writeIndexTpl(componentName, compomentPath);
+  writeVueTpl(componentName, compomentSrcPath);
+  writeTestTpl(componentName, testsSrcPath);
+  writeScssTpl(componentName, themeChalkSrc);
   console.log(chalk.blueBright(`${componentName}模板创建成功`));
-}
+};
 
 writeTpl();
