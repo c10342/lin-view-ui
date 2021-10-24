@@ -7,7 +7,7 @@ const root = path.resolve(__dirname, "../");
 
 const packageRoot = path.resolve(root, "./packages");
 
-const themeChalkSrc = path.resolve(root, "./src/theme-chalk/src");
+const themeChalkSrc = path.resolve(root, "./src/theme-chalk");
 
 function toHump(name) {
   const reg = /-(\w)/g;
