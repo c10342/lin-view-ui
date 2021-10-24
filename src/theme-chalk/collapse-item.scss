@@ -1,4 +1,4 @@
-@import "./variables/collapse.scss";
+@import './var';
 
 .lin-collapse-item-simple {
   .lin-collapse-item-header {
@@ -11,7 +11,7 @@
 }
 
 .lin-collapse-item + .lin-collapse-item {
-  border-top: $collapse-border;
+  border-top: 1px solid $border-color;
 }
 
 .lin-collapse-item-header {
@@ -19,21 +19,21 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: $collapse-item-header-padding;
+  padding: 10px 16px;
   cursor: pointer;
-  background-color: $collapse-item-header-background-color;
+  background-color: $background-color;
 }
 
 .lin-collapse-arrow {
-  margin-right: $collapse-arrow-margin-right;
-  transition: $collapse-arrow-transition;
+  margin-right: 5px;
+  transition: all 300ms;
 }
 
 .lin-collapse-item-content {
-  padding: $collapse-item-content-padding;
-  border-top: $collapse-border;
+  padding: 16px;
+  border-top: 1px solid $border-color;
 }
 
 .lin-collapse-arrow-down {
-  transform: $collapse-arrow-down-transform;
+  transform: rotate(90deg);
 }

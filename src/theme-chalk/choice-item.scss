@@ -1,29 +1,28 @@
-@import "./variables/choice.scss";
+@import './var';
 @import "./mixin/common.scss";
 
 .lin-choice-item {
   position: relative;
   box-sizing: border-box;
-  // height: $choice-item-height;
-  padding: $choice-item-padding;
-  font-size: $choice-item-font-size;
-  line-height: $choice-item-height;
-  color: $choice-item-color;
+  padding: 0 20px;
+  font-size: $font-size-small;
+  line-height: 34px;
+  color: $font-color;
   cursor: pointer;
 
   @include one-line();
 
   &:not(.lin-choice-item-disabled):hover {
-    background-color: $choice-item-hover-background-color;
+    background-color: $disabled-background-color;
   }
 
   &.lin-choice-item-active {
-    color: $choice-item-active-color;
-    background-color: $choice-item-active-background-color;
+    color: $primary;
+    background-color: $disabled-background-color;
   }
 
   &.lin-choice-item-disabled {
-    color: $choice-item-disabled-color;
+    color: $disabled-font-color;
     cursor: not-allowed;
   }
 }

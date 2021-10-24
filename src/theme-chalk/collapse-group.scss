@@ -1,8 +1,8 @@
-@import "./variables/collapse.scss";
+@import './var';
 
 .lin-collapse-group {
   position: relative;
-  border: $collapse-border;
+  border: 1px solid $border-color;
 }
 
 .lin-collapse-group-simple {

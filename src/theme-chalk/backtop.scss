@@ -1,4 +1,5 @@
-@import "./variables/backtop.scss";
+// @import "./variables/backtop.scss";
+@import './var';
 
 .lin-backtop {
   position: fixed;
@@ -9,25 +10,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: $backtop-container-width;
-  height: $backtop-container-height;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  background-color: $backtop-container-background-color;
-  border-radius: $backtop-container-border-radius;
-  box-shadow: $backtop-container-box-shadow;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
 
   &:hover {
-    background-color: $backtop-container-hover-background-color;
+    background-color: lighten($primary, 35%);
   }
 }
 
 .lin-backtop-triangle {
   width: 0;
   height: 0;
-  border: $backtop-triangle-border;
-  border-right-color: $backtop-triangle-border-right-color;
-  border-bottom-color: $backtop-triangle-border-bottom-color;
-  transform: $backtop-triangle-transform;
+  border: 6px solid $primary;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(45deg) translate(2px, 1px);
 }
 
 .lin-backtop-fade-enter-active,

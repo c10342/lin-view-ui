@@ -4,10 +4,10 @@
 
 .lin-choice-option-label {
   box-sizing: border-box;
-  padding: $choice-option-label-padding;
-  font-size: $choice-option-label-font-size;
-  line-height: $choice-option-label-line-height;
-  color: $choice-option-label-color;
+  padding: 0 20px;
+  font-size: $font-size-base;
+  line-height: 30px;
+  color: #909399;
   cursor: default;
 
   @include one-line();
@@ -15,16 +15,16 @@
 
 .lin-choice-option + .lin-choice-option {
   position: relative;
-  margin-top: $choice-option-margin-top;
+  margin-top: 20px;
 
   &::after {
     position: absolute;
-    top: $choice-option-after-top;
-    right: $choice-option-after-right;
-    left: $choice-option-after-left;
+    top: -10px;
+    right: 20px;
+    left: 20px;
     display: block;
-    height: $choice-option-after-height;
+    height: 1px;
     content: "";
-    background: $choice-option-after-background;
+    background: $disabled-border-color;
   }
 }

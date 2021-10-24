@@ -1,12 +1,12 @@
-@import "./variables/checkbox.scss";
+@import './var';
 
 .lin-checkbox {
   position: relative;
   display: inline-block;
-  margin-right: $checkbox-margin-right;
-  font-size: $checkbox-font-size;
-  font-weight: $checkbox-font-weight;
-  color: $checkbox-color;
+  margin-right: 30px;
+  font-size: $font-size-small;
+  font-weight: 500;
+  color: $font-color;
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
@@ -14,7 +14,7 @@
   .lin-checkbox-input {
     position: relative;
     display: inline-block;
-    line-height: $checkbox-input-line-height;
+    line-height: 1;
     white-space: nowrap;
     vertical-align: middle;
     cursor: pointer;
@@ -22,30 +22,33 @@
 
     .lin-checkbox-inner {
       position: relative;
-      z-index: $checkbox-inner-z-index;
+      z-index: 1;
       box-sizing: border-box;
       display: inline-block;
-      width: $checkbox-inner-width;
-      height: $checkbox-inner-height;
-      background-color: $checkbox-inner-background-color;
-      border: $checkbox-inner-border;
-      border-radius: $checkbox-inner-border-radius;
-      transition: $checkbox-inner-transition;
+      width: 14px;
+      height: 14px;
+      background-color: #fff;
+      border: 1px solid $border-color;
+      border-radius: 2px;
+      transition:
+        border-color 0.25s
+        cubic-bezier(0.71, -0.46, 0.29, 1.46),
+        background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
 
       &::after {
         position: absolute;
-        top: $checkbox-inner-after-top;
-        left: $checkbox-inner-after-left;
+        top: 1px;
+        left: 4px;
         box-sizing: content-box;
-        width: $checkbox-inner-after-width;
-        height: $checkbox-inner-after-height;
+        width: 3px;
+        height: 7px;
         content: "";
-        border: $checkbox-inner-after-border;
-        border-top: $checkbox-inner-after-border-top;
-        border-left: $checkbox-inner-after-border-left;
-        transition: $checkbox-inner-after-transition;
-        transform: $checkbox-inner-after-transform;
-        transform-origin: $checkbox-inner-after-transform-origin;
+        border: 1px solid #fff;
+        border-top: 0;
+        border-left: 0;
+        transition: transform 0.15s ease-in 0.05s;
+        transform: rotate(45deg) scaleY(0);
+        transform-origin: center;
       }
     }
 
@@ -63,31 +66,31 @@
 
   .lin-checkbox-label {
     display: inline-block;
-    padding-left: $checkbox-label-padding-left;
-    font-size: $checkbox-label-font-size;
-    line-height: $checkbox-label-line-height;
+    padding-left: 10px;
+    font-size: $font-size-small;
+    line-height: 19px;
   }
 }
 
 .lin-checkbox.lin-checkbox-is-checked {
   .lin-checkbox-input {
     .lin-checkbox-inner {
-      background-color: $checkbox-checked-background-color;
-      border-color: $checkbox-checked-border-color;
+      background-color: $primary;
+      border-color: $primary;
 
       &::after {
-        transform: $checkbox-checked-transform;
+        transform: rotate(45deg) scaleY(1);
       }
     }
   }
 
   .lin-checkbox-label {
-    color: $checkbox-checked-color;
+    color: $primary;
   }
 }
 
 .lin-checkbox-is-disabled {
-  color: $checkbox-disabled-color;
+  color: $disabled-font-color;
   cursor: not-allowed;
 
   .lin-checkbox-input {
