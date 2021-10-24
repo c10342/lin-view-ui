@@ -40,7 +40,7 @@ const buildScss = async name => {
 };
 
 const build = () => {
-  const externalFile = ["iconfont.css"];
+  const externalFile = ["iconfont.css", "_var.scss"];
   const styleList = fs
     .readdirSync(styleRoot)
     .filter(fileName => fs.statSync(path.resolve(styleRoot, fileName)).isFile())
