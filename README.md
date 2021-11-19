@@ -57,7 +57,7 @@ import Vue from 'vue';
 import LinUI from 'lin-view-ui';
 import 'lin-view-ui/lib/theme-chalk/index.css'
 
-Vue.use(LinUI);
+Vue.use(LinUI); 
 
 // or
 import {
