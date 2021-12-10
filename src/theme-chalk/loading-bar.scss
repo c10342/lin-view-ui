@@ -1,48 +1,55 @@
-@import "./variables/loading-bar.scss";
+@import "./var";
+@import './animations/rotate-animation.scss';
 
 .lin-loading-bar-progress {
   position: fixed;
-  top: $loading-bar-top;
-  left: $loading-bar-left;
-  z-index: $loading-bar-z-index;
-  width: $loading-bar-width;
-  height: $loading-bar-height;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 2px;
   //   transition: all 5s ease;
-  background: $loading-bar-background;
-  transition: $loading-bar-transition;
-  transform: $loading-bar-transform;
+  background: $primary;
+  transition: all 0.2s ease;
+  transform: translateX(-100%);
 }
 
 .lin-loading-bar-peg {
   position: absolute;
-  right: $loading-bar-peg-right;
-  width: $loading-bar-peg-width;
-  height: $loading-bar-peg-height;
-  background-image: $loading-bar-peg-background-image;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background-image:
+    linear-gradient(
+      135deg,
+      $success 0%,
+      darken($success, 10%) 72%,
+      darken($success, 20%) 100%
+    );
 }
 
 .lin-loading-bar-spinner {
   position: fixed;
-  top: $loading-bar-spinner-top;
-  right: $loading-bar-spinner-right;
-  z-index: $loading-bar-spinner-z-index;
+  top: 15px;
+  right: 15px;
+  z-index: 1031;
 }
 
 .lin-loading-bar-icon {
   box-sizing: border-box;
-  width: $loading-bar-icon-width;
-  height: $loading-bar-icon-height;
-  border: $loading-bar-icon-border;
-  border-top-color: $loading-bar-icon-border-top-color;
-  border-left-color: $loading-bar-icon-border-left-color;
-  border-radius: $loading-bar-icon-border-radius;
-  animation-name: $loading-bar-icon-animation-name;
-  animation-duration: $loading-bar-icon-animation-duration;
-  animation-iteration-count: $loading-bar-icon-animation-iteration-count;
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: $primary;
+  border-left-color: $primary;
+  border-radius: 50%;
+  animation-name: rotate-animation;
+  animation-duration: 400ms;
+  animation-iteration-count: infinite;
 }
 
 .lin-loading-bar-error {
-  background: $loading-bar-error-background;
+  background: $danger;
 
   .lin-loading-bar-peg {
     background-image: none;
@@ -50,6 +57,6 @@
 }
 
 .lin-loading-bar-icon-error {
-  border-top-color: $loading-bar-error-border-top-color;
-  border-left-color: $loading-bar-error-border-left-color;
+  border-top-color: $danger;
+  border-left-color: $danger;
 }

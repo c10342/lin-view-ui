@@ -1,13 +1,13 @@
-@import "./variables/show-more.scss";
+@import "./var";
 
 .lin-show-more {
-  font-size: $show-more-font-size;
-  color: $show-more-color;
+  font-size: $font-size-small;
+  color: $font-color;
 }
 
 .lin-show-more-tip {
-  margin-left: $show-more-tip-margin-left;
-  color: $show-more-tip-color;
-  text-decoration: $show-more-tip-text-decoration;
+  margin-left: 5px;
+  color: $primary;
+  text-decoration: none;
   cursor: pointer;
 }

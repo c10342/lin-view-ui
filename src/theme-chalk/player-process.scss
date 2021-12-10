@@ -1,59 +1,60 @@
-@import "./variables/player-process.scss";
+@import "./var";
+@import './animations/ball-enter-animation.scss';
 
 .lin-player-process-mask {
   position: relative;
   width: 100%;
-  padding: $player-process-mask-padding;
+  padding: 5px 0;
   cursor: pointer;
 }
 
 .lin-player-process-time {
   position: absolute;
-  top: $player-process-time-top;
-  left: $player-process-time-left;
-  padding: $player-process-time-padding;
-  font-size: $player-process-time-font-size;
-  color: $player-process-time-color;
+  top: -20px;
+  left: 0;
+  padding: 3px;
+  font-size: 12px;
+  color: #fff;
   user-select: none;
-  background-color: $player-process-time-background-color;
-  border-radius: $player-process-time-border-radius;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
 }
 
 .lin-player-process {
   position: relative;
   width: 100%;
-  height: $player-process-height;
+  height: 3px;
   cursor: pointer;
-  background-color: $player-process-background-color;
+  background-color: hsla(0, 0%, 100%, 0.2);
 }
 
 .lin-player-process-played {
   position: absolute;
-  top: $player-process-played-top;
-  left: $player-process-played-left;
-  height: $player-process-height;
-  background-color: $player-process-played-background-color;
-  transition: $player-process-played-transition;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background-color: rgb(183, 218, 255);
+  transition: all 300ms;
 }
 
 .lin-player-process-loaded {
   position: absolute;
-  top: $player-process-loaded-top;
-  left: $player-process-loaded-left;
-  height: $player-process-height;
-  background-color: $player-process-loaded-background-color;
-  transition: $player-process-loaded-transition;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background-color: hsla(0, 0%, 100%, 0.4);
+  transition: all 300ms;
 }
 
 .lin-player-process-ball {
   position: absolute;
-  top: $player-process-ball-top;
-  right: $player-process-ball-right;
-  width: $player-process-ball-width;
-  height: $player-process-ball-height;
-  background-color: $player-process-ball-background-color;
-  border-radius: $player-process-ball-border-radius;
-  transform: $player-process-ball-transform;
+  top: 50%;
+  right: -5px;
+  width: 11px;
+  height: 11px;
+  background-color: rgb(183, 218, 255);
+  border-radius: 50%;
+  transform: translateY(-50%);
 }
 
 .lin-player-process-fade-enter-active,
@@ -67,9 +68,13 @@
 }
 
 .lin-player-process-ball-enter-active {
-  animation: $player-process-ball-enter-active-animation;
+  animation:
+    ball-enter-animation 0.3s
+    ease-out;
 }
 
 .lin-player-process-ball-leave-active {
-  animation: $player-process-ball-leave-active-animation;
+  animation:
+    ball-enter-animation 0.3s
+    reverse ease-out;
 }

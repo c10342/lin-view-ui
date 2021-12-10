@@ -1,27 +1,28 @@
-@import "./variables/selector-item";
+@import "./var";
+$selector-height: 26px !default;
 
-.lin-selecotr-item {
-  max-width: $selector-item-max-width;
-  height: $selector-item-height;
-  padding: $selector-item-padding;
-  margin-right: $selector-item-margin-right;
+.lin-selector-item {
+  max-width: 200px;
+  height: $selector-height;
+  padding: 0 10px;
+  margin-right: 10px;
   overflow: hidden;
-  font-size: $selector-item-font-size;
-  line-height: $selector-item-line-height;
-  color: $selector-item-color;
+  font-size: $font-size-base;
+  line-height: $selector-height;
+  color: rgba($font-color, 0.9);
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
 }
 
-.lin-selecotr-item.lin-selecotr-active {
-  color: $selector-active-color;
-  background-color: $selector-active-background-color;
+.lin-selector-item.lin-selector-active {
+  color: $primary;
+  background-color: rgba($primary, 0.1);
 }
 
-.lin-selecotr-item.lin-selecotr-disabled {
-  color: $selector-disabled-color;
+.lin-selector-item.lin-selector-disabled {
+  color: $disabled-font-color;
   cursor: not-allowed;
-  background-color: $selector-disabled-background-color;
+  background-color: $disabled-background-color;
 }

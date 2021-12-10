@@ -1,13 +1,15 @@
-@import "./variables/selector-group";
+@import "./var";
+
+$selector-height: 26px !default;
 
 .lin-selector-label {
   display: inline-block;
-  height: $selector-label-height;
-  padding: $selector-label-padding;
-  font-size: $selector-label-font-size;
-  line-height: $selector-label-line-height;
-  color: $selector-label-color;
-  text-align: $selector-label-text-align;
+  height: $selector-height;
+  padding: 0 10px;
+  font-size: $font-size-small;
+  line-height: $selector-height;
+  color: darken($font-color, 20%);
+  text-align: right;
   white-space: nowrap;
   vertical-align: top;
 }
@@ -24,35 +26,34 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 0;
-  padding: $selector-list-padding;
-  margin: $selector-list-margin;
-  margin-right: $selector-list-margin-right;
-  margin-left: $selector-list-margin-left;
+  padding: 0;
+  margin: 0;
+  margin-right: 48px;
+  margin-left: 10px;
   overflow: hidden;
   list-style: none;
 }
 
 .lin-selector-more-text {
   position: absolute;
-  top: $selector-more-text-top;
-  right: $selector-more-text-right;
-  height: $selector-more-text-height;
-  line-height: $selector-more-text-line-height;
+  top: 0;
+  right: 0;
+  height: $selector-height;
+  line-height: $selector-height;
   cursor: pointer;
   user-select: none;
-  // width: $selector-more-text-width;
 }
 
 .lin-selector-more-text-tip {
   box-sizing: border-box;
   display: inline-block;
-  width: $selector-more-text-width;
-  height: $selector-more-text-height;
-  font-size: $selector-more-text-font-size;
-  line-height: $selector-more-text-line-height;
-  color: $selector-more-text-color;
+  width: 48px;
+  height: $selector-height;
+  font-size: $font-size-base;
+  line-height: $selector-height;
+  color: darken($font-color, 20%);
   text-align: center;
   white-space: nowrap;
   vertical-align: top;
-  background-color: $selector-more-text-background-color;
+  background-color: #e7e8ec;
 }

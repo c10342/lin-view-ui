@@ -1,5 +1,5 @@
 
-@import "./variables/player-fullscreen.scss";
+@import "./var";
 
 .lin-player-fullscreen {
   position: relative;
@@ -9,8 +9,8 @@
   height: 100%;
 
   span {
-    font-size: $player-fullscreen-font-size;
-    color: $player-fullscreen-color;
+    font-size: 30px;
+    color: #fff;
     cursor: pointer;
   }
 
@@ -23,9 +23,9 @@
 
 .lin-player-fullscreen-hover-full {
   position: absolute;
-  top: $player-fullscreen-hover-full-top;
-  left: $player-fullscreen-hover-full-left;
+  top: -30px;
+  left: 0;
   display: none;
   width: 100%;
-  margin-bottom: $player-fullscreen-hover-full-margin-bottom;
+  margin-bottom: 10px;
 }

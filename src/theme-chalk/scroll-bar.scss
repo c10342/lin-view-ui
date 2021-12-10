@@ -1,4 +1,4 @@
-@import "./variables/scroll-bar.scss";
+@import "./var";
 @import './spinner.scss';
 
 .user-no-select {
@@ -13,34 +13,34 @@
 
 .lin-scroll-bar-wrapper {
   position: relative;
-  margin-right: $scroll-bar-wrapper-margin-right;
+  margin-right: -17px;
   overflow-y: scroll;
 }
 
-.lin-srcoll-bar-barwrapper {
+.lin-scroll-bar-barwrapper {
   position: absolute;
-  top: $scroll-bar-barwrapper-top;
-  right: $scroll-bar-barwrapper-right;
-  width: $scroll-bar-barwrapper-width;
+  top: 0;
+  right: 0;
+  width: 8px;
   height: 100%;
-  background-color: $scroll-bar-barwrapper-background-color;
+  background-color: transparent;
 }
 
-.lin-srcoll-bar-bar {
+.lin-scroll-bar-bar {
   position: absolute;
-  top: $scroll-bar-bar-top;
-  left: $scroll-bar-bar-left;
-  width: $scroll-bar-bar-width;
+  top: 0;
+  left: 0;
+  width: 8px;
   cursor: pointer;
-  background-color: $scroll-bar-bar-background-color;
-  border-radius: $scroll-bar-bar-border-radius;
+  background-color: rgba(144, 147, 153, 0.3);
+  border-radius: 4px;
 
   &:hover {
-    background-color: $scroll-bar-bar-hover-background-color;
+    background-color: rgba(144, 147, 153, 0.5);
   }
 }
 
 .lin-scroll-bar-spinner {
-  padding: $scroll-bar-spinner-padding;
-  text-align: $scroll-bar-spinner-text-align;
+  padding: 5px 0;
+  text-align: center;
 }

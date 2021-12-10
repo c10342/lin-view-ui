@@ -1,4 +1,5 @@
-@import "./variables/scroll-view.scss";
+@import "./var";
+@import './animations/rotate-animation.scss';
 
 .lin-scroll-view {
   overflow-y: auto;
@@ -9,30 +10,30 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: $scroll-view-loading-height;
+  height: 30px;
 }
 
 .lin-scroll-view-icon {
-  width: $scroll-view-icon-width;
-  height: $scroll-view-icon-height;
-  border: $scroll-view-icon-border;
-  border-top-color: $scroll-view-icon-border-top-color;
-  border-left-color: $scroll-view-icon-border-left-color;
-  border-radius: $scroll-view-icon-border-radius;
-  animation: $scroll-view-icon-animation;
+  width: 16px;
+  height: 16px;
+  border: 1px solid transparent;
+  border-top-color: $primary;
+  border-left-color: $primary;
+  border-radius: 50%;
+  animation: rotate-animation 500ms linear infinite;
 }
 
 .lin-scroll-view-tip {
-  margin-left: $scroll-view-tip-margin-left;
-  font-size: $scroll-view-tip-font-size;
-  color: $scroll-view-tip-color;
+  margin-left: 10px;
+  font-size: $font-size-small;
+  color: $font-color;
 }
 
 .lin-scroll-view-nomore-tip {
-  padding: $scroll-view-nomore-tip-padding;
-  margin: $scroll-view-nomore-tip-margin;
-  font-size: $scroll-view-nomore-tip-font-size;
-  line-height: $scroll-view-nomore-line-height;
-  color: $scroll-view-nomore-tip-color;
+  padding: 0;
+  margin: 0;
+  font-size: $font-size-small;
+  line-height: 30px;
+  color: $font-color;
   text-align: center;
 }

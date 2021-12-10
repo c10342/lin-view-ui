@@ -1,13 +1,13 @@
-@import "./variables/link.scss";
+@import "./var";
 
 .lin-link {
   position: relative;
-  font-size: $link-font-size;
+  font-size: $font-size-small;
   text-decoration: none;
 }
 
 .lin-link-default {
-  color: $link-default-color;
+  color: $font-color;
 
   &::after {
     background-color: $primary;
@@ -33,12 +33,12 @@
 
   @each $key, $val in $theme-color {
     &.lin-link-#{$key} {
-      color: lighten($val, $link-disabled-color-lighten);
+      color: lighten($val, 10%);
     }
   }
 
   &.lin-link-default {
-    color: lighten($link-default-color, $link-disabled-color-lighten);
+    color: lighten($link-default-color, 10%);
   }
 }
 
@@ -46,15 +46,15 @@
   &:hover {
     &::after {
       position: absolute;
-      bottom: $link-underline-hover-after-bottom;
-      left: $link-underline-hover-after-left;
-      width: $link-underline-hover-after-width;
-      height: $link-underline-hover-after-height;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
       content: "";
     }
   }
 }
 
 .lin-link-icon {
-  margin-right: $link-icon-margin-right;
+  margin-right: 5px;
 }

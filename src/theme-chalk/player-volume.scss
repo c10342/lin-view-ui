@@ -1,4 +1,4 @@
-@import "./variables/player-volume.scss";
+@import "./var";
 
 .lin-player-volume {
   position: relative;
@@ -8,8 +8,8 @@
 
   &:hover {
     .lin-player-volume-mask {
-      width: $player-volume-hover-width;
-      padding: $player-volume-hover-padding;
+      width: 60px;
+      padding: 5px 5px;
     }
   }
 }
@@ -18,18 +18,18 @@
   position: relative;
   width: 0;
   padding: 0;
-  margin-left: $player-volume-margin-left;
+  margin-left: 5px;
   overflow: hidden;
   cursor: pointer;
-  transition: $player-volume-transition;
+  transition: all 400ms;
 }
 
 .lin-player-volume-process {
   position: relative;
-  width: $player-volume-hover-width;
-  height: $player-volume-process-height;
-  margin: $player-volume-process-margin;
-  background-color: $player-volume-process-background-color;
+  width: 60px;
+  height: 3px;
+  margin: 3px 0;
+  background-color: hsla(0, 0%, 100%, 0.2);
 }
 
 .lin-player-volume-process-line {
@@ -38,18 +38,18 @@
   left: 0;
   width: 0;
   height: 3px;
-  background-color: $player-volume-process-line-background-color;
+  background-color: rgb(183, 218, 255);
 }
 
 .lin-player-volume-process-ball {
   position: absolute;
-  top: $player-volume-process-ball-top;
-  right: $player-volume-process-ball-right;
-  width: $player-volume-process-ball-width;
-  height: $player-volume-process-ball-height;
-  background-color: $player-volume-process-ball-background-color;
-  border-radius: $player-volume-process-ball-border-radius;
-  transform: $player-volume-process-ball-transform;
+  top: 50%;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(183, 218, 255);
+  border-radius: 50%;
+  transform: translateY(-50%);
 }
 
 .lin-player-volume-icon {
@@ -58,12 +58,12 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-left: $player-volume-icon-margin-left;
+  margin-left: 15px;
   vertical-align: top;
   cursor: pointer;
 
   > i {
-    font-size: $player-volume-icon-font-size;
-    color: $player-volume-icon-color;
+    font-size: 20px;
+    color: #fff;
   }
 }

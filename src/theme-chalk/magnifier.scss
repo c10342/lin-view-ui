@@ -1,11 +1,11 @@
-@import "./variables/magnifier.scss";
+@import "./var";
 
 .lin-magnifier {
   position: relative;
   top: 0;
   left: 0;
   display: inline-block;
-  border: $magnifier-border;
+  border: 1px solid $border-color;
 }
 
 .lin-magnifier-small {
@@ -18,7 +18,7 @@
   position: absolute;
   top: 0;
   overflow: hidden;
-  border: $magnifier-big-border;
+  border: 1px solid $border-color;
 }
 
 .lin-magnifier-move-slot {
@@ -28,9 +28,9 @@
 }
 
 .lin-magnifier-move {
-  width: $magnifier-move-width;
-  height: $magnifier-move-height;
-  background: $magnifier-move-background;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 0, 0.3);
 }
 
 .lin-magnifier-big-slot {

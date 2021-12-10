@@ -1,35 +1,35 @@
-@import "./variables/pagination.scss";
+@import "./var";
 
 .lin-pagination {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: $pagination-font-size;
+  font-size: $font-size-small;
 }
 
 .lin-pagination-total {
-  margin: $pagination-total-margin;
-  color: $pagination-total-color;
+  margin: 0 5px;
+  color: $font-color;
 }
 
 .lin-pagination-background {
   .lin-pagination-item {
-    color: $pagination-background-item-color;
-    background-color: $pagination-background-item-background-color;
+    color: $font-color;
+    background-color: $background-color;
   }
 
   .lin-pagination-active {
-    color: $pagination-background-active-color;
-    background-color: $pagination-background-active-background-color;
+    color: #fff;
+    background-color: $primary;
   }
 
   .lin-pagination-disabled {
-    color: $pagination-background-disabled-color;
-    background-color: $pagination-background-disabled-background-color;
+    color: $disabled-font-color;
+    background-color: $disabled-background-color;
   }
 
   .lin-pagination-icon {
-    background-color: $pagination-background-icon-background-color;
+    background-color: $background-color;
   }
 }
 
@@ -37,42 +37,42 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: $pagination-pager-padding;
+  padding: 0;
   list-style: none;
 }
 
 .lin-pagination-item {
   position: relative;
   box-sizing: border-box;
-  width: $pagination-item-width;
-  height: $pagination-item-height;
-  margin: $pagination-item-margin;
-  font-weight: $pagination-item-font-weight;
-  line-height: $pagination-item-line-height;
+  width: 30px;
+  height: 28px;
+  margin: 0 5px;
+  font-weight: bold;
+  line-height: 28px;
   text-align: center;
   cursor: pointer;
-  border-radius: $pagination-item-border-radius;
+  border-radius: 2px;
 
   &:not(.lin-pagination-disabled) {
     &:hover {
-      color: $pagination-item-hover-color;
+      color: $primary;
     }
   }
 }
 
 .lin-pagination-icon {
   position: absolute;
-  top: $pagination-icon-top;
-  left: $pagination-icon-left;
+  top: 0;
+  left: 0;
   box-sizing: border-box;
   display: none;
-  width: $pagination-icon-width;
-  height: $pagination-icon-height;
-  font-size: $pagination-icon-font-size;
-  line-height: $pagination-icon-line-height;
-  color: $pagination-icon-color;
+  width: 30px;
+  height: 28px;
+  font-size: $font-size-base;
+  line-height: 28px;
+  color: $primary;
   text-align: center;
-  background-color: $pagination-icon-background-color;
+  background-color: #fff;
 }
 
 .lin-pagination-ellipsis {
@@ -84,48 +84,42 @@
 }
 
 .lin-pagination-active {
-  color: $pagination-active-color;
+  color: $primary;
 }
 
-// .lin-pagination-icon {
-//   display: none;
-//   font-size: 12px;
-//   color: #409eff;
-// }
-
 .lin-pagination-disabled {
-  color: $pagination-disabled-color;
+  color: $disabled-font-color;
   cursor: not-allowed;
 }
 
-.lin-pagintaion-jumpe {
+.lin-pagination-jump {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: $pagination-jumpe-margin;
+  margin: 0 5px;
 }
 
-.lin-pagintaion-input {
+.lin-pagination-input {
   box-sizing: border-box;
-  width: $pagination-input-width;
-  height: $pagination-input-height;
-  padding: $pagination-input-padding;
-  margin: $pagination-input-margin;
+  width: 46px;
+  height: 28px;
+  padding: 0 3px;
+  margin: 0 5px;
   text-align: center;
   cursor: pointer;
-  border: $pagination-input-border;
-  border-radius: $pagination-input-border-radius;
+  border: 1px solid $border-color;
+  border-radius: 4px;
   outline: none;
-  transition: $pagination-input-transition;
+  transition: all 300ms;
   -moz-appearance: textfield;
   appearance: none;
 
   &:hover {
-    border-color: $pagination-input-hover-border-color;
+    border-color: darken($border-color, 10%);
   }
 
   &:focus {
-    border-color: $pagination-input-focus-border-color;
+    border-color: $primary;
   }
 
   &::-webkit-inner-spin-button,

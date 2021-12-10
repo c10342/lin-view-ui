@@ -1,4 +1,4 @@
-@import "./variables/message.scss";
+@import "./var";
 
 $message-theme-color: (
   "success": $success,
@@ -9,22 +9,22 @@ $message-theme-color: (
 
 .lin-message {
   position: fixed;
-  top: $message-top;
-  left: $message-left;
-  z-index: $message-z-index;
+  top: 20px;
+  left: 50%;
+  z-index: 2000;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  min-width: $message-min-width;
-  padding: $message-padding;
+  min-width: 380px;
+  padding: 15px 15px 15px 20px;
   overflow: hidden;
-  background-color: $message-background-color;
-  border-color: $message-border-color;
-  border-style: $message-border-style;
-  border-width: $message-border-width;
-  border-radius: $message-border-radius;
-  transition: $message-transition;
-  transform: $message-transform;
+  background-color: rgba($info, 0.1);
+  border-color: rgba($info, 0.1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  transition: opacity 0.3s, transform 0.4s, top 0.4s;
+  transform: translateX(-50%);
 }
 
 .lin-message-center {
@@ -32,32 +32,24 @@ $message-theme-color: (
 }
 
 .lin-message-content {
-  padding: $message-content-padding;
-  margin: $message-content-margin;
+  padding: 0;
+  margin: 0;
 }
 
 .lin-message-icon {
-  margin-right: $message-icon-margin-right;
-  font-size: $message-icon-font-size;
+  margin-right: 10px;
+  font-size: $font-size-small;
 }
 
 .lin-message-close-icon {
   position: absolute;
-  top: $message-close-icon-top;
-  right: $message-close-icon-right;
-  font-size: $message-close-icon-font-size;
-  color: $message-close-icon-color;
+  top: 50%;
+  right: 15px;
+  font-size: $font-size-normal;
+  color: #c0c4cc;
   cursor: pointer;
-  transform: $message-close-icon-transform;
+  transform: translateY(-50%);
 }
-
-// @each $key, $val in $message-theme-color {
-//   .lin-message-#{$key} {
-//     background-color: lighten($val, 40%);
-//     border-color: lighten($val, 40%);
-//     color: $val;
-//   }
-// }
 
 .lin-message-success {
   color: $success;
@@ -85,11 +77,11 @@ $message-theme-color: (
 
 .message-enter-active,
 .message-leave-active {
-  transition: $message-active-transition;
+  transition: opacity 0.3s, transform 0.4s, top 0.4s;
 }
 
 .message-enter,
 .message-leave-to {
-  opacity: $message-enter-opacity;
-  transform: $message-enter-transform;
+  opacity: 0;
+  transform: translateY(-100%)  translateX(-50%);
 }
