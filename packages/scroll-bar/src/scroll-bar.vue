@@ -21,7 +21,7 @@
       </div>
     </div>
     <div
-      class="lin-srcoll-bar-barwrapper"
+      class="lin-scroll-bar-barwrapper"
       v-if="showBar"
       @click="onBarWrapperClick"
     >
@@ -29,7 +29,7 @@
         v-show="hoverBar || hover"
         @mousedown="onMouseDown"
         ref="bar"
-        class="lin-srcoll-bar-bar"
+        class="lin-scroll-bar-bar"
         :style="{ height: `${barHeight}px`, top: `${barTop}px` }"
       ></div>
     </div>
