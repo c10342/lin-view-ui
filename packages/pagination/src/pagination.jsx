@@ -202,7 +202,7 @@ export default {
         t
       } = this;
       return (
-        <div class="lin-pagintaion-jumpe">
+        <div class="lin-pagination-jump">
           <span>{t("LinViewUI.Pagination.goto")}</span>
           <input
             min="1"
@@ -210,7 +210,7 @@ export default {
             onKeyup={gotoPageByEnter}
             onBlur={gotoPageByBlur}
             value={currentPage}
-            class="lin-pagintaion-input"
+            class="lin-pagination-input"
             type="number"
           />
           <span>{t("LinViewUI.Pagination.page")}</span>
