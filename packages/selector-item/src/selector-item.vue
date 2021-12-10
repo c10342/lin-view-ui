@@ -1,9 +1,9 @@
 <template>
   <div
-    class="lin-selecotr-item"
+    class="lin-selector-item"
     :class="{
-      'lin-selecotr-active': active,
-      'lin-selecotr-disabled': isDisabled
+      'lin-selector-active': active,
+      'lin-selector-disabled': isDisabled
     }"
     @click="onClick"
   >
