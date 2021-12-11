@@ -1,8 +1,9 @@
 
-@import "./variables/skeleton.scss";
+@import "./var";
+@import './animations/skeleton-opacity.scss';
 
 .lin-skeleton {
-  width: $skeleton-width;
-  height: $skeleton-height;
-  animation: $skeleton-animation;
+  width: 100%;
+  height: 0;
+  animation: skeleton-opacity 2s infinite linear;
 }

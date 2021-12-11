@@ -1,10 +1,10 @@
-@import "./variables/table.scss";
+@import "./var";
 
 .lin-table {
-  width: $table-width;
-  color: $table-color;
-  border-spacing: $table-border-spacing;
-  border-collapse: $table-border-collapse;
+  width: 100%;
+  color: $font-size-normal;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
 
 .lin-table-align-left {
@@ -20,18 +20,18 @@
 }
 
 .lin-table-border {
-  border: $table-border-border;
+  border: 1px solid rgba($border-color, 0.4);
 
   .lin-table-th,
   .lin-table-td {
-    border: $table-border-border;
+    border: 1px solid rgba($border-color, 0.4);
   }
 }
 
 .lin-table-stripe {
   .lin-table-tr {
     &:nth-child(even) {
-      background-color: $table-stripe-background-color;
+      background-color: #fafafa;
     }
   }
 }
@@ -39,15 +39,15 @@
 .lin-table-tr {
   .lin-table-th,
   .lin-table-td {
-    padding: $table-cell-padding;
-    border-bottom: $table-cell-border-bottom;
+    padding: 10px;
+    border-bottom: 1px solid rgba($border-color, 0.4);
   }
 }
 
 .lin-table-tbody {
   .lin-table-tr {
     &:hover {
-      background-color: $table-tbody-tr-hover-background-color;
+      background-color: rgba($background-color, 0.9);
     }
   }
 }
@@ -55,10 +55,10 @@
 .lin-table-checkbox {
   position: relative;
   display: inline-block;
-  width: $table-checkbox-width;
-  height: $table-checkbox-height;
+  width: 16px;
+  height: 16px;
   margin: 0;
-  line-height: $table-checkbox-line-height;
+  line-height: 14px;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -73,8 +73,8 @@
   height: 100%;
   content: "";
   background: #fff;
-  border: $table-checkbox-before-border;
-  border-radius: $table-checkbox-border-radius;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
 }
 
 .lin-table-checkbox:checked::before {
@@ -83,11 +83,11 @@
   left: 0;
   box-sizing: border-box;
   width: 100%;
-  font-size: $table-checkbox-checked-font-size;
-  font-weight: $table-checkbox-checked-font-weight;
-  color: $table-checkbox-checked-color;
+  font-size: $font-size-normal;
+  font-weight: bold;
+  color: #7d7d7d;
   content: "\2713";
-  background-color: $table-checkbox-checked-background-color;
-  border: $table-checkbox-checked-border;
-  border-radius: $table-checkbox-border-radius;
+  background-color: #fff;
+  border: 1px solid #7d7d7d;
+  border-radius: 4px;
 }

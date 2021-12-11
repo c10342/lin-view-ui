@@ -53,7 +53,7 @@ $input-height: 40px !default;
 .lin-input-suffix {
   position: absolute;
   top: 0;
-  right: $input-suffix-right;
+  right: 10px;
   z-index: 900;
   height: 100%;
   line-height: $input-height;

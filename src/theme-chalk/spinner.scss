@@ -1,4 +1,5 @@
-@import "./variables/spinner.scss";
+@import "./var";
+@import './animations/rotate-animation.scss';
 
 .lin-spinner {
   display: inline-flex;
@@ -11,7 +12,7 @@
   flex-direction: row;
 
   .lin-spinner-text {
-    margin-left: $spinner-text-margin-left;
+    margin-left: 5px;
   }
 }
 
@@ -19,20 +20,20 @@
   flex-direction: column;
 
   .lin-spinner-text {
-    margin-top: $spinner-text-margin-top;
+    margin-top: 5px;
   }
 }
 
 .lin-spinner-loading {
-  width: $spinner-loading-width;
-  height: $spinner-loading-height;
-  border-style: $spinner-loading-border-style;
-  border-width: $spinner-loading-border-width;
-  border-radius: $spinner-loading-border-radius;
-  animation-name: $spinner-loading-animation-name;
-  animation-duration: $spinner-loading-animation-duration;
-  animation-timing-function: $spinner-loading-animation-timing-function;
-  animation-iteration-count: $spinner-loading-animation-iteration-count;
+  width: 24px;
+  height: 24px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50%;
+  animation-name: rotate-animation;
+  animation-duration: 600ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @each $key, $val in $theme-color {
@@ -57,6 +58,6 @@
 }
 
 .lin-spinner-text {
-  font-size: $spinner-text-font-size;
-  color: $spinner-text-color;
+  font-size: $font-size-small;
+  color: $font-color;
 }

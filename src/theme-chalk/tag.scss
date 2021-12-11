@@ -1,4 +1,4 @@
-@import "./variables/tag.scss";
+@import "./var";
 @import "./mixin/tag.scss";
 
 .lin-tag {
@@ -7,28 +7,28 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: $tag-height;
-  padding: $tag-padding;
-  font-size: $tag-font-size;
-  line-height: $tag-line-height;
+  height: 32px;
+  padding: 0 10px;
+  font-size: $font-size-base;
+  line-height: 30px;
   white-space: nowrap;
-  border: $tag-border;
-  border-radius: $tag-border-radius;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
 .lin-tag-close {
   box-sizing: border-box;
-  width: $tag-close-width;
-  height: $tag-close-height;
-  margin-left: $tag-close-margin-left;
-  font-size: $tag-close-font-size;
-  line-height: $tag-close-line-height;
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  font-size: $font-size-base;
+  line-height: 16px;
   text-align: center;
   cursor: pointer;
-  border-radius: $tag-close-border-radius;
+  border-radius: 50%;
 
   &:hover {
-    color: $tag-close-hover-color;
+    color: #fff;
   }
 }
 
@@ -76,10 +76,10 @@
 
 .lin-tag-fade-enter-active,
 .lin-tag-fade-leave-active {
-  transition: $tag-transition;
+  transition: all 300ms;
 }
 
 .lin-tag-fade-enter,
 .lin-tag-fade-leave-to {
-  opacity: $tag-opacity;
+  opacity: 0;
 }

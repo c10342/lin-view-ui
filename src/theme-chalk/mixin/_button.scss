@@ -11,7 +11,7 @@
 }
 
 @mixin button-plain-active($color) {
-  color: $button-active-color;
+  color: #fff;
   background: $color;
   border-color: $color;
 }
