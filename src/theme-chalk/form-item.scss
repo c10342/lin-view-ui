@@ -1,6 +1,6 @@
 @import './var';
 
-@keyframes formitem-animation {
+@keyframes formItem-animation {
   0% {
     opacity: 0;
     transform: translateY(-5px);
@@ -47,9 +47,9 @@
 }
 
 .lin-formItem-fade-enter-active {
-  animation: formitem-animation 0.2s;
+  animation: formItem-animation 0.2s;
 }
 
 .lin-formItem-fade-leave-active {
-  animation: formitem-animation 0.2s reverse;
+  animation: formItem-animation 0.2s reverse;
 }
