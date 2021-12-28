@@ -65,8 +65,8 @@
 </template>
 
 <script>
-import { LocaleMixin } from "@lin-view-ui/mixins";
-import Image from "@lin-view-ui/image";
+import { LocaleMixin } from "@src/mixins";
+import Image from "@packages/image";
 import defaultAvator from "./images/default_avatar.png";
 
 export default {

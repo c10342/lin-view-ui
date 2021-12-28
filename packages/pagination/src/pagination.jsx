@@ -1,5 +1,5 @@
-import { LocaleMixin } from "@lin-view-ui/mixins";
-import { isNumber } from "@lin-view-ui/utils";
+import { LocaleMixin } from "@src/mixins";
+import { isNumber } from "@src/utils";
 import { layoutType, keyCode } from "./enum.js";
 
 export default {
@@ -202,7 +202,7 @@ export default {
         t
       } = this;
       return (
-        <div class="lin-pagintaion-jumpe">
+        <div class="lin-pagination-jump">
           <span>{t("LinViewUI.Pagination.goto")}</span>
           <input
             min="1"
@@ -210,7 +210,7 @@ export default {
             onKeyup={gotoPageByEnter}
             onBlur={gotoPageByBlur}
             value={currentPage}
-            class="lin-pagintaion-input"
+            class="lin-pagination-input"
             type="number"
           />
           <span>{t("LinViewUI.Pagination.page")}</span>

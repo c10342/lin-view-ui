@@ -1,0 +1,68 @@
+@import "./var";
+
+.lin-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  box-sizing: border-box;
+  min-width: 40px;
+  max-width: 500px;
+  padding: 10px;
+  font-size: $font-size-base;
+  color: #fff;
+  word-break: break-all;
+  word-wrap: break-word;
+  background: #303133;
+  border-radius: 4px;
+
+  &::after {
+    position: absolute;
+    content: "";
+    border: 5px solid #303133;
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+}
+
+.lin-tooltip-bottom {
+  &::after {
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+}
+
+.lin-tooltip-top {
+  &::after {
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(135deg);
+  }
+}
+
+.lin-tooltip-left {
+  &::after {
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+.lin-tooltip-right {
+  &::after {
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%) rotate(-135deg);
+  }
+}
+
+.lin-tooltip-fade-enter-active,
+.lin-tooltip-fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.lin-tooltip-fade-enter,
+.lin-tooltip-fade-leave-to {
+  opacity: 0;
+}

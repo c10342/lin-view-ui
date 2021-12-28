@@ -1,0 +1,17 @@
+@mixin button-plain-default($background, $border-color, $color) {
+  color: $color;
+  background: $background;
+  border-color: $border-color;
+}
+
+@mixin button-plain-normal($color) {
+  color: $color;
+  background: rgba($color, 0.1);
+  border-color: rgba($color, 0.3);
+}
+
+@mixin button-plain-active($color) {
+  color: #fff;
+  background: $color;
+  border-color: $color;
+}

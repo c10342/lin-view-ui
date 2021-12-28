@@ -1,4 +1,4 @@
-import { isObject, isString, isFunction, isArray } from "@lin-view-ui/utils";
+import { isObject, isString, isFunction, isArray } from "@src/utils";
 
 // 判断是否为DOM元素
 export const isDOM = dom => {
@@ -17,7 +17,7 @@ export const isDOM = dom => {
 
 // 校验视频类型参数
 export const handleType = (type, customType) => {
-  if (isFunction(customType)) {
+  if (!isFunction(customType)) {
     const typeList = ["mp4", "hls", "flv"];
     if (!type) {
       throw new ReferenceError("type 没有定义");

@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import { isArray } from "@lin-view-ui/utils";
-import { LocaleMixin } from "@lin-view-ui/mixins";
+import { isArray } from "@src/utils";
+import { LocaleMixin } from "@src/mixins";
 
 export default {
   name: "LinImage",

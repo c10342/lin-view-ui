@@ -1,0 +1,44 @@
+$primary: #409eff !default;
+$success: #67c23a !default;
+$info: #909399 !default;
+$warning: #e6a23c !default;
+$danger: #f56c6c !default;
+
+$theme-color: (
+  "primary": $primary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+);
+
+$font-size-base: 12px !default;
+
+$font-size-small: 14px !default;
+
+$font-size-normal: 16px !default;
+
+$font-size-big: 18px !default;
+
+$font-size-bigger: 20px !default;
+
+// 背景颜色
+$background-color: #f4f4f5 !default;
+
+// 边框颜色
+$border-color: #dcdfe6 !default;
+
+// 字体颜色
+$font-color: #606266 !default;
+
+// 禁用字体颜色
+$disabled-font-color: #c0c4cc !default;
+
+// 禁用边框颜色
+$disabled-border-color: #e4e7ed !default;
+
+// 禁用背景色
+$disabled-background-color: #f5f7fa !default;
+
+// 按钮悬浮字体颜色
+// $button-active-color: #fff !default;

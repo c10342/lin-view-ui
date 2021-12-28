@@ -1,0 +1,13 @@
+@import './var';
+
+.lin-dropdown-group-label {
+  box-sizing: border-box;
+  height: 34px;
+  padding: 0 20px;
+  font-size: $font-size-base;
+  line-height: 34px;
+  // color: $font-color;
+  color: #909399;
+  cursor: default;
+  border-bottom: 1px solid $border-color;
+}

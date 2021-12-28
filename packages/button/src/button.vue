@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import Spinner from "@lin-view-ui/spinner";
+import Spinner from "@packages/spinner";
 
 export default {
   name: "LinButton",

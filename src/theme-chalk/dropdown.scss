@@ -1,0 +1,65 @@
+@import './var';
+
+.lin-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.lin-dropdown-label {
+  color: $primary;
+  cursor: pointer;
+}
+
+.lin-dropdown-container {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  z-index: 101;
+  box-sizing: border-box;
+  max-width: 300px;
+  padding: 5px 0;
+  white-space: nowrap;
+  background-color: #fff;
+  border: 1px solid $disabled-border-color;
+  border-radius: 5px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
+
+  &::before {
+    position: absolute;
+    left: 50%;
+    box-sizing: border-box;
+    width: 12px;
+    height: 12px;
+    content: "";
+    background-color: #fff;
+    border: 1px solid $disabled-border-color;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-radius: 2px;
+  }
+}
+
+.lin-dropdown-container-down {
+  &::before {
+    top: -7px;
+    transform: translateX(-50%) rotate(135deg);
+  }
+}
+
+.lin-dropdown-container-up {
+  &::before {
+    bottom: -7px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+}
+
+.lin-dropdown-fade-enter-active,
+.lin-dropdown-fade-leave-active {
+  transition: all 300ms;
+}
+
+.lin-dropdown-fade-enter,
+.lin-dropdown-fade-leave-to {
+  opacity: 0;
+}

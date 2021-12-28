@@ -1,0 +1,69 @@
+@import "./var";
+
+.lin-player-volume {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &:hover {
+    .lin-player-volume-mask {
+      width: 60px;
+      padding: 5px 5px;
+    }
+  }
+}
+
+.lin-player-volume-mask {
+  position: relative;
+  width: 0;
+  padding: 0;
+  margin-left: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 400ms;
+}
+
+.lin-player-volume-process {
+  position: relative;
+  width: 60px;
+  height: 3px;
+  margin: 3px 0;
+  background-color: hsla(0, 0%, 100%, 0.2);
+}
+
+.lin-player-volume-process-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: rgb(183, 218, 255);
+}
+
+.lin-player-volume-process-ball {
+  position: absolute;
+  top: 50%;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(183, 218, 255);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.lin-player-volume-icon {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  vertical-align: top;
+  cursor: pointer;
+
+  > i {
+    font-size: 20px;
+    color: #fff;
+  }
+}

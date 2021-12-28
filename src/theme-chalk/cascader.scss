@@ -1,0 +1,143 @@
+
+@import './var';
+@import "./mixin/common";
+@import './input.scss';
+
+.lin-cascader {
+  position: relative;
+  display: inline-block;
+  width: 220px;
+}
+
+.lin-cascader-input {
+  > input {
+    cursor: pointer;
+  }
+
+  .lin-icon-close {
+    cursor: pointer;
+  }
+}
+
+.lin-panel {
+  display: flex;
+  flex-direction: row;
+}
+
+.lin-cascader-popup {
+  position: absolute;
+  z-index: 1000;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+  &::before {
+    position: absolute;
+    left: 40px;
+    width: 12px;
+    height: 12px;
+    content: "";
+    background-color: #fff;
+    border: 1px solid $disabled-border-color;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+}
+
+.lin-cascader-popup-down {
+  &::before {
+    top: -8px;
+    transform: rotate(45deg);
+  }
+}
+
+.lin-cascader-popup-up {
+  &::before {
+    bottom: -6px;
+    transform: rotate(-135deg);
+  }
+}
+
+.lin-panel-wrapper {
+  background-color: #fff;
+}
+
+.lin-panel-scroll {
+  @include one-line();
+  @include beautyScroll();
+}
+
+.lin-panel-container {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 179px;
+  height: 187px;
+  margin-top: -1px;
+  margin-left: -1px;
+  border: 1px solid $disabled-border-color;
+}
+
+.lin-panel-item {
+  position: relative;
+  height: 34px;
+  padding: 0 30px 0 20px;
+  font-size: $font-size-small;
+  line-height: 34px;
+  white-space: nowrap;
+  cursor: pointer;
+
+  @include one-line();
+
+  > .lin-icon-right {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+.lin-panel-empty {
+  position: relative;
+  width: 179px;
+  height: 34px;
+  padding: 0 30px 0 20px;
+  margin: 5px 0;
+  font-size: $font-size-small;
+  line-height: 34px;
+  white-space: nowrap;
+}
+
+.lin-panel-disabled {
+  color: $disabled-font-color;
+  cursor: not-allowed;
+}
+
+.lin-panel-active {
+  color: $primary;
+}
+
+.lin-panel-list {
+  padding: 0;
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.lin-panel-loading {
+  position: absolute;
+  top: 25%;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid $primary;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: 50%;
+  animation: rotate-animation 400ms linear infinite;
+}
+
+.lin-cascader-fade-enter-active,
+.lin-cascader-fade-leave-active {
+  transition: all 300ms;
+}
+
+.lin-cascader-fade-enter,
+.lin-cascader-fade-leave-to {
+  opacity: 0;
+}

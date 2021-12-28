@@ -2,9 +2,9 @@ import Vue from "vue";
 
 import MultiPlayer from "./multi-player.vue";
 
-import { handleEl } from "@lin-view-ui/video-player";
+import { handleEl } from "@packages/video-player";
 
-import { isString } from "@lin-view-ui/utils";
+import { isString } from "@src/utils";
 
 import { fullScreenType } from "./enum.js";
 

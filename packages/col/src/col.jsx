@@ -1,4 +1,4 @@
-import { isNumber, isPlainObject } from "@lin-view-ui/utils";
+import { isNumber, isPlainObject } from "@src/utils";
 import { propsType } from "./enum.js";
 
 export default {

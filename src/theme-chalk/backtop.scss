@@ -1,0 +1,42 @@
+// @import "./variables/backtop.scss";
+@import './var';
+
+.lin-backtop {
+  position: fixed;
+}
+
+.lin-backtop-container {
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
+
+  &:hover {
+    background-color: lighten($primary, 35%);
+  }
+}
+
+.lin-backtop-triangle {
+  width: 0;
+  height: 0;
+  border: 6px solid $primary;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(45deg) translate(2px, 1px);
+}
+
+.lin-backtop-fade-enter-active,
+.lin-backtop-fade-leave-active {
+  transition: all 300ms;
+}
+
+.lin-backtop-fade-enter,
+.lin-backtop-fade-leave-to {
+  opacity: 0;
+}

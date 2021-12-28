@@ -1,0 +1,300 @@
+@import "./var";
+@import './player-fullscreen.scss';
+@import './player-process.scss';
+@import './player-volume.scss';
+
+// video-player 开始 ----------------------------------
+.lin-video-player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  background-color: #000;
+}
+
+.lin-video-player-fix {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+
+.lin-video-player-video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+// video-player 结束 ----------------------------------
+
+// video-player-tip 开始 ------------------------------
+.lin-video-player-tip {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  padding: 7px 20px;
+  font-size: $font-size-base;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+}
+// video-player-tip 结束 ------------------------------
+
+// video-player-speed  开始  --------------------------
+.lin-video-player-speed {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-right: 10px;
+  color: #fff;
+
+  &:hover {
+    .lin-video-player-speed-list {
+      display: block;
+    }
+  }
+}
+
+.lin-video-player-speed-label {
+  min-width: 60px;
+  height: 20px;
+  // padding: 5px 10px;
+  padding: 5px;
+  font-size: $font-size-base;
+  line-height: 20px;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.lin-video-player-speed-list {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: none;
+  padding: 5px 0;
+  margin: 0;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateX(-50%);
+
+  .lin-video-player-speed-label {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+// video-player-speed  结束  --------------------------
+
+// video-player-loading  开始  --------------------------
+.lin-video-player-loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  > span {
+    font-size: 30px;
+    color: hsla(0, 0%, 100%, 0.7);
+    animation: rotate-animation 2s linear infinite;
+  }
+}
+// video-player-loading  结束  --------------------------
+
+// video-player-image  开始  --------------------------
+.lin-video-player-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+// video-player-image  结束  --------------------------
+
+// video-player-definition  开始  --------------------------
+.lin-video-player-definition {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-right: 10px;
+  color: #fff;
+
+  &:hover {
+    .lin-video-player-definition-list {
+      display: block;
+    }
+  }
+}
+
+.lin-video-player-definition-label {
+  height: 20px;
+  padding: 5px 10px;
+  font-size: $font-size-base;
+  line-height: 20px;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.lin-video-player-definition-list {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: none;
+  padding: 5px 0;
+  margin: 0;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateX(-50%);
+
+  .lin-video-player-definition-label {
+    &:hover {
+      background-color:
+        rgba(
+          0,
+          0,
+          0,
+          0.2
+        );
+    }
+  }
+}
+// video-player-definition  结束  --------------------------
+
+// video-player-controls  开始  --------------------------
+
+.lin-video-player-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.lin-video-player-controls-group {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  padding: 0 20px;
+}
+
+.lin-video-player-controls-mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 98px;
+  pointer-events: none;
+  background:
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==)
+    repeat-x bottom;
+}
+
+.lin-video-player-icon-item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  cursor: pointer;
+
+  > i {
+    font-size: 30px;
+    color: #fff;
+  }
+}
+
+.lin-video-player-time {
+  margin-left: 15px;
+  font-size: $font-size-base;
+  color: #fff;
+  user-select: none;
+}
+
+.lin-video-player-live-tip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  font-size: $font-size-small;
+  color: #fff;
+
+  > i {
+    width: 6px;
+    height: 6px;
+    margin-right: 20px;
+    background-color: rgb(183, 218, 255);
+    border-radius: 50%;
+  }
+}
+
+.lin-video-player-process-box {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.lin-video-player-controls-right {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+// video-player-controls  结束  --------------------------
+
+// video-player-animation  开始  --------------------------
+.lin-video-player-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+
+  > span {
+    font-size: 40px;
+    color: #fff;
+  }
+}
+
+.lin-video-player-animation-enter-active {
+  animation:
+    enter-active-animation 0.3s
+    ease-out;
+}
+
+.lin-video-player-animation-leave-active {
+  display: none;
+  opacity: 0;
+}
+// video-player-animation  结束  --------------------------

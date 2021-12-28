@@ -1,7 +1,7 @@
 import { expect, jest } from "@jest/globals";
 import { mount } from "@vue/test-utils";
-import { sleep, mockGetFile } from "@lin-view-ui/test-utils";
-import { request, splitFileChunk, caculateFileHash } from "@lin-view-ui/utils";
+import { sleep, mockGetFile } from "@src/test-utils";
+import { request, splitFileChunk, caculateFileHash } from "@src/utils";
 
 import Upload from "../index.js";
 
@@ -9,7 +9,7 @@ const SUCCESSURL = "http://127.0.0.1/success";
 
 const ERRORURL = "http://127.0.0.1/error";
 
-jest.mock("@lin-view-ui/utils");
+jest.mock("@src/utils");
 
 splitFileChunk.mockReturnValue(["test"]);
 

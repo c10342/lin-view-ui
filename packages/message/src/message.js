@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-import { isPlainObject } from "@lin-view-ui/utils";
+import { isPlainObject } from "@src/utils";
 
 import Message from "./message.vue";
 

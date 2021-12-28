@@ -1,0 +1,46 @@
+@import "./var";
+@import './spinner.scss';
+
+.user-no-select {
+  user-select: none;
+}
+
+.lin-scroll-bar {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.lin-scroll-bar-wrapper {
+  position: relative;
+  margin-right: -17px;
+  overflow-y: scroll;
+}
+
+.lin-scroll-bar-barwrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+  background-color: transparent;
+}
+
+.lin-scroll-bar-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  cursor: pointer;
+  background-color: rgba(144, 147, 153, 0.3);
+  border-radius: 4px;
+
+  &:hover {
+    background-color: rgba(144, 147, 153, 0.5);
+  }
+}
+
+.lin-scroll-bar-spinner {
+  padding: 5px 0;
+  text-align: center;
+}

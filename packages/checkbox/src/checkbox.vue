@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { dispatch } from "@lin-view-ui/utils";
+import { dispatch } from "@src/utils";
 
 export default {
   name: "LinCheckbox",

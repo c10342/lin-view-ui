@@ -1,0 +1,79 @@
+
+@import './mixin/alert.scss';
+@import './var';
+
+.lin-alert {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.lin-alert-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.lin-alert-title {
+  font-size: $font-size-small;
+  font-weight: 700;
+
+  &:only-child {
+    font-weight: normal;
+  }
+}
+
+.lin-alert-description {
+  margin-top: 5px;
+  font-size: $font-size-base;
+}
+
+.lin-alert-close {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lin-alert-center {
+  justify-content: center;
+}
+
+.lin-alert-light {
+  .lin-alert-close {
+    color: $disabled-font-color;
+  }
+
+  @each $key, $val in $theme-color {
+    &.lin-alert-#{$key} {
+      @include alert-type($val);
+    }
+  }
+}
+
+.lin-alert-dark {
+  @each $key, $val in $theme-color {
+    &.lin-alert-#{$key} {
+      @include alert-type($val);
+    }
+  }
+}
+
+.lin-alert-fade-enter-active,
+.lin-alert-fade-leave-active {
+  transition: all 300ms;
+}
+
+.lin-alert-fade-enter,
+.lin-alert-fade-leave-to {
+  opacity: 0;
+}

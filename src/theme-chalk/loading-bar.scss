@@ -1,0 +1,61 @@
+@import "./var";
+
+.lin-loading-bar-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 2px;
+  //   transition: all 5s ease;
+  background: $primary;
+  transition: all 0.2s ease;
+  transform: translateX(-100%);
+}
+
+.lin-loading-bar-peg {
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background-image:
+    linear-gradient(
+      135deg,
+      $success 0%,
+      darken($success, 10%) 72%,
+      darken($success, 20%) 100%
+    );
+}
+
+.lin-loading-bar-spinner {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1031;
+}
+
+.lin-loading-bar-icon {
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: $primary;
+  border-left-color: $primary;
+  border-radius: 50%;
+  animation-name: rotate-animation;
+  animation-duration: 400ms;
+  animation-iteration-count: infinite;
+}
+
+.lin-loading-bar-error {
+  background: $danger;
+
+  .lin-loading-bar-peg {
+    background-image: none;
+  }
+}
+
+.lin-loading-bar-icon-error {
+  border-top-color: $danger;
+  border-left-color: $danger;
+}

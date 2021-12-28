@@ -21,7 +21,7 @@
       </div>
     </div>
     <div
-      class="lin-srcoll-bar-barwrapper"
+      class="lin-scroll-bar-barwrapper"
       v-if="showBar"
       @click="onBarWrapperClick"
     >
@@ -29,7 +29,7 @@
         v-show="hoverBar || hover"
         @mousedown="onMouseDown"
         ref="bar"
-        class="lin-srcoll-bar-bar"
+        class="lin-scroll-bar-bar"
         :style="{ height: `${barHeight}px`, top: `${barTop}px` }"
       ></div>
     </div>
@@ -38,7 +38,7 @@
 
 <script>
 import ResizeObserver from "resize-observer-polyfill";
-import Spinner from "@lin-view-ui/spinner";
+import Spinner from "@packages/spinner";
 
 export default {
   name: "LinScrollBar",

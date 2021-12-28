@@ -1,0 +1,31 @@
+
+@import "./var";
+
+.lin-player-fullscreen {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  span {
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  &:hover {
+    .lin-player-fullscreen-hover-full {
+      display: block;
+    }
+  }
+}
+
+.lin-player-fullscreen-hover-full {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  display: none;
+  width: 100%;
+  margin-bottom: 10px;
+}

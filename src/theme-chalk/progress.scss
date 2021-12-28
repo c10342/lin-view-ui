@@ -1,0 +1,53 @@
+@import "./var";
+
+.lin-progress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.lin-progress-out {
+  flex: 1;
+  width: 0;
+  background-color: $border-color;
+}
+
+.lin-progress-inner {
+  /* width: 50%; */
+  position: relative;
+  height: 100%;
+}
+
+.lin-progress-outside-tip {
+  margin-left: 10px;
+  font-size: $font-size-small;
+  color: $font-color;
+}
+
+.lin-progress-inside-text {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+}
+
+.lin-progress-inside-tip {
+  font-size: $font-size-base;
+  color: #fff;
+}
+
+.lin-progress-primary {
+  background-color: $primary;
+}
+
+.lin-progress-success {
+  background-color: $success;
+}
+
+.lin-progress-warning {
+  background-color: $warning;
+}
+
+.lin-progress-danger {
+  background-color: $danger;
+}

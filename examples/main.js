@@ -2,8 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/index.js";
 
-import LinVueUi from "@lin-view-ui/lin-view-ui";
-import "@lin-view-ui/theme-chalk/src/index.scss";
+import LinVueUi from "../src/index.js";
+import "../src/theme-chalk/index.scss";
 
 Vue.use(LinVueUi);
 

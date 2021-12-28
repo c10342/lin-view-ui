@@ -1,0 +1,11 @@
+@import './var';
+
+.lin-collapse-group {
+  position: relative;
+  border: 1px solid $border-color;
+}
+
+.lin-collapse-group-simple {
+  border-right: none;
+  border-left: none;
+}

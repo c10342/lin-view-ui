@@ -1,0 +1,130 @@
+@import "./var";
+
+.lin-pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: $font-size-small;
+}
+
+.lin-pagination-total {
+  margin: 0 5px;
+  color: $font-color;
+}
+
+.lin-pagination-background {
+  .lin-pagination-item {
+    color: $font-color;
+    background-color: $background-color;
+  }
+
+  .lin-pagination-active {
+    color: #fff;
+    background-color: $primary;
+  }
+
+  .lin-pagination-disabled {
+    color: $disabled-font-color;
+    background-color: $disabled-background-color;
+  }
+
+  .lin-pagination-icon {
+    background-color: $background-color;
+  }
+}
+
+.lin-pagination-pager {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+
+.lin-pagination-item {
+  position: relative;
+  box-sizing: border-box;
+  width: 30px;
+  height: 28px;
+  margin: 0 5px;
+  font-weight: bold;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2px;
+
+  &:not(.lin-pagination-disabled) {
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.lin-pagination-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: none;
+  width: 30px;
+  height: 28px;
+  font-size: $font-size-base;
+  line-height: 28px;
+  color: $primary;
+  text-align: center;
+  background-color: #fff;
+}
+
+.lin-pagination-ellipsis {
+  &:hover {
+    .lin-pagination-icon {
+      display: block;
+    }
+  }
+}
+
+.lin-pagination-active {
+  color: $primary;
+}
+
+.lin-pagination-disabled {
+  color: $disabled-font-color;
+  cursor: not-allowed;
+}
+
+.lin-pagination-jump {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.lin-pagination-input {
+  box-sizing: border-box;
+  width: 46px;
+  height: 28px;
+  padding: 0 3px;
+  margin: 0 5px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  outline: none;
+  transition: all 300ms;
+  -moz-appearance: textfield;
+  appearance: none;
+
+  &:hover {
+    border-color: darken($border-color, 10%);
+  }
+
+  &:focus {
+    border-color: $primary;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+}

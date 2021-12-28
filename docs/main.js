@@ -1,16 +1,16 @@
 import Vue from "vue";
-import zhLang from "@lin-view-ui/locale/src/lang/zh-CN.js";
-import enLang from "@lin-view-ui/locale/src/lang/en-US.js";
+import zhLang from "@lang/zh-CN.js";
+import enLang from "@lang/en-US.js";
 /* eslint-disable-next-line */
-import LinVueUi from '@lin-view-ui/lin-view-ui';
-import locale from "@lin-view-ui/locale";
+import LinVueUi from "../src/index.js";
+import locale from "@src/locale";
 import App from "./App.vue";
 import router from "./router/index.js";
 import { getLang, langType } from "./utils/lang.js";
 import demoBlock from "./components/demo-block.vue";
 
 import "./assets/styles/index.scss";
-import "@lin-view-ui/theme-chalk/src/index.scss";
+import "../src/theme-chalk/index.scss";
 
 import "highlight.js/styles/color-brewer.css";
 

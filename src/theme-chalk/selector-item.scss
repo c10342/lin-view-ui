@@ -1,0 +1,28 @@
+@import "./var";
+$selector-height: 26px !default;
+
+.lin-selector-item {
+  max-width: 200px;
+  height: $selector-height;
+  padding: 0 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  font-size: $font-size-base;
+  line-height: $selector-height;
+  color: rgba($font-color, 0.9);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lin-selector-item.lin-selector-active {
+  color: $primary;
+  background-color: rgba($primary, 0.1);
+}
+
+.lin-selector-item.lin-selector-disabled {
+  color: $disabled-font-color;
+  cursor: not-allowed;
+  background-color: $disabled-background-color;
+}

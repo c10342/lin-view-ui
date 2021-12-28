@@ -98,7 +98,7 @@
 
 <script>
 import ResizeObserver from "resize-observer-polyfill";
-import VideoPlayer from "@lin-view-ui/video-player";
+import VideoPlayer from "@packages/video-player";
 import NoScreen from "./no-screen.vue";
 import MultiControls from "./multi-controls.vue";
 import {
@@ -108,7 +108,7 @@ import {
   exitBrowserFullscreen,
   isNumber,
   isFunction
-} from "@lin-view-ui/utils";
+} from "@src/utils";
 export default {
   name: "linMultiPlayer",
   components: {

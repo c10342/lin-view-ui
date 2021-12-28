@@ -1,0 +1,59 @@
+@import "./var";
+
+$selector-height: 26px !default;
+
+.lin-selector-label {
+  display: inline-block;
+  height: $selector-height;
+  padding: 0 10px;
+  font-size: $font-size-small;
+  line-height: $selector-height;
+  color: darken($font-color, 20%);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.lin-selector-group {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.lin-selector-list {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  margin-right: 48px;
+  margin-left: 10px;
+  overflow: hidden;
+  list-style: none;
+}
+
+.lin-selector-more-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: $selector-height;
+  line-height: $selector-height;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lin-selector-more-text-tip {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 48px;
+  height: $selector-height;
+  font-size: $font-size-base;
+  line-height: $selector-height;
+  color: darken($font-color, 20%);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: top;
+  background-color: #e7e8ec;
+}

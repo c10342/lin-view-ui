@@ -1,0 +1,28 @@
+@import './var';
+@import "./mixin/common.scss";
+
+.lin-choice-item {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 20px;
+  font-size: $font-size-small;
+  line-height: 34px;
+  color: $font-color;
+  cursor: pointer;
+
+  @include one-line();
+
+  &:not(.lin-choice-item-disabled):hover {
+    background-color: $disabled-background-color;
+  }
+
+  &.lin-choice-item-active {
+    color: $primary;
+    background-color: $disabled-background-color;
+  }
+
+  &.lin-choice-item-disabled {
+    color: $disabled-font-color;
+    cursor: not-allowed;
+  }
+}

@@ -1,4 +1,4 @@
-import { isNull } from "@lin-view-ui/utils";
+import { isNull } from "@src/utils";
 import { cardType, componentName } from "./enum.js";
 export default {
   name: "LinTabGroup",

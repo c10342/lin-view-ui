@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { DocumentClickMixin } from "@lin-view-ui/mixins";
+import { DocumentClickMixin } from "@src/mixins";
 import { triggerType } from "./enum.js";
 
 export default {

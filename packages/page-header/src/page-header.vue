@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { LocaleMixin } from "@lin-view-ui/mixins";
+import { LocaleMixin } from "@src/mixins";
 
 export default {
   name: "LinPageHeader",

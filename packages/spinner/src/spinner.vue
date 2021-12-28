@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { isNumber } from "@lin-view-ui/utils";
+import { isNumber } from "@src/utils";
 import { INFINITE } from "./enum.js";
 export default {
   name: "LinSpinner",

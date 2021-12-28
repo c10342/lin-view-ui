@@ -34,7 +34,7 @@
   </transition>
 </template>
 <script>
-import { LocaleMixin, DragMixin } from "@lin-view-ui/mixins";
+import { LocaleMixin, DragMixin } from "@src/mixins";
 
 export default {
   name: "LinDialog",

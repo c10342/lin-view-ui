@@ -1,4 +1,4 @@
-import { LocaleMixin, DateMixin } from "@lin-view-ui/mixins";
+import { LocaleMixin, DateMixin } from "@src/mixins";
 import {
   getDate,
   getYearMonthDay,
@@ -6,7 +6,7 @@ import {
   isNumber,
   isDate,
   isString
-} from "@lin-view-ui/utils";
+} from "@src/utils";
 
 export default {
   name: "LinDatePicker",

@@ -1,0 +1,202 @@
+@import "./var";
+@import './mixin/common';
+@import './image.scss';
+
+.lin-live-comment {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 500px;
+  background: rgba(16, 26, 42, 1);
+}
+
+.lin-live-comment-login-btn {
+  color: #ef7237;
+  cursor: pointer;
+}
+
+.lin-live-comment-title {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  font-size: $font-size-small;
+  font-weight: 400;
+  line-height: 40px;
+  color: rgba(196, 208, 227, 1);
+  text-align: center;
+  background: rgba(40, 58, 86, 1);
+}
+
+.lin-live-comment-content {
+  position: relative;
+  box-sizing: border-box;
+  flex: 1;
+  height: 0;
+  padding: 10px;
+  overflow: auto;
+  background: rgba(16, 26, 42, 1);
+
+  @include beautyScroll;
+}
+
+.lin-live-comment-input {
+  position: relative;
+  box-sizing: border-box;
+  //   padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  background: rgba(34, 52, 82, 1);
+}
+
+.lin-live-comment-textarea {
+  box-sizing: border-box;
+  width: 238px;
+  height: 52px;
+  padding: 5px;
+  margin: 0;
+  color: #767891;
+  resize: none;
+  background: rgba(25, 36, 54, 1);
+  border: none;
+  outline: none;
+  appearance: none;
+
+  @include beautyScroll;
+}
+
+.lin-live-comment-send-btn {
+  width: 62px;
+  //   width: 22%;
+  height: 52px;
+  font-size: $font-size-small;
+  font-weight: 400;
+  line-height: 52px;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  cursor: pointer;
+  background: rgba(59, 87, 133, 1);
+}
+
+.lin-live-comment-mask {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  box-sizing: border-box;
+  width: 238px;
+  height: 52px;
+  padding: 5px;
+}
+
+.lin-live-comment-mask-default {
+  font-size: $font-size-small;
+  color: #767891;
+}
+
+.lin-live-comment-item {
+  display: flex;
+  flex-direction: row;
+
+  > .lin-live-comment-user-avator {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+  }
+}
+
+.lin-live-comment-info-box {
+  box-sizing: border-box;
+  width: 264px;
+  padding-left: 10px;
+}
+
+.lin-live-comment-user-name {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  line-height: 26px;
+
+  > span:nth-child(1) {
+    max-width: 127px;
+    margin-right: 5px;
+    font-size: $font-size-small;
+    font-weight: 400;
+    color: rgba(184, 198, 216, 1);
+
+    @include one-line;
+  }
+
+  > span:nth-child(2) {
+    flex: 1;
+    width: 0;
+    font-size: $font-size-base;
+    font-weight: 400;
+    color: rgba(120, 138, 161, 1);
+    text-align: right;
+  }
+}
+
+.lin-live-comment-view-count {
+  box-sizing: border-box;
+  padding: 0 10px;
+  margin: 0;
+  font-size: $font-size-base;
+  font-weight: 400;
+  line-height: 30px;
+  color: rgba(120, 138, 161, 1);
+  text-align: right;
+}
+
+.lin-live-comment-info {
+  box-sizing: border-box;
+  width: 254px;
+  padding: 5px;
+  font-size: $font-size-base;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(184, 198, 216, 1);
+  word-break: normal;
+  word-wrap: break-word;
+  // height:44px;
+  background: rgba(46, 62, 85, 1);
+  border-radius: 2px;
+}
+
+.lin-live-comment-fix {
+  position: absolute;
+  bottom: 71px;
+  left: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 7px;
+  font-size: $font-size-base;
+  font-weight: 400;
+  color: rgba(250, 247, 235, 1);
+  background: #665c47;
+
+  > span:nth-child(1) {
+    width: 50px;
+
+    @include one-line;
+  }
+
+  > span:nth-child(2) {
+    width: 216px;
+
+    @include one-line;
+  }
+
+  > span:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+  }
+}

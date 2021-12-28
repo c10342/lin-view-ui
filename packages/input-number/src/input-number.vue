@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { dispatch, isEmptyString, isUndef } from "@lin-view-ui/utils";
+import { dispatch, isEmptyString, isUndef } from "@src/utils";
 
 export default {
   name: "LinInputNumber",

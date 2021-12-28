@@ -34,7 +34,9 @@ const devConfig = {
   resolve: {
     extensions: [".js", ".jsx", "md", ".vue", ".json"],
     alias: {
-      "@lin-view-ui": path.join(__dirname, "../packages")
+      "@packages": path.join(__dirname, "../packages"),
+      "@src": path.join(__dirname, "../src"),
+      "@lang": path.join(__dirname, "../src/locale/src/lang")
     },
     mainFields: ["doc", "main"]
   },

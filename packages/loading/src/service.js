@@ -1,5 +1,5 @@
 import LoadingConstruct from "./construct.js";
-import { isString } from "@lin-view-ui/utils";
+import { isString } from "@src/utils";
 
 let instance = null;
 

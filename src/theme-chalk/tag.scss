@@ -1,0 +1,85 @@
+@import "./var";
+@import "./mixin/tag.scss";
+
+.lin-tag {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 10px;
+  font-size: $font-size-base;
+  line-height: 30px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.lin-tag-close {
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  font-size: $font-size-base;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.lin-tag-light {
+  @each $key, $val in $theme-color {
+    &.lin-tag-#{$key} {
+      @include tag-type($val);
+
+      .lin-tag-close {
+        &:hover {
+          background-color: $val;
+        }
+      }
+    }
+  }
+}
+
+.lin-tag-dark {
+  @each $key, $val in $theme-color {
+    &.lin-tag-#{$key} {
+      @include tag-type($val);
+
+      .lin-tag-close {
+        &:hover {
+          background-color: rgba($val, 0.4);
+        }
+      }
+    }
+  }
+}
+
+.lin-tag-plain {
+  @each $key, $val in $theme-color {
+    &.lin-tag-#{$key} {
+      @include tag-type($val);
+
+      .lin-tag-close {
+        &:hover {
+          background-color: $val;
+        }
+      }
+    }
+  }
+}
+
+.lin-tag-fade-enter-active,
+.lin-tag-fade-leave-active {
+  transition: all 300ms;
+}
+
+.lin-tag-fade-enter,
+.lin-tag-fade-leave-to {
+  opacity: 0;
+}

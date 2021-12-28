@@ -91,14 +91,14 @@
 </template>
 
 <script>
-import { LocaleMixin, DocumentClickMixin } from "@lin-view-ui/mixins";
+import { LocaleMixin, DocumentClickMixin } from "@src/mixins";
 import {
   findChildren,
   isPlainObject,
   isUndef,
   isEmptyString
-} from "@lin-view-ui/utils";
-import Input from "@lin-view-ui/input";
+} from "@src/utils";
+import Input from "@packages/input";
 
 export default {
   name: "LinChoiceGroup",

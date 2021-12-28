@@ -1,0 +1,45 @@
+@import './var';
+
+.lin-dropdown-item {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 34px;
+  padding: 0 20px;
+  font-size: $font-size-small;
+  line-height: 34px;
+  cursor: pointer;
+  user-select: none;
+
+  &:not(.lin-dropdown-item-disabled):hover {
+    color: $primary;
+    background-color: rgba($primary, 0.2);
+  }
+}
+
+.lin-dropdown-item-icon {
+  margin-right: 5px;
+}
+
+.lin-dropdown-item-disabled {
+  color: $border-color;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.lin-dropdown-item-divided {
+  position: relative;
+  margin-top: 6px;
+
+  &::before {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    content: "";
+    border-top: 1px solid $border-color;
+  }
+}
