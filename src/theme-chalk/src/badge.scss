@@ -1,0 +1,42 @@
+
+@import './common/var.scss';
+
+.lin-badge {
+  position: relative;
+  display: inline-block;
+}
+
+.lin-badge-fix {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  z-index: 100;
+  transform: translateY(-50%) translateX(100%);
+}
+
+.lin-badge-text {
+  height: 18px;
+  padding: 0 6px;
+  font-size: $--font-size-extra-small;
+  line-height: 18px;
+  color: $--color-white;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid $--color-white;
+  border-radius: 10px;
+}
+
+.lin-badge-dot {
+  right: 5px;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+@each $key, $val in $theme-color-obj {
+  .lin-badge-#{$key} {
+    background-color: $val;
+  }
+}
+

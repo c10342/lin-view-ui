@@ -1,5 +1,5 @@
 <template>
-  <transition name="lin-backtop-fade">
+  <transition name="lin-fade-in">
     <div
       @click="onClick"
       v-if="visible"
@@ -15,100 +15,124 @@
   </transition>
 </template>
 
-<script>
+<script lang='ts'>
+import {
+  defineComponent,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+} from "@vue/runtime-core";
 import { throttle } from "lodash";
 
-const cubic = value => value ** 3;
-const easeInOutCubic = value => {
+const cubic = (value: number) => value ** 3;
+const easeInOutCubic = (value: number) => {
   const percent =
     value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2;
   return percent;
 };
 
-export default {
+export default defineComponent({
   name: "LinBacktop",
+  emits:['click','scroll','end'],
   props: {
     // 显示位置，距离页面右边距离
     right: {
       type: Number,
-      default: 40
+      default: 40,
     },
     // 显示位置，距离页面底部距离
     bottom: {
       type: Number,
-      default: 40
+      default: 40,
     },
     // 滚动触发的对象
     target: {
       type: String,
-      default: null
+      default: null,
     },
     // 滚动高度达到次参数才显示组件
     visibilityHeight: {
       type: Number,
-      default: 200
-    }
+      default: 200,
+    },
   },
-  data() {
-    return {
-      // 控制组件是否显示
-      visible: false
-    };
-  },
-  mounted() {
-    this.el = null;
-    this.container = null;
-    this.init();
-    this.throttledScrollHandler = throttle(this.onScroll, 300);
-    this.container.addEventListener("scroll", this.throttledScrollHandler);
-  },
-  methods: {
-    // 初始化DOM
-    init() {
-      this.container = document;
-      this.el = document.documentElement || document.body;
-      if (this.target) {
-        this.el = document.querySelector(this.target);
-        if (!this.el) {
-          throw new Error(`target is not existed: ${this.target}`);
+  setup(props, context) {
+    const visible = ref(false);
+
+    let el: HTMLElement | null = null;
+    let container: HTMLElement | null | Document = null;
+
+    // 初始化el和container变量
+    function init() {
+      container = document;
+      el = document.documentElement || document.body;
+      if (props.target) {
+        el = document.querySelector(props.target);
+        if (!el) {
+          throw new Error(`target is not existed: ${props.target}`);
         }
-        this.container = this.el;
+        container = el;
       }
-    },
-    // 滚动函数
-    onScroll() {
-      const { scrollTop } = this.el;
-      this.visible = scrollTop >= this.visibilityHeight;
-    },
-    onClick(e) {
-      this.scrollToTop();
-      this.$emit("click", e);
-    },
-    // 返回到顶部
-    scrollToTop() {
-      const { el } = this;
+    }
+
+    // 滚动事件
+    function onScroll() {
+      if (el) {
+        const { scrollTop } = el;
+        visible.value = scrollTop >= props.visibilityHeight;
+      }
+    }
+    // 滚动事件节流
+    const throttledScrollHandler = throttle(onScroll, 300);
+
+    // 点击事件
+    function onClick(e: Event) {
+      scrollToTop();
+      context.emit("click", e);
+    }
+
+    // 回到顶部
+    function scrollToTop() {
+      if (!el) {
+        return;
+      }
       const beginTime = Date.now();
       const beginValue = el.scrollTop;
       const rAF =
-        window.requestAnimationFrame || (func => setTimeout(func, 16));
+        window.requestAnimationFrame || ((func) => setTimeout(func, 16));
       const frameFunc = () => {
+        if (!el) {
+          return;
+        }
         const progress = (Date.now() - beginTime) / 500;
         if (progress < 1) {
           el.scrollTop = beginValue * (1 - easeInOutCubic(progress));
-          this.$emit("scroll", el.scrollTop);
+          context.emit("scroll", el.scrollTop);
           rAF(frameFunc);
         } else {
           el.scrollTop = 0;
-          this.$emit("end");
+          context.emit("end");
         }
       };
       rAF(frameFunc);
     }
+
+    onMounted(() => {
+      init();
+      
+      container?.addEventListener("scroll", throttledScrollHandler);
+    });
+
+    onBeforeUnmount(() => {
+      container?.removeEventListener("scroll", throttledScrollHandler);
+      el = null;
+      container = null;
+    });
+
+    return {
+      visible,
+      onClick,
+    };
   },
-  beforeDestroy() {
-    this.container.removeEventListener("scroll", this.throttledScrollHandler);
-    this.el = null;
-    this.container = null;
-  }
-};
+});
 </script>

@@ -1,0 +1,62 @@
+@import "./common/var.scss";
+
+.lin-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.lin-spinner-row {
+  flex-direction: row;
+
+  .lin-spinner-text {
+    margin-left: 5px;
+  }
+}
+
+.lin-spinner-col {
+  flex-direction: column;
+
+  .lin-spinner-text {
+    margin-top: 5px;
+  }
+}
+
+.lin-spinner-loading {
+  width: 24px;
+  height: 24px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50%;
+  animation-name: rotate-animation;
+  animation-duration: 600ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@each $key, $val in $theme-color-obj {
+  .lin-spinner-type-#{$key} {
+    border-color: $val;
+  }
+}
+
+.lin-spinner-proportion-1 {
+  border-top-color: transparent !important;
+}
+
+.lin-spinner-proportion-2 {
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+}
+
+.lin-spinner-proportion-3 {
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-left-color: transparent !important;
+}
+
+.lin-spinner-text {
+  font-size: $--font-size-base;
+  color:$--color-text-regular;
+}

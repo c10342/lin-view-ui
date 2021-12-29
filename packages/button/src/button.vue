@@ -26,11 +26,13 @@
   </button>
 </template>
 
-<script>
+<script lang='ts'>
 import Spinner from "@packages/spinner";
+import { defineComponent } from "@vue/runtime-core";
 
-export default {
+export default defineComponent({
   name: "LinButton",
+  emits:['click'],
   components: {
     [Spinner.name]: Spinner
   },
@@ -88,13 +90,17 @@ export default {
       default: "14px"
     }
   },
-
-  methods: {
-    onButtonClick() {
-      if (!this.loading) {
-        this.$emit("click");
+  setup(props,context){
+    function onButtonClick() {
+      if (!props.loading) {
+        context.emit("click");
       }
     }
-  }
-};
+    return {
+      onButtonClick
+    }
+  },
+
+  
+})
 </script>

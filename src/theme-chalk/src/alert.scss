@@ -1,0 +1,73 @@
+@import "./common/var.scss";
+
+.lin-alert {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.lin-alert-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.lin-alert-title {
+  font-size: $--font-size-base;
+  font-weight: 700;
+
+  &:only-child {
+    font-weight: normal;
+  }
+}
+
+.lin-alert-description {
+  margin-top: 5px;
+  font-size: $--font-size-extra-small;
+}
+
+.lin-alert-close {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lin-alert-center {
+  justify-content: center;
+}
+
+.lin-alert-light {
+  .lin-alert-close {
+    color: $--color-text-placeholder;
+  }
+
+  @each $key, $val in map-remove($theme-color-obj,'primary') {
+    &.lin-alert-#{$key} {
+      color: $val;
+      background-color: map-get($theme-color-lighter-map, $key);
+    }
+  }
+}
+
+.lin-alert-dark {
+  .lin-alert-close {
+    color: $--color-white;
+  }
+  @each $key, $val in map-remove($theme-color-obj,'primary') {
+    &.lin-alert-#{$key} {
+      color: $--color-white;
+      background-color: $val;
+    }
+  }
+}
+

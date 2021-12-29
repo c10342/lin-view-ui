@@ -1,33 +1,33 @@
 const {
-  getExternalsDep,
-  createInputConfig,
-  rollupBuild,
   resolveRoot,
+  createInputOptions,
+  external,
   formatImportPath,
-  getDir
-} = require("./utils.js");
+  getDir,
+  rollupBuild
+} = require("./utils");
 
-const buildOne = async filename => {
-  const inputConfig = createInputConfig({
-    input: resolveRoot(`./src/${filename}/index.js`),
-    external: getExternalsDep()
+async function buildAsset(fileName) {
+  const inputOptions = createInputOptions({
+    input: resolveRoot(`./src/${fileName}/index.ts`),
+    external,
   });
-  const outputConfig = {
-    file: resolveRoot(`./lib/${filename}.js`),
+  const outputOptions = {
+    file: resolveRoot(`./lib/${fileName}.js`),
     format: "es",
-    paths: formatImportPath
+    paths: formatImportPath,
   };
-  await rollupBuild(inputConfig, outputConfig);
+  await rollupBuild(inputOptions, outputOptions);
 
-  console.log(filename, "done");
-};
+  console.log(fileName, "done");
+}
 
-const build = async () => {
+function build() {
   const externalDir = ["test-utils", "theme-chalk"];
   const srcDir = getDir(resolveRoot("./src")).filter(
-    fileName => !externalDir.includes(fileName)
+    (fileName) => !externalDir.includes(fileName)
   );
-  srcDir.forEach(fileName => buildOne(fileName));
-};
+  srcDir.forEach((fileName) => buildAsset(fileName));
+}
 
 build();

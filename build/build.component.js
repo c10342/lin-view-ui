@@ -1,30 +1,29 @@
 const {
-  getExternalsDep,
-  createInputConfig,
-  rollupBuild,
-  getDir,
+  createInputOptions,
+  resolveRoot,
+  external,
   formatImportPath,
-  resolveRoot
+  getDir,
+  rollupBuild,
 } = require("./utils.js");
 
-const buildComponent = async filename => {
-  const inputConfig = createInputConfig({
-    input: resolveRoot(`./packages/${filename}/index.js`),
-    external: getExternalsDep()
+async function buildComponent(fileName) {
+  const inputOptions = createInputOptions({
+    input: resolveRoot(`./packages/${fileName}/index.ts`),
+    external,
   });
-  const outputConfig = {
-    file: resolveRoot(`./lib/${filename}.js`),
+  const outputOptions = {
+    file: resolveRoot(`./lib/${fileName}.js`),
     format: "es",
-    paths: formatImportPath
+    paths: formatImportPath,
   };
-  await rollupBuild(inputConfig, outputConfig);
+  await rollupBuild(inputOptions, outputOptions);
+  console.log(fileName, "done");
+}
 
-  console.log(filename, "done");
-};
-
-const build = () => {
+function build() {
   const componentList = getDir(resolveRoot("./packages"));
-  componentList.forEach(filename => buildComponent(filename));
-};
+  componentList.forEach((fileName) => buildComponent(fileName));
+}
 
 build();

@@ -14,45 +14,54 @@
   </div>
 </template>
 
-<script>
+<script lang='ts'>
 import { isNumber, isString } from "@src/utils";
-export default {
+
+import { defineComponent, computed } from "vue";
+
+export default defineComponent({
   name: "LinBadge",
   props: {
     // 显示的值
     value: {
       type: [String, Number],
-      default: ""
+      default: "",
     },
     // 最大值，超过最大值会显示 '{max}+'
     max: {
-      type: Number
+      type: Number,
     },
     // 是否显示小圆点
     isDot: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 类型
     type: {
       type: String,
       default: "primary",
-      options: ["primary", "success", "warning", "danger", "info"]
+      options: ["primary", "success", "warning", "danger", "info"],
+      // validator(val: string) {
+      //   return validatorStringArrayProps("type", val, ["primary", "success", "warning", "danger", "info"]);
+      // }
     }
   },
-  computed: {
-    text() {
-      if (isString(this.value)) {
-        return this.value;
+  setup(props) {
+    const text = computed(() => {
+      if (isString(props.value)) {
+        return props.value;
       }
-      if (isNumber(this.value)) {
-        if (this.max && this.max < this.value) {
-          return `${this.max}+`;
+      if (isNumber(props.value)) {
+        if (props.max && props.max < props.value) {
+          return `${props.max}+`;
         }
-        return this.value;
+        return props.value;
       }
       return "";
-    }
-  }
-};
+    });
+    return {
+      text,
+    };
+  },
+});
 </script>

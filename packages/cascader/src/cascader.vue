@@ -26,13 +26,13 @@
           'lin-cascader-popup',
           { 'lin-cascader-popup-up': !isDown },
           ,
-          { 'lin-cascader-popup-down': isDown }
+          { 'lin-cascader-popup-down': isDown },
         ]"
         v-show="showPopup"
         :style="{ top }"
       >
         <div class="lin-panel-wrapper" v-if="myOptions.length !== 0">
-          <lin-panel :options="myOptions" />
+          <lin-panel :ref="getChildrenRef" :options="myOptions" />
         </div>
         <div class="lin-panel-wrapper" v-if="myOptions.length === 0">
           <div class="lin-panel-empty" @click="hidePuop">
@@ -46,276 +46,321 @@
   </div>
 </template>
 
-<script>
+<script lang='ts'>
 import Input from "@packages/input";
-import { DocumentClickMixin, LocaleMixin } from "@src/mixins";
-import { isNull, isArray } from "@src/utils";
+import { isNull, isArray, UPDATE_MODEL_EVENT } from "@src/utils";
+import { useClick,useLocale } from "@src/hooks";
 import Panel from "./panel.vue";
-import { componentName } from "./enum.js";
+import { componentName } from "./enum";
+import {
+  computed,
+  DefineComponent,
+  defineComponent,
+  getCurrentInstance,
+  nextTick,
+  onBeforeUpdate,
+  onMounted,
+  provide,
+  ref,
+} from "vue";
 
-export default {
+export default defineComponent({
   name: "LinCascader",
-  mixins: [DocumentClickMixin, LocaleMixin],
   components: {
     [Input.name]: Input,
-    [Panel.name]: Panel
+    [Panel.name]: Panel,
   },
   props: {
     // 可选项数据源
     options: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     // 自定义数据显示方法
     showFormat: {
-      type: Function
+      type: Function,
     },
     // 选项中绑定的值
     value: {
       type: Array,
-      default: null
+      default: null,
     },
     // 是否支持清空
     clearable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 输入框文本占位符
     placeholder: {
-      type: String
+      type: String,
     },
     // 是否动态加载子节点，需与 lazyLoad 方法结合使用
     lazy: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 加载动态数据的方法，仅在 lazy 为 true 时有效
     lazyLoad: {
-      type: Function
+      type: Function,
     },
     // 选项分隔符
     separator: {
       type: String,
-      default: "/"
+      default: "/",
     },
     // 指定选项标签为选项对象的某个属性值
     label: {
       type: String,
-      default: "label"
+      default: "label",
     },
     // 指定选项的子选项为选项对象的某个属性值
     children: {
       type: String,
-      default: "children"
+      default: "children",
     },
     // 指定选项的最终叶子节点的标志位为选项对象的某个属性值
     leaf: {
       type: String,
-      default: "leaf"
+      default: "leaf",
     },
     // 指定选项的禁用为选项对象的某个属性值
     disabled: {
       type: String,
-      default: "disabled"
+      default: "disabled",
     },
     // 指定选项的唯一值为选项对象的某个属性值
     valueKey: {
       type: String,
-      default: "id"
+      default: "id",
     },
     // 暂无数据提示语
     emptyTip: {
-      type: String
-    }
+      type: String,
+    },
   },
-  provide() {
-    return {
-      cascader: this
-    };
-  },
-  data() {
-    return {
-      // 当没有传入value时内部使用该值存储选中的值
-      myValueArr: [],
-      // 下拉框是否显示
-      showPopup: false,
-      // 鼠标是否悬浮在输入框容器
-      isHover: false,
-      // 开启动态加载时，使用该值存储lazyLoad方法返回来的值
-      optionsList: [],
-      // 距离顶部距离
-      top: 0,
-      // 展开位置，当向下位置不足够时向上展开
-      isDown: false
-    };
-  },
-  async created() {
-    // 动态加载节点
-    if (this.lazy && this.lazyLoad) {
-      this.optionsList = await this.lazyLoad({ level: 0 });
-    }
-  },
-  methods: {
-    // 设置下拉框出现位置
-    setPlacement() {
-      this.$nextTick(() => {
-        const { popupContainer } = this.$refs;
-        const container = this.$refs.notOutsideContainer;
-        const bottom =
-          window.innerHeight - container.getBoundingClientRect().bottom;
-        const { top } = container.getBoundingClientRect();
-        if (bottom > popupContainer.clientHeight) {
-          this.setDownTop();
-        } else if (top > popupContainer.clientHeight) {
-          this.setUpTop();
-        } else {
-          this.setDownTop();
-        }
-      });
-    },
-    // 向下展示下拉框
-    setDownTop() {
-      this.isDown = true;
-      const { boxContainer } = this.$refs;
-      this.top = `${boxContainer.clientHeight + 10}px`;
-    },
-    // 向上展示下拉框
-    setUpTop() {
-      this.isDown = false;
-      const { popupContainer } = this.$refs;
-      this.top = `${-popupContainer.clientHeight - 10}px`;
-    },
-    // 失去焦点
-    onBlur(event) {
-      this.$emit("blur", event);
-    },
-    // 获得焦点
-    onFocus(event) {
-      this.$emit("focus", event);
-    },
-    // 清空值
-    clearValue() {
-      this.valueArr = [];
-      this.hidePuop();
-    },
-    // 监听鼠标进入输入框容器
-    onMouseEnter() {
-      this.isHover = true;
-    },
-    // 监听鼠标离开输入框容器
-    onMouseLeave() {
-      this.isHover = false;
-    },
-    // 设置选中的值
-    setValue(data, level) {
-      let { valueArr } = this;
-      valueArr = valueArr.slice(0, level);
-      valueArr.push(data);
-      this.valueArr = valueArr;
-      this.$emit("change", { data, level });
-    },
-    // 点击输入框容器
-    onInputClick() {
-      if (this.showPopup) {
-        this.hidePuop();
-      } else {
-        this.displayPuop();
-      }
-    },
-    // 显示下拉框
-    displayPuop() {
-      this.showPopup = true;
-      this.$children.forEach(child => {
-        if (child.$options.name === componentName.panel) {
-          child.$emit("displayPuop", this.valueArr);
-        }
-      });
-      this.setPlacement();
-      this.$emit("visible-change", true);
-    },
-    // 隐藏下拉框
-    hidePuop() {
-      this.showPopup = false;
-      this.$emit("visible-change", false);
-    },
-    // 发射input事件，配合v-model指令使用
-    emitInputEvent(val) {
-      this.$emit("input", val);
-    },
-    // 点击组件外部
-    onDocumentClick(event) {
-      const { notOutsideContainer } = this.$refs;
-      if (!notOutsideContainer.contains(event.target)) {
-        this.hidePuop();
-      }
-    }
-  },
-  computed: {
-    // 存储选中的值
-    valueArr: {
+  setup(props, context) {
+    const {t} = useLocale()
+    provide("cascader", getCurrentInstance());
+    // 当没有传入value时内部使用该值存储选中的值
+    const myValueArr = ref([]);
+    // 下拉框是否显示
+    const showPopup = ref(false);
+    // 鼠标是否悬浮在输入框容器
+    const isHover = ref(false);
+    // 开启动态加载时，使用该值存储lazyLoad方法返回来的值
+    const optionsList = ref([]);
+    // 距离顶部距离
+    const top = ref<number | string>(0);
+    // 展开位置，当向下位置不足够时向上展开
+    const isDown = ref(false);
+
+    const childrenRef = ref<DefineComponent[]>([])
+
+    const valueArr = computed<any>({
       get() {
-        if (!isNull(this.value)) {
-          if (isArray(this.value)) {
-            return this.value;
+        if (!isNull(props.value)) {
+          if (isArray(props.value)) {
+            return props.value as [];
           }
-          // this.emitInputEvent([]);
           return [];
         }
 
-        return this.myValueArr || [];
+        return myValueArr.value || ([] as []);
       },
-      set(val) {
-        if (!isNull(this.value)) {
-          this.emitInputEvent(val);
+      set(val: []) {
+        if (!isNull(props.value)) {
+          emitInputEvent(val);
         } else {
-          this.myValueArr = val;
+          myValueArr.value = val;
         }
-      }
-    },
+      },
+    });
     // 显示在输入框中的文本
-    text() {
-      if (this.showFormat) {
-        return this.showFormat(this.valueArr);
+    const text = computed(() => {
+      if (props.showFormat) {
+        return props.showFormat(valueArr.value);
       }
-      if (this.valueArr && this.valueArr.length > 0) {
+      if (valueArr.value && valueArr.value.length > 0) {
         let str = "";
-        this.valueArr.forEach(item => {
-          str += `${item[this.label]} ${this.separator} `;
+        valueArr.value.forEach((item:any) => {
+          str += `${item[props.label]} ${props.separator} `;
         });
         return str.slice(0, -2);
       }
       return "";
-    },
+    });
     // 是否线束清空图标
-    showClose() {
+    const showClose = computed(() => {
       return (
-        this.clearable &&
-        this.isHover &&
-        this.valueArr &&
-        this.valueArr.length !== 0
+        props.clearable &&
+        isHover &&
+        valueArr.value &&
+        valueArr.value.length !== 0
       );
-    },
+    });
     // 输入框文本占位符
-    myPlaceholder() {
-      if (this.placeholder) {
-        return this.placeholder;
+    const myPlaceholder = computed(() => {
+      if (props.placeholder) {
+        return props.placeholder;
       }
-      return this.t("LinViewUI.Cascader.placeholder");
-    },
+      return t("LinViewUI.Cascader.placeholder");
+    });
     // 暂无数据提示语
-    myEmptyTip() {
-      if (this.emptyTip) {
-        return this.emptyTip;
+    const myEmptyTip = computed(() => {
+      if (props.emptyTip) {
+        return props.emptyTip;
       }
-      return this.t("LinViewUI.Cascader.emptyTip");
-    },
+      return t("LinViewUI.Cascader.emptyTip");
+    });
     // 可选项数据源
-    myOptions() {
-      if (this.lazy && this.lazyLoad) {
-        return this.optionsList;
+    const myOptions = computed(() => {
+      if (props.lazy && props.lazyLoad) {
+        return optionsList.value;
       }
-      return this.options;
+      return props.options;
+    });
+    const popupContainer = ref<HTMLElement | null>(null);
+
+    const notOutsideContainer = ref<HTMLElement | null>(null);
+
+    const boxContainer = ref<HTMLElement | null>(null);
+
+
+    // 设置下拉框出现位置
+    function setPlacement() {
+      nextTick(() => {
+        if (!notOutsideContainer.value || !popupContainer.value) {
+          return;
+        }
+        const bottom =
+          window.innerHeight -
+          notOutsideContainer.value.getBoundingClientRect().bottom;
+        const { top } = notOutsideContainer.value.getBoundingClientRect();
+        if (bottom > popupContainer.value.clientHeight) {
+          setDownTop();
+        } else if (top > popupContainer.value.clientHeight) {
+          setUpTop();
+        } else {
+          setDownTop();
+        }
+      });
     }
-  }
-};
+
+    // 向下展示下拉框
+    function setDownTop() {
+      if (boxContainer.value) {
+        isDown.value = true;
+        top.value = `${boxContainer.value.clientHeight + 10}px`;
+      }
+    }
+    // 向上展示下拉框
+    function setUpTop() {
+      if (popupContainer.value) {
+        isDown.value = false;
+        top.value = `${-popupContainer.value.clientHeight - 10}px`;
+      }
+    }
+
+    // 失去焦点
+    function onBlur(event: Event) {
+      context.emit("blur", event);
+    }
+    // 获得焦点
+    function onFocus(event: Event) {
+      context.emit("focus", event);
+    }
+
+    // 清空值
+    function clearValue() {
+      valueArr.value = [];
+      hidePuop();
+    }
+    // 监听鼠标进入输入框容器
+    function onMouseEnter() {
+      isHover.value = true;
+    }
+    // 监听鼠标离开输入框容器
+    function onMouseLeave() {
+      isHover.value = false;
+    }
+
+    // 发射input事件，配合v-model指令使用
+    function emitInputEvent(val: any) {
+      context.emit("input", val);
+      context.emit(UPDATE_MODEL_EVENT, val);
+    }
+
+    // 隐藏下拉框
+    function hidePuop() {
+      showPopup.value = false;
+      context.emit("visible-change", false);
+    }
+
+    // 设置选中的值
+    function setValue(data: any, level: number) {
+      let va = valueArr.value as any[];
+      va = va.slice(0, level);
+      va.push(data);
+      valueArr.value = va;
+      context.emit("change", { data, level });
+    }
+    // 点击输入框容器
+    function onInputClick() {
+      if (showPopup.value) {
+        hidePuop();
+      } else {
+        displayPuop();
+      }
+    }
+    // 显示下拉框
+    function displayPuop() {
+      showPopup.value = true;
+      childrenRef.value.forEach((child) => {
+        if (child.$options.name === componentName.panel) {
+          child.$emit("displayPuop", valueArr.value);
+        }
+      });
+      setPlacement();
+      context.emit("visible-change", true);
+    }
+
+    function getChildrenRef(el:DefineComponent){
+      childrenRef.value.push(el)
+    }
+
+    useClick(notOutsideContainer, hidePuop);
+
+    onBeforeUpdate(()=>{
+      childrenRef.value = []
+    })
+    
+    onMounted(async () => {
+      if (props.lazy && props.lazyLoad) {
+        optionsList.value = await props.lazyLoad({ level: 0 });
+      }
+    });
+
+    return {
+      showPopup,
+      top,
+      isDown,
+      text,
+      showClose,
+      myPlaceholder,
+      myEmptyTip,
+      myOptions,
+      popupContainer,
+      notOutsideContainer,
+      boxContainer,
+      onBlur,
+      onFocus,
+      clearValue,
+      onMouseEnter,
+      onMouseLeave,
+      hidePuop,
+      onInputClick,
+      getChildrenRef
+    }
+  },
+});
 </script>

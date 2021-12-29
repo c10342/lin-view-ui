@@ -1,0 +1,32 @@
+
+@import './common/var.scss';
+
+.lin-backtop {
+  position: fixed;
+}
+
+.lin-backtop-container {
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px $--color-success-light;
+
+  &:hover {
+    background-color: $--color-primary-light;
+  }
+}
+
+.lin-backtop-triangle {
+  width: 0;
+  height: 0;
+  border: 6px solid $--color-primary;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(45deg) translate(2px, 1px);
+}

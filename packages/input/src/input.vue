@@ -36,116 +36,124 @@
   </div>
 </template>
 
-<script>
-import { dispatch } from "@src/utils";
+<script lang='ts'>
+// import { dispatch } from "@src/utils";
 
-export default {
+import { UPDATE_MODEL_EVENT } from "@src/utils";
+import { computed, defineComponent, ref } from "vue";
+
+export default defineComponent({
   name: "LinInput",
-  data() {
-    return {
-      // 用于控制是否显示密码框
-      passwordVisible: false
-    };
-  },
+  inheritAttrs: false,
+  emits:['input',UPDATE_MODEL_EVENT,'clear','blur','focus'],
   props: {
     // 输入框占位符
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     // 输入框类型
     type: {
       type: String,
-      default: "text"
+      default: "text",
     },
     // 原生属性name
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     // 是否禁用文本框
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 绑定值
     value: {
       type: String,
-      default: ""
+      default: "",
     },
     // 是否可清空
     clearable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 是否显示切换密码图标，即密文切换成明文，明文切换成密文
     showPassword: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 最大长度
     maxlength: {
       type: Number,
-      default: -1
+      default: -1,
     },
     // 最小长度
     minlength: {
       type: Number,
-      default: -1
-    }
-  },
-  computed: {
-    // 是否显示清空图标或者切面密码图标
-    showSuffix() {
-      return this.clearable || this.showPassword;
+      default: -1,
     },
+  },
+  setup(props, context) {
+    // 是否显示清空图标或者切面密码图标
+    const showSuffix = computed(() => props.clearable || props.showPassword);
     // input额外的属性
-    inputAttr() {
-      const obj = {};
-      if (this.maxlength !== -1) {
-        obj.maxlength = this.maxlength;
+    const inputAttr = computed(() => {
+      const obj: { [key: string]: any } = {};
+      if (props.maxlength !== -1) {
+        obj.maxlength = props.maxlength;
       }
-      if (this.minlength !== -1) {
-        obj.minlength = this.minlength;
+      if (props.minlength !== -1) {
+        obj.minlength = props.minlength;
       }
-      if (this.name) {
-        obj.name = this.name;
+      if (props.name) {
+        obj.name = props.name;
       }
       return {
         ...obj,
-        ...this.$attrs
+        ...context.attrs,
       };
-    }
-  },
-  methods: {
+    });
+    // 用于控制是否显示密码框
+    const passwordVisible = ref(false);
     // 键盘抬起事件
-    handleInput(e) {
-      this.emitInputEvent(e.target.value);
-    },
-    // 清空内容
-    clear() {
-      // 把内容清空
-      this.emitInputEvent("");
-      this.$emit("clear");
-    },
-    // 发射事件
-    emitInputEvent(data) {
-      this.$emit("input", data);
-      dispatch.call(this, {
-        eventName: "validate",
-        componentName: "LinFormItem"
-      });
-    },
-    // 切换密码图标的变化
-    handlePassword() {
-      this.passwordVisible = !this.passwordVisible;
-    },
-    onBlur(e) {
-      this.$emit("blur", e);
-    },
-    onFocus(e) {
-      this.$emit("focus", e);
+    function handleInput(event: Event) {
+      const { value } = event.target as HTMLInputElement;
+      emitInputEvent(value);
     }
+
+    // 发射事件
+    function emitInputEvent(data: any) {
+      context.emit("input", data);
+      context.emit(UPDATE_MODEL_EVENT, data);
+    }
+
+    // 清空内容
+    function clear() {
+      emitInputEvent("");
+      context.emit("clear");
+    }
+
+    // 切换密码图标的变化
+    function handlePassword() {
+      passwordVisible.value = !passwordVisible.value;
+    }
+    function onBlur(e: Event) {
+      context.emit("blur", e);
+    }
+    function onFocus(e: Event) {
+      context.emit("focus", e);
+    }
+
+    return {
+      showSuffix,
+      inputAttr,
+      passwordVisible,
+      handleInput,
+      clear,
+      handlePassword,
+      onBlur,
+      onFocus
+    };
   }
-};
+});
 </script>

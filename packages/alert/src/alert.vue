@@ -1,11 +1,11 @@
 <template>
-  <transition name="lin-alert-fade" @after-leave="afterLeave">
+  <transition name="lin-fade-in" @after-leave="afterLeave">
     <div
       :class="[
         'lin-alert',
         `lin-alert-${type}`,
         `lin-alert-${effect}`,
-        { 'lin-alert-center': center }
+        { 'lin-alert-center': center },
       ]"
       v-if="show"
     >
@@ -31,61 +31,76 @@
   </transition>
 </template>
 
-<script>
-export default {
+<script lang='ts'>
+// import { validatorStringArrayProps } from "@src/utils";
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
   name: "LinAlert",
+  emits: ["close"],
   props: {
     // 标题
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     // 辅助性文字
     description: {
       type: String,
-      default: ""
+      default: "",
     },
     // 图标
     icon: {
       type: String,
-      default: ""
+      default: "",
     },
     // 是否可关闭
     closable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 类型
     type: {
       type: String,
       default: "success",
-      options: ["success", "warning", "info", "danger"]
+      options: ["success", "warning", "info", "danger"],
+      // validator(val: string) {
+      //   return validatorStringArrayProps("type", val, [
+      //     "success",
+      //     "warning",
+      //     "info",
+      //     "danger",
+      //   ]);
+      // },
     },
     // 主题
     effect: {
       type: String,
       default: "light",
-      options: ["light", "dark"]
+      options: ["light", "dark"],
+      // validator(val: string) {
+      //   return validatorStringArrayProps("effect", val, ["light", "dark"]);
+      // },
     },
     // 文字是否居中
     center: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  data() {
+  setup(props, context) {
+    const show = ref(true);
+    function onCloseClick() {
+      show.value = false;
+    }
+    function afterLeave() {
+      context.emit("close");
+    }
     return {
-      // 是否显示
-      show: true
+      show,
+      onCloseClick,
+      afterLeave,
     };
   },
-  methods: {
-    onCloseClick() {
-      this.show = false;
-    },
-    afterLeave() {
-      this.$emit("close");
-    }
-  }
-};
+});
 </script>

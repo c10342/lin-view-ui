@@ -1,0 +1,121 @@
+@import "./common/var.scss";
+@import "./spinner.scss";
+
+.lin-button {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  font-size: $--font-size-base;
+  font-weight: 500;
+  line-height: 1;
+  color: $--color-text-regular;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  // 禁止元素的文字被选中
+  user-select: none;
+  background: $--color-white;
+  border: 1px solid $--border-color-base;
+  border-radius: 4px;
+  outline: none;
+  transition: 0.1s;
+  appearance: none;
+
+  &:hover,
+  &:focus {
+    color: $--color-primary;
+    background-color: $--color-primary-light;
+    border-color: $--color-primary-lighter;
+  }
+}
+
+.lin-button-size-default {
+  padding: 12px 20px;
+
+  &.lin-button-circle {
+    padding: 12px;
+  }
+}
+
+.lin-button-size-medium {
+  padding: 10px 20px;
+
+  &.lin-button-circle {
+    padding: 10px;
+  }
+}
+
+.lin-button-size-small {
+  padding: 9px 15px;
+
+  &.lin-button-circle {
+    padding: 8px;
+  }
+}
+
+@each $key, $val in $theme-color-obj {
+  .lin-button-#{$key} {
+    color: $--color-white;
+    background-color: $val;
+    border-color: $val;
+
+    &:hover,
+    &:focus {
+      color: $--color-white;
+      background: map-get($theme-color-hover-map, $key);
+      border-color: map-get($theme-color-hover-map, $key);
+    }
+
+    &.lin-button-loading {
+      color: $--color-white;
+      background-color: map-get($theme-color-hover-map, $key);
+      border-color: map-get($theme-color-hover-map, $key);
+    }
+  }
+}
+
+// 朴素的按钮
+.lin-button.lin-button-plain {
+  &:hover,
+  &:focus {
+    color: $--color-primary ;
+    background: $--color-white;
+    border-color: $--color-primary;
+  }
+}
+
+@each $key, $val in $theme-color-obj {
+  .lin-button-#{$key}.lin-button-plain {
+    color: $val;
+    background: map-get($theme-color-lighter-map, $key);
+    border-color: map-get($theme-color-light-map, $key);
+
+    &:hover,
+    &:focus {
+      color: $--color-white;
+      background: $val;
+      border-color: $val;
+    }
+  }
+}
+
+.lin-button.lin-button-round {
+  border-radius: 20px;
+}
+
+// 原形按钮
+.lin-button.lin-button-circle {
+  border-radius: 50%;
+}
+
+.lin-button [class*="lin-icon-"] + span {
+  margin-left: 5px;
+}
+
+.lin-button-disabled {
+  cursor: not-allowed;
+}
+
+.lin-button-spinner {
+  margin-right: 5px;
+}
