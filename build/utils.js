@@ -4,9 +4,13 @@ const fs = require("fs");
 
 const rollup = require("rollup");
 
-const typescript = require("rollup-plugin-typescript2");
+const {default:esbuild} = require('rollup-plugin-esbuild')
+
+const commonjs = require('@rollup/plugin-commonjs')
 
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
+
+const alias = require("@rollup/plugin-alias");
 
 const vuePlugin = require("rollup-plugin-vue");
 
@@ -28,18 +32,38 @@ function createInputOptions(options = {}) {
     input: options.input,
     external: options.external,
     plugins: [
-      nodeResolve(),
-      typescript({
-        tsconfig: resolveRoot("./tsconfig.json")
+      alias({
+        entries: [
+          { find: /^@packages/, replacement: resolveRoot("./packages") },
+          { find: /^@src/, replacement: resolveRoot("./src") }
+        ]
+      }),
+      nodeResolve({
+        extensions: ['.js', '.json', '.ts']
       }),
       vuePlugin({target: 'browser'}),
+      esbuild({
+        target:'es2018',
+        tsconfig: resolveRoot("./tsconfig.json")
+      }),
+      commonjs(),
     ],
   };
   return config;
 }
 
+function getSrcExternals(){
+  const whiteList = ['theme-chalk']
+  const dirList = getDir(resolveRoot('./src')).filter(fileName=>!whiteList.includes(fileName))
+  return dirList.map(fileName=>`@src/${fileName}`)
+}
+
+function getPackagesExternals(){
+  return getDir(resolveRoot('./packages')).map(fileName=>`@packages/${fileName}`)
+}
+
 function getExternalsDep() {
-  const externals = ["@src/utils"];
+  const externals = [...getSrcExternals(),...getPackagesExternals()];
   const dependencies = pck.dependencies || {};
   const peerDependencies = pck.peerDependencies || {};
   Object.keys(dependencies).forEach((key) => externals.push(key));
