@@ -1,0 +1,37 @@
+@import "./animations/index.scss";
+
+@for $i from 1 through 10 {
+  .lin-mt-#{$i} {
+    margin-top: $i + px;
+  }
+  .lin-mb-#{$i} {
+    margin-bottom: $i + px;
+  }
+  .lin-ml-#{$i} {
+    margin-left: $i + px;
+  }
+  .lin-mr-#{$i} {
+    margin-right: $i + px;
+  }
+
+  .lin-margin-#{$i} {
+    margin: $i + px;
+  }
+
+  .lin-pt-#{$i} {
+    padding-top: $i + px;
+  }
+  .lin-pb-#{$i} {
+    padding-bottom: $i + px;
+  }
+  .lin-pl-#{$i} {
+    padding-left: $i + px;
+  }
+  .lin-pr-#{$i} {
+    padding-right: $i + px;
+  }
+
+  .lin-padding-#{$i} {
+    padding: $i + px;
+  }
+}

@@ -1,0 +1,35 @@
+<template>
+  <div>
+    <lin-button>Default</lin-button>
+    <lin-button class="ml-20" type="primary">Primary</lin-button>
+    <lin-button class="ml-20" type="success">Success</lin-button>
+    <lin-button class="ml-20" type="info">Info</lin-button>
+    <lin-button class="ml-20" type="warning">Warning</lin-button>
+    <lin-button class="ml-20" type="danger">Danger</lin-button>
+  </div>
+  <div class="mt-20">
+    <lin-button plain>Default</lin-button>
+    <lin-button class="ml-20" type="primary" plain>Primary</lin-button>
+    <lin-button class="ml-20" type="success" plain>Success</lin-button>
+    <lin-button class="ml-20" type="info" plain>Info</lin-button>
+    <lin-button class="ml-20" type="warning" plain>Warning</lin-button>
+    <lin-button class="ml-20" type="danger" plain>Danger</lin-button>
+  </div>
+  <div class="mt-20">
+    <lin-button round>Default</lin-button>
+    <lin-button class="ml-20" type="primary" round>Primary</lin-button>
+    <lin-button class="ml-20" type="success" round>Success</lin-button>
+    <lin-button class="ml-20" type="info" round>Info</lin-button>
+    <lin-button class="ml-20" type="warning" round>Warning</lin-button>
+    <lin-button class="ml-20" type="danger" round>Danger</lin-button>
+  </div>
+
+  <div class="mt-20">
+    <lin-button icon="search" circle />
+    <lin-button class="ml-20" type="primary" icon="edit" circle />
+    <lin-button class="ml-20" type="success" icon="user" circle />
+    <lin-button class="ml-20" type="info" icon="email" circle />
+    <lin-button class="ml-20" type="warning" icon="right" circle />
+    <lin-button class="ml-20" type="danger" icon="delete" circle />
+  </div>
+</template>

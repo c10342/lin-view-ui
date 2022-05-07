@@ -6,26 +6,23 @@ const cssmin = require("gulp-clean-css");
 
 const autoprefixer = require("gulp-autoprefixer");
 
-const { resolveRoot } = require("./utils.js");
+const { resolveRoot, resolvePackages } = require("./utils");
 
-async function copyFont() {
-  await src(resolveRoot("./src/theme-chalk/src/fonts") + "/**")
+const copyFont = () => {
+  src(resolvePackages("./theme-chalk/src/fonts") + "/**")
     .pipe(cssmin())
-    .pipe(dest(resolveRoot("./lib/theme-chalk/fonts")));
+    .pipe(dest(resolveRoot("./dist/theme-chalk/fonts")));
   console.log("fonts", "done");
-}
+};
 
-async function buildScss() {
-  await src([
-    resolveRoot(`./src/theme-chalk/src/*.scss`),
-    resolveRoot(`./src/theme-chalk/index.scss`),
-  ])
+const buildScss = () => {
+  src(resolvePackages("./theme-chalk/src/*.scss"))
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer({ cascade: false }))
     .pipe(cssmin())
-    .pipe(dest(resolveRoot("./lib/theme-chalk")));
+    .pipe(dest(resolveRoot("./dist/theme-chalk")));
   console.log("css", "done");
-}
+};
 
 const build = () => {
   buildScss();

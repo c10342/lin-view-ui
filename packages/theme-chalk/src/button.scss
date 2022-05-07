@@ -1,0 +1,219 @@
+.lin-button {
+  --lin-button-bg-color: var(--lin-color-white);
+  --lin-button-text-color: var(--lin-text-color-regular);
+  --lin-button-font-size: var(--lin-font-size-base);
+  --lin-button-border-color: var(--lin-border-color);
+  --lin-button-hover-text-color: var(--lin-color-primary);
+  --lin-button-hover-border-color: var(--lin-color-primary-light-7);
+  --lin-button-hover-bg-color: var(--lin-color-primary-light-9);
+  --lin-button-border-radius: var(--lin-border-radius-base);
+  --lin-button-height: 32px;
+  --lin-button-padding: 8px 15px;
+
+  &.is-large {
+    --lin-button-height: 40px;
+    --lin-button-padding: 12px 19px;
+  }
+
+  &.is-small {
+    --lin-button-height: 24px;
+    --lin-button-padding: 5px 11px;
+    --lin-button-font-size: var(--lin-font-size-extra-small);
+    --lin-button-border-radius: calc(var(--lin-border-radius-base) - 1px);
+  }
+
+  &.is-plain {
+    --lin-button-hover-text-color: var(--lin-color-primary);
+    --lin-button-hover-bg-color: var(--lin-color-white);
+    --lin-button-hover-border-color: var(--lin-color-primary);
+  }
+
+  &.is-round {
+    --lin-button-border-radius: var(--lin-border-radius-round);
+  }
+
+  &.is-circle {
+    --lin-button-border-radius: 50%;
+    --lin-button-padding: 8px;
+  }
+
+  --lin-button-disabled-text-color: var(--lin-disabled-text-color);
+  --lin-button-disabled-bg-color: var(--lin-color-white);
+  --lin-button-disabled-border-color: var(--lin-disabled-border-color);
+}
+
+.lin-button-primary {
+  --lin-button-bg-color: var(--lin-color-primary);
+  --lin-button-text-color: var(--lin-color-white);
+  --lin-button-border-color: var(--lin-color-primary);
+  --lin-button-hover-text-color: var(--lin-color-white);
+  --lin-button-hover-border-color: var(--lin-color-primary-light-3);
+  --lin-button-hover-bg-color: var(--lin-color-primary-light-3);
+
+  &.is-plain {
+    --lin-button-text-color: var(--lin-color-primary);
+    --lin-button-bg-color: var(--lin-color-primary-light-9);
+    --lin-button-border-color: var(--lin-color-primary-light-5);
+    --lin-button-hover-text-color: var(--lin-color-white);
+    --lin-button-hover-bg-color: var(--lin-color-primary);
+    --lin-button-hover-border-color: var(--lin-color-primary);
+    --lin-button-disabled-text-color: var(--lin-color-primary-light-5);
+    --lin-button-disabled-bg-color: var(--lin-color-primary-light-9);
+    --lin-button-disabled-border-color: var(--lin-color-primary-light-8);
+  }
+
+  --lin-button-disabled-text-color: var(--lin-color-white);
+  --lin-button-disabled-bg-color: var(--lin-color-primary-light-5);
+  --lin-button-disabled-border-color: var(--lin-color-primary-light-5);
+}
+
+.lin-button-success {
+  --lin-button-bg-color: var(--lin-color-success);
+  --lin-button-text-color: var(--lin-color-white);
+  --lin-button-border-color: var(--lin-color-success);
+  --lin-button-hover-text-color: var(--lin-color-white);
+  --lin-button-hover-border-color: var(--lin-color-success-light-3);
+  --lin-button-hover-bg-color: var(--lin-color-success-light-3);
+
+  &.is-plain {
+    --lin-button-text-color: var(--lin-color-success);
+    --lin-button-bg-color: var(--lin-color-success-light-9);
+    --lin-button-border-color: var(--lin-color-success-light-5);
+    --lin-button-hover-text-color: var(--lin-color-white);
+    --lin-button-hover-bg-color: var(--lin-color-success);
+    --lin-button-hover-border-color: var(--lin-color-success);
+    --lin-button-disabled-text-color: var(--lin-color-success-light-5);
+    --lin-button-disabled-bg-color: var(--lin-color-success-light-9);
+    --lin-button-disabled-border-color: var(--lin-color-success-light-8);
+  }
+
+  --lin-button-disabled-text-color: var(--lin-color-white);
+  --lin-button-disabled-bg-color: var(--lin-color-success-light-5);
+  --lin-button-disabled-border-color: var(--lin-color-success-light-5);
+}
+
+.lin-button-info {
+  --lin-button-bg-color: var(--lin-color-info);
+  --lin-button-text-color: var(--lin-color-white);
+  --lin-button-border-color: var(--lin-color-info);
+  --lin-button-hover-text-color: var(--lin-color-white);
+  --lin-button-hover-border-color: var(--lin-color-info-light-3);
+  --lin-button-hover-bg-color: var(--lin-color-info-light-3);
+
+  &.is-plain {
+    --lin-button-text-color: var(--lin-color-info);
+    --lin-button-bg-color: var(--lin-color-info-light-9);
+    --lin-button-border-color: var(--lin-color-info-light-5);
+    --lin-button-hover-text-color: var(--lin-color-white);
+    --lin-button-hover-bg-color: var(--lin-color-info);
+    --lin-button-hover-border-color: var(--lin-color-info);
+    --lin-button-disabled-text-color: var(--lin-color-info-light-5);
+    --lin-button-disabled-bg-color: var(--lin-color-info-light-9);
+    --lin-button-disabled-border-color: var(--lin-color-info-light-8);
+  }
+
+  --lin-button-disabled-text-color: var(--lin-color-white);
+  --lin-button-disabled-bg-color: var(--lin-color-info-light-5);
+  --lin-button-disabled-border-color: var(--lin-color-info-light-5);
+}
+
+.lin-button-warning {
+  --lin-button-bg-color: var(--lin-color-warning);
+  --lin-button-text-color: var(--lin-color-white);
+  --lin-button-border-color: var(--lin-color-warning);
+  --lin-button-hover-text-color: var(--lin-color-white);
+  --lin-button-hover-border-color: var(--lin-color-warning-light-3);
+  --lin-button-hover-bg-color: var(--lin-color-warning-light-3);
+
+  &.is-plain {
+    --lin-button-text-color: var(--lin-color-warning);
+    --lin-button-bg-color: var(--lin-color-warning-light-9);
+    --lin-button-border-color: var(--lin-color-warning-light-5);
+    --lin-button-hover-text-color: var(--lin-color-white);
+    --lin-button-hover-bg-color: var(--lin-color-warning);
+    --lin-button-hover-border-color: var(--lin-color-warning);
+    --lin-button-disabled-text-color: var(--lin-color-warning-light-5);
+    --lin-button-disabled-bg-color: var(--lin-color-warning-light-9);
+    --lin-button-disabled-border-color: var(--lin-color-warning-light-8);
+  }
+
+  --lin-button-disabled-text-color: var(--lin-color-white);
+  --lin-button-disabled-bg-color: var(--lin-color-warning-light-5);
+  --lin-button-disabled-border-color: var(--lin-color-warning-light-5);
+}
+
+.lin-button-danger {
+  --lin-button-bg-color: var(--lin-color-danger);
+  --lin-button-text-color: var(--lin-color-white);
+  --lin-button-border-color: var(--lin-color-danger);
+  --lin-button-hover-text-color: var(--lin-color-white);
+  --lin-button-hover-border-color: var(--lin-color-danger-light-3);
+  --lin-button-hover-bg-color: var(--lin-color-danger-light-3);
+
+  &.is-plain {
+    --lin-button-text-color: var(--lin-color-danger);
+    --lin-button-bg-color: var(--lin-color-danger-light-9);
+    --lin-button-border-color: var(--lin-color-danger-light-5);
+    --lin-button-hover-text-color: var(--lin-color-white);
+    --lin-button-hover-bg-color: var(--lin-color-danger);
+    --lin-button-hover-border-color: var(--lin-color-danger);
+    --lin-button-disabled-text-color: var(--lin-color-danger-light-5);
+    --lin-button-disabled-bg-color: var(--lin-color-danger-light-9);
+    --lin-button-disabled-border-color: var(--lin-color-danger-light-8);
+  }
+
+  --lin-button-disabled-text-color: var(--lin-color-white);
+  --lin-button-disabled-bg-color: var(--lin-color-danger-light-5);
+  --lin-button-disabled-border-color: var(--lin-color-danger-light-5);
+}
+
+.lin-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--lin-button-height);
+  padding: var(--lin-button-padding);
+  font-size: var(--lin-button-font-size);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--lin-button-text-color);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--lin-button-bg-color);
+  border-color: var(--lin-button-border-color);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: var(--lin-button-border-radius);
+  outline: none;
+  transition: 0.1s;
+  appearance: none;
+
+  &:hover {
+    color: var(--lin-button-hover-text-color);
+    background-color: var(--lin-button-hover-bg-color);
+    border-color: var(--lin-button-hover-border-color);
+    outline: none;
+  }
+
+  &.is-disabled {
+    color: var(--lin-button-disabled-text-color);
+    cursor: not-allowed;
+    background-color: var(--lin-button-disabled-bg-color);
+    border-color: var(--lin-button-disabled-border-color);
+  }
+
+  &.is-loading {
+    color: var(--lin-button-disabled-text-color);
+    cursor: default;
+    background-color: var(--lin-button-disabled-bg-color);
+    border-color: var(--lin-button-disabled-border-color);
+  }
+
+  &.is-circle {
+    width: var(--lin-button-height);
+  }
+}

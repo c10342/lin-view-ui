@@ -1,0 +1,112 @@
+.lin-col {
+  box-sizing: border-box;
+  float: left;
+}
+
+@for $i from 0 through 24 {
+  .lin-col-#{$i} {
+    width: calc(1 / 24 * $i) * 100%;
+  }
+
+  .lin-col-offset-#{$i} {
+    margin-left: calc(1 / 24 * $i) * 100%;
+  }
+
+  .lin-col-pull-#{$i} {
+    position: relative;
+    right: calc(1 / 24 * $i) * 100%;
+  }
+
+  .lin-col-push-#{$i} {
+    position: relative;
+    left: calc(1 / 24 * $i) * 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  @for $i from 0 through 24 {
+    .lin-col-xs-#{$i} {
+      width: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-xs-offset-#{$i} {
+      margin-left: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-xs-pull-#{$i} {
+      position: relative;
+      right: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-xs-push-#{$i} {
+      position: relative;
+      left: calc(1 / 24 * $i) * 100%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  @for $i from 0 through 24 {
+    .lin-col-sm-#{$i} {
+      width: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-sm-offset-#{$i} {
+      margin-left: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-sm-pull-#{$i} {
+      position: relative;
+      right: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-sm-push-#{$i} {
+      position: relative;
+      left: calc(1 / 24 * $i) * 100%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  @for $i from 0 through 24 {
+    .lin-col-md-#{$i} {
+      width: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-md-offset-#{$i} {
+      margin-left: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-md-pull-#{$i} {
+      position: relative;
+      right: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-md-push-#{$i} {
+      position: relative;
+      left: calc(1 / 24 * $i) * 100%;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  @for $i from 0 through 24 {
+    .lin-col-lg-#{$i} {
+      width: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-lg-offset-#{$i} {
+      margin-left: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-lg-pull-#{$i} {
+      position: relative;
+      right: calc(1 / 24 * $i) * 100%;
+    }
+
+    .lin-col-lg-push-#{$i} {
+      position: relative;
+      left: calc(1 / 24 * $i) * 100%;
+    }
+  }
+}

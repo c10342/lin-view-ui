@@ -2,22 +2,35 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
     "skipLibCheck": true,
-    "moduleResolution": "Node",
-    "declaration": true,
-    "baseUrl":".",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "sourceMap": true,
+    "baseUrl": ".",
     "paths": {
-      "@src/*": [
-        "src/*"
-      ],
       "@packages/*": [
         "packages/*"
       ]
     },
-    "declarationDir":"types"
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   },
-  
+  "include": [
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "packages/**/*.vue",
+    "shims-vue.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

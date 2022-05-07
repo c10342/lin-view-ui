@@ -1,6 +1,4 @@
-import { withInstall } from "@src/utils";
-import Alert from "./src/alert.vue";
+import { withInstall } from "@packages/utils";
+import Alert from "./src/index.vue";
 
-withInstall(Alert)
-
-export default Alert;
+export default withInstall(Alert);

@@ -1,0 +1,9 @@
+@import "./fonts/iconfont.scss";
+
+.lin-icon {
+  display: inline-block;
+}
+
+.lin-icon-loading {
+  animation: rotate-animation 1.2s linear infinite;
+}

@@ -1,7 +1,4 @@
-import { withInstall } from "@src/utils";
+import { withInstall } from "@packages/utils";
+import Button from "./src/index.vue";
 
-import Button from "./src/button.vue";
-
-withInstall(Button)
-
-export default Button;
+export default withInstall(Button);
