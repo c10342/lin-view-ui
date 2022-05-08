@@ -17,13 +17,13 @@ const components = fs
 const external = (id) => {
   if (id.match(/^vue$/)) {
     return true;
-  } else if (id.match(/^@\//)) {
+  } else if (id.match(/^@packages\//)) {
     return true;
   }
 };
 
 const paths = (id) => {
-  if (id.match(/^@\//)) {
+  if (id.match(/^@packages\//)) {
     const name = id.split("/")[1];
     return `./${name}.js`;
   }
