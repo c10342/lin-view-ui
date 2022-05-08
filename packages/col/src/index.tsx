@@ -82,6 +82,10 @@ export default defineComponent({
       }
     });
     const Tag = props.tag as any;
-    return () => <Tag class={classList}>{context.slots.default?.()}</Tag>;
+    return () => (
+      <Tag style={style} class={classList}>
+        {context.slots.default?.()}
+      </Tag>
+    );
   }
 });
