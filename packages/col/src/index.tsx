@@ -1,6 +1,6 @@
 import { rowContextKey } from "@packages/tokens";
 import { isNumber, isPlainObject } from "@packages/utils";
-import { computed, defineComponent, h, inject, PropType } from "vue";
+import { computed, defineComponent, inject, PropType } from "vue";
 
 interface ColSizeObject {
   span?: number;
