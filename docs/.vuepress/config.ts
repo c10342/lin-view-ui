@@ -1,4 +1,7 @@
 import { defaultTheme, defineUserConfig } from "vuepress";
+import demoBlock from 'vuepress2-plugin-demo-block'
+import { viteBundler } from '@vuepress/bundler-vite'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import * as path from "path";
 
 const getComponentPath = (name:string)=>{
@@ -16,13 +19,14 @@ export default defineUserConfig({
     "@packages": path.resolve(__dirname, "../../packages")
   },
   plugins: [
-    [
-      require("vuepress2-plugin-demo-block/src/index"),
-      {
+    demoBlock({
         componentsDir: path.resolve(__dirname, "./../examples")
-      }
-    ]
+    }),
   ],
+  bundler: viteBundler({
+    viteOptions: {plugins: [ vueJsx()]},
+    vuePluginOptions: {},
+  }),
   theme: defaultTheme({
     navbar: [
       { text: "首页", link: "/" },

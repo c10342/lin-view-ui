@@ -1,11 +1,8 @@
 <template>
   <div class="icon-wrapper">
-    <div
-      v-for="(icon, index) in icons"
-      :key="index"
-      class="icon-item flex-center"
-    >
+    <div v-for="(icon, index) in icons" :key="index" class="icon-item">
       <lin-icon :name="icon" />
+      <span class="mt-10 icon-name">{{ icon }}</span>
     </div>
   </div>
 </template>
@@ -20,7 +17,7 @@ export default defineComponent({
       "left",
       "right",
       "user",
-      "arrowhead-left-outli",
+      "arrowhead-left",
       "search",
       "arrowhead-right",
       "email",
@@ -38,13 +35,25 @@ export default defineComponent({
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  border: 0.5px solid #ccc;
   .icon-item {
     width: 20%;
-    height: 60px;
-    line-height: 60px;
+    height: 80px;
     flex-shrink: 0;
-    text-align: center;
     font-size: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:hover {
+      color: var(--lin-color-primary);
+    }
+    .icon-name {
+      font-size: 14px;
+    }
   }
 }
 </style>
