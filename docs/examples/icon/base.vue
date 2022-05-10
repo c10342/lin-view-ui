@@ -21,7 +21,9 @@ export default defineComponent({
       "search",
       "arrowhead-right",
       "email",
-      "loading"
+      "loading",
+      "close",
+      "upload"
     ];
     return {
       icons
