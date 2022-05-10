@@ -1,0 +1,96 @@
+.lin-alert {
+  --lin-alert-padding: 8px 16px;
+  --lin-alert-border-radius: var(--lin-border-radius-base);
+  --lin-alert-title-font-size: var(--lin-font-size-small);
+  --lin-alert-title-font-weight: 700;
+  --lin-alert-content-padding: 0 10px;
+  --lin-alert-description-font-size: var(--lin-font-size-extra-small);
+  --lin-alert-description-margin-top: 5px;
+  --lin-alert-close-font-size: var(--lin-font-size-extra-small);
+  --lin-alert-close-top: 8px;
+  --lin-alert-close-right: 16px;
+  --lin-alert-close-color: var(--lin-color-white);
+  --lin-alert-icon-size: var(--lin-font-size-medium);
+}
+
+.lin-alert-light {
+  //   .lin-alert-close {
+  //     color: $disabled-font-color;
+  //   }
+
+  //   @each $key, $val in $theme-color {
+  //     &.lin-alert-#{$key} {
+  //       @include alert-type($val);
+  //     }
+  //   }
+}
+
+.lin-alert {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--lin-alert-padding);
+  overflow: hidden;
+  border-radius: var(--lin-alert-border-radius);
+}
+
+.lin-alert-content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--lin-alert-content-padding);
+}
+
+.lin-alert-title {
+  font-size: var(--lin-alert-title-font-size);
+  font-weight: var(--lin-alert-title-font-weight);
+
+  &:only-child {
+    font-weight: normal;
+  }
+}
+
+.lin-alert-description {
+  margin-top: var(--lin-alert-description-margin-top);
+  font-size: var(--lin-alert-description-font-size);
+}
+
+.lin-alert-close {
+  position: absolute;
+  top: var(--lin-alert-close-top);
+  right: var(--lin-alert-close-right);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--lin-alert-close-font-size);
+  color: var(--lin-alert-close-color);
+  cursor: pointer;
+}
+
+.lin-alert-center {
+  justify-content: center;
+}
+
+.lin-alert-icon {
+  font-size: var(--lin-alert-icon-size);
+}
+
+.lin-alert-dark {
+  //   @each $key, $val in $theme-color {
+  //     &.lin-alert-#{$key} {
+  //       @include alert-type($val);
+  //     }
+  //   }
+}
+
+// .lin-alert-fade-enter-active,
+// .lin-alert-fade-leave-active {
+//   transition: all 300ms;
+// }
+
+// .lin-alert-fade-enter,
+// .lin-alert-fade-leave-to {
+//   opacity: 0;
+// }
