@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "commit": "git cz",
+    "commit": "node node_modules/cz-customizable/standalone.js",
     "build": "rimraf dist && npm run build:esm && npm run build:cjs && npm run build:full && npm run build:css",
     "build:esm": "rollup --config build/build.esm.js",
     "build:cjs": "rollup --config build/build.cjs.js",
@@ -28,8 +28,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
-    "@commitlint/cli": "^16.2.4",
-    "@commitlint/config-conventional": "^16.2.4",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-node-resolve": "^13.2.1",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
@@ -37,7 +35,7 @@
     "@vitejs/plugin-vue-jsx": "^1.3.10",
     "@vue/babel-plugin-jsx": "^1.1.1",
     "@vue/eslint-config-typescript": "^10.0.0",
-    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
