@@ -37,7 +37,6 @@ export default defineComponent({
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 0.5px solid #ccc;
   .icon-item {
     width: 20%;
     height: 80px;
@@ -47,7 +46,9 @@ export default defineComponent({
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 0.5px solid #ccc;
+    border: 1px solid #ccc;
+    margin-right: -1px;
+    margin-bottom: -1px;
     box-sizing: border-box;
     cursor: pointer;
     &:hover {

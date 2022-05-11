@@ -33,3 +33,15 @@
     padding: $i + px;
   }
 }
+
+.table-of-contents {
+  position: fixed;
+  top: calc(var(--navbar-height) - 2 * var(--navbar-padding-v) + 30px);
+  right: 0;
+}
+
+@media (max-width: 1400px) {
+  .table-of-contents {
+    display: none !important;
+  }
+}
