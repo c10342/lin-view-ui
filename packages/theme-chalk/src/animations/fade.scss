@@ -1,0 +1,9 @@
+.lin-fade-enter-active,
+.lin-fade-leave-active {
+  transition: opacity 300ms;
+}
+
+.lin-fade-enter,
+.lin-fade-leave-to {
+  opacity: 0;
+}

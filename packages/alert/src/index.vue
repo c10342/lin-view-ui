@@ -1,36 +1,38 @@
 <template>
-  <div
-    :class="[
-      'lin-alert',
-      `lin-alert-${type}`,
-      `lin-alert-${effect}`,
-      { 'lin-alert-center': center }
-    ]"
-    v-if="show"
-  >
-    <slot name="icon">
-      <LinIcon class="lin-alert-icon" :name="icon" v-if="icon" />
-    </slot>
-    <div class="lin-alert-content">
-      <slot name="title">
-        <span class="lin-alert-title">{{ title }}</span>
+  <transition name="lin-fade" @after-leave="onAfterLeave">
+    <div
+      :class="[
+        'lin-alert',
+        `lin-alert-${type}`,
+        `is-${effect}`,
+        { 'is-center': center }
+      ]"
+      v-if="show"
+    >
+      <slot name="icon">
+        <LinIcon class="lin-alert-icon" :name="icon" v-if="icon" />
       </slot>
-      <slot name="description">
-        <span class="lin-alert-description" v-if="description">
-          {{ description }}
-        </span>
-      </slot>
+      <div class="lin-alert-content">
+        <slot name="title">
+          <span class="lin-alert-title">{{ title }}</span>
+        </slot>
+        <slot name="description">
+          <span class="lin-alert-description" v-if="description">
+            {{ description }}
+          </span>
+        </slot>
+      </div>
+      <span class="lin-alert-close" v-if="closable" @click="onCloseClick">
+        <slot name="close">
+          <LinIcon name="close" />
+        </slot>
+      </span>
     </div>
-    <span class="lin-alert-close" v-if="closable" @click="onCloseClick">
-      <slot name="close">
-        <LinIcon name="close" />
-      </slot>
-    </span>
-  </div>
+  </transition>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, PropType, ref } from "vue";
 import LinIcon from "@packages/icon";
 export default defineComponent({
   name: "LinAlert",
@@ -58,15 +60,13 @@ export default defineComponent({
     },
     // 类型
     type: {
-      type: String,
-      default: "success",
-      options: ["success", "warning", "info", "danger"]
+      type: String as PropType<"success" | "warning" | "info" | "danger">,
+      default: "success"
     },
     // 主题
     effect: {
-      type: String,
-      default: "light",
-      options: ["light", "dark"]
+      type: String as PropType<"light" | "dark">,
+      default: "light"
     },
     // 文字是否居中
     center: {
@@ -81,13 +81,13 @@ export default defineComponent({
     const onCloseClick = () => {
       show.value = false;
     };
-    const afterLeave = () => {
+    const onAfterLeave = () => {
       context.emit("close");
     };
     return {
       show,
       onCloseClick,
-      afterLeave
+      onAfterLeave
     };
   }
 });

@@ -11,18 +11,26 @@
   --lin-alert-close-right: 16px;
   --lin-alert-close-color: var(--lin-color-white);
   --lin-alert-icon-size: var(--lin-font-size-medium);
-}
+  --lin-alert-light-success-color: var(--lin-color-success);
+  --lin-alert-light-success-bg-color: var(--lin-color-success-light-9);
+  --lin-alert-dark-success-color: var(--lin-color-white);
+  --lin-alert-dark-success-bg-color: var(--lin-color-success);
+  --lin-alert-light-warning-color: var(--lin-color-warning);
+  --lin-alert-light-warning-bg-color: var(--lin-color-warning-light-9);
+  --lin-alert-dark-warning-color: var(--lin-color-white);
+  --lin-alert-dark-warning-bg-color: var(--lin-color-warning);
+  --lin-alert-light-info-color: var(--lin-color-info);
+  --lin-alert-light-info-bg-color: var(--lin-color-info-light-9);
+  --lin-alert-dark-info-color: var(--lin-color-white);
+  --lin-alert-dark-info-bg-color: var(--lin-color-info);
+  --lin-alert-light-danger-color: var(--lin-color-danger);
+  --lin-alert-light-danger-bg-color: var(--lin-color-danger-light-9);
+  --lin-alert-dark-danger-color: var(--lin-color-white);
+  --lin-alert-dark-danger-bg-color: var(--lin-color-danger);
 
-.lin-alert-light {
-  //   .lin-alert-close {
-  //     color: $disabled-font-color;
-  //   }
-
-  //   @each $key, $val in $theme-color {
-  //     &.lin-alert-#{$key} {
-  //       @include alert-type($val);
-  //     }
-  //   }
+  &.is-light {
+    --lin-alert-close-color: var(--lin-text-color-placeholder);
+  }
 }
 
 .lin-alert {
@@ -34,6 +42,58 @@
   padding: var(--lin-alert-padding);
   overflow: hidden;
   border-radius: var(--lin-alert-border-radius);
+
+  &.is-center {
+    justify-content: center;
+  }
+}
+
+.lin-alert-success {
+  &.is-light {
+    color: var(--lin-alert-light-success-color);
+    background-color: var(--lin-alert-light-success-bg-color);
+  }
+
+  &.is-dark {
+    color: var(--lin-alert-dark-success-color);
+    background-color: var(--lin-alert-dark-success-bg-color);
+  }
+}
+
+.lin-alert-warning {
+  &.is-light {
+    color: var(--lin-alert-light-warning-color);
+    background-color: var(--lin-alert-light-warning-bg-color);
+  }
+
+  &.is-dark {
+    color: var(--lin-alert-dark-warning-color);
+    background-color: var(--lin-alert-dark-warning-bg-color);
+  }
+}
+
+.lin-alert-info {
+  &.is-light {
+    color: var(--lin-alert-light-info-color);
+    background-color: var(--lin-alert-light-info-bg-color);
+  }
+
+  &.is-dark {
+    color: var(--lin-alert-dark-info-color);
+    background-color: var(--lin-alert-dark-info-bg-color);
+  }
+}
+
+.lin-alert-danger {
+  &.is-light {
+    color: var(--lin-alert-light-danger-color);
+    background-color: var(--lin-alert-light-danger-bg-color);
+  }
+
+  &.is-dark {
+    color: var(--lin-alert-dark-danger-color);
+    background-color: var(--lin-alert-dark-danger-bg-color);
+  }
 }
 
 .lin-alert-content {
@@ -69,28 +129,6 @@
   cursor: pointer;
 }
 
-.lin-alert-center {
-  justify-content: center;
-}
-
 .lin-alert-icon {
   font-size: var(--lin-alert-icon-size);
 }
-
-.lin-alert-dark {
-  //   @each $key, $val in $theme-color {
-  //     &.lin-alert-#{$key} {
-  //       @include alert-type($val);
-  //     }
-  //   }
-}
-
-// .lin-alert-fade-enter-active,
-// .lin-alert-fade-leave-active {
-//   transition: all 300ms;
-// }
-
-// .lin-alert-fade-enter,
-// .lin-alert-fade-leave-to {
-//   opacity: 0;
-// }
