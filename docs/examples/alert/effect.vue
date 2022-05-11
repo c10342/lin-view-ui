@@ -1,0 +1,21 @@
+<template>
+  <lin-alert effect="dark" type="success" title="提示文案"></lin-alert>
+  <lin-alert
+    class="mt-20"
+    effect="dark"
+    type="info"
+    title="提示文案"
+  ></lin-alert>
+  <lin-alert
+    class="mt-20"
+    effect="dark"
+    type="warning"
+    title="提示文案"
+  ></lin-alert>
+  <lin-alert
+    class="mt-20"
+    effect="dark"
+    type="danger"
+    title="提示文案"
+  ></lin-alert>
+</template>

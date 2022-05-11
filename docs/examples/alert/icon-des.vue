@@ -1,0 +1,30 @@
+<template>
+  <lin-alert
+    icon="search"
+    description="文字说明文字说明文字说明"
+    type="success"
+    title="提示文案"
+    class="mt-20"
+  ></lin-alert>
+  <lin-alert
+    icon="email"
+    description="文字说明文字说明文字说明"
+    type="info"
+    title="提示文案"
+    class="mt-20"
+  ></lin-alert>
+  <lin-alert
+    icon="delete"
+    description="文字说明文字说明文字说明"
+    type="warning"
+    title="提示文案"
+    class="mt-20"
+  ></lin-alert>
+  <lin-alert
+    icon="upload"
+    description="文字说明文字说明文字说明"
+    type="danger"
+    title="提示文案"
+    class="mt-20"
+  ></lin-alert>
+</template>
