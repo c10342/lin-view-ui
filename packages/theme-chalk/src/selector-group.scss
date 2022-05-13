@@ -1,0 +1,70 @@
+.lin-selector-group {
+  --lin-selector-group-height: 26px;
+  --lin-selector-group-label-padding: 0 10px;
+  --lin-selector-group-label-font-size: var(--lin-font-size-small);
+  --lin-selector-group-label-color: var(--lin-text-color-regular);
+  --lin-selector-group-list-width: 0;
+  --lin-selector-group-list-padding: 0;
+  --lin-selector-group-list-margin: 0 48px 0 10px;
+  --lin-selector-group-more-top: 0;
+  --lin-selector-group-more-right: 0;
+  --lin-selector-group-more-text-width: 52px;
+  --lin-selector-group-more-text-font-size: var(--lin-font-size-base);
+  --lin-selector-group-more-text-color: var(--lin-text-color-primary);
+  --lin-selector-group-more-text-bg-color: #e7e8ec;
+}
+
+.lin-selector-label {
+  display: inline-block;
+  height: var(--lin-selector-group-height);
+  padding: var(--lin-selector-group-label-padding);
+  font-size: var(--lin-selector-group-label-font-size);
+  line-height: var(--lin-selector-group-height);
+  color: var(--lin-selector-group-label-color);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.lin-selector-group {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.lin-selector-list {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-wrap: wrap;
+  width: var(--lin-selector-group-list-width);
+  padding: var(--lin-selector-group-list-padding);
+  margin: var(--lin-selector-group-list-margin);
+  overflow: hidden;
+  list-style: none;
+}
+
+.lin-selector-more {
+  position: absolute;
+  top: var(--lin-selector-group-more-top);
+  right: var(--lin-selector-group-more-right);
+  height: var(--lin-selector-group-height);
+  line-height: var(--lin-selector-group-height);
+  cursor: pointer;
+  user-select: none;
+}
+
+.lin-selector-more-text {
+  box-sizing: border-box;
+  display: inline-block;
+  width: var(--lin-selector-group-more-text-width);
+  height: var(--lin-selector-group-height);
+  font-size: var(--lin-selector-group-more-text-font-size);
+  line-height: var(--lin-selector-group-height);
+  color: var(--lin-selector-group-more-text-color);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: top;
+  background-color: var(--lin-selector-group-more-text-bg-color);
+}

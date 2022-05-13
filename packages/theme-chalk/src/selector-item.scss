@@ -1,0 +1,38 @@
+.lin-selector-item {
+  --lin-selector-item-height: 26px;
+  --lin-selector-item-max-width: 200px;
+  --lin-selector-item-padding: 0 10px;
+  --lin-selector-item-margin-right: 10px;
+  --lin-selector-item-font-size: var(--lin-font-size-extra-small);
+  --lin-selector-item-color: var(--lin-text-color-regular);
+  --lin-selector-item-active-color: var(--lin-color-primary);
+  --lin-selector-item-active-bg-color: var(--lin-color-primary-light-9);
+  --lin-selector-item-disabled-color: var(--lin-disabled-text-color);
+  --lin-selector-item-disabled-bg-color: var(--lin-disabled-bg-color);
+}
+
+.lin-selector-item {
+  max-width: var(--lin-selector-item-max-width);
+  height: var(--lin-selector-item-height);
+  padding: var(--lin-selector-item-padding);
+  margin-right: var(--lin-selector-item-margin-right);
+  overflow: hidden;
+  font-size: var(--lin-selector-item-font-size);
+  line-height: var(--lin-selector-item-height);
+  color: var(--lin-selector-item-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  &.is-active {
+    color: var(--lin-selector-item-active-color);
+    background-color: var(--lin-selector-item-active-bg-color);
+  }
+
+  &.is-disabled {
+    color: var(--lin-selector-item-disabled-color);
+    cursor: not-allowed;
+    background-color: var(--lin-selector-item-disabled-bg-color);
+  }
+}
