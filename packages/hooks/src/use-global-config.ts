@@ -6,19 +6,14 @@ import {
 import { computed, inject, provide } from "vue";
 
 const globalConfig: Partial<ConfigProviderContext> = {};
-export const useGlobalConfig = (
-  key?: keyof ConfigProviderContext,
-  defaultValue?: any
-) => {
-  const config = inject(configProviderContextKey, globalConfig);
 
-  if (key) {
-    if (config) {
-      return config[key] ?? defaultValue;
-    }
-    return defaultValue;
-  }
-  return config;
+export const useGlobalConfig = (
+  defaultValue: Partial<ConfigProviderContext> = {}
+) => {
+  return inject(configProviderContextKey, {
+    ...globalConfig,
+    ...defaultValue
+  });
 };
 
 export const providerGlobalConfig = (props: ConfigProviderProps) => {
