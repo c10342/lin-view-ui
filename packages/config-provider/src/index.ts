@@ -4,6 +4,9 @@ import { defineComponent, PropType, renderSlot } from "vue";
 export const configProviderProps = {
   size: {
     type: String as PropType<"large" | "small">
+  },
+  locale: {
+    type: Object as PropType<{ LinViewUI: { [key: string]: any } }>
   }
 };
 
@@ -11,8 +14,7 @@ export default defineComponent({
   name: "LinConfigProvider",
   props: configProviderProps,
   setup(props, context) {
-    const config = providerGlobalConfig(props);
-    return () =>
-      renderSlot(context.slots, "default", { config: config?.value });
+    providerGlobalConfig(props);
+    return () => renderSlot(context.slots, "default", { config: props });
   }
 });
