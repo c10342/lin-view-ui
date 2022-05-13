@@ -19,7 +19,8 @@ export default defineUserConfig({
   title: "Hello VuePress",
   description: "Just playing around",
   alias: {
-    "@packages": path.resolve(__dirname, "../../packages")
+    "@packages": path.resolve(__dirname, "../../packages"),
+    "@lang": path.resolve(__dirname, "../../packages/locale/src")
   },
   plugins: [
     demoBlock({
