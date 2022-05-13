@@ -37,7 +37,6 @@
     "@vue/babel-plugin-jsx": "^1.1.1",
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vuepress/plugin-search": "^2.0.0-beta.43",
-    "@vuepress/plugin-toc": "^2.0.0-beta.43",
     "commitlint": "^16.2.4",
     "cz-customizable": "^6.3.0",
     "eslint": "^8.14.0",
