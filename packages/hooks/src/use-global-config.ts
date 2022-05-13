@@ -1,30 +1,30 @@
 import {
+  configProviderContextKey,
   ConfigProviderContext,
-  configProviderContextKey
+  ConfigProviderProps
 } from "@packages/tokens";
-import { computed, inject, provide, ref } from "vue";
+import { computed, inject, provide } from "vue";
 
-const globalConfig = ref<ConfigProviderContext>();
-
+const globalConfig: Partial<ConfigProviderContext> = {};
 export const useGlobalConfig = (
   key?: keyof ConfigProviderContext,
-  defaultValue = undefined
+  defaultValue?: any
 ) => {
   const config = inject(configProviderContextKey, globalConfig);
+
   if (key) {
-    return computed(() => {
-      return config.value?.[key] ?? defaultValue;
-    });
+    if (config) {
+      return config[key] ?? defaultValue;
+    }
+    return defaultValue;
   }
   return config;
 };
 
-export const providerGlobalConfig = (config: ConfigProviderContext) => {
-  const context = computed(() => {
-    return config;
+export const providerGlobalConfig = (props: ConfigProviderProps) => {
+  const config: Partial<ConfigProviderContext> = {};
+  Object.keys(props).forEach((key) => {
+    (config as any)[key] = computed(() => (props as any)[key]);
   });
-
-  provide(configProviderContextKey, context);
-
-  return context;
+  provide(configProviderContextKey, config);
 };
