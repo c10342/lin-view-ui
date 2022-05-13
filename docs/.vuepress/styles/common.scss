@@ -37,7 +37,7 @@
 .table-of-contents {
   position: fixed;
   top: calc(var(--navbar-height) - 2 * var(--navbar-padding-v) + 30px);
-  right: 0;
+  right: 20px;
 }
 
 @media (max-width: 1400px) {

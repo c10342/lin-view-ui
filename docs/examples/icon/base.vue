@@ -23,7 +23,9 @@ export default defineComponent({
       "email",
       "loading",
       "close",
-      "upload"
+      "upload",
+      "up",
+      "down"
     ];
     return {
       icons

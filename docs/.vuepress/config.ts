@@ -2,7 +2,6 @@ import { defaultTheme, defineUserConfig } from "vuepress";
 import demoBlock from "vuepress2-plugin-demo-block";
 import { viteBundler } from "@vuepress/bundler-vite";
 import vueJsx from "@vitejs/plugin-vue-jsx";
-import { tocPlugin } from "@vuepress/plugin-toc";
 import { searchPlugin } from "@vuepress/plugin-search";
 import * as path from "path";
 
@@ -12,7 +11,7 @@ const getComponentPath = (publicDir: string, name: string) => {
 
 const basicComponents = ["button", "icon", "layout"];
 
-const viewComponents = ["alert"];
+const viewComponents = ["alert", "selector"];
 
 export default defineUserConfig({
   // 站点配置
@@ -26,12 +25,11 @@ export default defineUserConfig({
     demoBlock({
       componentsDir: path.resolve(__dirname, "./../examples")
     }),
-    tocPlugin(),
     searchPlugin()
-    // activeHeaderLinksPlugin({
-    //   headerLinkSelector:'header-anchor'
-    // })
   ],
+  markdown: {
+    toc: {}
+  },
   bundler: viteBundler({
     viteOptions: { plugins: [vueJsx()] },
     vuePluginOptions: {}
