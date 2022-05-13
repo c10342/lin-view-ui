@@ -15,6 +15,9 @@
     "paths": {
       "@packages/*": [
         "packages/*"
+      ],
+      "@lang/*":[
+        "packages/locale/src/*"
       ]
     },
     "lib": [
