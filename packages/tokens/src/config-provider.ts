@@ -1,10 +1,16 @@
 import { configProviderProps } from "@packages/config-provider";
-import { ExtractPropTypes, InjectionKey, Ref } from "vue";
+import { ComputedRef, ExtractPropTypes, InjectionKey } from "vue";
 
-export type ConfigProviderContext = Partial<
+export interface ConfigProviderContext {
+  size: ComputedRef<"large" | "small">;
+  locale: ComputedRef<{
+    LinViewUI: { [key: string]: any };
+  }>;
+}
+
+export type ConfigProviderProps = Partial<
   ExtractPropTypes<typeof configProviderProps>
 >;
 
-export const configProviderContextKey: InjectionKey<
-  Ref<ConfigProviderContext>
-> = Symbol();
+export const configProviderContextKey: InjectionKey<ConfigProviderContext> =
+  Symbol();
