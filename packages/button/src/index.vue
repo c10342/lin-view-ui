@@ -74,9 +74,9 @@ export default defineComponent({
   },
   emits: ["click"],
   setup(props, context) {
-    const size = useGlobalConfig("size");
+    const { size } = useGlobalConfig();
     const buttonSize = computed(() => {
-      return props.size ?? size.value;
+      return props.size ?? size?.value;
     });
 
     const onClick = () => {
