@@ -23,3 +23,7 @@ export function isNull(data: any): data is null {
 export function isUndef(data: any) {
   return isNull(data) || isUndefined(data);
 }
+
+export function isArray(data: any): data is Array<any> {
+  return toString.call(data) === "[object Array]";
+}
