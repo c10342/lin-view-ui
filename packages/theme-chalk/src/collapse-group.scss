@@ -1,0 +1,13 @@
+.lin-collapse-group {
+  --lin-collapse-group-border-color: var(--lin-border-color-lighter);
+}
+
+.lin-collapse-group {
+  position: relative;
+  border: 1px solid var(--lin-collapse-group-border-color);
+
+  &.is-simple {
+    border-right: none;
+    border-left: none;
+  }
+}

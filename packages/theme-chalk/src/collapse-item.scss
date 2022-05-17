@@ -1,0 +1,48 @@
+.lin-collapse-item {
+  --lin-collapse-item-border-color: var(--lin-border-color-lighter);
+  --lin-collapse-item-header-padding: 10px 16px;
+  --lin-collapse-item-header-bg-color: var(--lin-color-white);
+  --lin-collapse-item-content-padding: 16px;
+  --lin-collapse-item-arrow-margin-right: 5px;
+  --lin-collapse-item-arrow-transition: all 300ms;
+}
+
+.lin-collapse-item {
+  &.is-simple {
+    .lin-collapse-item-header {
+      background: none;
+    }
+
+    .lin-collapse-item-content {
+      border-top: none;
+    }
+  }
+
+  & + .lin-collapse-item {
+    border-top: 1px solid var(--lin-collapse-item-border-color);
+  }
+}
+
+.lin-collapse-item-header {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--lin-collapse-item-header-padding);
+  cursor: pointer;
+  background-color: var(--lin-collapse-item-header-bg-color);
+}
+
+.lin-collapse-arrow {
+  margin-right: var(--lin-collapse-item-arrow-margin-right);
+  transition: var(--lin-collapse-item-arrow-transition);
+}
+
+.lin-collapse-item-content {
+  padding: var(--lin-collapse-item-content-padding);
+  border-top: 1px solid var(--lin-collapse-item-border-color);
+}
+
+.lin-collapse-arrow-down {
+  transform: rotate(90deg);
+}
