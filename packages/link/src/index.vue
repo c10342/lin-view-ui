@@ -1,6 +1,7 @@
 <template>
   <a
     @click="onClick"
+    :href="href"
     v-bind="$attrs"
     :class="[
       'lin-link',
