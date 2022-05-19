@@ -1,4 +1,5 @@
 @import "./animations/index.scss";
+@import "./var.scss";
 
 @for $i from 1 through 10 {
   .lin-mt-#{$i} {

@@ -9,6 +9,7 @@ import SelectorItem from "@packages/selector-item";
 import CollapseGroup from "@packages/collapse-group";
 import CollapseItem from "@packages/collapse-item";
 import CollapseTransition from "@packages/collapse-transition";
+import Link from "@packages/link";
 import { App } from "vue";
 
 const components = [
@@ -22,7 +23,8 @@ const components = [
   SelectorItem,
   CollapseGroup,
   CollapseItem,
-  CollapseTransition
+  CollapseTransition,
+  Link
 ];
 
 const install = (app: App) => {
