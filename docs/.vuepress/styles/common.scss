@@ -45,3 +45,9 @@
     display: none !important;
   }
 }
+
+.lin-link {
+  &:hover {
+    text-decoration: none !important;
+  }
+}
