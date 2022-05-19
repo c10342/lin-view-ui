@@ -1,3 +1,5 @@
+@import "./variable";
+
 .lin-button {
   --lin-button-bg-color: var(--lin-color-white);
   --lin-button-text-color: var(--lin-text-color-regular);
@@ -42,129 +44,31 @@
   --lin-button-disabled-border-color: var(--lin-disabled-border-color);
 }
 
-.lin-button-primary {
-  --lin-button-bg-color: var(--lin-color-primary);
-  --lin-button-text-color: var(--lin-color-white);
-  --lin-button-border-color: var(--lin-color-primary);
-  --lin-button-hover-text-color: var(--lin-color-white);
-  --lin-button-hover-border-color: var(--lin-color-primary-light-3);
-  --lin-button-hover-bg-color: var(--lin-color-primary-light-3);
-
-  &.is-plain {
-    --lin-button-text-color: var(--lin-color-primary);
-    --lin-button-bg-color: var(--lin-color-primary-light-9);
-    --lin-button-border-color: var(--lin-color-primary-light-5);
+@each $key in $theme-color {
+  .lin-button-#{$key} {
+    --lin-button-bg-color: var(--lin-color-#{$key});
+    --lin-button-text-color: var(--lin-color-white);
+    --lin-button-border-color: var(--lin-color-#{$key});
     --lin-button-hover-text-color: var(--lin-color-white);
-    --lin-button-hover-bg-color: var(--lin-color-primary);
-    --lin-button-hover-border-color: var(--lin-color-primary);
-    --lin-button-disabled-text-color: var(--lin-color-primary-light-5);
-    --lin-button-disabled-bg-color: var(--lin-color-primary-light-9);
-    --lin-button-disabled-border-color: var(--lin-color-primary-light-8);
+    --lin-button-hover-border-color: var(--lin-color-#{$key}-light-3);
+    --lin-button-hover-bg-color: var(--lin-color-#{$key}-light-3);
+
+    &.is-plain {
+      --lin-button-text-color: var(--lin-color-#{$key});
+      --lin-button-bg-color: var(--lin-color-#{$key}-light-9);
+      --lin-button-border-color: var(--lin-color-#{$key}-light-5);
+      --lin-button-hover-text-color: var(--lin-color-white);
+      --lin-button-hover-bg-color: var(--lin-color-#{$key});
+      --lin-button-hover-border-color: var(--lin-color-#{$key});
+      --lin-button-disabled-text-color: var(--lin-color-#{$key}-light-5);
+      --lin-button-disabled-bg-color: var(--lin-color-#{$key}-light-9);
+      --lin-button-disabled-border-color: var(--lin-color-#{$key}-light-8);
+    }
+
+    --lin-button-disabled-text-color: var(--lin-color-white);
+    --lin-button-disabled-bg-color: var(--lin-color-#{$key}-light-5);
+    --lin-button-disabled-border-color: var(--lin-color-#{$key}-light-5);
   }
-
-  --lin-button-disabled-text-color: var(--lin-color-white);
-  --lin-button-disabled-bg-color: var(--lin-color-primary-light-5);
-  --lin-button-disabled-border-color: var(--lin-color-primary-light-5);
-}
-
-.lin-button-success {
-  --lin-button-bg-color: var(--lin-color-success);
-  --lin-button-text-color: var(--lin-color-white);
-  --lin-button-border-color: var(--lin-color-success);
-  --lin-button-hover-text-color: var(--lin-color-white);
-  --lin-button-hover-border-color: var(--lin-color-success-light-3);
-  --lin-button-hover-bg-color: var(--lin-color-success-light-3);
-
-  &.is-plain {
-    --lin-button-text-color: var(--lin-color-success);
-    --lin-button-bg-color: var(--lin-color-success-light-9);
-    --lin-button-border-color: var(--lin-color-success-light-5);
-    --lin-button-hover-text-color: var(--lin-color-white);
-    --lin-button-hover-bg-color: var(--lin-color-success);
-    --lin-button-hover-border-color: var(--lin-color-success);
-    --lin-button-disabled-text-color: var(--lin-color-success-light-5);
-    --lin-button-disabled-bg-color: var(--lin-color-success-light-9);
-    --lin-button-disabled-border-color: var(--lin-color-success-light-8);
-  }
-
-  --lin-button-disabled-text-color: var(--lin-color-white);
-  --lin-button-disabled-bg-color: var(--lin-color-success-light-5);
-  --lin-button-disabled-border-color: var(--lin-color-success-light-5);
-}
-
-.lin-button-info {
-  --lin-button-bg-color: var(--lin-color-info);
-  --lin-button-text-color: var(--lin-color-white);
-  --lin-button-border-color: var(--lin-color-info);
-  --lin-button-hover-text-color: var(--lin-color-white);
-  --lin-button-hover-border-color: var(--lin-color-info-light-3);
-  --lin-button-hover-bg-color: var(--lin-color-info-light-3);
-
-  &.is-plain {
-    --lin-button-text-color: var(--lin-color-info);
-    --lin-button-bg-color: var(--lin-color-info-light-9);
-    --lin-button-border-color: var(--lin-color-info-light-5);
-    --lin-button-hover-text-color: var(--lin-color-white);
-    --lin-button-hover-bg-color: var(--lin-color-info);
-    --lin-button-hover-border-color: var(--lin-color-info);
-    --lin-button-disabled-text-color: var(--lin-color-info-light-5);
-    --lin-button-disabled-bg-color: var(--lin-color-info-light-9);
-    --lin-button-disabled-border-color: var(--lin-color-info-light-8);
-  }
-
-  --lin-button-disabled-text-color: var(--lin-color-white);
-  --lin-button-disabled-bg-color: var(--lin-color-info-light-5);
-  --lin-button-disabled-border-color: var(--lin-color-info-light-5);
-}
-
-.lin-button-warning {
-  --lin-button-bg-color: var(--lin-color-warning);
-  --lin-button-text-color: var(--lin-color-white);
-  --lin-button-border-color: var(--lin-color-warning);
-  --lin-button-hover-text-color: var(--lin-color-white);
-  --lin-button-hover-border-color: var(--lin-color-warning-light-3);
-  --lin-button-hover-bg-color: var(--lin-color-warning-light-3);
-
-  &.is-plain {
-    --lin-button-text-color: var(--lin-color-warning);
-    --lin-button-bg-color: var(--lin-color-warning-light-9);
-    --lin-button-border-color: var(--lin-color-warning-light-5);
-    --lin-button-hover-text-color: var(--lin-color-white);
-    --lin-button-hover-bg-color: var(--lin-color-warning);
-    --lin-button-hover-border-color: var(--lin-color-warning);
-    --lin-button-disabled-text-color: var(--lin-color-warning-light-5);
-    --lin-button-disabled-bg-color: var(--lin-color-warning-light-9);
-    --lin-button-disabled-border-color: var(--lin-color-warning-light-8);
-  }
-
-  --lin-button-disabled-text-color: var(--lin-color-white);
-  --lin-button-disabled-bg-color: var(--lin-color-warning-light-5);
-  --lin-button-disabled-border-color: var(--lin-color-warning-light-5);
-}
-
-.lin-button-danger {
-  --lin-button-bg-color: var(--lin-color-danger);
-  --lin-button-text-color: var(--lin-color-white);
-  --lin-button-border-color: var(--lin-color-danger);
-  --lin-button-hover-text-color: var(--lin-color-white);
-  --lin-button-hover-border-color: var(--lin-color-danger-light-3);
-  --lin-button-hover-bg-color: var(--lin-color-danger-light-3);
-
-  &.is-plain {
-    --lin-button-text-color: var(--lin-color-danger);
-    --lin-button-bg-color: var(--lin-color-danger-light-9);
-    --lin-button-border-color: var(--lin-color-danger-light-5);
-    --lin-button-hover-text-color: var(--lin-color-white);
-    --lin-button-hover-bg-color: var(--lin-color-danger);
-    --lin-button-hover-border-color: var(--lin-color-danger);
-    --lin-button-disabled-text-color: var(--lin-color-danger-light-5);
-    --lin-button-disabled-bg-color: var(--lin-color-danger-light-9);
-    --lin-button-disabled-border-color: var(--lin-color-danger-light-8);
-  }
-
-  --lin-button-disabled-text-color: var(--lin-color-white);
-  --lin-button-disabled-bg-color: var(--lin-color-danger-light-5);
-  --lin-button-disabled-border-color: var(--lin-color-danger-light-5);
 }
 
 .lin-button {

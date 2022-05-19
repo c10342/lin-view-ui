@@ -1,3 +1,5 @@
+@import "./variable";
+
 .lin-alert {
   --lin-alert-padding: 8px 16px;
   --lin-alert-border-radius: var(--lin-border-radius-base);
@@ -11,22 +13,13 @@
   --lin-alert-close-right: 16px;
   --lin-alert-close-color: var(--lin-color-white);
   --lin-alert-icon-size: var(--lin-font-size-medium);
-  --lin-alert-light-success-color: var(--lin-color-success);
-  --lin-alert-light-success-bg-color: var(--lin-color-success-light-9);
-  --lin-alert-dark-success-color: var(--lin-color-white);
-  --lin-alert-dark-success-bg-color: var(--lin-color-success);
-  --lin-alert-light-warning-color: var(--lin-color-warning);
-  --lin-alert-light-warning-bg-color: var(--lin-color-warning-light-9);
-  --lin-alert-dark-warning-color: var(--lin-color-white);
-  --lin-alert-dark-warning-bg-color: var(--lin-color-warning);
-  --lin-alert-light-info-color: var(--lin-color-info);
-  --lin-alert-light-info-bg-color: var(--lin-color-info-light-9);
-  --lin-alert-dark-info-color: var(--lin-color-white);
-  --lin-alert-dark-info-bg-color: var(--lin-color-info);
-  --lin-alert-light-danger-color: var(--lin-color-danger);
-  --lin-alert-light-danger-bg-color: var(--lin-color-danger-light-9);
-  --lin-alert-dark-danger-color: var(--lin-color-white);
-  --lin-alert-dark-danger-bg-color: var(--lin-color-danger);
+
+  @each $key in $theme-color {
+    --lin-alert-light-#{$key}-color: var(--lin-color-#{$key});
+    --lin-alert-light-#{$key}-bg-color: var(--lin-color-#{$key}-light-9);
+    --lin-alert-dark-#{$key}-color: var(--lin-color-white);
+    --lin-alert-dark-#{$key}-bg-color: var(--lin-color-#{$key});
+  }
 
   &.is-light {
     --lin-alert-close-color: var(--lin-text-color-placeholder);
@@ -48,51 +41,17 @@
   }
 }
 
-.lin-alert-success {
-  &.is-light {
-    color: var(--lin-alert-light-success-color);
-    background-color: var(--lin-alert-light-success-bg-color);
-  }
+@each $key in $theme-color {
+  .lin-alert-#{$key} {
+    &.is-light {
+      color: var(--lin-alert-light-#{$key}-color);
+      background-color: var(--lin-alert-light-#{$key}-bg-color);
+    }
 
-  &.is-dark {
-    color: var(--lin-alert-dark-success-color);
-    background-color: var(--lin-alert-dark-success-bg-color);
-  }
-}
-
-.lin-alert-warning {
-  &.is-light {
-    color: var(--lin-alert-light-warning-color);
-    background-color: var(--lin-alert-light-warning-bg-color);
-  }
-
-  &.is-dark {
-    color: var(--lin-alert-dark-warning-color);
-    background-color: var(--lin-alert-dark-warning-bg-color);
-  }
-}
-
-.lin-alert-info {
-  &.is-light {
-    color: var(--lin-alert-light-info-color);
-    background-color: var(--lin-alert-light-info-bg-color);
-  }
-
-  &.is-dark {
-    color: var(--lin-alert-dark-info-color);
-    background-color: var(--lin-alert-dark-info-bg-color);
-  }
-}
-
-.lin-alert-danger {
-  &.is-light {
-    color: var(--lin-alert-light-danger-color);
-    background-color: var(--lin-alert-light-danger-bg-color);
-  }
-
-  &.is-dark {
-    color: var(--lin-alert-dark-danger-color);
-    background-color: var(--lin-alert-dark-danger-bg-color);
+    &.is-dark {
+      color: var(--lin-alert-dark-#{$key}-color);
+      background-color: var(--lin-alert-dark-#{$key}-bg-color);
+    }
   }
 }
 
