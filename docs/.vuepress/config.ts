@@ -1,5 +1,5 @@
 import { defaultTheme, defineUserConfig } from "vuepress";
-import demoBlock from "vuepress2-plugin-demo-block";
+import demoBlock from "./plugins/demo-block";
 import { viteBundler } from "@vuepress/bundler-vite";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { searchPlugin } from "@vuepress/plugin-search";
