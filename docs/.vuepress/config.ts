@@ -16,7 +16,7 @@ const viewComponents = ["alert", "selector", "collapse", "link"];
 export default defineUserConfig({
   // 站点配置
   lang: "zh-CN",
-  title: "Hello VuePress",
+  title: "lin-view-ui",
   description: "Just playing around",
   alias: {
     "@packages": path.resolve(__dirname, "../../packages"),
@@ -46,7 +46,12 @@ export default defineUserConfig({
       "/guide/": [
         {
           text: "指南",
-          children: ["/guide/introduce", "/guide/install"]
+          children: [
+            "/guide/introduce",
+            "/guide/install",
+            "/guide/i18n",
+            "/guide/start"
+          ]
         }
       ],
       "/components/": [
