@@ -10,6 +10,7 @@ import CollapseGroup from "@packages/collapse-group";
 import CollapseItem from "@packages/collapse-item";
 import CollapseTransition from "@packages/collapse-transition";
 import Link from "@packages/link";
+import Badge from "@packages/badge";
 import { App } from "vue";
 
 const components = [
@@ -24,7 +25,8 @@ const components = [
   CollapseGroup,
   CollapseItem,
   CollapseTransition,
-  Link
+  Link,
+  Badge
 ];
 
 const install = (app: App) => {

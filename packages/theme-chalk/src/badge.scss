@@ -1,0 +1,62 @@
+@import "./variable";
+
+.lin-badge {
+  --lin-badge-fixed-top: 0;
+  --lin-badge-fixed-right: 10px;
+  --lin-badge-fixed-zindex: 100;
+  --lin-badge-fixed-transform: translateY(-50%) translateX(100%);
+  --lin-badge-text-height: 18px;
+  --lin-badge-text-padding: 0 6px;
+  --lin-badge-text-font-size: var(--lin-font-size-extra-small);
+  --lin-badge-text-color: var(--lin-color-white);
+  --lin-badge-text-border: 1px solid var(--lin-color-white);
+  --lin-badge-text-border-radius: 10px;
+  --lin-badge-dot-right: 5px;
+  --lin-badge-dot-width: 8px;
+  --lin-badge-dot-height: 8px;
+  --lin-badge-dot-padding: 0;
+  --lin-badge-dot-border-radius: 50%;
+
+  @each $key in $theme-color {
+    --lin-badge-#{$key}-bg-color: var(--lin-color-#{$key});
+  }
+}
+
+.lin-badge {
+  position: relative;
+  display: inline-block;
+
+  .is-fixed {
+    position: absolute;
+    top: var(--lin-badge-fixed-top);
+    right: var(--lin-badge-fixed-right);
+    z-index: var(--lin-badge-fixed-zindex);
+    transform: var(--lin-badge-fixed-transform);
+  }
+}
+
+.lin-badge-text {
+  height: var(--lin-badge-text-height);
+  padding: var(--lin-badge-text-padding);
+  font-size: var(--lin-badge-text-font-size);
+  line-height: var(--lin-badge-text-height);
+  color: var(--lin-badge-text-color);
+  text-align: center;
+  white-space: nowrap;
+  border: var(--lin-badge-text-border);
+  border-radius: var(--lin-badge-text-border-radius);
+}
+
+.lin-badge-dot {
+  right: var(--lin-badge-dot-right);
+  width: var(--lin-badge-dot-width);
+  height: var(--lin-badge-dot-height);
+  padding: var(--lin-badge-dot-padding);
+  border-radius: var(--lin-badge-dot-border-radius);
+}
+
+@each $key in $theme-color {
+  .lin-badge-#{$key} {
+    background-color: var(--lin-badge-#{$key}-bg-color);
+  }
+}
