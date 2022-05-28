@@ -48,6 +48,7 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-sass": "^5.1.0",
+    "handlebars": "^4.7.7",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
     "ora": "^5.4.1",
