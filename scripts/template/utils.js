@@ -39,5 +39,6 @@ module.exports = {
   toHump,
   resolvePackages,
   mkdirsSync,
-  resolve
+  resolve,
+  resolveRoot
 };

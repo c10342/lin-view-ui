@@ -4,7 +4,13 @@ const path = require("path");
 
 const handlebars = require("handlebars");
 
-const { toHump, resolvePackages, mkdirsSync, resolve } = require("./utils");
+const {
+  toHump,
+  resolvePackages,
+  mkdirsSync,
+  resolve,
+  resolveRoot
+} = require("./utils");
 
 function writeIndexTpl(name) {
   const params = {
@@ -55,6 +61,12 @@ function writeScssTpl(name) {
   );
 }
 
+function createDocsExamplesDir(name) {
+  const dir = resolveRoot(`./docs/examples/${name}`);
+  mkdirsSync(dir);
+  fs.writeFileSync(resolve(dir, "base.vue"), "");
+}
+
 const writeTpl = () => {
   const argv = process.argv;
 
@@ -76,6 +88,7 @@ const writeTpl = () => {
   writeIndexTpl(name);
   writeVueTpl(name);
   writeScssTpl(name);
+  createDocsExamplesDir(name);
   console.log(`${name}模板创建成功`);
 };
 
