@@ -2,12 +2,12 @@ const fs = require("fs");
 
 const path = require("path");
 
-const pck = require("../package.json");
+const pck = require("../../package.json");
 
 const dependencies = pck.dependencies || {};
 
 const resolveRoot = (...args) => {
-  return path.resolve(__dirname, "../", ...args);
+  return path.resolve(__dirname, "../../", ...args);
 };
 
 const resolvePackages = (...args) => {
