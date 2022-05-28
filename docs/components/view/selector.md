@@ -36,14 +36,14 @@ selector/jsx
 
 | 参数            | 说明                                                                                                                  | 类型                               | 可选值 | 默认值 |
 | --------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------ | ------ |
-| width           | 选择器宽度                                                                                                            | String                             | —      | —      |
-| labelWidth      | 标签宽度                                                                                                              | String                             | —      | 40px   |
-| value / v-model | 绑定值                                                                                                                | Boolean , String , Number , Object | —      | —      |
-| valueKey        | 作为 value 唯一标识的键名，绑定值为对象类型时必填                                                                     | String                             | —      | value  |
+| width           | 选择器宽度                                                                                                            | string                             | —      | —      |
+| labelWidth      | 标签宽度                                                                                                              | string                             | —      | 40px   |
+| value / v-model | 绑定值                                                                                                                | boolean , string , number , Object | —      | —      |
+| valueKey        | 作为 value 唯一标识的键名，绑定值为对象类型时必填                                                                     | string                             | —      | value  |
 | renderMore      | 自定义渲染更多标签内容，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是否展开或收起的状态值。可以使用 jsx | Function                           | —      | —      |
 | renderLabel     | 自定义渲染头部标签内容，使用 Vue 的 Render 函数，参数是 h，可以使用 jsx                                               | Function                           | —      | —      |
-| label           | 头部标签内容                                                                                                          | String                             | —      | —      |
-| disabled        | 是否禁用                                                                                                              | Boolean                            | —      | false  |
+| label           | 头部标签内容                                                                                                          | string                             | —      | —      |
+| disabled        | 是否禁用                                                                                                              | boolean                            | —      | false  |
 
 ## SelectorGroup 事件
 
@@ -57,9 +57,9 @@ selector/jsx
 
 | 参数     | 说明     | 类型            | 可选值 | 默认值 |
 | -------- | -------- | --------------- | ------ | ------ |
-| label    | 标签内容 | String          | —      | —      |
-| value    | 选项的值 | String , Number | —      | —      |
-| disabled | 是否禁用 | Boolean         | —      | false  |
+| label    | 标签内容 | string          | —      | —      |
+| value    | 选项的值 | string , number | —      | —      |
+| disabled | 是否禁用 | boolean         | —      | false  |
 
 ## SelectorItem 插槽
 

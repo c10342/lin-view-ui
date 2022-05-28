@@ -17,7 +17,8 @@ const viewComponents = [
   "collapse",
   "link",
   "badge",
-  "show-more"
+  "show-more",
+  "limit-textarea"
 ];
 
 export default defineUserConfig({
