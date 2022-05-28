@@ -12,6 +12,7 @@ import CollapseTransition from "@packages/collapse-transition";
 import Link from "@packages/link";
 import Badge from "@packages/badge";
 import ShowMore from "@packages/show-more";
+import LimitTextarea from "@packages/limit-textarea";
 import { App } from "vue";
 
 const components = [
@@ -28,7 +29,8 @@ const components = [
   CollapseTransition,
   Link,
   Badge,
-  ShowMore
+  ShowMore,
+  LimitTextarea
 ];
 
 const install = (app: App) => {
