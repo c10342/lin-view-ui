@@ -19,6 +19,7 @@
     "lint:style-fix": "stylelint **/*.{css,scss} --fix",
     "commitlint": "commitlint --config commitlint.config.js -e -V",
     "lint-staged": "lint-staged --config lint-staged.config.js",
+    "create":"node scripts/template/index.js",
     "prepare": "husky install"
   },
   "keywords": [],
