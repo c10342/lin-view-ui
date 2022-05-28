@@ -69,5 +69,8 @@
     "vue": "^3.2.33",
     "vuepress": "^2.0.0-beta.43",
     "vuepress2-plugin-demo-block": "^1.0.3"
+  },
+  "dependencies": {
+    "resize-observer-polyfill": "^1.5.1"
   }
 }
