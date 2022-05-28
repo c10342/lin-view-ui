@@ -11,6 +11,7 @@ import CollapseItem from "@packages/collapse-item";
 import CollapseTransition from "@packages/collapse-transition";
 import Link from "@packages/link";
 import Badge from "@packages/badge";
+import ShowMore from "@packages/show-more";
 import { App } from "vue";
 
 const components = [
@@ -26,7 +27,8 @@ const components = [
   CollapseItem,
   CollapseTransition,
   Link,
-  Badge
+  Badge,
+  ShowMore
 ];
 
 const install = (app: App) => {

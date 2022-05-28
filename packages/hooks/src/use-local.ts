@@ -18,3 +18,13 @@ export const useLocale = () => {
     t
   };
 };
+
+export const useScopeLocale = (scope: string) => {
+  const { t } = useLocale();
+  const getText = (title: string) => {
+    return t(`LinViewUI.${scope}.${title}`);
+  };
+  return {
+    t: getText
+  };
+};

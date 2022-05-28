@@ -1,0 +1,18 @@
+.lin-show-more {
+  --lin-more-show-font-size: var(--lin-font-size-small);
+  --lin-more-show-color: var(--lin-text-color-regular);
+  --lin-more-show-tip-margin-left: 5px;
+  --lin-more-show-tip-color: var(--lin-color-primary);
+}
+
+.lin-show-more {
+  font-size: var(--lin-more-show-font-size);
+  color: var(--lin-more-show-color);
+}
+
+.lin-show-more-tip {
+  margin-left: var(--lin-more-show-tip-margin-left);
+  color: var(--lin-more-show-tip-color);
+  text-decoration: none;
+  cursor: pointer;
+}
