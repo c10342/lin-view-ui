@@ -9,7 +9,7 @@ import {
   ref
 } from "vue";
 import LinIcon from "@packages/icon";
-import { useLocale } from "@packages/hooks";
+import { useScopeLocale } from "@packages/hooks";
 
 const oneHeight = 26;
 const statusType = {
@@ -73,7 +73,7 @@ export default defineComponent({
       parentDisabled: computed(() => props.disabled),
       parentEmitChange: emitChange
     });
-    const { t } = useLocale();
+    const { t } = useScopeLocale("Selector");
     // 是否显示展开/隐藏按钮
     const isShowBtn = ref(false);
     // 容器高度
@@ -178,9 +178,7 @@ export default defineComponent({
               props.renderMore(status.value)
             ) : (
               <span class="lin-selector-more-text">
-                {status.value === statusType.show
-                  ? t("LinViewUI.Selector.hide")
-                  : t("LinViewUI.Selector.show")}
+                {status.value === statusType.show ? t("hide") : t("show")}
                 <LinIcon
                   name={status.value === statusType.show ? "down" : "up"}
                 />
