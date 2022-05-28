@@ -13,6 +13,7 @@ import Link from "@packages/link";
 import Badge from "@packages/badge";
 import ShowMore from "@packages/show-more";
 import LimitTextarea from "@packages/limit-textarea";
+import ScrollView from "@packages/scroll-view";
 import { App } from "vue";
 
 const components = [
@@ -30,7 +31,8 @@ const components = [
   Link,
   Badge,
   ShowMore,
-  LimitTextarea
+  LimitTextarea,
+  ScrollView
 ];
 
 const install = (app: App) => {

@@ -1,0 +1,43 @@
+.user-no-select {
+  user-select: none;
+}
+
+.lin-scroll-view {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.lin-scroll-view-wrapper {
+  position: relative;
+  margin-right: -17px;
+  overflow-y: scroll;
+}
+
+.lin-scroll-view-barwrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 100%;
+  background-color: transparent;
+}
+
+.lin-scroll-view-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  cursor: pointer;
+  background-color: rgb(144 147 153 / 30%);
+  border-radius: 4px;
+
+  &:hover {
+    background-color: rgb(144 147 153 / 50%);
+  }
+}
+
+.lin-scroll-view-spinner {
+  padding: 5px 0;
+  text-align: center;
+}
