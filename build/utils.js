@@ -2,6 +2,10 @@ const fs = require("fs");
 
 const path = require("path");
 
+const pck = require("../package.json");
+
+const dependencies = pck.dependencies || {};
+
 const resolveRoot = (...args) => {
   return path.resolve(__dirname, "../", ...args);
 };
@@ -21,7 +25,7 @@ const packagesReg = /^@packages\//;
 const langReg = /^@lang\//;
 
 const external = (id) => {
-  if (id.match(/^vue$/)) {
+  if (id.match(/^vue$/) || id in dependencies) {
     return true;
   } else if (id.match(packagesReg) || id.match(langReg)) {
     return true;
