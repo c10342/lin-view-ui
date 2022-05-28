@@ -11,7 +11,14 @@ const getComponentPath = (publicDir: string, name: string) => {
 
 const basicComponents = ["button", "icon", "layout"];
 
-const viewComponents = ["alert", "selector", "collapse", "link", "badge"];
+const viewComponents = [
+  "alert",
+  "selector",
+  "collapse",
+  "link",
+  "badge",
+  "show-more"
+];
 
 export default defineUserConfig({
   // 站点配置
