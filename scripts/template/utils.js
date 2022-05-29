@@ -2,6 +2,8 @@ const path = require("path");
 
 const fs = require("fs");
 
+const { resolveRoot, resolvePackage, resolve } = require("../utils.js");
+
 function toHump(name) {
   const reg = /-(\w)/g;
   if (name.match(reg)) {
@@ -15,14 +17,6 @@ function toHump(name) {
   return name;
 }
 
-function resolveRoot(...args) {
-  return path.resolve(__dirname, "../../", ...args);
-}
-
-function resolvePackages(...args) {
-  return resolveRoot("./packages", ...args);
-}
-
 function mkdirsSync(dirname) {
   if (fs.existsSync(dirname)) return true;
   if (mkdirsSync(path.dirname(dirname))) {
@@ -31,13 +25,9 @@ function mkdirsSync(dirname) {
   }
 }
 
-function resolve(...args) {
-  return path.resolve(...args);
-}
-
 module.exports = {
   toHump,
-  resolvePackages,
+  resolvePackage,
   mkdirsSync,
   resolve,
   resolveRoot

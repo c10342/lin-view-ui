@@ -1,18 +1,10 @@
 const fs = require("fs");
 
-const path = require("path");
+const { resolveRoot, resolvePackages } = require("../utils.js");
 
 const pck = require("../../package.json");
 
 const dependencies = pck.dependencies || {};
-
-const resolveRoot = (...args) => {
-  return path.resolve(__dirname, "../../", ...args);
-};
-
-const resolvePackages = (...args) => {
-  return resolveRoot("./packages", ...args);
-};
 
 const excludeComponents = ["theme-chalk"];
 
