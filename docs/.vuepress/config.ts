@@ -20,7 +20,8 @@ const viewComponents = [
   "show-more",
   "limit-textarea",
   "scroll-view",
-  "image"
+  "image",
+  "progress"
 ];
 
 export default defineUserConfig({

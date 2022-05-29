@@ -1,0 +1,34 @@
+<template>
+  <lin-progress
+    text-outside="85分"
+    text-inside="50%"
+    :height="20"
+    type="primary"
+    :percent="0.5"
+    class="mt-10"
+  ></lin-progress>
+  <lin-progress
+    text-outside="85分"
+    text-inside="50%"
+    :height="20"
+    type="success"
+    :percent="0.5"
+    class="mt-10"
+  ></lin-progress>
+  <lin-progress
+    text-outside="85分"
+    text-inside="50%"
+    :height="20"
+    type="warning"
+    :percent="0.5"
+    class="mt-10"
+  ></lin-progress>
+  <lin-progress
+    text-outside="85分"
+    text-inside="50%"
+    :height="20"
+    type="danger"
+    :percent="0.5"
+    class="mt-10"
+  ></lin-progress>
+</template>
