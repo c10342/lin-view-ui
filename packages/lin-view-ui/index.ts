@@ -14,6 +14,7 @@ import Badge from "@packages/badge";
 import ShowMore from "@packages/show-more";
 import LimitTextarea from "@packages/limit-textarea";
 import ScrollView from "@packages/scroll-view";
+import Image from "@packages/image";
 import { App } from "vue";
 
 const components = [
@@ -32,7 +33,8 @@ const components = [
   Badge,
   ShowMore,
   LimitTextarea,
-  ScrollView
+  ScrollView,
+  Image
 ];
 
 const install = (app: App) => {

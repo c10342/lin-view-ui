@@ -1,0 +1,54 @@
+.lin-image {
+  --lin-image-width: 100%;
+  --lin-image-height: 100%;
+  --lin-image-img-padding: 0;
+  --lin-image-img-margin: 0;
+  --lin-image-error-font-size: var(--lin-font-size-base);
+  --lin-image-error-color: var(--lin-text-color-disabled);
+  --lin-image-error-bg: var(--lin-disabled-bg-color);
+}
+
+.lin-image {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.lin-image-img {
+  display: block;
+  width: var(--lin-image-width);
+  height: var(--lin-image-height);
+  padding: var(--lin-image-img-padding);
+  margin: var(--lin-image-img-margin);
+
+  &.is-object-fill {
+    object-fit: fill;
+  }
+
+  &.is-object-contain {
+    object-fit: contain;
+  }
+
+  &.is-object-cover {
+    object-fit: cover;
+  }
+
+  &.is-object-none {
+    object-fit: none;
+  }
+
+  &.is-object-scale-down {
+    object-fit: scale-down;
+  }
+}
+
+.lin-image-error {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: var(--lin-image-width);
+  height: var(--lin-image-height);
+  font-size: var(--lin-image-error-font-size);
+  color: var(--lin-image-error-color);
+  background: var(--lin-image-error-bg);
+}
