@@ -24,6 +24,8 @@ const viewComponents = [
   "progress"
 ];
 
+const otherComponents = ["meta-info"];
+
 export default defineUserConfig({
   // 站点配置
   lang: "zh-CN",
@@ -75,6 +77,12 @@ export default defineUserConfig({
         {
           text: "视图组件",
           children: viewComponents.map((name) => getComponentPath("view", name))
+        },
+        {
+          text: "其他组件",
+          children: otherComponents.map((name) =>
+            getComponentPath("other", name)
+          )
         }
       ]
     }
