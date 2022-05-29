@@ -19,7 +19,8 @@ const viewComponents = [
   "badge",
   "show-more",
   "limit-textarea",
-  "scroll-view"
+  "scroll-view",
+  "image"
 ];
 
 export default defineUserConfig({
