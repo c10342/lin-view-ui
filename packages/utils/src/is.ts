@@ -27,3 +27,7 @@ export function isUndef(data: any) {
 export function isArray(data: any): data is Array<any> {
   return toString.call(data) === "[object Array]";
 }
+
+export function isFunction(data: any): data is Function {
+  return toString.call(data) === "[object Function]";
+}
