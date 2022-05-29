@@ -1,0 +1,61 @@
+@import "./variable";
+
+.lin-progress {
+  --lin-progress-out-bg-color: var(--lin-border-color);
+  --lin-progress-inner-height: 100%;
+  --lin-progress-outside-tip-margin-left: 10px;
+  --lin-progress-outside-tip-font-size: var(--lin-font-size-base);
+  --lin-progress-outside-tip-color: var(--lin-text-color-regular);
+  --lin-progress-inside-text-top: 50%;
+  --lin-progress-inside-text-right: 6px;
+  --lin-progress-inside-text-transform: translateY(-50%);
+  --lin-progress-inside-tip-font-size: var(--lin-font-size-extra-small);
+  --lin-progress-inside-tip-color: var(--lin-color-white);
+
+  @each $key in $theme-color {
+    --lin-progress-inner-#{$key}-bg-color: var(--lin-color-#{$key});
+  }
+}
+
+.lin-progress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.lin-progress-out {
+  flex: 1;
+  width: 0;
+  background-color: var(--lin-progress-out-bg-color);
+}
+
+.lin-progress-inner {
+  position: relative;
+  height: var(--lin-progress-inner-height);
+
+  @each $key in $theme-color {
+    --lin-progress-inner-#{$key}-bg-color: var(--lin-color-#{$key});
+
+    &.is-#{$key} {
+      background-color: var(--lin-progress-inner-#{$key}-bg-color);
+    }
+  }
+}
+
+.lin-progress-outside-tip {
+  margin-left: var(--lin-progress-outside-tip-margin-left);
+  font-size: var(--lin-progress-outside-tip-font-size);
+  color: var(--lin-progress-outside-tip-color);
+}
+
+.lin-progress-inside-text {
+  position: absolute;
+  top: var(--lin-progress-inside-text-top);
+  right: var(--lin-progress-inside-text-right);
+  transform: var(--lin-progress-inside-text-transform);
+}
+
+.lin-progress-inside-tip {
+  font-size: var(--lin-progress-inside-tip-font-size);
+  color: var(--lin-progress-inside-tip-color);
+}
