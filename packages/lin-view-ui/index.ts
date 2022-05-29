@@ -16,6 +16,7 @@ import LimitTextarea from "@packages/limit-textarea";
 import ScrollView from "@packages/scroll-view";
 import Image from "@packages/image";
 import Progress from "@packages/progress";
+import MetaInfo from "@packages/meta-info";
 import { App } from "vue";
 
 const components = [
@@ -36,7 +37,8 @@ const components = [
   LimitTextarea,
   ScrollView,
   Image,
-  Progress
+  Progress,
+  MetaInfo
 ];
 
 const install = (app: App) => {
