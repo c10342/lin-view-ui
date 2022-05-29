@@ -2,7 +2,7 @@ const path = require("path");
 
 const fs = require("fs");
 
-const { resolveRoot, resolvePackage, resolve } = require("../utils.js");
+const { resolveRoot, resolvePackages, resolve } = require("../utils.js");
 
 function toHump(name) {
   const reg = /-(\w)/g;
@@ -27,7 +27,7 @@ function mkdirsSync(dirname) {
 
 module.exports = {
   toHump,
-  resolvePackage,
+  resolvePackages,
   mkdirsSync,
   resolve,
   resolveRoot
