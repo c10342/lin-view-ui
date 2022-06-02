@@ -7,7 +7,7 @@
         'lin-tag',
         `is-${type}`,
         `is-${effect}`,
-        { [`is-${size}`]: size }
+        { [`is-${tagSize}`]: tagSize }
       ]"
       :style="{ 'background-color': color }"
     >
@@ -23,8 +23,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from "vue";
+import { computed, defineComponent, PropType, ref } from "vue";
 import Icon from "@packages/icon";
+import { useGlobalConfig } from "@packages/hooks";
 
 export default defineComponent({
   name: "LinTag",
@@ -65,8 +66,12 @@ export default defineComponent({
   },
   emits: ["click", "close"],
   setup(props, context) {
+    const { size } = useGlobalConfig();
     // 控制是否显示
     const show = ref(true);
+    const tagSize = computed(() => {
+      return props.size ?? size?.value;
+    });
     // 点击标签
     const onTagClick = () => {
       context.emit("click");
@@ -83,7 +88,8 @@ export default defineComponent({
       show,
       onTagClick,
       onCloseClick,
-      afterLeave
+      afterLeave,
+      tagSize
     };
   }
 });
