@@ -1,0 +1,117 @@
+@import "./variable";
+
+$effects:"dark","light","plain";
+
+.lin-tag {
+  @each $key in $theme-color {
+    --lin-tag-light-#{$key}-color: var(--lin-color-#{$key});
+    --lin-tag-light-#{$key}-bg-color: var(--lin-color-#{$key}-light-9);
+    --lin-tag-light-#{$key}-border-color: var(--lin-color-#{$key}-light-8);
+    --lin-tag-light-#{$key}-close-bg-color: var(--lin-color-#{$key});
+    --lin-tag-dark-#{$key}-color: var(--lin-color-white);
+    --lin-tag-dark-#{$key}-bg-color: var(--lin-color-#{$key});
+    --lin-tag-dark-#{$key}-border-color: var(--lin-color-#{$key});
+    --lin-tag-dark-#{$key}-close-bg-color: var(--lin-color-#{$key}-light-3);
+    --lin-tag-plain-#{$key}-color: var(--lin-color-#{$key});
+    --lin-tag-plain-#{$key}-bg-color: var(--lin-color-white);
+    --lin-tag-plain-#{$key}-border-color: var(--lin-color-#{$key}-light-5);
+    --lin-tag-plain-#{$key}-close-bg-color: var(--lin-color-#{$key});
+  }
+
+  --lin-tag-close-width: 14px;
+  --lin-tag-close-height: 14px;
+  --lin-tag-close-margin-left: 5px;
+  --lin-tag-close-font-size: var(--lin-font-size-extra-small);
+  --lin-tag-close-border-radius: 50%;
+  --lin-tag-close-hover-color: var(--lin-color-white);
+  --lin-tag-height: 24px;
+  --lin-tag-padding: 0 9px;
+  --lin-tag-font-size: var(--lin-font-size-extra-small);
+  --lin-tag-border: 1px solid transparent;
+  --lin-tag-border-radius: 4px;
+  --lin-tag-large-height: 32px;
+  --lin-tag-large-padding: 0 11px;
+  --lin-tag-large-font-size: var(--lin-font-size-medium);
+  --lin-tag-small-height: 20px;
+  --lin-tag-small-padding: 0 7px;
+  --lin-tag-small-font-size: var(--lin-font-size-extra-small);
+  --lin-tag-large-close-width: 16px;
+  --lin-tag-large-close-height: 16px;
+  --lin-tag-small-close-width: 12px;
+  --lin-tag-small-close-height: 12px;
+}
+
+.lin-tag {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: var(--lin-tag-height);
+  padding: var(--lin-tag-padding);
+  font-size: var(--lin-tag-font-size);
+  line-height: var(--lin-tag-height);
+  white-space: nowrap;
+  border: var(--lin-tag-border);
+  border-radius: var(--lin-tag-border-radius);
+
+  @each $effect in $effects {
+    &.is-#{$effect} {
+      @each $key in $theme-color {
+        &.is-#{$key} {
+          color: var(--lin-tag-#{$effect}-#{$key}-color);
+          background-color: var(--lin-tag-#{$effect}-#{$key}-bg-color);
+          border-color: var(--lin-tag-#{$effect}-#{$key}-border-color);
+
+          .lin-tag-close {
+            &:hover {
+              background-color: var(--lin-tag-#{$effect}-#{$key}-close-bg-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.is-large {
+    height: var(--lin-tag-large-height);
+    padding: var(--lin-tag-large-padding);
+    font-size: var(--lin-tag-large-font-size);
+    line-height: var(--lin-tag-large-height);
+
+    .lin-tag-close {
+      width: var(--lin-tag-large-close-width);
+      height: var(--lin-tag-large-close-height);
+      line-height: var(--lin-tag-large-close-height);
+    }
+  }
+
+  &.is-small {
+    height: var(--lin-tag-small-height);
+    padding: var(--lin-tag-small-padding);
+    font-size: var(--lin-tag-small-font-size);
+    line-height: var(--lin-tag-small-height);
+
+    .lin-tag-close {
+      width: var(--lin-tag-small-close-width);
+      height: var(--lin-tag-small-close-height);
+      line-height: var(--lin-tag-small-close-height);
+    }
+  }
+}
+
+.lin-tag-close {
+  box-sizing: border-box;
+  width: var(--lin-tag-close-width);
+  height: var(--lin-tag-close-height);
+  margin-left: var(--lin-tag-close-margin-left);
+  font-size: var(--lin-tag-close-font-size);
+  line-height: var(--lin-tag-close-height);
+  text-align: center;
+  cursor: pointer;
+  border-radius: var(--lin-tag-close-border-radius);
+
+  &:hover {
+    color: var(--lin-tag-close-hover-color);
+  }
+}
