@@ -22,7 +22,8 @@ const viewComponents = [
   "scroll-view",
   "image",
   "progress",
-  "tag"
+  "tag",
+  "pagination"
 ];
 
 const otherComponents = ["meta-info"];
