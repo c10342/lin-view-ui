@@ -18,6 +18,7 @@ import Image from "@packages/image";
 import Progress from "@packages/progress";
 import MetaInfo from "@packages/meta-info";
 import Tag from "@packages/tag";
+import Pagination from "@packages/pagination";
 import { App } from "vue";
 
 const components = [
@@ -40,7 +41,8 @@ const components = [
   Image,
   Progress,
   MetaInfo,
-  Tag
+  Tag,
+  Pagination
 ];
 
 const install = (app: App) => {
