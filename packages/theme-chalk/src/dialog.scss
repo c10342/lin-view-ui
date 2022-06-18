@@ -1,0 +1,106 @@
+@keyframes dialog-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.lin-dialog-overlay {
+  --lin-dialog-overlay-top: 0;
+  --lin-dialog-overlay-right: 0;
+  --lin-dialog-overlay-bottom: 0;
+  --lin-dialog-overlay-left: 0;
+  --lin-dialog-overlay-z-index: 2001;
+  --lin-dialog-overlay-margin: 0;
+  --lin-dialog-overlay-overflow: auto;
+  --lin-dialog-overlay-bg-color: rgb(0 0 0 / 50%);
+}
+
+.lin-dialog {
+  --lin-dialog-top: 0;
+  --lin-dialog-left: 50%;
+  --lin-dialog-z-index: 2002;
+  --lin-dialog-bg: var(--lin-color-white);
+  --lin-dialog-border-radius: 2px;
+  --lin-dialog-box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+  --lin-dialog-transform: translateX(-50%);
+  --lin-dialog-header-padding: 20px 20px 10px;
+  --lin-dialog-header-font-size: var(--lin-font-size-large);
+  --lin-dialog-header-color: var(--lin-text-color-primary);
+  --lin-dialog-title-line-height: 24px;
+  --lin-dialog-body-padding: 30px 20px;
+  --lin-dialog-body-font-size: var(--lin-font-size-base);
+  --lin-dialog-body-color: var(--lin-text-color-regular);
+  --lin-dialog-footer-padding: 10px 20px 20px;
+}
+
+.lin-dialog-overlay {
+  position: fixed;
+  top: var(--lin-dialog-overlay-top);
+  right: var(--lin-dialog-overlay-right);
+  bottom: var(--lin-dialog-overlay-bottom);
+  left: var(--lin-dialog-overlay-left);
+  z-index: var(--lin-dialog-overlay-z-index);
+  margin: var(--lin-dialog-overlay-margin);
+  overflow: var(--lin-dialog-overlay-overflow);
+  background-color: var(--lin-dialog-overlay-bg-color);
+}
+
+.lin-dialog {
+  position: fixed;
+  top: var(--lin-dialog-top);
+  left: var(--lin-dialog-left);
+  z-index: var(--lin-dialog-z-index);
+  box-sizing: border-box;
+  width: var(--lin-dialog-width);
+  background: var(--lin-dialog-bg);
+  border-radius: var(--lin-dialog-border-radius);
+  box-shadow: var(--lin-dialog-box-shadow);
+  transform: var(--lin-dialog-transform);
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--lin-dialog-header-padding);
+    font-size: var(--lin-dialog-header-font-size);
+    color: var(--lin-dialog-header-color);
+
+    .lin-dialog-title {
+      flex: 1;
+      width: 0;
+      line-height: var(--lin-dialog-title-line-height);
+    }
+
+    .lin-dialog-close {
+      cursor: pointer;
+    }
+  }
+
+  &-body {
+    padding: var(--lin-dialog-body-padding);
+    font-size: var(--lin-dialog-body-font-size);
+    color: var(--lin-dialog-body-color);
+    word-break: break-all;
+  }
+
+  &-footer {
+    box-sizing: border-box;
+    padding: var(--lin-dialog-footer-padding);
+    text-align: right;
+  }
+}
+
+.lin-dialog-fade-enter-active {
+  animation: dialog-animation 0.3s;
+}
+
+.lin-dialog-fade-leave-active {
+  animation: dialog-animation 0.3s reverse;
+}

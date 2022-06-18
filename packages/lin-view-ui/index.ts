@@ -19,6 +19,7 @@ import Progress from "@packages/progress";
 import MetaInfo from "@packages/meta-info";
 import Tag from "@packages/tag";
 import Pagination from "@packages/pagination";
+import Dialog from "@packages/dialog";
 import { App } from "vue";
 
 const components = [
@@ -42,7 +43,8 @@ const components = [
   Progress,
   MetaInfo,
   Tag,
-  Pagination
+  Pagination,
+  Dialog
 ];
 
 const install = (app: App) => {
