@@ -1,0 +1,30 @@
+<template>
+  <lin-button @click="onClick">点击打开Dialog</lin-button>
+  <lin-dialog v-model:visible="visible" @close="onClose">
+    <template v-slot:title>
+      <span>这是自定义标题</span>
+    </template>
+    <span>这是一段信息</span>
+  </lin-dialog>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const visible = ref(false);
+    const onClick = () => {
+      visible.value = true;
+    };
+    const onClose = () => {
+      alert("关闭了弹框");
+    };
+    return {
+      onClick,
+      visible,
+      onClose
+    };
+  }
+});
+</script>

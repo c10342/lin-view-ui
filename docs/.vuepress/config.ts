@@ -23,7 +23,8 @@ const viewComponents = [
   "image",
   "progress",
   "tag",
-  "pagination"
+  "pagination",
+  "dialog"
 ];
 
 const otherComponents = ["meta-info"];
