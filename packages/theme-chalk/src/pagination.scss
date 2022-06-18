@@ -151,6 +151,12 @@
   appearance: textfield;
   appearance: none;
 
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+  }
+
   &:hover {
     border-color: var(--lin-pagination-input-hover-border-color);
   }
