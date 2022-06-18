@@ -1,13 +1,13 @@
 import { useScopeLocale } from "@packages/hooks";
 import { isNumber } from "@packages/utils";
-import { computed, defineComponent } from "vue";
+import { computed, defineComponent, watch } from "vue";
 import { keyCode, layoutType } from "./enum";
 import LinIcon from "@packages/icon";
 
 export default defineComponent({
   name: "LinPagination",
   components: { LinIcon },
-  emits: ["pageIndex:update", "change", "prevClick", "nextClick"],
+  emits: ["update:pageIndex", "change", "prevClick", "nextClick"],
   props: {
     // 页码按钮的数量，当总页数超过该值时会折叠
     pageCount: {
@@ -82,25 +82,28 @@ export default defineComponent({
         }
       }
       while (left <= right) {
-        arr.push({ index: left, type: "number" });
+        arr.push({ index: left, type: layoutType.number });
         left++;
       }
       // ellipsis
       if (totalPage.value > props.pageCount) {
         // 开始准备省略号
-        arr[0] = { index: 1, type: "number" };
+        arr[0] = { index: 1, type: layoutType.number };
         if (props.pageIndex > Math.ceil(props.pageCount / 2)) {
           // 左边需要打点的情况
-          arr[1] = { index: "...", type: "prev" };
+          arr[1] = { index: "...", type: layoutType.prev };
         }
         if (
           props.pageIndex <
           totalPage.value - Math.floor(props.pageCount / 2)
         ) {
           // 右边需要打点的情况
-          arr[arr.length - 2] = { index: "...", type: "next" };
+          arr[arr.length - 2] = { index: "...", type: layoutType.next };
         }
-        arr[arr.length - 1] = { index: totalPage.value, type: "number" };
+        arr[arr.length - 1] = {
+          index: totalPage.value,
+          type: layoutType.number
+        };
       }
       return arr;
     });
@@ -113,20 +116,21 @@ export default defineComponent({
     });
 
     const emitChange = (index: number) => {
-      context.emit("pageIndex:update", index);
+      context.emit("update:pageIndex", index);
       context.emit("change", index);
     };
 
     // 点击每一项
     const onItemClick = (data: { index: number | string; type: string }) => {
       let index = 1;
-      if (isNumber(data.type)) {
+      if (data.type === layoutType.number) {
         index = data.index as number;
       } else if (data.type === layoutType.prev) {
         index = props.pageIndex - 1;
       } else if (data.type === layoutType.next) {
         index = props.pageIndex + 1;
       }
+
       emitChange(index);
     };
     // 点击上一页

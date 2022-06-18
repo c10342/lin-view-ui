@@ -1,6 +1,7 @@
 export const layoutType = {
   prev: "prev",
-  next: "next"
+  next: "next",
+  number: "number"
 };
 
 export const keyCode = {
