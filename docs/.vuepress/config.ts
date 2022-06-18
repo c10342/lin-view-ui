@@ -21,7 +21,9 @@ const viewComponents = [
   "limit-textarea",
   "scroll-view",
   "image",
-  "progress"
+  "progress",
+  "tag",
+  "pagination"
 ];
 
 const otherComponents = ["meta-info"];
