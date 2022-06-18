@@ -32,7 +32,7 @@ export default defineUserConfig({
   // 站点配置
   lang: "zh-CN",
   title: "lin-view-ui",
-  description: "Just playing around",
+  description: "vue3 UI lib",
   alias: {
     "@packages": path.resolve(__dirname, "../../packages"),
     "@lang": path.resolve(__dirname, "../../packages/locale/src")
@@ -51,6 +51,8 @@ export default defineUserConfig({
     vuePluginOptions: {}
   }),
   theme: defaultTheme({
+    repo: "c10342/lin-view-ui",
+    editLink: false,
     navbar: [
       { text: "首页", link: "/" },
       { text: "指南", link: "/guide/introduce" },
