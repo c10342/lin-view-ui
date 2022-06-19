@@ -24,7 +24,8 @@ const viewComponents = [
   "progress",
   "tag",
   "pagination",
-  "dialog"
+  "dialog",
+  "dropdown"
 ];
 
 const interactiveComponents = ["loading-bar"];
