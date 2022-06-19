@@ -5,7 +5,7 @@
     <template v-slot:footer>
       <span class="dialog-footer">
         <lin-button @click="visible = false">取 消</lin-button>
-        <lin-button class="lin-ml-10" type="primary" @click="visible = false">
+        <lin-button class="ml-10" type="primary" @click="visible = false">
           确 定
         </lin-button>
       </span>

@@ -27,6 +27,8 @@ const viewComponents = [
   "dialog"
 ];
 
+const interactiveComponents = ["loading-bar"];
+
 const otherComponents = ["meta-info"];
 
 export default defineUserConfig({
@@ -82,6 +84,12 @@ export default defineUserConfig({
         {
           text: "视图组件",
           children: viewComponents.map((name) => getComponentPath("view", name))
+        },
+        {
+          text: "交互组件",
+          children: interactiveComponents.map((name) =>
+            getComponentPath("interactive", name)
+          )
         },
         {
           text: "其他组件",
