@@ -20,6 +20,7 @@ import MetaInfo from "@packages/meta-info";
 import Tag from "@packages/tag";
 import Pagination from "@packages/pagination";
 import Dialog from "@packages/dialog";
+import LoadingBar from "@packages/loading-bar";
 import { App } from "vue";
 
 const components = [
@@ -44,7 +45,8 @@ const components = [
   MetaInfo,
   Tag,
   Pagination,
-  Dialog
+  Dialog,
+  LoadingBar
 ];
 
 const install = (app: App) => {

@@ -1,0 +1,58 @@
+.lin-loading-bar-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 2px;
+  background: var(--lin-color-primary);
+  transition: all 0.2s ease;
+  transform: translateX(-100%);
+
+  &.is-error {
+    background: var(--lin-color-danger);
+
+    .lin-loading-bar-peg {
+      background-image: none;
+    }
+  }
+}
+
+.lin-loading-bar-peg {
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background-image:
+    linear-gradient(
+      135deg,
+      var(--lin-color-success) 0%,
+      var(--lin-color-success-light-3) 72%,
+      var(--lin-color-success-light-5) 100%
+    );
+}
+
+.lin-loading-bar-spinner {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1031;
+}
+
+.lin-loading-bar-icon {
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: var(--lin-color-primary);
+  border-left-color: var(--lin-color-primary);
+  border-radius: 50%;
+  animation-name: rotate-animation;
+  animation-duration: 400ms;
+  animation-iteration-count: infinite;
+
+  &.is-icon-error {
+    border-top-color: var(--lin-color-danger);
+    border-left-color: var(--lin-color-danger);
+  }
+}
