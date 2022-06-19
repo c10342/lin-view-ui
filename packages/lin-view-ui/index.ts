@@ -21,6 +21,9 @@ import Tag from "@packages/tag";
 import Pagination from "@packages/pagination";
 import Dialog from "@packages/dialog";
 import LoadingBar from "@packages/loading-bar";
+import Dropdown from "@packages/dropdown";
+import DropdownGroup from "@packages/dropdown-group";
+import DropdownItem from "@packages/dropdown-item";
 import { App } from "vue";
 
 const components = [
@@ -46,7 +49,10 @@ const components = [
   Tag,
   Pagination,
   Dialog,
-  LoadingBar
+  LoadingBar,
+  Dropdown,
+  DropdownGroup,
+  DropdownItem
 ];
 
 const install = (app: App) => {
