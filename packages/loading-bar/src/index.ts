@@ -55,7 +55,7 @@ class LoadingBarConstructor {
 
   private destroyTimer() {
     if (this.timer) {
-      clearTimeout(this.timer);
+      clearInterval(this.timer);
       this.timer = null;
     }
   }
