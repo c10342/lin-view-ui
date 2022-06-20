@@ -24,6 +24,7 @@ import LoadingBar from "@packages/loading-bar";
 import Dropdown from "@packages/dropdown";
 import DropdownGroup from "@packages/dropdown-group";
 import DropdownItem from "@packages/dropdown-item";
+import Loading from "@packages/loading";
 import { App } from "vue";
 
 const components = [
@@ -52,7 +53,8 @@ const components = [
   LoadingBar,
   Dropdown,
   DropdownGroup,
-  DropdownItem
+  DropdownItem,
+  Loading
 ];
 
 const install = (app: App) => {
