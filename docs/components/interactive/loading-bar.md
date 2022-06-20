@@ -6,7 +6,7 @@
 
 全局创建了一个用于显示页面加载、异步请求的加载进度条。
 
-因为可复用性的关系，`LoadingBar` 只会全局创建一个实例，而且在 `app.config.globalProperties.` 中添加对象 `$loadingBar`
+因为可复用性的关系，`LoadingBar` 只会全局创建一个实例，而且在 `app.config.globalProperties` 中添加对象 `$loadingBar`
 
 ## 基础用法
 
