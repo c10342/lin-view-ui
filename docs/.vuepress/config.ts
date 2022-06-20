@@ -28,7 +28,7 @@ const viewComponents = [
   "dropdown"
 ];
 
-const interactiveComponents = ["loading-bar"];
+const interactiveComponents = ["loading-bar", "loading"];
 
 const otherComponents = ["meta-info"];
 
