@@ -25,6 +25,7 @@ import Dropdown from "@packages/dropdown";
 import DropdownGroup from "@packages/dropdown-group";
 import DropdownItem from "@packages/dropdown-item";
 import Loading from "@packages/loading";
+import DatePicker from "@packages/date-picker";
 import { App } from "vue";
 
 const components = [
@@ -54,7 +55,8 @@ const components = [
   Dropdown,
   DropdownGroup,
   DropdownItem,
-  Loading
+  Loading,
+  DatePicker
 ];
 
 const install = (app: App) => {
