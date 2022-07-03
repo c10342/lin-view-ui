@@ -1,4 +1,3 @@
-import { DateMixin, LocaleMixin } from "@packages/mixins";
 import {
   getDate,
   getYearMonthDay,
@@ -6,13 +5,33 @@ import {
   isNumber,
   isString
 } from "@packages/utils";
-import { defineComponent, Transition } from "vue";
+import { computed, defineComponent, nextTick, ref, Transition } from "vue";
 
 import LinIcon from "@packages/icon";
+import {
+  DatePropsMixin,
+  useClickOutside,
+  useDate,
+  useScopeLocale
+} from "@packages/hooks";
+
+// 将时间格式化为时间对象
+const formatValue = (value: any) => {
+  if (!value) {
+    return new Date();
+  }
+  if (isString(value) || isNumber(value)) {
+    return new Date(value);
+  }
+  if (isDate(value)) {
+    return value;
+  }
+  return new Date();
+};
 
 export default defineComponent({
   name: "LinDatePicker",
-  mixins: [DateMixin, LocaleMixin],
+  mixins: [DatePropsMixin],
   emits: [
     "prevYear",
     "prevMonth",
@@ -79,62 +98,53 @@ export default defineComponent({
       default: true
     }
   },
-  directives: {
-    clickOutside: {
-      mounted(el, bindings: any) {
-        const handler = (e: MouseEvent) => {
-          if (!el.contains(e.target) && !bindings.instance.showAlways) {
-            if (bindings.instance.isVisible) {
-              bindings.instance.blur();
-            }
-          }
-        };
-        el.handler = handler;
-        document.addEventListener("click", handler);
-      },
-      unmounted(el) {
-        document.removeEventListener("click", el.handler);
-      }
-    }
-  },
-  data() {
-    const { year, month } = getYearMonthDay(this.handleValue()) || {};
-    return {
-      weekDays: [
-        this.t("LinViewUI.DatePicker.sun"),
-        this.t("LinViewUI.DatePicker.mon"),
-        this.t("LinViewUI.DatePicker.tue"),
-        this.t("LinViewUI.DatePicker.wed"),
-        this.t("LinViewUI.DatePicker.thu"),
-        this.t("LinViewUI.DatePicker.fir"),
-        this.t("LinViewUI.DatePicker.sat")
-      ],
-      // 是否显示选择器
-      isVisible: false,
-      // 头部当前日期
-      time: { year, month },
-      // 选择器距离顶部距离
-      top: "0px"
-    };
-  },
-  computed: {
+
+  setup(props, context) {
+    const { t } = useScopeLocale("DatePicker");
+    const { isDisabledDate } = useDate(props);
+    // 是否显示选择器
+    const isVisible = ref(false);
+    // 头部当前日期
+    const { year, month } = getYearMonthDay(formatValue(props.value)) || {};
+    const time = ref<{ year: number | undefined; month: number | undefined }>({
+      year,
+      month
+    });
+    // 选择器距离顶部距离
+    const top = ref("0px");
+    const weekDays = computed(() => {
+      return [
+        t("sun"),
+        t("mon"),
+        t("tue"),
+        t("wed"),
+        t("thu"),
+        t("fir"),
+        t("sat")
+      ];
+    });
+
+    const popupRef = ref<HTMLElement | null>(null);
+    const containerRef = ref<HTMLElement | null>(null);
+    const inputWrapperRef = ref<HTMLElement | null>(null);
+
     // 当前选中日期
-    currentValue() {
-      if (!this.value) {
+    const currentValue = computed(() => {
+      if (!props.value) {
         return "";
       }
-      if (isString(this.value) || isNumber(this.value)) {
-        return new Date(this.value);
+      if (isString(props.value) || isNumber(props.value)) {
+        return new Date(props.value);
       }
-      if (this.value instanceof Date) {
-        return this.value;
+      if (isDate(props.value)) {
+        return props.value;
       }
       return "";
-    },
+    });
     // 显示在选择器上面的日期
-    visibleDays() {
+    const visibleDays = computed(() => {
       const { year, month } =
-        getYearMonthDay(getDate(this.time.year, this.time.month, 1)) || {};
+        getYearMonthDay(getDate(time.value.year, time.value.month, 1)) || {};
       //   本月1号的时间对象
       const currentFirstDay = getDate(year, month, 1);
       //   本月1号星期几
@@ -147,186 +157,207 @@ export default defineComponent({
         arr.push(new Date(startDay + i * 60 * 60 * 1000 * 24));
       }
       return arr;
-    },
+    });
     // 显示在输入框中的日期
-    formatDate() {
-      if (this.showFormat) {
-        return this.showFormat(this.currentValue);
+    const formatDate = computed(() => {
+      if (props.showFormat) {
+        return props.showFormat(currentValue.value);
       }
-      if (!this.currentValue) {
+      if (!currentValue.value) {
         return "";
       }
-      const { year, month, day } = getYearMonthDay(this.currentValue) || {};
+      const { year, month, day } = getYearMonthDay(currentValue.value) || {};
       return `${year}-${month}-${day}`;
-    }
-  },
-  methods: {
+    });
+
     // 设置日期选择器位置
-    setPlacement() {
-      this.$nextTick(() => {
-        const popupContainer = this.$refs.popupContainer as HTMLElement;
-        const container = this.$refs.container as HTMLElement;
-        const bottom =
-          window.innerHeight - container.getBoundingClientRect().bottom;
-        const top = container.getBoundingClientRect().top;
-        if (bottom > popupContainer.clientHeight) {
-          this.setDownTop();
-        } else if (top > popupContainer.clientHeight) {
-          this.setUpTop();
+    const setPlacement = () => {
+      nextTick(() => {
+        if (!popupRef.value || !containerRef.value) {
+          return;
+        }
+        const { bottom, top } = containerRef.value.getBoundingClientRect();
+        const bottomOffset = window.innerHeight - bottom;
+        if (bottomOffset > popupRef.value.clientHeight) {
+          setDownTop();
+        } else if (top > popupRef.value.clientHeight) {
+          setUpTop();
         } else {
-          this.setDownTop();
+          setDownTop();
         }
       });
-    },
+    };
     // 设置日期选择器向下显示
-    setDownTop() {
-      const boxContainer = this.$refs.boxContainer as HTMLElement;
-      this.top = `${boxContainer.clientHeight}px`;
-    },
+    const setDownTop = () => {
+      if (!inputWrapperRef.value) {
+        return;
+      }
+      top.value = `${inputWrapperRef.value.clientHeight}px`;
+    };
     // 设置日期选择器向上显示
-    setUpTop() {
-      const popupContainer = this.$refs.popupContainer as HTMLElement;
-      this.top = `${-popupContainer.clientHeight}px`;
-    },
-    // 将时间格式化为时间对象
-    handleValue() {
-      if (!this.value) {
-        return new Date();
+    const setUpTop = () => {
+      if (!popupRef.value) {
+        return;
       }
-      if (isString(this.value) || isNumber(this.value)) {
-        return new Date(this.value);
-      }
-      if (isDate(this.value)) {
-        return this.value;
-      }
-      return new Date();
-    },
+      top.value = `${-popupRef.value.clientHeight}px`;
+    };
     // 点击上一年按钮
-    prevYear() {
-      const d = getDate(this.time.year, this.time.month, 1);
+    const prevYear = () => {
+      const d = getDate(time.value.year, time.value.month, 1);
       d.setFullYear(d.getFullYear() - 1);
-      this.setTime(d);
-      this.$emit("prevYear", d);
-    },
+      setTime(d);
+      context.emit("prevYear", d);
+    };
     // 点击上一个月按钮
-    prevMonth() {
-      const d = getDate(this.time.year, this.time.month, 1);
+    const prevMonth = () => {
+      const d = getDate(time.value.year, time.value.month, 1);
       d.setMonth(d.getMonth() - 1);
-      this.setTime(d);
-      this.$emit("prevMonth", d);
-    },
+      setTime(d);
+      context.emit("prevMonth", d);
+    };
     // 点击下一个月按钮
-    nextMonth() {
-      const d = getDate(this.time.year, this.time.month, 1);
+    const nextMonth = () => {
+      const d = getDate(time.value.year, time.value.month, 1);
       d.setMonth(d.getMonth() + 1);
-      this.setTime(d);
-      this.$emit("nextMonth", d);
-    },
+      setTime(d);
+      context.emit("nextMonth", d);
+    };
     // 点击下一年按钮
-    nextYear() {
-      const d = getDate(this.time.year, this.time.month, 1);
+    const nextYear = () => {
+      const d = getDate(time.value.year, time.value.month, 1);
       d.setFullYear(d.getFullYear() + 1);
-      this.setTime(d);
-      this.$emit("nextYear", d);
-    },
+      setTime(d);
+      context.emit("nextYear", d);
+    };
     // 判断传入的时间是否为当前头部日期的月份
-    isCurrentMonth(date: Date) {
+    const isCurrentMonth = (date: Date) => {
       const { year, month } =
-        getYearMonthDay(getDate(this.time.year, this.time.month, 1)) || {};
+        getYearMonthDay(getDate(time.value.year, time.value.month, 1)) || {};
       const { year: y, month: m } = getYearMonthDay(date) || {};
       return year === y && month === m;
-    },
+    };
     // 判断传入的日期是否跟当前选中日期相等
-    isCurrentval(date: Date) {
+    const isCurrentVal = (date: Date) => {
       const { year, month, day } =
-        getYearMonthDay(this.currentValue as Date) || {};
+        getYearMonthDay(currentValue.value as Date) || {};
       const { year: y, month: m, day: d } = getYearMonthDay(date) || {};
       return year === y && month === m && day === d;
-    },
+    };
     // 点击选项选择日期
-    selectDate(date: Date) {
-      if (this.isDisabledDate(date)) {
+    const selectDate = (date: Date) => {
+      if (isDisabledDate(date)) {
         return;
       }
       const { year, month, day } = getYearMonthDay(date) || {};
-      this.time = { year, month };
+      time.value = { year, month };
       let d;
-      if (isString(this.format)) {
+      if (isString(props.format)) {
         d = `${year}-${month}-${day}`;
-      } else if (isNumber(this.format)) {
+      } else if (isNumber(props.format)) {
         d = new Date(date).getTime();
       } else {
         d = date;
       }
-      this.$emit("update:value", d);
+      context.emit("update:value", d);
       // dispatch.call(this, {
       //   eventName: "validate",
       //   componentName: "LinFormItem"
       // });
-      this.$emit("select", d);
-      this.blur();
-    },
+      context.emit("select", d);
+      blur();
+    };
     // 点击input输入框
-    focus() {
-      if (this.disabled) {
+    const focus = () => {
+      if (props.disabled) {
         return;
       }
-      this.isVisible = !this.isVisible;
-      if (this.isVisible) {
-        this.setPlacement();
-        this.$emit("focus");
+      isVisible.value = !isVisible.value;
+      if (isVisible.value) {
+        setPlacement();
+        context.emit("focus");
       } else {
-        this.$emit("blur");
+        context.emit("blur");
       }
-    },
+    };
     // 模拟失去焦点
-    blur() {
-      this.isVisible = false;
-      this.$emit("blur");
-    },
+    const blur = () => {
+      isVisible.value = false;
+      context.emit("blur");
+    };
     // 设置头部当前日期
-    setTime(date: Date) {
+    const setTime = (date: Date) => {
       const { year, month } = getYearMonthDay(date) || {};
-      this.time = { year, month };
-    }
+      time.value = { year, month };
+    };
+
+    const onClickOutside = () => {
+      if (!props.showAlways && isVisible.value) {
+        blur();
+      }
+    };
+
+    useClickOutside(containerRef, onClickOutside);
+
+    return {
+      formatDate,
+      isVisible,
+      top,
+      prevYear,
+      prevMonth,
+      time,
+      t,
+      nextMonth,
+      nextYear,
+      weekDays,
+      visibleDays,
+      selectDate,
+      isCurrentMonth,
+      isCurrentVal,
+      isDisabledDate,
+      focus,
+      popupRef,
+      containerRef,
+      inputWrapperRef
+    };
   },
+
   render() {
     const {
-      cellWidth,
-      focus,
+      showInput,
       placeholder,
       formatDate,
       disabled,
+      isVisible,
+      showAlways,
+      top,
       prevYear,
       prevMonth,
-      nextMonth,
       time,
-      nextYear,
-      labelHeight,
-      visibleDays,
-      isVisible,
-      weekDays,
-      isCurrentMonth,
-      isCurrentval,
-      cellHeight,
-      isDisabledDate,
-      selectDate,
-      renderInfo,
-      radius,
-      showAlways,
-      showInput,
       t,
-      top
+      nextMonth,
+      nextYear,
+      weekDays,
+      cellWidth,
+      labelHeight,
+      renderInfo,
+      visibleDays,
+      cellHeight,
+      selectDate,
+      isCurrentMonth,
+      isCurrentVal,
+      isDisabledDate,
+      radius,
+      focus
     } = this;
     return (
-      <div v-click-outside class="lin-date-picker" ref="container">
+      <div class="lin-date-picker" ref="containerRef">
         {showInput && (
-          <div class="lin-date-picker-input-box" ref="boxContainer">
+          <div class="lin-date-picker-input-box" ref="inputWrapperRef">
             <LinIcon name="date" class="lin-date-picker-icon" />
             <input
               onClick={focus}
               readonly
-              placeholder={placeholder || t("LinViewUI.DatePicker.placeholder")}
+              placeholder={placeholder || t("placeholder")}
               type="text"
               value={formatDate}
               disabled={disabled}
@@ -339,7 +370,7 @@ export default defineComponent({
           {(isVisible || showAlways) && (
             <div
               style={{ top }}
-              ref="popupContainer"
+              ref="popupRef"
               class={[{ "is-absolute": !showAlways }, "lin-date-picker-pannel"]}
             >
               <div class="lin-date-picker-pannel-header">
@@ -348,11 +379,11 @@ export default defineComponent({
                 <span>
                   <span>
                     {time.year}
-                    {t("LinViewUI.DatePicker.year")}
+                    {t("year")}
                   </span>
                   <span class="lin-date-picker-month">
                     {time.month}
-                    {t("LinViewUI.DatePicker.month")}
+                    {t("month")}
                   </span>
                 </span>
                 <LinIcon onClick={nextMonth} name="arrowhead-right" />
@@ -395,7 +426,7 @@ export default defineComponent({
                                   !isCurrentMonth(currentTime)
                               },
                               {
-                                "is-current-val": isCurrentval(currentTime)
+                                "is-current-val": isCurrentVal(currentTime)
                               },
                               {
                                 "is-disabled-date": isDisabledDate(currentTime)
