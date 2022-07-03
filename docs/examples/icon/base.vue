@@ -25,7 +25,11 @@ export default defineComponent({
       "close",
       "upload",
       "up",
-      "down"
+      "down",
+      "back",
+      "plus",
+      "minus",
+      "date"
     ];
     return {
       icons
