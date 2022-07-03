@@ -32,6 +32,8 @@ const interactiveComponents = ["loading-bar", "loading"];
 
 const otherComponents = ["meta-info"];
 
+const formComponents = ["date-picker"];
+
 export default defineUserConfig({
   // 站点配置
   lang: "zh-CN",
@@ -81,6 +83,10 @@ export default defineUserConfig({
           children: basicComponents.map((name) =>
             getComponentPath("basic", name)
           )
+        },
+        {
+          text: "表单组件",
+          children: formComponents.map((name) => getComponentPath("form", name))
         },
         {
           text: "视图组件",
