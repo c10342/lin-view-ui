@@ -1,4 +1,4 @@
-const pickObject = (object: Record<string, any>, keys: string[]) => {
+export const pickObject = (object: Record<string, any>, keys: string[]) => {
   const ret: Record<string, any> = {};
   keys.forEach((key) => {
     if (key in object) {
@@ -7,5 +7,3 @@ const pickObject = (object: Record<string, any>, keys: string[]) => {
   });
   return ret;
 };
-
-export default pickObject;

@@ -2,7 +2,7 @@
  * 根据日期对象返回年月日
  * @param {Date} date
  */
-const getYearMonthDay = (date?: Date) => {
+export const getYearMonthDay = (date?: Date) => {
   if (!date) {
     return "";
   }
@@ -11,5 +11,3 @@ const getYearMonthDay = (date?: Date) => {
   const day = date.getDate();
   return { year, month, day };
 };
-
-export default getYearMonthDay;

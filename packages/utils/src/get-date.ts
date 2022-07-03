@@ -4,11 +4,9 @@
  * @param {number} month
  * @param {number} day
  */
-const getDate = (year?: number, month?: number, day?: number) => {
+export const getDate = (year?: number, month?: number, day?: number) => {
   if (!year || !month || !day) {
     return new Date();
   }
   return new Date(year, month - 1, day);
 };
-
-export default getDate;

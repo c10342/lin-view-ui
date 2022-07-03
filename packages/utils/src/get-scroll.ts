@@ -28,7 +28,7 @@ function getScrollHeightAndWidth() {
   };
 }
 
-function getScroll() {
+export function getScroll() {
   const scrollHeightAndWidth = getScrollHeightAndWidth();
   const scrollLeftAndTop = getScrollLeftAndTop();
   return {
@@ -38,5 +38,3 @@ function getScroll() {
     scrollTop: scrollLeftAndTop.top
   };
 }
-
-export default getScroll;
