@@ -1,6 +1,6 @@
-import { App, DefineComponent } from "vue";
+import { App } from "vue";
 
-function withInstall(component: DefineComponent<{}, {}, any>) {
+function withInstall(component: any) {
   component.install = (app: App) => {
     app.component(component.name, component);
   };

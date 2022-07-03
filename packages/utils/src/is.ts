@@ -31,3 +31,7 @@ export function isArray(data: any): data is Array<any> {
 export function isFunction(data: any): data is Function {
   return toString.call(data) === "[object Function]";
 }
+
+export function isDate(data: any): data is Date {
+  return toString.call(data) === "[object Date]";
+}
