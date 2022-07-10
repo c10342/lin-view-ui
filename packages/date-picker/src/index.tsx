@@ -1,37 +1,23 @@
+import { getDate, getYearMonthDay } from "@packages/utils";
 import {
-  getDate,
-  getYearMonthDay,
-  isDate,
-  isNumber,
-  isString
-} from "@packages/utils";
-import { computed, defineComponent, nextTick, ref, Transition } from "vue";
+  computed,
+  defineComponent,
+  nextTick,
+  PropType,
+  ref,
+  Transition
+} from "vue";
 
 import LinIcon from "@packages/icon";
 import {
-  DatePropsMixin,
+  DateProps,
   useClickOutside,
   useDate,
   useScopeLocale
 } from "@packages/hooks";
 
-// 将时间格式化为时间对象
-const formatValue = (value: any) => {
-  if (!value) {
-    return new Date();
-  }
-  if (isString(value) || isNumber(value)) {
-    return new Date(value);
-  }
-  if (isDate(value)) {
-    return value;
-  }
-  return new Date();
-};
-
 export default defineComponent({
   name: "LinDatePicker",
-  mixins: [DatePropsMixin],
   emits: [
     "prevYear",
     "prevMonth",
@@ -65,7 +51,7 @@ export default defineComponent({
     },
     // 绑定值
     value: {
-      type: [Date, String, Number],
+      type: [Date, String] as PropType<Date | "">,
       default: ""
     },
     // 输入框占位符
@@ -76,11 +62,6 @@ export default defineComponent({
     renderInfo: {
       type: Function,
       default: null
-    },
-    // 格式化 value/v-model 绑定值
-    format: {
-      type: String,
-      default: "string"
     },
     // 自定义输入框的显示内容
     showFormat: {
@@ -96,7 +77,8 @@ export default defineComponent({
     showInput: {
       type: Boolean,
       default: true
-    }
+    },
+    ...DateProps
   },
 
   setup(props, context) {
@@ -105,7 +87,7 @@ export default defineComponent({
     // 是否显示选择器
     const isVisible = ref(false);
     // 头部当前日期
-    const { year, month } = getYearMonthDay(formatValue(props.value)) || {};
+    const { year, month } = getYearMonthDay(props.value || new Date()) || {};
     const time = ref<{ year: number | undefined; month: number | undefined }>({
       year,
       month
@@ -128,19 +110,6 @@ export default defineComponent({
     const containerRef = ref<HTMLElement | null>(null);
     const inputWrapperRef = ref<HTMLElement | null>(null);
 
-    // 当前选中日期
-    const currentValue = computed(() => {
-      if (!props.value) {
-        return "";
-      }
-      if (isString(props.value) || isNumber(props.value)) {
-        return new Date(props.value);
-      }
-      if (isDate(props.value)) {
-        return props.value;
-      }
-      return "";
-    });
     // 显示在选择器上面的日期
     const visibleDays = computed(() => {
       const { year, month } =
@@ -161,12 +130,12 @@ export default defineComponent({
     // 显示在输入框中的日期
     const formatDate = computed(() => {
       if (props.showFormat) {
-        return props.showFormat(currentValue.value);
+        return props.showFormat(props.value);
       }
-      if (!currentValue.value) {
+      if (!props.value) {
         return "";
       }
-      const { year, month, day } = getYearMonthDay(currentValue.value) || {};
+      const { year, month, day } = getYearMonthDay(props.value) || {};
       return `${year}-${month}-${day}`;
     });
 
@@ -239,7 +208,7 @@ export default defineComponent({
     // 判断传入的日期是否跟当前选中日期相等
     const isCurrentVal = (date: Date) => {
       const { year, month, day } =
-        getYearMonthDay(currentValue.value as Date) || {};
+        getYearMonthDay(props.value || undefined) || {};
       const { year: y, month: m, day: d } = getYearMonthDay(date) || {};
       return year === y && month === m && day === d;
     };
@@ -250,20 +219,12 @@ export default defineComponent({
       }
       const { year, month, day } = getYearMonthDay(date) || {};
       time.value = { year, month };
-      let d;
-      if (isString(props.format)) {
-        d = `${year}-${month}-${day}`;
-      } else if (isNumber(props.format)) {
-        d = new Date(date).getTime();
-      } else {
-        d = date;
-      }
-      context.emit("update:value", d);
+      context.emit("update:value", date);
       // dispatch.call(this, {
       //   eventName: "validate",
       //   componentName: "LinFormItem"
       // });
-      context.emit("select", d);
+      context.emit("select", date);
       blur();
     };
     // 点击input输入框
