@@ -1,7 +1,5 @@
 const typescript = require("rollup-plugin-typescript2");
 
-const vuePlugin = require("rollup-plugin-vue");
-
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
 
 const {
@@ -12,7 +10,7 @@ const {
   getOutputName
 } = require("./utils");
 
-const { babelPlugin } = require("./plugins");
+const { babelPlugin, vuePlugin } = require("./plugins");
 
 function createConfig(name) {
   const overrides = {
@@ -35,7 +33,7 @@ function createConfig(name) {
         useTsconfigDeclarationDir: true
       }),
       babelPlugin(),
-      vuePlugin()
+      ...vuePlugin()
     ],
     external
   };
