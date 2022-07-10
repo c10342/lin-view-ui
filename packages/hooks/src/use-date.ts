@@ -1,5 +1,4 @@
 import { isArray, isDate } from "@packages/utils";
-import { defineComponent } from "vue";
 
 interface Props {
   disabled: boolean;
@@ -9,35 +8,33 @@ interface Props {
   disabledDate: Array<any>;
 }
 
-export const DatePropsMixin = defineComponent({
-  props: {
-    // 是否禁用
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    // 禁用小于等于该日期的日期
-    disabledBeforeDate: {
-      type: [Date, String, Number],
-      default: ""
-    },
-    // 禁用大于等于该日期的日期
-    disabledAfterDate: {
-      type: [Date, String, Number],
-      default: ""
-    },
-    // 禁用指定范围内的日期
-    disabledRangeDate: {
-      type: Array,
-      default: () => []
-    },
-    // 禁用指定日期
-    disabledDate: {
-      type: Array,
-      default: () => []
-    }
+export const DateProps = {
+  // 是否禁用
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  // 禁用小于等于该日期的日期
+  disabledBeforeDate: {
+    type: [Date, String, Number],
+    default: ""
+  },
+  // 禁用大于等于该日期的日期
+  disabledAfterDate: {
+    type: [Date, String, Number],
+    default: ""
+  },
+  // 禁用指定范围内的日期
+  disabledRangeDate: {
+    type: Array,
+    default: () => []
+  },
+  // 禁用指定日期
+  disabledDate: {
+    type: Array,
+    default: () => []
   }
-});
+};
 
 export const useDate = (props: Props) => {
   // 判断传入的日期是否为禁用的日期
