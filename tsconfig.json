@@ -25,7 +25,8 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ],
+    "types": ["unplugin-vue-define-options"]
   },
   "include": [
     "packages/**/*.ts",
