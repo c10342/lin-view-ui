@@ -32,7 +32,7 @@ collapse/simple
 
 | 参数      | 说明                                             | 类型                    | 可选值 | 默认值 |
 | --------- | ------------------------------------------------ | ----------------------- | ------ | ------ |
-| value     | 当前激活的面板的 name，可以使用 v-model 双向绑定 | Array , string , number | —      | —      |
+| value     | 当前激活的面板的 name，可以使用 v-model:value 双向绑定 | Array , string , number | —      | —      |
 | accordion | 是否开启手风琴模式，开启后每次至多展开一个面板   | boolean                 | —      | false  |
 | simple    | 是否开启简洁模式                                 | boolean                 | —      | false  |
 

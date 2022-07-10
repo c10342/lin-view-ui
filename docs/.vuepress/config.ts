@@ -3,6 +3,7 @@ import demoBlock from "./plugins/demo-block";
 import { viteBundler } from "@vuepress/bundler-vite";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { searchPlugin } from "@vuepress/plugin-search";
+import DefineOptions from "unplugin-vue-define-options/vite";
 import * as path from "path";
 
 const getComponentPath = (publicDir: string, name: string) => {
@@ -25,7 +26,8 @@ const viewComponents = [
   "tag",
   "pagination",
   "dialog",
-  "dropdown"
+  "dropdown",
+  "date-axis"
 ];
 
 const interactiveComponents = ["loading-bar", "loading"];
@@ -53,7 +55,7 @@ export default defineUserConfig({
     toc: {}
   },
   bundler: viteBundler({
-    viteOptions: { plugins: [vueJsx()] },
+    viteOptions: { plugins: [vueJsx(), DefineOptions()] },
     vuePluginOptions: {}
   }),
   theme: defaultTheme({

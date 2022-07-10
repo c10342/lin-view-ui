@@ -45,7 +45,7 @@ pagination/other
 | pageCount  | 页码按钮的数量，当总页数超过该值时会折叠 | number  | —                                         | 7                               |
 | pageSize   | 每页显示条目个数                         | number  | —                                         | 10                              |
 | total      | 总条目数                                 | number  | —                                         | 0                               |
-| pageIndex / v-model  | 当前页数             | number  | —                                         | —                               |
+| pageIndex / v-model:pageIndex  | 当前页数             | number  | —                                         | —                               |
 | background | 是否为分页按钮添加背景色                 | boolean | —                                         | false                           |
 | layout     | 组件布局，子组件名用逗号分隔             | string  | `prev`, `pager`, `next`, `jumper`,`total` | prev, pager, next, jumper,total |
 

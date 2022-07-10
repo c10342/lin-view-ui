@@ -6,7 +6,7 @@
 
 ## 基础用法
 
-`v-model` 的值为当前被选中的 `lin-selector-item` 的 `value` 属性值
+`:value` 的值为当前被选中的 `lin-selector-item` 的 `value` 属性值
 
 :::demo
 selector/base
@@ -38,7 +38,7 @@ selector/jsx
 | --------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------ | ------ |
 | width           | 选择器宽度                                                                                                            | string                             | —      | —      |
 | labelWidth      | 标签宽度                                                                                                              | string                             | —      | 40px   |
-| value / v-model | 绑定值                                                                                                                | boolean , string , number , Object | —      | —      |
+| value / v-model:value | 绑定值                                                                                                                | boolean , string , number , Object | —      | —      |
 | valueKey        | 作为 value 唯一标识的键名，绑定值为对象类型时必填                                                                     | string                             | —      | value  |
 | renderMore      | 自定义渲染更多标签内容，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是否展开或收起的状态值。可以使用 jsx | Function                           | —      | —      |
 | renderLabel     | 自定义渲染头部标签内容，使用 Vue 的 Render 函数，参数是 h，可以使用 jsx                                               | Function                           | —      | —      |

@@ -4,9 +4,9 @@
 
 ---
 
-# 基础用法
+## 基础用法
 
-`v-model` 绑定的值就是选中的日期
+`v-model:value` 绑定的值就是选中的日期
 
 :::demo
 date-picker/base
@@ -51,7 +51,7 @@ date-picker/show-always
 | ------------------ | ---------------------------------------------- | ---------------------- | ------------------ | ---------- |
 | radius             | 日期块是否为圆角                               | boolean                | —                  | false      |
 | cellWidth          | 日期块宽度                                     | number                 | —                  | 32         |
-| value / v-model    | 绑定值                                         | Date , string , number | —                  | —          |
+| value / v-model:value    | 绑定值                                         | Date | —                  | —          |
 | cellHeight         | 日期块高度                                     | number                 | —                  | 32         |
 | labelHeight        | 头部标签的高度                                 | number                 | —                  | 32         |
 | disabled           | 是否禁用                                       | boolean                | —                  | false      |
@@ -61,7 +61,6 @@ date-picker/show-always
 | disabledRangeDate  | 禁用指定范围内的日期                           | Array                  | —                  | —          |
 | disabledDate       | 禁用指定日期                                   | Array                  | —                  | —          |
 | renderInfo         | 自定义渲染日期块。参数是日期对象。可以使用 jsx | Function               | —                  | —          |
-| format             | 格式化 value/v-model 绑定值                    | string                 | string,number,Date | string     |
 | showFormat         | 自定义输入框的显示内容                         | Function               | —                  | —          |
 | showAlways         | 是否一直显示时间选择器                         | boolean                | —                  | false      |
 | showInput          | 是否显示输入框                                 | boolean                | —                  | true       |

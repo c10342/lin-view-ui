@@ -36,7 +36,7 @@ limit-textarea/rows
 | max-len         | 最大长度限制             | number  | —      | -1(不限制长度) |
 | is-cut          | 超出字符是否裁剪         | boolean | —      | false          |
 | placeholder     | 输入时需要显示的提示文案 | string  | —      | 请输入内容     |
-| value / v-model | 绑定值                   | string  | —      | —              |
+| value / v-model:value| 绑定值                   | string  | —      | —              |
 
 ## 事件
 
