@@ -26,6 +26,7 @@ import DropdownGroup from "@packages/dropdown-group";
 import DropdownItem from "@packages/dropdown-item";
 import Loading from "@packages/loading";
 import DatePicker from "@packages/date-picker";
+import DateAxis from "@packages/date-axis";
 import { App } from "vue";
 
 const components = [
@@ -56,7 +57,8 @@ const components = [
   DropdownGroup,
   DropdownItem,
   Loading,
-  DatePicker
+  DatePicker,
+  DateAxis
 ];
 
 const install = (app: App) => {

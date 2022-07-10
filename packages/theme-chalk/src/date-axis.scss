@@ -1,0 +1,163 @@
+.lin-date-axis {
+  display: flex;
+  flex-direction: row;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--lin-border-color);
+}
+
+.lin-date-axis-wrapper {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+}
+
+.lin-date-axis-arrow {
+  padding: 10px 5px;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--lin-color-primary);
+  }
+}
+
+.lin-date-axis-icon {
+  font-size: var(--lin-font-size-extra-large);
+}
+
+.lin-date-axis-list {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.lin-date-axis-item {
+  flex: 1;
+  padding: 5px;
+  margin: 0 10px;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    .lin-date-axis-text {
+      color: var(--lin-color-primary);
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    background-color: var(--lin-disabled-bg-color);
+
+    &:not(.is-active):hover {
+      .lin-date-axis-text {
+        color: var(--lin-text-color-regular);
+      }
+    }
+  }
+
+  &.is-active {
+    color: var(--lin-color-primary);
+
+    .lin-date-axis-text {
+      color: var(--lin-color-primary);
+    }
+  }
+}
+
+.lin-date-axis-text {
+  padding: 0;
+  margin: 0;
+  color: var(--lin-text-color-regular);
+  white-space: nowrap;
+}
+
+.lin-date-axis-day {
+  font-size: var(--lin-font-size-medium);
+}
+
+.lin-date-axis-date {
+  font-size: var(--lin-font-size-small);
+}
+
+.lin-date-axis-popup {
+  position: absolute;
+  left: 0;
+  z-index: 200;
+  border: 1px solid var(--lin-border-color);
+
+  &::before {
+    position: absolute;
+    top: -7px;
+    z-index: 100;
+    width: 12px;
+    height: 12px;
+    content: "";
+    background-color: #fff;
+    border: 1px solid var(--lin-border-color);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    transform: rotate(135deg);
+  }
+
+  &.is-left {
+    &::before {
+      right: 20px;
+    }
+  }
+
+  &.is-right {
+    &::before {
+      left: 20px;
+    }
+  }
+}
+
+.lin-date-axis-more-content {
+  padding: 10px 0;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--lin-color-primary);
+  }
+
+  > .lin-icon-date {
+    margin-right: 5px;
+  }
+}
+
+.lin-date-axis-more {
+  position: relative;
+  margin: 0 10px;
+}
+
+.lin-date-axis-line {
+  position: absolute;
+  bottom: -11px;
+  border-bottom: 1px solid var(--lin-border-color);
+  transition: all 300ms;
+
+  &::after {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    z-index: 100;
+    width: 12px;
+    height: 12px;
+    content: "";
+    background-color: #fff;
+    border: 1px solid var(--lin-border-color);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    transform: translateX(-50%) rotate(135deg);
+  }
+}
