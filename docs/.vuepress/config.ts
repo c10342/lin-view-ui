@@ -30,7 +30,7 @@ const viewComponents = [
   "date-axis"
 ];
 
-const interactiveComponents = ["loading-bar", "loading"];
+const interactiveComponents = ["loading-bar", "loading", "tooltip"];
 
 const otherComponents = ["meta-info"];
 
