@@ -1,0 +1,56 @@
+.lin-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  box-sizing: border-box;
+  min-width: 40px;
+  max-width: 500px;
+  padding: 10px;
+  font-size: var(--lin-font-size-extra-small);
+  color: var(--lin-color-white);
+  word-break: break-all;
+  word-wrap: break-word;
+  background: #303133;
+  border-radius: 4px;
+
+  &::after {
+    position: absolute;
+    content: "";
+    border: 5px solid #303133;
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+
+  &.is-bottom {
+    &::after {
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-45deg);
+    }
+  }
+
+  &.is-top {
+    &::after {
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%) rotate(135deg);
+    }
+  }
+
+  &.is-left {
+    &::after {
+      top: 50%;
+      left: -5px;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+
+  &.is-right {
+    &::after {
+      top: 50%;
+      right: -5px;
+      transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+}
