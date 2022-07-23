@@ -6,11 +6,11 @@
   "scripts": {
     "commit": "node node_modules/cz-customizable/standalone.js",
     "build": "rimraf dist && npm run build:esm && npm run build:cjs && npm run build:full && npm run build:lang && npm run build:css",
-    "build:esm": "rollup --config scripts/build/build.esm.js",
-    "build:cjs": "rollup --config scripts/build/build.cjs.js",
-    "build:full": "rollup --config scripts/build/build.full.js",
+    "build:esm": "node scripts/build/build.esm.js",
+    "build:cjs": "node scripts/build/build.cjs.js",
+    "build:full": "node scripts/build/build.full.js",
     "build:css": "node scripts/build/build.css.js",
-    "build:lang": "rollup --config scripts/build/build.lang.js",
+    "build:lang": "node scripts/build/build.lang.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "lint": "eslint --ext .ts,.vue,.tsx ./",
@@ -26,7 +26,7 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "vue": "^3.2.33"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
@@ -70,7 +70,8 @@
     "tslib": "^2.4.0",
     "typescript": "^4.6.3",
     "unplugin-vue-define-options": "^0.6.2",
-    "vue": "^3.2.33",
+    "vue": "^3.2.37",
+    "vue-eslint-parser": "^9.0.3",
     "vuepress": "^2.0.0-beta.43",
     "vuepress2-plugin-demo-block": "^1.0.3"
   },
