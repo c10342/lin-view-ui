@@ -1,10 +1,18 @@
 const typescript = require("rollup-plugin-typescript2");
 
-const { resolvePackages } = require("./utils");
+const { resolvePackages } = require("../helper");
 
 const fs = require("fs");
+const { rollupBuild } = require("./utils");
 
-function createConfig(type, name) {
+const createInputConfig = (name) => {
+  return {
+    input: resolvePackages(`./locale/src/${name}.ts`),
+    plugins: [typescript()]
+  };
+};
+
+const createOutputConfig = (type, name) => {
   let output = {
     file: `dist/esm/lang/${name}.js`,
     format: "es"
@@ -16,20 +24,25 @@ function createConfig(type, name) {
       exports: "named"
     };
   }
-  return {
-    input: resolvePackages(`./locale/src/${name}.ts`),
-    output,
-    plugins: [typescript()]
-  };
-}
+  return output;
+};
 
 const lang = fs
   .readdirSync(resolvePackages("./locale/src"))
   .map((name) => name.replace(/\.ts$/, ""));
 
-const config = [];
+const buildLang = async (type, name) => {
+  const input = createInputConfig(name);
+  const output = createOutputConfig(type, name);
+  await rollupBuild(input, output);
+  console.log(`build:${type}-${name}`);
+};
+const build = () => {
+  process.setMaxListeners(0);
+  lang.forEach((name) => {
+    buildLang("cjs", name);
+    buildLang("es", name);
+  });
+};
 
-config.push(...lang.map((name) => createConfig("es", name)));
-config.push(...lang.map((name) => createConfig("cjs", name)));
-
-module.exports = config;
+build();

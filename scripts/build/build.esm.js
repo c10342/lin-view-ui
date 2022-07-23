@@ -3,16 +3,18 @@ const typescript = require("rollup-plugin-typescript2");
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
 
 const {
-  resolvePackages,
   components,
   external,
   paths,
-  getOutputName
+  getOutputName,
+  rollupBuild
 } = require("./utils");
 
 const { babelPlugin, vuePlugin } = require("./plugins");
 
-function createConfig(name) {
+const { resolvePackages } = require("../helper");
+
+const createInputConfig = (name) => {
   const overrides = {
     compilerOptions: {
       declaration: true,
@@ -21,11 +23,6 @@ function createConfig(name) {
   };
   return {
     input: resolvePackages(`./${name}/index.ts`),
-    output: {
-      file: `dist/esm/${getOutputName(name)}.js`,
-      format: "es",
-      paths
-    },
     plugins: [
       nodeResolve(),
       typescript({
@@ -37,6 +34,26 @@ function createConfig(name) {
     ],
     external
   };
-}
+};
 
-module.exports = components.map(createConfig);
+const createOutputConfig = (name) => {
+  return {
+    file: `dist/esm/${getOutputName(name)}.js`,
+    format: "es",
+    paths
+  };
+};
+
+const buildComponent = async (name) => {
+  const input = createInputConfig(name);
+  const output = createOutputConfig(name);
+  await rollupBuild(input, output);
+  console.log(`build:esm-${name}`);
+};
+
+const build = () => {
+  process.setMaxListeners(0);
+  components.forEach(buildComponent);
+};
+
+build();

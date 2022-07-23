@@ -6,7 +6,7 @@ const cssmin = require("gulp-clean-css");
 
 const autoprefixer = require("gulp-autoprefixer");
 
-const { resolveRoot, resolvePackages } = require("./utils");
+const { resolveRoot, resolvePackages } = require("../helper");
 
 const copyFont = () => {
   src(resolvePackages("./theme-chalk/src/fonts") + "/**")

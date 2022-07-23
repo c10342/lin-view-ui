@@ -1,20 +1,20 @@
 const path = require("path");
 
-function resolve(...args) {
+const resolve = (...args) => {
   return path.resolve(...args);
-}
+};
 
-function resolveRoot(...args) {
+const resolveRoot = (...args) => {
   return resolve(__dirname, "../", ...args);
-}
+};
 
-function resolvePackages(...args) {
+const resolvePackages = (...args) => {
   return resolveRoot("./packages", ...args);
-}
+};
 
-function resolveDocs(...args) {
+const resolveDocs = (...args) => {
   return resolveRoot("./docs", ...args);
-}
+};
 
 module.exports = {
   resolve,

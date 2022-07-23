@@ -4,20 +4,14 @@ const { nodeResolve } = require("@rollup/plugin-node-resolve");
 
 const { terser } = require("rollup-plugin-terser");
 
-const { resolvePackages } = require("./utils");
+const { resolvePackages } = require("../helper");
 
 const { babelPlugin, vuePlugin } = require("./plugins");
 
-module.exports = {
+const { rollupBuild } = require("./utils");
+
+const input = {
   input: resolvePackages(`./lin-view-ui/index.ts`),
-  output: {
-    file: `dist/index.js`,
-    format: "umd",
-    name: "LinViewUi",
-    globals: {
-      vue: "Vue"
-    }
-  },
   plugins: [
     nodeResolve(),
     typescript(),
@@ -27,3 +21,20 @@ module.exports = {
   ],
   external: ["vue"]
 };
+
+const output = {
+  file: `dist/index.js`,
+  format: "umd",
+  name: "LinViewUi",
+  globals: {
+    vue: "Vue"
+  }
+};
+
+const build = async () => {
+  process.setMaxListeners(0);
+  await rollupBuild(input, output);
+  console.log("build:index.js");
+};
+
+build();

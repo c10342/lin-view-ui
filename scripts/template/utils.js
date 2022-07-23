@@ -2,7 +2,7 @@ const path = require("path");
 
 const fs = require("fs");
 
-const { resolveRoot, resolvePackages, resolve } = require("../utils.js");
+const { resolveRoot, resolvePackages, resolve } = require("../helper.js");
 
 function toHump(name) {
   const reg = /-(\w)/g;

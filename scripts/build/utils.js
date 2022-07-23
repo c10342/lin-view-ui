@@ -1,6 +1,8 @@
 const fs = require("fs");
 
-const { resolveRoot, resolvePackages } = require("../utils.js");
+const rollup = require("rollup");
+
+const { resolvePackages } = require("../helper");
 
 const pck = require("../../package.json");
 
@@ -8,13 +10,13 @@ const dependencies = pck.dependencies || {};
 
 const excludeComponents = ["theme-chalk"];
 
-const components = fs
-  .readdirSync(resolvePackages())
-  .filter((name) => !excludeComponents.includes(name));
-
 const packagesReg = /^@packages\//;
 
 const langReg = /^@lang\//;
+
+const components = fs
+  .readdirSync(resolvePackages())
+  .filter((name) => !excludeComponents.includes(name));
 
 const external = (id) => {
   if (id.match(/^vue$/) || id in dependencies) {
@@ -41,11 +43,15 @@ const getOutputName = (name) => {
   return name;
 };
 
+const rollupBuild = async (inputOptions, outputOptions) => {
+  const bundle = await rollup.rollup(inputOptions);
+  await bundle.write(outputOptions);
+};
+
 module.exports = {
-  resolvePackages,
   components,
   external,
   paths,
   getOutputName,
-  resolveRoot
+  rollupBuild
 };

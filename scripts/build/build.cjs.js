@@ -3,27 +3,44 @@ const typescript = require("rollup-plugin-typescript2");
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
 
 const {
-  resolvePackages,
   components,
   external,
   paths,
-  getOutputName
+  getOutputName,
+  rollupBuild
 } = require("./utils");
+
+const { resolvePackages } = require("../helper");
 
 const { babelPlugin, vuePlugin } = require("./plugins");
 
-function createConfig(name) {
+const createInputConfig = (name) => {
   return {
     input: resolvePackages(`./${name}/index.ts`),
-    output: {
-      file: `dist/lib/${getOutputName(name)}.js`,
-      format: "cjs",
-      paths,
-      exports: "named"
-    },
     plugins: [nodeResolve(), typescript(), babelPlugin(), ...vuePlugin()],
     external
   };
-}
+};
 
-module.exports = components.map(createConfig);
+const createOutputConfig = (name) => {
+  return {
+    file: `dist/lib/${getOutputName(name)}.js`,
+    format: "cjs",
+    paths,
+    exports: "named"
+  };
+};
+
+const buildComponent = async (name) => {
+  const input = createInputConfig(name);
+  const output = createOutputConfig(name);
+  await rollupBuild(input, output);
+  console.log(`build:cjs-${name}`);
+};
+
+const build = () => {
+  process.setMaxListeners(0);
+  components.forEach(buildComponent);
+};
+
+build();
