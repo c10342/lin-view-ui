@@ -11,13 +11,16 @@ export default defineComponent({
   name: "LinIcon",
   props: {
     name: {
-      type: String
+      type: String,
+      default: null
     },
     size: {
-      type: String
+      type: String,
+      default: null
     },
     color: {
-      type: String
+      type: String,
+      default: null
     }
   }
 });

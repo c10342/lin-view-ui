@@ -7,7 +7,7 @@
     >
       <div class="lin-loading-bar-peg"></div>
     </div>
-    <div class="lin-loading-bar-spinner" v-if="showSpinner">
+    <div v-if="showSpinner" class="lin-loading-bar-spinner">
       <div
         :style="{ 'animation-timing-function': easing }"
         class="lin-loading-bar-icon"

@@ -1,7 +1,7 @@
 <template>
   <div class="scroll-view">
     <lin-scroll-view>
-      <div class="scroll-item" v-for="(item, index) in list" :key="index">
+      <div v-for="(item, index) in list" :key="index" class="scroll-item">
         {{ item }}
       </div>
     </lin-scroll-view>

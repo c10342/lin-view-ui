@@ -4,7 +4,7 @@
       下拉菜单
       <LinIcon name="down" />
     </span>
-    <template v-slot:dropdown>
+    <template #dropdown>
       <lin-dropdown-group>
         <lin-dropdown-item command="a">黄金糕</lin-dropdown-item>
         <lin-dropdown-item command="b">狮子头</lin-dropdown-item>
@@ -20,7 +20,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  setup(props, context) {
+  setup() {
     const handleCommand = (command: string) => {
       alert("click on item " + command);
     };

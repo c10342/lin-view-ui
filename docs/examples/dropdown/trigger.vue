@@ -7,7 +7,7 @@
           下拉菜单
           <LinIcon name="down" />
         </span>
-        <template v-slot:dropdown>
+        <template #dropdown>
           <lin-dropdown-group>
             <lin-dropdown-item icon="lin-icon-date"> 黄金糕 </lin-dropdown-item>
             <lin-dropdown-item icon="lin-icon-thumbsup">
@@ -31,7 +31,7 @@
           下拉菜单
           <LinIcon name="down" />
         </span>
-        <template v-slot:dropdown>
+        <template #dropdown>
           <lin-dropdown-group>
             <lin-dropdown-item icon="user"> 黄金糕 </lin-dropdown-item>
             <lin-dropdown-item icon="edit"> 狮子头 </lin-dropdown-item>

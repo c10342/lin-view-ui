@@ -1,9 +1,9 @@
 <template>
   <lin-selector-group
+    v-model:value="value"
     :render-more="renderMore"
     :render-label="renderLabel"
     label="学科："
-    v-model:value="value"
   >
     <lin-selector-item
       v-for="(item, index) in list"

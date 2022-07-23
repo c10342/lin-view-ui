@@ -2,15 +2,15 @@
   <span class="lin-show-more">
     <span>{{ filterText(text) }}</span>
     <a
+      v-if="textLen !== -1 && textLen < text.length"
       class="lin-show-more-tip"
       @click="showMore"
-      v-if="textLen !== -1 && textLen < text.length"
       >{{ showText || t("showText") }}</a
     >
     <a
+      v-if="textLen !== -1 && textLen === text.length && allowFold"
       class="lin-show-more-tip"
       @click="showMore"
-      v-if="textLen !== -1 && textLen === text.length && allowFold"
       >{{ hiddenText || t("hiddenText") }}</a
     >
   </span>
@@ -34,11 +34,13 @@ export default defineComponent({
     },
     // 折叠时需要显示文案
     showText: {
-      type: String
+      type: String,
+      default: null
     },
     // 隐藏时需要显示文案
     hiddenText: {
-      type: String
+      type: String,
+      default: null
     },
     // 是否允许折叠
     allowFold: {

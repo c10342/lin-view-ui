@@ -1,10 +1,10 @@
 <template>
   <lin-pagination
+    v-model:pageIndex="pageIndex"
     :page-size="20"
     :page-count="11"
     layout="prev, pager, next"
     :total="1000"
-    v-model:pageIndex="pageIndex"
   >
   </lin-pagination>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="scroll-view">
-    <lin-scroll-view :loading="loading" @scrollToBottom="scrollToBottom">
-      <div class="scroll-item" v-for="(item, index) in list" :key="index">
+    <lin-scroll-view :loading="loading" @scroll-to-bottom="scrollToBottom">
+      <div v-for="(item, index) in list" :key="index" class="scroll-item">
         {{ item }}
       </div>
     </lin-scroll-view>
@@ -18,7 +18,7 @@ export default defineComponent({
     const loading = ref(false);
     let count = 1;
     const initData = () => {
-      const listData = [];
+      const listData: string[] = [];
       for (let i = 0; i < 6; i++) {
         listData.push("这是内容" + id);
         id++;

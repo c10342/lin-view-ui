@@ -1,6 +1,5 @@
 <template>
   <a
-    @click="onClick"
     :href="href"
     v-bind="$attrs"
     :class="[
@@ -11,8 +10,9 @@
         'is-underline': underline && !disabled
       }
     ]"
+    @click="onClick"
   >
-    <LinIcon class="lin-link-icon" :name="icon" v-if="icon" />
+    <LinIcon v-if="icon" class="lin-link-icon" :name="icon" />
     <span>
       <slot></slot>
     </span>

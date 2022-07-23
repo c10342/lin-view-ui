@@ -10,7 +10,7 @@
       <slot></slot>
     </div>
     <LinCollapseTransition>
-      <div class="lin-collapse-item-content" v-show="show">
+      <div v-show="show" class="lin-collapse-item-content">
         <slot name="content"></slot>
       </div>
     </LinCollapseTransition>

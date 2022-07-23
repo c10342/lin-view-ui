@@ -27,7 +27,8 @@ export default defineComponent({
     },
     // 最大值，超过最大值会显示 '{max}+'
     max: {
-      type: Number
+      type: Number,
+      default: null
     },
     // 是否显示小圆点
     isDot: {

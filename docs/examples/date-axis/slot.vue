@@ -1,6 +1,6 @@
 <template>
   <lin-date-axis v-model:value="value">
-    <template v-slot:default="slotProps">
+    <template #default="slotProps">
       <div>{{ formatDate(slotProps.date) }}</div>
     </template>
   </lin-date-axis>
@@ -10,7 +10,7 @@
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  setup(props, context) {
+  setup() {
     const formatDate = (date: Date) => {
       return `${date.getMonth()}-${date.getDate()}`;
     };

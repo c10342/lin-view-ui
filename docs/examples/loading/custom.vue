@@ -1,10 +1,10 @@
 <template>
   <div
+    v-loading="loading"
     class="loading-box"
     lin-loading-text="拼命加载中"
     lin-loading-background="rgba(0, 0, 0, 0.8)"
     lin-loading-textColor="#fff"
-    v-loading="loading"
   ></div>
 </template>
 

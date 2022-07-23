@@ -1,10 +1,10 @@
 <template>
   <div class="lin-image">
     <img
+      v-if="isShowImg"
       :alt="alt"
       :referrer-policy="referrerPolicy"
       :class="[{ [`is-object-${fit}`]: fit }, 'lin-image-img']"
-      v-if="isShowImg"
       :src="currentUrl"
       @error="onError"
       @load="onLoad"
@@ -27,7 +27,8 @@ export default defineComponent({
   props: {
     // 图片地址
     url: {
-      type: [Array, String] as PropType<string | string[]>
+      type: [Array, String] as PropType<string | string[]>,
+      default: null
     },
     // 确定图片如何适应容器框，同原生 object-fit
     fit: {
@@ -46,7 +47,8 @@ export default defineComponent({
     },
     // 图片加载失败提示语
     errorMsg: {
-      type: String
+      type: String,
+      default: null
     }
   },
   emits: ["error", "success"],

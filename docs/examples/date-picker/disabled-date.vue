@@ -1,10 +1,10 @@
 <template>
   <lin-date-picker
-    disabledBeforeDate="2022-7-2"
-    disabledAfterDate="2022-7-30"
-    :disabledRangeDate="disabledRangeDate"
-    :disabledDate="disabledDate"
     v-model:value="now"
+    disabled-before-date="2022-7-2"
+    disabled-after-date="2022-7-30"
+    :disabled-range-date="disabledRangeDate"
+    :disabled-date="disabledDate"
   />
 </template>
 

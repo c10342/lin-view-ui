@@ -1,7 +1,7 @@
 <template>
   <lin-button @click="onClick">点击打开Dialog</lin-button>
   <lin-dialog v-model:visible="visible" @close="onClose">
-    <template v-slot:title>
+    <template #title>
       <span>这是自定义标题</span>
     </template>
     <span>这是一段信息</span>

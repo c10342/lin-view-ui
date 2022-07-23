@@ -25,6 +25,7 @@ export default defineComponent({
     },
     // 选项的值
     value: {
+      type: null,
       default: ""
     },
     // 是否禁用

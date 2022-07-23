@@ -1,28 +1,28 @@
 <template>
   <transition name="lin-fade" @after-leave="onAfterLeave">
     <div
+      v-if="show"
       :class="[
         'lin-alert',
         `lin-alert-${type}`,
         `is-${effect}`,
         { 'is-center': center }
       ]"
-      v-if="show"
     >
       <slot name="icon">
-        <LinIcon class="lin-alert-icon" :name="icon" v-if="icon" />
+        <LinIcon v-if="icon" class="lin-alert-icon" :name="icon" />
       </slot>
       <div class="lin-alert-content">
         <slot name="title">
           <span class="lin-alert-title">{{ title }}</span>
         </slot>
         <slot name="description">
-          <span class="lin-alert-description" v-if="description">
+          <span v-if="description" class="lin-alert-description">
             {{ description }}
           </span>
         </slot>
       </div>
-      <span class="lin-alert-close" v-if="closable" @click="onCloseClick">
+      <span v-if="closable" class="lin-alert-close" @click="onCloseClick">
         <slot name="close">
           <LinIcon name="close" />
         </slot>

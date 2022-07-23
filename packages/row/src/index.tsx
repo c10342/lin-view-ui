@@ -1,5 +1,5 @@
 import { rowContextKey } from "@packages/tokens";
-import { computed, defineComponent, h, provide } from "vue";
+import { computed, defineComponent, provide } from "vue";
 
 export default defineComponent({
   name: "LinRow",

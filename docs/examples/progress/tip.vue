@@ -2,7 +2,7 @@
   <lin-progress :height="20" type="danger" :percent="0.5">
     <p class="demo-out-tip">百分之五十</p>
 
-    <template v-slot:text>
+    <template #text>
       <p class="demo-in-tip">百分之五十</p>
     </template>
   </lin-progress>

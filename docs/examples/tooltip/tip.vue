@@ -1,13 +1,13 @@
 <template>
   <p
-    class="one-line tooltip-message"
     v-tooltip.top.auto="
       '测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题'
     "
+    class="one-line tooltip-message"
   >
     测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题
   </p>
-  <p class="one-line tooltip-message" v-tooltip.top.auto="'标题文字'">
+  <p v-tooltip.top.auto="'标题文字'" class="one-line tooltip-message">
     标题文字
   </p>
 </template>

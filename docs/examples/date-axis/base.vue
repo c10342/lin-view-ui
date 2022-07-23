@@ -6,7 +6,7 @@
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  setup(props, context) {
+  setup() {
     const value = ref(new Date());
     return {
       value

@@ -5,14 +5,14 @@
         :class="['lin-progress-inner', { [`is-${type}`]: type }]"
         :style="innerStyle"
       >
-        <div class="lin-progress-inside-text" v-if="isShowInsideText">
+        <div v-if="isShowInsideText" class="lin-progress-inside-text">
           <slot name="text">
             <span class="lin-progress-inside-tip">{{ textInside }}</span>
           </slot>
         </div>
       </div>
     </div>
-    <div class="lin-progress-outside-text" v-if="isShowOutsideText">
+    <div v-if="isShowOutsideText" class="lin-progress-outside-text">
       <slot>
         <span class="lin-progress-outside-tip">{{ textOutside }}</span>
       </slot>

@@ -2,7 +2,6 @@
   <transition name="lin-fade" @after-leave="afterLeave">
     <div
       v-if="show"
-      @click="onTagClick"
       :class="[
         'lin-tag',
         `is-${type}`,
@@ -10,13 +9,14 @@
         { [`is-${tagSize}`]: tagSize }
       ]"
       :style="{ 'background-color': color }"
+      @click="onTagClick"
     >
       <span>{{ text }}</span>
       <Icon
         v-if="closable"
-        @click="onCloseClick"
         name="close"
         class="lin-tag-close"
+        @click="onCloseClick"
       />
     </div>
   </transition>

@@ -1,7 +1,7 @@
 <template>
   <lin-limit-textarea
     v-model:value="value"
-    :maxLen="10"
+    :max-len="10"
     placeholder="最多输入10个字符"
   ></lin-limit-textarea>
 </template>

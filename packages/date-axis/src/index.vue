@@ -1,6 +1,6 @@
 <template>
   <div class="lin-date-axis">
-    <div class="lin-date-axis-wrapper" ref="wrapperRef">
+    <div ref="wrapperRef" class="lin-date-axis-wrapper">
       <span class="lin-date-axis-left lin-date-axis-arrow" @click="prevWeek">
         <slot name="prevWeek">
           <LinIcon name="arrowhead-left" class="lin-date-axis-icon" />
@@ -13,8 +13,8 @@
       </span>
       <ul class="lin-date-axis-list">
         <li
-          :id="`dateAxis-${date.getDay()}`"
           v-for="(date, index) in timeList"
+          :id="`dateAxis-${date.getDay()}`"
           :key="index"
           :class="[
             'lin-date-axis-item',
@@ -51,7 +51,7 @@
         }"
       ></div>
     </div>
-    <div class="lin-date-axis-more" ref="moreRef">
+    <div ref="moreRef" class="lin-date-axis-more">
       <div @click="onMoreClick">
         <slot name="more">
           <div class="lin-date-axis-more-content">
@@ -62,25 +62,25 @@
       </div>
       <transition name="lin-fade">
         <div
+          v-show="isShowPopup"
+          ref="scrollRef"
           :class="[
             'lin-date-axis-popup',
             { 'is-left': !isRight },
             { 'is-right': isRight }
           ]"
-          v-show="isShowPopup"
-          ref="scrollRef"
           :style="{ left }"
         >
           <LinDatePicker
-            @select="onDateSelect"
             :value="props.value"
-            showAlways
-            :showInput="false"
-            :disabledBeforeDate="disabledBeforeDate"
-            :disabledAfterDate="disabledAfterDate"
-            :disabledRangeDate="disabledRangeDate"
-            :disabledDate="disabledDate"
+            show-always
+            :show-input="false"
+            :disabled-before-date="disabledBeforeDate"
+            :disabled-after-date="disabledAfterDate"
+            :disabled-range-date="disabledRangeDate"
+            :disabled-date="disabledDate"
             :disabled="disabled"
+            @select="onDateSelect"
           />
         </div>
       </transition>

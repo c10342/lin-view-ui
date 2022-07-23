@@ -18,16 +18,7 @@ import {
 
 export default defineComponent({
   name: "LinDatePicker",
-  emits: [
-    "prevYear",
-    "prevMonth",
-    "nextMonth",
-    "nextYear",
-    "update:value",
-    "select",
-    "focus",
-    "blur"
-  ],
+
   props: {
     // 日期块是否为圆角
     radius: {
@@ -56,7 +47,8 @@ export default defineComponent({
     },
     // 输入框占位符
     placeholder: {
-      type: String
+      type: String,
+      default: null
     },
     // 自定义渲染日期块，使用 Vue 的 Render 函数。传入两个参数，第一个是 h，第二个是日期对象。可以使用 jsx
     renderInfo: {
@@ -80,7 +72,16 @@ export default defineComponent({
     },
     ...DateProps
   },
-
+  emits: [
+    "prevYear",
+    "prevMonth",
+    "nextMonth",
+    "nextYear",
+    "update:value",
+    "select",
+    "focus",
+    "blur"
+  ],
   setup(props, context) {
     const { t } = useScopeLocale("DatePicker");
     const { isDisabledDate } = useDate(props);

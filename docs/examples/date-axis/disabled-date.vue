@@ -1,7 +1,7 @@
 <template>
   <lin-date-axis
-    :disabledDate="disabledDate"
     v-model:value="value"
+    :disabled-date="disabledDate"
   ></lin-date-axis>
 </template>
 
@@ -9,7 +9,7 @@
 import { defineComponent, ref } from "vue";
 const ONE = 1000 * 60 * 60 * 24;
 export default defineComponent({
-  setup(props, context) {
+  setup() {
     const value = ref(new Date());
     const now = new Date();
     const disabledDate = [

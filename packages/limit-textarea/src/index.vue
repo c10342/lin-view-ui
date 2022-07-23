@@ -1,11 +1,11 @@
 <template>
   <div class="lin-limit-textarea">
     <textarea
-      @keyup="handleInput"
       v-bind="textareaProps"
       class="lin-limit-textarea-input"
       :class="{ 'is-over': isOver }"
       :value="value"
+      @keyup="handleInput"
     ></textarea>
     <span v-if="maxLen !== -1" class="lin-limit-textarea-text">
       {{ isOver ? t("exceeded") : t("enterInput") }}

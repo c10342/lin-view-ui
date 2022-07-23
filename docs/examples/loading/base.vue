@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-box" v-loading="loading"></div>
+  <div v-loading="loading" class="loading-box"></div>
 </template>
 
 <script lang="ts">

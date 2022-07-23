@@ -6,7 +6,6 @@ import LinIcon from "@packages/icon";
 export default defineComponent({
   name: "LinPagination",
   components: { LinIcon },
-  emits: ["update:pageIndex", "change", "prevClick", "nextClick"],
   props: {
     // 页码按钮的数量，当总页数超过该值时会折叠
     pageCount: {
@@ -39,6 +38,7 @@ export default defineComponent({
       default: "prev, pager, next, jumper,total"
     }
   },
+  emits: ["update:pageIndex", "change", "prevClick", "nextClick"],
   setup(props, context) {
     // 是否禁用上一个
     const disabledPrev = computed(() => {

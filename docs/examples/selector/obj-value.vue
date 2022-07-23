@@ -1,5 +1,5 @@
 <template>
-  <lin-selector-group label="标签：" value-key="id" v-model:value="value">
+  <lin-selector-group v-model:value="value" label="标签：" value-key="id">
     <lin-selector-item
       v-for="item in list"
       :key="item.id"

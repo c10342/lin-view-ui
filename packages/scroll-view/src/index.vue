@@ -6,14 +6,14 @@
     @mouseleave="onMouseLeave"
   >
     <div
-      @scroll="onWrapperScroll"
-      class="lin-scroll-view-wrapper"
       ref="wrapperRef"
+      class="lin-scroll-view-wrapper"
       :style="style"
+      @scroll="onWrapperScroll"
     >
-      <div class="lin-scroll-view-content" ref="contentRef">
+      <div ref="contentRef" class="lin-scroll-view-content">
         <slot></slot>
-        <div class="lin-scroll-view-spinner" v-if="loading">
+        <div v-if="loading" class="lin-scroll-view-spinner">
           <slot name="loading">
             <Icon name="loading" />
           </slot>
@@ -21,16 +21,16 @@
       </div>
     </div>
     <div
-      class="lin-scroll-view-barwrapper"
       v-if="showBar"
+      class="lin-scroll-view-barwrapper"
       @click="onBarWrapperClick"
     >
       <div
         v-show="hoverBar || hover"
-        @mousedown="onMouseDown"
         ref="barRef"
         class="lin-scroll-view-bar"
         :style="{ height: `${barHeight}px`, top: `${barTop}px` }"
+        @mousedown="onMouseDown"
       ></div>
     </div>
   </div>
@@ -68,11 +68,13 @@ export default defineComponent({
     },
     // 最大高度
     maxHeight: {
-      type: String
+      type: String,
+      default: null
     },
     // 最小高度
     minHeight: {
-      type: String
+      type: String,
+      default: null
     },
     // 是否正在加载，显示加载动画
     loading: {

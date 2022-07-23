@@ -1,9 +1,9 @@
 <template>
   <lin-date-picker
     v-model:value="now"
-    :cellWidth="40"
-    :cellHeight="40"
-    :renderInfo="renderInfo"
+    :cell-width="40"
+    :cell-height="40"
+    :render-info="renderInfo"
   />
 </template>
 

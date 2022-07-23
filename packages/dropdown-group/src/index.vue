@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="lin-dropdown-group-label" v-if="label">{{ label }}</div>
+    <div v-if="label" class="lin-dropdown-group-label">{{ label }}</div>
     <slot></slot>
   </div>
 </template>
@@ -12,7 +12,10 @@ export default defineComponent({
   name: "LinDropdownGroup",
   props: {
     // 分组的组名
-    label: String
+    label: {
+      type: String,
+      default: null
+    }
   }
 });
 </script>

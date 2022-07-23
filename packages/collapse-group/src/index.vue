@@ -15,7 +15,8 @@ export default defineComponent({
   props: {
     // 当前激活面板的name，accordion为true就是String或者Number,否则就是Array
     value: {
-      type: [Array, String, Number] as PropType<ValueType>
+      type: [Array, String, Number] as PropType<ValueType>,
+      default: null
     },
     // 是否开启手风琴模式，开启后每次至多展开一个面板
     accordion: {

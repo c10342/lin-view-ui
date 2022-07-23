@@ -2,8 +2,8 @@
   <!-- 对话框的遮罩 .self代表只有点击自己才触发 -->
   <transition name="lin-fade">
     <div
-      class="lin-dialog-overlay"
       v-show="visible"
+      class="lin-dialog-overlay"
       @click.self="onWrapperClick"
     >
       <transition :name="drag ? '' : 'lin-dialog-fade'">
@@ -29,7 +29,7 @@
             <!-- 默认插槽 -->
             <slot></slot>
           </div>
-          <div class="lin-dialog-footer" v-if="$slots.footer">
+          <div v-if="$slots.footer" class="lin-dialog-footer">
             <slot name="footer"></slot>
           </div>
         </div>
@@ -50,7 +50,8 @@ export default defineComponent({
   props: {
     // 标题
     title: {
-      type: String
+      type: String,
+      default: null
     },
     // 宽度
     width: {
@@ -69,7 +70,8 @@ export default defineComponent({
     },
     // 关闭前的回调，会暂停 Dialog 的关闭
     beforeClose: {
-      type: Function
+      type: Function,
+      default: null
     },
     // 是否可以通过点击 modal 关闭 Dialog
     closeOnClickModal: {
@@ -81,6 +83,7 @@ export default defineComponent({
       default: false
     }
   },
+  emits: ["update:visible", "close"],
   setup(props, context) {
     const { t } = useScopeLocale("Dialog");
     const dragRef = ref<HTMLElement | null>(null);

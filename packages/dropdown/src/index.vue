@@ -1,24 +1,24 @@
 <template>
   <div
+    ref="containerRef"
+    class="lin-dropdown"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
     @click.stop
-    class="lin-dropdown"
-    ref="containerRef"
   >
-    <div class="lin-dropdown-label" @click="onLabelClick" ref="labelRef">
+    <div ref="labelRef" class="lin-dropdown-label" @click="onLabelClick">
       <slot></slot>
     </div>
     <transition name="lin-fade">
       <div
         v-show="isShow"
+        ref="dropdownRef"
         :class="[
           'lin-dropdown-container',
           { 'is-down': isDown },
           { 'is-up': !isDown }
         ]"
         :style="{ top }"
-        ref="dropdownRef"
       >
         <slot name="dropdown"></slot>
       </div>

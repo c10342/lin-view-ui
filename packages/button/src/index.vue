@@ -14,9 +14,9 @@
     :autofocus="autofocus"
     @click="onClick"
   >
-    <LinIcon name="loading" v-if="loading" />
-    <LinIcon :name="icon" v-if="icon" />
-    <span :class="{ 'lin-ml-6': loading || icon }" v-if="$slots.default">
+    <LinIcon v-if="loading" name="loading" />
+    <LinIcon v-if="icon" :name="icon" />
+    <span v-if="$slots.default" :class="{ 'lin-ml-6': loading || icon }">
       <slot />
     </span>
   </button>
@@ -31,11 +31,13 @@ export default defineComponent({
   components: { LinIcon },
   props: {
     size: {
-      type: String as PropType<"large" | "small">
+      type: String as PropType<"large" | "small">,
+      default: null
     },
     // 类型
     type: {
-      type: String as PropType<"primary" | "success" | "warning" | "danger">
+      type: String as PropType<"primary" | "success" | "warning" | "danger">,
+      default: null
     },
     // 是否为朴素按钮
     plain: {
@@ -69,7 +71,8 @@ export default defineComponent({
     },
     // 按钮图标
     icon: {
-      type: String
+      type: String,
+      default: null
     }
   },
   emits: ["click"],

@@ -1,13 +1,13 @@
 <template>
   <div
-    @click="onItemClick"
     :class="[
       { 'is-divided': divided },
       { 'is-disabled': disabled },
       'lin-dropdown-item'
     ]"
+    @click="onItemClick"
   >
-    <LinIcon :name="icon" class="lin-dropdown-item-icon" v-if="icon" />
+    <LinIcon v-if="icon" :name="icon" class="lin-dropdown-item-icon" />
     <div>
       <slot></slot>
     </div>
@@ -34,7 +34,10 @@ export default defineComponent({
       default: false
     },
     // 指令
-    command: null,
+    command: {
+      type: null,
+      default: null
+    },
     // 图标类名
     icon: {
       type: String,

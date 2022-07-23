@@ -32,7 +32,8 @@ export default defineComponent({
     },
     // 绑定值
     value: {
-      type: [String, Object, Number, Boolean]
+      type: [String, Object, Number, Boolean],
+      default: null
     },
     // 作为 value 唯一标识的键名，绑定值为对象类型时必填
     valueKey: {

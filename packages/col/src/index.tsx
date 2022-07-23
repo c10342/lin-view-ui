@@ -37,13 +37,25 @@ export default defineComponent({
       default: 0
     },
     // 响应式栅格数或者属性对象  <768px
-    xs: [Number, Object] as PropType<ColSize>,
+    xs: {
+      type: [Number, Object] as PropType<ColSize>,
+      default: null
+    },
     // ≥768px 响应式栅格数或者栅格属性对象
-    sm: [Number, Object] as PropType<ColSize>,
+    sm: {
+      type: [Number, Object] as PropType<ColSize>,
+      default: null
+    },
     // ≥992 响应式栅格数或者栅格属性对象
-    md: [Number, Object] as PropType<ColSize>,
+    md: {
+      type: [Number, Object] as PropType<ColSize>,
+      default: null
+    },
     // ≥1200 响应式栅格数或者栅格属性对象
-    lg: [Number, Object] as PropType<ColSize>
+    lg: {
+      type: [Number, Object] as PropType<ColSize>,
+      default: null
+    }
   },
   setup(props, context) {
     const { gutter } = inject(rowContextKey, { gutter: computed(() => 0) });
