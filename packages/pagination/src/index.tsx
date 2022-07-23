@@ -1,6 +1,5 @@
 import { useScopeLocale } from "@packages/hooks";
-import { isNumber } from "@packages/utils";
-import { computed, defineComponent, watch } from "vue";
+import { computed, defineComponent } from "vue";
 import { keyCode, layoutType } from "./enum";
 import LinIcon from "@packages/icon";
 
