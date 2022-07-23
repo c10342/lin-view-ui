@@ -96,14 +96,7 @@ import {
   useScopeLocale
 } from "@packages/hooks";
 import { getYearMonthDay, throttle } from "@packages/utils";
-import {
-  defineProps,
-  nextTick,
-  ref,
-  defineEmits,
-  onMounted,
-  onBeforeUnmount
-} from "vue";
+import { nextTick, ref, onMounted, onBeforeUnmount } from "vue";
 import LinDatePicker from "@packages/date-picker";
 
 const ONEDAY = 60 * 60 * 1000 * 24;
