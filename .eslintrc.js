@@ -29,7 +29,7 @@ module.exports = defineConfig({
     "@typescript-eslint/no-var-requires": "off",
     "linebreak-style": "off",
     quotes: ["error", "double"],
-    semi: "error",
+    semi: ["error", "always"],
     "comma-dangle": ["error", "never"],
     "@typescript-eslint/no-unused-vars": "error",
     "object-curly-newline": "error",
@@ -39,9 +39,16 @@ module.exports = defineConfig({
     "symbol-description": "error",
     "lines-between-class-members": "error",
     "operator-linebreak": ["error", "before"],
+    // "no-trailing-spaces": "error",
+    "key-spacing": ["error", { afterColon: true }],
+    "no-multi-spaces": "error",
     indent: ["error", 2],
+    "spaced-comment": "error",
     // 空行
-    "no-multiple-empty-lines": ["error", { max: 1 }]
+    "no-multiple-empty-lines": ["error", { max: 1 }],
+    "eqeqeq": "error",
+    "vue/eqeqeq": "error",
+    "vue/comma-dangle": "error"
     // 函数名和括号之间间隔
     // "space-before-function-paren":["error",'always']
     // "import/extensions": [
