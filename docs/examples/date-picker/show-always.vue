@@ -1,5 +1,9 @@
 <template>
-  <lin-date-picker v-model:value="now" show-always :show-input="false" />
+  <lin-date-picker
+    v-model:value="now"
+    show-always
+    :show-input="false"
+  />
 </template>
 
 <script lang="ts">

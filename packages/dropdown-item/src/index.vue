@@ -7,9 +7,13 @@
     ]"
     @click="onItemClick"
   >
-    <LinIcon v-if="icon" :name="icon" class="lin-dropdown-item-icon" />
+    <LinIcon
+      v-if="icon"
+      :name="icon"
+      class="lin-dropdown-item-icon"
+    />
     <div>
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>

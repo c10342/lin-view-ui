@@ -1,6 +1,10 @@
 <template>
   <div class="icon-wrapper">
-    <div v-for="(icon, index) in icons" :key="index" class="icon-item">
+    <div
+      v-for="(icon, index) in icons"
+      :key="index"
+      class="icon-item"
+    >
       <lin-icon :name="icon" />
       <span class="mt-10 icon-name">{{ icon }}</span>
     </div>

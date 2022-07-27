@@ -12,9 +12,13 @@
     ]"
     @click="onClick"
   >
-    <LinIcon v-if="icon" class="lin-link-icon" :name="icon" />
+    <LinIcon
+      v-if="icon"
+      class="lin-link-icon"
+      :name="icon"
+    />
     <span>
-      <slot></slot>
+      <slot />
     </span>
   </a>
 </template>

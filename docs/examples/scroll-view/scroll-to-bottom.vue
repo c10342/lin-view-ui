@@ -1,7 +1,14 @@
 <template>
   <div class="scroll-view">
-    <lin-scroll-view :loading="loading" @scroll-to-bottom="scrollToBottom">
-      <div v-for="(item, index) in list" :key="index" class="scroll-item">
+    <lin-scroll-view
+      :loading="loading"
+      @scroll-to-bottom="scrollToBottom"
+    >
+      <div
+        v-for="(item, index) in list"
+        :key="index"
+        class="scroll-item"
+      >
         {{ item }}
       </div>
     </lin-scroll-view>

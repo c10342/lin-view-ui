@@ -2,7 +2,7 @@
   <span
     :class="['lin-icon', 'lin-iconfont', `lin-icon-${name}`]"
     :style="{ 'font-size': size, color: color }"
-  ></span>
+  />
 </template>
 
 <script lang="ts">

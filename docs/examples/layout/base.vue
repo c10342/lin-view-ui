@@ -1,38 +1,38 @@
 <template>
   <lin-row class="mb-10">
     <lin-col :span="24">
-      <div class="grid-content bg-purple-dark"></div>
+      <div class="grid-content bg-purple-dark" />
     </lin-col>
   </lin-row>
   <lin-row class="mb-10">
     <lin-col :span="8">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="8">
-      <div class="grid-content bg-purple-light"></div>
+      <div class="grid-content bg-purple-light" />
     </lin-col>
     <lin-col :span="8">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
   </lin-row>
   <lin-row>
     <lin-col :span="4">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="4">
-      <div class="grid-content bg-purple-light"></div>
+      <div class="grid-content bg-purple-light" />
     </lin-col>
     <lin-col :span="4">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="4">
-      <div class="grid-content bg-purple-light"></div>
+      <div class="grid-content bg-purple-light" />
     </lin-col>
     <lin-col :span="4">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="4">
-      <div class="grid-content bg-purple-light"></div>
+      <div class="grid-content bg-purple-light" />
     </lin-col>
   </lin-row>
 </template>

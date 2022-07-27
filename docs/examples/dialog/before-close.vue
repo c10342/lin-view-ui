@@ -1,6 +1,11 @@
 <template>
-  <lin-button @click="onClick">点击打开Dialog</lin-button>
-  <lin-dialog v-model:visible="visible" :before-close="handleClose">
+  <lin-button @click="onClick">
+    点击打开Dialog
+  </lin-button>
+  <lin-dialog
+    v-model:visible="visible"
+    :before-close="handleClose"
+  >
     <span>这是一段信息</span>
   </lin-dialog>
 </template>

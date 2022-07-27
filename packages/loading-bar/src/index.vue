@@ -5,14 +5,17 @@
       class="lin-loading-bar-progress"
       :class="{ 'is-error': isError }"
     >
-      <div class="lin-loading-bar-peg"></div>
+      <div class="lin-loading-bar-peg" />
     </div>
-    <div v-if="showSpinner" class="lin-loading-bar-spinner">
+    <div
+      v-if="showSpinner"
+      class="lin-loading-bar-spinner"
+    >
       <div
         :style="{ 'animation-timing-function': easing }"
         class="lin-loading-bar-icon"
         :class="{ 'is-icon-error': isError }"
-      ></div>
+      />
     </div>
   </div>
 </template>

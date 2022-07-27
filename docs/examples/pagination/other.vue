@@ -6,8 +6,7 @@
       background
       layout="total,prev, pager, next"
       :total="1000"
-    >
-    </lin-pagination>
+    />
   </div>
   <div>
     <p>直接前往</p>
@@ -16,8 +15,7 @@
       background
       layout="prev, pager, next,jumper"
       :total="1000"
-    >
-    </lin-pagination>
+    />
   </div>
   <div>
     <p>完整功能</p>
@@ -26,8 +24,7 @@
       background
       layout="total,prev, pager, next,jumper"
       :total="1000"
-    >
-    </lin-pagination>
+    />
   </div>
 </template>
 

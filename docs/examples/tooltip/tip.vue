@@ -7,7 +7,10 @@
   >
     测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题测试超长标题
   </p>
-  <p v-tooltip.top.auto="'标题文字'" class="one-line tooltip-message">
+  <p
+    v-tooltip.top.auto="'标题文字'"
+    class="one-line tooltip-message"
+  >
     标题文字
   </p>
 </template>

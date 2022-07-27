@@ -1,19 +1,91 @@
 <template>
   <div>
-    <lin-button disabled>Default</lin-button>
-    <lin-button class="ml-20" type="primary" disabled>Primary</lin-button>
-    <lin-button class="ml-20" type="success" disabled>Success</lin-button>
-    <lin-button class="ml-20" type="info" disabled>Info</lin-button>
-    <lin-button class="ml-20" type="warning" disabled>Warning</lin-button>
-    <lin-button class="ml-20" type="danger" disabled>Danger</lin-button>
+    <lin-button disabled>
+      Default
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="primary"
+      disabled
+    >
+      Primary
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="success"
+      disabled
+    >
+      Success
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="info"
+      disabled
+    >
+      Info
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="warning"
+      disabled
+    >
+      Warning
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="danger"
+      disabled
+    >
+      Danger
+    </lin-button>
   </div>
 
   <div class="mt-20">
-    <lin-button plain disabled>Default</lin-button>
-    <lin-button class="ml-20" type="primary" plain disabled>Primary</lin-button>
-    <lin-button class="ml-20" type="success" plain disabled>Success</lin-button>
-    <lin-button class="ml-20" type="info" plain disabled>Info</lin-button>
-    <lin-button class="ml-20" type="warning" plain disabled>Warning</lin-button>
-    <lin-button class="ml-20" type="danger" plain disabled>Danger</lin-button>
+    <lin-button
+      plain
+      disabled
+    >
+      Default
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="primary"
+      plain
+      disabled
+    >
+      Primary
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="success"
+      plain
+      disabled
+    >
+      Success
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="info"
+      plain
+      disabled
+    >
+      Info
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="warning"
+      plain
+      disabled
+    >
+      Warning
+    </lin-button>
+    <lin-button
+      class="ml-20"
+      type="danger"
+      plain
+      disabled
+    >
+      Danger
+    </lin-button>
   </div>
 </template>

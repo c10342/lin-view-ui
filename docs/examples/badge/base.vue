@@ -2,13 +2,24 @@
   <lin-badge :value="12">
     <lin-button>评论</lin-button>
   </lin-badge>
-  <lin-badge :value="3" class="ml-40">
+  <lin-badge
+    :value="3"
+    class="ml-40"
+  >
     <lin-button>回复</lin-button>
   </lin-badge>
-  <lin-badge :value="1" type="danger" class="ml-40">
+  <lin-badge
+    :value="1"
+    type="danger"
+    class="ml-40"
+  >
     <lin-button>评论</lin-button>
   </lin-badge>
-  <lin-badge :value="2" type="warning" class="ml-40">
+  <lin-badge
+    :value="2"
+    type="warning"
+    class="ml-40"
+  >
     <lin-button>回复</lin-button>
   </lin-badge>
 </template>

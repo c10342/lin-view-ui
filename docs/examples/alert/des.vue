@@ -4,23 +4,23 @@
     type="success"
     title="提示文案"
     class="mt-20"
-  ></lin-alert>
+  />
   <lin-alert
     description="文字说明文字说明文字说明"
     type="info"
     title="提示文案"
     class="mt-20"
-  ></lin-alert>
+  />
   <lin-alert
     description="文字说明文字说明文字说明"
     type="warning"
     title="提示文案"
     class="mt-20"
-  ></lin-alert>
+  />
   <lin-alert
     description="文字说明文字说明文字说明"
     type="danger"
     title="提示文案"
     class="mt-20"
-  ></lin-alert>
+  />
 </template>

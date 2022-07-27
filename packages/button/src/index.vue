@@ -14,9 +14,18 @@
     :autofocus="autofocus"
     @click="onClick"
   >
-    <LinIcon v-if="loading" name="loading" />
-    <LinIcon v-if="icon" :name="icon" />
-    <span v-if="$slots.default" :class="{ 'lin-ml-6': loading || icon }">
+    <LinIcon
+      v-if="loading"
+      name="loading"
+    />
+    <LinIcon
+      v-if="icon"
+      :name="icon"
+    />
+    <span
+      v-if="$slots.default"
+      :class="{ 'lin-ml-6': loading || icon }"
+    >
       <slot />
     </span>
   </button>

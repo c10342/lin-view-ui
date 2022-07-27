@@ -1,6 +1,6 @@
 <template>
   <div class="lin-badge">
-    <slot></slot>
+    <slot />
     <span
       v-if="!isDot"
       :class="['is-fixed', 'lin-badge-text', `lin-badge-${type}`]"
@@ -10,7 +10,7 @@
     <span
       v-if="isDot"
       :class="['is-fixed', 'lin-badge-dot', `lin-badge-${type}`]"
-    ></span>
+    />
   </div>
 </template>
 

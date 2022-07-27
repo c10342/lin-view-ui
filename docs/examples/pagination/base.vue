@@ -4,14 +4,13 @@
     v-model:pageIndex="pageIndex1"
     layout="prev, pager, next"
     :total="50"
-  ></lin-pagination>
+  />
   <p>大于 7 页时的效果</p>
   <lin-pagination
     v-model:pageIndex="pageIndex2"
     layout="prev, pager, next"
     :total="1000"
-  >
-  </lin-pagination>
+  />
 </template>
 
 <script lang="ts">

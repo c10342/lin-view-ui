@@ -5,14 +5,12 @@
       v-if="textLen !== -1 && textLen < text.length"
       class="lin-show-more-tip"
       @click="showMore"
-      >{{ showText || t("showText") }}</a
-    >
+    >{{ showText || t("showText") }}</a>
     <a
       v-if="textLen !== -1 && textLen === text.length && allowFold"
       class="lin-show-more-tip"
       @click="showMore"
-      >{{ hiddenText || t("hiddenText") }}</a
-    >
+    >{{ hiddenText || t("hiddenText") }}</a>
   </span>
 </template>
 

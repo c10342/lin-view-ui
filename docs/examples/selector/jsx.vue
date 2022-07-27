@@ -10,7 +10,7 @@
       :key="index"
       :value="item"
       :label="item"
-    ></lin-selector-item>
+    />
   </lin-selector-group>
 </template>
 

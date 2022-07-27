@@ -1,6 +1,11 @@
 <template>
-  <lin-button @click="onClick">点击打开Dialog</lin-button>
-  <lin-dialog v-model:visible="visible" @close="onClose">
+  <lin-button @click="onClick">
+    点击打开Dialog
+  </lin-button>
+  <lin-dialog
+    v-model:visible="visible"
+    @close="onClose"
+  >
     <template #title>
       <span>这是自定义标题</span>
     </template>

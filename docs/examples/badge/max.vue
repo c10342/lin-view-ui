@@ -1,8 +1,15 @@
 <template>
-  <lin-badge :value="200" :max="99">
+  <lin-badge
+    :value="200"
+    :max="99"
+  >
     <lin-button>评论</lin-button>
   </lin-badge>
-  <lin-badge :value="100" :max="10" class="ml-40">
+  <lin-badge
+    :value="100"
+    :max="10"
+    class="ml-40"
+  >
     <lin-button>回复</lin-button>
   </lin-badge>
 </template>

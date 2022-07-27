@@ -1,5 +1,8 @@
 <template>
-  <transition name="lin-fade" @after-leave="onAfterLeave">
+  <transition
+    name="lin-fade"
+    @after-leave="onAfterLeave"
+  >
     <div
       v-if="show"
       :class="[
@@ -10,19 +13,30 @@
       ]"
     >
       <slot name="icon">
-        <LinIcon v-if="icon" class="lin-alert-icon" :name="icon" />
+        <LinIcon
+          v-if="icon"
+          class="lin-alert-icon"
+          :name="icon"
+        />
       </slot>
       <div class="lin-alert-content">
         <slot name="title">
           <span class="lin-alert-title">{{ title }}</span>
         </slot>
         <slot name="description">
-          <span v-if="description" class="lin-alert-description">
+          <span
+            v-if="description"
+            class="lin-alert-description"
+          >
             {{ description }}
           </span>
         </slot>
       </div>
-      <span v-if="closable" class="lin-alert-close" @click="onCloseClick">
+      <span
+        v-if="closable"
+        class="lin-alert-close"
+        @click="onCloseClick"
+      >
         <slot name="close">
           <LinIcon name="close" />
         </slot>

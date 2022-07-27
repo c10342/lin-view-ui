@@ -1,18 +1,27 @@
 <template>
   <div class="lin-progress">
-    <div class="lin-progress-out" :style="outStyle">
+    <div
+      class="lin-progress-out"
+      :style="outStyle"
+    >
       <div
         :class="['lin-progress-inner', { [`is-${type}`]: type }]"
         :style="innerStyle"
       >
-        <div v-if="isShowInsideText" class="lin-progress-inside-text">
+        <div
+          v-if="isShowInsideText"
+          class="lin-progress-inside-text"
+        >
           <slot name="text">
             <span class="lin-progress-inside-tip">{{ textInside }}</span>
           </slot>
         </div>
       </div>
     </div>
-    <div v-if="isShowOutsideText" class="lin-progress-outside-text">
+    <div
+      v-if="isShowOutsideText"
+      class="lin-progress-outside-text"
+    >
       <slot>
         <span class="lin-progress-outside-tip">{{ textOutside }}</span>
       </slot>

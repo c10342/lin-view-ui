@@ -1,64 +1,72 @@
 <template>
   <div>
-    <lin-tag effect="dark" closable text="标签1"></lin-tag>
+    <lin-tag
+      effect="dark"
+      closable
+      text="标签1"
+    />
     <lin-tag
       class="ml-20"
       effect="dark"
       closable
       text="标签2"
       type="success"
-    ></lin-tag>
+    />
     <lin-tag
       class="ml-20"
       effect="dark"
       closable
       text="标签3"
       type="info"
-    ></lin-tag>
+    />
     <lin-tag
       class="ml-20"
       effect="dark"
       closable
       text="标签4"
       type="warning"
-    ></lin-tag>
+    />
     <lin-tag
       class="ml-20"
       effect="dark"
       closable
       text="标签5"
       type="danger"
-    ></lin-tag>
+    />
   </div>
   <div class="mt-20">
-    <lin-tag effect="plain" closable text="标签1"></lin-tag>
+    <lin-tag
+      effect="plain"
+      closable
+      text="标签1"
+    />
     <lin-tag
       class="ml-20"
       effect="plain"
       closable
       text="标签2"
       type="success"
-    ></lin-tag>
+    />
     <lin-tag
       class="ml-20"
       effect="plain"
       closable
       text="标签3"
       type="info"
-    ></lin-tag>
+    />
     <lin-tag
       class="ml-20"
       effect="plain"
       closable
       text="标签4"
       type="warning"
-    ></lin-tag>
+    />
     <lin-tag
       class="ml-20"
       effect="plain"
       closable
       text="标签5"
       type="danger"
-    ></lin-tag>
+    />
   </div>
 </template>

@@ -1,8 +1,16 @@
 <template>
-  <lin-button v-loading.fullscreen="loading" type="primary" @click="onClick1">
+  <lin-button
+    v-loading.fullscreen="loading"
+    type="primary"
+    @click="onClick1"
+  >
     指令方式
   </lin-button>
-  <lin-button class="ml-20" type="primary" @click="onClick2">
+  <lin-button
+    class="ml-20"
+    type="primary"
+    @click="onClick2"
+  >
     服务方式
   </lin-button>
 </template>

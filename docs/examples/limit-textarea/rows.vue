@@ -5,7 +5,7 @@
     :rows="3"
     placeholder="最多输入10个字符"
     is-cut
-  ></lin-limit-textarea>
+  />
 </template>
 
 <script lang="ts">

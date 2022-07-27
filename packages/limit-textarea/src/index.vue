@@ -6,15 +6,24 @@
       :class="{ 'is-over': isOver }"
       :value="value"
       @keyup="handleInput"
-    ></textarea>
-    <span v-if="maxLen !== -1" class="lin-limit-textarea-text">
+    />
+    <span
+      v-if="maxLen !== -1"
+      class="lin-limit-textarea-text"
+    >
       {{ isOver ? t("exceeded") : t("enterInput") }}
-      <span class="lin-limit-textarea-num" :class="{ 'is-num-over': isOver }">
+      <span
+        class="lin-limit-textarea-num"
+        :class="{ 'is-num-over': isOver }"
+      >
         {{ num }}
       </span>
       {{ t("word") }}
     </span>
-    <span v-else class="lin-limit-textarea-text">
+    <span
+      v-else
+      class="lin-limit-textarea-text"
+    >
       {{ t("entered") }}
       <span class="lin-limit-textarea-num">
         {{ value.toString().length }}

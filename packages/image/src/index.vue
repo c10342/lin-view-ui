@@ -8,7 +8,7 @@
       :src="currentUrl"
       @error="onError"
       @load="onLoad"
-    />
+    >
     <slot v-else>
       <div class="lin-image-error">
         {{ errorMsg || t("errorMsg") }}

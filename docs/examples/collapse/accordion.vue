@@ -1,5 +1,8 @@
 <template>
-  <lin-collapse-group v-model:value="value" accordion>
+  <lin-collapse-group
+    v-model:value="value"
+    accordion
+  >
     <lin-collapse-item name="1">
       史蒂夫·乔布斯
       <template #content>

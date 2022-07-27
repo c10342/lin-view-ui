@@ -1,23 +1,44 @@
 <template>
-  <lin-row :gutter="20" class="mb-10">
+  <lin-row
+    :gutter="20"
+    class="mb-10"
+  >
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
-    <lin-col :span="6" :offset="6">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-  </lin-row>
-  <lin-row :gutter="20" class="mb-10">
-    <lin-col :span="6" :offset="6">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="6" :offset="6">
-      <div class="grid-content bg-purple"></div>
+    <lin-col
+      :span="6"
+      :offset="6"
+    >
+      <div class="grid-content bg-purple" />
     </lin-col>
   </lin-row>
-  <lin-row :gutter="20" class="mb-10">
-    <lin-col :span="12" :offset="6">
-      <div class="grid-content bg-purple"></div>
+  <lin-row
+    :gutter="20"
+    class="mb-10"
+  >
+    <lin-col
+      :span="6"
+      :offset="6"
+    >
+      <div class="grid-content bg-purple" />
+    </lin-col>
+    <lin-col
+      :span="6"
+      :offset="6"
+    >
+      <div class="grid-content bg-purple" />
+    </lin-col>
+  </lin-row>
+  <lin-row
+    :gutter="20"
+    class="mb-10"
+  >
+    <lin-col
+      :span="12"
+      :offset="6"
+    >
+      <div class="grid-content bg-purple" />
     </lin-col>
   </lin-row>
 </template>

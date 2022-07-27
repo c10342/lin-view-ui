@@ -6,8 +6,12 @@
     @mouseleave="onMouseLeave"
     @click.stop
   >
-    <div ref="labelRef" class="lin-dropdown-label" @click="onLabelClick">
-      <slot></slot>
+    <div
+      ref="labelRef"
+      class="lin-dropdown-label"
+      @click="onLabelClick"
+    >
+      <slot />
     </div>
     <transition name="lin-fade">
       <div
@@ -20,7 +24,7 @@
         ]"
         :style="{ top }"
       >
-        <slot name="dropdown"></slot>
+        <slot name="dropdown" />
       </div>
     </transition>
   </div>

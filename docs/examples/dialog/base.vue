@@ -1,11 +1,22 @@
 <template>
-  <lin-button @click="onClick">点击打开Dialog</lin-button>
-  <lin-dialog v-model:visible="visible" width="30%" title="标题" top="20vh">
+  <lin-button @click="onClick">
+    点击打开Dialog
+  </lin-button>
+  <lin-dialog
+    v-model:visible="visible"
+    width="30%"
+    title="标题"
+    top="20vh"
+  >
     <span>这是一段信息</span>
     <template #footer>
       <span class="dialog-footer">
         <lin-button @click="visible = false">取 消</lin-button>
-        <lin-button class="ml-10" type="primary" @click="visible = false">
+        <lin-button
+          class="ml-10"
+          type="primary"
+          @click="visible = false"
+        >
           确 定
         </lin-button>
       </span>

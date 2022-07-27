@@ -1,14 +1,29 @@
 <template>
   <div class="lin-date-axis">
-    <div ref="wrapperRef" class="lin-date-axis-wrapper">
-      <span class="lin-date-axis-left lin-date-axis-arrow" @click="prevWeek">
+    <div
+      ref="wrapperRef"
+      class="lin-date-axis-wrapper"
+    >
+      <span
+        class="lin-date-axis-left lin-date-axis-arrow"
+        @click="prevWeek"
+      >
         <slot name="prevWeek">
-          <LinIcon name="arrowhead-left" class="lin-date-axis-icon" />
+          <LinIcon
+            name="arrowhead-left"
+            class="lin-date-axis-icon"
+          />
         </slot>
       </span>
-      <span class="lin-date-axis-left lin-date-axis-arrow" @click="prevDay">
+      <span
+        class="lin-date-axis-left lin-date-axis-arrow"
+        @click="prevDay"
+      >
         <slot name="prevDay">
-          <LinIcon name="left" class="lin-date-axis-icon" />
+          <LinIcon
+            name="left"
+            class="lin-date-axis-icon"
+          />
         </slot>
       </span>
       <ul class="lin-date-axis-list">
@@ -33,14 +48,26 @@
           </slot>
         </li>
       </ul>
-      <span class="lin-date-axis-right lin-date-axis-arrow" @click="nextDay">
+      <span
+        class="lin-date-axis-right lin-date-axis-arrow"
+        @click="nextDay"
+      >
         <slot name="nextDay">
-          <LinIcon name="right" class="lin-date-axis-icon" />
+          <LinIcon
+            name="right"
+            class="lin-date-axis-icon"
+          />
         </slot>
       </span>
-      <span class="lin-date-axis-right lin-date-axis-arrow" @click="nextWeek">
+      <span
+        class="lin-date-axis-right lin-date-axis-arrow"
+        @click="nextWeek"
+      >
         <slot name="nextWeek">
-          <LinIcon name="arrowhead-right" class="lin-date-axis-icon" />
+          <LinIcon
+            name="arrowhead-right"
+            class="lin-date-axis-icon"
+          />
         </slot>
       </span>
       <div
@@ -49,9 +76,12 @@
           width: lineWidth,
           transform: `translateX(${lineTranslateX})`
         }"
-      ></div>
+      />
     </div>
-    <div ref="moreRef" class="lin-date-axis-more">
+    <div
+      ref="moreRef"
+      class="lin-date-axis-more"
+    >
       <div @click="onMoreClick">
         <slot name="more">
           <div class="lin-date-axis-more-content">

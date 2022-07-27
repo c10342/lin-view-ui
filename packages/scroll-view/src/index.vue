@@ -11,9 +11,15 @@
       :style="style"
       @scroll="onWrapperScroll"
     >
-      <div ref="contentRef" class="lin-scroll-view-content">
-        <slot></slot>
-        <div v-if="loading" class="lin-scroll-view-spinner">
+      <div
+        ref="contentRef"
+        class="lin-scroll-view-content"
+      >
+        <slot />
+        <div
+          v-if="loading"
+          class="lin-scroll-view-spinner"
+        >
           <slot name="loading">
             <Icon name="loading" />
           </slot>
@@ -31,7 +37,7 @@
         class="lin-scroll-view-bar"
         :style="{ height: `${barHeight}px`, top: `${barTop}px` }"
         @mousedown="onMouseDown"
-      ></div>
+      />
     </div>
   </div>
 </template>

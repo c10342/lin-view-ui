@@ -1,6 +1,6 @@
 <template>
   <div :class="[{ 'is-simple': simple }, 'lin-collapse-group']">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

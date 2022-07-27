@@ -1,16 +1,16 @@
 <template>
   <lin-row :gutter="20">
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
   </lin-row>
 </template>

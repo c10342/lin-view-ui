@@ -1,17 +1,23 @@
 <template>
   <div :class="[{ 'is-simple': simple }, 'lin-collapse-item']">
-    <div class="lin-collapse-item-header" @click="onHeaderClick">
+    <div
+      class="lin-collapse-item-header"
+      @click="onHeaderClick"
+    >
       <LinIcon
         v-if="!hideArrow"
         name="right"
         class="lin-collapse-arrow"
         :class="{ 'lin-collapse-arrow-down': show }"
       />
-      <slot></slot>
+      <slot />
     </div>
     <LinCollapseTransition>
-      <div v-show="show" class="lin-collapse-item-content">
-        <slot name="content"></slot>
+      <div
+        v-show="show"
+        class="lin-collapse-item-content"
+      >
+        <slot name="content" />
       </div>
     </LinCollapseTransition>
   </div>

@@ -5,8 +5,7 @@
     :page-count="11"
     layout="prev, pager, next"
     :total="1000"
-  >
-  </lin-pagination>
+  />
 </template>
 
 <script lang="ts">

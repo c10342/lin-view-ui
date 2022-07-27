@@ -1,7 +1,19 @@
 <template>
-  <lin-button @click="start">开始</lin-button>
-  <lin-button class="ml-10" @click="end">结束</lin-button>
-  <lin-button class="ml-10" @click="error">错误</lin-button>
+  <lin-button @click="start">
+    开始
+  </lin-button>
+  <lin-button
+    class="ml-10"
+    @click="end"
+  >
+    结束
+  </lin-button>
+  <lin-button
+    class="ml-10"
+    @click="error"
+  >
+    错误
+  </lin-button>
 </template>
 
 <script lang="ts">

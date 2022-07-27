@@ -1,5 +1,8 @@
 <template>
-  <transition name="lin-fade" @after-leave="afterLeave">
+  <transition
+    name="lin-fade"
+    @after-leave="afterLeave"
+  >
     <div
       v-if="show"
       :class="[

@@ -1,57 +1,76 @@
 <template>
-  <lin-row type="flex" class="mb-10">
+  <lin-row
+    type="flex"
+    class="mb-10"
+  >
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="6">
-      <div class="grid-content bg-purple-light"></div>
+      <div class="grid-content bg-purple-light" />
     </lin-col>
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-  </lin-row>
-  <lin-row type="flex" class="mb-10" justify="center">
-    <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="6">
-      <div class="grid-content bg-purple-light"></div>
-    </lin-col>
-    <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
   </lin-row>
-  <lin-row type="flex" class="mb-10" justify="end">
+  <lin-row
+    type="flex"
+    class="mb-10"
+    justify="center"
+  >
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="6">
-      <div class="grid-content bg-purple-light"></div>
+      <div class="grid-content bg-purple-light" />
     </lin-col>
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-  </lin-row>
-  <lin-row type="flex" class="mb-10" justify="between">
-    <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
-    </lin-col>
-    <lin-col :span="6">
-      <div class="grid-content bg-purple-light"></div>
-    </lin-col>
-    <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
   </lin-row>
-  <lin-row type="flex" class="mb-10" justify="around">
+  <lin-row
+    type="flex"
+    class="mb-10"
+    justify="end"
+  >
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
     </lin-col>
     <lin-col :span="6">
-      <div class="grid-content bg-purple-light"></div>
+      <div class="grid-content bg-purple-light" />
     </lin-col>
     <lin-col :span="6">
-      <div class="grid-content bg-purple"></div>
+      <div class="grid-content bg-purple" />
+    </lin-col>
+  </lin-row>
+  <lin-row
+    type="flex"
+    class="mb-10"
+    justify="between"
+  >
+    <lin-col :span="6">
+      <div class="grid-content bg-purple" />
+    </lin-col>
+    <lin-col :span="6">
+      <div class="grid-content bg-purple-light" />
+    </lin-col>
+    <lin-col :span="6">
+      <div class="grid-content bg-purple" />
+    </lin-col>
+  </lin-row>
+  <lin-row
+    type="flex"
+    class="mb-10"
+    justify="around"
+  >
+    <lin-col :span="6">
+      <div class="grid-content bg-purple" />
+    </lin-col>
+    <lin-col :span="6">
+      <div class="grid-content bg-purple-light" />
+    </lin-col>
+    <lin-col :span="6">
+      <div class="grid-content bg-purple" />
     </lin-col>
   </lin-row>
 </template>

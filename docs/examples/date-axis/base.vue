@@ -1,5 +1,5 @@
 <template>
-  <lin-date-axis v-model:value="value"></lin-date-axis>
+  <lin-date-axis v-model:value="value" />
 </template>
 
 <script lang="ts">

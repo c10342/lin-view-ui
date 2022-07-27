@@ -2,7 +2,7 @@
   <lin-date-axis
     v-model:value="value"
     :disabled-date="disabledDate"
-  ></lin-date-axis>
+  />
 </template>
 
 <script lang="ts">

@@ -27,10 +27,13 @@
           </div>
           <div class="lin-dialog-body">
             <!-- 默认插槽 -->
-            <slot></slot>
+            <slot />
           </div>
-          <div v-if="$slots.footer" class="lin-dialog-footer">
-            <slot name="footer"></slot>
+          <div
+            v-if="$slots.footer"
+            class="lin-dialog-footer"
+          >
+            <slot name="footer" />
           </div>
         </div>
       </transition>

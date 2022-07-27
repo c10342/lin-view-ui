@@ -1,7 +1,12 @@
 <template>
   <div>
-    <div v-if="label" class="lin-dropdown-group-label">{{ label }}</div>
-    <slot></slot>
+    <div
+      v-if="label"
+      class="lin-dropdown-group-label"
+    >
+      {{ label }}
+    </div>
+    <slot />
   </div>
 </template>
 

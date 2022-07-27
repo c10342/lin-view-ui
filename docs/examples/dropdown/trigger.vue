@@ -9,11 +9,15 @@
         </span>
         <template #dropdown>
           <lin-dropdown-group>
-            <lin-dropdown-item icon="lin-icon-date"> 黄金糕 </lin-dropdown-item>
+            <lin-dropdown-item icon="lin-icon-date">
+              黄金糕
+            </lin-dropdown-item>
             <lin-dropdown-item icon="lin-icon-thumbsup">
               狮子头
             </lin-dropdown-item>
-            <lin-dropdown-item icon="lin-icon-chat"> 螺蛳粉 </lin-dropdown-item>
+            <lin-dropdown-item icon="lin-icon-chat">
+              螺蛳粉
+            </lin-dropdown-item>
             <lin-dropdown-item icon="lin-icon-search">
               双皮奶
             </lin-dropdown-item>
@@ -33,11 +37,21 @@
         </span>
         <template #dropdown>
           <lin-dropdown-group>
-            <lin-dropdown-item icon="user"> 黄金糕 </lin-dropdown-item>
-            <lin-dropdown-item icon="edit"> 狮子头 </lin-dropdown-item>
-            <lin-dropdown-item icon="email"> 螺蛳粉 </lin-dropdown-item>
-            <lin-dropdown-item icon="search"> 双皮奶 </lin-dropdown-item>
-            <lin-dropdown-item icon="upload"> 蚵仔煎 </lin-dropdown-item>
+            <lin-dropdown-item icon="user">
+              黄金糕
+            </lin-dropdown-item>
+            <lin-dropdown-item icon="edit">
+              狮子头
+            </lin-dropdown-item>
+            <lin-dropdown-item icon="email">
+              螺蛳粉
+            </lin-dropdown-item>
+            <lin-dropdown-item icon="search">
+              双皮奶
+            </lin-dropdown-item>
+            <lin-dropdown-item icon="upload">
+              蚵仔煎
+            </lin-dropdown-item>
           </lin-dropdown-group>
         </template>
       </lin-dropdown>

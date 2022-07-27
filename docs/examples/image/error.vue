@@ -1,13 +1,19 @@
 <template>
   <div class="wrapper">
     <div>
-      <p class="demo-title">默认</p>
+      <p class="demo-title">
+        默认
+      </p>
       <lin-image class="demo-image" />
     </div>
     <div>
-      <p class="demo-title">自定义</p>
+      <p class="demo-title">
+        自定义
+      </p>
       <lin-image class="demo-image">
-        <div class="error-cover">自定义失败封面</div>
+        <div class="error-cover">
+          自定义失败封面
+        </div>
       </lin-image>
     </div>
   </div>

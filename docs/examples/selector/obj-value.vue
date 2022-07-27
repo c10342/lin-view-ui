@@ -1,11 +1,15 @@
 <template>
-  <lin-selector-group v-model:value="value" label="标签：" value-key="id">
+  <lin-selector-group
+    v-model:value="value"
+    label="标签："
+    value-key="id"
+  >
     <lin-selector-item
       v-for="item in list"
       :key="item.id"
       :value="item"
       :label="item.name"
-    ></lin-selector-item>
+    />
   </lin-selector-group>
 </template>
 
