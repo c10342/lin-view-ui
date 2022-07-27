@@ -28,7 +28,9 @@ const vTooltip = {
         el.instance = new TooltipConstruct();
       }
       // 获取需要显示的方向
-      const { bottom: b, top: t, left: l, right: r, auto } = binding.modifiers;
+      const {
+        bottom: b, top: t, left: l, right: r, auto
+      } = binding.modifiers;
       let placement: Placement = "bottom";
       if (b) {
         placement = "bottom";

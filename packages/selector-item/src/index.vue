@@ -35,8 +35,8 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const { parentValueKey, parentValue, parentDisabled, parentEmitChange } =
-      inject(SelectorContextKey, {
+    const { parentValueKey, parentValue, parentDisabled, parentEmitChange }
+      = inject(SelectorContextKey, {
         parentDisabled: computed(() => props.disabled)
       });
     // 是否是选择中状态

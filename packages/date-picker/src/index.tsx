@@ -113,10 +113,10 @@ export default defineComponent({
 
     // 显示在选择器上面的日期
     const visibleDays = computed(() => {
-      const { year, month } =
-        getYearMonthDay(getDate(time.value.year, time.value.month, 1)) || {};
+      const { year:vYear, month:vMonth }
+        = getYearMonthDay(getDate(time.value.year, time.value.month, 1)) || {};
       //   本月1号的时间对象
-      const currentFirstDay = getDate(year, month, 1);
+      const currentFirstDay = getDate(vYear, vMonth, 1);
       //   本月1号星期几
       const week = currentFirstDay.getDay();
       //   日历上第一行第一列的开始时间
@@ -136,27 +136,9 @@ export default defineComponent({
       if (!props.value) {
         return "";
       }
-      const { year, month, day } = getYearMonthDay(props.value) || {};
-      return `${year}-${month}-${day}`;
+      const { year:vYear, month:vMonth , day } = getYearMonthDay(props.value) || {};
+      return `${vYear}-${vMonth}-${day}`;
     });
-
-    // 设置日期选择器位置
-    const setPlacement = () => {
-      nextTick(() => {
-        if (!popupRef.value || !containerRef.value) {
-          return;
-        }
-        const { bottom, top } = containerRef.value.getBoundingClientRect();
-        const bottomOffset = window.innerHeight - bottom;
-        if (bottomOffset > popupRef.value.clientHeight) {
-          setDownTop();
-        } else if (top > popupRef.value.clientHeight) {
-          setUpTop();
-        } else {
-          setDownTop();
-        }
-      });
-    };
     // 设置日期选择器向下显示
     const setDownTop = () => {
       if (!inputWrapperRef.value) {
@@ -170,6 +152,28 @@ export default defineComponent({
         return;
       }
       top.value = `${-popupRef.value.clientHeight}px`;
+    };
+    // 设置日期选择器位置
+    const setPlacement = () => {
+      nextTick(() => {
+        if (!popupRef.value || !containerRef.value) {
+          return;
+        }
+        const { bottom, top:vTop } = containerRef.value.getBoundingClientRect();
+        const bottomOffset = window.innerHeight - bottom;
+        if (bottomOffset > popupRef.value.clientHeight) {
+          setDownTop();
+        } else if (vTop > popupRef.value.clientHeight) {
+          setUpTop();
+        } else {
+          setDownTop();
+        }
+      });
+    };
+    // 设置头部当前日期
+    const setTime = (date: Date) => {
+      const { year:vYear, month:vMonth } = getYearMonthDay(date) || {};
+      time.value = { year:vYear, month:vMonth };
     };
     // 点击上一年按钮
     const prevYear = () => {
@@ -201,25 +205,30 @@ export default defineComponent({
     };
     // 判断传入的时间是否为当前头部日期的月份
     const isCurrentMonth = (date: Date) => {
-      const { year, month } =
-        getYearMonthDay(getDate(time.value.year, time.value.month, 1)) || {};
+      const { year:vYear, month:vMonth }
+        = getYearMonthDay(getDate(time.value.year, time.value.month, 1)) || {};
       const { year: y, month: m } = getYearMonthDay(date) || {};
-      return year === y && month === m;
+      return vYear === y && vMonth === m;
     };
     // 判断传入的日期是否跟当前选中日期相等
     const isCurrentVal = (date: Date) => {
-      const { year, month, day } =
-        getYearMonthDay(props.value || undefined) || {};
+      const {  year:vYear, month:vMonth, day }
+        = getYearMonthDay(props.value || undefined) || {};
       const { year: y, month: m, day: d } = getYearMonthDay(date) || {};
-      return year === y && month === m && day === d;
+      return vYear === y && vMonth === m && day === d;
+    };
+    // 模拟失去焦点
+    const blur = () => {
+      isVisible.value = false;
+      context.emit("blur");
     };
     // 点击选项选择日期
     const selectDate = (date: Date) => {
       if (isDisabledDate(date)) {
         return;
       }
-      const { year, month, day } = getYearMonthDay(date) || {};
-      time.value = { year, month };
+      const {  year:vYear, month:vMonth } = getYearMonthDay(date) || {};
+      time.value = { year:vYear, month:vMonth };
       context.emit("update:value", date);
       // dispatch.call(this, {
       //   eventName: "validate",
@@ -241,17 +250,7 @@ export default defineComponent({
         context.emit("blur");
       }
     };
-    // 模拟失去焦点
-    const blur = () => {
-      isVisible.value = false;
-      context.emit("blur");
-    };
-    // 设置头部当前日期
-    const setTime = (date: Date) => {
-      const { year, month } = getYearMonthDay(date) || {};
-      time.value = { year, month };
-    };
-
+    
     const onClickOutside = () => {
       if (!props.showAlways && isVisible.value) {
         blur();

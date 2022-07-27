@@ -54,18 +54,24 @@ const createComponent = ({
 class Tooltip {
   // 样式
   style = ref<CSSProperties>({});
+
   // 控制是否显示
   show = ref(false);
+
   // 显示位置
   placement = ref<Placement>("bottom");
+
   // 文本
   text = ref("");
+
   private div = document.createElement("div");
+
   private vm!: VNode;
 
   get el() {
     return this.vm.el as HTMLElement;
   }
+
   constructor() {
     this.init();
     this.mounted();

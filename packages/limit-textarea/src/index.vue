@@ -42,7 +42,8 @@ export default defineComponent({
   props: {
     // 输入框占位符
     placeholder: {
-      type: String
+      type: String,
+      default:null
     },
     // 行高
     rows: {

@@ -31,16 +31,6 @@ export default defineComponent({
   },
   emits: ["change", "update:value"],
   setup(props, context) {
-    const emitChange = (data: ValueType) => {
-      context.emit("change", handleData(data));
-      context.emit("update:value", handleData(data));
-    };
-    provide(CollapseContextKey, {
-      value: computed(() => props.value),
-      simple: computed(() => props.simple),
-      accordion: computed(() => props.accordion),
-      emitChange
-    });
     // 根据是否为手风琴模式返回一个(String|Number)或者Array
     const handleData = (data: ValueType) => {
       let currentData;
@@ -57,6 +47,17 @@ export default defineComponent({
       }
       return currentData;
     };
+    const emitChange = (data: ValueType) => {
+      context.emit("change", handleData(data));
+      context.emit("update:value", handleData(data));
+    };
+    provide(CollapseContextKey, {
+      value: computed(() => props.value),
+      simple: computed(() => props.simple),
+      accordion: computed(() => props.accordion),
+      emitChange
+    });
+    
     return {};
   }
 });

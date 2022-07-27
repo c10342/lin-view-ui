@@ -159,8 +159,8 @@ const left = ref("0px");
 
 const { t } = useScopeLocale("DateAxis");
 
-const { isEqAndLt, isDisabledDate, isLt, isEqAndGt, isGt, isEqual } =
-  useDate(props);
+const { isEqAndLt, isDisabledDate, isLt, isEqAndGt, isGt, isEqual }
+  = useDate(props);
 
 const daysObj: Record<number, string> = {
   0: t("sun"),
@@ -185,25 +185,6 @@ const emit = defineEmits([
 const wrapperRef = ref<HTMLElement | null>(null);
 const scrollRef = ref<HTMLElement | null>(null);
 const moreRef = ref<HTMLElement | null>(null);
-// 设置日期选择器位置，左边或者右边
-const setPlacement = () => {
-  nextTick(() => {
-    if (!scrollRef.value || !moreRef.value) {
-      return;
-    }
-    const { left } = moreRef.value.getBoundingClientRect();
-    const right = window.innerWidth - left;
-    if (right > scrollRef.value.clientWidth) {
-      // 先判断右边位置是否充足
-      setToRight();
-    } else if (left > scrollRef.value.clientWidth) {
-      // 判断左边位置是否充足
-      setToLeft();
-    } else {
-      setToRight();
-    }
-  });
-};
 // 日期选择器设置为右边出现
 const setToRight = () => {
   isRight.value = true;
@@ -217,6 +198,66 @@ const setToLeft = () => {
   }
   left.value = `${-scrollRef.value.clientWidth + moreRef.value.clientWidth}px`;
 };
+// 设置日期选择器位置，左边或者右边
+const setPlacement = () => {
+  nextTick(() => {
+    if (!scrollRef.value || !moreRef.value) {
+      return;
+    }
+    const { left:rectLeft } = moreRef.value.getBoundingClientRect();
+    const right = window.innerWidth - rectLeft;
+    if (right > scrollRef.value.clientWidth) {
+      // 先判断右边位置是否充足
+      setToRight();
+    } else if (rectLeft > scrollRef.value.clientWidth) {
+      // 判断左边位置是否充足
+      setToLeft();
+    } else {
+      setToRight();
+    }
+  });
+};
+// 隐藏日期选择器
+const hidePopup = () => {
+  isShowPopup.value = false;
+  emit("hide");
+};
+// 显示日期选择器
+const showPopup = () => {
+  isShowPopup.value = true;
+  emit("show");
+  setPlacement();
+};
+
+// 设置下划线位置,即有个三角形突出的那个东西
+const setLine = () => {
+  nextTick(() => {
+    if (!wrapperRef.value) {
+      return;
+    }
+    const dom = document.getElementById(`dateAxis-${props.value.getDay()}`);
+    if (dom) {
+      lineWidth.value = `${dom.offsetWidth}px`;
+      const { left:rectLeft } = dom.getBoundingClientRect();
+      const dateAxisWrapperX = wrapperRef.value.getBoundingClientRect().left;
+      lineTranslateX.value = `${rectLeft - dateAxisWrapperX}px`;
+    }
+  });
+};
+// 初始化日期轴
+const init = (date: Date) => {
+  const day = date.getDay();
+  const tList = [];
+  const d = new Date(date);
+  d.setDate(d.getDate() - day);
+  for (let i = 0; i < 7; i++) {
+    tList.push(new Date(d));
+    d.setDate(d.getDate() + 1);
+  }
+  timeList.value = tList;
+  setLine();
+};
+
 // 日期选择器点击选择日期事件
 const onDateSelect = (date: Date) => {
   const startTime = timeList.value[0];
@@ -388,34 +429,7 @@ const formatDay = (date: Date) => {
   const day = date.getDay();
   return daysObj[day];
 };
-// 初始化日期轴
-const init = (date: Date) => {
-  const day = date.getDay();
-  const tList = [];
-  const d = new Date(date);
-  d.setDate(d.getDate() - day);
-  for (let i = 0; i < 7; i++) {
-    tList.push(new Date(d));
-    d.setDate(d.getDate() + 1);
-  }
-  timeList.value = tList;
-  setLine();
-};
-// 设置下划线位置,即有个三角形突出的那个东西
-const setLine = () => {
-  nextTick(() => {
-    if (!wrapperRef.value) {
-      return;
-    }
-    const dom = document.getElementById(`dateAxis-${props.value.getDay()}`);
-    if (dom) {
-      lineWidth.value = `${dom.offsetWidth}px`;
-      const { left } = dom.getBoundingClientRect();
-      const dateAxisWrapperX = wrapperRef.value.getBoundingClientRect().left;
-      lineTranslateX.value = `${left - dateAxisWrapperX}px`;
-    }
-  });
-};
+
 // 点击更多
 const onMoreClick = () => {
   if (isShowPopup.value) {
@@ -423,17 +437,6 @@ const onMoreClick = () => {
   } else {
     showPopup();
   }
-};
-// 隐藏日期选择器
-const hidePopup = () => {
-  isShowPopup.value = false;
-  emit("hide");
-};
-// 显示日期选择器
-const showPopup = () => {
-  isShowPopup.value = true;
-  emit("show");
-  setPlacement();
 };
 
 init(props.value);

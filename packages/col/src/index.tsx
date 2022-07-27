@@ -1,6 +1,8 @@
 import { rowContextKey } from "@packages/tokens";
 import { isNumber, isPlainObject } from "@packages/utils";
-import { computed, defineComponent, inject, PropType } from "vue";
+import {
+  computed, defineComponent, inject, PropType
+} from "vue";
 
 interface ColSizeObject {
   span?: number;
@@ -57,7 +59,7 @@ export default defineComponent({
       default: null
     }
   },
-  setup(props, context) {
+  setup (props, context) {
     const { gutter } = inject(rowContextKey, { gutter: computed(() => 0) });
     const style: { paddingLeft?: string; paddingRight?: string } = {};
     const classList = ["lin-col"];
@@ -76,8 +78,8 @@ export default defineComponent({
         }
       }
     });
-    const size = ["xs", "sm", "md", "lg"] as const;
-    size.forEach((size) => {
+    const sizeList = ["xs", "sm", "md", "lg"] as const;
+    sizeList.forEach((size) => {
       const sizeData = props[size];
       if (isNumber(sizeData)) {
         classList.push(`lin-col-${size}-${sizeData}`);

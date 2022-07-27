@@ -192,9 +192,9 @@ export default defineComponent({
       // 纵轴坐标
       const topY = event.clientY - startY;
       // 计算自定义滚动条应该距离顶部多少
-      const barTop = barRef.value.offsetTop + topY;
+      const vBarTop = barRef.value.offsetTop + topY;
       // 更新位置
-      updatePosition(barTop);
+      updatePosition(vBarTop);
       startY = event.clientY;
     };
     // 鼠标抬起事件
@@ -216,10 +216,10 @@ export default defineComponent({
       if (!barRef.value || !wrapperRef.value) {
         return;
       }
-      const barHeight = barRef.value.clientHeight;
+      const vBarHeight = barRef.value.clientHeight;
       // 边界情况处理
-      if (barTopVal >= wrapperHeight - barHeight) {
-        barTopVal = wrapperHeight - barHeight;
+      if (barTopVal >= wrapperHeight - vBarHeight) {
+        barTopVal = wrapperHeight - vBarHeight;
       }
       if (barTopVal <= 0) {
         barTopVal = 0;
@@ -256,21 +256,21 @@ export default defineComponent({
       updatePosition(clientY - marginTop - barHeight.value / 2);
     };
     const style = computed(() => {
-      const style: {
+      const styleObj: {
         height?: string;
         "max-height"?: string;
         "min-height"?: string;
       } = {};
       if (props.height) {
-        style.height = props.height;
+        styleObj.height = props.height;
       }
       if (props.maxHeight) {
-        style["max-height"] = props.maxHeight;
+        styleObj["max-height"] = props.maxHeight;
       }
       if (props.minHeight) {
-        style["min-height"] = props.minHeight;
+        styleObj["min-height"] = props.minHeight;
       }
-      return style;
+      return styleObj;
     });
     onMounted(() => {
       // 初始化

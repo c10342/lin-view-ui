@@ -13,10 +13,15 @@ interface RootData {
 
 class LoadingBarConstructor {
   private app: App | null = null;
+
   private vm: any | null = null;
+
   private timer: number | null = null;
+
   private removeTimer: number | null = null;
+
   private rootContainer: HTMLElement | null = null;
+
   private options: RootData = {};
 
   private init(options: RootData = {}) {
@@ -45,6 +50,7 @@ class LoadingBarConstructor {
     this.vm = null;
     this.rootContainer = null;
   }
+
   // 设置全局配置信息
   config(options: RootData) {
     if (isPlainObject(options)) {
@@ -73,12 +79,13 @@ class LoadingBarConstructor {
     this.timer = window.setInterval(() => {
       // 小于90的时候才进行前进
       if (this.vm.totalProgress < 90) {
-        this.vm.totalProgress +=
-          (this.vm.percentNum || Math.random()) * this.vm.speed;
+        this.vm.totalProgress
+          += (this.vm.percentNum || Math.random()) * this.vm.speed;
       }
     }, 100);
     return this;
   }
+
   // 关闭加载进度条
   end() {
     if (!this.timer) {

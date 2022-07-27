@@ -71,41 +71,6 @@ export default defineComponent({
     const containerRef = ref<HTMLElement | null>(null);
     const labelRef = ref<HTMLElement | null>(null);
     const dropdownRef = ref<HTMLElement | null>(null);
-
-    useClickOutside(containerRef, () => {
-      hideList();
-    });
-
-    const emitCommand = (command: string) => {
-      context.emit("command", command);
-    };
-    // 鼠标进入容器
-    const onMouseEnter = () => {
-      if (props.trigger === triggerType.hover) {
-        showList();
-      }
-    };
-    // 鼠标离开容器
-    const onMouseLeave = () => {
-      if (props.trigger === triggerType.hover) {
-        hideList();
-      }
-    };
-    // 点击标签
-    const onLabelClick = () => {
-      if (props.trigger === triggerType.click) {
-        toggleList();
-      }
-    };
-    // 显示下拉框
-    const showList = () => {
-      if (!isShow.value) {
-        isShow.value = true;
-        setPlacement();
-        context.emit("visible-change", true);
-      }
-    };
-
     const setDownTop = () => {
       if (!labelRef.value) {
         return;
@@ -125,24 +90,51 @@ export default defineComponent({
         if (!dropdownRef.value || !containerRef.value) {
           return;
         }
-        const bottom =
-          window.innerHeight -
-          containerRef.value.getBoundingClientRect().bottom;
-        const { top } = containerRef.value.getBoundingClientRect();
+        const bottom
+          = window.innerHeight
+          - containerRef.value.getBoundingClientRect().bottom;
+        const { top:vTop } = containerRef.value.getBoundingClientRect();
         if (bottom > dropdownRef.value.clientHeight) {
           setDownTop();
-        } else if (top > dropdownRef.value.clientHeight) {
+        } else if (vTop > dropdownRef.value.clientHeight) {
           setUpTop();
         } else {
           setDownTop();
         }
       });
     };
+    // 显示下拉框
+    const showList = () => {
+      if (!isShow.value) {
+        isShow.value = true;
+        setPlacement();
+        context.emit("visible-change", true);
+      }
+    };
     // 隐藏下拉框
     const hideList = () => {
       if (isShow.value) {
         isShow.value = false;
         context.emit("visible-change", false);
+      }
+    };
+    useClickOutside(containerRef, () => {
+      hideList();
+    });
+
+    const emitCommand = (command: string) => {
+      context.emit("command", command);
+    };
+    // 鼠标进入容器
+    const onMouseEnter = () => {
+      if (props.trigger === triggerType.hover) {
+        showList();
+      }
+    };
+    // 鼠标离开容器
+    const onMouseLeave = () => {
+      if (props.trigger === triggerType.hover) {
+        hideList();
       }
     };
     // 下拉框显示或者隐藏切换
@@ -153,6 +145,13 @@ export default defineComponent({
         showList();
       }
     };
+    // 点击标签
+    const onLabelClick = () => {
+      if (props.trigger === triggerType.click) {
+        toggleList();
+      }
+    };
+
     onMounted(() => {
       setPlacement();
     });

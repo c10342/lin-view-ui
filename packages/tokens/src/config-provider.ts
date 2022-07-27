@@ -12,5 +12,4 @@ export type ConfigProviderProps = Partial<
   ExtractPropTypes<typeof configProviderProps>
 >;
 
-export const configProviderContextKey: InjectionKey<ConfigProviderContext> =
-  Symbol();
+export const configProviderContextKey: InjectionKey<ConfigProviderContext> = Symbol("ConfigProviderContextKey");

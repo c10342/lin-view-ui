@@ -15,8 +15,8 @@ export default defineComponent({
     const now = ref("");
     const renderInfo = (time: Date) => {
       if (
-        time.getDate() === new Date().getDate() &&
-        time.getMonth() === new Date().getMonth()
+        time.getDate() === new Date().getDate()
+        && time.getMonth() === new Date().getMonth()
       ) {
         return <span>今天</span>;
       }

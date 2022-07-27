@@ -64,8 +64,8 @@ export default defineComponent({
       if (totalPage.value >= props.pageCount) {
         // 总页数大于页码按钮数量，需要折叠
         if (
-          props.pageIndex > Math.ceil(props.pageCount / 2) &&
-          props.pageIndex < totalPage.value - Math.floor(props.pageCount / 2)
+          props.pageIndex > Math.ceil(props.pageCount / 2)
+          && props.pageIndex < totalPage.value - Math.floor(props.pageCount / 2)
         ) {
           // 中间完整显示，即 ...1,2,3...
           left = props.pageIndex - Math.floor(props.pageCount / 2);
@@ -93,8 +93,8 @@ export default defineComponent({
           arr[1] = { index: "...", type: layoutType.prev };
         }
         if (
-          props.pageIndex <
-          totalPage.value - Math.floor(props.pageCount / 2)
+          props.pageIndex
+          < totalPage.value - Math.floor(props.pageCount / 2)
         ) {
           // 右边需要打点的情况
           arr[arr.length - 2] = { index: "...", type: layoutType.next };
@@ -221,8 +221,8 @@ export default defineComponent({
                 { "is-active": item.index === props.pageIndex },
                 {
                   "is-ellipsis":
-                    item.type === layoutType.prev ||
-                    item.type === layoutType.next
+                    item.type === layoutType.prev
+                    || item.type === layoutType.next
                 }
               ]}
               key={index}

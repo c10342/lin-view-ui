@@ -7,5 +7,4 @@ interface RowContext {
   parentEmitChange?: (data: any) => any;
 }
 
-export const SelectorContextKey: InjectionKey<RowContext> =
-  Symbol("SelectorContextKey");
+export const SelectorContextKey: InjectionKey<RowContext> = Symbol("SelectorContextKey");

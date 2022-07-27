@@ -10,5 +10,4 @@ interface RowContext {
   emitChange?: (data: ValueType) => void;
 }
 
-export const CollapseContextKey: InjectionKey<RowContext> =
-  Symbol("CollapseContextKey");
+export const CollapseContextKey: InjectionKey<RowContext> = Symbol("CollapseContextKey");

@@ -2,8 +2,8 @@ import createComponent from "./create-component";
 import { isString } from "@packages/utils";
 import { Options } from "./types";
 
-let instance: { open: (options: Options) => void; close: () => void } | null =
-  null;
+let instance: { open: (options: Options) => void; close: () => void } | null
+  = null;
 
 let timer: number | null = null;
 
