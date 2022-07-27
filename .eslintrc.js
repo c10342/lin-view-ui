@@ -6,8 +6,7 @@ module.exports = {
   parser: "vue-eslint-parser",
   extends: [
     "plugin:vue/vue3-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
   parserOptions: {
     parser: "@typescript-eslint/parser",
@@ -25,6 +24,9 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "vue/multi-word-component-names": "off",
     "@typescript-eslint/ban-types": "off",
-    "@typescript-eslint/no-var-requires": "off"
+    "@typescript-eslint/no-var-requires": "off",
+    "quotes": "error",
+    "semi": "error",
+    "comma-dangle":"error"
   }
 };
