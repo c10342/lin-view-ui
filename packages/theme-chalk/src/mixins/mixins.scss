@@ -1,0 +1,71 @@
+// 导入
+@use "./config.scss";
+// 导出 所有变量
+@forward "./config.scss";
+
+// .z-button
+@mixin b($block) {
+  $B:$namespace + "-" + $block;
+  .#{$B} {
+    // 这里类似于 插槽的功能，把对应的样式填进来
+    @content;
+  }
+}
+
+// .z-button.is-xxx
+@mixin when($state) {
+  // @at-root可以用来放弃当前的嵌套层级，让其内部的CSS规则到根部
+
+  /*
+    .bar {
+        .foo {
+        color: red;
+        }
+    }
+
+    编译出来的css为
+
+    .bar .foo {
+        color: red;
+    }
+    */
+
+  /*
+    .bar {
+        @at-root .foo {
+            color: red;
+        }
+    }
+
+    编译出来就是
+
+    .bar {}
+    .foo {
+        color: red;
+    }
+
+    */
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+// &--primary => .z-button--primary
+@mixin m($modifier) {
+  @at-root {
+    #{& + $modifier-separator + $modifier} {
+      @content;
+    }
+  }
+}
+
+// &__header => .z-button__header
+@mixin e($element) {
+  @at-root {
+    #{& + $state-prefix + $element} {
+      @content;
+    }
+  }
+}

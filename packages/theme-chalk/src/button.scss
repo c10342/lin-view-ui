@@ -1,0 +1,13 @@
+@use "./mixins/mixins.scss";
+
+@include b(button) {
+  display: inline-block;
+
+  @include b(inner) {
+    padding: 10px;
+  }
+
+  @include m(primary) {
+    background-color: blue;
+  }
+}
