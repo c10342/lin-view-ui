@@ -477,3 +477,16 @@ export default {
 export * from "./components";
 export * from "./utils";
 ```
+
+# 搭建开发环境
+
+## 安装依赖
+
+```bash
+npm i vite vue-router @vitejs/plugin-vue @vitejs/plugin-vue-jsx @types/node sass-embedded -D
+```
+
+## 新增配置
+
+在`play`目录下新增`vite.config.ts`配置文件，并写入如下内容：
+

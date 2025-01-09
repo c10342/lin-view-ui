@@ -1,4 +1,6 @@
-@use "./mixins/mixins.scss";
+
+// ，as * 表示导入所有
+@use "./mixins/mixins.scss" as *;
 
 @include b(button) {
   display: inline-block;

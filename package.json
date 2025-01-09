@@ -3,15 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite --config ./play/vite.config.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
+    "sass-embedded": "^1.83.1",
     "typescript": "5.7.3",
-    "vue": "3.5.13"
+    "vite": "^6.0.7",
+    "vue": "3.5.13",
+    "vue-router": "^4.5.0"
   },
   "peerDependencies": {
     "vue": ">=3.5.13"

@@ -1,5 +1,5 @@
-// 导入
-@use "./config.scss";
+// 导入，as * 表示导入所有
+@use "./config.scss" as *;
 // 导出 所有变量
 @forward "./config.scss";
 
