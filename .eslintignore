@@ -1,8 +1,0 @@
-/**/dist
-/docs-dist
-/examples
-/lib
-/types
-/coverage
-node_modules
-.vscode

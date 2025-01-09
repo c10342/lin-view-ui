@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    // 指定模块解析方式
+    "module": "ESNext",
+    // 默认不要声明文件
+    "declaration": false,
+    // 禁止使用any类型
+    "noImplicitAny": true,
+    // 删除注释
+    "removeComments": true,
+    // 按照node模块来解析
+    "moduleResolution": "node",
+    // 支持es6，commonjs模块
+    "esModuleInterop": true,
+    // 不需要转换jsx
+    "jsx": "preserve",
+    // 不处理类库
+    "noLib": false,
+    // 指定编译输出的JavaScript版本
+    "target": "ES6",
+    "sourceMap": true,
+    // 指定编译过程中需要包含的类型定义库
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    // 允许没有导出的模块导入
+    "allowSyntheticDefaultImports": true,
+    // 装饰器语法
+    "experimentalDecorators": true,
+    // 区分文件名大小写
+    "forceConsistentCasingInFileNames": true,
+    // 解析json模块
+    "resolveJsonModule": true,
+    // 启用严格模式
+    "strict": true,
+    // 跳过类库检查
+    "skipLibCheck": true,
+    // 设置解析非相对模块名称的基本目录，相对模块不会受到baseUrl的影响
+    "baseUrl": ".",
+    // 设置路径别名
+    "paths": {
+      "@packages/*": [
+        "packages/*"
+      ]
+    }
+  },
+  // 排除的文件或者文件夹
+  "exclude": [
+    "node_modules",
+    "**/__tests__",
+    "dist/**"
+  ]
+}

@@ -1,100 +1,111 @@
-<div align='center' ><h1 style='font-weight: 700;'>lin-view-ui</h1></div>
+# 技术栈
 
-<p align="center">
-  <a href='https://coveralls.io/github/c10342/lin-view-ui?branch=master'>
-    <img src='https://coveralls.io/repos/github/c10342/lin-view-ui/badge.svg?branch=master' alt='Coverage Status' />
-  </a>
-  <a href="https://travis-ci.org/c10342/lin-view-ui">
-    <img src="https://travis-ci.org/c10342/lin-view-ui.svg?branch=master">
-  </a>
-    <a href="https://www.npmjs.org/package/lin-view-ui">
-    <img src="https://img.shields.io/npm/v/lin-view-ui.svg">
-  </a>
-    <a href="https://npmcharts.com/compare/lin-view-ui?minimal=true">
-    <img src="http://img.shields.io/npm/dm/lin-view-ui.svg">
-  </a>
-  <br>
-  <a href="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/index.js?compression=gzip&label=gzip%20size:%20JS">
-    <img src="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/index.js?compression=gzip&label=gzip%20size:%20JS">
-  </a>
-  <a href="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/theme-chalk/index.css?compression=gzip&label=gzip%20size:%20CSS">
-    <img src="http://img.badgesize.io/https://unpkg.com/lin-view-ui/lib/theme-chalk/index.css?compression=gzip&label=gzip%20size:%20CSS">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
-  </a>
-</p>
+- 组件开发：`vue3`+`typescript`
 
-## 在线文档
+- 打包构建：`rollup`
 
-[http://ui.linjiafu.top](http://ui.linjiafu.top)
+- 组件库文档：`vitepress`
 
-## 简介
+# 初始化 package.json
 
-`lin-view-ui` 是一款基于 `Vue.js 2.0` 的前端 UI 组件库，主要集成了我平时在开发中使用到的 UI 组件
+新建一个文件夹，在文件夹的根目录执行如下命令：
 
-## 特性
-
-- 基于 `Vue` 开发的 UI 组件
-- 支持 typescript
-- 使用 lerna + rollup 的工作流，支持 ES2015
-- 提供友好的 API，可灵活的使用组件
-- 支持单个组件安装使用，无需全量安装
-- 全量安装支持按需引入，减少项目打包体积
-- JS 代码默认支持基于 ES modules 的 tree shaking
-- 偏向于业务组件
-- 提供完善的文档
-- 单元测试全面 
-
-## 全量安装使用
-
-```
-npm install lin-view-ui -S
+```bash
+npm initt -y
 ```
 
-```javascript
-import Vue from 'vue';
-import LinUI from 'lin-view-ui';
-import 'lin-view-ui/lib/theme-chalk/index.css'
+执行完毕后，会在项目的根目录出现`package.json`文件
 
-Vue.use(LinUI); 
+# 初始化 typescript
 
-// or
-import {
-  Input,
-  Button
-  // ...
-} from 'lin-view-ui';
-import 'lin-view-ui/lib/theme-chalk/index.css'
+1、安装依赖：
 
-Vue.use(Input);
-Vue.use(Button);
+```bash
+npm i typescript -D
 ```
 
-## 单组件安装使用
+2、在项目根目录执行如下命令：
 
-```
-npm install @lin-view-ui/button -S
-```
-
-```javascript
-import Vue from 'vue';
-import Button from '@lin-view-ui/button';
-import '@lin-view-ui/button/dist/style.css'
-
-Vue.use(Button);
+```bash
+npx tsc --init
 ```
 
+命令执行完成后，会在项目的根目录出现`tsconfig.json`文件
 
-## 浏览器支持
+3、调整配置
 
-- 现代浏览器和 IE10 及以上
-- [Electron](http://electron.atom.io/)
+在`tsconfig.json`文件中写入如下内容：
 
-## 贡献
+```json
+{
+  "compilerOptions": {
+    // 指定模块解析方式
+    "module": "ESNext",
+    // 默认不要声明文件
+    "declaration": false,
+    // 禁止使用any类型
+    "noImplicitAny": true,
+    // 删除注释
+    "removeComments": true,
+    // 按照node模块来解析
+    "moduleResolution": "node",
+    // 支持es6，commonjs模块
+    "esModuleInterop": true,
+    // 不需要转换jsx
+    "jsx": "preserve",
+    // 不处理类库
+    "noLib": false,
+    // 指定编译输出的JavaScript版本
+    "target": "ES6",
+    "sourceMap": true,
+    // 指定编译过程中需要包含的类型定义库
+    "lib": ["ESNext", "DOM"],
+    // 允许没有导出的模块导入
+    "allowSyntheticDefaultImports": true,
+    // 装饰器语法
+    "experimentalDecorators": true,
+    // 区分文件名大小写
+    "forceConsistentCasingInFileNames": true,
+    // 解析json模块
+    "resolveJsonModule": true,
+    // 启用严格模式
+    "strict": true,
+    // 跳过类库检查
+    "skipLibCheck": true,
+    // 设置解析非相对模块名称的基本目录，相对模块不会受到baseUrl的影响
+    "baseUrl": ".",
+    // 设置路径别名
+    "paths": {
+      "@packages/*": ["packages/*"]
+    }
+  },
+  // 排除的文件或者文件夹
+  "exclude": ["node_modules", "**/__tests__", "dist/**"]
+}
+```
 
-如果你在使用 `lin-view-ui` 时遇到问题，或者有好的建议，欢迎给我提 [Issue](https://github.com/c10342/lin-view-ui/issues)
+# 初始化 vue
 
-## LICENSE
+1、安装依赖：
 
-[MIT](LICENSE)
+```bash
+npm i vue -D
+```
+
+:::tip 提示
+组件库是服务于项目的，所以组件库的`vue`需要依赖于项目中的`vue`。安装在`devDependencies`中是为了让我们能够在开发中使用`vue`
+:::
+
+2、在`package.json`文件中写入如下内容：
+
+```json
+{
+  "peerDependencies": {
+    "vue": ">=3.5.13"
+  }
+}
+```
+
+声明使用组件库的项目需要安装的`vue`的最低版本号
+
+# 初始化目录结构
