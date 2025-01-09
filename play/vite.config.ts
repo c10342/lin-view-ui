@@ -11,8 +11,8 @@ export default defineConfig({
       "@packages": path.resolve(__dirname, "../packages"),
     },
   },
-  server:{
-    port:3000,
+  server: {
+    port: 3000,
   },
   build: {
     rollupOptions: {

@@ -1,7 +1,6 @@
 import { RouteRecordRaw, createRouter, createWebHashHistory } from "vue-router";
 import Index from "./pages/index.vue";
 
-// 公共路由，不需要权限就可以访问的路由
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
