@@ -18,5 +18,3 @@ const list = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-// todo</style>
