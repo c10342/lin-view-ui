@@ -11,7 +11,7 @@
 新建一个文件夹，在文件夹的根目录执行如下命令：
 
 ```bash
-npm initt -y
+npm init -y
 ```
 
 执行完毕后，会在项目的根目录出现`package.json`文件
@@ -486,7 +486,199 @@ export * from "./utils";
 npm i vite vue-router @vitejs/plugin-vue @vitejs/plugin-vue-jsx @types/node sass-embedded -D
 ```
 
-## 新增配置
+## 初始化目录结构
 
-在`play`目录下新增`vite.config.ts`配置文件，并写入如下内容：
+在`play`目录下新建如下的目录结构
 
+```
+|- play                        # 开发环境代码
+|   |- pages                   # 一个组件新建一个页面
+|       |- index.vue           # 首页
+|       |- button.vue          # button组件页面
+|       |- ...                 # 其他组件页面
+|   |- App.vue                 # 主模板
+|   |- index.html              # html
+|   |- main.ts                 # 入口文件
+|   |- router.ts               # 路由文件
+|   |- vite-env.d.ts           # vite声明文件
+|   |- vite.config.ts          # 配置文件
+```
+
+## vite.config.ts
+
+```typescript
+import path from "path";
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  plugins: [vue(), vueJsx()],
+  resolve: {
+    // 配置路径别名
+    alias: {
+      "@packages": path.resolve(__dirname, "../packages"),
+    },
+  },
+  server: {
+    port: 3000,
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "./index.html"),
+      },
+    },
+  },
+});
+```
+
+## vite-env.d.ts
+
+```typescript
+/// <reference types="vite/client" />
+```
+
+## router.ts
+
+```typescript
+import { RouteRecordRaw, createRouter, createWebHashHistory } from "vue-router";
+import Index from "./pages/index.vue";
+
+const routes: Array<RouteRecordRaw> = [
+  {
+    path: "/",
+    name: "index",
+    component: Index,
+  },
+];
+
+// 动态导入pages下的所有页面，一个组件对应一个页面路由
+const modules = import.meta.glob("./pages/*.vue", { eager: true });
+
+const getRoutes = () => {
+  Object.keys(modules).forEach((key) => {
+    let fileName: string[] | string = key.split("/");
+    fileName = fileName[fileName.length - 1];
+    const name = fileName.split(".")[0];
+    if (name !== "index") {
+      const component = (modules[key] as any)?.default;
+      const item: RouteRecordRaw = {
+        path: `/${name}`,
+        name: name,
+        component: component,
+      };
+      routes.push(item);
+    }
+  });
+};
+
+getRoutes();
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
+});
+
+export default router;
+```
+
+## main.ts
+
+```typescript
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+// 导入组件
+import ZUI from "@packages/index";
+import "@packages/theme-chalk/index.scss";
+
+createApp(App).use(router).use(ZUI).mount("#app");
+```
+
+## index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/play/main.ts"></script>
+  </body>
+</html>
+```
+
+## App.vue
+
+```vue
+<template>
+  <RouterView></RouterView>
+</template>
+```
+
+## pages/index.vue
+
+```vue
+<template>
+  <div>
+    <RouterLink :to="item.path" v-for="item in list" :key="item.name">
+      {{ item.name }}
+    </RouterLink>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+const list = computed(() => {
+  const routes = router.getRoutes();
+  return routes.filter((item) => item.name !== "index");
+});
+</script>
+```
+
+## pages/button.vue
+
+```vue
+<template>
+  <div>
+    <z-button size="small" type="primary"></z-button>
+  </div>
+</template>
+
+<script setup lang="ts">
+// todo
+</script>
+
+<style lang="scss" scoped>
+// todo
+</style>
+```
+
+## 修改 package.json
+
+在项目的根目录的`package.json`中添加如下`script`命令:
+
+```json
+{
+  "scripts": {
+    "dev": "vite --config ./play/vite.config.ts"
+  }
+}
+```
+
+## 运行开发环境
+
+```bash
+npm run dev
+```
+
+浏览器打开`http://localhost:3000/play/`即可
