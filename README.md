@@ -688,7 +688,7 @@ npm run dev
 ## 安装依赖
 
 ```bash
-npm i vitepress vitepress-demoblock -D
+npm i vitepress -D
 ```
 
 ## 初始化 vitepress
