@@ -688,7 +688,7 @@ npm run dev
 ## 安装依赖
 
 ```bash
-npm i vitepress -D
+npm i vitepress @vitepress-demo-preview/component @vitepress-demo-preview/plugin -D
 ```
 
 ## 初始化 vitepress
@@ -697,7 +697,7 @@ npm i vitepress -D
 npx vitepress init
 ```
 
-![alt text](image.png)
+![初始化 vitepress](images/init-vitepress.png)
 
 初始化完成后，生成的文件结构应该是这样的：
 
@@ -718,7 +718,7 @@ npx vitepress init
 
 ```
 docs/.vitepress/dist
-docs/.vitepress/cache 
+docs/.vitepress/cache
 ```
 
 ## 运行组件库文档
@@ -726,3 +726,101 @@ docs/.vitepress/cache
 ```bash
 npm run docs:dev
 ```
+
+## 调整目录结构
+
+调整如下：
+
+```
+|- docs                        # 文档目录
+|   |- .vitepress              # 配置文件
+|   |- components              # 组件文档
+|   |- examples                # 组件演示代码
+|   |- guide                   # 指南文档
+|   |- index.md                # 首页
+```
+
+## 调整配置
+
+在`docs\.vitepress\config.mts`文件中写入如下内容：
+
+```typescript
+import { defineConfig } from "vitepress";
+import {
+  containerPreview,
+  componentPreview,
+} from "@vitepress-demo-preview/plugin";
+export default defineConfig({
+  title: "ZUI",
+  description: "组件库文档",
+  markdown: {
+    config(md) {
+      md.use(containerPreview);
+      md.use(componentPreview);
+    },
+  },
+  themeConfig: {
+    nav: [
+      { text: "首页", link: "/" },
+      { text: "指南", link: "/guide/basic/install.md" },
+      { text: "组件", link: "/components/basic/button.md" },
+    ],
+    sidebar: {
+      // 组件菜单
+      "/components/": [
+        {
+          text: "Basic 基础组件",
+          items: [
+            { text: "Button 按钮", link: "/components/basic/button.md" },
+            { text: "Icon 图标", link: "/components/basic/icon.md" },
+          ],
+        },
+        // ...
+      ],
+      // 指南菜单
+      "/guide/": [
+        {
+          text: "基础",
+          items: [
+            { text: "安装", link: "/guide/basic/install.md" },
+            { text: "快速开始", link: "/guide/basic/start.md" },
+          ],
+        },
+        // ...
+      ],
+    },
+  },
+});
+```
+
+在`docs\.vitepress\theme\index.mts`文件中写入如下内容：
+
+```typescript
+import { ElementPlusContainer } from "@vitepress-demo-preview/component";
+import "@vitepress-demo-preview/component/dist/style.css";
+import { App } from "vue";
+import DefaultTheme from "vitepress/theme";
+
+export default {
+  ...DefaultTheme,
+  enhanceApp({ app }: { app: App }) {
+    // element-plus风格
+    app.component("demo-preview", ElementPlusContainer);
+  },
+};
+```
+
+## 编写组件演示代码块
+
+```md
+使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。
+
+:::preview
+demo-preview=../../examples/basic/button/base.vue
+:::
+
+```
+
+效果如下：
+
+![demo-block](images/demo-block.png)

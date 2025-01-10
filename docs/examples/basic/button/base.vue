@@ -1,5 +1,7 @@
 <template>
-<div></div>
+<div>
+    <z-button>button</z-button>
+</div>
 </template>
 
 <script setup lang="ts">
