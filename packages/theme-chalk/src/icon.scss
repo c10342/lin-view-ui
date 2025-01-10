@@ -1,0 +1,6 @@
+@use "./mixins/mixins.scss" as *;
+
+@include b(icon){
+    width: 1em;
+    height: 1em;
+}

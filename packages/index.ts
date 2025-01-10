@@ -1,8 +1,9 @@
 import { App } from "vue";
-import { Button } from "./components";
+import { ZButton, ZIcon } from "./components";
 
 const components = {
-  Button
+  ZButton,
+  ZIcon,
 };
 
 export default {
@@ -11,7 +12,7 @@ export default {
       app.use(component);
     });
   },
-  ...components
+  ...components,
 };
 
 export * from "./components";
