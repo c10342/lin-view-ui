@@ -682,3 +682,47 @@ npm run dev
 ```
 
 浏览器打开`http://localhost:3000/play/`即可
+
+# 搭建组件库文档
+
+## 安装依赖
+
+```bash
+npm i vitepress vitepress-demoblock -D
+```
+
+## 初始化 vitepress
+
+```bash
+npx vitepress init
+```
+
+![alt text](image.png)
+
+初始化完成后，生成的文件结构应该是这样的：
+
+```
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.mts
+│  ├─ api-examples.md
+│  ├─ markdown-examples.md
+│  └─ index.md
+└─ package.json
+```
+
+## 修改 .gitignore
+
+添加如下内容：
+
+```
+docs/.vitepress/dist
+docs/.vitepress/cache 
+```
+
+## 运行组件库文档
+
+```bash
+npm run docs:dev
+```
