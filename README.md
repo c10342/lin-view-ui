@@ -118,6 +118,7 @@ npm i vue -D
 |   |- utils                   # 通用方法
 |   |- index.ts                # 组件库的入口文件
 |- play                        # 开发环境
+|- scripts                     # 打包构建脚本
 |- package.json                # 命令配置和包管理文件
 |- README.md                   # 项目描述信息文件
 |- ...                         # 其他文件
@@ -818,9 +819,171 @@ export default {
 :::preview
 demo-preview=../../examples/basic/button/base.vue
 :::
-
 ```
 
 效果如下：
 
 ![demo-block](images/demo-block.png)
+
+# 打包构建
+
+## 安装依赖
+
+```bash
+npm i vite @vitejs/plugin-vue @vitejs/plugin-vue-jsx vite-plugin-dts gulp gulp-sass gulp-autoprefixer@8.0.0 gulp-clean-css sass-embedded del@6.1.1 -D
+```
+
+## 初始化目录结构
+
+```
+|- scripts                   # 打包构建脚本
+|   |- build.ts              # 打包组件
+|   |- css.js                # 打包样式
+```
+
+## 打包组件
+
+在`scripts/build.ts`文件中添加如下内容：
+
+```typescript
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import dts from "vite-plugin-dts";
+import pkg from "../package.json";
+
+const external = Object.keys({
+  ...(pkg.devDependencies || {}),
+  ...(pkg.peerDependencies || {}),
+  ...(pkg.dependencies || {}),
+});
+
+export default defineConfig(() => {
+  return {
+    build: {
+      // 打包输出的目录
+      outDir: "dist",
+      // 样式也分离到单独的文件中
+      cssCodeSplit: true,
+      rollupOptions: {
+        // 忽略排除的第三方包，不参与打包
+        external: external,
+        // 输出的产物模块格式
+        output: [
+          // 全量引入组件
+          {
+            format: "es",
+            entryFileNames: "[name].js",
+            exports: "named",
+            name: "ZUI",
+            dir: "./dist",
+          },
+          {
+            format: "es",
+            entryFileNames: "[name].js",
+            exports: "named",
+            // 按照packages目录结构原样输出，实现组件按需加载的关键
+            preserveModules: true,
+            preserveModulesRoot: "packages",
+            dir: "./dist/es",
+          },
+          {
+            format: "cjs",
+            entryFileNames: "[name].js",
+            exports: "named",
+            // 按照packages目录结构原样输出，实现组件按需加载的关键
+            preserveModules: true,
+            preserveModulesRoot: "packages",
+            dir: "./dist/lib",
+          },
+        ],
+      },
+      lib: {
+        entry: path.resolve(__dirname, "../packages/index.ts"),
+        name: "ZUI",
+        fileName: (format) => `${format}.js`,
+        formats: ["es", "cjs"],
+      },
+    },
+    plugins: [
+      vue(),
+      vueJsx(),
+      // 输出类型声明文件
+      dts({
+        tsconfigPath: path.resolve(__dirname, "../tsconfig.build.json"),
+        outDir: "dist/types",
+      }),
+    ],
+    resolve: {
+      alias: {
+        "@packages": path.resolve(__dirname, "../packages"),
+      },
+    },
+  };
+});
+```
+
+## 打包样式
+
+在`scripts/css.js`文件中添加如下内容：
+
+:::tip 提示
+由于文件采用的是`cjs`模块格式，所以如果报错说不支持`ES module`，需要降低对应依赖模块的版本号
+:::
+
+```javascript
+const { src, dest } = require("gulp");
+const sass = require("gulp-sass")(require("sass-embedded"));
+const cssmin = require("gulp-clean-css");
+const autoprefixer = require("gulp-autoprefixer");
+const path = require("path");
+const del = require("del");
+
+const buildScss = async () => {
+  const distPath = path.resolve(__dirname, "../dist/theme-chalk");
+  // 先删除旧的文件
+  await del(distPath, { force: true });
+  src(path.resolve(__dirname, "../packages/theme-chalk/**/*.scss"))
+    .pipe(sass().on("error", sass.logError))
+    .pipe(autoprefixer({ cascade: false }))
+    .pipe(cssmin())
+    .pipe(dest(distPath))
+    .on("end", () => {
+      console.log("css done");
+    });
+};
+
+buildScss();
+```
+
+## 添加 scripts 命令
+
+在`package.json`文件中添加如下`scripts`：
+
+```json
+{
+  "scripts": {
+    "build:component": "vite build --config ./scripts/build.ts",
+    "build:css": "node ./scripts/css.js",
+    "build": "npm run build:component && npm run build:css"
+  }
+}
+```
+
+## 执行打包
+
+```bash
+npm run build
+```
+
+打包完成后，最终会在项目根目录看见如下目录
+
+```
+|- dist                   # 打包产物目录
+|   |- es                 # ES模块格式文件
+|   |- lib                # cjs模块格式文件
+|   |- theme-chalk        # 样式文件
+|   |- types              # 类型文件
+|   |- index.js           # 全量产物文件，包的主入口文件
+```

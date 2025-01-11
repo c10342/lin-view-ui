@@ -10,6 +10,6 @@
   }
 
   @include m(primary) {
-    background-color: blue;
+    background-color: var(--z-color-primary);
   }
 }
