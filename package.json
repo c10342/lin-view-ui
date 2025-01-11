@@ -1,5 +1,5 @@
 {
-  "name": "vue3-components",
+  "name": "z-ui",
   "version": "1.0.0",
   "main": "dist/lib/index.js",
   "module": "dist/es/index.js",
