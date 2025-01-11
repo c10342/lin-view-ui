@@ -26,13 +26,13 @@ export default defineConfig(() => {
         // 输出的产物模块格式
         output: [
           // 全量引入组件
-          {
-            format: "es",
-            entryFileNames: "[name].js",
-            exports: "named",
-            name: "ZUI",
-            dir: "./dist",
-          },
+          // {
+          //   format: "es",
+          //   entryFileNames: "[name].js",
+          //   exports: "named",
+          //   name: "ZUI",
+          //   dir: "./dist",
+          // },
           {
             format: "es",
             entryFileNames: "[name].js",
