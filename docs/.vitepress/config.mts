@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
 import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
+import path from "path";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -80,4 +81,11 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/vuejs/vitepress" },
     ],
   },
+  vite:{
+    resolve:{
+      alias:{
+        "@packages": path.resolve(__dirname, "../../packages"),
+      }
+    }
+  }
 });

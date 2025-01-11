@@ -751,6 +751,8 @@ import {
   containerPreview,
   componentPreview,
 } from "@vitepress-demo-preview/plugin";
+import path from "path";
+
 export default defineConfig({
   title: "ZUI",
   description: "组件库文档",
@@ -791,6 +793,13 @@ export default defineConfig({
       ],
     },
   },
+  vite: {
+    resolve: {
+      alias: {
+        "@packages": path.resolve(__dirname, "../../packages"),
+      },
+    },
+  },
 });
 ```
 
@@ -801,12 +810,18 @@ import { ElementPlusContainer } from "@vitepress-demo-preview/component";
 import "@vitepress-demo-preview/component/dist/style.css";
 import { App } from "vue";
 import DefaultTheme from "vitepress/theme";
+// 导入组件
+// @ts-ignore
+import ZUI from "@packages/index";
+import "@packages/theme-chalk/index.scss";
 
 export default {
   ...DefaultTheme,
   enhanceApp({ app }: { app: App }) {
     // element-plus风格
     app.component("demo-preview", ElementPlusContainer);
+    // 全局注册组件
+    app.use(ZUI);
   },
 };
 ```
