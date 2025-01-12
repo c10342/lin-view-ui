@@ -14,6 +14,10 @@
     "./global": {
       "types": "./global.d.ts"
     },
+    "./plugins": {
+      "types": "./plugins/index.d.ts",
+      "import": "./plugins/index.js"
+    },
     "./es": {
       "types": "./dist/es/index.d.ts",
       "import": "./dist/es/index.mjs"
