@@ -16,7 +16,7 @@
     },
     "./plugins": {
       "types": "./plugins/index.d.ts",
-      "import": "./plugins/index.js"
+      "import": "./plugins/index.mjs"
     },
     "./es": {
       "types": "./dist/es/index.d.ts",

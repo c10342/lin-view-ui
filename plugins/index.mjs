@@ -1,4 +1,6 @@
-export const ZUIResolver = () => {
+
+// unplugin-vue-components 插件按需加载
+export function ZUIResolver() {
   const item = {
     type: "component",
     resolve: (name) => {
@@ -21,4 +23,4 @@ export const ZUIResolver = () => {
     },
   };
   return item;
-};
+}
