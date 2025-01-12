@@ -72,10 +72,6 @@ export default defineConfig(() => {
         tsconfigPath: path.resolve(__dirname,'../tsconfig.build.json'),
         outDir: "dist/es",
       }),
-      // dts({
-      //   tsconfigPath: path.resolve(__dirname,'../tsconfig.build.json'),
-      //   outDir: "dist/types",
-      // }),
     ],
     resolve: {
       alias: {
