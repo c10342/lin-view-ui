@@ -2,9 +2,47 @@
   "name": "z-ui",
   "version": "1.0.0",
   "main": "dist/lib/index.js",
-  "module": "dist/es/index.js",
-  "types": "dist/types/index.d.ts",
+  "module": "dist/es/index.mjs",
+  "types": "dist/es/index.d.ts",
   "style": "dist/theme-chalk/index.css",
+  "exports":{
+    ".": {
+      "types": "./dist/es/index.d.ts",
+      "import": "./dist/es/index.mjs",
+      "require": "./dist/lib/index.js"
+    },
+    "./es": {
+      "types": "./dist/es/index.d.ts",
+      "import": "./dist/es/index.mjs"
+    },
+    "./lib": {
+      "types": "./dist/lib/index.d.ts",
+      "require": "./dist/lib/index.js"
+    },
+    "./es/*.mjs": {
+      "types": "./dist/es/*.d.ts",
+      "import": "./dist/es/*.mjs"
+    },
+    "./es/*": {
+      "types": [
+        "./dist/es/*.d.ts",
+        "./dist/es/*/index.d.ts"
+      ],
+      "import": "./dist/es/*.mjs"
+    },
+    "./lib/*.js": {
+      "types": "./dist/lib/*.d.ts",
+      "require": "./dist/lib/*.js"
+    },
+    "./lib/*": {
+      "types": [
+        "./dist/lib/*.d.ts",
+        "./dist/lib/*/index.d.ts"
+      ],
+      "require": "./dist/lib/*.js"
+    },
+    "./*": "./*"
+  },
   "scripts": {
     "dev": "vite --config ./play/vite.config.ts",
     "build:component": "rimraf dist && vite build --config ./scripts/build.ts",

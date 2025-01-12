@@ -35,7 +35,7 @@ export default defineConfig(() => {
           // },
           {
             format: "es",
-            entryFileNames: "[name].js",
+            entryFileNames: "[name].mjs",
             exports: "named",
             // 按照packages目录结构原样输出，实现组件按需加载的关键
             preserveModules: true,
@@ -64,18 +64,18 @@ export default defineConfig(() => {
       vue(),
       vueJsx(),
       // 打包类型声明文件
-      // dts({
-      //   tsconfigPath: path.resolve(__dirname,'../tsconfig.build.json'),
-      //   outDir: "dist/lib",
-      // }),
-      // dts({
-      //   tsconfigPath: path.resolve(__dirname,'../tsconfig.build.json'),
-      //   outDir: "dist/es",
-      // }),
       dts({
         tsconfigPath: path.resolve(__dirname,'../tsconfig.build.json'),
-        outDir: "dist/types",
+        outDir: "dist/lib",
       }),
+      dts({
+        tsconfigPath: path.resolve(__dirname,'../tsconfig.build.json'),
+        outDir: "dist/es",
+      }),
+      // dts({
+      //   tsconfigPath: path.resolve(__dirname,'../tsconfig.build.json'),
+      //   outDir: "dist/types",
+      // }),
     ],
     resolve: {
       alias: {
