@@ -11,6 +11,9 @@
       "import": "./dist/es/index.mjs",
       "require": "./dist/lib/index.js"
     },
+    "./global": {
+      "types": "./global.d.ts"
+    },
     "./es": {
       "types": "./dist/es/index.d.ts",
       "import": "./dist/es/index.mjs"

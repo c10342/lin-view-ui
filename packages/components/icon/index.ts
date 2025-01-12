@@ -7,9 +7,3 @@ export default Icon
 
 export * from './src/icon'
 
-declare module "vue" {
-    export interface GlobalComponents {
-      ZIcon: typeof Icon;
-    }
-  }
-  

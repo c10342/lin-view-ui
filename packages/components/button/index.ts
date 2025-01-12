@@ -7,10 +7,3 @@ const Button = withInstall(_Button);
 export default Button;
 
 export * from "./src/button";
-
-// 声明全局组件类型，方便全局使用时，vscode插件可以识别组件类型
-declare module "vue" {
-  export interface GlobalComponents {
-    ZButton: typeof Button;
-  }
-}

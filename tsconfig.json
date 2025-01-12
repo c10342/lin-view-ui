@@ -42,6 +42,9 @@
     "paths": {
       "@packages/*": [
         "packages/*"
+      ],
+      "z-ui": [
+        "packages/index"
       ]
     }
   },

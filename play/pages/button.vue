@@ -1,6 +1,6 @@
 <template>
   <div>
-    <z-button size="small" type="primary"></z-button>
+    <z-button size="small" type="primary">1</z-button>
   </div>
 </template>
 
