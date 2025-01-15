@@ -1,8 +1,10 @@
 <template>
   <div>
-    <RouterLink :to="item.path" v-for="item in list" :key="item.name">
+    <div  v-for="item in list" :key="item.name">
+      <RouterLink :to="item.path">
       {{ item.name }}
     </RouterLink>
+    </div>
   </div>
 </template>
 

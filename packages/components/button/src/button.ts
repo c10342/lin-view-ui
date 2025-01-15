@@ -1,7 +1,6 @@
+import { Size } from "@packages/types";
 import { ExtractPropTypes, PropType } from "vue";
 
-// 按钮尺寸大小
-export type ButtonSize = "large" | "default" | "small";
 // 原生 button type 属性
 export type ButtonNativeType = "button" | "submit" | "reset";
 // 按钮类型
@@ -10,7 +9,7 @@ export type ButtonType = "primary" | "success" | "warning" | "danger" | "info";
 // 按钮属性
 export const buttonProps = {
   // 按钮尺寸
-  size: String as PropType<ButtonSize>,
+  size: String as PropType<Size>,
   //   按钮类型
   type: {
     type: String,

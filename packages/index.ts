@@ -1,9 +1,10 @@
 import { App } from "vue";
-import { ZButton, ZIcon } from "./components";
+import { ZButton, ZIcon, ZConfigProvider } from "./components";
 
 const components = {
   ZButton,
   ZIcon,
+  ZConfigProvider,
 };
 
 export default {
@@ -17,3 +18,6 @@ export default {
 
 export * from "./components";
 export * from "./utils";
+export * from "./types";
+export * from './hooks'
+export * from './locale'
