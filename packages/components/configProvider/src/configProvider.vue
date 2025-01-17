@@ -4,11 +4,11 @@
 
 <script setup lang="ts">
 import { ConfigProviderContext, providerGlobalConfig } from "@packages/hooks";
-import {  configProviderProps } from "./configProvider";
 import { computed } from "vue";
+import { configProviderProps } from "./configProvider";
 
 defineOptions({
-  name: "ZConfigProvider",
+  name: "ZConfigProvider"
 });
 
 const props = defineProps(configProviderProps);

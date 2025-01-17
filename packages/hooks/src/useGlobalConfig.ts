@@ -16,7 +16,7 @@ export const useGlobalConfig = () => {
   return inject(configProviderContextKey, {
     // config-provider组件没有注入全局配置的情况下，使用默认配置
     locale: computed(() => zhCN),
-    size: computed(() => ""),
+    size: computed(() => "")
   }) as Required<ConfigProviderContext>;
 };
 

@@ -4,7 +4,7 @@ import { ZButton, ZIcon, ZConfigProvider } from "./components";
 const components = {
   ZButton,
   ZIcon,
-  ZConfigProvider,
+  ZConfigProvider
 };
 
 export default {
@@ -13,11 +13,11 @@ export default {
       app.use(component);
     });
   },
-  ...components,
+  ...components
 };
 
 export * from "./components";
 export * from "./utils";
 export * from "./types";
-export * from './hooks'
-export * from './locale'
+export * from "./hooks";
+export * from "./locale";

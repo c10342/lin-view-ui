@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { src, dest } = require("gulp");
 const sass = require("gulp-sass")(require("sass-embedded"));
 const cssmin = require("gulp-clean-css");

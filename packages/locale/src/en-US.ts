@@ -1,3 +1,3 @@
 export default {
-    year:"Year" 
- }
+  year: "Year"
+};

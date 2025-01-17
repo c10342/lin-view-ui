@@ -4,4 +4,4 @@ export { default as ZConfigProvider } from "./configProvider";
 
 export * from "./button";
 export * from "./icon";
-export * from './configProvider'
+export * from "./configProvider";

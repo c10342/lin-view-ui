@@ -5,8 +5,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "index",
-    component: Index,
-  },
+    component: Index
+  }
 ];
 
 // 动态导入pages下的所有页面，一个组件对应一个页面路由
@@ -21,8 +21,8 @@ const getRoutes = () => {
       const component = (modules[key] as any)?.default;
       const item: RouteRecordRaw = {
         path: `/${name}`,
-        name: name,
-        component: component,
+        name,
+        component
       };
       routes.push(item);
     }
@@ -33,7 +33,7 @@ getRoutes();
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes
 });
 
 export default router;

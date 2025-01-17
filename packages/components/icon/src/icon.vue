@@ -1,18 +1,16 @@
 <template>
-    <span :class="[bem.b()]">
-        icon
-    </span>
+  <span :class="[bem.b()]"> icon </span>
 </template>
 
 <script setup lang="ts">
-import { createNamespace } from '@packages/utils';
-import { iconProps } from './icon';
+import { createNamespace } from "@packages/utils";
+import { iconProps } from "./icon";
 
 defineOptions({
-    name: "ZIcon"
-})
+  name: "ZIcon"
+});
 
-defineProps(iconProps)
+defineProps(iconProps);
 
-const bem = createNamespace('icon')
+const bem = createNamespace("icon");
 </script>

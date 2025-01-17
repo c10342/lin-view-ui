@@ -1,2 +1,2 @@
-export * from './src/useGlobalConfig'
-export * from './src/useLocale'
+export * from "./src/useGlobalConfig";
+export * from "./src/useLocale";
