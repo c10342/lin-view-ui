@@ -5,13 +5,12 @@
     @click="onClick"
   >
     <slot></slot>
-    {{ t("year") }}
   </button>
 </template>
 
 <script setup lang="ts">
 import { createNamespace } from "@packages/utils";
-import { useGlobalConfig, useLocale } from "@packages/hooks";
+import { useGlobalConfig } from "@packages/hooks";
 import { buttonEmits, buttonProps } from "./button";
 
 // 定义组件名称
@@ -28,6 +27,4 @@ const bem = createNamespace("button");
 const onClick = (e: MouseEvent) => {
   emits("click", e);
 };
-
-const { t } = useLocale();
 </script>

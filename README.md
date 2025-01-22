@@ -1,4 +1,3 @@
-
 # 运行开发环境
 
 ```bash
@@ -21,4 +20,16 @@ npm run docs:build
 
 ```bash
 npm run build
+```
+
+# 执行单元测试
+
+```bash
+npm run test
+```
+
+# 生成测试报告
+
+```bash
+npm run coverage
 ```
